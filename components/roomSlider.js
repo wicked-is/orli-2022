@@ -1,14 +1,7 @@
 import Image from "next/image";
 import Flickity from "react-flickity-component";
-// import "flickity-fade";
+import styles from '../styles/roomSlider.module.css'
 import "flickity/css/flickity.css";
-
-const fade =
-  typeof window !== "undefined"
-    ? require("flickity-fade")
-    : () => null
-
-import DownArrow from '../public/down-arrow.svg'
 
 export default function Hero(props) {
 

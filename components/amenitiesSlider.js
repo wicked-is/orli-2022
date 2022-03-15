@@ -1,12 +1,7 @@
 import Image from "next/image";
 import Flickity from "react-flickity-component";
-// import "flickity-fade";
 import "flickity/css/flickity.css";
-
-const fade =
-  typeof window !== "undefined"
-    ? require("flickity-fade")
-    : () => null
+import styles from '../styles/amenitiesSlider.module.css'
 
 export default function Hero(props) {
 
