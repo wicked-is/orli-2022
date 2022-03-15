@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "flickity-fade": "^2.0.0",
+    "gsap": "^3.9.1",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
