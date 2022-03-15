@@ -43,19 +43,3 @@ export default function Home({ homeData }) {
     </div>
   )
 }
-
-export async function getStaticProps() {
-  const data = await client.query({
-    query: gql`query HomePageQuery {
-      page(id: "2", idType: DATABASE_ID) {
-        
-      }
-    }`,
-  });
-
-  return {
-    props: {
-      homeData: data,
-    },
-  };
-}
