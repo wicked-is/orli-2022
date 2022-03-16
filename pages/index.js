@@ -1,13 +1,14 @@
+import { useRef, useEffect } from 'react';
+import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useRef, useEffect } from 'react';
+
 import styles from '../styles/Home.module.css'
-import Hero from '../components/roomSlider';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home({ homeData }) {
+export default function Home() {
   useEffect(() => {
     var tl =  gsap.timeline()
 		tl.fromTo('main', {opacity:0}, { opacity:1, delay: 0.5, duration: 1});
@@ -28,7 +29,6 @@ export default function Home({ homeData }) {
   },[]) 
 
   return (
-    <div className={styles.container}>
       <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <title>Orli La Jolla</title>
@@ -36,10 +36,6 @@ export default function Home({ homeData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     
-      <main className={styles.main}>
-        
-      </main>
 
-    </div>
   )
 }

@@ -32,7 +32,7 @@ export default function Header() {
             <div className="container">
                 <Link href="/">
                     <Image
-                        src=""
+                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
                         alt="Orli La Jolla Logo"
                         className="logo"
                         width={380}
