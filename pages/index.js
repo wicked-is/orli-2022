@@ -9,6 +9,11 @@ import styles from '../styles/Home.module.css'
 
 import SEO from '../components/seo'
 import Hero from '../components/hero';
+import BlurbCenter from '../components/blurbCenter';
+import BlurbLeft from '../components/blurbLeft';
+import RoomSlider from '../components/roomSlider';
+import TwoStaggeredPhotos from '../components/twoStaggeredImages';
+import AmenitiesSlider from '../components/amenitiesSlider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,13 +37,29 @@ export default function Home(props) {
         }
       });
     })
-  },[]) 
+  },[])
 
   return (
     <>
       <SEO title={seo.title} description={seo.metaDesc} />
-      <Hero />
+      {/* hero will need to get data from home page */}
+      <Hero withBookingForm />
+      <BlurbCenter
+        content="A reimagined 1910’s-era landmark building in the seaside village of La Jolla, Orli pairs the finesse of a boutique hotel with the spirit of a homestay, delivering unfettered independence and profound experiences through elevated design and tap-away convenience."
+        icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg"
+      />
+      <RoomSlider images="" />
+      <BlurbLeft
+        title="DISCOVERIES"
+        content="Explore La Jolla the local’s way. From secluded beaches and swimmable sea caves to favorite cafes, restaurants, boutiques and more, we’ll point you in the right direction."
+        btnText="Map it Out"
+        btnLink="/"
+        icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg"
+      />
+      <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
+      <AmenitiesSlider amenities="" />
     </>
+
   )
 }
 

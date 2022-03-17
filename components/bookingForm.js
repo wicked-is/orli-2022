@@ -7,15 +7,16 @@ import "react-datepicker/dist/react-datepicker.css";
 
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
+import styles from '../styles/bookingForm.module.css';
+
 export default function BookingForm() {
     const [startDate, setStartDate] = useState(new Date());
-    consot [endDate, setEndDate] = useState(new Date(Date.now() + ( 3600 * 1000 * 72)));
+    const [endDate, setEndDate] = useState(new Date(Date.now() + ( 3600 * 1000 * 72)));
 
     return (
-        <article>
-            <form>
+            <form className={styles.form} >
                 <div className="form-group">
-                    Check In
+                    <span>Check In</span>
                     <DatePicker
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
@@ -25,7 +26,7 @@ export default function BookingForm() {
                     />
                 </div>
                 <div className="form-group">
-                    Check Out
+                    <span>Check Out</span>
                     <DatePicker
                         selected={endDate}
                         onChange={(date) => setEndDate(date)}
@@ -36,11 +37,10 @@ export default function BookingForm() {
                     />
                 </div>
                 <div className="form-group">
-                    Guests
+                    <span>Guests</span>
                     <Counter />
                 </div>
                 <button type="submit" className="btn-submit">Search</button>
             </form>
-        </article>
     )
 }

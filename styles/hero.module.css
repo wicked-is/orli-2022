@@ -1,5 +1,24 @@
 .heroContainer { 
-    display: flex; 
-    width: 100%;
+    position: relative;
+    width: 100vw;
     height: 100vh;
+    padding: 137px 0 115px 0;
+    overflow: hidden;
 }
+
+.heroVideo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.horizontalFormContainer {
+    display: flex;
+    position: relative;
+    height: 100%;
+    justify-content: center;
+    align-content: flex-end;
+}
+

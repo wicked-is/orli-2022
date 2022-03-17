@@ -1,0 +1,5 @@
+.form {
+    display: flex;
+    height: 100px;
+    align-self: flex-end;
+}

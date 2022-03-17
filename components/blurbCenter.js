@@ -1,11 +1,20 @@
 import styles from '../styles/blurbCenter.module.css';
 
-export default function BlurbCenter({ content, icon, title }) {
+export default function BlurbCenter({ content, icon }) {
     return (
-        <article className={styles.blurbContainer}>
-            { icon && <Image src={icon} width={100} height={100} /> }
-            {title && <h2>{title}</h2>}
-            <p>{content}</p>
-        </article>
+        <section class="intro-copy bg-lt-grey">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="copy text-center">
+                        <div class="icon">
+                            <img src={icon} alt="Shell icon" />
+                        </div>
+                        <p class="large">
+                            { content }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }

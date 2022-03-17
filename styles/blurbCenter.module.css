@@ -1,1 +1,11 @@
-.blurbContainer { display: flex; }
+.blurbContainer { 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    background-color: grey;
+    padding: 3rem 0;
+}
+
+.icon {
+    padding-bottom: 3rem;
+}
