@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
+import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
 import styles from '../styles/header.module.css'
@@ -29,6 +31,27 @@ export default function Header() {
             width: '100%',
             backgroundColor: '#fff'
         }}>
+            
+            {/* This is the analytics snipet
+            
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=UA-#########-#"
+                    strategy="afterInteractive"
+                />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'UA-#########-#');
+                `}
+            </Script> */}
+            <Head>
+                {/* Head elements required on every page */}
+                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className="container">
                 <Link href="/">
                     <Image
