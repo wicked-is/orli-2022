@@ -1,0 +1,18 @@
+/* -- Colors --*/
+.bg-lt-grey{
+    background-color:var(--lt-grey);
+  }
+  .bg-navy{
+    background-color:var(--navy);
+  }
+  .bg-green{
+    background-color:var(--green);
+  }
+  .bg-white{
+    background-color:var(--white);
+  }
+  
+  .black {color: var(--black);}
+  .white {color: var(--white);}
+  .lt-grey {color: var(--lt-grey);}
+  .brown {color:var(--brown);}

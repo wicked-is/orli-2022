@@ -1,0 +1,66 @@
+/*-- Layout --*/
+.center {text-align: center;}
+.left {text-align: left;}
+.right {text-align: right;}
+.justify {text-align: justify;}
+
+.col-inline-block {
+    width: 100%;
+    margin: auto;
+    display: inline-block;
+    position: relative;
+}
+
+.col-block {
+    width: 100%;
+    margin: auto;
+    display: block; 
+    position: relative;
+}
+
+.col-flex,
+.col-flex-center {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.col-flex {
+  align-content: flex-start; 
+  align-items: flex-start;
+}
+
+.col-flex-center {
+  align-content: center; 
+  align-items: center;
+}
+
+.col-1-10 {width: 10%;}
+.col-1-20 {width: 20%;}
+.col-1-25 {width: 25%;}
+.col-1-30 {width: 30%;}
+.col-1-3  {width: 30.33%;}
+.col-1-40 {width: 40%;}
+.col-1-50 {width: 50%;}
+.col-1-60 {width: 60%;}
+.col-1-70 {width: 70%;}
+.col-2-3  {width: 75%;}
+.col-1-80 {width: 80%;}
+.col-1-90 {width: 90%;}
+
+.max-60, .max-70, .max-75, .max-80 {
+    width: 100%; 
+    margin: auto;
+}
+
+.max-60 {max-width: 60%;}
+.max-70 {max-width: 70%;}
+.max-75 {max-width: 75%;}
+.max-80 {max-width: 80%;}
+
+.padding-bottom {padding: 0rem 0rem 6rem 0rem;}
+.padding-top {padding: 6rem 0rem 0rem 0rem;}
+.padding-sides {padding: 0rem 6rem;}
+.padding-left {padding: 0rem 0rem 0rem 6rem;}
+.padding-right {padding: 0rem 6rem 0rem 0rem;}
+.padding-all {padding: 6rem}

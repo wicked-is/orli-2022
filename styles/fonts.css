@@ -1,0 +1,51 @@
+/*-- Typography --*/
+@font-face {
+	font-family: 'GT Walsheim Light';
+	src:  url('../public/assets/fonts/GT-Walsheim-Light.woff2') format('woff2'),
+		  url('../public/assets/fonts/GT-Walsheim-Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'GT Walsheim Bold';
+	src:  url('../public/assets/fonts/GT-Walsheim-Bold.woff2') format('woff2'),
+		  url('../public/assets/fonts/GT-Walsheim-Bold.woff') format('woff');
+}
+
+@import url("https://use.typekit.net/wee2acv.css");
+
+.xl-heading {
+    font-size: var(--xl-heading);
+    font-family: essonnes-display, serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.heading {
+    font-size: var(--heading);
+    font-family: essonnes-display, serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.sub-heading {
+    font-size: var(--sub-heading);
+    letter-spacing: var(--letter-spacing);
+    text-transform: uppercase;
+    font-family: 'GT Walsheim Light';
+}
+
+.sub-heading-bold {
+    font-size: var(--sub-heading);
+    font-family: 'GT Walsheim Bold';
+    letter-spacing: var(--letter-spacing);
+    text-transform: uppercase;
+}
+
+.body-copy {
+    font-size: var(--body-copy);
+    font-family: 'GT Walsheim Light';
+}
+
+.xs-copy {
+    font-size: var(--xs-copy);
+    font-family: 'GT Walsheim Light';
+}
