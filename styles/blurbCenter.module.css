@@ -2,10 +2,30 @@
     display: flex; 
     flex-direction: column;
     justify-content: center;
-    background-color: grey;
-    padding: 3rem 0;
+    align-items: center;
+    padding: 6.25rem 0 7.75rem;
+    text-align: center;
+}
+
+.copy{
+  width: 75%;
 }
 
 .icon {
-    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 1750px) {
+  .intro-copy .copy{
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .intro-copy{
+    padding:3rem 0;
+  }
+  .intro-copy .copy{
+    text-align: left;
+    width: 100%;
+  }
 }

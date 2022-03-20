@@ -14,11 +14,19 @@ import BlurbLeft from '../components/blurbLeft';
 import RoomSlider from '../components/roomSlider';
 import TwoStaggeredPhotos from '../components/twoStaggeredImages';
 import AmenitiesSlider from '../components/amenitiesSlider';
+import OurMission from '../components/ourMission';
+import Gatherings from '../components/gatherings';
+import FullFeatureBlog from '../components/fullFeatureBlog';
+import SpotifyFeature from '../components/spotifyFeature';
+import FauxSocialFeed from '../components/fauxSocialFeed';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home(props) {
   const { seo } = props.data.pageBy;
+  const { hero } = props.data.pageBy.hero;
+  const { introCopy } = props.data.pageBy.introCopy;
+  const { nodes: rooms } = props.data.rooms;
   
   useEffect(() => {
     var tl =  gsap.timeline()
@@ -42,24 +50,41 @@ export default function Home(props) {
   return (
     <>
       <SEO title={seo.title} description={seo.metaDesc} />
-      {/* hero will need to get data from home page */}
-      <Hero withBookingForm />
+      <Hero
+        poster={hero.image.sourceUrl}
+        mp4={hero.mp4File.sourceUrl}
+        webm={hero.webmFile.sourceUrl}
+        withBookingForm />
       <BlurbCenter
-        content="A reimagined 1910’s-era landmark building in the seaside village of La Jolla, Orli pairs the finesse of a boutique hotel with the spirit of a homestay, delivering unfettered independence and profound experiences through elevated design and tap-away convenience."
-        icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg"
-      />
-      <RoomSlider images="" />
+        content={introCopy.copy}
+        icon={introCopy.icon.sourceUrl} 
+        altText={introCopy.icon.altText}
+        center />
+      <RoomSlider rooms={rooms} />
       <BlurbLeft
         title="DISCOVERIES"
         content="Explore La Jolla the local’s way. From secluded beaches and swimmable sea caves to favorite cafes, restaurants, boutiques and more, we’ll point you in the right direction."
         btnText="Map it Out"
         btnLink="/"
-        icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg"
-      />
+        icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg" />
       <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
       <AmenitiesSlider amenities="" />
+      <OurMission
+        title="Our Mission"
+        logo="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
+        text="is Intentional" />
+      <Gatherings />
+      <FullFeatureBlog
+        title="The Journal"
+        blurb="Discover La Jolla through the lens of the locals – Founders Hailey and Max.  "
+        ctaText="Stay in the Know"
+        ctaLink="/"
+        image="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg"
+        articleTitle="7 Stylish Speakeasies to Visit in San Diego"
+        articleLink="/" />
+      <SpotifyFeature />
+      <FauxSocialFeed />
     </>
-
   )
 }
 
@@ -74,6 +99,42 @@ export async function getStaticProps() {
             seo {
               metaDesc
               title
+            }
+            hero {
+              hero {
+                caption
+                hasVideo
+                headline
+                image {
+                  sourceUrl
+                }
+                mp4File {
+                  sourceUrl
+                }
+                webmFile {
+                  sourceUrl
+                }
+              }
+            }
+            introCopy {
+              introCopy {
+                copy
+                icon {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+          }
+          rooms {
+            nodes {
+              title
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl
+                }
+              }
             }
           }
         }

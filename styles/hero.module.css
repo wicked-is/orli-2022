@@ -2,8 +2,11 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    padding: 137px 0 115px 0;
+    padding: 137px 0 0 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .heroVideo {
@@ -17,8 +20,9 @@
 .horizontalFormContainer {
     display: flex;
     position: relative;
-    height: 100%;
     justify-content: center;
     align-content: flex-end;
+    margin-bottom: 115px;
+    background-color: #fff;
 }
 

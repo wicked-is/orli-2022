@@ -52,7 +52,7 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="container">
+            <div>
                 <Link href="/">
                     <Image
                         src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"

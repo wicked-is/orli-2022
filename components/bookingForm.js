@@ -11,11 +11,13 @@ import styles from '../styles/bookingForm.module.css';
 
 export default function BookingForm() {
     const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date(Date.now() + ( 3600 * 1000 * 72)));
+    const [endDate, setEndDate] = useState(new Date(Date.now() + (3600 * 1000 * 72)));
+    
+    const [counterValue, setCounterValue] = useState(1);
 
     return (
             <form className={styles.form} >
-                <div className="form-group">
+                <div className={styles.formGroup}>
                     <span>Check In</span>
                     <DatePicker
                         selected={startDate}
@@ -25,7 +27,7 @@ export default function BookingForm() {
                         endDate={endDate}
                     />
                 </div>
-                <div className="form-group">
+                <div className={styles.formGroup}>
                     <span>Check Out</span>
                     <DatePicker
                         selected={endDate}
@@ -36,9 +38,9 @@ export default function BookingForm() {
                         minDate={startDate}
                     />
                 </div>
-                <div className="form-group">
+                <div className={styles.formGroup}>
                     <span>Guests</span>
-                    <Counter />
+                    <Counter value={counterValue} updateCounter={setCounterValue} />
                 </div>
                 <button type="submit" className="btn-submit">Search</button>
             </form>
