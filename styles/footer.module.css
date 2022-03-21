@@ -31,6 +31,9 @@ address.xs-copy.white.left {
   font-style: normal;
   padding: 0rem 2rem 0rem 2rem;
 }
+.copyright {
+  padding: 4rem 2rem 0rem 2rem;
+}
 
 .directions {
   width: fit-content;
@@ -50,23 +53,31 @@ ul.socials {
     margin-block-end: 0em !important;
   }
 
-ul.socials li {padding: 0rem 1rem 0rem 0rem;}
+ul.socials li {padding: 0rem 1.5rem 0rem 0rem;}
 
-.footer-links {
+.footer-links, .footer-links-two {
   display: grid;
-  padding: 0rem 0rem 0rem 8rem;
   grid-template-columns: repeat(2,1fr);
   grid-gap: 0.5rem;
   font-size: var(--xs-copy);
   font-family: 'GT Walsheim Light';
 }
 
+.footer-links {padding: 0rem 0rem 0rem 8rem;}
+.footer-links-two  {padding: 4rem 0rem 0rem 8rem;}
+
 .footer-links a {
   line-height: 150%;
   color: var(--white);
   transition: 0.3s ease all;
-  padding: 0rem 0rem 0.7rem 0rem;
+  padding: 0rem 0rem 0.6rem 0rem;
 }
 
+.footer-links-two a {
+  color: var(--white);
+  transition: 0.3s ease all;
+}
+
+.footer-links-two a:visited, .footer-links-two a:focus,
 .footer-links a:visited, .footer-links a:focus,
 .directions a:visited, .directions a:focus {color: var(--white);}

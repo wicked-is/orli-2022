@@ -73,6 +73,19 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+            <div className="flex">
+                <div className="col-1-33">
+                </div>
+                <div className="col-1-33">
+                    <p className="copyright xs-copy white left">Orli La Jolla All Rights Reserved © 2022</p>
+                </div>
+                <div className="col-1-33">
+                    <div className="footer-links-two">
+                        <Link href="/">Privacy Policy</Link>
+                        <Link href="/">Cookie Policy</Link>
+                    </div>
+                </div>
+            </div>
         </footer>
     )
 }
