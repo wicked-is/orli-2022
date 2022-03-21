@@ -3,7 +3,6 @@ import Image from 'next/image';
 import styles from '../styles/twoStaggeredImages.module.css';
 
 export default function TwoStaggeredPhotos({ left, right }) {
-
     return (
         <section className={styles.photoContainer}>
             <div className={styles.left}>
