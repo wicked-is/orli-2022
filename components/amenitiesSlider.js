@@ -1,26 +1,50 @@
-import { useState } from 'react';
-// need flickity
+import Image from 'next/image';
+import Flickity from 'react-flickity-component'
+import "flickity/css/flickity.css";
 
 import styles from '../styles/amenitiesSlider.module.css';
 
-export default function AmenitiesSlider({ amenities }) {
-
-    const [subheader, setSubheader] = useState('');
-    const [header, setHeader] = useState('');
-    const [ctaLink, setCtaLink] = useState('');
-    const [ctaText, setCtaText] = useState('');
-
+export default function AmenitiesSlider({ amenities, subHeader, header, ctaText, ctaLink }) {
     return (
         <section className={styles.amenitiesSlider} >
-            {/* slider images */}
+            <Flickity
+                options={{
+                    cellAlign: 'left',
+                    prevNextButtons: false,
+                    pageDots: false,
+                    draggable: true,
+                    wrapAround: true,
+                    autoPlay: 7000
+                }}
+                disableImagesLoaded={false} // default false
+                reloadOnUpdate // default false
+                static // default false
+            >
+                {
+                    amenities.map(amenity => {
+                        return (
+                            <div key={amenity.title} className={styles.amenity}>
+                                <Image src={amenity.featuredImage.node.sourceUrl} alt={amenity.title} width={1435} height={928} layout="intrinsic" />
+                            </div>
+                        )
+                    })
+                }
+            </Flickity>
             <div className={styles.sliderContent}>
-                {/* dynamically change content */}
-                <p>{subheader}</p>
-                <p>{header}</p>
-                <p><a href={ctaLink}>{ctaText}</a></p>
+                <p className="sub-heading-bold white">{subHeader}</p>
+                <p className="heading white" style={{ margin: 0 }}>{header}</p>
+                <p className="xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
             <div className={styles.sliderNav}>
-                {/* map nav items */}
+                {
+                    amenities.map(amenity => {
+                        return (
+                            <p key={`${amenity.title}-nav`} className="white">
+                                {amenity.title}
+                            </p>
+                        )
+                    })
+                }
             </div>
         </section>
     )

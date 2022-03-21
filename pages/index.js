@@ -27,6 +27,7 @@ export default function Home(props) {
   const { hero } = props.data.pageBy.hero;
   const { introCopy } = props.data.pageBy.introCopy;
   const { nodes: rooms } = props.data.rooms;
+  const { nodes: amenities } = props.data.amenities;
   
   useEffect(() => {
     var tl =  gsap.timeline()
@@ -61,14 +62,23 @@ export default function Home(props) {
         altText={introCopy.icon.altText}
         center />
       <RoomSlider rooms={rooms} />
-      <BlurbLeft
-        title="DISCOVERIES"
-        content="Explore La Jolla the local’s way. From secluded beaches and swimmable sea caves to favorite cafes, restaurants, boutiques and more, we’ll point you in the right direction."
-        btnText="Map it Out"
-        btnLink="/"
-        icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg" />
-      <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
-      <AmenitiesSlider amenities="" />
+      <section>
+        <div className="max-80">
+          <BlurbLeft
+            title="DISCOVERIES"
+            content="Explore La Jolla the local’s way. From secluded beaches and swimmable sea caves to favorite cafes, restaurants, boutiques and more, we’ll point you in the right direction."
+            ctaText="Map it Out"
+            ctaLink="/"
+            icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg" />
+          <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
+        </div>
+      </section>
+      <AmenitiesSlider
+        amenities={amenities}
+        subHeader={"Tasteful Touches"}
+        header={"Everything You Need to Pioneer Your Perfect Stay"}
+        ctaText={"Explore More"}
+        ctaLink={"/amenities"} />
       <OurMission
         title="Our Mission"
         logo="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
@@ -127,6 +137,17 @@ export async function getStaticProps() {
             }
           }
           rooms {
+            nodes {
+              title
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+          }
+          amenities(where: { orderby: {field: DATE, order: ASC} } ) {
             nodes {
               title
               featuredImage {

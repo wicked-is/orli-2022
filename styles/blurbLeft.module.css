@@ -1,0 +1,16 @@
+.blurbLeftContainer {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    right: 0;
+}
+
+.content {
+    max-width: 70%;
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+
+.cta { text-decoration: underline; }

@@ -18,7 +18,9 @@ export default function RoomSlider({ rooms }) {
     
     return (
         <section className={styles.roomSlider}>
-            <a className={styles.cta} >Find Your Room</a>
+            <Link href="/rooms">
+                <a className={styles.cta} >Find Your Room</a>
+            </Link>
             {/* map over images */}
             <Flickity
                 options={{
@@ -26,7 +28,8 @@ export default function RoomSlider({ rooms }) {
                     prevNextButtons: false,
                     pageDots: false,
                     draggable: true,
-                    fullscreen: true,
+                    wrapAround: true,
+                    // fullscreen: true,
                     autoPlay: 7000
                 }}
                 disableImagesLoaded={false} // default false
@@ -52,7 +55,7 @@ export default function RoomSlider({ rooms }) {
                         let slideNum = index
                         return (
                             <p key={room.title} style={{ margin: '0 1rem' }}>
-                                <a data-slide={index} onClick={changeSlider}>
+                                <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
                                     {room.title}
                                 </a>
                             </p>

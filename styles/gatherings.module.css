@@ -1,3 +1,10 @@
 .gatheringsContainer {
     display: flex;
 }
+
+.gatheringsContainer:first-child {
+    flex: 1
+}
+.gatheringsContainer:last-child {
+    flex: 1.65
+}

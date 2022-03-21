@@ -1,7 +1,24 @@
 .roomSlider {
-    height: 100vh;
+    position: relative;
+}
+
+.cta {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    right: 3rem;
+    top: 2rem;
+    text-decoration: underline;
 }
 
 .roomSliderNavigation {
     display: flex;
+    position: absolute;
+    bottom: 2rem;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.navItem {
+    color: #fff;
 }

@@ -1,0 +1,17 @@
+.amenitiesSlider {
+    position: relative;
+}
+
+.sliderContent {
+    position: absolute;
+    bottom: 7rem;
+    background-color: rgb(4, 87, 75);
+    padding: 1rem 3rem 1rem 10rem;
+    max-width: 50%;
+}
+
+.sliderNav {
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+}
