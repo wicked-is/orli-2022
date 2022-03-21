@@ -2,6 +2,7 @@
 @import '../styles/colors.css';
 @import '../styles/layout.module.css';
 @import '../styles/footer.module.css';
+@import '../styles/header.module.css';
 
 html,
 body {

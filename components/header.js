@@ -4,10 +4,7 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
-import styles from '../styles/header.module.css'
-
-export default function Header() {
-
+export default function Header({menus}) {
     const [navIsOpen, setNavIsOpen] = useState(false);
 
     function toggleNav() {
@@ -53,6 +50,10 @@ export default function Header() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div>
+                <div className="announcement bar">
+                    <p className="white xs-copy center"></p>
+                </div>
+                
                 <Link href="/">
                     <Image
                         src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
@@ -61,7 +62,8 @@ export default function Header() {
                         width={380}
                         height={95} />
                 </Link>
-                <nav className={`${styles.mainNav} ${navIsOpen ? styles.showMeMobile : ''}`}>
+
+                <nav className="mainNav showMeMobile">
                     <button onClick={() => toggleNav()}>&#10005;</button>
                     <Link href="/find-your-room/" passHref>
                         <a  onClick={(e) => handleClick(e, '/find-your-room/')}className="serif-light white">Find Your Room</a>
@@ -85,15 +87,53 @@ export default function Header() {
                         <a  onClick={(e) => handleClick(e, '/gallery/')}className="sans-serif-light green">Gallery</a>
                     </Link>
                 </nav>
-                <div className={styles.menuBurger}>
+
+                <div className="menuBurger">
                     <button onClick={() => toggleNav()}>
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                 </div>
+
+                
             </div>
         </header>
         
     )
 }
+
+export async function getStaticProps() {
+    const res = await fetch(process.env.WP_GQL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          query MainMenu {
+            menus {
+                nodes {
+                  options {
+                    announcementBarText
+                    fieldGroupName
+                    isAnnouncementBarActive
+                  }
+                }
+              }
+          }
+        `,
+      }),
+    })
+  
+    const json = await res.json();
+  
+    if (json.errors) {
+      console.error(json.errors);
+      throw new Error('Failed to fetch page data.')
+    }
+  
+    return {
+      props: {
+        data: json.data
+      },
+    }
+  }

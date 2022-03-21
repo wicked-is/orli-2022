@@ -147,6 +147,15 @@ export async function getStaticProps() {
               }
             }
           }
+          menus {
+            nodes {
+              options {
+                announcementBarText
+                fieldGroupName
+                isAnnouncementBarActive
+              }
+            }
+          }
           amenities(where: { orderby: {field: DATE, order: ASC} } ) {
             nodes {
               title
