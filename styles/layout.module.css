@@ -18,19 +18,19 @@
     position: relative;
 }
 
-.col-flex,
-.col-flex-center {
+.flex,
+.flexcenter {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
 }
 
-.col-flex {
+.flex {
   align-content: flex-start; 
   align-items: flex-start;
 }
 
-.col-flex-center {
+.flexcenter {
   align-content: center; 
   align-items: center;
 }
@@ -39,7 +39,7 @@
 .col-1-20 {width: 20%;}
 .col-1-25 {width: 25%;}
 .col-1-30 {width: 30%;}
-.col-1-3  {width: 30.33%;}
+.col-1-33  {width: 30.33%;}
 .col-1-40 {width: 40%;}
 .col-1-50 {width: 50%;}
 .col-1-60 {width: 60%;}
@@ -64,3 +64,5 @@
 .padding-left {padding: 0rem 0rem 0rem 6rem;}
 .padding-right {padding: 0rem 6rem 0rem 0rem;}
 .padding-all {padding: 6rem}
+
+.text-padding-left {padding-left: 1rem;}

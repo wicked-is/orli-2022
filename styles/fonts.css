@@ -43,9 +43,13 @@
 .body-copy {
     font-size: var(--body-copy);
     font-family: 'GT Walsheim Light';
+    line-height: 150%;
 }
 
 .xs-copy {
     font-size: var(--xs-copy);
     font-family: 'GT Walsheim Light';
+    line-height: 150%;
 }
+
+address {font-style: normal;}

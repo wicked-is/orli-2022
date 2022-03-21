@@ -1,40 +1,75 @@
 import Image from "next/image"
+import Link from 'next/link'
 
 export default function Footer() {
     return (
-        <footer className="green-bg">
-            <div className="footer-container">
-                <div className="col-flex">
-                    <div className="col-1-25 footer-logo">
-                        <h3 className="sans-serif-regular sub-heading white"></h3>
-                        <Image src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" width={380} height={75} layout="responsive" />
-                    </div>
-                    <div className="col-1-25 address-container">
-                        <h3 className="sans-serif-regular sub-heading white"></h3>
-                        <address className="sans-serif-light white">
-                        Sand Hill Property Company<br/>
-                        2600 El Camino Real Suite 410<br/>
-                        Palo Alto, California 94306
-                        </address>
-                    </div>
-                    <div className="stay-connected col-1-50 relative">
-                        <h3 className="sans-serif-regular sub-heading green">Stay Connected</h3>
-                        <div className="col-flex">
-                            <div className="col-1-3">
-                                <div className="sans-serif-light social">
-                                <a className="white footer-link">LinkedIn</a>
-                                <a className="white footer-link">info@shpco.com</a>
-                                </div>
-                            </div>
-                            <div className="col-1-3">
-                                <div className="terms-privacy">
-                                    <a className="sans-serif-light white footer-link">Privacy Policy</a>
-                                    <a className="sans-serif-light white footer-link">Cookie Policy</a>
-                                </div>
-                            </div>
+        <footer className="footer">
+            <div className="flex">
+                <div className="col-1-33">
+                    <Image 
+                    className="footer-logo" 
+                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" 
+                    width={380} height={75} 
+                    layout="responsive" />
+                </div>
+                <div className="col-1-33">
+                 <div className="flex">
+                 <div className="col-1-50">
+                            <address className="xs-copy white left">
+                            Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
+                            </address>
+                        
+                                <p className="directions xs-copy white left">
+                                <Link href="/">Get Directions</Link>
+                                </p>
+                  </div>
+                  <div className="col-1-50 text-padding-left">
+                        <p className="xs-copy white left">T: 123 555 5555<br/>
+                        E: email@stayorli.com</p>
+                        <ul className="socials">
+                                <li>
+                                <Link href="/">
+                                <Image
+                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
+                                    alt="Instagram Logo"
+                                    className="instagram"
+                                    width={30}
+                                    height={30} />
+                                </Link>
+                                </li>
+                                <li>
+                                <Link href="/">
+                                <Image
+                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
+                                    alt="facebook Logo"
+                                    className="facebook"
+                                    width={14}
+                                    height={30} />
+                                </Link>
+                                </li>
+                                <li>
+                                <Link href="/">
+                                <Image
+                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
+                                    alt="spotify logo"
+                                    className="spotify"
+                                    width={30}
+                                    height={30} />
+                                </Link>
+                                </li>
+                        </ul>
                         </div>
-                        <p className="sans-serif-light copyright green">Copyright &copy; {new Date().getFullYear()} Orli La Jolla<br />
-                    All Rights Reserved</p>
+                    </div>
+                </div>
+                <div className="col-1-33">
+                    <div className="footer-links">
+                        <Link href="/">Amenities</Link>
+                        <Link href="/">Rooms</Link>
+                        <Link href="/">Location</Link>
+                        <Link href="/">Events</Link>
+                        <Link href="/">Our Story</Link>
+                        <Link href="/">The Journal</Link>
+                        <Link href="/">Gallery</Link>
                     </div>
                 </div>
             </div>
