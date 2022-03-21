@@ -1,3 +1,7 @@
 .roomSlider {
     height: 100vh;
 }
+
+.roomSliderNavigation {
+    display: flex;
+}

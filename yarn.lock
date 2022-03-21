@@ -827,13 +827,6 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
-flickity-as-nav-for@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/flickity-as-nav-for/-/flickity-as-nav-for-3.0.0.tgz#7737e841354e88272a3ded29979e7e44a1a535f7"
-  integrity sha512-JBeVvmkrzPQJ83/Y5KrwG/7waXQdgeEKyH709MwAgG4HTUTmDyehq7nTE8KDt4vpj0o4zs2yVqonGYx7APeRbQ==
-  dependencies:
-    fizzy-ui-utils "^3.0.0"
-
 flickity@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/flickity/-/flickity-3.0.0.tgz#568d14d17acece85e08eddc2589c968a458c8861"
