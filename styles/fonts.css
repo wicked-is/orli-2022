@@ -10,8 +10,6 @@
 		  url('../public/assets/fonts/GT-Walsheim-Bold.woff') format('woff');
 }
 
-@import url("https://use.typekit.net/wee2acv.css");
-
 .xl-heading {
     font-size: var(--xl-heading);
     font-family: essonnes-display, serif;
@@ -24,6 +22,13 @@
     font-family: essonnes-display, serif;
     font-weight: 300;
     font-style: normal;
+}
+
+.heading-italic {
+    font-size: var(--heading);
+    font-family: essonnes-display, serif;
+    font-weight: 300;
+    font-style: italic;
 }
 
 .sub-heading {
