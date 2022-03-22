@@ -19,6 +19,14 @@
     width: 100%;
 }
 
-.navItem {
-    color: #fff;
+.roomSliderNavigation p {
+    color: var(--white);
+    font-family: 'GT Walsheim Light';
+    -webkit-text-stroke: 1px var(--white);
+    text-transform: uppercase;
+}
+.roomSliderNavigation p.active {
+    font-family: essonnes-display, serif !important;
+    font-weight: 300;
+    text-transform: normal;
 }
