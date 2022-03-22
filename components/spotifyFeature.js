@@ -10,9 +10,9 @@ export default function SpotifyFeature() {
             </video>
             <div className={`${styles.container} max-70`}>
                 <div>
-                    <p className="heading white">We're Friends, and Friends Share Music</p>
+                    <p className="heading white">Were Friends, and Friends Share Music</p>
                     <Link href="/">
-                        <a className="xs-copy white" style={{ textDecoration: 'underline'}}>Listen on Spotify</a>
+                        <a className="xs-copy white" style={{ textDecoration: "underline" }}>Listen on Spotify</a>
                     </Link>
                 </div>
                 <div className={styles.spotifyEmbed}>

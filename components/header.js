@@ -92,9 +92,9 @@ export default function Header() {
                     </Link>
                 </nav>
 
-                <div class="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
+                <div className="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
+						<span className="hamburger-box">
+							<span className="hamburger-inner"></span>
 						</span>
 					</div>
                 
