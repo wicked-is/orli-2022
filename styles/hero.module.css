@@ -24,5 +24,7 @@
     align-content: flex-end;
     margin-bottom: 115px;
     background-color: #fff;
+    width: 80%;
+    max-width: 1060px;
 }
 

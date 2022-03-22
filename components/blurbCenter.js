@@ -1,11 +1,11 @@
 import styles from '../styles/blurbCenter.module.css';
 
-export default function BlurbCenter({ content, icon }) {
+export default function BlurbCenter({ content, icon, greyBG, altText }) {
     return (
-        <section className={styles.blurbContainer}>
+        <section className={`${styles.blurbContainer} ${greyBG && 'bg-lt-grey'}`}>
             <div className="max-75 center">
                 <div className="icon">
-                    <img src={icon} alt="Shell icon" />
+                    <img src={icon} alt="Shell icon" altText={altText} />
                 </div>
                 <p className="heading italic">
                     { content }

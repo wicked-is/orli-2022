@@ -18,7 +18,7 @@ export default function BookingForm() {
     return (
             <form className={styles.form} >
                 <div className={styles.formGroup}>
-                    <span>Check In</span>
+                    <span className="xs-copy">Check In</span>
                     <DatePicker
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
@@ -28,7 +28,7 @@ export default function BookingForm() {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <span>Check Out</span>
+                    <span className="xs-copy">Check Out</span>
                     <DatePicker
                         selected={endDate}
                         onChange={(date) => setEndDate(date)}
@@ -39,10 +39,10 @@ export default function BookingForm() {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <span>Guests</span>
+                    <span className="xs-copy">Guests</span>
                     <Counter value={counterValue} updateCounter={setCounterValue} />
                 </div>
-                <button type="submit" className="btn-submit">Search</button>
+                <button type="submit" className="btn-submit xs-copy uppercase white bg-brown">Search</button>
             </form>
     )
 }

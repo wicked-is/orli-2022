@@ -11,6 +11,7 @@ export default function FullFeatureBlog({ title, blurb, ctaText, ctaLink, image,
                     ctaText={ctaText}
                     ctaLink={ctaLink}
                     floatingBtn
+                    white
                     shortTitle />
             </div>
             <a href={articleLink} className="heading white">{articleTitle}</a>

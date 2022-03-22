@@ -2,6 +2,7 @@
     display: flex;
     position: relative;
     justify-content: space-between;
+    padding: 6rem 0;
     gap: 8rem;
 }
 .videoBackground {
