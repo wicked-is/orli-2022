@@ -3,9 +3,9 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
-export default function Header({myoptions}) {
+export default function Header({ myoptions }) {
     const [navIsOpen, setNavIsOpen] = useState(false);
-
+    
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
     }
@@ -49,10 +49,11 @@ export default function Header({myoptions}) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div>
-            <div className="announcement bar">
-                <p className="white xs-copy center">{myoptions.announcementBarText}</p>
-            </div>
-                
+            {
+                myoptions?.announcementBarText && <div className="announcement bar">
+                    <p className="white xs-copy center">{myoptions.announcementBarText}</p>
+                </div>
+            }
                 <Link href="/">
                     <Image
                         src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
@@ -102,7 +103,7 @@ export default function Header({myoptions}) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch(process.env.WP_GQL_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
