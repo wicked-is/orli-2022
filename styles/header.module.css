@@ -3,7 +3,7 @@
     width: 100%;
     margin: auto;
     display: block;
-    height: 10rem;
+    height: 9rem;
     z-index: 99;
     background: var(--white);
 }
@@ -11,9 +11,9 @@
     position: absolute;
     z-index: 100;
     width: 100%;
-    max-width: 7.5rem;
+    max-width: 7rem;
     left: 4rem;
-    top: 3.3rem;
+    top: 3rem;
     display: block;
 }
 
@@ -29,7 +29,10 @@
     background: var(--brown);
     align-items: center;
     justify-content: center;
+    transition: 0.3s ease all;
 }
+
+.primary-button:hover  {}
 
 .announcement-bar {
     background: var(--green);
@@ -44,3 +47,72 @@
 .nav-copy {font-size: var(--nav-copy);}
 
 .nav-copy a {text-decoration: none;}
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+    position: absolute;
+    right: 13rem;
+    top: 5.5rem;
+    z-index: 1;
+    opacity: 1;
+}
+
+.hamburger .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger .hamburger-box {
+    width: 50px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger .hamburger--collapse .hamburger-inner {
+    top: auto;
+    bottom: 0;
+    transition-duration: 0.13s;
+    transition-delay: 0.13s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger .hamburger-inner, 
+.hamburger .hamburger-inner::before, 
+.hamburger .hamburger-inner::after {
+    width: 50px;
+    height: 1px;
+    background-color: var(--black);
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger .hamburger-inner::before, 
+.hamburger .hamburger-inner::after {
+    content: "";
+    display: block; 
+  }
+
+.hamburger .hamburger-inner::before {
+    top: -10px; 
+}
+
+.hamburger .hamburger-inner::after {
+    bottom: -10px; 
+}
+
+.mobilelNav {display: none;}
