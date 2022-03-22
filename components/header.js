@@ -1,10 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
-import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
-export default function Header({menus}) {
+export default function Header({myoptions}) {
     const [navIsOpen, setNavIsOpen] = useState(false);
 
     function toggleNav() {
@@ -50,9 +49,9 @@ export default function Header({menus}) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div>
-                <div className="announcement bar">
-                    <p className="white xs-copy center"></p>
-                </div>
+            <div className="announcement bar">
+                <p className="white xs-copy center">{myoptions.announcementBarText}</p>
+            </div>
                 
                 <Link href="/">
                     <Image
@@ -109,16 +108,14 @@ export async function getStaticProps() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `
-          query MainMenu {
-            menus {
-                nodes {
-                  options {
-                    announcementBarText
-                    fieldGroupName
-                    isAnnouncementBarActive
-                  }
-                }
+        query NewQuery {
+            myOptionsPage {
+              options {
+                announcementBarText
+                fieldGroupName
+                isAnnouncementBarActive
               }
+            }
           }
         `,
       }),
@@ -137,3 +134,5 @@ export async function getStaticProps() {
       },
     }
   }
+  
+  

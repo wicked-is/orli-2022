@@ -105,6 +105,13 @@ export async function getStaticProps() {
     body: JSON.stringify({
       query: `
         query PageHome {
+          myOptionsPage {
+            options {
+              announcementBarText
+              fieldGroupName
+              isAnnouncementBarActive
+            }
+          }
           pageBy(pageId: 68) {
             seo {
               metaDesc
@@ -144,15 +151,6 @@ export async function getStaticProps() {
                   altText
                   sourceUrl
                 }
-              }
-            }
-          }
-          menus {
-            nodes {
-              options {
-                announcementBarText
-                fieldGroupName
-                isAnnouncementBarActive
               }
             }
           }
