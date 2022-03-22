@@ -69,7 +69,6 @@ export default function Header() {
                 </Link>
 
                 <nav className="mobilelNav">
-                    <button onClick={() => toggleNav()}>&#10005;</button>
                     <Link href="/find-your-room/" passHref>
                         <a  onClick={(e) => handleClick(e, '/find-your-room/')}className="serif-light white">Find Your Room</a>
                     </Link>
@@ -93,14 +92,11 @@ export default function Header() {
                     </Link>
                 </nav>
 
-                <div className="menuBurger">
-                    <button onClick={() => toggleNav()}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-
+                <div class="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</div>
                 
             </div>
         </header>
