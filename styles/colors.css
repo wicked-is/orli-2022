@@ -11,6 +11,10 @@
   .bg-white{
     background-color:var(--white);
   }
+
+  .bg-brown {
+    background-color: var(--brown);
+  }
   
   .black {color: var(--black);}
   .white {color: var(--white);}

@@ -1,0 +1,32 @@
+.spotifyFeature {
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: 70vh;
+    overflow: hidden;
+}
+
+.spotifyFeature video {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container > div {
+    flex: 1;
+}
+
+.spotifyEmbed {
+    padding-left: 5rem;
+    width: fit-content;
+    margin: 0 auto;
+}

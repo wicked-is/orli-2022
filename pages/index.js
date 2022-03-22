@@ -60,9 +60,9 @@ export default function Home(props) {
         content={introCopy.copy}
         icon={introCopy.icon.sourceUrl} 
         altText={introCopy.icon.altText}
-        center />
+        greyBG />
       <RoomSlider rooms={rooms} />
-      <section>
+      <section style={{ padding: '6rem 0' }}>
         <div className="max-80">
           <BlurbLeft
             title="DISCOVERIES"

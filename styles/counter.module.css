@@ -1,1 +1,4 @@
-.counterContainer { display: flex; }
+.counterContainer { 
+    display: flex; 
+    font-family: 'GT Walsheim Light';
+}

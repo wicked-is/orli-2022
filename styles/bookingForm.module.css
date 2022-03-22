@@ -18,8 +18,14 @@
     padding-bottom: 10px;
 }
 
+.formGroup input {
+    border: 0;
+    font-family: 'GT Walsheim Light';
+}
+
 .form button {
     width: 100%;
     width: 25%;
     justify-content: flex-end;
+    border: 0;
 }
