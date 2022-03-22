@@ -3,9 +3,9 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
-export default function Header({ myoptions }) {
+export default function Header() {
     const [navIsOpen, setNavIsOpen] = useState(false);
-    
+
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
     }
@@ -48,22 +48,27 @@ export default function Header({ myoptions }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div>
-            {
-                myoptions?.announcementBarText && <div className="announcement bar">
-                    <p className="white xs-copy center">{myoptions.announcementBarText}</p>
+            <div className="site-branding">
+                <div className="announcement-bar">
+                    <p className="white xs-copy center">Lorem Ipsum Sed Ud Et Lorem</p>
                 </div>
-            }
+                
                 <Link href="/">
-                    <Image
+                    <img
                         src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
                         alt="Orli La Jolla Logo"
-                        className="logo"
+                        className="header-logo"
                         width={380}
                         height={95} />
                 </Link>
 
-                <nav className="mainNav showMeMobile">
+                <Link href="/">
+                    <div className="primary-button">
+                        <p className="xs-copy white center uppercase">Find Your Room</p>
+                    </div>
+                </Link>
+
+                <nav className="mobilelNav">
                     <button onClick={() => toggleNav()}>&#10005;</button>
                     <Link href="/find-your-room/" passHref>
                         <a  onClick={(e) => handleClick(e, '/find-your-room/')}className="serif-light white">Find Your Room</a>
@@ -102,38 +107,3 @@ export default function Header({ myoptions }) {
         
     )
 }
-
-export async function getServerSideProps() {
-    const res = await fetch(process.env.WP_GQL_API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        query: `
-        query NewQuery {
-            myOptionsPage {
-              options {
-                announcementBarText
-                fieldGroupName
-                isAnnouncementBarActive
-              }
-            }
-          }
-        `,
-      }),
-    })
-  
-    const json = await res.json();
-  
-    if (json.errors) {
-      console.error(json.errors);
-      throw new Error('Failed to fetch page data.')
-    }
-  
-    return {
-      props: {
-        data: json.data
-      },
-    }
-  }
-  
-  

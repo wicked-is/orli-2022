@@ -52,4 +52,4 @@
     line-height: 150%;
 }
 
-address {font-style: normal;}
+.uppercase {text-transform: uppercase;}

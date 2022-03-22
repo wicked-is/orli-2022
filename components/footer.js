@@ -5,16 +5,16 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="flex">
-                <div className="col-1-33">
-                    <Image 
+                <div className="col-1-30">
+                    <img
                     className="footer-logo" 
                     src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" 
                     width={380} height={75} 
                     layout="responsive" />
                 </div>
-                <div className="col-1-33">
+                <div className="col-1-45">
                  <div className="flex">
-                 <div className="col-1-50">
+                 <div className="col-1-40">
                             <address className="xs-copy white left">
                             Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
                             </address>
@@ -23,7 +23,7 @@ export default function Footer() {
                                 <Link href="/">Get Directions</Link>
                                 </p>
                   </div>
-                  <div className="col-1-50 text-padding-left">
+                  <div className="col-1-60 text-padding-left">
                         <p className="xs-copy white left">T: 123 555 5555<br/>
                         E: email@stayorli.com</p>
                         <ul className="socials">
@@ -61,7 +61,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="col-1-33">
+                <div className="col-1-25">
                     <div className="footer-links">
                         <Link href="/">Amenities</Link>
                         <Link href="/">Rooms</Link>
@@ -74,12 +74,12 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex">
-                <div className="col-1-33">
+                <div className="col-1-30">
                 </div>
-                <div className="col-1-33">
+                <div className="col-1-45">
                     <p className="copyright xs-copy white left">Orli La Jolla All Rights Reserved © 2022</p>
                 </div>
-                <div className="col-1-33">
+                <div className="col-1-25">
                     <div className="footer-links-two">
                         <Link href="/">Privacy Policy</Link>
                         <Link href="/">Cookie Policy</Link>

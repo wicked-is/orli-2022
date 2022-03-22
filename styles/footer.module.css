@@ -10,10 +10,11 @@
 
   .footer .footer-logo {
     width: 100%;
-    max-width: 30%;
+    max-width: 7.5rem;
     filter: invert(1);
     display: inline-block;
     text-align: left;
+    margin-left: 4rem;
   }
 
   .footer .large{
@@ -29,10 +30,10 @@
 
 address.xs-copy.white.left {
   font-style: normal;
-  padding: 0rem 2rem 0rem 2rem;
+  padding: 0rem 0rem 0rem 0rem;
 }
 .copyright {
-  padding: 4rem 2rem 0rem 2rem;
+  padding: 4rem 0rem 0rem 0rem;
 }
 
 .directions {
@@ -40,7 +41,7 @@ address.xs-copy.white.left {
   border-bottom: 1px solid #ffffff;
   font-family: 'GT Walsheim Light';
   padding: 1rem 0rem 0rem 0rem;
-  margin: 0rem 2rem 0rem 2rem;
+  margin: 0rem 0rem 0rem 0rem;
 }
 
 ul.socials {
@@ -58,13 +59,13 @@ ul.socials li {padding: 0rem 1.5rem 0rem 0rem;}
 .footer-links, .footer-links-two {
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  grid-gap: 0.5rem;
+  grid-gap: 1rem;
   font-size: var(--xs-copy);
   font-family: 'GT Walsheim Light';
 }
 
-.footer-links {padding: 0rem 0rem 0rem 8rem;}
-.footer-links-two  {padding: 4rem 0rem 0rem 8rem;}
+.footer-links {padding: 0rem 0rem 0rem 0rem;}
+.footer-links-two  {padding: 4rem 0rem 0rem 0rem;}
 
 .footer-links a {
   line-height: 150%;
