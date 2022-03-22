@@ -12,7 +12,7 @@ export default function SpotifyFeature() {
                 <div>
                     <p className="heading white">We're Friends, and Friends Share Music</p>
                     <Link href="/">
-                        <a className="xs-copy white" style={{ textDecoration: 'underline'}}>Listen on Spotify</a>
+                        <a className="xs-copy white" style={{ textDecoration: "underline" }}>Listen on Spotify</a>
                     </Link>
                 </div>
                 <div className={styles.spotifyEmbed}>
