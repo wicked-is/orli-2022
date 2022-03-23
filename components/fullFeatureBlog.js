@@ -14,7 +14,7 @@ export default function FullFeatureBlog({ title, blurb, ctaText, ctaLink, image,
                     white
                     shortTitle />
             </div>
-            <a href={articleLink} className="heading white">{articleTitle}</a>
+            <a href={articleLink} className="heading-italic white">{articleTitle}</a>
         </section>
     )
 }

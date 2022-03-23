@@ -15,7 +15,7 @@ export default function Footer() {
                 <div className="col-1-45">
                  <div className="flex">
                  <div className="col-1-40">
-                            <address className="xs-copy white left">
+                            <address className="sans-serif xs-copy white left">
                             Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
                             </address>
                         
@@ -24,7 +24,7 @@ export default function Footer() {
                                 </p>
                   </div>
                   <div className="col-1-60 text-padding-left">
-                        <p className="xs-copy white left">T: 123 555 5555<br/>
+                        <p className="sans-serif xs-copy white left">T: 123 555 5555<br/>
                         E: email@stayorli.com</p>
                         <ul className="socials">
                                 <li>
@@ -77,7 +77,7 @@ export default function Footer() {
                 <div className="col-1-30">
                 </div>
                 <div className="col-1-45">
-                    <p className="copyright xs-copy white left">Orli La Jolla All Rights Reserved © 2022</p>
+                    <p className="sans-serif copyright xs-copy white left">Orli La Jolla All Rights Reserved © 2022</p>
                 </div>
                 <div className="col-1-25">
                     <div className="footer-links-two">
