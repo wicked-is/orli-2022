@@ -151,12 +151,12 @@ export async function getStaticProps() {
           amenities(where: { orderby: {field: DATE, order: ASC} } ) {
             nodes {
               amenities {
-                pageLink
                 subHeading
                 summary
                 cta
               }
               title
+              slug
               featuredImage {
                 node {
                   altText

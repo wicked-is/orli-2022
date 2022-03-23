@@ -47,7 +47,7 @@ export default function AmenitiesSlider({ amenities, subHeader, header, ctaText,
                             <div className={`${styles.sliderContent} ${ sliderActive == index ? styles.showcontent : '' }`}>
                                 <p className="sans-serif-bold sub-heading white">{amenity.amenities.subHeading}</p>
                                 <p className="heading white" style={{ margin: 0 }}>{amenity.amenities.summary}</p>
-                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={amenity.amenities.pageLink}>{amenity.amenities.cta}</a></p>
+                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={amenity.slug}>{amenity.amenities.cta}</a></p>
                             </div>
                             </div>
                         )
