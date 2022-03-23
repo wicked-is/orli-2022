@@ -28,6 +28,7 @@ export default function Home(props) {
   const { introCopy } = props.data.pageBy.introCopy;
   const { nodes: rooms } = props.data.rooms;
   const { nodes: amenities } = props.data.amenities;
+  const { nodes: posts } = props.data.posts;
   
   useEffect(() => {
     var tl =  gsap.timeline()
@@ -79,14 +80,12 @@ export default function Home(props) {
         logo="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
         text="is Intentional" />
       <Gatherings />
-      <FullFeatureBlog
+      <FullFeatureBlog posts={posts}
         title="The Journal"
         blurb="Discover La Jolla through the lens of the locals – Founders Hailey and Max.  "
         ctaText="Stay in the Know"
         ctaLink="/"
-        image="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_TheJournal_01-scaled.jpg"
-        articleTitle="7 Stylish Speakeasies to Visit in San Diego"
-        articleLink="/" />
+        />
       <SpotifyFeature />
       <FauxSocialFeed />
     </>
@@ -164,6 +163,18 @@ export async function getStaticProps() {
                   sourceUrl
                 }
               }
+            }
+          }
+          posts(first: 1) {
+            nodes {
+              featuredImage {
+                node {
+                  altText
+                  sourceUrl
+                }
+              }
+              title
+              slug
             }
           }
         }
