@@ -17,6 +17,7 @@
     bottom: 2rem;
     justify-content: space-around;
     width: 100%;
+    align-items: center;
 }
 
 .roomSlider p {
@@ -30,5 +31,7 @@
 .active {
     font-family: essonnes-display, serif !important;
     font-weight: 300;
-    text-transform: normal;
+    text-transform: unset !important;
+    -webkit-text-stroke: unset !important;
+    font-size: 2rem !important;
 }
