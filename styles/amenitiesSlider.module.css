@@ -18,6 +18,7 @@
 
 .navItem {
     color: var(--white);
+    font-size: var(--xs-copy);
     font-family: 'GT Walsheim Light';
     -webkit-text-stroke: 1px var(--white);
     text-transform: uppercase;

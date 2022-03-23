@@ -50,7 +50,7 @@ export default function Header() {
             </Head>
             <div className="site-branding">
                 <div className="announcement-bar">
-                    <p className="white xs-copy center">Lorem Ipsum Sed Ud Et Lorem</p>
+                    <p className="sans-serif white xs-copy center">Lorem Ipsum Sed Ud Et Lorem</p>
                 </div>
                 
                 <Link href="/">
@@ -64,7 +64,7 @@ export default function Header() {
 
                 <Link href="/">
                     <div className="primary-button">
-                        <p className="xs-copy white center uppercase">Find Your Room</p>
+                        <p className="sans-serif xs-copy white center uppercase">Find Your Room</p>
                     </div>
                 </Link>
 

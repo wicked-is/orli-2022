@@ -24,6 +24,7 @@
     font-family: 'GT Walsheim Light';
     -webkit-text-stroke: 1px var(--white);
     text-transform: uppercase;
+    font-size: var(--xs-copy);
 }
 
 .navItem.active {

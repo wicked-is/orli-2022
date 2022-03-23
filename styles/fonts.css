@@ -10,6 +10,10 @@
 		  url('../public/assets/fonts/GT-Walsheim-Bold.woff') format('woff');
 }
 
+.serif {font-family: essonnes-display, serif;}
+.sans-serif {font-family: 'GT Walsheim Light';}
+.sans-serif-bold {font-family: 'GT Walsheim Bold';}
+
 .xl-heading {
     font-size: var(--xl-heading);
     font-family: essonnes-display, serif;
@@ -39,14 +43,6 @@
     font-size: var(--sub-heading);
     letter-spacing: var(--letter-spacing);
     text-transform: uppercase;
-    font-family: 'GT Walsheim Light';
-}
-
-.serif-sub-heading {
-    font-size: var(--sub-heading);
-    letter-spacing: var(--letter-spacing);
-    text-transform: uppercase;
-    font-family: essonnes-display, serif;
 }
 
 .sub-heading-bold {
@@ -64,7 +60,6 @@
 
 .xs-copy {
     font-size: var(--xs-copy);
-    font-family: 'GT Walsheim Light';
     line-height: 150%;
 }
 

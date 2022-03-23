@@ -31,9 +31,9 @@ export default function AmenitiesSlider({ amenities, subHeader, header, ctaText,
                 }
             </Flickity>
             <div className={styles.sliderContent}>
-                <p className="sub-heading-bold white">{subHeader}</p>
+                <p className="sans-serif-bold sub-heading white">{subHeader}</p>
                 <p className="heading white" style={{ margin: 0 }}>{header}</p>
-                <p className="xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
             <div className={styles.sliderNav}>
                 {

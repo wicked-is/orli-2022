@@ -28,7 +28,7 @@ export default function Gatherings({ subhead, header, mainCtaText, mainCtaLink, 
             <div className={styles.right}>
                 <>
                     <Image src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_Gatherings_PlanYourWeddingWeb.jpg" width={561} height={370} layout="responsive" />
-                    <p><a href={rightCtaLink}>{rightCtaText}Plan Your Wedding</a></p>
+                    <p className="serif xs-copy uppercase brown"><a href={rightCtaLink}>{rightCtaText}Plan Your Wedding</a></p>
                 </>
                 <EventFeed events={events} />
             </div>
