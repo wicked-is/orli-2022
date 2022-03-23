@@ -14,7 +14,7 @@ export default function Gatherings({ subhead, header, mainCtaText, mainCtaLink, 
                     ctaText="Come Together"
                     ctaLink="/"
                 />
-                <div className={styles.videoBackground}>
+                <div className={`${styles.videoBackground}`}>
                     <div>
                         <video className={styles.videoBG} autoPlay playsInline muted loop>
                             <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/pexels-pavel-danilyuk-7318864.mp4" type="video/mp4" />

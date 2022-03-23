@@ -39,7 +39,7 @@ export default function AmenitiesSlider({ amenities, subHeader, header, ctaText,
                 {
                     amenities.map(amenity => {
                         return (
-                            <p key={`${amenity.title}-nav`} className="white">
+                            <p key={`${amenity.title}-nav`} className={styles.navItem}>
                                 {amenity.title}
                             </p>
                         )

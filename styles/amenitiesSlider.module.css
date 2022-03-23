@@ -15,3 +15,10 @@
     top: 5rem;
     right: 2rem;
 }
+
+.navItem {
+    color: var(--white);
+    font-family: 'GT Walsheim Light';
+    -webkit-text-stroke: 1px var(--white);
+    text-transform: uppercase;
+}
