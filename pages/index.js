@@ -74,7 +74,11 @@ export default function Home(props) {
           <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
         </div>
       </section>
-      <AmenitiesSlider amenities={amenities} />
+      <AmenitiesSlider amenities={amenities}
+      title="Tasteful Touches"
+      blurb="Everything You Need to Pioneer Your Perfect Stay"
+      cta="Explore More"
+      ctaLink="https://orlidev.wpengine.com/amenities/" />
       <OurMission
         title="Our Mission"
         logo="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"

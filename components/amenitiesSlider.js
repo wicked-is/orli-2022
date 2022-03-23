@@ -5,7 +5,7 @@ import "flickity/css/flickity.css";
 
 import styles from '../styles/amenitiesSlider.module.css';
 
-export default function AmenitiesSlider({ amenities }) {
+export default function AmenitiesSlider({ amenities, title, blurb, cta, ctaLink }) {
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(0)
     const [loaded, setLoaded] = useState(false)
@@ -44,17 +44,16 @@ export default function AmenitiesSlider({ amenities }) {
                             <div key={amenity.title} className={styles.amenity}>
                                 <Image src={amenity.featuredImage.node.sourceUrl} alt={amenity.title} width={1435} height={928} layout="intrinsic" />
                            
-                            <div className={`${styles.sliderContent} ${ sliderActive == index ? styles.showcontent : '' }`}>
-                                <p className="sans-serif-bold sub-heading white">{amenity.amenities.subHeading}</p>
-                                <p className="heading white" style={{ margin: 0 }}>{amenity.amenities.summary}</p>
-                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={amenity.slug}>{amenity.amenities.cta}</a></p>
-                            </div>
                             </div>
                         )
                     })
                 }
             </Flickity>
-            
+            <div className={styles.sliderContent}>
+                                <p className="sans-serif-bold sub-heading white">{title}</p>
+                                <p className="heading white" style={{ margin: 0 }}>{blurb}</p>
+                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{cta}</a></p>
+            </div>
             <div className={styles.sliderNav}>
                 {
                     amenities.map((amenity, index) => {
