@@ -39,7 +39,7 @@ export default function RoomSlider({ rooms }) {
                     asNavFor: '.roomSliderNavigation',
                     imagesLoaded: true,
                     // fullscreen: true,
-                    autoPlay: 7000,
+                    autoPlay: 5000,
                 }}
                 disableImagesLoaded={false} // default false
                 reloadOnUpdate={false} // default false

@@ -14,7 +14,9 @@ export default function FullFeatureBlog({ title, blurb, ctaText, ctaLink, image,
                     white
                     shortTitle />
             </div>
-            <a href={articleLink} className="heading-italic white">{articleTitle}</a>
+            <a href={articleLink} className="heading-italic white">
+                <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_arrow-white.svg" alt="white arrow" className={styles.white_arrow}  /> {articleTitle}
+            </a>
         </section>
     )
 }

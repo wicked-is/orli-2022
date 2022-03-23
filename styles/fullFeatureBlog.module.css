@@ -4,4 +4,12 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 6rem;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -ms-background-size: cover !important;
+}
+
+.white_arrow {
+    width: 50px; margin: auto 1rem auto auto; display: inline; vertical-align: middle;
 }

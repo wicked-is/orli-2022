@@ -89,7 +89,7 @@ export default function Home(props) {
         blurb="Discover La Jolla through the lens of the locals – Founders Hailey and Max.  "
         ctaText="Stay in the Know"
         ctaLink="/"
-        image="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg"
+        image="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_TheJournal_01-scaled.jpg"
         articleTitle="7 Stylish Speakeasies to Visit in San Diego"
         articleLink="/" />
       <SpotifyFeature />
