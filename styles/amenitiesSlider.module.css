@@ -1,14 +1,26 @@
 .amenitiesSlider {
     position: relative;
 }
+.amenity {
+    width: 87%;
+    margin-right: 0px;
+}
+
+.amenity img {
+    width: 100%;
+}
 
 .sliderContent {
+    opacity: 0;
     position: absolute;
     bottom: 7rem;
+    z-index: 97;
     background-color: rgb(4, 87, 75);
     padding: 1rem 3rem 1rem 10rem;
     max-width: 50%;
 }
+
+.showcontent {opacity: 1 !important;}
 
 .sliderNav {
     position: absolute;
