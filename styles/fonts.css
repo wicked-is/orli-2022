@@ -23,6 +23,7 @@
     font-size: var(--heading);
     font-family: essonnes-display, serif;
     font-weight: 300;
+    line-height: 1.2;
     font-style: normal;
 }
 
@@ -39,6 +40,13 @@
     letter-spacing: var(--letter-spacing);
     text-transform: uppercase;
     font-family: 'GT Walsheim Light';
+}
+
+.serif-sub-heading {
+    font-size: var(--sub-heading);
+    letter-spacing: var(--letter-spacing);
+    text-transform: uppercase;
+    font-family: essonnes-display, serif;
 }
 
 .sub-heading-bold {

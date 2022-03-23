@@ -69,7 +69,7 @@ export default function Home(props) {
             content="Explore La Jolla the local’s way. From secluded beaches and swimmable sea caves to favorite cafes, restaurants, boutiques and more, we’ll point you in the right direction."
             ctaText="Map it Out"
             ctaLink="/"
-            icon="https://stayorli.com/wp-content/uploads/2022/01/icon-shell.svg" />
+            icon="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_local-1.svg" />
           <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
         </div>
       </section>
