@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function EventFeed({ events }) {
     return (
         <>
-            <article style={{ borderTop: '1px solid black' }}>
+            <article className={styles.first} style={{ borderTop: '1px solid black' }}>
                 <a href="" passHref>
                 <p className="sans-serif xs-copy left">Event Category | 01 March 2022</p>
                 <div className="flexcenter">

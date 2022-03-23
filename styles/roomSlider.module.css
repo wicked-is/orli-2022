@@ -19,7 +19,7 @@
     width: 100%;
 }
 
-.navItem {
+.roomSlider p {
     color: var(--white);
     font-family: 'GT Walsheim Light';
     -webkit-text-stroke: 1px var(--white);
@@ -27,7 +27,7 @@
     font-size: var(--xs-copy);
 }
 
-.navItem.active {
+p.active {
     font-family: essonnes-display, serif !important;
     font-weight: 300;
     text-transform: normal;
