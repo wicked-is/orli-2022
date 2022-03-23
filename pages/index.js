@@ -54,6 +54,7 @@ export default function Home(props) {
       <SEO title={seo.title} description={seo.metaDesc} />
       <Hero
         poster={hero.image.sourceUrl}
+        posteralt={hero.image.altText}
         mp4={hero.mp4File.sourceUrl}
         webm={hero.webmFile.sourceUrl}
         withBookingForm />
@@ -118,9 +119,9 @@ export async function getStaticProps() {
             hero {
               hero {
                 caption
-                hasVideo
                 headline
                 image {
+                  altText
                   sourceUrl
                 }
                 mp4File {
@@ -154,11 +155,6 @@ export async function getStaticProps() {
           }
           amenities(where: { orderby: {field: DATE, order: ASC} } ) {
             nodes {
-              amenities {
-                subHeading
-                summary
-                cta
-              }
               title
               slug
               featuredImage {
