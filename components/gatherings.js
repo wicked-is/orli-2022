@@ -21,7 +21,7 @@ export default function Gatherings({ subhead, header, mainCtaText, mainCtaLink, 
                             <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/02/orlihero3-1.webm" type="video/webm" />
                         </video>
                     </div>
-                    <p>Host An Event</p>
+                    <p className="serif xs-copy uppercase brown">Host An Event</p>
                 </div>
                 <p><a href={ leftCtaLink }>{ leftCtaText }</a></p>
             </div>
