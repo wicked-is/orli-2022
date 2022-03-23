@@ -45,9 +45,9 @@ export default function AmenitiesSlider({ amenities, subHeader, header, ctaText,
                                 <Image src={amenity.featuredImage.node.sourceUrl} alt={amenity.title} width={1435} height={928} layout="intrinsic" />
                            
                             <div className={`${styles.sliderContent} ${ sliderActive == index ? styles.showcontent : '' }`}>
-                                <p className="sans-serif-bold sub-heading white">{subHeader}</p>
-                                <p className="heading white" style={{ margin: 0 }}>{header}</p>
-                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+                                <p className="sans-serif-bold sub-heading white">{amenity.amenities.subHeading}</p>
+                                <p className="heading white" style={{ margin: 0 }}>{amenity.amenities.summary}</p>
+                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={amenity.amenities.pageLink}>{amenity.amenities.cta}</a></p>
                             </div>
                             </div>
                         )
@@ -59,7 +59,7 @@ export default function AmenitiesSlider({ amenities, subHeader, header, ctaText,
                 {
                     amenities.map((amenity, index) => {
                         return (
-                            <p key={`${amenity.title}-nav`} className={`${ sliderActive == index ? styles.active : '' }`} style={{ margin: '0 1rem' }}>
+                            <p key={`${amenity.title}-nav`} className={`${ sliderActive == index ? styles.active : '' }`}>
                                 <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
                                     {amenity.title}
                                 </a>

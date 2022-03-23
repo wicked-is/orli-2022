@@ -28,10 +28,15 @@
     right: 2rem;
 }
 
-.navItem {
+.sliderNav p {
     color: var(--white);
-    font-size: var(--xs-copy);
     font-family: 'GT Walsheim Light';
-    -webkit-text-stroke: 1px var(--white);
     text-transform: uppercase;
+    font-size: var(--xs-copy);
+    cursor: pointer;
+    padding: 0rem 0rem 0.3rem 0rem;
+}
+
+.active {
+    -webkit-text-stroke: 1px var(--white);
 }

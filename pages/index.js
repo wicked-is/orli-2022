@@ -73,12 +73,7 @@ export default function Home(props) {
           <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
         </div>
       </section>
-      <AmenitiesSlider
-        amenities={amenities}
-        subHeader={"Tasteful Touches"}
-        header={"Everything You Need to Pioneer Your Perfect Stay"}
-        ctaText={"Explore More"}
-        ctaLink={"/amenities"} />
+      <AmenitiesSlider amenities={amenities} />
       <OurMission
         title="Our Mission"
         logo="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
@@ -156,6 +151,12 @@ export async function getStaticProps() {
           }
           amenities(where: { orderby: {field: DATE, order: ASC} } ) {
             nodes {
+              amenities {
+                pageLink
+                subHeading
+                summary
+                cta
+              }
               title
               featuredImage {
                 node {
