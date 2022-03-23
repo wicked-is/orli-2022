@@ -35,3 +35,13 @@
     -webkit-text-stroke: unset !important;
     font-size: 2rem !important;
 }
+
+.room {
+    width: 80%;
+    margin-right: 0px;
+    overflow: hidden;
+    position: relative;
+}
+.room img {
+    width: 100%;
+}

@@ -36,11 +36,13 @@ export default function RoomSlider({ rooms }) {
                     pageDots: false,
                     draggable: true,
                     wrapAround: true,
+                    asNavFor: '.roomSliderNavigation',
+                    imagesLoaded: true,
                     // fullscreen: true,
-                    autoPlay: 7000
+                    autoPlay: 7000,
                 }}
                 disableImagesLoaded={false} // default false
-                reloadOnUpdate // default false
+                reloadOnUpdate={false} // default false
                 static // default false
                 flickityRef={c => {
                     slider.current = c
