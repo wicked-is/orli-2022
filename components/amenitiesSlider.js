@@ -5,7 +5,7 @@ import "flickity/css/flickity.css";
 
 import styles from '../styles/amenitiesSlider.module.css';
 
-export default function AmenitiesSlider({ amenities, subHeader, header, ctaText, ctaLink }) {
+export default function AmenitiesSlider({ amenities }) {
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(0)
     const [loaded, setLoaded] = useState(false)

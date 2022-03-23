@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
+import styles from '../styles/header.module.css';
+
 export default function Header() {
     const [navIsOpen, setNavIsOpen] = useState(false);
 
@@ -68,7 +70,17 @@ export default function Header() {
                     </div>
                 </Link>
 
-                <nav className="mobilelNav">
+                <div className="hamburger hamburger--collapse" type="button"> 
+                    <button onClick={() => toggleNav()}>
+						<span className="hamburger-box">
+							<span className="hamburger-inner"></span>
+						</span>
+                    </button>
+				</div>
+            </div>
+
+            <div className={`${styles.mobileNavContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
+            <nav className={`${styles.mobileNav}`}>
                     <Link href="/find-your-room/" passHref>
                         <a  onClick={(e) => handleClick(e, '/find-your-room/')}className="serif-light white">Find Your Room</a>
                     </Link>
@@ -91,13 +103,6 @@ export default function Header() {
                         <a  onClick={(e) => handleClick(e, '/gallery/')}className="sans-serif-light green">Gallery</a>
                     </Link>
                 </nav>
-
-                <div className="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
-						<span className="hamburger-box">
-							<span className="hamburger-inner"></span>
-						</span>
-					</div>
-                
             </div>
         </header>
         
