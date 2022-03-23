@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
 import Flickity from 'react-flickity-component'
@@ -11,11 +11,17 @@ export default function RoomSlider({ rooms }) {
 
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(0)
+    const [loaded, setLoaded] = useState(false)
 
     const changeSlider = (e) => {
         slider.current.select(e.target.dataset.slide)
-        setSliderActive(e.target.dataset.slide)
     }
+
+    useEffect(() => {
+        slider.current.on('change', () => {
+            setSliderActive(slider.current.selectedIndex)
+        })
+    }, [sliderActive]);
     
     return (
         <section className={styles.roomSlider}>
@@ -54,8 +60,8 @@ export default function RoomSlider({ rooms }) {
                 {
                     rooms.map((room, index) => {
                         return (
-                            <p key={room.title} style={{ margin: '0 1rem' }}>
-                                <a className={`${styles.navItem} ${sliderActive == index ? 'active' : ''}`} data-slide={index} onClick={changeSlider}>
+                            <p key={room.title} className={`${ sliderActive == index ? 'active' : '' }`} style={{ margin: '0 1rem' }}>
+                                <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
                                     {room.title}
                                 </a>
                             </p>
