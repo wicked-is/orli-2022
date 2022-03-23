@@ -27,7 +27,7 @@
     font-size: var(--xs-copy);
 }
 
-p.active {
+.active {
     font-family: essonnes-display, serif !important;
     font-weight: 300;
     text-transform: normal;

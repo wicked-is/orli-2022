@@ -60,7 +60,7 @@ export default function RoomSlider({ rooms }) {
                 {
                     rooms.map((room, index) => {
                         return (
-                            <p key={room.title} className={`${ sliderActive == index ? 'active' : '' }`} style={{ margin: '0 1rem' }}>
+                            <p key={room.title} className={`${ sliderActive == index ? styles.active : '' }`} style={{ margin: '0 1rem' }}>
                                 <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
                                     {room.title}
                                 </a>
