@@ -28,3 +28,7 @@
     max-width: 1060px;
 }
 
+/* Placeholder styles so no error is thrown */
+.bigHero { display: initial }
+.smallHero { display: initial;}
+

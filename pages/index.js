@@ -48,15 +48,12 @@ export default function Home(props) {
       });
     })
   },[])
-
+  
   return (
     <>
       <SEO title={seo.title} description={seo.metaDesc} />
       <Hero
-        poster={hero.image.sourceUrl}
-        posteralt={hero.image.altText}
-        mp4={hero.mp4File.sourceUrl}
-        webm={hero.webmFile.sourceUrl}
+        heroData={hero}
         withBookingForm />
       <BlurbCenter
         content={introCopy.copy}
@@ -120,16 +117,13 @@ export async function getStaticProps() {
               hero {
                 caption
                 headline
+                heroTypes
                 image {
                   altText
                   sourceUrl
                 }
-                mp4File {
-                  sourceUrl
-                }
-                webmFile {
-                  sourceUrl
-                }
+                mp4File
+                webmFile
               }
             }
             introCopy {
