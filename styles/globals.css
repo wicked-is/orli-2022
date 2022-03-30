@@ -37,7 +37,7 @@ a {
 
   --letter-spacing: 0.03rem;
   --xl-heading: clamp(3.5rem, 3.5vw, 6rem);
-  --heading: clamp(2.5rem, 3vw, 5rem);
+  --heading: clamp(2.3rem, 2.8vw, 5rem);
   --sub-heading: clamp(1.125rem, 1.125vw, rem);
   --body-copy: clamp(1.25rem, 1.25vw, 1.5rem);
   --nav-copy: clamp(0.9rem, 1.1vw, 1rem);

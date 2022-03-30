@@ -70,40 +70,46 @@ export default function Header() {
                     </div>
                 </Link>
 
-                <div className="hamburger hamburger--collapse" type="button"> 
-                    <button onClick={() => toggleNav()}>
+                <div className="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
 						<span className="hamburger-box">
 							<span className="hamburger-inner"></span>
 						</span>
-                    </button>
 				</div>
             </div>
 
-            <div className={`${styles.mobileNavContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
-            <nav className={`${styles.mobileNav}`}>
-                    <Link href="/find-your-room/" passHref>
+            <nav className={`${styles.navContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
+                <img className="close" src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg" alt="close icon" onClick={() => toggleNav()} />
+                <div className="flex">
+                <div className="col-1-60 relative">
+                    <div className={styles.backgroundImage}></div>
+                </div>
+                <div className="col-1-40 relative">
+                    <ul className={styles.mainNav}>
+                    <li><Link href="/find-your-room/" passHref>
                         <a  onClick={(e) => handleClick(e, '/find-your-room/')}className="serif-light white">Find Your Room</a>
-                    </Link>
-                    <Link href="/amenities/">
+                    </Link></li>
+                    <li><Link href="/amenities/">
                         <a  onClick={(e) => handleClick(e, '/amenities/')}className="serif-light white">Tasteful Touches</a>
-                    </Link>
-                    <Link href="/discoveries/">
+                    </Link></li>
+                    <li><Link href="/discoveries/">
                         <a  onClick={(e) => handleClick(e, '/discoveries/')}className="serif-light white">Discoveries</a>
-                    </Link>
-                    <Link href="/gatherings/">
+                    </Link></li>
+                    <li><Link href="/gatherings/">
                         <a  onClick={(e) => handleClick(e, '/gatherings/')}className="serif-light white">Gatherings</a>
-                    </Link>
-                    <Link href="/our-story/">
+                    </Link></li>
+                    <li><Link href="/our-story/">
                         <a  onClick={(e) => handleClick(e, '/our-story/')}className="serif-light white">Our Story</a>
-                    </Link>
-                    <Link href="/journal/">
+                    </Link></li>
+                    <li><Link href="/journal/">
                         <a  onClick={(e) => handleClick(e, '/journal/')}className="serif-light white">The Journal</a>
-                    </Link>
-                    <Link href="/gallery/">
-                        <a  onClick={(e) => handleClick(e, '/gallery/')}className="sans-serif-light green">Gallery</a>
-                    </Link>
+                    </Link></li>
+                    <li><Link href="/gallery/">
+                        <a  onClick={(e) => handleClick(e, '/gallery/')}className="sans-serif-light white">Gallery</a>
+                    </Link></li>
+                    </ul>
+                </div>
+                </div>
                 </nav>
-            </div>
         </header>
         
     )
