@@ -197,3 +197,8 @@
     -o-background-size: cover;
     background-position: center center;
 }
+.bottomnav {
+    width: 100%;
+    display: flex; 
+    align-items: flex-start;
+}
