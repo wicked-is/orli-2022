@@ -69,7 +69,7 @@ export default function Home(props) {
             ctaText="Map it Out"
             ctaLink="/"
             icon="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_local-1.svg" />
-          <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
+          <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_TheJournal_01-scaled.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
         </div>
       </section>
       <AmenitiesSlider amenities={amenities}
