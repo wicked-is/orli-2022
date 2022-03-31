@@ -1,6 +1,9 @@
 .footer{
     padding:7.5rem 0;
     width: 100%;
+    display: inline-block;
+    margin: auto;
+    position: relative;
     background-position: cover !important;
     -webkit-background-position: cover !important;
     -moz-background-position: cover !important;

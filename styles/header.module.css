@@ -1,4 +1,12 @@
-.site-branding {
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+}
+
+.header .sitebranding {
     position: fixed;
     width: 100%;
     margin: auto;
@@ -7,7 +15,10 @@
     z-index: 99;
     background: var(--white);
 }
-.site-branding .header-logo {
+
+.header.open .sitebranding {background: transparent;}
+
+.header .headerlogo {
     position: absolute;
     z-index: 100;
     width: 100%;
@@ -17,7 +28,9 @@
     display: block;
 }
 
-.primary-button  {
+.header.open .headerlogo {filter: invert(1);}
+
+.header .primarybutton  {
     position: absolute;
     z-index: 100;
     height:6rem;
@@ -32,7 +45,9 @@
     transition: 0.3s ease all;
 }
 
-.announcement-bar {
+.header.open .primarybutton {display: none;}
+
+.header .announcementbar {
     background: var(--green);
     width: 100%; 
     margin: auto; 
@@ -41,6 +56,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.header.open .announcementbar {display: none;}
 
 .nav-copy {font-size: var(--nav-copy);}
 
@@ -128,11 +145,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 99;
+    z-index: 98;
     margin: 0;
 }
 
-.close {
+.header .close {
     color: var(--white);
     position: absolute;
     font-size: 3rem;
@@ -140,6 +157,18 @@
     top: 2rem;
     right: 4rem;
     z-index: 100;
+    display: none;
+}
+
+.header.open .close {
+    color: var(--white);
+    position: absolute;
+    font-size: 3rem;
+    width: 40px;
+    top: 2rem;
+    right: 4rem;
+    z-index: 100;
+    display: block;
 }
 
 .mainNav {

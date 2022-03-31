@@ -21,14 +21,7 @@ export default function Header() {
     }
 
     return (
-        <header style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            zIndex: 999,
-            width: '100%',
-            backgroundColor: '#fff'
-        }}>
+        <header className={`${styles.header} ${navIsOpen ? styles.open : ''}`}>
             
             {/* This is the analytics snipet
             
@@ -50,8 +43,11 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="site-branding">
-                <div className="announcement-bar">
+            <div className={styles.sitebranding}>
+
+                <img className={styles.close} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg" alt="close icon" onClick={() => toggleNav()} />
+
+                <div className={styles.announcementbar}>
                     <p className="sans-serif white xs-copy center">Lorem Ipsum Sed Ud Et Lorem</p>
                 </div>
                 
@@ -59,13 +55,14 @@ export default function Header() {
                     <img
                         src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
                         alt="Orli La Jolla Logo"
-                        className="header-logo"
+                        className={styles.headerlogo}
                         width={380}
-                        height={95} />
+                        height={95}
+                        />
                 </Link>
 
                 <Link href="/">
-                    <div className="primary-button">
+                    <div className={styles.primarybutton}>
                         <p className="sans-serif xs-copy white center uppercase">Find Your Room</p>
                     </div>
                 </Link>
@@ -78,7 +75,6 @@ export default function Header() {
             </div>
 
             <nav className={`${styles.navContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
-                <img className="close" src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg" alt="close icon" onClick={() => toggleNav()} />
                 <div className="flex">
                 <div className="col-1-60 relative">
                     <div className={styles.backgroundImage}></div>
