@@ -19,7 +19,7 @@ export default function FullFeatureBlog({ posts, title, blurb, ctaText, ctaLink 
                             shortTitle>
                             </ThreePartHeading>
                             </div>
-                            <a href={post.slug} className="heading-italic white">
+                            <a href={post.slug} className="pull-quote white">
                                 <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_arrow-white.svg" alt="white arrow" className={styles.white_arrow}  /> {post.title}
                     </a>
                      </div>

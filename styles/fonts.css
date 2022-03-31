@@ -33,14 +33,15 @@
     margin-block-end: 0em;
 }
 
+.pull-quote,
 .heading-italic {
-    font-size: var(--heading);
     font-family: essonnes-display, serif;
     font-weight: 300;
     line-height: 1.2;
     font-style: italic;
 }
-
+.pull-quote {font-size: var(--pull-quote);}
+.heading-italic {font-size: var(--heading);}
 .sub-heading {
     font-size: var(--sub-heading);
     letter-spacing: var(--letter-spacing);

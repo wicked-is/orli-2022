@@ -4,7 +4,7 @@ export default function ThreePartHeading({ subheader, header, ctaText, ctaLink, 
     return (
         <div style={{position: 'relative' }}>
             {subheader && <p className={`sans-serif-bold sub-heading ${white && 'white'}`}>{subheader}</p>}
-            {header && <p className={`heading ${white && 'white'}`} style={{ margin: 0, maxWidth: shortTitle ? '60%' : '',  }}>{header}</p>}
+            {header && <p className={`heading ${white && 'white'}`} style={{ margin: 0, maxWidth: shortTitle ? '55%' : '',  }}>{header}</p>}
             {ctaLink && <p className={`sans-serif xs-copy ${floatingBtn ? styles.floatingCTA : ''}`} style={{ textDecoration: 'underline' }}><a className={`${white && 'white'}`}href={ctaLink}>{ctaText}</a></p>}
         </div>
     )
