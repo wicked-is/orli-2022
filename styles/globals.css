@@ -44,3 +44,9 @@ a {
   --nav-copy: clamp(0.9rem, 1.1vw, 1rem);
   --xs-copy: clamp(0.8rem, 1.1vw, 1.1rem);
 }
+
+.textAnimation {
+  
+}
+
+.textAnimation2, .textAnimation3 {}

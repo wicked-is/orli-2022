@@ -20,6 +20,8 @@
     align-items: center;
 }
 
+.roomSliderNavigation a {cursor: pointer;}
+
 .roomSlider p {
     color: var(--white);
     font-family: 'GT Walsheim Light';

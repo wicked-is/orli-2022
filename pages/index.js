@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
 import { gsap } from "gsap/dist/gsap";
+import { TextPlugin } from "gsap/dist/TextPlugin";
+import { CustomEase } from "gsap/dist/CustomEase";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import styles from '../styles/Home.module.css'
@@ -47,6 +49,18 @@ export default function Home(props) {
         }
       });
     })
+
+    gsap.registerPlugin(TextPlugin, CustomEase);
+    var timeline = gsap.timeline({repeat: -1});
+    timeline.fromTo(".cursor", {autoAlpha: 0, x:-10},{autoAlpha: 1, duration: 0.5, repeat: -1, ease: "steps(1)"})
+    .to(".textAnimation", {text: {value: "is Intentional"}, duration: 1, delay: 1, ease: "none"})
+    .to(".textAnimation", {delay: 2, duration: 0.5, autoAlpha: 0, display: 'none'})
+    .to(".textAnimation2", {text: {value: "is Local-Minded"}, duration: 1, delay: 1, ease: "none"})
+    .to(".textAnimation2", {delay: 2, duration: 0.5, autoAlpha: 0, display: 'none'})
+    .to(".textAnimation3", {text: {value: "is Effortless by Design"}, duration: 1.5, delay: 1, ease: "none"})
+    .to(".textAnimation3", {delay: 3, duration: 0.5, autoAlpha: 0, display: 'none'})
+    .add(() => timeline.restart())
+  
   },[])
   
   return (
@@ -80,7 +94,9 @@ export default function Home(props) {
       <OurMission
         title="Our Mission"
         logo="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
-        text="is Intentional" />
+        text1="is Intentional"
+        text2="is Local-Minded"
+        text3="is Effortless by Design" />
       <Gatherings />
       <FullFeatureBlog posts={posts}
         title="The Journal"
