@@ -42,6 +42,7 @@
 }
 .pull-quote {font-size: var(--pull-quote);}
 .heading-italic {font-size: var(--heading);}
+
 .sub-heading {
     font-size: var(--sub-heading);
     letter-spacing: var(--letter-spacing);
