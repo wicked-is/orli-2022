@@ -66,5 +66,6 @@
 }
 
 .uppercase {text-transform: uppercase;}
+.underline {text-decoration: underline;}
 
 address {font-style: normal;}

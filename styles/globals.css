@@ -35,7 +35,7 @@ a {
   --primary: var(--black);
   --secondary: var(--brown);
 
-  --letter-spacing: 0.03rem;
+  --letter-spacing: 0.2rem;
   --xl-heading: clamp(3.5rem, 3.5vw, 6rem);
   --heading: clamp(2.3rem, 2.8vw, 5rem);
   --sub-heading: clamp(1.125rem, 1.125vw, rem);

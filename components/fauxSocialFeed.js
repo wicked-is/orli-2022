@@ -9,7 +9,7 @@ export default function FauxSocialFeed() {
                 <div className={styles.topContainer}>
                     <h2 className="heading">Follow Along</h2>
                     <Link href="https://www.instagram.com/stayorli/" passHref>
-                        <a className="sans-serif xs-copy" target="_blank" rel="noreferrer">@StayOrli</a>
+                        <a className="sans-serif xs-copy underline" target="_blank" rel="noreferrer">@StayOrli</a>
                     </Link>
                 </div>
                 <div className={styles.grid}>

@@ -61,7 +61,7 @@ export default function Home(props) {
         altText={introCopy.icon.altText}
         greyBG />
       <RoomSlider rooms={rooms} />
-      <section style={{ padding: '6rem 0' }}>
+      <section className="bg-lt-grey" style={{ padding: '6rem 0' }}>
         <div className="max-80">
           <BlurbLeft
             title="DISCOVERIES"

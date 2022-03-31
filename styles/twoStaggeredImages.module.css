@@ -12,6 +12,7 @@
     flex: 1.5;
     position: relative;
     margin-bottom: 3rem;
+    z-index: 1;
 }
 
 .videoBG {
