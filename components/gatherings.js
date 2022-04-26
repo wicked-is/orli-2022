@@ -4,32 +4,42 @@ import EventFeed from './eventFeed';
 
 import styles from '../styles/gatherings.module.css';
 
-export default function Gatherings({ subhead, header, mainCtaText, mainCtaLink, leftPhoto, leftCtaText, leftCtaLink, rightPhoto, rightCtaText, rightCtaLink, events }) {
+export default function Gatherings(props) {
+
+    const { subHeadline, headline, ctaText, ctaLink, media, events } = props
+    
     return (
         <section className={`${styles.gatheringsContainer} max-80`}>
             <div className={styles.left}>
                 <ThreePartHeading
-                    subheader="Gatherings"
-                    header="For You and Your Crew"
-                    ctaText="Come Together"
-                    ctaLink="/"
+                    subheader={subHeadline}
+                    header={headline}
+                    ctaText={ctaText}
+                    ctaLink={ctaLink}
                 />
-                <div className={`${styles.videoBackground}`}>
-                    <div>
-                        <video className={styles.videoBG} autoPlay playsInline muted loop>
-                            <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/pexels-pavel-danilyuk-7318864.mp4" type="video/mp4" />
-                            <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/02/orlihero3-1.webm" type="video/webm" />
-                        </video>
-                    </div>
-                    <p className="serif xs-copy uppercase brown">Host An Event</p>
-                </div>
-                <p><a href={ leftCtaLink }>{ leftCtaText }</a></p>
+                {
+                    media[0].type === "Video" && (
+                        <div className={`${styles.videoBackground}`}>
+                            <div>
+                                <video className={styles.videoBG} autoPlay playsInline muted loop>
+                                    <source src={media[0].mp4} type="video/mp4" />
+                                    <source src={media[0].webm} />
+                                </video>
+                            </div>
+                            <p className="serif xs-copy uppercase brown"><a href={media[0].ctaLink}>{media[0].ctaText}</a></p>
+                        </div>
+                    )
+                }
             </div>
             <div className={styles.right}>
-                <>
-                    <Image src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_Gatherings_PlanYourWeddingWeb.jpg" width={561} height={370} layout="responsive" />
-                    <p className="serif xs-copy uppercase brown"><a href={rightCtaLink}>{rightCtaText}Plan Your Wedding</a></p>
-                </>
+                {
+                    media[1].type === "Image" && (
+                        <>
+                            <Image src={media[1].imagePoster.sourceUrl} alt={media[1].imagePoster.altText} width={561} height={370} layout="responsive" />
+                            <p className="serif xs-copy uppercase brown"><a href={media[1].ctaLink}>{media[1].ctaText}</a></p>
+                        </>
+                    )
+                }
                 <EventFeed events={events} />
             </div>
         </section>

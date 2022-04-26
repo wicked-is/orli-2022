@@ -1,29 +1,38 @@
 import BookingForm from './bookingForm';
 
 import styles from '../styles/hero.module.css'
-export default function Hero({ heroData, withBookingForm }) {
 
-    const { caption, headline, heroTypes, image, mp4File, webmFile } = heroData
+export default function Hero(props) {
+    
+    const {
+        types,
+        includeBookingForm,
+        headline,
+        blurb,
+        image,
+        mp4ExternalLink,
+        webm
+    } = props
 
-    const heroStructure = (heroTypes) => { 
-        switch (heroTypes) {
+    const heroStructure = (types) => { 
+        switch (types) {
             case 'Video':
                 return (
                     <video className={styles.heroVideo} autoPlay playsInline muted loop poster="">
-                        <source src={mp4File} type="video/mp4" />
-                        <source src={webmFile} type="video/webm" />
+                        <source src={mp4ExternalLink} type="video/mp4" />
+                        <source src={webm} type="video/webm" />
                     </video>
                 )
             case 'Full Height Image':
                 return (
                     <div className={styles.bigHero}>
-                         <img src={poster} alt={posteralt} />
+                         <img src={image.mediaUrl} alt={image.altText} />
                     </div>
                 )
             case 'Small Hero Image':
                 return (
                     <div className={styles.smallHero}>
-                         <img src={poster} alt={posteralt} />
+                         <img src={image.mediaUrl} alt={image.altText} />
                     </div>
                 )
             default:
@@ -33,9 +42,9 @@ export default function Hero({ heroData, withBookingForm }) {
 
     return (
         <section className={styles.heroContainer}>
-            { heroStructure(heroTypes) }
+            { heroStructure(types) }
             {
-                withBookingForm && (
+                includeBookingForm && (
                     <section className={styles.horizontalFormContainer}>
                         <BookingForm />
                     </section>

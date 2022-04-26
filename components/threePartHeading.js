@@ -1,6 +1,7 @@
 import styles from '../styles/threePartHeading.module.css';
 
 export default function ThreePartHeading({ subheader, header, ctaText, ctaLink, shortTitle, floatingBtn, white }) {
+
     return (
         <div style={{position: 'relative' }}>
             {subheader && <p className={`sans-serif-bold sub-heading ${white && 'white'}`}>{subheader}</p>}

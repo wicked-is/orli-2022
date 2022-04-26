@@ -27,42 +27,42 @@ export default function Footer() {
                         <p className="sans-serif xs-copy white left">T: 123 555 5555<br/>
                         E: email@stayorli.com</p>
                         <ul className="socials">
-                                <li>
+                            <li>
                                 <Link href="/">
-                                <Image
-                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
-                                    alt="Instagram Logo"
-                                    className="instagram"
-                                    width={30}
-                                    height={30} />
+                                    <Image
+                                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
+                                        alt="Instagram Logo"
+                                        className="instagram"
+                                        width={30}
+                                        height={30} />
                                 </Link>
-                                </li>
-                                <li>
+                            </li>
+                            <li>
                                 <Link href="/">
-                                <Image
-                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
-                                    alt="facebook Logo"
-                                    className="facebook"
-                                    width={14}
-                                    height={30} />
+                                    <Image
+                                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
+                                        alt="facebook Logo"
+                                        className="facebook"
+                                        width={14}
+                                        height={30} />
                                 </Link>
-                                </li>
-                                <li>
+                            </li>
+                            <li>
                                 <Link href="/">
-                                <Image
-                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
-                                    alt="spotify logo"
-                                    className="spotify"
-                                    width={30}
-                                    height={30} />
+                                    <Image
+                                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
+                                        alt="spotify logo"
+                                        className="spotify"
+                                        width={30}
+                                        height={30} />
                                 </Link>
-                                </li>
+                            </li>
                         </ul>
-                        </div>
                     </div>
                 </div>
-                <div className="col-1-25">
-                    <div className="footer-links">
+            </div>
+            <div className="col-1-25">
+                <div className="footer-links">
                         <Link href="/">Amenities</Link>
                         <Link href="/">Rooms</Link>
                         <Link href="/">Location</Link>

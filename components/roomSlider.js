@@ -7,11 +7,13 @@ import styles from '../styles/roomSlider.module.css'
 
 import "flickity/css/flickity.css";
 
-export default function RoomSlider({ rooms }) {
+export default function RoomSlider(props) {
 
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(0)
     const [loaded, setLoaded] = useState(false)
+
+    const { rooms } = props
 
     const changeSlider = (e) => {
         slider.current.select(e.target.dataset.slide)
@@ -52,7 +54,7 @@ export default function RoomSlider({ rooms }) {
                     rooms.map(room => {
                         return (
                             <div key={room.title} className={styles.room}>
-                                <Image src={room.featuredImage.node.sourceUrl} alt={room.title} width={1436} height={1020} layout="intrinsic" />
+                                <Image src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={1436} height={1020} layout="intrinsic" />
                             </div>
                         )
                     })
