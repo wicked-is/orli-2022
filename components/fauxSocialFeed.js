@@ -19,7 +19,7 @@ export default function FauxSocialFeed(props) {
                     {
                         images.map((image, index) => {
                             return (
-                                <Image src={image.mediaItemUrl} width={348} height={348} layout="responsive" alt={image.altText} />
+                                <Image key={`faux-${index}`} src={image.mediaItemUrl} width={348} height={348} layout="responsive" alt={image.altText} />
                             )
                         })
                     }
