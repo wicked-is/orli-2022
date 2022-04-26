@@ -3,16 +3,16 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 // Components
-import Hero from '../components/Hero';
+import Hero from '../components/hero';
 import BlurbCenter from '../components/blurbCenter';
 import BlurbLeft from '../components/blurbLeft';
 import RoomSlider from '../components/roomSlider';
 import AmenitiesSlider from '../components/amenitiesSlider';
-import OurMission from '../components/OurMission';
-import Gatherings from '../components/Gatherings';
-import FullFeatureBlog from '../components/FullFeatureBlog';
-import SpotifyFeature from '../components/SpotifyFeature';
-import FauxSocialFeed from '../components/FauxSocialFeed';
+import OurMission from '../components/ourMission';
+import Gatherings from '../components/gatherings';
+import FullFeatureBlog from '../components/fullFeatureBlog';
+import SpotifyFeature from '../components/spotifyFeature';
+import FauxSocialFeed from '../components/fauxSocialFeed';
 import SEO from '../components/seo';
 import DiscoveriesCallout from '../components/discoveriesCallout';
 
