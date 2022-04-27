@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/header.module.css';
 
 export default function Header(props) {
+    
     const navItems = props.navItems
 
     const [navIsOpen, setNavIsOpen] = useState(false);
@@ -89,7 +90,7 @@ export default function Header(props) {
                                     return (
                                         <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)} key={`ni-${index}`}>
                                             <Link href={item.link} passHref>
-                                                <a data-navImage={item.image.mediaItemUrl} data-altText={item.image.altText} className="serif-light white">{item.label}</a>
+                                                <a data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText} className="serif-light white">{item.label}</a>
                                             </Link>
                                         </li>
                                     )

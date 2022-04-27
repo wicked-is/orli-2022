@@ -4,8 +4,10 @@ import Layout from '../components/layout'
 
 function MyApp(props) {
   
+  console.log('my app props', props);
+
   const { Component, pageProps } = props
-  const navItems = pageProps.data?.data?.myOptionsPage?.options?.navigation?.navigationItems
+  const navItems = props.pageProps.data?.data?.myOptionsPage?.options?.navigation?.navigationItems
 
   return (
       <Layout navItems={navItems}>

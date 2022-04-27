@@ -119,6 +119,8 @@ export async function getStaticPaths() {
         params: { slug: page.slug }
     }));
 
+    console.log('paths', paths);
+
     return {
         paths,
         fallback: false,
