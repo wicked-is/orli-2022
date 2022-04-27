@@ -87,8 +87,8 @@ export default function Header(props) {
                             {
                                 navItems.map((item, index) => { 
                                     return (
-                                        <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)}>
-                                            <Link key={`ni-${index}`}href={item.link} passHref>
+                                        <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)} key={`ni-${index}`}>
+                                            <Link href={item.link} passHref>
                                                 <a data-navImage={item.image.mediaItemUrl} data-altText={item.image.altText} className="serif-light white">{item.label}</a>
                                             </Link>
                                         </li>
