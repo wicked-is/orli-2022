@@ -4,7 +4,7 @@ import Header from "../components/header";
 export default function Layout(props) {
     return (
         <>
-            <Header />
+            <Header navItems={props.navItems} />
             <main>
                 {props.children}
             </main>

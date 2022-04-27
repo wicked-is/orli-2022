@@ -135,6 +135,20 @@ export async function getStaticProps({ params }) {
     
     // Query for Sections and SEO data
     const pageQuery = `query AllComponents {
+                myOptionsPage {
+                    options {
+                        navigation {
+                            navigationItems {
+                                image {
+                                    altText
+                                    mediaItemUrl
+                                }
+                                label
+                                link
+                            }
+                        }
+                    }
+                }
                 pageBy(uri: "${slug}") {
                     seo {
                         title

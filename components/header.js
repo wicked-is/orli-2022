@@ -5,8 +5,11 @@ import { useEffect, useState } from 'react'
 
 import styles from '../styles/header.module.css';
 
-export default function Header() {
+export default function Header(props) {
+    const navItems = props.navItems
+
     const [navIsOpen, setNavIsOpen] = useState(false);
+    const [navImage, setNavImage] = useState(navItems[0].image.mediaItemUrl);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
@@ -77,45 +80,21 @@ export default function Header() {
             <nav className={`${styles.navContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
                 <div className="flex">
                     <div className="col-1-60 relative">
-                        <div className={styles.backgroundImage}></div>
+                        <div className={styles.backgroundImage} style={{ backgroundImage: `url(${navImage})` }}></div>
                     </div>
                     <div className="col-1-40 height-100 relative">
                         <ul className={styles.mainNav}>
-                            <li>
-                                <Link href="/find-your-room/" passHref>
-                                    <a className="serif-light white">Find Your Room</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/amenities/" passHref>
-                                    <a className="serif-light white">Tasteful Touches</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/discoveries/" passHref>
-                                    <a className="serif-light white">Discoveries</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/gatherings/" passHref>
-                                    <a className="serif-light white">Gatherings</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/our-story/" passHref>
-                                    <a className="serif-light white">Our Story</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/journal/" passHref>
-                                    <a className="serif-light white">The Journal</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/gallery/" passHref>
-                                    <a className="sans-serif-light white">Gallery</a>
-                                </Link>
-                            </li>
+                            {
+                                navItems.map((item, index) => { 
+                                    return (
+                                        <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)}>
+                                            <Link key={`ni-${index}`}href={item.link} passHref>
+                                                <a data-navImage={item.image.mediaItemUrl} data-altText={item.image.altText} className="serif-light white">{item.label}</a>
+                                            </Link>
+                                        </li>
+                                    )
+                                })
+                            }
                         </ul>
                         <div className={styles.bottomnav}>
                             <div className="col-1-50">
