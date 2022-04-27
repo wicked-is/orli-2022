@@ -3,14 +3,12 @@ import '../styles/globals.css'
 import Layout from '../components/layout'
 
 function MyApp(props) {
-  
-  console.log('my app props', props);
 
   const { Component, pageProps } = props
-  const navItems = props.pageProps?.data.data.myOptionsPage.options.navigation.navigationItems
+  const navItems = props.pageProps?.data.data.myOptionsPage.options.navigation.navigationItems || null;
 
   return (
-      <Layout navItems={navItems === 0 ? [] : navItems}>
+      <Layout navItems={navItems == null ? [] : navItems}>
         <Component {...pageProps} />
       </Layout>
   )
