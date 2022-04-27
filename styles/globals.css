@@ -50,3 +50,7 @@ a {
 }
 
 .textAnimation2, .textAnimation3 {}
+
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.justify-content-space-between { justify-content: space-between; }

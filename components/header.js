@@ -49,8 +49,6 @@ export default function Header(props) {
             </Head>
             <div className={styles.sitebranding}>
 
-                <img className={styles.close} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg" alt="close icon" onClick={() => toggleNav()} />
-
                 <div className={styles.announcementbar}>
                     <p className="sans-serif white xs-copy center">Lorem Ipsum Sed Ud Et Lorem</p>
                 </div>
@@ -72,9 +70,15 @@ export default function Header(props) {
                 </Link>
 
                 <div className="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
-						<span className="hamburger-box">
-							<span className="hamburger-inner"></span>
-						</span>
+                    {
+                        navIsOpen ? (
+                            <img className={styles.close} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg" alt="close icon" onClick={() => toggleNav()} />
+                        ) : (
+                            <span className="hamburger-box">
+                                <span className="hamburger-inner"></span>
+                            </span>
+                        )
+                    }
 				</div>
             </div>
 
@@ -83,7 +87,7 @@ export default function Header(props) {
                     <div className="col-1-60 relative">
                         <div className={styles.backgroundImage} style={{ backgroundImage: `url(${navImage})` }}></div>
                     </div>
-                    <div className="col-1-40 height-100 relative">
+                    <div className="col-1-40 height-100 relative flex flex-column justify-content-space-between">
                         <ul className={styles.mainNav}>
                             {
                                 navItems.map((item, index) => { 

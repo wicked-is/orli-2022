@@ -162,7 +162,7 @@
 
 .header.open .close {
     color: var(--white);
-    position: absolute;
+    position: fixed;
     font-size: 3rem;
     width: 40px;
     top: 2rem;
@@ -200,4 +200,5 @@
     width: 100%;
     display: flex; 
     align-items: flex-start;
+    padding: 0 4rem 4rem;
 }
