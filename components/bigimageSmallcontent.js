@@ -20,39 +20,39 @@ export default function BigImageSmallContent(props) {
     
     return (
         <section className={`${styles.container} max-80`}>
-           {contentPosition[0].type === "Left" && (
+           {contentPosition === "Left" && (
                <div className="col-flex">
                 <div className="col-1-40">
-                    <Image src={icon} />
+                    { icon && (<Image src={icon?.mediaItemUrl} alt={icon?.altText} width={312} height={302} layout="responsive"/>)}
                     <p className="sans-serif black left">{subHeadline}</p>
                     <p className="serif black left">{headline}</p>
                     <p className="sans-serif black left">{blurb}</p>
                 </div>
                 <div className="col-1-60">
                 {
-                    media[0].type === "Image" && (
+                    mediaType === "Image" && (
                         <>
-                            <Image src={media[1].imagePoster.sourceUrl} alt={media[1].imagePoster.altText} width={561} height={370} layout="responsive" />
+                            <Image src={imagePoster.mediaItemUrl} alt={imagePoster.altText} width={561} height={370} layout="responsive" />
                         </>
                     )
                 }
                 {
-                    media[1].type === "Slider" && (
+                    mediaType === "Slider" && (
                         <>
                             
                         </>
                     )
                 }
                 {
-                    media[3].type === "Video" && (
+                    mediaType === "Video" && (
                         <div className={`${styles.videoBackground}`}>
                             <div>
                                 <video className={styles.videoBG} autoPlay playsInline muted loop>
-                                    <source src={media[0].mp4} type="video/mp4" />
-                                    <source src={media[0].webm} />
+                                    <source src={mp4OrExternalLink} type="video/mp4" />
+                                    <source src={webm} type="video/webm"/>
                                 </video>
                             </div>
-                            <p className="serif xs-copy uppercase brown"><a href={media[0].ctaLink}>{media[0].ctaText}</a></p>
+                            <p className="serif xs-copy uppercase brown"><a href={ctaLink}>{ctaText}</a></p>
                         </div>
                     )
                 }
@@ -60,38 +60,39 @@ export default function BigImageSmallContent(props) {
                </div>
            )
            }
-           {contentPosition[1].type === "Right" && (
+           {contentPosition === "Right" && (
                <div className="col-flex">
                 <div className="col-1-60">
                 {
-                    media[0].type === "Image" && (
+                    mediaType === "Image" && (
                         <>
-                            <Image src={media[1].imagePoster.sourceUrl} alt={media[1].imagePoster.altText} width={561} height={370} layout="responsive" />
+                            <Image src={imagePoster.mediaItemUrl} alt={imagePoster.altText} width={561} height={370} layout="responsive" />
                         </>
                     )
                 }
                 {
-                    media[1].type === "Slider" && (
+                    mediaType === "Slider" && (
                         <>
                             
                         </>
                     )
                 }
                 {
-                    media[3].type === "Video" && (
+                    mediaType === "Video" && (
                         <div className={`${styles.videoBackground}`}>
                             <div>
                                 <video className={styles.videoBG} autoPlay playsInline muted loop>
-                                    <source src={media[0].mp4} type="video/mp4" />
-                                    <source src={media[0].webm} />
+                                    <source src={mp4OrExternalLink} type="video/mp4" />
+                                    <source src={webm} type="video/webm" />
                                 </video>
                             </div>
-                            <p className="serif xs-copy uppercase brown"><a href={media[0].ctaLink}>{media[0].ctaText}</a></p>
+                            <p className="serif xs-copy uppercase brown"><a href={ctaLink}>{ctaText}</a></p>
                         </div>
                     )
                 }
                 </div>
                 <div className="col-1-40">
+                { icon && (<Image src={icon?.mediaItemUrl} alt={icon?.altText} width={312} height={302} layout="responsive"/>)}
                     <p className="sans-serif black left">{subHeadline}</p>
                     <p className="serif black left">{headline}</p>
                     <p className="sans-serif black left">{blurb}</p>

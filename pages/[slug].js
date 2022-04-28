@@ -195,7 +195,8 @@ export async function getStaticProps({ params }) {
                                 subHeadline
                                 headline
                                 icon {
-                                    id
+                                    mediaItemUrl
+                                    altText
                                 }
                                 imagePoster {
                                     mediaItemUrl
