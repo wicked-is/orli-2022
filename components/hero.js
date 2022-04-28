@@ -9,7 +9,7 @@ export default function Hero(props) {
         includeBookingForm,
         headline,
         blurb,
-        image,
+        imagePoster,
         mp4ExternalLink,
         webm
     } = props
@@ -25,8 +25,11 @@ export default function Hero(props) {
                 )
             case 'Full Height Image':
                 return (
-                    <div className={styles.bigHero}>
-                         <img src={image.mediaUrl} alt={image.altText} />
+                    <div className={styles.bigHero} style={{
+                        backgroundImage: `url(${imagePoster.mediaItemUrl})`
+                    }}>
+                        <p>{headline}</p>
+                        <p>{blurb}</p>
                     </div>
                 )
             case 'Small Hero Image':
