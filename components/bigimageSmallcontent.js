@@ -8,10 +8,13 @@ export default function BigImageSmallContent(props) {
         contentPosition, 
         subHeadline, 
         headline, 
-        blurb, 
+        blurb,
+        ctaLink,
+        ctaText,
         icon, 
         media, 
-        imagePoster, 
+        imagePoster,
+        paddingType,
         mediaFullWidth,
         mediaType,
         mp4OrExternalLink,
@@ -21,19 +24,23 @@ export default function BigImageSmallContent(props) {
     return (
         <section className={`${styles.container} max-80`}>
            {contentPosition === "Left" && (
-               <div className="col-flex">
-                <div className="col-1-40">
-                    { icon && (<Image src={icon?.mediaItemUrl} alt={icon?.altText} width={312} height={302} layout="responsive"/>)}
-                    <p className="sans-serif black left">{subHeadline}</p>
-                    <p className="serif black left">{headline}</p>
-                    <p className="sans-serif black left">{blurb}</p>
+               <div className={`flex ${paddingType}`}>
+                <div className="col-1-40 text-padding-right">
+                    { icon && (
+                        <p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.leftIcon}/></p>
+                        )
+                    }
+                    <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
+                    <p className="serif heading black left">{headline}</p>
+                    <p className="sans-serif body-copy black left">{blurb}</p>
+                    {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>
                 <div className="col-1-60">
                 {
                     mediaType === "Image" && (
-                        <>
+                        <div className="text-padding-left">
                             <Image src={imagePoster.mediaItemUrl} alt={imagePoster.altText} width={561} height={370} layout="responsive" />
-                        </>
+                        </div>
                     )
                 }
                 {
@@ -61,13 +68,13 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Right" && (
-               <div className="col-flex">
+               <div className={`flex ${paddingType}`}>
                 <div className="col-1-60">
                 {
                     mediaType === "Image" && (
-                        <>
+                        <div className="text-padding-right">
                             <Image src={imagePoster.mediaItemUrl} alt={imagePoster.altText} width={561} height={370} layout="responsive" />
-                        </>
+                        </div>
                     )
                 }
                 {
@@ -91,11 +98,12 @@ export default function BigImageSmallContent(props) {
                     )
                 }
                 </div>
-                <div className="col-1-40">
-                { icon && (<Image src={icon?.mediaItemUrl} alt={icon?.altText} width={312} height={302} layout="responsive"/>)}
-                    <p className="sans-serif black left">{subHeadline}</p>
-                    <p className="serif black left">{headline}</p>
-                    <p className="sans-serif black left">{blurb}</p>
+                <div className="col-1-40 text-padding-left">
+                { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
+                    <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
+                    <p className="serif heading black left">{headline}</p>
+                    <p className="sans-serif body-copy black left">{blurb}</p>
+                    {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>
                </div>
            )

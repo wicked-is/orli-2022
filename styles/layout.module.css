@@ -57,6 +57,7 @@
 .max-60, .max-70, .max-75, .max-80, .max-90 {
     width: 100%; 
     margin: auto;
+    display: block;
 }
 
 .max-60 {max-width: 60%;}
@@ -67,9 +68,11 @@
 
 .padding-bottom {padding: 0rem 0rem 6rem 0rem;}
 .padding-top {padding: 6rem 0rem 0rem 0rem;}
+.padding-top-bottom {padding: 6rem 0rem;}
 .padding-sides {padding: 0rem 6rem;}
 .padding-left {padding: 0rem 0rem 0rem 6rem;}
 .padding-right {padding: 0rem 6rem 0rem 0rem;}
 .padding-all {padding: 6rem}
 
-.text-padding-left {padding-left: 1rem;}
+.text-padding-left {padding-left: 4rem;}
+.text-padding-right {padding-right: 4rem;}

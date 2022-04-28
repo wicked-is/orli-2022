@@ -210,6 +210,7 @@ export async function getStaticProps({ params }) {
                                     altText
                                     mediaItemUrl
                                 }
+                                paddingType
                             }
                             ... on Page_Flexiblecontent_Sections_CenteredCopy {
                                 fieldGroupName

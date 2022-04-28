@@ -71,3 +71,8 @@
 .underline {text-decoration: underline;}
 
 address {font-style: normal;}
+
+.cta-black, .cta-white {text-decoration: underline;}
+
+.cta-black:visited, .cta-black:focus {color: var(--black);} 
+.cta-white:visited, .cta-white:focus {color: var(--white);}

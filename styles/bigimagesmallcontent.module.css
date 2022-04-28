@@ -1,4 +1,11 @@
-.container {display: initial;}
+.container {width: 100%; margin: auto; display: block;}
+
+.leftIcon,
+.rightIcon {
+    width: 100%; 
+    max-width: 15%; 
+    margin: auto;
+}
 
 .videoBackground {
     margin-top: 6rem;
