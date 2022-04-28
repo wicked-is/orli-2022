@@ -1,5 +1,6 @@
 import BookingForm from './bookingForm';
-
+import Link from 'next/link'
+import Image from 'next/image'
 import styles from '../styles/hero.module.css'
 
 export default function Hero(props) {
@@ -11,7 +12,8 @@ export default function Hero(props) {
         blurb,
         imagePoster,
         mp4ExternalLink,
-        webm
+        webm,
+        subnavigation
     } = props
 
     const heroStructure = (types) => { 
@@ -33,6 +35,32 @@ export default function Hero(props) {
                         <p className="serif heading white">{blurb}</p>
                         </div>
                     </div>
+                )
+            case 'Full Height Image with SubNav':
+                    return (
+                        <div className={styles.bigheroSubnav}>
+                            <ul className={styles.subnavigationContainer}>
+                           
+                            {
+                        subnavigation.map((iconnav, link, label) => {
+                            return (
+                                <li>
+                                <Image src={iconnav?.mediaItemUrl} width={300} height={300} layout="responsive" alt={iconnav?.altText} />
+                                </li>
+                                )
+                        })
+                    }
+                            </ul>
+
+                        <div className={styles.bigHero} style={{
+                            backgroundImage: `url(${imagePoster.mediaItemUrl})`
+                        }}>
+                            <div className={styles.herotextOver}>
+                            <p className="sans-serif sub-heading-bold white">{headline}</p>
+                            <p className="serif heading white">{blurb}</p>
+                            </div>
+                        </div>
+                        </div>
                 )
             case 'Small Hero Image':
                 return (

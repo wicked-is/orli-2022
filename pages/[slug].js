@@ -211,6 +211,7 @@ export async function getStaticProps({ params }) {
                                     mediaItemUrl
                                 }
                                 paddingType
+                                anchorTag
                             }
                             ... on Page_Flexiblecontent_Sections_CenteredCopy {
                                 fieldGroupName
@@ -352,6 +353,16 @@ export async function getStaticProps({ params }) {
                                 imagePoster {
                                     mediaItemUrl
                                     altText
+                                }
+                                subnavigation {
+                                ...on Page_Flexiblecontent_Sections_Hero_subnavigation {
+                                    link
+                                    label
+                                    iconnav {
+                                      altText
+                                      mediaItemUrl
+                                    }
+                                }
                                 }
                             }
                             ... on Page_Flexiblecontent_Sections_OurMission {

@@ -8,7 +8,7 @@
   .bg-green{
     background-color:var(--green);
   }
-  .bg-white{
+  .bg-white, .White-bg {
     background-color:var(--white);
   }
 
