@@ -15,6 +15,7 @@ import SpotifyFeature from '../components/spotifyFeature';
 import FauxSocialFeed from '../components/fauxSocialFeed';
 import SEO from '../components/seo';
 import DiscoveriesCallout from '../components/discoveriesCallout';
+import BigImageSmallContent from '../components/bigimageSmallcontent';
 
 
 export default function DefaultPage(props) {
@@ -78,6 +79,9 @@ export default function DefaultPage(props) {
                     break;
                 case 'Page_Flexiblecontent_Sections_SpotifyFeature':
                     gatheredSections.push(<SpotifyFeature key={componentKey} {...section} />)
+                    break;
+                case 'Page_Flexiblecontent_Sections_BigImageSmallContent':
+                    gatheredSections.push(<BigImageSmallContent key={componentKey} {...section} />)
                     break;
                 default:
                     break;

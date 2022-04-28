@@ -28,8 +28,10 @@ export default function Hero(props) {
                     <div className={styles.bigHero} style={{
                         backgroundImage: `url(${imagePoster.mediaItemUrl})`
                     }}>
-                        <p>{headline}</p>
-                        <p>{blurb}</p>
+                        <div className={styles.herotextOver}>
+                        <p className="sans-serif sub-heading-bold white">{headline}</p>
+                        <p className="serif heading white">{blurb}</p>
+                        </div>
                     </div>
                 )
             case 'Small Hero Image':

@@ -1,0 +1,9 @@
+.container {display: initial;}
+
+.videoBackground {
+    margin-top: 6rem;
+}
+.videoBackground video {
+    max-width: 100%;
+    position: relative;
+}
