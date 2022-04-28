@@ -11,7 +11,7 @@
     width: 100%;
     margin: auto;
     display: block;
-    height: 9rem;
+    height: 6rem;
     z-index: 99;
     background: var(--white);
 }
@@ -24,7 +24,7 @@
     width: 100%;
     max-width: 7rem;
     left: 4rem;
-    top: 3rem;
+    top: 0;
     display: block;
 }
 
@@ -37,7 +37,7 @@
     width: fit-content;
     padding: 1.4rem 2rem 0rem 2rem;
     right: 0rem;
-    top: 3rem;
+    top: 0;
     display: block;
     background: var(--brown);
     align-items: center;
@@ -78,7 +78,7 @@
     overflow: visible;
     position: absolute;
     right: 260px;
-    top: 5.5rem;
+    top: 2.5rem;
     z-index: 1;
     opacity: 1;
 }

@@ -149,6 +149,10 @@ export async function getStaticProps({ params }) {
                                 link
                             }
                         }
+                        announcementBar {
+                            announcementBarText
+                            isAnnouncementBarActive
+                        }
                     }
                 }
                 pageBy(uri: "${slug}") {

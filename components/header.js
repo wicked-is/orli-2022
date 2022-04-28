@@ -8,6 +8,7 @@ import styles from '../styles/header.module.css';
 export default function Header(props) {
     
     const navItems = props.navItems
+    const topBar = props.topBar
 
     const [navIsOpen, setNavIsOpen] = useState(false);
     const [navImage, setNavImage] = useState(navItems[0].image.mediaItemUrl);
@@ -47,12 +48,12 @@ export default function Header(props) {
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            {topBar.isAnnouncementBarActive && (
+                    <div className={styles.announcementbar}>
+                        <p className="sans-serif white xs-copy center">{topBar.announcementBarText}</p>
+                    </div>
+                )}
             <div className={styles.sitebranding}>
-
-                <div className={styles.announcementbar}>
-                    <p className="sans-serif white xs-copy center">Lorem Ipsum Sed Ud Et Lorem</p>
-                </div>
-                
                 <Link href="/">
                     <img
                         src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
