@@ -7,6 +7,28 @@
     margin: auto;
 }
 
+.halfBanner {
+    height: 80vh;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    display: block;
+    overflow: hidden;
+}
+
+.backgroundImage {
+    padding: 2rem 0rem 0rem 0rem;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.backgroundVideo {display: initial;}
+
 .videoBackground {
     margin-top: 6rem;
 }

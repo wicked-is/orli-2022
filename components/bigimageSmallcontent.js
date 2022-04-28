@@ -22,8 +22,9 @@ export default function BigImageSmallContent(props) {
         slides } = props
     
     return (
-        <section className={`${styles.container} max-80`}>
+        <section className={styles.container}>
            {contentPosition === "Left" && (
+               <div className="max-80">
                <div className={`flex ${paddingType}`}>
                 <div className="col-1-40 text-padding-right">
                     { icon && (
@@ -65,9 +66,11 @@ export default function BigImageSmallContent(props) {
                 }
                 </div>
                </div>
+               </div>
            )
            }
            {contentPosition === "Right" && (
+               <div className="max-80">
                <div className={`flex ${paddingType}`}>
                 <div className="col-1-60">
                 {
@@ -105,6 +108,100 @@ export default function BigImageSmallContent(props) {
                     <p className="sans-serif body-copy black left">{blurb}</p>
                     {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>
+               </div>
+               </div>
+           )
+           }
+           {contentPosition === "Over Background Left" && (
+               <div className={`flex ${paddingType}`}>
+                    {
+                    mediaType === "Image" && (
+                        <div className={`${styles.halfBanner} ${styles.backgroundImage}`} style={{ backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
+                            <div class="max-80">
+                            <div class="flex">
+                            <div class="col-1-40">
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
+                            <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
+                            <p className="serif heading white left">{headline}</p>
+                            <p className="sans-serif body-copy white left">{blurb}</p>
+                            {ctaText && (
+                                <a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>
+                            )
+                            }
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                    )
+                }
+                {
+                    mediaType === "video" && (
+                        <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
+                            <div class={styles.overBackground}>
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
+                            <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
+                            <p className="serif heading white left">{headline}</p>
+                            <p className="sans-serif body-copy white left">{blurb}</p>
+                            {ctaText && (
+                                <a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>
+                            )
+                            }
+                            </div>
+                            <video className={styles.videoBG} autoPlay playsInline muted loop>
+                                    <source src={mp4OrExternalLink} type="video/mp4" />
+                                    <source src={webm} type="video/webm" />
+                            </video>
+                        </div>
+                    )
+                }
+               </div>
+           )
+           }
+
+{contentPosition === "Over Background Right" && (
+               <div className={`flex ${paddingType}`}>
+                    {
+                    mediaType === "Image" && (
+                        <div className={`${styles.halfBanner} ${styles.backgroundImage}`} style={{ backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
+                            <div class="max-80">
+                            <div class="flex">
+                            <div class="col-1-60">
+                            </div>
+                            <div class="col-1-40">
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
+                            <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
+                            <p className="serif heading white left">{headline}</p>
+                            <p className="sans-serif body-copy white left">{blurb}</p>
+                            {ctaText && (
+                                <a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>
+                            )
+                            }
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                    )
+                }
+                {
+                    mediaType === "video" && (
+                        <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
+                            <div class={styles.overBackground}>
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
+                            <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
+                            <p className="serif heading white left">{headline}</p>
+                            <p className="sans-serif body-copy white left">{blurb}</p>
+                            {ctaText && (
+                                <a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>
+                            )
+                            }
+                            </div>
+                            <video className={styles.videoBG} autoPlay playsInline muted loop>
+                                    <source src={mp4OrExternalLink} type="video/mp4" />
+                                    <source src={webm} type="video/webm" />
+                            </video>
+                        </div>
+                    )
+                }
                </div>
            )
            }
