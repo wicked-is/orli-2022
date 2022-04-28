@@ -1,5 +1,5 @@
 /* -- Colors --*/
-  .bg-lt-grey{
+  .bg-lt-grey, .Grey-bg {
     background-color:var(--lt-grey);
   }
   .bg-navy{

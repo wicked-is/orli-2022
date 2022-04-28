@@ -7,7 +7,7 @@ export default function FauxSocialFeed(props) {
     const { backgroundColor, ctaLink, ctaText, headline, image: images } = props;
 
     return (
-        <section className={styles.fauxSocialFeedContainer}>
+        <section className={`${styles.fauxSocialFeedContainer} ${backgroundColor}-bg`}>
             <div className="max-80">
                 <div className={styles.topContainer}>
                     <h2 className="heading">{headline}</h2>
