@@ -36,3 +36,10 @@
     max-width: 100%;
     position: relative;
 }
+
+.anchor:target {
+    display: block;
+    position: relative;
+    top: -18rem; 
+    visibility: hidden;
+  }

@@ -50,7 +50,10 @@ export default function Hero(props) {
                                     subnavigation.map((item, index) => {
                             return (
                                 <li key={`ni-${index}`} >
-                                    <Image src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} width={300} height={300} layout="responsive" alt={item.iconnav?.altText} />
+                                    <a href={item.link}>
+                                    <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
+                                    <p className="black xs-copy uppercase center">{item.label}</p>
+                                    </a>
                                 </li>
                                 )
                         })
