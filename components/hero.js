@@ -16,8 +16,6 @@ export default function Hero(props) {
         subnavigation
     } = props
 
-    console.log(props)
-
     const heroStructure = (types) => { 
         switch (types) {
             case 'Video':

@@ -16,6 +16,7 @@ import FauxSocialFeed from '../components/fauxSocialFeed';
 import SEO from '../components/seo';
 import DiscoveriesCallout from '../components/discoveriesCallout';
 import BigImageSmallContent from '../components/bigimageSmallcontent';
+import HistoricalSlider from '../components/historicalSlider';
 
 
 export default function DefaultPage(props) {
@@ -52,6 +53,9 @@ export default function DefaultPage(props) {
             switch (section.fieldGroupName) { 
                 case 'Page_Flexiblecontent_Sections_Hero':
                     gatheredSections.push(<Hero key={componentKey} {...section} />)
+                    break;
+                case 'Page_Flexiblecontent_Sections_HistoricTimeline':
+                    gatheredSections.push(<HistoricalSlider key={componentKey} {...section} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_CenteredCopy':
                     gatheredSections.push(<BlurbCenter key={componentKey} {...section} />)
@@ -122,8 +126,6 @@ export async function getStaticPaths() {
     const paths = pages.data.pages.nodes.map(page => ({
         params: { slug: page.slug }
     }));
-
-    console.log('paths', paths);
 
     return {
         paths,
@@ -355,16 +357,29 @@ export async function getStaticProps({ params }) {
                                     altText
                                 }
                                 subnavigation {
-                                ...on Page_Flexiblecontent_Sections_Hero_subnavigation {
-                                    link
-                                    label
-                                    iconnav {
-                                      altText
-                                      mediaItemUrl
+                                    ...on Page_Flexiblecontent_Sections_Hero_subnavigation {
+                                        link
+                                        label
+                                        iconnav {
+                                            altText
+                                            mediaItemUrl
+                                        }
                                     }
                                 }
-                                }
                             }
+                            ... on Page_Flexiblecontent_Sections_HistoricTimeline {
+                                fieldGroupName
+                                years {
+                                    ... on Page_Flexiblecontent_Sections_HistoricTimeline_years {
+                                            year
+                                            caption
+                                            image {
+                                                altText
+                                                mediaItemUrl
+                                            }
+                                        }
+                                    }
+                                }
                             ... on Page_Flexiblecontent_Sections_OurMission {
                                 fieldGroupName
                                 logo {

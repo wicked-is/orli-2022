@@ -1,0 +1,81 @@
+.historicTimelineContainer {
+    position: relative;
+    max-height: 90vh;
+    min-height: 55vh;
+}
+
+.year {
+    width: 100%;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.year img {
+    width: 100%;
+}
+
+.sliderNavContainer {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sliderContent {
+    position: absolute;
+    bottom: 7rem;
+    z-index: 97;
+    background-color: #0C2B1C;
+    background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
+    padding: 1rem 3rem 1rem 10rem;
+    max-width: 50%;
+}
+
+.sliderNav {
+    margin-top: 6rem;
+}
+
+.sliderNav p {
+    color: var(--white);
+    font-family: 'GT Walsheim Light';
+    text-transform: uppercase;
+    font-size: var(--xs-copy);
+    cursor: pointer;
+    padding: 0rem 0rem 0.3rem 0rem;
+}
+
+.sliderNav p:not(:first-of-type) {
+    margin-top: 3rem;
+}
+
+.yearTextContainer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.yearContentContainer {
+    text-align: center;
+    color: #fff;
+    max-width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.yearContentContainer p:first-of-type {
+    font-size: 15rem;
+    margin: 0;
+}
+
+.active {
+    -webkit-text-stroke: 1px var(--white);
+}
