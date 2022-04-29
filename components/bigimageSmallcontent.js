@@ -127,9 +127,9 @@ export default function BigImageSmallContent(props) {
                     {
                     mediaType === "Image" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundImage}`} style={{ backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
-                            <div class="max-80">
-                            <div class="flex">
-                            <div class="col-1-40">
+                            <div className="max-80">
+                            <div className="flex">
+                            <div className="col-1-40">
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
@@ -147,7 +147,7 @@ export default function BigImageSmallContent(props) {
                 {
                     mediaType === "video" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
-                            <div class={styles.overBackground}>
+                            <div className={styles.overBackground}>
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
@@ -176,11 +176,11 @@ export default function BigImageSmallContent(props) {
                     {
                     mediaType === "Image" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundImage}`} style={{ backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
-                            <div class="max-80">
-                            <div class="flex">
-                            <div class="col-1-60">
+                            <div className="max-80">
+                            <div className="flex">
+                            <div className="col-1-60">
                             </div>
-                            <div class="col-1-40">
+                            <div className="col-1-40">
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
@@ -198,7 +198,7 @@ export default function BigImageSmallContent(props) {
                 {
                     mediaType === "video" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
-                            <div class={styles.overBackground}>
+                            <div className={styles.overBackground}>
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
