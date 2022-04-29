@@ -16,6 +16,8 @@ export default function Hero(props) {
         subnavigation
     } = props
 
+    console.log(props)
+
     const heroStructure = (types) => { 
         switch (types) {
             case 'Video':
@@ -41,11 +43,14 @@ export default function Hero(props) {
                         <div className={styles.bigheroSubnav}>
                             <ul className={styles.subnavigationContainer}>
                            
-                            {
-                        subnavigation.map((iconnav, link, label) => {
+                                {
+                                    // This was the incorrect bit. You were calling parameters
+                                    // on the item without having the item defined. 
+                                    // When you're back we can huddle if you'd like.
+                                    subnavigation.map((item, index) => {
                             return (
                                 <li>
-                                <Image src={iconnav?.mediaItemUrl} width={300} height={300} layout="responsive" alt={iconnav?.altText} />
+                                    <Image src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} width={300} height={300} layout="responsive" alt={item.iconnav?.altText} />
                                 </li>
                                 )
                         })
