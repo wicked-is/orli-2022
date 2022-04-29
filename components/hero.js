@@ -49,8 +49,8 @@ export default function Hero(props) {
                                     // When you're back we can huddle if you'd like.
                                     subnavigation.map((item, index) => {
                             return (
-                                <li>
-                                    <Image key={`ni-${index}`} src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} width={300} height={300} layout="responsive" alt={item.iconnav?.altText} />
+                                <li key={`ni-${index}`} >
+                                    <Image src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} width={300} height={300} layout="responsive" alt={item.iconnav?.altText} />
                                 </li>
                                 )
                         })
