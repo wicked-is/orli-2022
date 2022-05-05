@@ -317,6 +317,7 @@ export async function getStaticProps({ params }) {
                                 ctaText
                                 headline
                                 subHeadline
+                                blurb
                                 type
                                 events {
                                     ... on Event {

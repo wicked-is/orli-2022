@@ -6,7 +6,7 @@ import styles from '../styles/gatherings.module.css';
 
 export default function Gatherings(props) {
 
-    const { type, subHeadline, headline, ctaText, ctaLink, media, events } = props
+    const { type, subHeadline, headline, blurb, ctaText, ctaLink, media, events } = props
     
     const gatheringStructure = (type) => { 
     switch (type) {
@@ -49,7 +49,39 @@ export default function Gatherings(props) {
     )
     case 'Weddings':
         return (
-            <></>
+            <>
+            <div className={styles.left}>
+                <ThreePartHeading
+                    subheader={subHeadline}
+                    header={headline}
+                    ctaText={ctaText}
+                    ctaLink={ctaLink}
+                />
+                {
+                    media[0].type === "Video" && (
+                        <div className={`${styles.videoBackground}`}>
+                            <div>
+                                <video className={styles.videoBG} autoPlay playsInline muted loop>
+                                    <source src={media[0].mp4} type="video/mp4" />
+                                    <source src={media[0].webm} />
+                                </video>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+            <div className={styles.right}>
+                {
+                    media[1].type === "Image" && (
+                        <>
+                            <Image src={media[1].imagePoster.sourceUrl} alt={media[1].imagePoster.altText} width={561} height={370} layout="responsive" />
+                            <p className="serif xs-copy uppercase brown"><a href={media[1].ctaLink}>{media[1].ctaText}</a></p>
+                        </>
+                    )
+                }
+                <p className="sans-serif body-copy brown left">{blurb}</p>
+            </div>
+            </>
         )
     }
     }
