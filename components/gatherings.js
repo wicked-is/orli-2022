@@ -75,11 +75,10 @@ export default function Gatherings(props) {
                     media[1].type === "Image" && (
                         <>
                             <Image src={media[1].imagePoster.sourceUrl} alt={media[1].imagePoster.altText} width={561} height={370} layout="responsive" />
-                            <p className="serif xs-copy uppercase black"><a href={media[1].ctaLink}>{media[1].ctaText}</a></p>
                         </>
                     )
                 }
-                <p className="sans-serif body-copy brown left">{blurb}</p>
+                <p className={`${styles.blurbpadding} sans-serif body-copy black left`}>{blurb}</p>
             </div>
             </>
         )
