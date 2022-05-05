@@ -1,8 +1,23 @@
+import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
-
 import styles from '../styles/bigimagesmallcontent.module.css';
+import Flickity from 'react-flickity-component'
+import "flickity/css/flickity.css";
 
 export default function BigImageSmallContent(props) {
+    const slider = useRef(null)
+
+    const [sliderActive, setSliderActive] = useState(0)
+
+    const changeSlider = (index) => {
+        slider.current.select(index)
+    }
+
+    useEffect(() => {
+        slider.current.on('change', () => {
+            setSliderActive(slider.current.selectedIndex)
+        })
+    }, [sliderActive]);
 
     const {
         contentPosition, 
@@ -50,9 +65,32 @@ export default function BigImageSmallContent(props) {
                 }
                 {
                     mediaType === "Slider" && (
-                        <>
-                            
-                        </>
+                        <Flickity
+                options={{
+                    cellAlign: 'left',
+                    prevNextButtons: false,
+                    pageDots: false,
+                    draggable: true,
+                    wrapAround: true,
+                    imagesLoaded: true
+                }}
+                disableImagesLoaded={false} // default false
+                reloadOnUpdate={false} // default false
+                static // default false
+                flickityRef={c => {
+                    slider.current = c
+                }}
+            >
+                {
+                    slides.map((slides, index) => {
+                        return (
+                         <div key={slides.slides} className={styles.slides}>
+                             <Image src={slides.mediaItemUrl} alt={slides.altText} width={561} height={370} layout="intrinsic" />
+                        </div>
+                        )}
+                    )
+                }
+            </Flickity>
                     )
                 }
                 {
@@ -89,9 +127,32 @@ export default function BigImageSmallContent(props) {
                 }
                 {
                     mediaType === "Slider" && (
-                        <>
-                            
-                        </>
+                        <Flickity
+                options={{
+                    cellAlign: 'left',
+                    prevNextButtons: false,
+                    pageDots: false,
+                    draggable: true,
+                    wrapAround: true,
+                    imagesLoaded: true
+                }}
+                disableImagesLoaded={false} // default false
+                reloadOnUpdate={false} // default false
+                static // default false
+                flickityRef={c => {
+                    slider.current = c
+                }}
+            >
+                {
+                    slides.map((slides, index) => {
+                        return (
+                         <div key={slides.slides} className={styles.slides}>
+                             <Image src={slides.mediaItemUrl} alt={slides.altText} width={561} height={370} layout="intrinsic" />
+                        </div>
+                        )}
+                    )
+                }
+            </Flickity>
                     )
                 }
                 {
