@@ -37,6 +37,12 @@
     position: relative;
 }
 
+.slides {
+    width: 100%;
+    margin: 0px;
+}
+.slides .sliderimage {width: 100%;}
+
 .anchor:target {
     display: block;
     position: relative;

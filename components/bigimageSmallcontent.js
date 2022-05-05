@@ -67,12 +67,13 @@ export default function BigImageSmallContent(props) {
                     mediaType === "Slider" && (
                         <Flickity
                 options={{
-                    cellAlign: 'left',
+                    cellAlign: 'center',
                     prevNextButtons: false,
                     pageDots: false,
                     draggable: true,
                     wrapAround: true,
-                    imagesLoaded: true
+                    imagesLoaded: true,
+                    adaptiveHeight: true
                 }}
                 disableImagesLoaded={false} // default false
                 reloadOnUpdate={false} // default false
@@ -85,7 +86,7 @@ export default function BigImageSmallContent(props) {
                     slides.map((slides, index) => {
                         return (
                          <div key={slides.slides} className={styles.slides}>
-                             <Image src={slides.mediaItemUrl} alt={slides.altText} width={561} height={370} layout="intrinsic" />
+                             <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
                         </div>
                         )}
                     )
@@ -129,12 +130,13 @@ export default function BigImageSmallContent(props) {
                     mediaType === "Slider" && (
                         <Flickity
                 options={{
-                    cellAlign: 'left',
+                    cellAlign: 'center',
                     prevNextButtons: false,
                     pageDots: false,
                     draggable: true,
                     wrapAround: true,
-                    imagesLoaded: true
+                    imagesLoaded: true,
+                    adaptiveHeight: true
                 }}
                 disableImagesLoaded={false} // default false
                 reloadOnUpdate={false} // default false
@@ -147,7 +149,7 @@ export default function BigImageSmallContent(props) {
                     slides.map((slides, index) => {
                         return (
                          <div key={slides.slides} className={styles.slides}>
-                             <Image src={slides.mediaItemUrl} alt={slides.altText} width={561} height={370} layout="intrinsic" />
+                             <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
                         </div>
                         )}
                     )
