@@ -6,10 +6,13 @@ import styles from '../styles/gatherings.module.css';
 
 export default function Gatherings(props) {
 
-    const { subHeadline, headline, ctaText, ctaLink, media, events } = props
+    const { type, subHeadline, headline, ctaText, ctaLink, media, events } = props
     
+    const gatheringStructure = (type) => { 
+    switch (type) {
+        case 'Gatherings':
     return (
-        <section className={`${styles.gatheringsContainer} max-80`}>
+        <>
             <div className={styles.left}>
                 <ThreePartHeading
                     subheader={subHeadline}
@@ -42,6 +45,17 @@ export default function Gatherings(props) {
                 }
                 <EventFeed events={events} />
             </div>
+        </>
+    )
+    case 'Weddings':
+        return (
+            <></>
+        )
+    }
+    }
+    return (
+        <section className={`${styles.gatheringsContainer} max-80`}>
+            { gatheringStructure(type) }
         </section>
     )
 }
