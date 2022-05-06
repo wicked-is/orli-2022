@@ -68,7 +68,7 @@
     right: 0px;
     z-index: 10;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
     list-style: none;
     padding: 1rem 0rem 0rem 0rem;
 }
@@ -77,7 +77,7 @@
 
 .iconnav {
     width: 100%; 
-    max-width: 60%; 
+    max-width: 4rem;
     margin: auto; 
     text-align: center; 
     display: block;

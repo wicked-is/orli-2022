@@ -69,6 +69,13 @@ export default function Gatherings(props) {
                         </div>
                     )
                 }
+                {
+                    media[0].type === "Image" && (
+                        <>
+                            <Image src={media[0].imagePoster.sourceUrl} alt={media[0].imagePoster.altText} width={561} height={593} layout="responsive" />
+                        </>
+                    )
+                }
             </div>
             <div className={styles.right}>
                 {

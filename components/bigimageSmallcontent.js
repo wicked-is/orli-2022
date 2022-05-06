@@ -9,16 +9,6 @@ export default function BigImageSmallContent(props) {
 
     const [sliderActive, setSliderActive] = useState(0)
 
-    const changeSlider = (index) => {
-        slider.current.select(index)
-    }
-
-    useEffect(() => {
-        slider.current.on('change', () => {
-            setSliderActive(slider.current.selectedIndex)
-        })
-    }, [sliderActive]);
-
     const {
         contentPosition, 
         subHeadline, 
