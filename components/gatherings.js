@@ -6,7 +6,7 @@ import styles from '../styles/gatherings.module.css';
 
 export default function Gatherings(props) {
 
-    const { type, subHeadline, headline, blurb, ctaText, ctaLink, media, events } = props
+    const { type, subHeadline, headline, blurb, ctaText, ctaLink, media, events, anchorTag } = props
     
     const gatheringStructure = (type) => { 
     switch (type) {
@@ -93,6 +93,9 @@ export default function Gatherings(props) {
     }
     return (
         <section className={`${styles.gatheringsContainer} max-80`}>
+            { anchorTag && (
+                       <a id={anchorTag} name={anchorTag} className="anchor"></a>
+            )}
             { gatheringStructure(type) }
         </section>
     )

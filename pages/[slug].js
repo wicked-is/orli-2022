@@ -17,6 +17,7 @@ import SEO from '../components/seo';
 import DiscoveriesCallout from '../components/discoveriesCallout';
 import BigImageSmallContent from '../components/bigimageSmallcontent';
 import HistoricalSlider from '../components/historicalSlider';
+import Form from '../components/forms';
 
 
 export default function DefaultPage(props) {
@@ -87,6 +88,9 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_BigImageSmallContent':
                     gatheredSections.push(<BigImageSmallContent key={componentKey} {...section} />)
                     break;
+                case 'Page_Flexiblecontent_Sections_Form':
+                    gatheredSections.push(<Form key={componentKey} {...section} />)
+                        break;
                 default:
                     break;
             }
@@ -319,6 +323,7 @@ export async function getStaticProps({ params }) {
                                 subHeadline
                                 blurb
                                 type
+                                anchorTag
                                 events {
                                     ... on Event {
                                         link
@@ -428,6 +433,14 @@ export async function getStaticProps({ params }) {
                                 ctaText
                                 spotifyEmbed
                             }  
+                            ... on Page_Flexiblecontent_Sections_Form {
+                                fieldGroupName
+                                type
+                                subHeadline
+                                headline
+                                blurb
+                                anchorTag
+                            }
                         }
                     }
                 }

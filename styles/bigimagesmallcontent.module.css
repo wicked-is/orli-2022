@@ -42,10 +42,3 @@
     margin: 0px;
 }
 .slides .sliderimage {width: 100%;}
-
-.anchor:target {
-    display: block;
-    position: relative;
-    top: -18rem; 
-    visibility: hidden;
-  }

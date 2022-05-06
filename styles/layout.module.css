@@ -76,3 +76,10 @@
 
 .text-padding-left {padding-left: 4rem;}
 .text-padding-right {padding-right: 4rem;}
+
+.anchor:target {
+  display: block;
+  position: relative;
+  top: -18rem; 
+  visibility: hidden;
+}

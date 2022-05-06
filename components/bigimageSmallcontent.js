@@ -105,7 +105,7 @@ export default function BigImageSmallContent(props) {
            {contentPosition === "Right" && (
                <div className="max-80">
                    { anchorTag && (
-                       <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
+                       <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
                <div className={`flex ${paddingType}`}>
                 <div className="col-1-60">
@@ -175,7 +175,7 @@ export default function BigImageSmallContent(props) {
            {contentPosition === "Over Background Left" && (
                <div className={`flex ${paddingType}`}>
                    { anchorTag && (
-                       <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
+                       <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
                     {
                     mediaType === "Image" && (
@@ -224,7 +224,7 @@ export default function BigImageSmallContent(props) {
 {contentPosition === "Over Background Right" && (
                <div className={`flex ${paddingType}`}>
                    { anchorTag && (
-                       <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
+                       <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
                     {
                     mediaType === "Image" && (
