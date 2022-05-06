@@ -95,7 +95,7 @@ export default function Header(props) {
                                     return (
                                         <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)} key={`ni-${index}`}>
                                             <Link href={item.link} passHref>
-                                                <a data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText} className="serif-light white">{item.label}</a>
+                                                <a onClick={(e) => handleClick(e, `${item.link}`)} data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText} className="serif-light white">{item.label}</a>
                                             </Link>
                                         </li>
                                     )
