@@ -20,13 +20,16 @@ export default function Hero(props) {
         switch (types) {
             case 'Video':
                 return (
+                <div className={styles.heroContainer}>
                     <video className={styles.heroVideo} autoPlay playsInline muted loop poster="">
                         <source src={mp4ExternalLink} type="video/mp4" />
                         <source src={webm} type="video/webm" />
                     </video>
+                </div>
                 )
             case 'Full Height Image':
                 return (
+                    <div className={styles.heroContainer}>
                     <div className={styles.bigHero} style={{
                         backgroundImage: `url(${imagePoster.mediaItemUrl})`
                     }}>
@@ -35,9 +38,11 @@ export default function Hero(props) {
                         <p className="serif heading white">{blurb}</p>
                         </div>
                     </div>
+                    </div>
                 )
             case 'Full Height Image with SubNav':
                     return (
+                    <div className={styles.heroContainer}>
                         <div className={styles.bigheroSubnav}>
                             <ul className={styles.subnavigationContainer}>
                            
@@ -67,11 +72,36 @@ export default function Hero(props) {
                             </div>
                         </div>
                         </div>
+                    </div>
                 )
             case 'Small Hero Image':
                 return (
+                    <div className={styles.heroContainer}>
                     <div className={styles.smallHero}>
                          <img src={image.mediaUrl} alt={image.altText} />
+                    </div>
+                    </div>
+                )
+            case 'SubNav Only':
+                return (
+                    <div className={styles.bigheroSubnav}>
+                    <ul className={styles.subnavigationonlyContainer}>
+                                {
+                                    // This was the incorrect bit. You were calling parameters
+                                    // on the item without having the item defined. 
+                                    // When you're back we can huddle if you'd like.
+                                    subnavigation.map((item, index) => {
+                            return (
+                                <li key={`ni-${index}`} >
+                                    <a href={item.link}>
+                                    <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
+                                    <p className="black xs-copy uppercase center">{item.label}</p>
+                                    </a>
+                                </li>
+                                )
+                        })
+                    }
+                            </ul>
                     </div>
                 )
             default:
@@ -80,7 +110,7 @@ export default function Hero(props) {
     }
 
     return (
-        <section className={styles.heroContainer}>
+        <section>
             { heroStructure(types) }
             {
                 includeBookingForm && (

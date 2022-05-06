@@ -1441,7 +1441,7 @@
     "react-onclickoutside" "^6.12.0"
     "react-popper" "^2.2.5"
 
-"react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.9.0 || ^17", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 16.14.0 < 18", "react-dom@>=15", "react-dom@17.0.2":
+"react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^16.9.0 || ^17", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 16.14.0 < 18", "react-dom@>=15", "react-dom@17.0.2":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -1480,6 +1480,11 @@
   dependencies:
     "react-fast-compare" "^3.0.1"
     "warning" "^4.0.2"
+
+"react-responsive-masonry@^2.1.4":
+  "integrity" "sha512-Neqkc6gM7F5d+nBvDSlKQmQOjdWNabLT2EXpVvpJb6oD8lD3hRujd8IDd1UViQR++SSTkhLcsC3Ru7hc6XjT5A=="
+  "resolved" "https://registry.npmjs.org/react-responsive-masonry/-/react-responsive-masonry-2.1.4.tgz"
+  "version" "2.1.4"
 
 "react-scroll-trigger@^0.6.13":
   "integrity" "sha512-dj20xOt2VGQdOTJKRmYq6zAY9g4cfEMYHEI9t6MHHBkyK9yHL+NjPPQCs4rVaQNucUnu1jBhQ4s2GggetaF3UQ=="
