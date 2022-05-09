@@ -25,6 +25,13 @@ export default function Hero(props) {
                         <source src={mp4ExternalLink} type="video/mp4" />
                         <source src={webm} type="video/webm" />
                     </video>
+                    {
+                includeBookingForm && (
+                    <section className={styles.horizontalFormContainer}>
+                        <BookingForm />
+                    </section>
+                )
+            } 
                 </div>
                 )
             case 'Full Height Image':
@@ -38,6 +45,13 @@ export default function Hero(props) {
                         <p className="serif heading white">{blurb}</p>
                         </div>
                     </div>
+                    {
+                includeBookingForm && (
+                    <section className={styles.horizontalFormContainer}>
+                        <BookingForm />
+                    </section>
+                )
+            } 
                     </div>
                 )
             case 'Full Height Image with SubNav':
@@ -72,6 +86,13 @@ export default function Hero(props) {
                             </div>
                         </div>
                         </div>
+                        {
+                includeBookingForm && (
+                    <section className={styles.horizontalFormContainer}>
+                        <BookingForm />
+                    </section>
+                )
+            } 
                     </div>
                 )
             case 'Small Hero Image':
@@ -80,6 +101,13 @@ export default function Hero(props) {
                     <div className={styles.smallHero}>
                          <img src={image.mediaUrl} alt={image.altText} />
                     </div>
+                    {
+                includeBookingForm && (
+                    <section className={styles.horizontalFormContainer}>
+                        <BookingForm />
+                    </section>
+                )
+            } 
                     </div>
                 )
             case 'SubNav Only':
@@ -112,13 +140,6 @@ export default function Hero(props) {
     return (
         <section>
             { heroStructure(types) }
-            {
-                includeBookingForm && (
-                    <section className={styles.horizontalFormContainer}>
-                        <BookingForm />
-                    </section>
-                )
-            } 
         </section>
     )
 }

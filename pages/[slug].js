@@ -18,6 +18,7 @@ import DiscoveriesCallout from '../components/discoveriesCallout';
 import BigImageSmallContent from '../components/bigimageSmallcontent';
 import HistoricalSlider from '../components/historicalSlider';
 import Form from '../components/forms';
+import Gallery from '../components/gallery';
 
 
 export default function DefaultPage(props) {
@@ -90,7 +91,10 @@ export default function DefaultPage(props) {
                     break;
                 case 'Page_Flexiblecontent_Sections_Form':
                     gatheredSections.push(<Form key={componentKey} {...section} />)
-                        break;
+                    break;
+                case 'Page_Flexiblecontent_Sections_Gallery':
+                    gatheredSections.push(<Gallery key={componentKey} {...section} />)
+                    break;
                 default:
                     break;
             }
@@ -172,6 +176,21 @@ export async function getStaticProps({ params }) {
                     }
                     flexibleContent {
                         sections {
+                            ... on Page_Flexiblecontent_Sections_Gallery {
+                                fieldGroupName
+                                items {
+                                    ... on Page_Flexiblecontent_Sections_Gallery_items {
+                                        type
+                                        filter
+                                        image {
+                                            altText
+                                            mediaItemUrl
+                                        }
+                                        mp4ExternalLink
+                                        webm
+                                    }
+                                }
+                            }
                             ... on Page_Flexiblecontent_Sections_AmenitiesSlider {
                                 fieldGroupName
                                 subHeadline
