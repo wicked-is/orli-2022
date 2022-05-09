@@ -5,12 +5,33 @@ import styles from '../styles/gallery.module.css'
 
 export default function Gallery(props) {
     const {
-        items
+        items,
+        filters
     } = props
 
     
     return (
-        <section className={styles.galleryContainer}>
+        <section>
+            <div className={styles.bigheroSubnav}>
+                <ul className={styles.subnavigationonlyContainer}>
+                    {
+                        // This was the incorrect bit. You were calling parameters
+                        // on the item without having the item defined. 
+                        // When you're back we can huddle if you'd like.
+                        filters.map((item, index) => {
+                            return (
+                                <li key={`ni-${index}`} >
+                                    <a href={item.link}>
+                                    <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
+                                    <p className="black xs-copy uppercase center">{item.label}</p>
+                                    </a>
+                                </li>
+                                )
+                        })
+                    }
+                </ul>
+            </div>
+    <div className={styles.galleryContainer}>
         <ResponsiveMasonry columnsCountBreakPoints={{600: 1, 800: 2, 900: 2}}>
             <Masonry columnsCount={2} gutter="10px">
             {
@@ -57,14 +78,14 @@ export default function Gallery(props) {
                                 <source src={item.webm} type="video/webm" />
                             </video>
                             </div>
-                        )}
-                        
+                        )}   
                      </div>
                 )
             })
             }
             </Masonry>
         </ResponsiveMasonry>
-        </section>
+    </div>
+    </section>
     )
 }

@@ -178,6 +178,16 @@ export async function getStaticProps({ params }) {
                         sections {
                             ... on Page_Flexiblecontent_Sections_Gallery {
                                 fieldGroupName
+                                filters {
+                                    ... on Page_Flexiblecontent_Sections_Gallery_filters {
+                                        filter
+                                        iconnav {
+                                            altText
+                                            mediaItemUrl
+                                        }
+                                        label
+                                    }
+                                }
                                 items {
                                     ... on Page_Flexiblecontent_Sections_Gallery_items {
                                         type

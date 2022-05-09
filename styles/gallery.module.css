@@ -1,3 +1,46 @@
+.subnavigationonlyContainer {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    background: var(--lt-grey);
+    top: 128px;
+    left:0px;
+    right: 0px;
+    z-index: 10;
+    align-items: flex-start;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0rem 0rem 0rem;
+}
+
+.subnavigationContainer li,
+.subnavigationonlyContainer li {
+    position: relative; 
+    margin: auto 2rem; 
+    cursor: pointer; 
+    transition: 0.3s ease all;
+}
+
+.iconnav {
+    width: 100%; 
+    max-width: 4rem;
+    margin: auto; 
+    text-align: center; 
+    display: block;
+}
+
+.subnavigationContainer li p,
+.subnavigationonlyContainer li p {
+    font-family: 'GT Walsheim'; 
+    font-weight: 300;
+}
+
+.subnavigationContainer li:hover p,
+.subnavigationonlyContainer li:hover p {
+    font-family: 'GT Walsheim'; 
+    font-weight: 700;
+}
+
 .galleryContainer {
     width: 100%;
     margin: auto;
