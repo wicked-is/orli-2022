@@ -11,7 +11,7 @@ export default function FeaturedStorySlider(props) {
     const [loaded, setLoaded] = useState(false)
 
     const {
-        amenities,
+        featuredStories,
         subHeadline: title,
         headline: blurb,
         ctaText,
@@ -47,10 +47,10 @@ export default function FeaturedStorySlider(props) {
                 }}
             >
                 {
-                    amenities.map((amenity, index) => {
+                    featuredStories.map((story, index) => {
                         return (
-                            <div key={amenity.title} className={styles.amenity}>
-                                <Image src={amenity.featuredImage.node.mediaItemUrl} alt={amenity.title} width={1435} height={928} layout="intrinsic" />
+                            <div key={story.title} className={styles.story}>
+                                <Image src={story.featuredImage.node.mediaItemUrl} alt={story.title} width={1435} height={928} layout="intrinsic" />
                             </div>
                         )
                     })
@@ -63,11 +63,11 @@ export default function FeaturedStorySlider(props) {
             </div>
             <div className={styles.sliderNav}>
                 {
-                    amenities.map((amenity, index) => {
+                    featuredStories.map((story, index) => {
                         return (
-                            <p key={`${amenity.title}-nav`} className={`${ sliderActive == index ? styles.active : '' }`}>
+                            <p key={`${story.title}-nav`} className={`${ sliderActive == index ? styles.active : '' }`}>
                                 <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
-                                    {amenity.title}
+                                    {story.title}
                                 </a>
                             </p>
                         )
