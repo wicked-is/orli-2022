@@ -17,10 +17,10 @@ export default function Gallery(props) {
             items.map((item, index) => {
                 return (
                     <div key={index}>
-                        {item.image && (
-                            <img src={item.image.mediaItemUrl} alt={item.image.altText} className={item.filter} style={{width: "100%", display: "block"}}/> 
+                        {item.type === 'Image' && item.filter === 'Rooms' && (
+                            <img src={item.image.mediaItemUrl} alt={item.image.altText} className={item.filter} style={{width: "100%", display: "block"}}/>
                         )}
-                        {item.mp4ExternalLink && (
+                        {item.type === 'Video' && item.filter === 'Rooms' && (
                             <div className={styles.videoContainer}>
                             <video className={item.filter} autoPlay playsInline muted loop poster="">
                                 <source src={item.mp4ExternalLink} type="video/mp4" />
@@ -28,6 +28,37 @@ export default function Gallery(props) {
                             </video>
                             </div>
                         )}
+                        {item.type === 'Image' && item.filter === 'Amenities' && (
+                            <img src={item.image.mediaItemUrl} alt={item.image.altText} className={item.filter} style={{width: "100%", display: "block"}}/>
+                        )}
+                        {item.type === 'Video' && item.filter === 'Amenities' && (
+                            <div className={styles.videoContainer}>
+                            <video className={item.filter} autoPlay playsInline muted loop poster="">
+                                <source src={item.mp4ExternalLink} type="video/mp4" />
+                                <source src={item.webm} type="video/webm" />
+                            </video>
+                            </div>
+                        )}
+                        {item.type === 'Image' && item.filter === 'Neighborhood' && (
+                            <img src={item.image.mediaItemUrl} alt={item.image.altText} className={item.filter} style={{width: "100%", display: "block"}}/>
+                        )}
+                        {item.type === 'Video' && item.filter === 'Neighborhood' && (
+                            <div className={styles.videoContainer}>
+                            <video className={item.filter} autoPlay playsInline muted loop poster="">
+                                <source src={item.mp4ExternalLink} type="video/mp4" />
+                                <source src={item.webm} type="video/webm" />
+                            </video>
+                            </div>
+                        )}
+                        {item.type === 'Video' && item.filter === 'Video' && (
+                            <div className={styles.videoContainer}>
+                            <video className={item.filter} autoPlay playsInline muted loop poster="">
+                                <source src={item.mp4ExternalLink} type="video/mp4" />
+                                <source src={item.webm} type="video/webm" />
+                            </video>
+                            </div>
+                        )}
+                        
                      </div>
                 )
             })
