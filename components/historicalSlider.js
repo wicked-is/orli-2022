@@ -45,7 +45,7 @@ export default function HistoricalSlider(props) {
                     years.map((year, index) => {
                         return (
                             <div key={year.year} className={styles.year}>
-                                <Image src={year.image.mediaItemUrl} alt={year.image.altText} width={1920} height={969} layout="intrinsic" />
+                                <Image src={year.image.mediaItemUrl} alt={year.image.altText} width={1920} height={969} layout="responsive" sizes="100vw" />
                                 <div className={styles.yearTextContainer}>
                                     <div className={styles.yearContentContainer}>    
                                         <p className="xl-heading" style={{fontWeight: 'bold', lineHeight: 1 }}>{year.year}</p>

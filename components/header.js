@@ -48,11 +48,13 @@ export default function Header(props) {
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            {topBar.isAnnouncementBarActive && (
+            {
+                topBar?.isAnnouncementBarActive && (
                     <div className={styles.announcementbar}>
                         <p className="sans-serif white xs-copy center">{topBar.announcementBarText}</p>
                     </div>
-                )}
+                )
+            }
             <div className={styles.sitebranding}>
                 <Link href="/">
                     <img
@@ -88,14 +90,14 @@ export default function Header(props) {
                     <div className="col-1-60 relative">
                         <div className={styles.backgroundImage} style={{ backgroundImage: `url(${navImage})` }}></div>
                     </div>
-                    <div className="col-1-40 height-100 relative flex justify-content-space-between">
+                    <div className="col-1-40 height-100 relative flex flex-column justify-content-space-between">
                         <ul className={styles.mainNav}>
                             {
                                 navItems.map((item, index) => { 
                                     return (
                                         <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)} key={`ni-${index}`}>
                                             <Link href={item.link} passHref>
-                                                <a onClick={(e) => handleClick(e, `${item.link}`)} data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText} className="serif-light white">{item.label}</a>
+                                                <a data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText} className="serif-light white">{item.label}</a>
                                             </Link>
                                         </li>
                                     )

@@ -43,7 +43,12 @@ export default function Gatherings(props) {
                         </>
                     )
                 }
-                <EventFeed events={events} />
+                { type === "Weddings" ? (
+                        <p className="sans-serif body-copy black left" style={{ paddingTop: '5rem' }}>{blurb}</p>
+                    ) : (
+                        <EventFeed events={events} />
+                    )
+                }
             </div>
         </>
     )

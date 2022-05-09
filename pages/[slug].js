@@ -19,6 +19,8 @@ import BigImageSmallContent from '../components/bigimageSmallcontent';
 import HistoricalSlider from '../components/historicalSlider';
 import Form from '../components/forms';
 import Gallery from '../components/gallery';
+import FeaturedStorySlider from '../components/FeaturedStorySlider';
+import AnchorBar from '../components/AnchorBar';
 
 
 export default function DefaultPage(props) {
@@ -53,6 +55,9 @@ export default function DefaultPage(props) {
             const componentKey = `section-${index}`;
 
             switch (section.fieldGroupName) { 
+                case 'Page_Flexiblecontent_Sections_AnchorBar':
+                    gatheredSections.push(<AnchorBar key={componentKey} {...section} />)
+                    break;
                 case 'Page_Flexiblecontent_Sections_Hero':
                     gatheredSections.push(<Hero key={componentKey} {...section} />)
                     break;
@@ -95,6 +100,8 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_Gallery':
                     gatheredSections.push(<Gallery key={componentKey} {...section} />)
                     break;
+                case 'Page_Flexiblecontent_Sections_FeaturedStorySlider':
+                    gatheredSections.push(<FeaturedStorySlider key={componentKey} {...section} />)
                 default:
                     break;
             }
@@ -189,6 +196,12 @@ export async function getStaticProps({ params }) {
                                         mp4ExternalLink
                                         webm
                                     }
+                            ... on Page_Flexiblecontent_Sections_AnchorBar {
+                                fieldGroupName
+                                anchorNavigation {
+                                    icon
+                                    text
+                                    anchor
                                 }
                             }
                             ... on Page_Flexiblecontent_Sections_AmenitiesSlider {
