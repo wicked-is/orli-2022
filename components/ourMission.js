@@ -27,7 +27,7 @@ export default function OurMission(props) {
 
     return (
         <section className={`${styles.missionContainer} center bg-lt-grey`}>
-            <p className="serif sub-heading center brown">{title}</p>
+            <p className={`${styles.center} serif sub-heading brown`}>{title}</p>
             <div className={styles.missionFlex}>
                 <Image src={logo.mediaItemUrl} alt={logo.altText} width={167} height={108} className={styles.orliimage}/>
                 <span className={`${styles.headingAnimate} heading`}>

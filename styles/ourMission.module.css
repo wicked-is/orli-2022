@@ -14,6 +14,8 @@
     padding: 7rem 0;
 }
 
+.center {text-align: center;}
+
 .headingAnimate {
         align-self: center;
         margin-left: 2rem;
@@ -21,15 +23,16 @@
 
 @media only screen and (max-width: 600px) {
     .missionContainer {
-        padding: 6rem 0 0 0;
-        height: 70vh;
+        padding: 1rem 2rem 0 2rem;
+        height: 60vh;
     }
 
-    .missionFlex {flex-direction:column; padding: 4rem 0 6rem 0;}
+    .center {text-align: left;}
+
+    .missionFlex {flex-direction:column; padding: 6rem 0 6rem 0;}
 
     .missionFlex .orliimage {
         flex: 1; 
-        margin: auto;
     }
     .headingAnimate {margin-top: 2rem; margin-left: 0rem;}
 }
