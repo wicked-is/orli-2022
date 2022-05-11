@@ -33,6 +33,7 @@
     .fullFeatureBlog {
         background-color: var(--lt-grey); 
         height: auto;
+        padding: 6rem 2rem;
     }
 
     .white_arrow {
@@ -41,7 +42,7 @@
 
     .fullFeatureBlogImage {
         background-image: none !important;
-        padding: 6rem 2rem;
+        padding: 0;
         flex-direction: column;
     }
 
@@ -51,6 +52,9 @@
 
     .mobileBlogimg {
         display: block !important;
-        padding: 0 0 2rem 0 !important; 
-        margin: auto;}
+        padding: 0 0 0rem 0 !important; 
+        margin: auto;
+        width: 100%;
+        height: auto;
+    }
 }

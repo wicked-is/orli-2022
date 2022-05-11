@@ -87,10 +87,10 @@ export default function Header(props) {
 
             <nav className={`${styles.navContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
                 <div className="flex">
-                    <div className="col-1-60 relative">
+                    <div className={`${styles.col160} relative`}>
                         <div className={styles.backgroundImage} style={{ backgroundImage: `url(${navImage})` }}></div>
                     </div>
-                    <div className="col-1-40 relative flex flex-column justify-content-space-between">
+                    <div className={`${styles.col140} relative flex flex-column justify-content-space-between`}>
                         <ul className={styles.mainNav}>
                             {
                                 navItems.map((item, index) => { 

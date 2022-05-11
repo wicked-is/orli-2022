@@ -178,7 +178,7 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;
-    padding:8rem 0 1rem 0;
+    padding:8rem 0 2rem 0;
     width: 100%;
 }
 .mainNav li {
@@ -208,6 +208,14 @@
     display: flex; 
     align-items: flex-start;
     padding: 0 4rem 4rem;
+}
+
+.col140 {width: 40%}
+.col160 {width: 60%}
+
+@media only screen and (max-width: 800px) {
+    .col160 {width: 40%;}
+    .col140 {width: 60%;}
 }
 
 @media only screen and (max-width: 600px) {
@@ -244,6 +252,11 @@
         display: block;
     }
     .header .sitebranding {height: 5rem;}
+
+    .col140 {width: 100%;}
+    .col160 {display: none;}
+
+    .navContianer.showMeMobile {overflow-y: scroll;}
 }
 
 @media only screen and (max-width: 428px) {
@@ -263,4 +276,10 @@
         text-align: center;
         padding: 1rem;
     }
+
+    .mainNav li {
+        padding: 0rem 0rem 0.3rem 2rem;
+    }
+
+    .bottomnav {padding: 0 2rem 2rem;}
 }
