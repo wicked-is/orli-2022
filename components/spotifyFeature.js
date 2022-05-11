@@ -9,7 +9,7 @@ export default function SpotifyFeature() {
                 <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/pexels-pavel-danilyuk-7318864.mp4" type="video/mp4" />
                 <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/02/orlihero3-1.webm" type="video/webm" />
             </video>
-            <div className={`${styles.container} max-70`}>
+            <div className={`${styles.container} ${styles.max70}`}>
                 <div>
                     <p className="heading white">We&apos;re Friends, and Friends Share Music</p>
                     <Link href="/">
