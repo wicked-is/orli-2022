@@ -97,7 +97,11 @@ export default function Header(props) {
                                     return (
                                         <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)} key={`ni-${index}`}>
                                             <Link href={item.link} passHref>
-                                                <a data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText} className="serif-light white">{item.label}</a>
+                                                <a
+                                                    data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText}
+                                                    onClick={(e) => handleClick(e, item.link)} className="serif-light white">
+                                                    {item.label}
+                                                </a>
                                             </Link>
                                         </li>
                                     )
@@ -110,8 +114,8 @@ export default function Header(props) {
                                     Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
                                 </address>
                                 <p className="directions xs-copy white left">
-                                        <Link href="/">Get Directions</Link>
-                                        </p>
+                                    <Link href="/">Get Directions</Link>
+                                </p>
                             </div>
                             <div className="col-1-50">
                                 <p className="sans-serif xs-copy white left">T: 123 555 5555<br/>
