@@ -29,7 +29,7 @@
 
 .mobileBlogimg {display: none !important;}
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 700px) {
     .fullFeatureBlog {
         background-color: var(--lt-grey); 
         height: auto;
@@ -48,5 +48,9 @@
     .fullFeatureBlogImage p {flex: 1; position: relative;}
 
     .white {color: var(--black);}
-    .mobileBlogimg {display: block !important;}
+
+    .mobileBlogimg {
+        display: block !important;
+        padding: 0 0 2rem 0 !important; 
+        margin: auto;}
 }

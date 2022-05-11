@@ -8,7 +8,7 @@ export default function FauxSocialFeed(props) {
 
     return (
         <section className={`${styles.fauxSocialFeedContainer} ${backgroundColor}-bg`}>
-            <div className="max-80">
+            <div className={styles.max80}>
                 <div className={styles.topContainer}>
                     <h2 className="heading">{headline}</h2>
                     <Link href={ctaLink} passHref>

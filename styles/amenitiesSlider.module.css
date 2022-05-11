@@ -41,7 +41,11 @@
     -webkit-text-stroke: 1px var(--white);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
+    .sliderContent {padding:1rem 2rem 1rem 2rem;}
+}
+
+@media only screen and (max-width: 700px) {
     .amenitiesSlider {
         position: relative;
         height: 100vh;
