@@ -6,3 +6,14 @@
     text-transform: uppercase;
     margin-top: 0;
 }
+
+.missionFlex {
+    display:flex;
+    flex-direction:row; 
+    justify-content: center; 
+    padding: 7rem 0;
+}
+
+@media only screen and (max-width: 600px) {
+
+}

@@ -14,3 +14,11 @@
 }
 
 .cta { text-decoration: underline; }
+
+@media only screen and (max-width: 600px) {
+    .content {max-width: 100%;}
+    .icon {top: -5rem;}
+    .blurbLeftContainer .mobilepadding {
+        padding: 2rem 0rem 0rem 0rem;
+    }
+}
