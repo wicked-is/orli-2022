@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Footer() {
     return (
         <footer className="footer">
-            <div className="flex">
+            <div className="flex one">
                 <div className="col-1-30">
                     <img
                     className="footer-logo" 
@@ -73,7 +73,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="flex">
+            <div className="flex two">
                 <div className="col-1-30">
                 </div>
                 <div className="col-1-45">

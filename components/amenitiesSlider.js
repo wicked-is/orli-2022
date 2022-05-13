@@ -49,7 +49,7 @@ export default function AmenitiesSlider(props) {
                 {
                     amenities.map((amenity, index) => {
                         return (
-                            <div key={amenity.title} className={styles.amenity}>
+                            <div key={amenity.title} className={styles.amenity} style={{ backgroundImage: `url(${amenity.featuredImage.node.mediaItemUrl})` }}>
                                 <Image src={amenity.featuredImage.node.mediaItemUrl} alt={amenity.title} width={1435} height={928} layout="intrinsic" />
                             </div>
                         )

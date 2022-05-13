@@ -178,7 +178,8 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;
-    padding-top: 8rem;
+    padding:8rem 0 2rem 0;
+    width: 100%;
 }
 .mainNav li {
     font-family: essonnes-display, serif;
@@ -207,4 +208,78 @@
     display: flex; 
     align-items: flex-start;
     padding: 0 4rem 4rem;
+}
+
+.col140 {width: 40%}
+.col160 {width: 60%}
+
+@media only screen and (max-width: 800px) {
+    .col160 {width: 40%;}
+    .col140 {width: 60%;}
+}
+
+@media only screen and (max-width: 600px) {
+    .hamburger {
+        right: 2rem;
+        top: 1.8rem;
+    }
+
+    .header .primarybutton  {
+        position: absolute;
+        z-index: 100;
+        height:auto;
+        width: fit-content;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        right: 7rem;
+        top: 1.4rem;
+        display: block;
+        background: var(--brown);
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease all;
+    }
+    .header .primarybutton p {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+    .header .headerlogo {
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        max-width: 6rem;
+        left: 2rem;
+        top: -0.4rem;
+        display: block;
+    }
+    .header .sitebranding {height: 5rem;}
+
+    .col140 {width: 100%;}
+    .col160 {display: none;}
+
+    .navContianer.showMeMobile {overflow-y: scroll;}
+}
+
+@media only screen and (max-width: 428px) {
+    .header .headerlogo {width: 5rem;}
+}
+
+@media only screen and (max-width: 388px) {
+    .header .primarybutton  {
+        position: fixed; 
+        top: unset; 
+        bottom: 0px; 
+        left: 0px; 
+        right: 0px; 
+        width: 100%;
+        margin: auto;
+        display: block;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .mainNav li {
+        padding: 0rem 0rem 0.3rem 2rem;
+    }
+
+    .bottomnav {padding: 0 2rem 2rem;}
 }

@@ -23,3 +23,9 @@
 }
 
 .blurbpadding {padding: 4rem 0rem 0rem 0rem;}
+
+@media only screen and (max-width: 800px) {
+    .gatheringsContainer {flex-direction: column; gap: 4rem;}
+    .left, .right {flex: 1;}
+    .videoBackground {margin-top: 4rem}
+}

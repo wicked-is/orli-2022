@@ -85,3 +85,47 @@ ul.socials li {padding: 0rem 1.5rem 0rem 0rem;}
 .footer-links-two a:visited, .footer-links-two a:focus,
 .footer-links a:visited, .footer-links a:focus,
 .directions a:visited, .directions a:focus {color: var(--white);}
+
+@media only screen and (max-width: 900px) {
+  .footer .one .col-1-45,
+  .footer .one .col-1-25 {width: 100%; padding: 4rem 4rem 0 4rem;}
+  .footer .two .col-1-25 {width: 100%; padding: 0 4rem 0 4rem;}
+  .footer-links-two {
+    padding: 1rem 0 0 0;
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .footer .two .col-1-45 {
+    width: 100%;
+  }
+
+  .footer .two .col-1-45 p {
+    text-align: center; 
+    margin: auto;
+  }
+
+  .footer-links-two a {padding: 0 1rem;}
+}
+
+@media only screen and (max-width: 600px) {
+  .footer .footer-logo {margin-left: 2rem;}
+
+  .footer .one .col-1-45,
+  .footer .one .col-1-25 {width: 100%; padding: 4rem 2rem 0 2rem;}
+  .footer .two .col-1-25 {width: 100%; padding: 0 2rem 0 2rem;}
+}
+
+@media only screen and (max-width: 379px) {
+  .footer .one .col-1-45 .flex {flex-direction: column;}
+
+  .footer .one .col-1-45 .flex .col-1-40,
+  .footer .one .col-1-45 .flex .col-1-60 {flex: 1; width: 100%;}
+  
+  .footer .one .col-1-45 .flex .col-1-60.text-padding-left {
+    padding: 2rem 0 0 0;
+  }
+
+}

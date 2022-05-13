@@ -6,3 +6,33 @@
     text-transform: uppercase;
     margin-top: 0;
 }
+
+.missionFlex {
+    display:flex;
+    flex-direction:row;
+    justify-content: center; 
+    padding: 7rem 0;
+}
+
+.center {text-align: center;}
+
+.headingAnimate {
+        align-self: center;
+        margin-left: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .missionContainer {
+        padding: 1rem 2rem 0 2rem;
+        height: 60vh;
+    }
+
+    .center {text-align: left;}
+
+    .missionFlex {flex-direction:column; padding: 6rem 0 6rem 0;}
+
+    .missionFlex .orliimage {
+        flex: 1; 
+    }
+    .headingAnimate {margin-top: 2rem; margin-left: 0rem;}
+}

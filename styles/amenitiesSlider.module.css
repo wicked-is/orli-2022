@@ -5,6 +5,7 @@
     width: 87%;
     margin-right: 0px;
     padding-right: 0px;
+    background: transparent;
 }
 
 .amenity img {
@@ -38,4 +39,37 @@
 
 .active {
     -webkit-text-stroke: 1px var(--white);
+}
+
+@media only screen and (max-width: 820px) {
+    .sliderContent {padding:1rem 2rem 1rem 2rem;}
+}
+
+@media only screen and (max-width: 700px) {
+    .amenitiesSlider {
+        position: relative;
+        height: 100vh;
+    }
+    .amenity{
+        height: 100vh;
+        width: 100%;
+        background-position: center center;
+        background-size: cover !important;
+        -moz-background-size: cover !important;
+        -webkit-background-size: cover !important;
+        -o-background-size: cover !important;
+    }
+    .amenity img {display: none !important;}
+    .sliderNav {display: none;}
+
+    .sliderContent {
+        position: absolute;
+        bottom: unset;
+        z-index: 97;
+        top: 2rem;
+        background-color: #0C2B1C;
+        background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
+        padding: 1rem 2rem 1rem 2rem;
+        max-width: 95%;
+    }
 }

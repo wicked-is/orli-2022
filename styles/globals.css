@@ -45,12 +45,6 @@ a {
   --xs-copy: clamp(0.8rem, 1.1vw, 1.1rem);
 }
 
-.textAnimation {
-  
-}
-
-.textAnimation2, .textAnimation3 {}
-
 .flex { display: flex; }
 .flex-column { flex-direction: column; }
 .justify-content-space-between { justify-content: space-between; }
