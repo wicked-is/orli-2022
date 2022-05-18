@@ -19,13 +19,17 @@
 
 .horizontalFormContainer {
     display: flex;
-    position: relative;
+    position: absolute;
     justify-content: center;
     align-content: flex-end;
-    margin-bottom: 115px;
+    bottom: 115px;
+    left: 0;
+    right:0;
     background-color: #fff;
-    width: 80%;
-    max-width: 1060px;
+    width: 100%;
+    max-width: 80%;
+    margin: auto;
+    z-index: 99;
 }
 
 .bigheroSubnav {

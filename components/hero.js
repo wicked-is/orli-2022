@@ -44,14 +44,14 @@ export default function Hero(props) {
                         <p className="sans-serif sub-heading-bold white">{headline}</p>
                         <p className="serif heading white">{blurb}</p>
                         </div>
+                        {
+                        includeBookingForm && (
+                            <section className={styles.horizontalFormContainer}>
+                                <BookingForm />
+                            </section>
+                        )
+                        }
                     </div>
-                    {
-                includeBookingForm && (
-                    <section className={styles.horizontalFormContainer}>
-                        <BookingForm />
-                    </section>
-                )
-            } 
                     </div>
                 )
             case 'Full Height Image with SubNav':
