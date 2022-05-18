@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Hero from '../components/hero';
 import BlurbCenter from '../components/blurbCenter';
 import BlurbLeft from '../components/blurbLeft';
+import BlogGrid from '../components/BlogGrid';
 import RoomSlider from '../components/roomSlider';
 import AmenitiesSlider from '../components/amenitiesSlider';
 import OurMission from '../components/ourMission';
@@ -21,6 +22,7 @@ import Form from '../components/forms';
 import Gallery from '../components/gallery';
 import FeaturedStorySlider from '../components/FeaturedStorySlider';
 import AnchorBar from '../components/AnchorBar';
+import TitleBar from '../components/TitleBar';
 
 
 export default function DefaultPage(props) {
@@ -97,11 +99,18 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_Form':
                     gatheredSections.push(<Form key={componentKey} {...section} />)
                     break;
+                case 'Page_Flexiblecontent_Sections_FeaturedStorySlider':
+                    gatheredSections.push(<FeaturedStorySlider key={componentKey} {...section} />)
+                    break;
                 case 'Page_Flexiblecontent_Sections_Gallery':
                     gatheredSections.push(<Gallery key={componentKey} {...section} />)
                     break;
-                case 'Page_Flexiblecontent_Sections_FeaturedStorySlider':
-                    gatheredSections.push(<FeaturedStorySlider key={componentKey} {...section} />)
+                case 'Page_Flexiblecontent_Sections_Titlebar':
+                    gatheredSections.push(<TitleBar key={componentKey} {...section} />)
+                    break;
+                case 'Page_Flexiblecontent_Sections_BlogGrid':
+                    gatheredSections.push(<BlogGrid key={componentKey} {...section} />)
+                    break;
                 default:
                     break;
             }
@@ -109,6 +118,7 @@ export default function DefaultPage(props) {
 
         return gatheredSections
     }
+    console.log(props);
     return (
         <>
             <SEO title={seo.title} description={seo.metaDesc} />
@@ -188,7 +198,8 @@ query AllComponents {
           fieldGroupName
           anchorNavigation {
             icon {
-              id
+              altText
+              mediaItemUrl
             }
             text
             anchor
@@ -498,6 +509,40 @@ query AllComponents {
           ctaLink
           ctaText
           spotifyEmbed
+        }
+        ... on Page_Flexiblecontent_Sections_Titlebar {
+          fieldGroupName
+          title
+          icon {
+            mediaItemUrl
+            altText
+          }
+        }
+        ... on Page_Flexiblecontent_Sections_BlogGrid {
+          fieldGroupName
+          posts {
+          	... on Post {
+              categories(first:13) {
+                nodes {
+                	... on Category {
+                    link
+                    name
+                  }
+                }
+              }
+              featuredImage {
+                node {
+                  mediaItemUrl
+                  altText
+                }
+              }
+              link
+              title
+              blogPost {
+                featured
+              }
+            }  
+          }
         }
       }
     }
