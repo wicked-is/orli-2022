@@ -34,8 +34,8 @@ export default function BigImageSmallContent(props) {
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
                    )}
-               <div className={`flex ${paddingType}`}>
-                <div className="col-1-40 text-padding-right">
+               <div className={`${styles.flex} ${paddingType}`}>
+                <div className={`${styles.col140} ${styles.textPaddingRight}`}>
                     { icon && (
                         <p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.leftIcon}/></p>
                         )
@@ -45,10 +45,10 @@ export default function BigImageSmallContent(props) {
                     <p className="sans-serif body-copy black left">{blurb}</p>
                     {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>
-                <div className="col-1-60">
+                <div className={styles.col160}>
                 {
                     mediaType === "Image" && (
-                        <div className="text-padding-left">
+                        <div className={styles.textPaddingLeft}>
                             <Image src={imagePoster.mediaItemUrl} alt={imagePoster.altText} width={561} height={370} layout="responsive" />
                         </div>
                     )
@@ -56,32 +56,32 @@ export default function BigImageSmallContent(props) {
                 {
                     mediaType === "Slider" && (
                         <Flickity
-                options={{
-                    cellAlign: 'center',
-                    prevNextButtons: false,
-                    pageDots: false,
-                    draggable: true,
-                    wrapAround: true,
-                    imagesLoaded: true,
-                    adaptiveHeight: true
-                }}
-                disableImagesLoaded={false} // default false
-                reloadOnUpdate={false} // default false
-                static // default false
-                flickityRef={c => {
-                    slider.current = c
-                }}
-            >
-                {
-                    slides.map((slides, index) => {
-                        return (
-                         <div key={slides.slides} className={styles.slides}>
-                             <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
-                        </div>
-                        )}
-                    )
-                }
-            </Flickity>
+                            options={{
+                                cellAlign: 'center',
+                                prevNextButtons: false,
+                                pageDots: false,
+                                draggable: true,
+                                wrapAround: true,
+                                imagesLoaded: true,
+                                adaptiveHeight: true
+                            }}
+                            disableImagesLoaded={false} // default false
+                            reloadOnUpdate={false} // default false
+                            static // default false
+                            flickityRef={c => {
+                                slider.current = c
+                            }}
+                        >
+                        {
+                            slides.map((slides, index) => {
+                                return (
+                                    <div key={slides.slides} className={styles.slides}>
+                                        <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
+                                    </div>
+                                )}
+                            )
+                        }
+                        </Flickity>
                     )
                 }
                 {
@@ -107,11 +107,11 @@ export default function BigImageSmallContent(props) {
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
-               <div className={`flex ${paddingType}`}>
-                <div className="col-1-60">
+               <div className={`${styles.flex} ${paddingType}`}>
+                <div className={styles.col160}>
                 {
                     mediaType === "Image" && (
-                        <div className="text-padding-right">
+                        <div className={styles.textPaddingRight}>
                             <Image src={imagePoster.mediaItemUrl} alt={imagePoster.altText} width={561} height={370} layout="responsive" />
                         </div>
                     )
@@ -161,7 +161,7 @@ export default function BigImageSmallContent(props) {
                     )
                 }
                 </div>
-                <div className="col-1-40 text-padding-left">
+                <div className={`${styles.col140} ${styles.textPaddingLeft}`}>
                 { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
                     <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
                     <p className="serif heading black left">{headline}</p>
@@ -173,7 +173,7 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Over Background Left" && (
-               <div className={`flex ${paddingType}`}>
+               <div className={`${styles.flex} ${paddingType}`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
@@ -182,7 +182,7 @@ export default function BigImageSmallContent(props) {
                         <div className={`${styles.halfBanner} ${styles.backgroundImage}`} style={{ backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
                             <div className="max-80">
                             <div className="flex">
-                            <div className="col-1-40">
+                            <div className={styles.col140}>
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
@@ -222,7 +222,7 @@ export default function BigImageSmallContent(props) {
            }
 
 {contentPosition === "Over Background Right" && (
-               <div className={`flex ${paddingType}`}>
+               <div className={`${styles.flex} ${paddingType}`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
@@ -230,10 +230,10 @@ export default function BigImageSmallContent(props) {
                     mediaType === "Image" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundImage}`} style={{ backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
                             <div className="max-80">
-                            <div className="flex">
-                            <div className="col-1-60">
+                            <div className={styles.flex}>
+                            <div className={styles.col160}>
                             </div>
-                            <div className="col-1-40">
+                            <div className={styles.col140}>
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={styles.rightIcon}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>

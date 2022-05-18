@@ -95,7 +95,7 @@ export default function Gallery(props) {
                                             <source src={item.webm} type="video/webm" />
                                         </video>
                                     </div>
-                                )}   
+                                )}  
                             </div>
                         )
                     })

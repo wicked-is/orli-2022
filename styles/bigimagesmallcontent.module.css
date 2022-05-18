@@ -1,5 +1,20 @@
 .container {width: 100%; margin: auto; display: block;}
 
+.flex {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: flex-start; 
+    align-items: flex-start;
+}
+
+.flex .col140 {width: 40%;}
+
+.flex .col160 {width: 60%;}
+
+.textPaddingLeft {padding-left: 4rem;}
+.textPaddingRight {padding-right: 4rem;}
+
 .leftIcon,
 .rightIcon {
     width: 100%; 
@@ -42,3 +57,17 @@
     margin: 0px;
 }
 .slides .sliderimage {width: 100%;}
+
+@media only screen and (max-width: 900px) {
+
+    .flex {flex-direction: column;}
+
+    .flex .col140, .flex .col160 {
+        flex: 1;
+    }
+
+    .flex .col140, .flex .col160 {width: 100%;}
+
+    .textPaddingLeft, 
+    .textPaddingRight {padding: 2rem 0 0 0;}
+}

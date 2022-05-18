@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fancyapps/ui": "^4.0.27",
     "flickity": "^3.0.0",
     "gsap": "^3.9.1",
     "next": "12.1.0",
