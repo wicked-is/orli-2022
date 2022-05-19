@@ -16,7 +16,7 @@ export default function BookingForm() {
     const [counterValue, setCounterValue] = useState(1);
 
     return (
-            <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/uK87lN">
+            <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/uK87lN" target="_blank">
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
                     <DatePicker
