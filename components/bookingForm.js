@@ -16,7 +16,7 @@ export default function BookingForm() {
     const [counterValue, setCounterValue] = useState(1);
 
     return (
-            <form className={styles.form} >
+            <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/uK87lN">
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
                     <DatePicker
@@ -26,6 +26,7 @@ export default function BookingForm() {
                         selectsStart
                         startDate={startDate}
                         endDate={endDate}
+                        name="widget_date"
                     />
                 </div>
                 <div className={styles.formGroup}>
@@ -38,12 +39,10 @@ export default function BookingForm() {
                         endDate={endDate}
                         placeholderText="Add Dates"
                         minDate={startDate}
+                        name="widget_date_to"
                     />
                 </div>
-                <div className={styles.formGroup}>
-                    <span className="sans-serif xs-copy">Guests</span>
-                    <Counter value={counterValue} updateCounter={setCounterValue} />
-                </div>
+
                 <button type="submit" className="btn-submit xs-copy uppercase white bg-brown">Search</button>
             </form>
     )
