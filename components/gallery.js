@@ -15,6 +15,10 @@ export default function Gallery(props) {
     const [filteredItems, setFilteredItems] = useState(items)
 
     const handleFilterClick = (currentItem) => { 
+        if (currentItem.filter === "All") {
+            return setFilteredItems(items)
+        }
+            
         
         let newItems = []
 
@@ -28,9 +32,6 @@ export default function Gallery(props) {
             <div className={styles.bigheroSubnav}>
                 <ul className={styles.subnavigationonlyContainer}>
                     {
-                        // This was the incorrect bit. You were calling parameters
-                        // on the item without having the item defined. 
-                        // When you're back we can huddle if you'd like.
                         filters.map((item, index) => {
                             return (
                                 <li 
