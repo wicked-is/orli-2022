@@ -35,3 +35,16 @@
     width: 100%;
     display: block;
 }
+.room {
+    background-position: center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.roomimage {display: none !important;}
+
+.keyFt:before, .theme:before {
+    content: "|";
+    margin: 0 0.5rem;
+}
