@@ -61,7 +61,7 @@ export default function DefaultPage(props) {
 
             switch (section.fieldGroupName) { 
                 case 'Page_Flexiblecontent_Sections_AnchorBar':
-                    gatheredSections.push(<AnchorBar key={componentKey} {...section} />)
+                gatheredSections.push(<AnchorBar key={componentKey} {...section} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Hero':
                     gatheredSections.push(<Hero key={componentKey} {...section} />)
@@ -97,7 +97,7 @@ export default function DefaultPage(props) {
                     gatheredSections.push(<SpotifyFeature key={componentKey} {...section} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_BigImageSmallContent':
-                    gatheredSections.push(<BigImageSmallContent key={componentKey} {...section} />)
+                    gatheredSections.push(<BigImageSmallContent key={componentKey} order={index} {...section} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Form':
                     gatheredSections.push(<Form key={componentKey} {...section} />)
@@ -130,7 +130,7 @@ export default function DefaultPage(props) {
 
         return gatheredSections
     }
-    console.log(props);
+    
     return (
         <>
             <SEO title={seo.title} description={seo.metaDesc} />
