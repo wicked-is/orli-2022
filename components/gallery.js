@@ -5,7 +5,6 @@ import Image from 'next/image'
 import styles from '../styles/gallery.module.css'
 
 export default function Gallery(props) {
-    console.log(props);
 
     const {
         items,
@@ -19,7 +18,6 @@ export default function Gallery(props) {
             return setFilteredItems(items)
         }
             
-        
         let newItems = []
 
         items.filter(item => item.filter === currentItem.filter && newItems.push(item))
