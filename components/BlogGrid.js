@@ -71,8 +71,6 @@ export default function BlogGrid(props) {
                     
                     const category = post.categories.nodes[0].name;
 
-                    console.log('post: ', post.categories.nodes[0].name);
-
                     return (
                         <BlogTile key={index} featured={featured} background={post.featuredImage.node.mediaItemUrl}>
                             { featured && ( <p>Featured Story</p> ) }

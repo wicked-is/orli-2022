@@ -13,8 +13,6 @@ export default function BlurbCenter(props) {
         webm
     } = props
 
-    console.log(props);
-
     return (
         <section className={`${styles.blurbContainer} ${greyBackground && 'bg-lt-grey'} ${hasBackgroundMedia && styles.backgroundMedia}`} style={{ backgroundImage: `${imagePoster}` }}>
             {
@@ -29,7 +27,7 @@ export default function BlurbCenter(props) {
                 { icon && <div className={`${styles.icon}`}>
                     <img src={icon.mediaItemUrl} alt={icon.altText}/>
                 </div> }
-                <p className="heading-italic white">
+                <p className="heading-italic">
                     { blurb }
                 </p>
             </div>
