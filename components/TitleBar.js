@@ -14,17 +14,21 @@ const TitleBarContainer = styled.section`
 
     ${props => props.left && css`
         margin-inline: initial !important;
-        max-width: 100%; 
-        padding: 0;
+        max-width: 100%;
+        padding-bottom: 0;
     `}
 `
 
 export default function TitleBar(props) {
-    const { title, icon } = props
+    const { title, icon, left, blurb } = props
+    console.log(props);
     return (
-        <TitleBarContainer>
+        <TitleBarContainer left={left}>
             { icon && <Image src={icon.mediaItemUrl} alt={icon.altText} width="100px" height="100px" layout="fixed" /> }
-            <h1 className="heading">{ title }</h1>
+            <h1 className="heading">{title}</h1>
+            {blurb && (
+                <p className="sans-serif sub-heading-bold black">{blurb}</p>
+            )}
             { icon && <Image src={icon.mediaItemUrl} alt={icon.altText}  width="100px" height="100px" layout="fixed" /> }
         </TitleBarContainer>
     )
