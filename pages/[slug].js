@@ -23,6 +23,8 @@ import Gallery from '../components/gallery';
 import FeaturedStorySlider from '../components/FeaturedStorySlider';
 import AnchorBar from '../components/AnchorBar';
 import TitleBar from '../components/TitleBar';
+import TheLocalWay from '../components/TheLocalWay';
+import GettingHere from '../components/GettingHere';
 
 
 export default function DefaultPage(props) {
@@ -110,7 +112,13 @@ export default function DefaultPage(props) {
                     break;
                 case 'Page_Flexiblecontent_Sections_BlogGrid':
                     gatheredSections.push(<BlogGrid key={componentKey} {...section} />)
-                    break;
+                  break;
+                case 'Page_Flexiblecontent_Sections_GettingHere':
+                  gatheredSections.push(<GettingHere key={componentKey} {...section} />)
+                  break;
+                case 'Page_Flexiblecontent_Sections_TheLocalWay':
+                  gatheredSections.push(<TheLocalWay key={componentKey} {...section} />)
+                  break;
                 default:
                     break;
             }
@@ -490,7 +498,7 @@ query AllComponents {
         }
         ... on Page_Flexiblecontent_Sections_RoomsGrid {
           fieldGroupName
-          rooms {
+          roomsgrid {
             ... on Room {
               title
               slug
@@ -542,6 +550,30 @@ query AllComponents {
                 featured
               }
             }  
+          }
+        }
+        ... on Page_Flexiblecontent_Sections_GettingHere {
+          fieldGroupName
+          title
+          blurb
+          gettingHereImage: image {
+            altText
+            mediaItemUrl
+          }
+        }
+        ... on Page_Flexiblecontent_Sections_TheLocalWay {
+          fieldGroupName
+          title
+          iframe
+          columns {
+            ... on Page_Flexiblecontent_Sections_TheLocalWay_columns {
+              sections {
+                ... on Page_Flexiblecontent_Sections_TheLocalWay_columns_sections {
+                  title
+                  list
+                }
+              }
+            }
           }
         }
       }
