@@ -18,6 +18,7 @@ export default function BigImageSmallContent(props) {
         ctaText,
         icon, 
         media,
+        order,
         anchorTag,
         imagePoster,
         paddingType,
@@ -28,7 +29,7 @@ export default function BigImageSmallContent(props) {
         slides } = props
     
     return (
-        <section className={styles.container}>
+        <section className={`${styles.container} ${order == 0 ? 'padding-top': ''}`}>
            {contentPosition === "Left" && (
                <div className="max-80">
                    { anchorTag && (
