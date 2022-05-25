@@ -508,6 +508,7 @@ query AllComponents {
                 sleeps
                 keyFeature
                 theme
+                description
               }
             }
           }

@@ -19,8 +19,10 @@ export default function RoomsGrid(props) {
                             <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})` }}>
                                 <Image className={styles.roomimage} src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={430} height={436} layout="intrinsic"/>
                             </div>
-                            <p class="xs-heading uppercase black">Sleeps {room.singleRooms.sleeps} <span className={styles.keyFt}>{room.singleRooms.keyFeature}</span> <span className={styles.theme}>{room.singleRooms.theme}</span></p>
-                            <p className={`${styles.roommobile} serif heading black`}>{room.title}</p>
+                            <div className={styles.text}>
+                                <p class="xs-heading uppercase black">Sleeps {room.singleRooms.sleeps} <span className={styles.keyFt}>{room.singleRooms.keyFeature}</span> <span className={styles.theme}>{room.singleRooms.theme}</span></p>
+                                <p className={`${styles.roommobile} serif heading black`}>{room.title}</p>
+                            </div>
                             </li>
                         )
                     })
