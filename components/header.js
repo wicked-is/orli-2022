@@ -11,7 +11,11 @@ export default function Header(props) {
     const topBar = props.topBar
 
     const [navIsOpen, setNavIsOpen] = useState(false);
-    const [navImage, setNavImage] = useState(navItems[0].image.mediaItemUrl);
+    const [navImage, setNavImage] = useState(null);
+
+    useEffect(() => { 
+        setNavImage(navItems[0].image.mediaItemUrl);
+    }, [navImage]);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)

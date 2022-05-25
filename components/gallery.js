@@ -30,7 +30,7 @@ export default function Gallery(props) {
             <div className={styles.bigheroSubnav}>
                 <ul className={styles.subnavigationonlyContainer}>
                     {
-                        filters.map((item, index) => {
+                        filters && filters.map((item, index) => {
                             return (
                                 <li 
                                     key={`ni-${index}`} 
@@ -51,7 +51,7 @@ export default function Gallery(props) {
             <ResponsiveMasonry columnsCountBreakPoints={{600: 1, 800: 2, 900: 2}}>
                 <Masonry columnsCount={2} gutter="10px">
                 {
-                    filteredItems.map((item, index) => {
+                    items && filteredItems.map((item, index) => {
                         return (
                             <div key={index}>
                                 {item.type === 'Image' && item.filter === 'Rooms' && (

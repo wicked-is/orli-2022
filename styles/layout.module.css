@@ -83,3 +83,7 @@
   top: -18rem; 
   visibility: hidden;
 }
+
+.has-video {
+  min-height: 70vh;
+}

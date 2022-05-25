@@ -5,6 +5,21 @@
     align-items: center;
     padding: 7rem 0 7.75rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blurbContainer video {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 9;
+}
+
+.blurbContainer > div {
+  z-index: 9999;
 }
 
 .copy{
