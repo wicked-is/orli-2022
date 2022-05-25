@@ -61,7 +61,10 @@
     font-family: 'GT Walsheim Light';
     line-height: 150%;
 }
-
+.xs-heading {
+    font-size: var(--xs-copy);
+    font-family: 'GT Walsheim Bold';
+}
 .xs-copy {
     font-size: var(--xs-copy);
     line-height: 150%;

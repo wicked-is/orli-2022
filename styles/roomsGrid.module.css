@@ -12,26 +12,88 @@
     margin: auto;
     flex-wrap: wrap;
     list-style:none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
 }
 
-.roomsGrid li:nth-child(1), 
-.roomsGrid li:nth-child(2), 
-.roomsGrid li:nth-child(3), 
-.roomsGrid li:nth-child(4), 
-.roomsGrid li:nth-child(5),
-.roomsGrid li:nth-child(6),
+.roomsGrid li:nth-child(1),
+.roomsGrid li:nth-child(4),
 .roomsGrid li:nth-child(8),
-.roomsGrid li:nth-child(9),
-.roomsGrid li:nth-child(10),
-.roomsGrid li:nth-child(11),
-.roomsGrid li:nth-child(12),
-.roomsGrid li:nth-child(13) {
-    width: 31.33%;
+.roomsGrid li:nth-child(11) {
+    width: 28.33%;
     position: relative;
-    margin: 1%;
+    margin: 1% 1% 1% 5%;
 }
+
+.roomsGrid li:nth-child(3),
+.roomsGrid li:nth-child(6),
+.roomsGrid li:nth-child(10),
+.roomsGrid li:nth-child(13) {
+    width: 28.33%;
+    position: relative;
+    margin: 1% 5% 1% 1%;
+}
+
+.roomsGrid li:nth-child(2),
+.roomsGrid li:nth-child(5),
+.roomsGrid li:nth-child(9),
+.roomsGrid li:nth-child(12) {
+    width: 28.33%;
+    position: relative;
+    margin: 1% 1% 1% 1%;
+} 
 
 .roomsGrid li:nth-child(7) {
     width: 100%;
     display: block;
+    position: relative;
+    margin: 3% 0 3% 0;
+}
+
+.roomsGrid li:nth-child(7) .text {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 9;
+    display: block;
+}
+.roomsGrid li:nth-child(7) .text p {color: var(--white) !important;}
+.room {
+    background-position: center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.roomimage {display: none !important;}
+
+.keyFt:before, .theme:before {
+    content: "|";
+    margin: 0 0.5rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .roomsGrid li:nth-child(1),
+    .roomsGrid li:nth-child(3),
+    .roomsGrid li:nth-child(5),
+    .roomsGrid li:nth-child(8),
+    .roomsGrid li:nth-child(10),
+    .roomsGrid li:nth-child(12) {
+        width: 44%;
+        position: relative;
+        margin: 1% 1% 1% 5%;
+    }
+    .roomsGrid li:nth-child(2),
+    .roomsGrid li:nth-child(4),
+    .roomsGrid li:nth-child(6),
+    .roomsGrid li:nth-child(9),
+    .roomsGrid li:nth-child(11),
+    .roomsGrid li:nth-child(13) {
+        width: 44%;
+        position: relative;
+        margin: 1% 5% 1% 1%;
+    }
 }

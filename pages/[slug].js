@@ -512,6 +512,12 @@ query AllComponents {
                   mediaItemUrl
                 }
               }
+              singleRooms {
+                sleeps
+                keyFeature
+                theme
+                description
+              }
             }
           }
         }
