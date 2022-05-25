@@ -5,18 +5,23 @@ import TitleBar from "./TitleBar"
 const TheLocalWayContainer = styled.section`
     display: flex;
     flex-direction: column;
-    padding: 6rem 7.5%;
+    padding: 6rem 10%;
+    background-color: var(--lt-grey);
 `
 
 const ColumnsContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+    gap: 1.6rem;
 
     padding-top: 5rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1100px) {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 676px) {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     @media (max-width: 425px) {
@@ -28,6 +33,9 @@ const Column = styled.div``
 
 const ListContainer = styled.p`
     line-height: 32px;
+    font-size: var(--body-copy);
+    font-family: 'GT Walsheim Light';
+    line-height: 150%;
 `
 
 const ColumnSection = styled.div`
