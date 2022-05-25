@@ -8,6 +8,7 @@ import BlurbCenter from '../components/blurbCenter';
 import BlurbLeft from '../components/blurbLeft';
 import BlogGrid from '../components/BlogGrid';
 import RoomSlider from '../components/roomSlider';
+import RoomsGrid from '../components/RoomsGrid';
 import AmenitiesSlider from '../components/amenitiesSlider';
 import OurMission from '../components/ourMission';
 import Gatherings from '../components/gatherings';
@@ -119,6 +120,9 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_TheLocalWay':
                   gatheredSections.push(<TheLocalWay key={componentKey} {...section} />)
                   break;
+                case 'Page_Flexiblecontent_Sections_RoomsGrid':
+                    gatheredSections.push(<RoomsGrid key={componentKey} {...section} />)
+                    break;
                 default:
                     break;
             }

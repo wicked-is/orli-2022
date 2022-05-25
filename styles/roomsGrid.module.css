@@ -1,0 +1,37 @@
+.roomsGrid {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
+
+.gridList {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    list-style:none;
+}
+
+.roomsGrid li:nth-child(1), 
+.roomsGrid li:nth-child(2), 
+.roomsGrid li:nth-child(3), 
+.roomsGrid li:nth-child(4), 
+.roomsGrid li:nth-child(5),
+.roomsGrid li:nth-child(6),
+.roomsGrid li:nth-child(8),
+.roomsGrid li:nth-child(9),
+.roomsGrid li:nth-child(10),
+.roomsGrid li:nth-child(11),
+.roomsGrid li:nth-child(12),
+.roomsGrid li:nth-child(13) {
+    width: 31.33%;
+    position: relative;
+    margin: 1%;
+}
+
+.roomsGrid li:nth-child(7) {
+    width: 100%;
+    display: block;
+}
