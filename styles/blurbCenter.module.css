@@ -20,6 +20,21 @@
     width: 100%;
 }
 
+.backgroundMedia {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+}
+
+.backgroundMedia video {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.overContent { z-index: 99; }
+
 @media only screen and (max-width: 1750px) {
   .intro-copy .copy{
     width: 85%;
