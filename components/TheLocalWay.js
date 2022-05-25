@@ -2,23 +2,64 @@ import styled from "styled-components"
 
 import TitleBar from "./TitleBar"
 
+const TheLocalWayContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 7.5%;
+`
+
+const ColumnsContainer = styled.section`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+
+    padding-top: 5rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 425px) {
+        grid-template-columns: 1fr;
+    }
+`
+
+const Column = styled.div``
+
+const ListContainer = styled.p`
+    line-height: 32px;
+`
+
+const ColumnSection = styled.div`
+    margin-bottom: 2rem;
+`
+
 export default function TheLocalWay(props) {
     const { title, iframe, columns } = props
     return (
-        <section>
-            <TitleBar title="" />
-            { iframe }
-            <div>
+        <TheLocalWayContainer>
+            <TitleBar title="The Local Way" left="true" />
+            <div dangerouslySetInnerHTML={{ __html: iframe }} ></div>
+            <ColumnsContainer>
                 {
                     columns.map((column, index) => {
                         return (
-                            <div key={index}>
-                                {`column ${ index }`}
-                            </div>
+                            <Column key={index}>
+                                {
+                                    column.sections.map((section, index) => {
+                                        return (
+                                            <ColumnSection key={index}>
+                                                <h2 class="sans-serif sub-heading-bold black">{section.title}</h2>
+                                                <ListContainer dangerouslySetInnerHTML={{ __html: section.list }}></ListContainer>
+                                            </ColumnSection>
+                                        )
+                                    })
+                                }
+                            </Column>
                         )
                     })
                 }
-            </div>
-        </section>
+            </ColumnsContainer>
+        </TheLocalWayContainer>
     )
 }
