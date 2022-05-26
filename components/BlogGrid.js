@@ -6,6 +6,7 @@ const BlogGridContainer = styled.section`
     display: flex;
     align-items; flex-start;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 6rem;
 `
 const BlogTile = styled.div`
@@ -15,20 +16,75 @@ const BlogTile = styled.div`
     /* grid-column-end: 5; */
     &:first-child,
     &:nth-child(1n + 3) {
-        width: 28.33%;
+        width: 27.33%;
         margin: 0.5rem 0.5rem 0.5rem 5rem;
     }
 
     &:nth-child(2),
     &:nth-child(2n) {
-        width: 28.33%;
+        width: 27.33%;
         margin: 0.5rem;
     }
 
     &:nth-child(3),
     &:nth-child(3n + 4) {
-        width: 28.33%;
+        width: 27.33%;
         margin: 0.5rem 5rem 0.5rem 0.5rem;
+    }
+
+    @media only screen and (max-width:1074px) {
+        &:first-child,
+        &:nth-child(1n + 3) {
+            width: 26.33%;
+            margin: 0.5rem 0.5rem 0.5rem 5rem;
+        }
+
+        &:nth-child(2),
+        &:nth-child(2n) {
+            width: 26.33%;
+            margin: 0.5rem;
+        }
+
+        &:nth-child(3),
+        &:nth-child(3n + 4) {
+            width: 26.33%;
+            margin: 0.5rem 5rem 0.5rem 0.5rem;
+        }
+    }
+
+    @media only screen and (max-width:913px) {
+        &:first-child,
+        &:nth-child(1n + 3) {
+            width: 43%;
+            margin: 1rem 0.5rem 1rem 1rem;
+        }
+        &:nth-child(2),
+        &:nth-child(2n) {
+            width: 43%;
+            margin: 1rem 1rem 1rem 0.5rem;
+        }
+        &:nth-child(3),
+        &:nth-child(3n + 4) {
+            width: 90%;
+            margin: 1rem;
+        }
+    }
+    @media only screen and (max-width:414px) {
+        &:first-child,
+        &:nth-child(1n + 3) {
+            width: 98%;
+            margin: 1rem;
+        }
+        &:nth-child(2),
+        &:nth-child(2n) {
+            width: 98%;
+            margin: 1rem;
+        }
+        &:nth-child(3),
+        &:nth-child(3n + 4) {
+            width: 98%;
+            margin: 1rem;
+        }
     }
 
     ${props => props.featured && css`
