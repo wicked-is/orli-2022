@@ -10,6 +10,7 @@ export default function RoomsGrid(props) {
     
     return (
         <section className={styles.roomsGrid}>
+           
             <ul className={styles.gridList}>
             {/* map over images */} 
             {
