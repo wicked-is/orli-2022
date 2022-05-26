@@ -26,9 +26,9 @@ export default function RoomSlider(props) {
     }, [sliderActive]);
     
     return (
-        <section className={styles.roomSlider}>
+        <section className={`${styles.roomSlider}`}>
             <Link href="/rooms">
-                <span className="sans-serif white xs-copy"><a className={styles.cta} >Find Your Room</a></span>
+                <span className="sans-serif white xs-copy fadein"><a className={styles.cta} >Find Your Room</a></span>
             </Link>
             {/* map over images */}
             <Flickity
@@ -61,7 +61,7 @@ export default function RoomSlider(props) {
                     })
                 }
             </Flickity>
-            <div className={styles.roomSliderNavigation}>
+            <div className={`${styles.roomSliderNavigation}`}>
                 {
                     rooms.map((room, index) => {
                         return (

@@ -1,7 +1,7 @@
 import styles from '../styles/blurbCenter.module.css';
 
 export default function BlurbCenter(props) {
-
+    
     const {
         blurb,
         greyBackground,
@@ -22,10 +22,10 @@ export default function BlurbCenter(props) {
                 </video>
             ) }
             <div className="max-75 center">
-                { !mp4ExternalLink && <div className={`${styles.icon}`}>
+                { !mp4ExternalLink && <div className={`${styles.icon} fadein`}>
                     <img src={icon.mediaItemUrl} alt={icon.altText}/>
                 </div> }
-                <p className="heading-italic">
+                <p className="heading-italic fadein">
                     { blurb }
                 </p>
             </div>
