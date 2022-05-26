@@ -2,7 +2,22 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
 
+import styled, { css } from 'styled-components';
+
 import styles from '../styles/roomsGrid.module.css'
+
+const filters = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Bathtub', 'ADA Accessible'];
+
+const FilterContainer = styled.section`
+    display: flex;    
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    margin-inline: auto;
+
+    background-color: var(--lt-grey);
+`
 
 export default function RoomsGrid(props) {
 
@@ -10,7 +25,17 @@ export default function RoomsGrid(props) {
     
     return (
         <section className={styles.roomsGrid}>
-           
+            <FilterContainer>
+                {
+                    filters.map((filter, index) => { 
+                        return (
+                            <>
+                                <label className="rooms-filter"><span id="checkbox"></span><input type="checkbox" name="checkbox" value="value" />{filter}</label>
+                            </>
+                        )
+                    })
+                }
+            </FilterContainer>
             <ul className={styles.gridList}>
             {/* map over images */} 
             {

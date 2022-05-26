@@ -504,6 +504,9 @@ query AllComponents {
           fieldGroupName
           roomsgrid {
             ... on Room {
+              singleRooms {
+                amenities
+              }
               title
               slug
               featuredImage {
