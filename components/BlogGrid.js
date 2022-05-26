@@ -3,48 +3,44 @@ import Link from 'next/link';
 import styled, { css } from 'styled-components';
 
 const BlogGridContainer = styled.section`
-    display: grid;
-    grid-template-columns: 10% 1fr 1fr 1fr 10%;
-    grid-row-gap: 3rem;
-    grid-column-gap: 1rem;
-    grid-auto-flow: dense;
+    display: flex;
+    align-items; flex-start;
+    flex-wrap: wrap;
     margin-bottom: 6rem;
 `
 const BlogTile = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    grid-column: span 1;
-
-    grid-column-start: 2;
+    display: inline;
 
 
     /* grid-column-end: 5; */
-
-    &:nth-child(1n) {
-        grid-column: 2 / 3;
+    &:first-child,
+    &:nth-child(1n + 3) {
+        width: 28.33%;
+        margin: 0.5rem 0.5rem 0.5rem 5rem;
     }
 
-    &:nth-of-type(2n) {
-        grid-column: 3 / 4;
+    &:nth-child(2),
+    &:nth-child(2n) {
+        width: 28.33%;
+        margin: 0.5rem;
     }
 
-    &:nth-child(3n) {
-        grid-column: 4 / 5;
+    &:nth-child(3),
+    &:nth-child(3n + 4) {
+        width: 28.33%;
+        margin: 0.5rem 5rem 0.5rem 0.5rem;
     }
 
     ${props => props.featured && css`
-        grid-column: 1 / 6 !important;
-        display: flex;
-        flex-direction: column;
-        min-height: 60vh;
-
+        display: block;
+        min-height: 70vh;
+        width: 100% !important;
         background-image: url(${props.background}) !important;
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
-
-        padding-inline: 10%;
+        margin: 4rem 0 !important;
+        padding: 4rem 6rem;
 
         img, span { display: none !important; }
 
@@ -73,11 +69,11 @@ export default function BlogGrid(props) {
 
                     return (
                         <BlogTile key={index} featured={featured} background={post.featuredImage.node.mediaItemUrl}>
-                            { featured && ( <p>Featured Story</p> ) }
+                            { featured && ( <p className="xs-heading uppercase white">Featured Story</p> ) }
                             <Image src={post.featuredImage.node.mediaItemUrl} width={430} height={436} layout="responsive" />
-                            { !featured && ( <p>{category}</p> ) }
+                            { !featured && ( <p className="xs-heading uppercase black">{category}</p> ) }
                             <Link href={post.link}>
-                                <p>{post.title}</p>
+                                <p className="serif heading black">{post.title}</p>
                             </Link>
                         </BlogTile>
                     )
