@@ -22,7 +22,7 @@ const FilterContainer = styled.section`
 export default function RoomsGrid(props) {
 
     const { roomsgrid } = props
-    
+    console.log(roomsgrid);
     return (
         <section className={styles.roomsGrid}>
             <FilterContainer>
