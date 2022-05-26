@@ -4,7 +4,7 @@ import styles from '../styles/blurbLeft.module.css'
 
 export default function BlurbLeft({ content, ctaLink, ctaText, icon, title }) {
     return (
-        <div className={styles.blurbLeftContainer}>
+        <div className={`${styles.blurbLeftContainer} fadein`}>
             {icon && <div className={styles.icon}><Image src={icon.mediaItemUrl} width={100} height={100} layout="fixed" alt={icon.altText} /></div>}
             {title && <p className={`${styles.mobilepadding} sans-serif-bold sub-heading`}>{title}</p>}
             {content && <p className={`${styles.content} heading`}>{content}</p>}

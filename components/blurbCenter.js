@@ -1,7 +1,7 @@
 import styles from '../styles/blurbCenter.module.css';
 
 export default function BlurbCenter(props) {
-
+    
     const {
         blurb,
         greyBackground,
@@ -16,10 +16,10 @@ export default function BlurbCenter(props) {
     return (
         <section className={`${styles.blurbContainer} ${greyBackground && 'bg-lt-grey'}`}>
             <div className="max-75 center">
-                <div className={`${styles.icon}`}>
-                    <img src={icon.mediaItemUrl} alt={icon.altText}/>
+                <div className={`${styles.icon} fadein`}>
+                    <img src={icon?.mediaItemUrl} alt={icon?.altText}/>
                 </div>
-                <p className="heading-italic">
+                <p className="heading-italic fadein">
                     { blurb }
                 </p>
             </div>

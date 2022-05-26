@@ -29,7 +29,7 @@ export default function AmenitiesSlider(props) {
     }, [sliderActive]);
 
     return (
-        <section className={styles.amenitiesSlider} >
+        <section className={`${styles.amenitiesSlider}`} >
             <Flickity
                 options={{
                     cellAlign: 'left',
@@ -56,12 +56,12 @@ export default function AmenitiesSlider(props) {
                     })
                 }
             </Flickity>
-            <div className={styles.sliderContent}>
+            <div className={`${styles.sliderContent} fadein`}>
                                 <p className="sans-serif-bold sub-heading white">{title}</p>
                                 <p className="heading white" style={{ margin: 0 }}>{blurb}</p>
                                 <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
-            <div className={styles.sliderNav}>
+            <div className={`${styles.sliderNav} fadein`}>
                 {
                     amenities.map((amenity, index) => {
                         return (

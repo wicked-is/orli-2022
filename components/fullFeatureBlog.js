@@ -9,7 +9,7 @@ export default function FullFeatureBlog(props) {
     return (
         <section className={styles.fullFeatureBlog}>
             <div key={featuredJournal.title} className={styles.fullFeatureBlogImage} style={{ backgroundImage: `url(${featuredJournal.featuredImage.node.mediaItemUrl})`}}>
-                <div className={`${styles.top} ${styles.white}`}>
+                <div className={`${styles.top} ${styles.white} fadein`}>
                     <ThreePartHeading
                         subheader={subHeadline}
                         header={headline}
@@ -20,7 +20,7 @@ export default function FullFeatureBlog(props) {
                     />
                 </div>
                 <Image src={featuredJournal.featuredImage.node.mediaItemUrl} alt={featuredJournal.featuredImage.node.altText} width={561} height={370} className={styles.mobileBlogimg}/>
-                <a href={featuredJournal.uri} className={`${styles.white} pull-quote`}>
+                <a href={featuredJournal.uri} className={`${styles.white} pull-quote fadein`}>
                     <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_arrow-white.svg" alt="white arrow" className={styles.white_arrow}  /> {featuredJournal.title}
                 </a>
             </div>

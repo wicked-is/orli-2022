@@ -10,7 +10,7 @@ export default function SpotifyFeature() {
                 <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/02/orlihero3-1.webm" type="video/webm" />
             </video>
             <div className={`${styles.container} ${styles.max70}`}>
-                <div>
+                <div className="fadein">
                     <p className="heading white">We&apos;re Friends, and Friends Share Music</p>
                     <Link href="/">
                         <a className="xs-copy white" style={{ textDecoration: "underline" }}>Listen on Spotify</a>

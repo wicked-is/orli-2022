@@ -13,7 +13,7 @@ export default function Gatherings(props) {
         case 'Gatherings':
     return (
         <>
-            <div className={styles.left}>
+            <div className={`${styles.left} fadein`}>
                 <ThreePartHeading
                     subheader={subHeadline}
                     header={headline}
@@ -34,7 +34,7 @@ export default function Gatherings(props) {
                     )
                 }
             </div>
-            <div className={styles.right}>
+            <div className={`${styles.right}`}>
                 {
                     media[1].type === "Image" && (
                         <>

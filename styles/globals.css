@@ -48,3 +48,7 @@ a {
 .flex { display: flex; }
 .flex-column { flex-direction: column; }
 .justify-content-space-between { justify-content: space-between; }
+
+.fadein {
+  opacity: 0;
+}
