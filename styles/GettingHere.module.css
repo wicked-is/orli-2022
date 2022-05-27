@@ -1,0 +1,12 @@
+.container {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    padding: 4rem 0 0 0;
+}
+
+.ghimg {
+    width: 100%; 
+    margin: 4rem auto auto auto; 
+    display: block;
+}

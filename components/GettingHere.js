@@ -1,18 +1,15 @@
-import styled, { css } from "styled-components"
+import Image from 'next/image'
+import styles from '../styles/GettingHere.module.css';
 
-import TitleBar from "./TitleBar"
+export default function GettingHere({title, blurb, gettinghereimage}) {
 
-const GettingHereContainer = styled.section`
-    display: flex;
-    max-width: 80%;
-    margin-inline: auto;
-`
-
-export default function GettingHere(props) {
-    const { title, blurb, image } = props
     return (
-        <GettingHereContainer>
-            <TitleBar title={title} blurb={blurb} left/>
-        </GettingHereContainer>
+        <section className={styles.container}>
+            <div className="max-80">
+            {title && <p className="heading left">{title}</p>}
+            {blurb && <p className="sans-serif body-copy black left">{blurb}</p>}
+            </div>
+            {gettinghereimage && <img className={styles.ghimg} src={gettinghereimage.mediaItemUrl} alt={gettinghereimage.altText} />}
+        </section>
     )
 }

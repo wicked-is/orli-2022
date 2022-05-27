@@ -125,7 +125,7 @@ export default function BlogGrid(props) {
 
                     return (
                         <BlogTile key={index} featured={featured} background={post.featuredImage.node.mediaItemUrl}>
-                            { featured && ( <p className="xs-heading uppercase white">Featured Story</p> ) }
+                            { featured && ( <p className="xs-heading uppercase white">{category}</p> ) }
                             <Image src={post.featuredImage.node.mediaItemUrl} width={430} height={436} layout="responsive" />
                             { !featured && ( <p className="xs-heading uppercase black">{category}</p> ) }
                             <Link href={post.link}>

@@ -570,7 +570,7 @@ query AllComponents {
           fieldGroupName
           title
           blurb
-          gettingHereImage: image {
+          gettinghereimage {
             altText
             mediaItemUrl
           }
