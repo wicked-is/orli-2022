@@ -379,6 +379,7 @@ query AllComponents {
           headline
           subHeadline
           type
+          anchorTag
         }
         ... on Page_Flexiblecontent_Sections_Gallery {
           fieldGroupName
