@@ -19,7 +19,7 @@
 }
 
 .blurbContainer > div {
-  z-index: 9999;
+  z-index: 10;
 }
 
 .copy{
@@ -48,7 +48,7 @@
   left: 0;
 }
 
-.overContent { z-index: 99; }
+.overContent { z-index: 9; }
 
 @media only screen and (max-width: 1750px) {
   .intro-copy .copy{
