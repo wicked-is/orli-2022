@@ -79,3 +79,12 @@ address {font-style: normal;}
 
 .cta-black:visited, .cta-black:focus {color: var(--black);} 
 .cta-white:visited, .cta-white:focus {color: var(--white);}
+
+.active p{
+    font-family: 'GT Walsheim'; 
+    font-weight: 700 !important;
+}
+.inactive p{
+    font-family: 'GT Walsheim'; 
+    font-weight: 400 !important;
+}
