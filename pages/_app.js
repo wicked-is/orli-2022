@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 function MyApp(props) {
   // Show query errors
-  // console.log(props.pageProps.data.errors);
+  // console.log(props);
   
   const { Component, pageProps } = props
   const navItems = props.pageProps?.data?.data?.myOptionsPage.options.navigation.navigationItems || null;
