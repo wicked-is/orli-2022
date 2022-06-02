@@ -181,58 +181,453 @@ export async function getStaticProps({ params }) {
     
     // Query for Sections and SEO data
     const pageQuery = `
-query AllComponents {
-  myOptionsPage {
-    options {
-      navigation {
-        navigationItems {
-          image {
-            altText
-            mediaItemUrl
-          }
-          label
-          link
-        }
-      }
-      announcementBar {
-        announcementBarText
-        isAnnouncementBarActive
-      }
-    }
-  }
-  page(id: "${slug}", idType: URI) {
-    seo {
-      title
-      metaDesc
-    }
-    flexibleContent {
-      sections {
-        ... on Page_Flexiblecontent_Sections_AnchorBar {
-          fieldGroupName
-          anchorNavigation {
-            icon {
-              altText
-              mediaItemUrl
+      query AllComponents {
+        myOptionsPage {
+          options {
+            navigation {
+              navigationItems {
+                image {
+                  altText
+                  mediaItemUrl
+                }
+                label
+                link
+              }
             }
-            text
-            anchor
+            announcementBar {
+              announcementBarText
+              isAnnouncementBarActive
+            }
           }
         }
-        ... on Page_Flexiblecontent_Sections_AmenitiesSlider {
-          fieldGroupName
-          subHeadline
-          headline
-          ctaLink
-          ctaText
-          amenities {
-            ... on Amenity {
-              title
-              featuredImage {
-                ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
-                  node {
-                    ... on MediaItem {
+        page(id: "${slug}", idType: URI) {
+          seo {
+            title
+            metaDesc
+          }
+          flexibleContent {
+            sections {
+              ... on Page_Flexiblecontent_Sections_AnchorBar {
+                fieldGroupName
+                anchorNavigation {
+                  icon {
+                    altText
+                    mediaItemUrl
+                  }
+                  text
+                  anchor
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_AmenitiesSlider {
+                fieldGroupName
+                subHeadline
+                headline
+                ctaLink
+                ctaText
+                amenities {
+                  ... on Amenity {
+                    title
+                    featuredImage {
+                      ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
+                        node {
+                          ... on MediaItem {
+                            altText
+                            mediaItemUrl
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_BigImageSmallContent {
+                fieldGroupName
+                contentPosition
+                blurb
+                subHeadline
+                headline
+                icon {
+                  mediaItemUrl
+                  altText
+                }
+                imagePoster {
+                  mediaItemUrl
+                  altText
+                }
+                mediaFullWidth
+                mediaType
+                mp4OrExternalLink
+                webm
+                slides {
+                  altText
+                  mediaItemUrl
+                }
+                paddingType
+                anchorTag
+              }
+              ... on Page_Flexiblecontent_Sections_FollowAlong {
+                fieldGroupName
+                backgroundColor
+                ctaLink
+                ctaText
+                headline
+                image {
+                  altText
+                  mediaItemUrl
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_Form {
+                fieldGroupName
+                blurb
+                headline
+                subHeadline
+                type
+                anchorTag
+              }
+              ... on Page_Flexiblecontent_Sections_Gallery {
+                fieldGroupName
+                filters {
+                  ... on Page_Flexiblecontent_Sections_Gallery_filters {
+                    filter
+                    iconnav {
                       altText
                       mediaItemUrl
+                    }
+                    label
+                  }
+                }
+                items {
+                  ... on Page_Flexiblecontent_Sections_Gallery_items {
+                    type
+                    filter
+                    image {
+                      altText
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_CenteredCopy {
+                fieldGroupName
+                blurb
+                hasBackgroundMedia
+                headline
+                icon {
+                  altText
+                  mediaItemUrl
+                }
+                imagePoster {
+                  altText
+                  mediaItemUrl
+                }
+                mp4ExternalLink
+                webm
+                greyBackground
+              }
+              ... on Page_Flexiblecontent_Sections_DiscoveriesCallout {
+                fieldGroupName
+                blurb
+                ctaLink
+                ctaText
+                icon {
+                  altText
+                  mediaItemUrl
+                }
+                media {
+                  ... on Page_Flexiblecontent_Sections_DiscoveriesCallout_media {
+                    type
+                    imagePoster {
+                      altText
+                      mediaItemUrl
+                    }
+                    mp4
+                    webm
+                  }
+                }
+                title
+              }
+              ... on Page_Flexiblecontent_Sections_EventSlider {
+                fieldGroupName
+                blurb
+                ctaLink
+                ctaText
+                headline
+                subHeadline
+                events {
+                  ... on Page_Flexiblecontent_Sections_EventSlider_events {
+                    eventType
+                    eventImage {
+                      altText
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_FeaturedJournal {
+                fieldGroupName
+                subHeadline
+                headline
+                blurb
+                ctaText
+                ctaLink
+                featuredJournal {
+                  ... on Post {
+                    featuredImage {
+                      ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
+                        node {
+                          altText
+                          mediaItemUrl
+                        }
+                      }
+                    }
+                    title
+                    uri
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_FeaturedStorySlider {
+                fieldGroupName
+                ctaLink
+                ctaText
+                headline
+                subHeadline
+                featuredStories {
+                  ... on Post {
+                    title
+                    uri
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_FollowAlong {
+                fieldGroupName
+                backgroundColor
+                ctaLink
+                ctaText
+                headline
+                image {
+                  altText
+                  mediaItemUrl
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_Form {
+                fieldGroupName
+                blurb
+                headline
+                subHeadline
+                type
+              }
+              ... on Page_Flexiblecontent_Sections_Gallery {
+                fieldGroupName
+                filters {
+                  ... on Page_Flexiblecontent_Sections_Gallery_filters {
+                    filter
+                    iconnav {
+                      altText
+                      mediaItemUrl
+                    }
+                    label
+                  }
+                }
+                items {
+                  ... on Page_Flexiblecontent_Sections_Gallery_items {
+                    type
+                    filter
+                    image {
+                      altText
+                      mediaItemUrl
+                    }
+                    mp4ExternalLink
+                    webm
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_GatheringsCallout {
+                fieldGroupName
+                ctaLink
+                ctaText
+                headline
+                subHeadline
+                blurb
+                type
+                anchorTag
+                events {
+                  ... on Event {
+                    link
+                    title
+                    date
+                    categories {
+                      nodes {
+                        name
+                      }
+                    }
+                  }
+                }
+                media {
+                  ... on Page_Flexiblecontent_Sections_GatheringsCallout_media {
+                    imagePoster {
+                      altText
+                      sourceUrl
+                    }
+                    mp4
+                    type
+                    webm
+                    ctaText
+                    ctaLink
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_Hero {
+                fieldGroupName
+                blurb
+                headline
+                includeBookingForm
+                mp4ExternalLink
+                types
+                webm
+                imagePoster {
+                  mediaItemUrl
+                  altText
+                }
+                subnavigation {
+                  ... on Page_Flexiblecontent_Sections_Hero_subnavigation {
+                    link
+                    label
+                    iconnav {
+                      altText
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_HistoricTimeline {
+                fieldGroupName
+                years {
+                  ... on Page_Flexiblecontent_Sections_HistoricTimeline_years {
+                    year
+                    caption
+                    image {
+                      altText
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_OurMission {
+                fieldGroupName
+                logo {
+                  altText
+                  mediaItemUrl
+                }
+                headline
+                animatableTexts {
+                  title
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_RoomsSlider {
+                fieldGroupName
+                rooms {
+                  ... on Room {
+                    featuredImage {
+                      node {
+                        altText
+                        mediaItemUrl
+                      }
+                    }
+                    title
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_RoomsGrid {
+                fieldGroupName
+                roomsgrid {
+                  ... on Room {
+                    singleRooms {
+                      amenities
+                    }
+                    title
+                    slug
+                    featuredImage {
+                      node {
+                        altText
+                        mediaItemUrl
+                      }
+                    }
+                    singleRooms {
+                      sleeps
+                      keyFeature
+                      theme
+                      description
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_SpotifyFeature {
+                fieldGroupName
+                headline
+                ctaLink
+                ctaText
+                spotifyEmbed
+              }
+              ... on Page_Flexiblecontent_Sections_Titlebar {
+                fieldGroupName
+                title
+                icon {
+                  mediaItemUrl
+                  altText
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_BlogGrid {
+                fieldGroupName
+                posts {
+                  ... on Post {
+                    categories(first:13) {
+                      nodes {
+                        ... on Category {
+                          link
+                          name
+                        }
+                      }
+                    }
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                    link
+                    title
+                    blogPost {
+                      featured
+                    }
+                  }  
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_GettingHere {
+                fieldGroupName
+                title
+                blurb
+                gettinghereimage {
+                  altText
+                  mediaItemUrl
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_TheLocalWay {
+                fieldGroupName
+                title
+                iframe
+                columns {
+                  ... on Page_Flexiblecontent_Sections_TheLocalWay_columns {
+                    sections {
+                      ... on Page_Flexiblecontent_Sections_TheLocalWay_columns_sections {
+                        title
+                        list
+                      }
                     }
                   }
                 }
@@ -240,361 +635,7 @@ query AllComponents {
             }
           }
         }
-        ... on Page_Flexiblecontent_Sections_BigImageSmallContent {
-          fieldGroupName
-          contentPosition
-          blurb
-          subHeadline
-          headline
-          icon {
-            mediaItemUrl
-            altText
-          }
-          imagePoster {
-            mediaItemUrl
-            altText
-          }
-          mediaFullWidth
-          mediaType
-          mp4OrExternalLink
-          webm
-          slides {
-            altText
-            mediaItemUrl
-          }
-          paddingType
-          anchorTag
-        }
-        ... on Page_Flexiblecontent_Sections_CenteredCopy {
-          fieldGroupName
-          blurb
-          hasBackgroundMedia
-          headline
-          icon {
-            altText
-            mediaItemUrl
-          }
-          imagePoster {
-            altText
-            mediaItemUrl
-          }
-          mp4ExternalLink
-          webm
-          greyBackground
-        }
-        ... on Page_Flexiblecontent_Sections_DiscoveriesCallout {
-          fieldGroupName
-          blurb
-          ctaLink
-          ctaText
-          icon {
-            altText
-            mediaItemUrl
-          }
-          media {
-            ... on Page_Flexiblecontent_Sections_DiscoveriesCallout_media {
-              type
-              imagePoster {
-                altText
-                mediaItemUrl
-              }
-              mp4
-              webm
-            }
-          }
-          title
-        }
-        ... on Page_Flexiblecontent_Sections_EventSlider {
-          fieldGroupName
-          blurb
-          ctaLink
-          ctaText
-          headline
-          subHeadline
-          events {
-            ... on Page_Flexiblecontent_Sections_EventSlider_events {
-              eventType
-              eventImage {
-                altText
-                mediaItemUrl
-              }
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_FeaturedJournal {
-          fieldGroupName
-          subHeadline
-          headline
-          blurb
-          ctaText
-          ctaLink
-          featuredJournal {
-            ... on Post {
-              featuredImage {
-                ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
-                  node {
-                    altText
-                    mediaItemUrl
-                  }
-                }
-              }
-              title
-              uri
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_FeaturedStorySlider {
-          fieldGroupName
-          ctaLink
-          ctaText
-          headline
-          subHeadline
-          featuredStories {
-            ... on Post {
-              title
-              uri
-              featuredImage {
-                node {
-                  mediaItemUrl
-                  altText
-                }
-              }
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_FollowAlong {
-          fieldGroupName
-          backgroundColor
-          ctaLink
-          ctaText
-          headline
-          image {
-            altText
-            mediaItemUrl
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_Form {
-          fieldGroupName
-          blurb
-          headline
-          subHeadline
-          type
-          anchorTag
-        }
-        ... on Page_Flexiblecontent_Sections_Gallery {
-          fieldGroupName
-          filters {
-            ... on Page_Flexiblecontent_Sections_Gallery_filters {
-              filter
-              iconnav {
-                altText
-                mediaItemUrl
-              }
-              label
-            }
-          }
-          items {
-            ... on Page_Flexiblecontent_Sections_Gallery_items {
-              type
-              filter
-              image {
-                altText
-                mediaItemUrl
-              }
-              mp4ExternalLink
-              webm
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_GatheringsCallout {
-          fieldGroupName
-          ctaLink
-          ctaText
-          headline
-          subHeadline
-          blurb
-          type
-          anchorTag
-          events {
-            ... on Event {
-              link
-              title
-              date
-              categories {
-                nodes {
-                  name
-                }
-              }
-            }
-          }
-          media {
-            ... on Page_Flexiblecontent_Sections_GatheringsCallout_media {
-              imagePoster {
-                altText
-                sourceUrl
-              }
-              mp4
-              type
-              webm
-              ctaText
-              ctaLink
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_Hero {
-          fieldGroupName
-          blurb
-          headline
-          includeBookingForm
-          mp4ExternalLink
-          types
-          webm
-          imagePoster {
-            mediaItemUrl
-            altText
-          }
-          subnavigation {
-            ... on Page_Flexiblecontent_Sections_Hero_subnavigation {
-              link
-              label
-              iconnav {
-                altText
-                mediaItemUrl
-              }
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_HistoricTimeline {
-          fieldGroupName
-          years {
-            ... on Page_Flexiblecontent_Sections_HistoricTimeline_years {
-              year
-              caption
-              image {
-                altText
-                mediaItemUrl
-              }
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_OurMission {
-          fieldGroupName
-          logo {
-            altText
-            mediaItemUrl
-          }
-          headline
-          animatableTexts {
-            title
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_RoomsSlider {
-          fieldGroupName
-          rooms {
-            ... on Room {
-              featuredImage {
-                node {
-                  altText
-                  mediaItemUrl
-                }
-              }
-              title
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_RoomsGrid {
-          fieldGroupName
-          roomsgrid {
-            ... on Room {
-              singleRooms {
-                amenities
-              }
-              title
-              slug
-              featuredImage {
-                node {
-                  altText
-                  mediaItemUrl
-                }
-              }
-              singleRooms {
-                sleeps
-                keyFeature
-                theme
-                description
-              }
-            }
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_SpotifyFeature {
-          fieldGroupName
-          headline
-          ctaLink
-          ctaText
-          spotifyEmbed
-        }
-        ... on Page_Flexiblecontent_Sections_Titlebar {
-          fieldGroupName
-          title
-          icon {
-            mediaItemUrl
-            altText
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_BlogGrid {
-          fieldGroupName
-          posts {
-          	... on Post {
-              categories(first:13) {
-                nodes {
-                	... on Category {
-                    link
-                    name
-                  }
-                }
-              }
-              featuredImage {
-                node {
-                  mediaItemUrl
-                  altText
-                }
-              }
-              link
-              title
-              blogPost {
-                featured
-              }
-            }  
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_GettingHere {
-          fieldGroupName
-          title
-          blurb
-          gettinghereimage {
-            altText
-            mediaItemUrl
-          }
-        }
-        ... on Page_Flexiblecontent_Sections_TheLocalWay {
-          fieldGroupName
-          title
-          iframe
-          columns {
-            ... on Page_Flexiblecontent_Sections_TheLocalWay_columns {
-              sections {
-                ... on Page_Flexiblecontent_Sections_TheLocalWay_columns_sections {
-                  title
-                  list
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}`
+      }`
     
     // Get page sections and SEO data
     const res = await fetch(process.env.WP_GQL_API, {
