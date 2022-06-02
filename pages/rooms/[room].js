@@ -23,6 +23,8 @@ const SingleRoomContent = styled.div`
   margin-top: 3rem;
 `
 
+const SingleRoomMainDesc = styled.div``
+
 const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
@@ -141,12 +143,12 @@ export default function DefaultRoomsPage(props) {
       <Hero types="Single Room" imagePoster={room.featuredImage} />
       <SingleRoomContentContainer>
         <SingleRoomContent>
-          <div className="sans-serif body-copy black">
+          <SingleRoomMainDesc className="sans-serif body-copy black">
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <h1 className="heading">{room.title}</h1>
             <p>{room.singleRooms.description}</p>
             <p className="sans-serif xs-copy underline"><a>View Floorplan</a></p>
-          </div>
+          </SingleRoomMainDesc>
 
           <FeatureContainer>
             <p className="sans-serif-bold sub-heading">Features</p>
@@ -223,7 +225,7 @@ export async function getStaticPaths() {
         body: JSON.stringify({
             query: `
                 query Rooms {
-                    rooms {
+                    rooms(first: 100) {
                         nodes {
                             slug
                         }
@@ -247,80 +249,81 @@ export async function getStaticPaths() {
 
 // Get relative [slug] data
 export async function getStaticProps({ params }) {
-    const { room } = params
-    
-    // Query for Sections and SEO data
-    const roomsQuery = `
-      query AllComponents {
-        myOptionsPage {
-          options {
-            navigation {
-              navigationItems {
-                image {
-                  altText
-                  mediaItemUrl
-                }
-                label
-                link
-              }
-            }
-            announcementBar {
-              announcementBarText
-              isAnnouncementBarActive
-            }
-          }
-        }
-        room(id: "${room}", idType: SLUG) {
-          seo {
-            fullHead
-          }
-          singleRooms {
-            aboutOrliDescription
-            aboutOrliTitle
-            amenities
-            description
-            keyFeature
-            neighborhoodDescription
-            neighborhoodTitle
-            sleeps
-            squareFeet
-            theme
-            features {
-              label
-              icon {
+  const { room } = params
+  
+  // Query for Sections and SEO data
+  const roomsQuery = `
+    query Rooms {
+      myOptionsPage {
+        options {
+          navigation {
+            navigationItems {
+              image {
                 altText
                 mediaItemUrl
               }
-            }
-            neighborhoodBullets {
-              pointOfInterest
-              walkability
+              label
+              link
             }
           }
-          status
-          title
-          featuredImage {
-            node {
+          announcementBar {
+            announcementBarText
+            isAnnouncementBarActive
+          }
+        }
+      }
+      room(id: "${room}", idType: SLUG) {
+        seo {
+          fullHead
+        }
+        singleRooms {
+          aboutOrliDescription
+          aboutOrliTitle
+          amenities
+          description
+          keyFeature
+          neighborhoodDescription
+          neighborhoodTitle
+          sleeps
+          squareFeet
+          theme
+          features {
+            label
+            icon {
               altText
               mediaItemUrl
             }
           }
+          neighborhoodBullets {
+            pointOfInterest
+            walkability
+          }
         }
-      }`
-    
-    // Get page sections and SEO data
-    const res = await fetch(process.env.WP_GQL_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: roomsQuery })
-    })
-
-    const data = await res.json()
-    const page = data
-    
-    return {
-        props: {
-            data: page
+        status
+        title
+        featuredImage {
+          node {
+            altText
+            mediaItemUrl
+          }
         }
+      }
     }
+    `
+  
+  // Get page sections and SEO data
+  const res = await fetch(process.env.WP_GQL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: roomsQuery })
+  })
+
+  const data = await res.json()
+  const page = data
+  
+  return {
+      props: {
+          data: page
+      }
+  }
 }

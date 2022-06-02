@@ -49,39 +49,32 @@ a {
 .flex-column { flex-direction: column; }
 .justify-content-space-between { justify-content: space-between; }
 
-.rooms-filter input[type="checkbox"] {
-  -webkit-appearance: initial;
-  appearance: initial;
-  width: 1rem;
-  height: 1rem;
-  border: none;
-  background: transparent;
-  border: 1px solid var(--brown);
-  position: relative;
-  margin-right: .5rem;
-}
-
-.rooms-filter input[type="checkbox"]:checked {
-  background: var(--brown);
-}
-
 label.rooms-filter { 
   display: flex; 
   align-items: center;
 }
 
-.rooms-filter input[type="checkbox"]:checked:after {
-  content: "";
-  color: #fff;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.rooms-filter span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--brown);
+  margin-right: 1rem;
+}
+
+.rooms-filter.active span { 
+  background-color: var(--brown);
 }
 
 .fadein {
   opacity: 0;
+}
+
+.arrow-left::before {
+  content:"";
+  background-image: url('https: //orlidev.wpengine.com/wp-content/uploads/2022/06/arrow-black.png');
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: auto;
 }
