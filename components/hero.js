@@ -112,16 +112,31 @@ export default function Hero(props) {
             case 'Small Hero Image':
                 return (
                     <div className={styles.heroContainer}>
-                    <div className={styles.smallHero}>
-                         <img src={image.mediaUrl} alt={image.altText} />
+                        <div className={styles.smallHero}>
+                            <img src={image.mediaUrl} alt={image.altText} />
+                        </div>
+                        {
+                            includeBookingForm && (
+                                <section className={styles.horizontalFormContainer}>
+                                    <BookingForm />
+                                </section>
+                            )
+                        } 
                     </div>
-                    {
-                includeBookingForm && (
-                    <section className={styles.horizontalFormContainer}>
-                        <BookingForm />
-                    </section>
                 )
-            } 
+            case 'Single Room':
+                return (
+                    <div className={styles.heroContainer}>
+                        <div className={styles.smallHero}>
+                            <img src={imagePoster.node.mediaItemUrl} alt={imagePoster.node.altText} />
+                        </div>
+                        {
+                            includeBookingForm && (
+                                <section className={styles.horizontalFormContainer}>
+                                    <BookingForm />
+                                </section>
+                            )
+                        } 
                     </div>
                 )
             case 'SubNav Only':
