@@ -7,14 +7,19 @@ import Hero from '../../components/hero';
 import SEO from '../../components/seo';
 
 import styled from 'styled-components';
+import FauxSocialFeed from '../../components/fauxSocialFeed';
 
 const SingleRoomContentContainer = styled.section`
   display: flex;
-  fled-direction: row;
+  flex-direction: row;
   justify-content: space-around;
   max-width: 80vw;
   margin: auto; 
   gap: 2rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column !important;
+  }
 `
 
 const SingleRoomContent = styled.div`
@@ -72,6 +77,10 @@ const GreyBackground = styled.div`
   padding: 2rem;
   position: relative;
   top: -17.5rem;
+
+  @media screen and (max-width: 768px) {
+    top: 1rem;
+  }
 `
 
 const ReservationForm = styled.form``
@@ -197,8 +206,9 @@ export default function DefaultRoomsPage(props) {
               }
             </ul>
           </NeighborhoodContainer>
-          <p className="sans-serif xs-copy underline arrow-left">Back to All Rooms</p>
+          <p className="sans-serif xs-copy underline arrow-left relative">Back to All Rooms</p>
         </SingleRoomContent>
+
         <SingleRoomBookingForm>
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
@@ -211,6 +221,8 @@ export default function DefaultRoomsPage(props) {
           </GreyBackground>
         </SingleRoomBookingForm>
       </SingleRoomContentContainer>
+
+      <FauxSocialFeed ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" />
     </>
   )
 }

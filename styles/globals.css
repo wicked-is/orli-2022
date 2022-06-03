@@ -49,6 +49,8 @@ a {
 .flex-column { flex-direction: column; }
 .justify-content-space-between { justify-content: space-between; }
 
+.relative { position: relative; }
+
 label.rooms-filter { 
   display: flex; 
   align-items: center;
@@ -71,10 +73,14 @@ label.rooms-filter {
 }
 
 .arrow-left::before {
-  content:"";
-  background-image: url('https: //orlidev.wpengine.com/wp-content/uploads/2022/06/arrow-black.png');
+  content:" ";
+  background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/arrow-black.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: block;
   position: absolute;
-  height: 20px;
-  width: auto;
+  height: 19px;
+  width: 35px;
+  left: -50px;
 }
