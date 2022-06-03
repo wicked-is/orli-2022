@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
 import styles from '../styles/header.module.css';
+import Script from 'next/script';
 
 export default function Header(props) {
     
@@ -47,6 +48,10 @@ export default function Header(props) {
                     gtag('config', 'UA-#########-#');
                 `}
             </Script> */}
+            <Script
+                src="https://www.bugherd.com/sidebarv2.js?apikey=dw2fpdf4dfctxv0wzdcnuw"
+                strategy='afterInteractive'
+            />
             <Head>
                 {/* Head elements required on every page */}
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
