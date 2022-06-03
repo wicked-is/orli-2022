@@ -57,7 +57,7 @@ export default function TheLocalWay(props) {
                                     column.sections.map((section, index) => {
                                         return (
                                             <ColumnSection key={index}>
-                                                <h2 class="sans-serif sub-heading-bold black">{section.title}</h2>
+                                                <h2 className="sans-serif sub-heading-bold black">{section.title}</h2>
                                                 <ListContainer dangerouslySetInnerHTML={{ __html: section.list }}></ListContainer>
                                             </ColumnSection>
                                         )

@@ -2,7 +2,7 @@ import BookingForm from './bookingForm';
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/hero.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Hero(props) {
     
@@ -16,6 +16,23 @@ export default function Hero(props) {
         webm,
         subnavigation
     } = props
+
+    const [appState, changeState] = useState({
+        activeObject: null,
+        objects: [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 8}]
+    });
+
+    function toggleActive(index){
+        changeState({...appState, activeObject: appState.objects[index] });
+    }
+
+    function toggleActiveStyles(index){
+        if(appState.objects[index] === appState.activeObject){
+            return "active";
+        } else {
+            return "inactive";
+        }
+    }
 
     const heroStructure = (types) => { 
         switch (types) {
@@ -56,22 +73,6 @@ export default function Hero(props) {
                     </div>
                 )
             case 'Full Height Image with SubNav':
-                const [appState, changeState] = useState({
-                    activeObject: null,
-                    objects: [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 8}]
-                });
-
-                function toggleActive(index){
-                    changeState({...appState, activeObject: appState.objects[index] });
-                }
-
-                function toggleActiveStyles(index){
-                    if(appState.objects[index] === appState.activeObject){
-                        return "active";
-                    } else {
-                        return "inactive";
-                    }
-                }
                     return (
                     <div className={styles.heroContainer}>
                         <div className={styles.bigheroSubnav}>

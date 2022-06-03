@@ -16,7 +16,7 @@ export default function BlurbCenter(props) {
     return (
         <section className={`${styles.blurbContainer} ${greyBackground && 'bg-lt-grey'} ${mp4ExternalLink ? 'has-video' : ''}`}>
             {mp4ExternalLink && (
-                <video poster={imagePoster.mediaItemUrl} autoplay="true" playsinline muted loop>
+                <video poster={imagePoster.mediaItemUrl} autoPlay="true" playsinline muted loop>
                     <source src={mp4ExternalLink} type="video/mp4" />
                     <source src={webm} type="video/webm" />
                 </video>
