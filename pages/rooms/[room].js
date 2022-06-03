@@ -200,7 +200,6 @@ export default function DefaultRoomsPage(props) {
           <p className="sans-serif xs-copy underline arrow-left">Back to All Rooms</p>
         </SingleRoomContent>
         <SingleRoomBookingForm>
-          {/* form container component */}
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
@@ -272,7 +271,7 @@ export async function getStaticProps({ params }) {
           }
         }
       }
-      room(id: "${room}", idType: SLUG) {
+      room(id: "/the-irving-gill-penthouse", idType: SLUG) {
         seo {
           fullHead
         }
