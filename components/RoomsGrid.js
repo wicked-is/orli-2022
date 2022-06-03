@@ -22,7 +22,7 @@ const FilterContainer = styled.section`
 export default function RoomsGrid(props) {
 
     const [filters, setFilters] = useState(filterList);
-    const [currentRooms, setCurrentRooms] = useState(null);
+    const [currentRooms, setCurrentRooms] = useState(props.roomsgrid);
 
     const newFilters = [];
 
@@ -32,8 +32,6 @@ export default function RoomsGrid(props) {
         document.querySelectorAll('label.rooms-filter').forEach(label => { 
             label.addEventListener('click', handleFilterClick);
         })
-
-        setCurrentRooms(roomsgrid);
     }, []);
 
     const handleFilterClick = (e) => { 
@@ -47,34 +45,44 @@ export default function RoomsGrid(props) {
             newFilters.push(e.target.dataset.label_filter);
         }
 
+        if (newFilters.length == 0) {
+            return setCurrentRooms(roomsgrid);
+        }
+
         filterRooms();
     }
 
     const filterRooms = () => {
-        console.log('new', newFilters);
+        
         const newRooms = [];
 
-        const filteredRooms = roomsgrid.filter(room => {
-            console.log(room.singleRooms.amenities)
-        });
+        newFilters.some(filter => { 
+            roomsgrid.forEach(room => {
+                console.log('room', room);
+                if (room?.singleRooms?.amenities?.includes(filter)) {
+                    newRooms.push(room);
+                }
+            })
+        })
+        console.log('new rooms', newRooms)
+
+        setCurrentRooms(newRooms);
     }
-    console.log('roomsgrid', roomsgrid);
+    
     return (
         <section className={styles.roomsGrid}>
             <FilterContainer>
                 {
                     filters.map((filter, index) => { 
                         return (
-                            <>
-                                <label className="rooms-filter sans-serif" data-label_filter={filter}><span id="checkbox"></span>{filter}</label>
-                            </>
+                            <label key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter}><span id="checkbox"></span>{filter}</label>
                         )
                     })
                 }
             </FilterContainer>
             <ul className={styles.gridList}>
             {
-                    roomsgrid.map((room, index) => {
+                    currentRooms.length != 0 ? currentRooms.map((room, index) => {
                         const roomFilters = room.singleRooms.amenities
                         return (
                             <li key={`room-${index}`} data-filter={roomFilters} >
@@ -89,7 +97,17 @@ export default function RoomsGrid(props) {
                                 </a>
                             </li>
                         )
-                    })
+                    }) : (
+                        <p className="heading" style={{
+                                minHeight: '50vh',
+                                display: 'grid',
+                                placeItems: 'center',
+                                textAlign: 'center',
+                                width: '100%',
+                        }}>
+                            No rooms match this filter!
+                        </p>
+                    )
                 }
             </ul>
         </section>
