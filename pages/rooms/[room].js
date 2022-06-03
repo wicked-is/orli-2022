@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import styles from '../../styles/singleRooms.module.css'
+gsap.registerPlugin(ScrollTrigger);
 
 import Hero from '../../components/hero';
 import SEO from '../../components/seo';
@@ -131,7 +131,7 @@ export default function DefaultRoomsPage(props) {
       var tl =  gsap.timeline()
           tl.fromTo('main', {opacity:0}, { opacity:1, delay: 0.5, duration: 1});
 
-      var sections = gsap.utils.toArray('.fade');
+      var sections = gsap.utils.toArray('.fadein');
 
       sections.forEach((section) => {
           gsap.to(section, { autoAlpha: 1,
@@ -144,7 +144,7 @@ export default function DefaultRoomsPage(props) {
               }
           });
       })
-  }, [])
+  },[])
   
   return (
     <>
