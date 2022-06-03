@@ -14,7 +14,7 @@ const SingleRoomContentContainer = styled.section`
   flex-direction: row;
   justify-content: space-around;
   max-width: 80vw;
-  margin: auto; 
+  margin: auto auto 3rem; 
   gap: 2rem;
 
   @media screen and (max-width: 768px) {
@@ -75,6 +75,7 @@ const NeighborhoodContainer = styled.div`
 const GreyBackground = styled.div`
   background-color: var(--lt-grey);
   padding: 2rem;
+  margin: 1rem 0 3rem;
   position: relative;
   top: -17.5rem;
 
@@ -222,7 +223,7 @@ export default function DefaultRoomsPage(props) {
         </SingleRoomBookingForm>
       </SingleRoomContentContainer>
 
-      <FauxSocialFeed ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" />
+      <FauxSocialFeed ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" backgroundColor="Grey" />
     </>
   )
 }
