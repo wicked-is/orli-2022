@@ -9,14 +9,17 @@ import styles from '../styles/roomsGrid.module.css'
 const filterList = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Bathtub', 'ADA Accessible'];
 
 const FilterContainer = styled.section`
-    display: flex;    
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;    
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     align-items: center;
     padding: 2rem 10%;
     margin-inline: auto;
 
     background-color: var(--lt-grey);
+
+    @media screen and (max-width: 1100px) {
+
+    }
 `
 
 export default function RoomsGrid(props) {
