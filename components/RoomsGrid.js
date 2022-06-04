@@ -6,6 +6,8 @@ import styled, { css } from 'styled-components';
 
 import styles from '../styles/roomsGrid.module.css'
 
+import BookingForm from '../components/BookingForm';
+
 const filterList = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Bathtub', 'ADA Accessible'];
 
 const FilterContainer = styled.section`
@@ -22,19 +24,95 @@ const FilterContainer = styled.section`
     }
 `
 
+const QuickViewContainer = styled.dialog`
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    z-index: 9999999999;
+    display: grid;
+    place-items: center;
+`
+
+const ContentContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    height: 60vh;
+    margin: 20vh auto;
+    > div:first-child {
+        background-size: cover;
+    }
+    > div:last-child {
+        background-color: var(--lt-grey);
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        margin: 5vh auto;
+        grid-template-columns: 1fr;
+
+        > div:first-child {
+            min-height: 20vh;
+        }
+
+        > div:last-child {
+            padding: 3rem 0 0;
+        }
+    }
+`
+
+const LeftHalf = styled.div`
+    @media screen and (max-width: 768px) {
+        padding-top: 3rem;
+    }
+`
+
 export default function RoomsGrid(props) {
 
     const [filters, setFilters] = useState(filterList);
     const [currentRooms, setCurrentRooms] = useState(props.roomsgrid);
+    const [dialogContent, setDialogContent] = useState({
+        sleeps: '',
+        title: '',
+        description: '',
+        image: '',
+        slug: ''
+    });
+
+    const [modalStatus, setModalStatus] = useState(false);
 
     const newFilters = [];
 
     const { roomsgrid } = props
 
     useEffect(() => { 
-        document.querySelectorAll('label.rooms-filter').forEach(label => { 
-            label.addEventListener('click', handleFilterClick);
-        })
+        
+        let isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
+        if(!isMobileDevice){
+            const modal = document.querySelector('dialog')
+            const closeButton = document.querySelector('#closeBtn')
+
+            document.querySelectorAll('label.rooms-filter').forEach(label => { 
+                label.addEventListener('click', handleFilterClick);
+            })
+
+            document.querySelectorAll('.room-tile').forEach(room => { 
+                room.addEventListener('mouseenter', handleHover);
+            })
+
+            closeButton.addEventListener('click', () => {
+                document.querySelector('#roomdialog').close();
+            })
+
+            document.querySelector('input').blur();
+            document.querySelector('dialog').close();
+        }
+
     }, []);
 
     const handleFilterClick = (e) => { 
@@ -61,19 +139,66 @@ export default function RoomsGrid(props) {
 
         newFilters.some(filter => { 
             roomsgrid.forEach(room => {
-                console.log('room', room);
                 if (room?.singleRooms?.amenities?.includes(filter)) {
                     newRooms.push(room);
                 }
             })
         })
-        console.log('new rooms', newRooms)
 
         setCurrentRooms(newRooms);
+    }
+
+    const handleHover = (e) => {
+        const { sleeps, roomtitle, description, image, slug } = e.target.dataset;
+        
+        setDialogContent({
+            sleeps,
+            roomtitle,
+            description,
+            image,
+            slug
+        });
+
+        document.querySelector('dialog').show();
+        document.querySelector('input').blur();
+        document.querySelector('input').blur();
     }
     
     return (
         <section className={styles.roomsGrid}>
+            <dialog id="roomdialog" style={{
+                width: "100%",
+                height: "100%",
+                border: "0px",
+                backgroundColor: "rgba(0,0,0,0.5)",
+                position: "fixed",
+                top: "0",
+                zIndex: "9999999999",
+            }}>
+                <ContentContainer>
+                    <div style={{
+                        backgroundImage: `url(${dialogContent.image})`,
+                    }}></div>
+                    <LeftHalf className="relative">
+                        <div><p id="closeBtn" className="heading" style={{
+                            fontSize: '2rem',
+                            margin: 0,
+                            position: 'absolute',
+                            right: '2rem',
+                            top: '2rem'
+                        }}>&#10005;</p></div>
+                        <div style={{ display: 'flex', flexDirection: 'column', margin: "auto 10% 1rem" }}>
+                            <p className="sans-serif-bold sub-heading">Sleeps {dialogContent.sleeps}</p>
+                            <h2 className="heading">{dialogContent.roomtitle}</h2>
+                            <p className='sans-serif body-copy black'>{dialogContent.description}</p>
+                            <p className="sans-serif xs-copy underline">Learn More</p>
+                        </div>
+                        <div style={{ marginTop: 'auto', width: '100%', backgroundColor: 'white' }}>
+                            <BookingForm />
+                        </div>
+                    </LeftHalf>
+                </ContentContainer>
+            </dialog>
             <FilterContainer>
                 {
                     filters.map((filter, index) => { 
@@ -88,7 +213,13 @@ export default function RoomsGrid(props) {
                     currentRooms.length != 0 ? currentRooms.map((room, index) => {
                         const roomFilters = room.singleRooms.amenities
                         return (
-                            <li key={`room-${index}`} data-filter={roomFilters} >
+                            <li className="room-tile" key={`room-${index}`}
+                                data-filter={roomFilters}
+                                data-sleeps={room.singleRooms.sleeps}
+                                data-roomtitle={room.title}
+                                data-description={room.singleRooms.description}
+                                data-slug={room.slug}
+                                data-image={room.featuredImage.node.mediaItemUrl}>
                                 <a href={`/rooms/${room.slug}`}>
                                     <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})` }}>
                                         <Image className={styles.roomimage} src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={430} height={436} layout="intrinsic"/>
