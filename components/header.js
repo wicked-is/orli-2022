@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 
 import styles from '../styles/header.module.css';
 import Script from 'next/script';
+import Analytics from './Analytics'
 
 export default function Header(props) {
     
@@ -33,21 +34,7 @@ export default function Header(props) {
     return (
         <header className={`${styles.header} ${navIsOpen ? styles.open : ''}`}>
             
-            {/* This is the analytics snipet
-            
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=UA-#########-#"
-                    strategy="afterInteractive"
-                />
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-
-                    gtag('config', 'UA-#########-#');
-                `}
-            </Script> */}
+            <Analytics siteNotLive/>
             <Script
                 src="https://www.bugherd.com/sidebarv2.js?apikey=dw2fpdf4dfctxv0wzdcnuw"
                 strategy='afterInteractive'
@@ -66,13 +53,7 @@ export default function Header(props) {
             }
             <div className={styles.sitebranding}>
                 <Link href="/">
-                    <img
-                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
-                        alt="Orli La Jolla Logo"
-                        className={styles.headerlogo}
-                        width={380}
-                        height={95}
-                        />
+                    <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" alt="Orli La Jolla Logo" className={styles.headerlogo} width={380} height={95} />
                 </Link>
 
                 <Link href="/">
@@ -141,7 +122,7 @@ export default function Header(props) {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/">
+                                        <Link href="/" passHref>
                                             <Image
                                                 src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
                                                 alt="facebook Logo"

@@ -21,7 +21,7 @@ const TitleBarContainer = styled.section`
 
 export default function TitleBar(props) {
     const { title, icon, left, blurb } = props
-    console.log(props);
+    
     return (
         <TitleBarContainer left={left}>
             { icon && <Image src={icon.mediaItemUrl} alt={icon.altText} width="100px" height="100px" layout="fixed" /> }

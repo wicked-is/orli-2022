@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components';
 
 import styles from '../styles/roomsGrid.module.css'
 
-import BookingForm from '../components/BookingForm';
+import BookingForm from '../components/bookingForm';
 
 const filterList = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Bathtub', 'ADA Accessible'];
 

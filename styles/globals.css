@@ -71,7 +71,17 @@ label.rooms-filter {
 .fadein {
   opacity: 0;
 }
-
+.arrow-brown::before {
+  content: "";
+  background-image: url('https: //orlidev.wpengine.com/wp-content/uploads/2022/06/arrow-brown.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  position: absolute;
+  height: 22px;
+  width: 37px;
+}
 .arrow-left::before {
   content:" ";
   background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/arrow-black.png');
