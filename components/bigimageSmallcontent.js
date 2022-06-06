@@ -3,20 +3,40 @@ import Image from 'next/image';
 import styles from '../styles/bigimagesmallcontent.module.css';
 import Flickity from 'react-flickity-component'
 import "flickity/css/flickity.css";
+import styled from "styled-components";
+
+const SliderNavigationContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+`
 
 export default function BigImageSmallContent(props) {
     const slider = useRef(null)
 
     const [sliderActive, setSliderActive] = useState(0)
+    const [currentSlider, setCurrentSlider] = useState('1')
+    const [currentSliderLength, setCurrentSliderLength ] = useState('')
+
+    useEffect(() => { 
+        slider.current.on('change', () => {
+            setCurrentSlider(slider.current.selectedIndex + 1)
+            setCurrentSliderLength(slider.current.cells.length);
+        })
+
+        document.querySelector('#previous-arrow').addEventListener('click', () => slider.current.previous())
+        document.querySelector('#next-arrow').addEventListener('click', () => slider.current.next())
+    }, [slider])
+
 
     const {
-        contentPosition, 
-        subHeadline, 
-        headline, 
+        contentPosition,
+        subHeadline,
+        headline,
         blurb,
         ctaLink,
         ctaText,
-        icon, 
+        icon,
         media,
         order,
         anchorTag,
@@ -55,34 +75,51 @@ export default function BigImageSmallContent(props) {
                     )
                 }
                 {
-                    mediaType === "Slider" && (
-                        <Flickity
-                            options={{
-                                cellAlign: 'center',
-                                prevNextButtons: false,
-                                pageDots: false,
-                                draggable: true,
-                                wrapAround: true,
-                                imagesLoaded: true,
-                                adaptiveHeight: true
-                            }}
-                            disableImagesLoaded={false} // default false
-                            reloadOnUpdate={false} // default false
-                            static // default false
-                            flickityRef={c => {
-                                slider.current = c
-                            }}
-                        >
-                        {
-                            slides.map((slides, index) => {
-                                return (
-                                    <div key={slides.slides} className={styles.slides}>
-                                        <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
-                                    </div>
-                                )}
-                            )
-                        }
-                        </Flickity>
+                        mediaType === "Slider" && (
+                        <>
+                            <Flickity
+                                options={{
+                                    cellAlign: 'center',
+                                    prevNextButtons: false,
+                                    pageDots: false,
+                                    draggable: true,
+                                    wrapAround: true,
+                                    imagesLoaded: true,
+                                    adaptiveHeight: true
+                                }}
+                                disableImagesLoaded={false} // default false
+                                reloadOnUpdate={false} // default false
+                                static // default false
+                                flickityRef={c => {
+                                    slider.current = c
+                                }}
+                            >
+                                {
+                                    slides.map((slides, index) => {
+                                        return (
+                                            <>
+                                                <div key={slides.slides} className={styles.slides}>
+                                                    <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
+                                                </div>
+                                            </>
+                                        )}
+                                    )
+                                }           
+                            </Flickity>    
+                            <SliderNavigationContainer>
+                                <div className="serif brown">
+                                    {currentSlider}/{currentSliderLength} 
+                                </div>
+                                <div className="brown">
+                                                <img id="previous-arrow" src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/arrow-left.svg" style={{
+                                                    marginRight: '1rem',
+                                                }} />
+                                                <img id="next-arrow" src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/arrow-left.svg" style={{
+                                                    transform: 'rotate(180deg)'
+                                    }} />
+                                </div>
+                            </SliderNavigationContainer>
+                        </>
                     )
                 }
                 {
