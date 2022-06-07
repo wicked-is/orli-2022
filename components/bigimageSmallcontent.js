@@ -20,6 +20,7 @@ export default function BigImageSmallContent(props) {
 
     useEffect(() => { 
         if (slider.current !== null) {
+            setCurrentSliderLength(slider.current.cells.length);
             slider.current.on('change', () => {
                 setCurrentSlider(slider.current.selectedIndex + 1)
                 setCurrentSliderLength(slider.current.cells.length);
