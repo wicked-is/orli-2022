@@ -17,8 +17,10 @@ const SingleRoomContentContainer = styled.section`
   margin: auto auto 3rem; 
   gap: 2rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     flex-direction: column !important;
+    flex-wrap: wrap;
+    gap: unset;
   }
 `
 
@@ -26,6 +28,12 @@ const SingleRoomContent = styled.div`
   width: 100%;
   flex: 2;
   margin-top: 3rem;
+  
+  @media screen and (max-width: 800px) {
+    flex: 1;
+    width: 100%;
+    order: 2;
+  }
 `
 
 const SingleRoomMainDesc = styled.div``
@@ -33,6 +41,9 @@ const SingleRoomMainDesc = styled.div``
 const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
+  @media screen and (max-width: 800px) {
+    order: 1;
+  }
 `
 
 const FeatureContainer = styled.div`
@@ -79,7 +90,7 @@ const GreyBackground = styled.div`
   position: relative;
   top: -17.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     top: 1rem;
   }
 `
@@ -129,6 +140,9 @@ export default function DefaultRoomsPage(props) {
   const { room } = props.data.data;
 
   useEffect(() => {
+    var page = gsap.utils.toArray('.pagecontainer');
+    var singlebook = gsap.utils.toArray('.singleBook');
+  
       var tl =  gsap.timeline()
           tl.fromTo('main', {opacity:0}, { opacity:1, delay: 0.5, duration: 1});
 
@@ -151,6 +165,7 @@ export default function DefaultRoomsPage(props) {
     <>
       <SEO fullhead={room.seo.fullHead} />
       <Hero types="Single Room" imagePoster={room.featuredImage} />
+      <div className="pagecontainer">
       <SingleRoomContentContainer>
         <SingleRoomContent>
           <SingleRoomMainDesc className="sans-serif body-copy black">
@@ -166,7 +181,9 @@ export default function DefaultRoomsPage(props) {
               {
                 room.singleRooms.features.map((feature, index) => {
                   return <div key={index} className="sans-serif body-copy black">
-                    <img src={feature.icon.mediaItemUrl} alt={feature.altText} />
+                    { feature.icon && (
+                    <img src={feature?.icon?.mediaItemUrl} alt={feature.altText} />
+                    )}
                     <p>{feature.label}</p>
                   </div>
                 })
@@ -198,19 +215,21 @@ export default function DefaultRoomsPage(props) {
             <div className="sans-serif body-copy black" dangerouslySetInnerHTML={{ __html: room.singleRooms.neighborhoodDescription }}></div>
             <ul style={{ paddingInline: 0 }}>
               {
-                room.singleRooms.neighborhoodBullets.map((bullet, index) => {
-                  return <li key={index} className="serif black uppercase brown" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem' }}>
-                    <p>{bullet.pointOfInterest}</p>
-                    <p>{bullet.walkability}</p>
-                  </li>
-                })
+                //room.singleRooms.neighborhoodBullets.map((bullet, index) => {
+                  //return <li key={index} className="serif black uppercase brown" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem' }}>
+                    //{ bullet.pointOfInterest && (
+                   // <p>{bullet?.pointOfInterest}</p>)}
+                    //{ bullet.walkability && (
+                   // <p>{bullet?.walkability}</p>)}
+                 //</li>
+                //})
               }
             </ul>
           </NeighborhoodContainer>
           <p className="sans-serif xs-copy underline arrow-left relative">Back to All Rooms</p>
         </SingleRoomContent>
 
-        <SingleRoomBookingForm>
+        <SingleRoomBookingForm className="singleBook">
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
@@ -222,7 +241,7 @@ export default function DefaultRoomsPage(props) {
           </GreyBackground>
         </SingleRoomBookingForm>
       </SingleRoomContentContainer>
-
+      </div>
       <FauxSocialFeed ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" backgroundColor="Grey" />
     </>
   )
@@ -261,7 +280,7 @@ export async function getStaticPaths() {
 
 // Get relative [slug] data
 export async function getStaticProps({ params }) {
-  const { room } = params
+  const { room } = params ;
   
   // Query for Sections and SEO data
   const roomsQuery = `
@@ -284,7 +303,7 @@ export async function getStaticProps({ params }) {
           }
         }
       }
-      room(id: "/the-irving-gill-penthouse", idType: SLUG) {
+      room(id: "${room}", idType: URI) {
         seo {
           fullHead
         }

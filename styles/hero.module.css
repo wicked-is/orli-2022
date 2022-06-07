@@ -9,6 +9,17 @@
     align-items: flex-end;
 }
 
+.smheroContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 137px 0 0 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 .heroVideo {
     width: 100%;
     height: 100%;
@@ -42,11 +53,11 @@
 .bigHero {
     width: 100%;
     height: 100vh;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -ms-background-size: cover;
-    -o-background-size: cover;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -ms-background-size: cover !important;
+    -o-background-size: cover !important;
     background-position: center center;
 }
 
@@ -145,5 +156,33 @@
 }
 
 /* Placeholder styles so no error is thrown */
-.smallHero { display: initial;}
+.smallHero { 
+   width: 100%;
+   height: 80vh;
+   margin: auto;
+   display: inline-block;
+   background-repeat: no-repeat;
+   background-size: cover !important;
+   -webkit-background-size: cover !important;
+   -moz-background-size: cover !important;
+   -ms-background-size: cover !important;
+   -o-background-size: cover !important;
+   background-position: center center;
+   -webkit-background-position: center center;
+}
+.smallHero img {display: none}
+
+@media only screen and (max-width: 800px){
+    .smheroContainer {
+        position: relative;
+        width: 100vw;
+        height: auto;
+        padding: 0;
+        display: block;
+        justify-content: unset;
+        align-items: unset;
+    }
+    .smallHero{position: relative; height: unset; background: unset;}
+    .smallHero img {display: block; margin:5rem auto auto auto; text-align: center; width: 100%;}
+}
 
