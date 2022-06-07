@@ -29,8 +29,14 @@ const SubNavContainer = styled.ul`
         transition: 0.3s ease all;
     }
 
+    img {
+        height: 85px;
+        width: auto;
+    }
+
     .iconNav {
         width: 100%; 
+        
         max-width: 4rem;
         margin: auto; 
         text-align: center; 

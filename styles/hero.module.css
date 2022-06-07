@@ -152,7 +152,7 @@
 .subnavigationContainer li:hover p,
 .subnavigationonlyContainer li:hover p {
     font-family: 'GT Walsheim'; 
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 
 /* Placeholder styles so no error is thrown */
