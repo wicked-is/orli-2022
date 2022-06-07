@@ -19,6 +19,8 @@ const SingleRoomContentContainer = styled.section`
 
   @media screen and (max-width: 768px) {
     flex-direction: column !important;
+    flex-wrap: wrap;
+    gap: unset;
   }
 `
 
@@ -26,6 +28,12 @@ const SingleRoomContent = styled.div`
   width: 100%;
   flex: 2;
   margin-top: 3rem;
+  
+  @media screen and (max-width: 768px) {
+    flex: 1;
+    width: 100%;
+    order: 2;
+  }
 `
 
 const SingleRoomMainDesc = styled.div``
@@ -33,6 +41,9 @@ const SingleRoomMainDesc = styled.div``
 const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
+  @media screen and (max-width: 768px) {
+    order: 1;
+  }
 `
 
 const FeatureContainer = styled.div`
