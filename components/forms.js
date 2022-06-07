@@ -5,6 +5,9 @@ const FormContentContainer = styled.div`
     max-width: 60vw;
     margin: 6rem auto;
 
+    @media (max-width: 900px) {
+        max-width: 70vw;
+    }
     @media (max-width: 601px) {
         max-width: 80vw;
     }
