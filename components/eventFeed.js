@@ -10,10 +10,21 @@ const EventFeedContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: 3rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        max-width: 80vw;
+        margin-inline: auto;
+    }
 `
 const Left = styled.div`    
     flex: 1.2;
     overflow: scroll;
+    margin-right: ${props => props.fullWidget ? '10%' : '0'}; }
+
+    @media (max-width: 768px) {
+        margin-right: 0;
+    }
 `
 const Right = styled.div`
     flex: 2;
