@@ -136,7 +136,7 @@ export default function DefaultRoomsPage(props) {
           tl.to(page, { autoAlpha:1,
             scrollTrigger: {
             trigger: singlebook,
-            start: "+=0 80%",
+            start: "+=0 0%",
             end: 'bottom bottom',
             markers:false,
             pin: singlebook,
