@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import styles from '../styles/eventFeed.module.css'
 import Link from 'next/link'
 import styled from 'styled-components';
@@ -52,8 +54,8 @@ export default function EventFeed(props) {
     //     });
     // }, []);
     
-    console.log(events);
-    
+    // console.log(events);
+
     return (
         <EventFeedContainer>
             <Left id="article-container" style={{ marginLeft: props.fullWidget ? '10%' : '' }}>
@@ -67,7 +69,24 @@ export default function EventFeed(props) {
                         let year = date.getFullYear();
                         
                         return (
-                            <article key={`event-${index}`} className={index == 0 ? styles.first : ''} style={{ borderTop: '1px solid black', width: '100%' }}>
+                            <article
+                                key={`event-${index}`}
+                                className={index == 0 ? styles.first : ''}
+                                style={{
+                                    borderTop: '1px solid black',
+                                    width: '100%'
+                                }}
+                                // data-category={event.categories[0].name}
+                                // data-title={event.title}
+                                // data-image={featuredImage.node.mediaItemUrl}
+                                // data-date={event.singleEvent.date}
+                                // data-time={event.singleEvent.time}
+                                // data-address={}
+                                // data-description={}
+                                // data-gcal={event.singleEvent.addToGoogleCalendarLink}
+                                // data-acal={event.singleEvent.addToAppleCalendarLink}
+                                // data-={}
+                            >
                                 <a href="#">
                                     <p className="sans-serif xs-copy left">{event.categories.nodes[0].name} | {day} {month} {year}</p>
                                     <div className="flexcenter">
