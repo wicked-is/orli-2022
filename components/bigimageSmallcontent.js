@@ -16,16 +16,18 @@ export default function BigImageSmallContent(props) {
 
     const [sliderActive, setSliderActive] = useState(0)
     const [currentSlider, setCurrentSlider] = useState('1')
-    const [currentSliderLength, setCurrentSliderLength ] = useState('')
+    const [currentSliderLength, setCurrentSliderLength] = useState('')
 
     useEffect(() => { 
-        slider.current.on('change', () => {
-            setCurrentSlider(slider.current.selectedIndex + 1)
-            setCurrentSliderLength(slider.current.cells.length);
-        })
+        if (slider.current !== null) {
+            slider.current.on('change', () => {
+                setCurrentSlider(slider.current.selectedIndex + 1)
+                setCurrentSliderLength(slider.current.cells.length);
+            })
 
-        document.querySelector('#previous-arrow').addEventListener('click', () => slider.current.previous())
-        document.querySelector('#next-arrow').addEventListener('click', () => slider.current.next())
+            document.querySelector('#previous-arrow').addEventListener('click', () => slider.current.previous())
+            document.querySelector('#next-arrow').addEventListener('click', () => slider.current.next())
+        }
     }, [slider])
 
 
