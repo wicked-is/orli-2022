@@ -226,10 +226,37 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 subHeadline
                 headline
+                description
                 ctaLink
                 ctaText
                 amenities {
                   ... on Amenity {
+                    title
+                    featuredImage {
+                      ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
+                        node {
+                          ... on MediaItem {
+                            altText
+                            mediaItemUrl
+                          }
+                        }
+                      }
+                    }
+                  }
+                  ... on Event {
+                    title
+                    featuredImage {
+                      ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
+                        node {
+                          ... on MediaItem {
+                            altText
+                            mediaItemUrl
+                          }
+                        }
+                      }
+                    }
+                  }
+                  ... on Room {
                     title
                     featuredImage {
                       ... on NodeWithFeaturedImageToMediaItemConnectionEdge {

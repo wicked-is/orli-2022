@@ -14,6 +14,7 @@ export default function AmenitiesSlider(props) {
         amenities,
         subHeadline: title,
         headline: blurb,
+        description,
         ctaText,
         ctaLink
     } = props;
@@ -27,6 +28,8 @@ export default function AmenitiesSlider(props) {
             setSliderActive(slider.current.selectedIndex)
         })
     }, [sliderActive]);
+
+    console.log(props);
 
     return (
         <section className={`${styles.amenitiesSlider}`} >
@@ -47,10 +50,10 @@ export default function AmenitiesSlider(props) {
                 }}
             >
                 {
-                    amenities.map((amenity, index) => {
+                    amenities.map((item, index) => {
                         return (
-                            <div key={amenity.title} className={styles.amenity} style={{ backgroundImage: `url(${amenity.featuredImage.node.mediaItemUrl})` }}>
-                                <Image src={amenity.featuredImage.node.mediaItemUrl} alt={amenity.title} width={1435} height={928} layout="intrinsic" />
+                            <div key={item.title} className={styles.item} style={{ backgroundImage: `url(${item.featuredImage.node.mediaItemUrl})` }}>
+                                <Image src={item.featuredImage.node.mediaItemUrl} alt={item.title} width={1435} height={928} layout="intrinsic" />
                             </div>
                         )
                     })
@@ -58,7 +61,8 @@ export default function AmenitiesSlider(props) {
             </Flickity>
             <div className={`${styles.sliderContent} fadein`}>
                                 <p className="sans-serif-bold sub-heading white">{title}</p>
-                                <p className="heading white" style={{ margin: 0 }}>{blurb}</p>
+                                {blurb && <p className="heading white" style={{ margin: 0 }}>{blurb}</p>}
+                                { description && <p className="sans-serif body-copy white">{description}</p> }
                                 <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
             <div className={`${styles.sliderNav} fadein`}>
