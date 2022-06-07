@@ -669,6 +669,12 @@ export async function getStaticProps({ params }) {
                 events {
                   ... on Event {
                     title
+                    featuredImage {
+                      node {
+                        altText
+                        mediaItemUrl
+                      }
+                    }
                     categories (first: 1) {
                       ... on EventToCategoryConnection {
                         nodes {

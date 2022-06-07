@@ -27,7 +27,6 @@ export default function AmenitiesSlider(props) {
 
     useEffect(() => {
         isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
-        console.log(isMobileDevice);
     }, [])
 
     useEffect(() => {
@@ -35,8 +34,6 @@ export default function AmenitiesSlider(props) {
             setSliderActive(slider.current.selectedIndex)
         })
     }, [sliderActive]);
-
-    console.log(props);
 
     return (
         <section className={`${styles.amenitiesSlider}`} >

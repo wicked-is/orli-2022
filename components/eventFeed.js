@@ -1,6 +1,7 @@
 import styles from '../styles/eventFeed.module.css'
 import Link from 'next/link'
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 
 const months = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -38,10 +39,24 @@ const ContentContainer = styled.div`
 
 export default function EventFeed(props) {
     const { events } = props;
+
+    const [currentEvent, setCurrentEvent] = useState({});
+    
+    // useEffect(() => {
+    //     document.querySelectorAll('#article-container').forEach(el => {
+    //         el.addEventListener('hover', () => {
+    //             setCurrentEvent({
+    //                 category:
+    //             })
+    //         })
+    //     });
+    // }, []);
+    
+    console.log(events);
     
     return (
         <EventFeedContainer>
-            <Left style={{ marginLeft: props.fullWidget ? '10%' : '' }}>
+            <Left id="article-container" style={{ marginLeft: props.fullWidget ? '10%' : '' }}>
                 <p>Upcoming</p>
                 {
                     events.map((event, index) => {
