@@ -27,6 +27,7 @@ import AnchorBar from '../components/AnchorBar';
 import TitleBar from '../components/TitleBar';
 import TheLocalWay from '../components/TheLocalWay';
 import GettingHere from '../components/GettingHere';
+import EventFeed from '../components/eventFeed';
 
 
 export default function DefaultPage(props) {
@@ -63,6 +64,9 @@ export default function DefaultPage(props) {
             switch (section.fieldGroupName) { 
                 case 'Page_Flexiblecontent_Sections_AnchorBar':
                 gatheredSections.push(<AnchorBar key={componentKey} {...section} />)
+                    break;
+                case 'Page_Flexiblecontent_Sections_EventFeed':
+                    gatheredSections.push(<EventFeed key={componentKey} {...section} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Hero':
                     gatheredSections.push(<Hero key={componentKey} {...section} />)
@@ -628,6 +632,29 @@ export async function getStaticProps({ params }) {
                         title
                         list
                       }
+                    }
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_EventFeed {
+                fieldGroupName
+                fullWidget
+                events {
+                  ... on Event {
+                    title
+                    categories (first: 1) {
+                      ... on EventToCategoryConnection {
+                        nodes {
+                          name
+                        }
+                      }
+                    }
+                    singleEvent {
+                      addToAppleCalendarLink
+                      addToGoogleCalendarLink
+                      date
+                      rsvpLink
+                      time
                     }
                   }
                 }
