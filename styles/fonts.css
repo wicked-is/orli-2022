@@ -56,10 +56,14 @@
     text-transform: uppercase;
 }
 
-.body-copy {
+.body-copy, ::placeholder, input, textarea {
     font-size: var(--body-copy);
     font-family: 'GT Walsheim Light';
     line-height: 150%;
+}
+::placeholder {
+    font-size: initial;
+    color: var(--black);
 }
 .xs-heading {
     font-size: var(--xs-copy);
