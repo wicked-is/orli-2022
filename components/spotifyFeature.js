@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import styles from '../styles/spotifyFeature.module.css'
 
-export default function SpotifyFeature() {
+export default function SpotifyFeature(props) {
+    console.log(props);
     return (
         <section className={styles.spotifyFeature}>
             <div className={styles.overlay}></div>
@@ -16,9 +17,7 @@ export default function SpotifyFeature() {
                         <a className="xs-copy white" style={{ textDecoration: "underline" }}>Listen on Spotify</a>
                     </Link>
                 </div>
-                <div className={styles.spotifyEmbed}>
-                    {/* Playlist Goes Here */}
-                </div>
+                <div className={styles.spotifyEmbed}dangerouslySetInnerHTML={{ __html: props.spotifyEmbed }}></div>
             </div>
         </section>
     )
