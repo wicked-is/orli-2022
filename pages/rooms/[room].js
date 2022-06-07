@@ -129,8 +129,22 @@ export default function DefaultRoomsPage(props) {
   const { room } = props.data.data;
 
   useEffect(() => {
+    var page = gsap.utils.toArray('.pagecontianer');
+    var singlebook = gsap.utils.toArray('.singleBook');
       var tl =  gsap.timeline()
           tl.fromTo('main', {opacity:0}, { opacity:1, delay: 0.5, duration: 1});
+          tl.to(page, { autoAlpha:1,
+            scrollTrigger: {
+            trigger: singlebook,
+            start: "+=0 80%",
+            end: 'bottom bottom',
+            markers:false,
+            pin: singlebook,
+            pinSpacing: false,
+            scrub: true,
+            toggleActions: 'play reverse play reverse'
+          }
+        });
 
       var sections = gsap.utils.toArray('.fadein');
 
@@ -151,6 +165,7 @@ export default function DefaultRoomsPage(props) {
     <>
       <SEO fullhead={room.seo.fullHead} />
       <Hero types="Single Room" imagePoster={room.featuredImage} />
+      <div className="pagecontianer">
       <SingleRoomContentContainer>
         <SingleRoomContent>
           <SingleRoomMainDesc className="sans-serif body-copy black">
@@ -210,7 +225,7 @@ export default function DefaultRoomsPage(props) {
           <p className="sans-serif xs-copy underline arrow-left relative">Back to All Rooms</p>
         </SingleRoomContent>
 
-        <SingleRoomBookingForm>
+        <SingleRoomBookingForm className="singleBook">
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
@@ -222,8 +237,8 @@ export default function DefaultRoomsPage(props) {
           </GreyBackground>
         </SingleRoomBookingForm>
       </SingleRoomContentContainer>
-
-      <FauxSocialFeed ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" backgroundColor="Grey" />
+      </div>
+      <FauxSocialFeed className="fauxFeed" ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" backgroundColor="Grey" />
     </>
   )
 }
