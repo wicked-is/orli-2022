@@ -58,39 +58,39 @@ export default function Form(props) {
                 return (
                     <EventForm>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="firstname">First name *</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="firstname">First name *</label>
                             <input required type="text" name="firstname" placeholder="First Name" />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="lastname">Last Name *</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="lastname">Last Name *</label>
                             <input required type="text" name="lastname" placeholder="Last Name" />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="phonenumber">Phone Number*</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="phonenumber">Phone Number*</label>
                             <input required type="text" name="phonenumber" placeholder="Your Number" />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="email">Email Address*</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="email">Email Address*</label>
                             <input required type="email" name="email" placeholder="Your Email" />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="startdate">Event Start Date*</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="startdate">Event Start Date*</label>
                             <input required type="date" name="startdate" placeholder="Event Start Date" />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="enddate">Event End Date*</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="enddate">Event End Date*</label>
                             <input required type="date" name="enddate" placeholder="Event End Date" />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="nguests">Number of Guests</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="nguests">Number of Guests</label>
                             <input required type="number" name="nguests" placeholder="Number of Guests" />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" for="nroom">Number of Guest Rooms</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="nroom">Number of Guest Rooms</label>
                             <input required type="number" name="nrooms" placeholder="Number of Guest Rooms" />
                         </FieldGroup>
                         <FieldGroup className="messageField">
-                            <label className="sans-serif sub-heading-bold black" for="additionaldetails">Additional Details*</label>
+                            <label className="sans-serif sub-heading-bold black" htmlFor="additionaldetails">Additional Details*</label>
                             <textarea required name="additionaldetails" placeholder="Your Message" rows="4" />
                         </FieldGroup>
                     </EventForm>
