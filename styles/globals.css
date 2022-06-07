@@ -94,3 +94,9 @@ label.rooms-filter {
   width: 35px;
   left: -50px;
 }
+
+@media only screen and (max-width: 900px) {
+  .desc {
+    display: none;
+  }
+}

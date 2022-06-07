@@ -10,6 +10,8 @@ export default function AmenitiesSlider(props) {
     const [sliderActive, setSliderActive] = useState(0)
     const [loaded, setLoaded] = useState(false)
 
+    let isMobileDevice;
+
     const {
         amenities,
         subHeadline: title,
@@ -22,6 +24,11 @@ export default function AmenitiesSlider(props) {
     const changeSlider = (e) => {
         slider.current.select(e.target.dataset.slide)
     }
+
+    useEffect(() => {
+        isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
+        console.log(isMobileDevice);
+    }, [])
 
     useEffect(() => {
         slider.current.on('change', () => {
@@ -60,10 +67,10 @@ export default function AmenitiesSlider(props) {
                 }
             </Flickity>
             <div className={`${styles.sliderContent} fadein`}>
-                                <p className="sans-serif-bold sub-heading white">{title}</p>
-                                {blurb && <p className="heading white" style={{ margin: 0 }}>{blurb}</p>}
-                                { description && <p className="sans-serif body-copy white">{description}</p> }
-                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+                <p className="sans-serif-bold sub-heading white">{title}</p>
+                {blurb && <p className="heading white" style={{ margin: 0 }}>{blurb}</p>}
+                { description && !isMobileDevice && <p className="sans-serif body-copy white desc">{description}</p> }
+                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
             <div className={`${styles.sliderNav} fadein`}>
                 {
