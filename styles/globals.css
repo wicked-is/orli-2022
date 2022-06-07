@@ -18,9 +18,12 @@ a {
   color: inherit;
   outline: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:visited, a:focus {outline: none;}
+
+#closeBtn {cursor: pointer;}
 
 * {
   box-sizing: border-box;

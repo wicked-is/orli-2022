@@ -92,3 +92,5 @@ address {font-style: normal;}
     font-family: 'GT Walsheim'; 
     font-weight: 400 !important;
 }
+.text-link {transition: 0.3s ease all;}
+.text-link:hover {color: var(--brown);}
