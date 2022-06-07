@@ -70,7 +70,7 @@ label.rooms-filter {
   margin-right: 1rem;
 }
 
-.rooms-filter.active span { 
+.rooms-filter.active span, .rooms-filter:hover span { 
   background-color: var(--brown);
 }
 
