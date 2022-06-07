@@ -214,15 +214,17 @@ export default function DefaultRoomsPage(props) {
             <h2 className="heading">{room.singleRooms.neighborhoodTitle}</h2>
             <div className="sans-serif body-copy black" dangerouslySetInnerHTML={{ __html: room.singleRooms.neighborhoodDescription }}></div>
             <ul style={{ paddingInline: 0 }}>
-              {
-                //room.singleRooms.neighborhoodBullets.map((bullet, index) => {
-                  //return <li key={index} className="serif black uppercase brown" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem' }}>
-                    //{ bullet.pointOfInterest && (
-                   // <p>{bullet?.pointOfInterest}</p>)}
-                    //{ bullet.walkability && (
-                   // <p>{bullet?.walkability}</p>)}
-                 //</li>
-                //})
+              { 
+                room.singleRooms.neighborhoodBullets.map((bullet, index) => {
+                  return <li key={index} className="serif black uppercase brown" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem' }}>
+                    { bullet.pointOfInterest && ( 
+                    <p>{bullet?.pointOfInterest}</p>
+                    )}
+                    { bullet.walkability && ( 
+                    <p>{bullet?.walkability}</p>
+                    )}
+                 </li>
+                })
               }
             </ul>
           </NeighborhoodContainer>

@@ -191,7 +191,7 @@ export default function RoomsGrid(props) {
                             <p className="sans-serif-bold sub-heading">Sleeps {dialogContent.sleeps}</p>
                             <h2 className="heading">{dialogContent.roomtitle}</h2>
                             <p className='sans-serif body-copy black'>{dialogContent.description}</p>
-                            <p className="sans-serif xs-copy underline">Learn More</p>
+                            <a className="sans-serif xs-copy underline" href={`/rooms/${dialogContent.slug}`}>Learn More</a>
                         </div>
                         <div style={{ marginTop: 'auto', width: '100%', backgroundColor: 'white' }}>
                             <BookingForm />
