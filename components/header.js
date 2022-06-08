@@ -24,10 +24,8 @@ export default function Header(props) {
     }
 
     function handleClick(e, path) {
-        e.preventDefault();
-
-        toggleNav();
-
+        e.preventDefault(500);
+        toggleNav(2000);
         window.location = path;
     }
 
@@ -74,7 +72,7 @@ export default function Header(props) {
                     }
 				</div>
             </div>
-
+            
             <nav className={`${styles.navContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
                 <div className="flex">
                     <div className={`${styles.col160} relative`}>

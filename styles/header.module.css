@@ -130,11 +130,16 @@
     bottom: -10px; 
 }
 
-.navContianer {display: none; transition: 0.5s ease all;}
+.navContianer {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: fixed;
+    z-index: -98;
+}
 
 .navContianer.showMeMobile {
-    display: inline-block !important;
-    position: fixed !important;
+    display: inline-block;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0px;
@@ -147,6 +152,8 @@
     flex-direction: column;
     z-index: 98;
     margin: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .header .close {
@@ -200,7 +207,7 @@
     -ms-background-size: cover;
     -o-background-size: cover;
     background-position: center center;
-    transition: 0.3s all linear;
+    transition: 0.3s all linear -0.2s;
 }
 
 .bottomnav {
