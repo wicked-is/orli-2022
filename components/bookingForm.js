@@ -5,8 +5,6 @@ import Counter from './counter'
 
 import "react-datepicker/dist/react-datepicker.css";
 
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
 import styles from '../styles/bookingForm.module.css';
 
 export default function BookingForm() {
