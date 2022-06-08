@@ -72,6 +72,8 @@ const LeftHalf = styled.div`
     }
 `
 
+const FilterLabel = styled.label``
+
 export default function RoomsGrid(props) {
 
     const [filters, setFilters] = useState(filterList);
@@ -203,7 +205,7 @@ export default function RoomsGrid(props) {
                 {
                     filters.map((filter, index) => { 
                         return (
-                            <label key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter}><span id="checkbox"></span>{filter}</label>
+                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter}><span id="checkbox"></span>{filter}</FilterLabel>
                         )
                     })
                 }
