@@ -88,7 +88,8 @@ const GreyBackground = styled.div`
   padding: 2rem;
   margin: 1rem 0 3rem;
   position: relative;
-  top: -17.5rem;
+  top: 0rem;
+  z-index: 8;
 
   @media screen and (max-width: 800px) {
     top: 1rem;
@@ -140,23 +141,28 @@ export default function DefaultRoomsPage(props) {
   const { room } = props.data.data;
 
   useEffect(() => {  
+
       var tl =  gsap.timeline()
       tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
       tl.to('main', { opacity:1, duration: 0.6});
 
-      var sections = gsap.utils.toArray('.fadein');
+      var content = gsap.utils.toArray('.content');
+    var sidebar = gsap.utils.toArray('.sidebar');
 
-      sections.forEach((section) => {
-          gsap.to(section, { autoAlpha: 1,
-              scrollTrigger: {
-                  trigger: section,
-                  start: "+=0 80%",
-                  scrub: false,
-                  markers: false,
-                  toggleActions: "play reverse play reverse"
-              }
-          });
-      })
+    gsap.to(sidebar, {
+      scrollTrigger: {
+          trigger: content,
+          start: "top top+=150",
+          end: "bottom bottom+=0",
+          pin: sidebar,
+          markers: false,
+          onRefresh: self => self.pin.parentNode.style.float = "right",
+          pinSpacing: false
+        }, y: 0}
+      );
+
+      
+
   },[])
   
   return (
@@ -164,7 +170,7 @@ export default function DefaultRoomsPage(props) {
       <SEO fullhead={room.seo.fullHead} />
       <Hero types="Single Room" imagePoster={room.featuredImage} />
 
-      <SingleRoomContentContainer>
+      <SingleRoomContentContainer className="content">
         <SingleRoomContent>
           <SingleRoomMainDesc className="sans-serif body-copy black">
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
@@ -229,7 +235,7 @@ export default function DefaultRoomsPage(props) {
           <p className="sans-serif xs-copy underline arrow-left relative">Back to All Rooms</p>
         </SingleRoomContent>
 
-        <SingleRoomBookingForm>
+        <SingleRoomBookingForm className="sidebar">
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
