@@ -37,7 +37,8 @@ export default function DefaultPage(props) {
 
     useEffect(() => {
         var tl =  gsap.timeline()
-            tl.fromTo('main', {opacity:0}, { opacity:1, delay: 0.5, duration: 1});
+            tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
+            tl.to('main', { opacity:1, duration: 0.6});
 
         var sections = gsap.utils.toArray('.fadein');
 

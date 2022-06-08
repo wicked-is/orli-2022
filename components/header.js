@@ -16,8 +16,8 @@ export default function Header(props) {
     const [navImage, setNavImage] = useState(null);
 
     useEffect(() => { 
-        setNavImage(navItems[0].image.mediaItemUrl);
-    }, [navImage]);
+        setNavImage(navImage);
+    });
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
@@ -75,14 +75,14 @@ export default function Header(props) {
             <nav className={`${styles.navContianer} ${navIsOpen ? styles.showMeMobile : ''}`}>
                 <div className="flex">
                     <div className={`${styles.col160} relative`}>
-                        <div className={styles.backgroundImage} style={{ backgroundImage: `url(${navImage})` }}></div>
+                        <div className={styles.backgroundImage} style={{ background: `url(${navImage})`}}></div>
                     </div>
                     <div className={`${styles.col140} relative flex flex-column justify-content-space-between`}>
                         <ul className={styles.mainNav}>
                             {
                                 navItems.map((item, index) => { 
                                     return (
-                                        <li onMouseEnter={() => setNavImage(item.image.mediaItemUrl)} key={`ni-${index}`}>
+                                        <li key={`ni-${index}`} onMouseEnter={() => setNavImage(item.image.mediaItemUrl)}>
                                             <Link href={item.link} passHref>
                                                 <a
                                                     data-navimage={item.image.mediaItemUrl} data-alttext={item.image.altText}
