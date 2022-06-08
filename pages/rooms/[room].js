@@ -41,6 +41,7 @@ const SingleRoomMainDesc = styled.div``
 const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
+  margin: -8rem 0 0 0;
   @media screen and (max-width: 800px) {
     order: 1;
   }
@@ -146,22 +147,27 @@ export default function DefaultRoomsPage(props) {
       tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
       tl.to('main', { opacity:1, duration: 0.6});
 
+      var	wideScreen = window.matchMedia("(min-width: 800px)");
+  var	narrowScreen = window.matchMedia("(max-width: 799px)");
+
       var content = gsap.utils.toArray('.content');
     var sidebar = gsap.utils.toArray('.sidebar');
 
+    if(wideScreen.matches) {
     gsap.to(sidebar, {
       scrollTrigger: {
           trigger: content,
-          start: "top top+=150",
-          end: "bottom bottom+=0",
+          start: "top-=80 150px",
+          end: "bottom+=150 bottom-=150",
           pin: sidebar,
           markers: false,
           onRefresh: self => self.pin.parentNode.style.float = "right",
-          pinSpacing: false
+          pinSpacing: false,
         }, y: 0}
       );
+      } else {
 
-      
+      } 
 
   },[])
   
