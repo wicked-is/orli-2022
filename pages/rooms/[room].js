@@ -234,8 +234,8 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
             <ReservationForm action={room.singleRooms.cloudbedsLink ? room.singleRooms.cloudbedsLink : 'https://hotels.cloudbeds.com/reservation/uK87lN'} method="POST">
-              <ReservationFormLabel className="sans-serif uppercase">Check In<input type={checkInType} onFocus={() => setCheckInType('date')} name="check-in" placeholder="Add Dates" className="sans-serif"/></ReservationFormLabel><br />
-              <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={checkOutType} name="check-out" placeholder="Add Dates" onFocus={() => setCheckOutType('date')} className="sans-serif"/></ReservationFormLabel>
+              <ReservationFormLabel className="sans-serif uppercase">Check In<input type={checkInType} onFocus={() => setCheckInType('date')} name="widget_date" placeholder="Add Dates" className="sans-serif"/></ReservationFormLabel><br />
+              <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={checkOutType} name="widget_date_to" placeholder="Add Dates" onFocus={() => setCheckOutType('date')} className="sans-serif"/></ReservationFormLabel>
               <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
             </ReservationForm>
           </GreyBackground>
