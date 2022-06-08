@@ -233,7 +233,7 @@ export default function DefaultRoomsPage(props) {
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
-            <ReservationForm>
+            <ReservationForm action={room.singleRooms.cloudbedsLink ? room.singleRooms.cloudbedsLink : 'https://hotels.cloudbeds.com/reservation/uK87lN'} method="POST">
               <ReservationFormLabel className="sans-serif uppercase">Check In<input type={checkInType} onFocus={() => setCheckInType('date')} name="check-in" placeholder="Add Dates" className="sans-serif"/></ReservationFormLabel><br />
               <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={checkOutType} name="check-out" placeholder="Add Dates" onFocus={() => setCheckOutType('date')} className="sans-serif"/></ReservationFormLabel>
               <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
@@ -308,6 +308,7 @@ export async function getStaticProps({ params }) {
           fullHead
         }
         singleRooms {
+          cloudbedsLink
           aboutOrliDescription
           aboutOrliTitle
           amenities
