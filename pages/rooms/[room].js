@@ -139,12 +139,10 @@ export default function DefaultRoomsPage(props) {
 
   const { room } = props.data.data;
 
-  useEffect(() => {
-    var page = gsap.utils.toArray('.pagecontainer');
-    var singlebook = gsap.utils.toArray('.singleBook');
-  
+  useEffect(() => {  
       var tl =  gsap.timeline()
-          tl.fromTo('main', {opacity:0}, { opacity:1, delay: 0.5, duration: 1});
+      tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
+      tl.to('main', { opacity:1, duration: 0.6});
 
       var sections = gsap.utils.toArray('.fadein');
 
@@ -165,7 +163,7 @@ export default function DefaultRoomsPage(props) {
     <>
       <SEO fullhead={room.seo.fullHead} />
       <Hero types="Single Room" imagePoster={room.featuredImage} />
-      <div className="pagecontainer">
+
       <SingleRoomContentContainer>
         <SingleRoomContent>
           <SingleRoomMainDesc className="sans-serif body-copy black">
@@ -231,7 +229,7 @@ export default function DefaultRoomsPage(props) {
           <p className="sans-serif xs-copy underline arrow-left relative">Back to All Rooms</p>
         </SingleRoomContent>
 
-        <SingleRoomBookingForm className="singleBook">
+        <SingleRoomBookingForm>
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
@@ -243,7 +241,7 @@ export default function DefaultRoomsPage(props) {
           </GreyBackground>
         </SingleRoomBookingForm>
       </SingleRoomContentContainer>
-      </div>
+
       <FauxSocialFeed ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" backgroundColor="Grey" />
     </>
   )
