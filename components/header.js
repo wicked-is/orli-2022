@@ -24,8 +24,7 @@ export default function Header(props) {
     }
 
     function handleClick(e, path) {
-        e.preventDefault(500);
-        toggleNav(2000);
+        e.preventDefault();
         window.location = path;
     }
 
