@@ -74,6 +74,31 @@ const LeftHalf = styled.div`
 
 const FilterLabel = styled.label``
 
+const QuickViewButton = styled.div`
+    position: absolute;
+    bottom: -100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 1rem;
+    
+    text-align: center;
+    color: #fff;
+    text-decoration: underline;
+    background-color: rgba(0,0,0,.3);
+
+    transition: all .3s ease-in-out;
+`
+
+const RoomTile = styled.a`
+    &:hover .quickview-btn {
+        bottom: 0;
+    }
+`
+
 export default function RoomsGrid(props) {
 
     const [filters, setFilters] = useState(filterList);
@@ -104,7 +129,7 @@ export default function RoomsGrid(props) {
             })
 
             document.querySelectorAll('.room-tile').forEach(room => { 
-                room.addEventListener('mouseenter', handleHover);
+                room.addEventListener('click', handleClick);
             })
 
             closeButton.addEventListener('click', () => {
@@ -150,9 +175,10 @@ export default function RoomsGrid(props) {
         setCurrentRooms(newRooms);
     }
 
-    const handleHover = (e) => {
-        const { sleeps, roomtitle, description, image, slug } = e.target.dataset;
-        
+    const handleClick = (e) => {
+        e.preventDefault();
+        const { sleeps, roomtitle, description, image, slug } = e.target.parentElement.closest('li').dataset;
+
         setDialogContent({
             sleeps,
             roomtitle,
@@ -222,15 +248,18 @@ export default function RoomsGrid(props) {
                                 data-description={room.singleRooms.description}
                                 data-slug={room.slug}
                                 data-image={room.featuredImage.node.mediaItemUrl}>
-                                <a href={`/rooms/${room.slug}`}>
-                                    <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})` }}>
-                                        <Image className={styles.roomimage} src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={430} height={436} layout="intrinsic"/>
+                                <RoomTile href={`/rooms/${room.slug}`}>
+                                    <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})`, position: 'relative', overflow: 'hidden' }}>
+                                        <Image className={styles.roomimage} src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={430} height={436} layout="intrinsic" />
+                                        <QuickViewButton className="quickview-btn">
+                                            Quick View
+                                        </QuickViewButton>
                                     </div>
                                     <div className={styles.text}>
                                         <p className="xs-heading uppercase black">Sleeps {room.singleRooms.sleeps} <span className={styles.keyFt}>{room.singleRooms.keyFeature}</span> <span className={styles.theme}>{room.singleRooms.theme}</span></p>
                                         <p className={`${styles.roommobile} serif heading black`}>{room.title}</p>
                                     </div>
-                                </a>
+                                </RoomTile>
                             </li>
                         )
                     }) : (
