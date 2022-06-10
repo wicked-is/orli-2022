@@ -53,7 +53,7 @@ export default function Header(props) {
                     <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" alt="Orli La Jolla Logo" className={styles.headerlogo} width={380} height={95} />
                 </Link>
 
-                <Link href="/">
+                <Link href="/find-your-room">
                     <div className={styles.primarybutton}>
                         <p className="sans-serif xs-copy white center uppercase">Find Your Room</p>
                     </div>

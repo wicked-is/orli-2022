@@ -21,8 +21,9 @@
 .formGroup input {
     border: 0;
     font-family: 'GT Walsheim Light';
-   padding: 0.5rem 0;
-   cursor: pointer;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    width: 100%;
 }
 
 .form button {

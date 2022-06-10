@@ -12,12 +12,46 @@ export default function RoomSlider(props) {
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(0)
     const [loaded, setLoaded] = useState(false)
+    const [dimensions, setDimensions] = useState({ 
+        height: null,
+        width: null
+    })
+    const [isMobile, setIsMobile] = useState(false)
 
     const { rooms } = props
 
     const changeSlider = (e) => {
         slider.current.select(e.target.dataset.slide)
     }
+    
+    useEffect(() => {
+        function handleResize() {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+
+            if (window.innerWidth < 768) {
+                setIsMobile(true)
+            } else {
+                setIsMobile(false)
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
+
+    // useEffect(() => {
+    //     let isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
+
+    //     if (isMobileDevice) {
+    //         setIsMobile(true)
+    //     }
+    // }, [window.innerWidth, window.innerHeight])
 
     useEffect(() => {
         slider.current.on('change', () => {
@@ -53,9 +87,11 @@ export default function RoomSlider(props) {
                 {
                     rooms.map(room => {
                         return (
-                            <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})` }}>
+                            <div key={room.title} className={styles.room} style={{ backgroundImage: isMobile ? `url(${room.featuredImage.node.mediaItemUrl})` : '' }}>
                                 <p className={`${styles.roommobile} serif heading white`}>{room.title}</p>
-                                <Image src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={1436} height={1020} layout="intrinsic" />
+                                {
+                                    <Image src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={1436} height={1020} layout="intrinsic" />
+                                }
                             </div>
                         )
                     })
