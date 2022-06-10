@@ -689,6 +689,8 @@ export async function getStaticProps({ params }) {
                       date
                       rsvpLink
                       time
+                      address
+                      description
                     }
                   }
                 }

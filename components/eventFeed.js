@@ -14,19 +14,28 @@ const EventFeedContainer = styled.div`
     flex-direction: row;
     gap: 3rem;
 
+    padding-block: ${props => props.fullWidget ? '6rem' : '0'};
+    background-color: ${props => props.fullWidget ? 'var(--lt-grey)' : 'white'};
+
+    article:first-of-type {
+        margin-top: ${props => props.fullWidget ? '0' : '4rem'};
+    }
+
     @media (max-width: 768px) {
         flex-direction: column;
-        max-width: 80vw;
+        padding-inline: ${props => props.fullWidget ? '10%' : '0'};
         margin-inline: auto;
     }
 `
 const Left = styled.div`    
     flex: 1.2;
     overflow: scroll;
-    margin-right: ${props => props.fullWidget ? '10%' : '0'}; }
+    margin-left: 0;
+    padding-left: ${props => props.fullWidget ? '10%' : '0'}; 
 
     @media (max-width: 768px) {
-        margin-right: 0;
+        margin-left: 0;
+        padding-left: 0;
     }
 `
 const Right = styled.div`
@@ -34,32 +43,129 @@ const Right = styled.div`
 `
 const HeadContainer = styled.div`
     min-height: 325px;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    p {
+        margin-left: 3.5rem;
+
+        &:last-of-type {
+            margin-bottom: 1.5rem;
+        }
+    }
 `
 const ContentContainer = styled.div`
-    margin-right: 10%;
+    margin-right: 10vw;
+    margin-left: 3.5rem;
+
+    div:first-of-type {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            gap: 0;
+
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+`
+const RSVPLink = styled.a`
+    display: block;
+    width: fit-content;
+    color: var(--brown);
+    border: 1px solid var(--brown);
+    padding: 2rem 4.5rem;
+    margin-block: 2.5rem;
+`
+const CalendarLinkContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+
+    @media screen and (max-width: 991px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+`
+const CalendarLink = styled.a`
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    &:first-of-type::before {
+        content:'';
+        margin-right: .5rem;
+        display: block;
+        width:20px;
+        height:21px;
+        background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/Apple_logo_black-1.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    &:last-of-type::before {
+        content:'';
+        margin-right: .5rem;
+        display: block;
+        width:20px;
+        height:25px;
+        background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/google-logo-white.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
 `
 
 export default function EventFeed(props) {
-    const { events } = props;
+    const { events, fullWidget } = props;
 
-    const [currentEvent, setCurrentEvent] = useState({});
+    const [currentEvent, setCurrentEvent] = useState({
+        category: '',
+        image: '',
+    });
     
-    // useEffect(() => {
-    //     document.querySelectorAll('#article-container').forEach(el => {
-    //         el.addEventListener('hover', () => {
-    //             setCurrentEvent({
-    //                 category:
-    //             })
-    //         })
-    //     });
-    // }, []);
-    
-    // console.log(events);
+    useEffect(() => {
+        if (props.fullWidget) {
+            setCurrentEvent({
+                title: events[0].title,
+                description: events[0].singleEvent.description,
+                category: events[0].categories.nodes[0].name,
+                image: events[0].featuredImage.node.mediaItemUrl,
+                date: events[0].singleEvent.date,
+                time: events[0].singleEvent.time,
+                address: events[0].singleEvent.address,
+                gcal: events[0].singleEvent.gcal,
+                acal: events[0].singleEvent.acal,
+            })
+            document.querySelectorAll('.event-tile').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    setCurrentEvent({
+                        title: el.dataset.title,
+                        description: el.dataset.description,
+                        category: el.dataset.category,
+                        image: el.dataset.image,
+                        date: el.dataset.date,
+                        time: el.dataset.time,
+                        address: el.dataset.address,
+                        gcal: el.dataset.gcal,
+                        acal: el.dataset.acal,
+                    })
+                })
+            });
+        }
+    }, []);
 
     return (
-        <EventFeedContainer>
-            <Left id="article-container" style={{ marginLeft: props.fullWidget ? '10%' : '' }}>
-                <p>Upcoming</p>
+        <EventFeedContainer fullWidget={fullWidget} className={props.fullWidget ? 'fullWidget' : ''}>
+            <Left fullWidget={fullWidget}>
+                {fullWidget && <p className="sans-serif-bold sub-heading mt-0">Upcoming</p>}
                 {
                     events.map((event, index) => {
                         
@@ -71,21 +177,20 @@ export default function EventFeed(props) {
                         return (
                             <article
                                 key={`event-${index}`}
-                                className={index == 0 ? styles.first : ''}
+                                className={`${index == 0 ? `${styles.first} event-tile` : `event-tile`}`}
                                 style={{
                                     borderTop: '1px solid black',
                                     width: '100%'
                                 }}
-                                // data-category={event.categories[0].name}
-                                // data-title={event.title}
-                                // data-image={featuredImage.node.mediaItemUrl}
-                                // data-date={event.singleEvent.date}
-                                // data-time={event.singleEvent.time}
-                                // data-address={}
-                                // data-description={}
-                                // data-gcal={event.singleEvent.addToGoogleCalendarLink}
-                                // data-acal={event.singleEvent.addToAppleCalendarLink}
-                                // data-={}
+                                data-category={event?.categories?.nodes[0]?.name}
+                                data-title={event?.title}
+                                data-image={event?.featuredImage?.node.mediaItemUrl}
+                                data-date={event?.singleEvent?.date}
+                                data-time={event?.singleEvent?.time}
+                                data-gcal={event?.singleEvent?.addToGoogleCalendarLink}
+                                data-acal={event?.singleEvent?.addToAppleCalendarLink}
+                                data-address={event?.singleEvent?.address}
+                                data-description={event?.singleEvent?.description}
                             >
                                 <a href="#">
                                     <p className="sans-serif xs-copy left">{event.categories.nodes[0].name} | {day} {month} {year}</p>
@@ -109,20 +214,24 @@ export default function EventFeed(props) {
             </Left>
             {props.fullWidget && (
                 <Right>
-                    <HeadContainer>
-                        <p>Event Category</p>
-                        <p className="heading serif">Orli Grand Opening</p>
+                    <HeadContainer style={{ backgroundImage: `url(${currentEvent.image ? currentEvent.image : '' })`}}>
+                        <p className="white sans-serif body-copy mb-0">{currentEvent.category  ? currentEvent.category : ''}</p>
+                        <p className="heading white serif">{currentEvent.title}</p>
                     </HeadContainer>
                     <ContentContainer>
-                        <div>
-                            <p dangerouslySetInnerHTML={{ __html: "Monday, 01 January 2022 at 5 PM - 9 PM" }}></p>
-                            <p dangerouslySetInnerHTML={{ __html: "Orli La Jolla 7753 Draper Ave, La Jolla" }}></p>
+                        <div className="sans-serif body-copy black left">
+                            <p dangerouslySetInnerHTML={{ __html: `${currentEvent.date} ${currentEvent.time && (` <br />at ${currentEvent.time}`)}` }}></p>
+                            <p dangerouslySetInnerHTML={{ __html: currentEvent.address }}></p>
                         </div>
-                        <p>Come celebrate our Grand Opening in true Orli style. We'll be welcoming good company with tunes, craft spirits, light bites, and favors filled with founder favorites.</p>
+                        <p className="mt-0 sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: currentEvent.description }}></p>
+                        <RSVPLink href="/">
+                            RSVP
+                        </RSVPLink>
+                        <CalendarLinkContainer>
+                            <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal}>Add to Google Calendar</CalendarLink>
+                            <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.acal}>Add to Apple Calendar</CalendarLink>
+                        </CalendarLinkContainer>
                     </ContentContainer>
-                    <Link href="/">
-                        RSVP
-                    </Link>
                 </Right>
             )}
         </EventFeedContainer>

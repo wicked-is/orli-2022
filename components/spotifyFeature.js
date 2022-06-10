@@ -2,7 +2,6 @@ import Link from 'next/link'
 import styles from '../styles/spotifyFeature.module.css'
 
 export default function SpotifyFeature(props) {
-    console.log(props);
     return (
         <section className={styles.spotifyFeature}>
             <div className={styles.overlay}></div>

@@ -74,6 +74,8 @@
     line-height: 150%;
 }
 
+.bold { font-weight: bold; }
+
 .uppercase {text-transform: uppercase;}
 .underline {text-decoration: underline;}
 
