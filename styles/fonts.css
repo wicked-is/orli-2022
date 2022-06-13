@@ -63,7 +63,7 @@
 }
 ::placeholder {
     font-size: initial;
-    color: var(--black);
+    color: rgba(0,0,0,.5);
 }
 .xs-heading {
     font-size: var(--xs-copy);

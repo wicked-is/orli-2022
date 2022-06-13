@@ -15,7 +15,7 @@
 .formGroup span { 
     text-transform: uppercase; 
     display: inline-block;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 .formGroup input {
