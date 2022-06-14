@@ -23,7 +23,6 @@ const SingleRoomContentContainer = styled.section`
     gap: unset;
   }
 `
-
 const SingleRoomContent = styled.div`
   width: 100%;
   flex: 2;
@@ -35,7 +34,6 @@ const SingleRoomContent = styled.div`
     order: 2;
   }
 `
-
 const SingleRoomMainDesc = styled.div``
 
 const SingleRoomBookingForm = styled.div`
@@ -46,11 +44,9 @@ const SingleRoomBookingForm = styled.div`
     order: 1;
   }
 `
-
 const FeatureContainer = styled.div`
   margin: 3rem 0;
 `
-
 const FeatureList = styled.div`
   list-style-type: none;
   display: inline-flex;
@@ -65,7 +61,6 @@ const FeatureList = styled.div`
     width: auto;
   }
 `
-
 const AmenitiesContainer = styled.div`
   margin: 3rem 0; 
 `
@@ -75,15 +70,12 @@ const AmenitiesList = styled.ul`
 
   padding-inline-start: 0 !important;
 `
-
 const AboutOrliContainer = styled.div`
   margin: 3rem 0;
 `
-
 const NeighborhoodContainer = styled.div`
   margin: 3rem 0;
 `
-
 const GreyBackground = styled.div`
   background-color: var(--lt-grey);
   padding: 2rem;
@@ -96,7 +88,6 @@ const GreyBackground = styled.div`
     top: 1rem;
   }
 `
-
 const ReservationForm = styled.form``
 
 const ReservationFormLabel = styled.label`
@@ -124,7 +115,6 @@ const ReservationFormLabel = styled.label`
     }
   }
 `
-
 const ReservationButton = styled.button`
   width: 100%;
   height: 5rem;
@@ -143,32 +133,29 @@ export default function DefaultRoomsPage(props) {
 
   useEffect(() => {  
 
-      var tl =  gsap.timeline()
-      tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
-      tl.to('main', { opacity:1, duration: 0.6});
+    var tl =  gsap.timeline()
+    tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
+    tl.to('main', { opacity:1, duration: 0.6});
 
-      var	wideScreen = window.matchMedia("(min-width: 800px)");
-  var	narrowScreen = window.matchMedia("(max-width: 799px)");
+    var	wideScreen = window.matchMedia("(min-width: 800px)");
+    var	narrowScreen = window.matchMedia("(max-width: 799px)");
 
-      var content = gsap.utils.toArray('.content');
+    var content = gsap.utils.toArray('.content');
     var sidebar = gsap.utils.toArray('.sidebar');
 
     if(wideScreen.matches) {
-    gsap.to(sidebar, {
-      scrollTrigger: {
-          trigger: content,
-          start: "top-=80 150px",
-          end: "bottom+=150 bottom-=150",
-          pin: sidebar,
-          markers: false,
-          onRefresh: self => self.pin.parentNode.style.float = "right",
-          pinSpacing: false,
-        }, y: 0}
-      );
-      } else {
-
-      } 
-
+      gsap.to(sidebar, {
+        scrollTrigger: {
+            trigger: content,
+            start: "top-=80 150px",
+            end: "bottom+=150 bottom-=150",
+            pin: sidebar,
+            markers: false,
+            onRefresh: self => self.pin.parentNode.style.float = "right",
+            pinSpacing: false,
+        }, y: 0
+      });
+    }
   }, [])
   
   return (

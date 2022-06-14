@@ -527,6 +527,9 @@ export async function getStaticProps({ params }) {
                 blurb
                 headline
                 includeBookingForm
+                includeFeaturedRoomCta
+                featuredRoomCtaLink
+                featuredRoomCtaText
                 mp4ExternalLink
                 types
                 webm

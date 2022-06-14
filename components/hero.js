@@ -9,6 +9,9 @@ export default function Hero(props) {
     const {
         types,
         includeBookingForm,
+        includeFeaturedRoomCta,
+        featuredRoomCtaLink,
+        featuredRoomCtaText,
         headline,
         blurb,
         imagePoster,
@@ -38,38 +41,53 @@ export default function Hero(props) {
         switch (types) {
             case 'Video':
                 return (
-                <div className={styles.heroContainer}>
-                    <video className={styles.heroVideo} autoPlay playsInline muted loop poster="">
-                        <source src={mp4ExternalLink} type="video/mp4" />
-                        <source src={webm} type="video/webm" />
-                    </video>
-                    {
-                includeBookingForm && (
-                    <section className={styles.horizontalFormContainer}>
-                        <BookingForm />
-                    </section>
-                )
-            } 
-                </div>
+                    <div className={styles.heroContainer}>
+                        <video className={styles.heroVideo} autoPlay playsInline muted loop poster="">
+                            <source src={mp4ExternalLink} type="video/mp4" />
+                            <source src={webm} type="video/webm" />
+                        </video>
+                        {
+                            includeBookingForm && (
+                                <section className={styles.horizontalFormContainer}>
+                                    <BookingForm />
+                                </section>
+                            )
+                        }
+                        {
+                            includeFeaturedRoomCta && (
+                                <a href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
+                            )
+                        }    
+                    </div>
                 )
             case 'Full Height Image':
                 return (
                     <div className={styles.heroContainer}>
-                    <div className={styles.bigHero} style={{
-                        backgroundImage: `url(${imagePoster.mediaItemUrl})`
-                    }}>
-                        <div className={styles.herotextOver}>
-                        <p className="sans-serif sub-heading-bold white">{headline}</p>
-                        <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
+                        <div className={styles.bigHero} style={{
+                            backgroundImage: `url(${imagePoster.mediaItemUrl})`
+                        }}>
+                            <div className={styles.herotextOver}>
+                            <p className="sans-serif sub-heading-bold white">{headline}</p>
+                            <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
+                            </div>
+                            {
+                                includeBookingForm && (
+                                    <section className={styles.horizontalFormContainer}>
+                                        <BookingForm />
+                                    </section>
+                                )
+                            }
+                            {
+                                includeFeaturedRoomCta && (
+                                    <a style={{
+                                        zIndex: 99999,
+                                        position: 'absolute',
+                                        right: '3rem',
+                                        top: '12rem'
+                                    }} className="white xs-copy body-copy underline" href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
+                                )
+                            }
                         </div>
-                        {
-                        includeBookingForm && (
-                            <section className={styles.horizontalFormContainer}>
-                                <BookingForm />
-                            </section>
-                        )
-                        }
-                    </div>
                     </div>
                 )
             case 'Full Height Image with SubNav':
@@ -102,12 +120,12 @@ export default function Hero(props) {
                         </div>
                         </div>
                         {
-                includeBookingForm && (
-                    <section className={styles.horizontalFormContainer}>
-                        <BookingForm />
-                    </section>
-                )
-            } 
+                            includeBookingForm && (
+                                <section className={styles.horizontalFormContainer}>
+                                    <BookingForm />
+                                </section>
+                            )
+                        } 
                     </div>
                 )
             case 'Small Hero Image':

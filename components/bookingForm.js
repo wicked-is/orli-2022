@@ -14,6 +14,7 @@ export default function BookingForm() {
     const [counterValue, setCounterValue] = useState(1);
 
     return (
+        <>
             <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/uK87lN" target="_blank">
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
@@ -40,8 +41,11 @@ export default function BookingForm() {
                         name="widget_date_to"
                     />
                 </div>
-
                 <button type="submit" className="btn-submit xs-copy uppercase white bg-brown">Search</button>
             </form>
+            <a class="xs-copy body-copy underline white" style={{ position: 'absolute', bottom: '-40px', left: 0 }}>
+                Book Multiple Rooms
+            </a>
+        </>
     )
 }

@@ -62,9 +62,13 @@
     line-height: 150%;
 }
 ::placeholder {
-    font-size: initial;
+    /* font-size: initial; */
     color: rgba(0,0,0,.5);
 }
+input[type="date"] {
+    color: rgba(0, 0, 0, .7);
+}
+
 .xs-heading {
     font-size: var(--xs-copy);
     font-family: 'GT Walsheim Bold';
