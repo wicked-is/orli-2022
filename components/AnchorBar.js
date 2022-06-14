@@ -1,5 +1,8 @@
-// import styles from '../styles/hero.module.css'
+import { useEffect } from 'react';
 import styled from 'styled-components'
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const SubNavContainer = styled.ul`
     width: 100%;
@@ -48,8 +51,34 @@ export default function AnchorBar(props) {
 
     const { anchorNavigation } = props
 
+    useEffect(() => {  
+        var tl =  gsap.timeline()
+        tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
+        tl.to('main', { opacity:1, duration: 0.6});
+
+        var	wideScreen = window.matchMedia("(min-width: 800px)");
+        var	narrowScreen = window.matchMedia("(max-width: 799px)");
+
+        var content = gsap.utils.toArray('.content');
+        var sidebar = gsap.utils.toArray('.sidebar');
+
+        // if(wideScreen.matches) {
+        //     gsap.to(sidebar, {
+        //         scrollTrigger: {
+        //             trigger: content,
+        //             start: "top-=80 150px",
+        //             end: "bottom+=150 bottom-=150",
+        //             pin: sidebar,
+        //             markers: false,
+        //             onRefresh: self => self.pin.parentNode.style.float = "right",
+        //             pinSpacing: false,
+        //         }, y: 0
+        //     });
+        // }
+    }, [])
+
     return (
-        <SubNavContainer>               
+        <SubNavContainer className="anchor-bar">               
             {   
                 anchorNavigation.map((item, index) => {
                     return (
