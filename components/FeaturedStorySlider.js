@@ -28,6 +28,8 @@ export default function FeaturedStorySlider(props) {
         })
     }, [sliderActive]);
 
+    console.log(featuredStories);
+
     return (
         <section className={styles.amenitiesSlider} >
             <Flickity
@@ -45,21 +47,22 @@ export default function FeaturedStorySlider(props) {
                 flickityRef={c => {
                     slider.current = c
                 }}
+                className="featured-story-slider"
             >
                 {
-                    featuredStories.map((story, index) => {
+                    featuredStories[0].blogPost.gallery.map((story, index) => {
                         return (
-                            <div key={story.title} className={styles.story}>
-                                <Image src={story.featuredImage.node.mediaItemUrl} alt={story.title} width={1435} height={928} layout="intrinsic" />
+                            <div key={story.altText} className={styles.story} style={{ paddingRight: '3rem' }}>
+                                <Image src={story.mediaItemUrl} alt={story.altText} width={1335} height={928} layout="intrinsic" style={{ marginRight: '1rem' }} />
                             </div>
                         )
                     })
                 }
             </Flickity>
             <div className={styles.sliderContent}>
-                                <p className="sans-serif-bold sub-heading white">{title}</p>
-                                <p className="heading white" style={{ margin: 0 }}>{blurb}</p>
-                                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+                <p className="sans-serif-bold sub-heading white">{title}</p>
+                <p className="heading white" style={{ margin: 0 }}>{featuredStories[0].title}</p>
+                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
             <div className={styles.sliderNav}>
                 {

@@ -60,7 +60,7 @@ export default function Hero(props) {
                     }}>
                         <div className={styles.herotextOver}>
                         <p className="sans-serif sub-heading-bold white">{headline}</p>
-                        <p className="serif heading white">{blurb}</p>
+                        <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
                         </div>
                         {
                         includeBookingForm && (

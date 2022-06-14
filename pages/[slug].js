@@ -425,6 +425,14 @@ export async function getStaticProps({ params }) {
                 subHeadline
                 featuredStories {
                   ... on Post {
+                    blogPost {
+                      gallery {
+                        ... on MediaItem {
+                          altText
+                          mediaItemUrl
+                        }
+                      }
+                    }
                     title
                     uri
                     featuredImage {

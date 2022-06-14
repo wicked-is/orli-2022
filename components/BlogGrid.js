@@ -95,7 +95,7 @@ const BlogTile = styled.div`
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
-        margin: 4rem 0 !important;
+        margin: 6rem 0 !important;
         padding: 4rem 6rem;
 
         img, span { display: none !important; }
