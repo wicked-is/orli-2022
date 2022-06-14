@@ -14,10 +14,15 @@ export default function Header(props) {
 
     const [navIsOpen, setNavIsOpen] = useState(false);
     const [navImage, setNavImage] = useState(null);
+    const [announcementbarIsOpen, setAnnouncementbarIsOpen] = useState(false);
 
     useEffect(() => { 
         setNavImage(navImage);
     });
+
+    useEffect(() => { 
+        setAnnouncementbarIsOpen(topBar?.isAnnouncementBarActive)
+    }, []);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
@@ -26,6 +31,11 @@ export default function Header(props) {
     function handleClick(e, path) {
         e.preventDefault();
         window.location = path;
+    }
+
+    function closeAnnouncementBar() {
+        setAnnouncementbarIsOpen(false);
+        console.log('closing announcement bar');
     }
 
     return (
@@ -43,8 +53,18 @@ export default function Header(props) {
             </Head>
             {
                 topBar?.isAnnouncementBarActive && (
-                    <div className={styles.announcementbar}>
+                    <div className={styles.announcementbar} style={{
+                        display: announcementbarIsOpen ? 'flex' : 'none'
+                    }}>
                         <p className="sans-serif white xs-copy center">{topBar.announcementBarText}</p>
+                        <button style={{
+                            color: '#ffffff',
+                            backgroundColor: 'transparent',
+                            border: 'none',
+                            fontSize: '1rem'
+                        }}
+                            onClick={closeAnnouncementBar}
+                        >&#10005;</button>
                     </div>
                 )
             }

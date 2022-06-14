@@ -56,6 +56,12 @@
     height: 3rem;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.header .announcementbar button {
+    position: absolute;
+    right: 2rem;
 }
 
 .header.open .announcementbar {display: none;}

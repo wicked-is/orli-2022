@@ -186,7 +186,7 @@ export default function DefaultRoomsPage(props) {
           </SingleRoomMainDesc>
 
           <FeatureContainer>
-            <p className="sans-serif-bold sub-heading">Features</p>
+            <p className="sans-serif-bold sub-heading">Highlights</p>
             <FeatureList>
               {
                 room.singleRooms.features.map((feature, index) => {
@@ -202,7 +202,7 @@ export default function DefaultRoomsPage(props) {
           </FeatureContainer>
 
           <AmenitiesContainer>
-            <p className="sans-serif-bold sub-heading">In-Room Amentities</p>
+            <p className="sans-serif-bold sub-heading">Features</p>
             <AmenitiesList>
               {
                 room.singleRooms.amenities.map((amenity, index) => {
