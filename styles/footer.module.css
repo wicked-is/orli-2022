@@ -34,6 +34,7 @@
 .footer>div>div:last-of-type > div {
   display: grid;
   grid-template-columns: 1fr;
+  margin-bottom: 2rem;
 }
 .footer>div>div:last-of-type > div:first-of-type {
   padding: 7.5rem 0 6rem 7.5rem;
@@ -42,7 +43,7 @@
 .footer>div>div:last-of-type>div:nth-of-type(2) {
   display: flex;
   justify-content: center;
-  padding: 7.5rem 0 6rem 7.5rem;
+  padding: 7.5rem 10% 6rem 7.5rem;
 }
 
 .footer>div>div:last-of-type > div:nth-of-type(3) {

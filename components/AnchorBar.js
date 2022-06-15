@@ -64,7 +64,7 @@ export default function AnchorBar(props) {
                   endTrigger: maincontent,
                   end: "bottom-=0 bottom-=150",
                   pin: journalnav,
-                  markers: true,
+                  markers: false,
                   pinSpacing: false,
                   scrub: true,
                   onRefresh: self => self.pin.parentNode.style.float = "right",
