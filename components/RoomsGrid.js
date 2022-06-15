@@ -256,7 +256,7 @@ export default function RoomsGrid(props) {
                                         </QuickViewButton>
                                     </div>
                                     <div className={styles.text}>
-                                        <p className="xs-heading uppercase black">Sleeps {room.singleRooms.sleeps} <span className={styles.keyFt}>{room.singleRooms.keyFeature}</span> <span className={styles.theme}>{room.singleRooms.theme}</span></p>
+                                        <p className="xs-heading uppercase black" style={{ letterSpacing: 'var(--letter-spacing)'}}>Sleeps {room.singleRooms.sleeps} <span className={styles.keyFt}>{room.singleRooms.keyFeature}</span> <span className={styles.theme}>{room.singleRooms.theme}</span></p>
                                         <p className={`${styles.roommobile} serif heading black`}>{room.title}</p>
                                     </div>
                                 </RoomTile>

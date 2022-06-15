@@ -157,6 +157,12 @@ export default function DefaultRoomsPage(props) {
       });
     }
   }, [])
+
+  const sortedAmenities = room.singleRooms.amenities.sort(function (a, b) {
+    return b.indexOf("G") - a.indexOf("G");
+  });
+
+  console.log(sortedAmenities);
   
   return (
     <>
@@ -176,7 +182,7 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif-bold sub-heading">Highlights</p>
             <FeatureList>
               {
-                room.singleRooms.features.map((feature, index) => {
+                sortedAmenities.map((feature, index) => {
                   return <div key={index} className="sans-serif body-copy black">
                     { feature.icon && (
                     <img src={feature?.icon?.mediaItemUrl} alt={feature.altText} />
