@@ -62,7 +62,7 @@ export default function FeaturedStorySlider(props) {
                 <p className="heading white" style={{ margin: 0 }}>{featuredStories[0].title}</p>
                 <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
-            <div className={styles.sliderNav}>
+            {/* <div className={styles.sliderNav}>
                 {
                     featuredStories.map((story, index) => {
                         return (
@@ -74,7 +74,7 @@ export default function FeaturedStorySlider(props) {
                         )
                     })
                 }
-            </div>
+            </div> */}
         </section>
     )
 }

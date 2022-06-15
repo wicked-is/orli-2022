@@ -8,7 +8,7 @@ import styles from '../styles/roomsGrid.module.css'
 
 import BookingForm from '../components/bookingForm';
 
-const filterList = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Bathtub', 'ADA Accessible'];
+const filterList = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Historic', 'ADA Accessible'];
 
 const FilterContainer = styled.section`
     display: grid;    
