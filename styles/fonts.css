@@ -90,14 +90,16 @@ address {font-style: normal;}
 .cta-black:visited, .cta-black:focus {color: var(--black);} 
 .cta-white:visited, .cta-white:focus {color: var(--white);}
 
-.active p{
-    font-family: 'GT Walsheim'; 
-    font-weight: 700 !important;
-}
-.inactive p{
-    font-family: 'GT Walsheim'; 
+.inactive p {
+    font-family: 'GT Walsheim Light';
     font-weight: 400 !important;
 }
+
+.active p, .inactive p:hover {
+    font-family: 'GT Walsheim Bold'; 
+    font-weight: 700 !important;
+}
+
 
 .text-link {transition: 0.3s ease all;}
 .text-link:hover {color: var(--brown);}
