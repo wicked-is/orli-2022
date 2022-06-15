@@ -59,7 +59,7 @@ export default function HistoricalSlider(props) {
             </Flickity>
             <div className={styles.sliderNavContainer}>
                 <div className="max-80">
-                    <p className={`serif heading white ${styles.sliderTitle}`}>Historic Timeline</p>
+                    <p className={`serif heading white ${styles.sliderTitle}`}>Building History</p>
                     <div className={styles.sliderNav}>
                         {
                             years.map((year, index) => {
