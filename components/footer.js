@@ -127,16 +127,16 @@ export default function Footer() {
                                     E: email@stayorli.com</p>
                                     <ul className="socials">
                                         <li>
-                                            <Link href="/">
+                                            <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
                                                 <Image
                                                     src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
                                                     alt="Instagram Logo"
                                                     className="instagram"
                                                     width={30}
                                                     height={30} />
-                                            </Link>
+                                            </a>
                                         </li>
-                                        <li>
+                                        {/* <li>
                                             <Link href="/">
                                                 <Image
                                                     src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
@@ -145,16 +145,16 @@ export default function Footer() {
                                                     width={14}
                                                     height={30} />
                                             </Link>
-                                        </li>
+                                        </li> */} 
                                         <li>
-                                            <Link href="/">
+                                            <a target="_blank" href="https://open.spotify.com/playlist/5dt0gGfjFDjfd4CJe22E8T?si=278d0b0810534a75" rel="noopener noreferrer">
                                                 <Image
                                                     src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
                                                     alt="spotify logo"
                                                     className="spotify"
                                                     width={30}
                                                     height={30} />
-                                            </Link>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
