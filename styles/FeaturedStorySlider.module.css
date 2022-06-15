@@ -1,0 +1,78 @@
+.amenitiesSlider {
+    position: relative;
+}
+.amenity {
+    width: 100%;
+    margin-right: 0px;
+    padding-right: 0px;
+    background: transparent;
+}
+
+.amenity img {
+    width: 100%;
+}
+
+.sliderContent {
+    position: absolute;
+    bottom: 7rem;
+    z-index: 97;
+    background-color: #0C2B1C;
+    background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
+    padding: 1rem 3rem 1rem 10rem;
+    max-width: 50%;
+}
+
+.sliderNav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 5rem 3rem 0;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.sliderNav p {
+    color: var(--white);
+    font-family: 'GT Walsheim Light';
+    text-transform: uppercase;
+    font-size: var(--xs-copy);
+    cursor: pointer;
+    padding: 0rem 0rem 0.3rem 0rem;
+}
+
+.active {
+    -webkit-text-stroke: 1px var(--white);
+}
+
+@media only screen and (max-width: 820px) {
+    .sliderContent {padding:1rem 2rem 1rem 2rem;}
+}
+
+@media only screen and (max-width: 700px) {
+    /* .amenitiesSlider {
+        position: relative;
+        height: 100vh;
+    } */
+    .amenity {
+        height: 100vh;
+        width: 100%;
+        background-position: center center;
+        background-size: cover !important;
+        -moz-background-size: cover !important;
+        -webkit-background-size: cover !important;
+        -o-background-size: cover !important;
+    }
+    .amenity img {display: none !important;}
+    .sliderNav {display: none;}
+
+    .sliderContent {
+        position: absolute;
+        bottom: unset;
+        z-index: 97;
+        top: 2rem;
+        background-color: #0C2B1C;
+        background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
+        padding: 1rem 2rem 1rem 2rem;
+        max-width: 95%;
+    }
+}
