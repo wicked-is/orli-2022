@@ -16,11 +16,11 @@ const SubNavContainer = styled.ul`
     list-style: none;
 
     p {
-        font-family: 'GT Walsheim'; 
+        font-family: 'GT Walsheim Light'; 
         font-weight: 300;
 
         &:hover {
-            font-family: 'GT Walsheim'; 
+            font-family: 'GT Walsheim Hover'; 
             font-weight: 700;
         }
     }
@@ -52,23 +52,23 @@ export default function AnchorBar(props) {
     const { anchorNavigation } = props
 
     useEffect(() => {  
-        var tl =  gsap.timeline()
-        tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
-        tl.to('main', { opacity:1, duration: 0.6});
+        // var tl =  gsap.timeline()
+        // tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
+        // tl.to('main', { opacity:1, duration: 0.6});
 
-        var	wideScreen = window.matchMedia("(min-width: 800px)");
-        var	narrowScreen = window.matchMedia("(max-width: 799px)");
+        // var	wideScreen = window.matchMedia("(min-width: 800px)");
+        // var	narrowScreen = window.matchMedia("(max-width: 799px)");
 
-        var content = gsap.utils.toArray('.content');
-        var sidebar = gsap.utils.toArray('.sidebar');
+        // var anchorBar = gsap.utils.toArray('.anchor-bar');
+        // var sidebar = gsap.utils.toArray('.sidebar');
 
         // if(wideScreen.matches) {
-        //     gsap.to(sidebar, {
+        //     gsap.to(anchorBar, {
         //         scrollTrigger: {
-        //             trigger: content,
+        //             trigger: anchorBar,
         //             start: "top-=80 150px",
         //             end: "bottom+=150 bottom-=150",
-        //             pin: sidebar,
+        //             pin: anchorBar,
         //             markers: false,
         //             onRefresh: self => self.pin.parentNode.style.float = "right",
         //             pinSpacing: false,
@@ -78,7 +78,7 @@ export default function AnchorBar(props) {
     }, [])
 
     return (
-        <SubNavContainer className="anchor-bar">               
+        <SubNavContainer>               
             {   
                 anchorNavigation.map((item, index) => {
                     return (
