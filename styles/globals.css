@@ -110,9 +110,16 @@ label.rooms-filter {
   margin: 4rem 0rem 0rem 0rem !important;
 }
 
+
 @media only screen and (max-width: 900px) {
   .desc {
     display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #phone-number {
+    margin-top: 2rem;
   }
 }
 

@@ -1,35 +1,176 @@
+.footer {
+  padding: 7.5rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-inline: auto;
+  position: relative;
+  background-size: cover !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/footer-bg.jpg') no-repeat center center;
+}
+.footer > div {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  position: relative;
+}
+
+.footer > div > div:first-of-type {
+  flex: 1;
+}
+.footer > div > div:last-of-type {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.footer>div>div:last-of-type > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* place-items: center; */
+}
+
+.footer>div>div:last-of-type>div:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+}
+
+.footer>div>div:last-of-type > div:nth-of-type(3) {
+  grid-column: 1 / span 2;
+  display: flex;
+  padding-top: 6rem;
+  align-items: center;
+}
+
+.footer .footer-logo {
+  width: 100%;
+  max-width: 7rem;
+  margin-bottom: 4rem;
+  filter: invert(1);
+  display: inline-block;
+  text-align: left;
+}
+
+.footer-links,
+.footer-links-two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-gap: 1rem; */
+  font-size: var(--xs-copy);
+  font-family: 'GT Walsheim Light';
+}
+
+.footer-links {
+  padding: 0rem 0rem 0rem 0rem;
+}
+
+.footer-links-two {
+  padding: 4rem 0rem 0rem 0rem;
+}
+
+.footer-links a {
+  line-height: 150%;
+  color: var(--white);
+  transition: 0.3s ease all;
+  padding: 0rem 0rem 0.6rem 0rem;
+}
+
+.footer-links-two a {
+  color: var(--white);
+  transition: 0.3s ease all;
+}
+
+.directions {
+  width: fit-content;
+  border-bottom: 1px solid #ffffff;
+  font-family: 'GT Walsheim Light';
+  padding: 1rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
+}
+
+ul.socials {
+  padding: 3rem 0rem 0rem 0rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding-inline-start: 0px !important;
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+}
+
+ul.socials li {
+  padding: 0rem 1.5rem 0rem 0rem;
+}
+
+@media screen and (max-width: 700px) {
+  .footer>div {
+    flex-direction: column;
+  }
+  .footer>div>div {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3rem;
+  }
+
+  .footer>div>div>div {
+    flex: 1;
+  }
+
+  .footer>div>div:last-of-type>div:nth-of-type(2) {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer>div>div:last-of-type {
+    grid-template-columns: 1fr;
+  }
+
+  .footer>div>div:last-of-type>div:nth-of-type(3) {
+      grid-column: 1;
+      padding-top: 1rem;
+  }
+}
+
+/* 
 .footer{
-    padding:7.5rem 0;
-    width: 100%;
-    display: inline-block;
-    margin: auto;
-    position: relative;
-    background-size: cover !important;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background:url('https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg') no-repeat center center;
-  }
+  padding:7.5rem 0;
+  width: 100%;
+  display: inline-block;
+  display: flex;
+  margin: auto;
+  position: relative;
+  background-size: cover !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background:url('https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg') no-repeat center center;
+}
 
-  .footer .footer-logo {
-    width: 100%;
-    max-width: 7rem;
-    filter: invert(1);
-    display: inline-block;
-    text-align: left;
-    margin-left: 4rem;
-  }
+.footer .footer-logo {
+  width: 100%;
+  max-width: 7rem;
+  filter: invert(1);
+  display: inline-block;
+  text-align: left;
+  margin-left: 4rem;
+}
 
-  .footer .large{
-    margin-bottom: 7.25rem;
-    font-style: italic;
-    box-shadow: none;
-  }
-  
-  .footer p {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-  }
+.footer .large{
+  margin-bottom: 7.25rem;
+  font-style: italic;
+  box-shadow: none;
+}
+
+.footer p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
 
 address.xs-copy.white.left {
   font-style: normal;
@@ -48,14 +189,14 @@ address.xs-copy.white.left {
 }
 
 ul.socials {
-   padding: 3rem 0rem 0rem 0rem;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    padding-inline-start: 0px !important;
-    margin-block-start: 0em !important;
-    margin-block-end: 0em !important;
-  }
+  padding: 3rem 0rem 0rem 0rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding-inline-start: 0px !important;
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+}
 
 ul.socials li {padding: 0rem 1.5rem 0rem 0rem;}
 
@@ -128,4 +269,4 @@ ul.socials li {padding: 0rem 1.5rem 0rem 0rem;}
     padding: 2rem 0 0 0;
   }
 
-}
+} */

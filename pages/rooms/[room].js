@@ -158,9 +158,9 @@ export default function DefaultRoomsPage(props) {
     }
   }, [])
 
-  const sortedAmenities = room.singleRooms.amenities.sort(function (a, b) {
-    return b.indexOf("G") - a.indexOf("G");
-  });
+  // const sortedAmenities = room.singleRooms.amenities.sort(function (a, b) {
+  //   return b.indexOf("G") - a.indexOf("G");
+  // });
   
   return (
     <>
