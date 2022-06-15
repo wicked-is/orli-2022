@@ -20,7 +20,7 @@ const SubNavContainer = styled.ul`
         font-weight: 300;
 
         &:hover {
-            font-family: 'GT Walsheim Hover'; 
+            font-family: 'GT Walsheim Bold'; 
             font-weight: 700;
         }
     }
