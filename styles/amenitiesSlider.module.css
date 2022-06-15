@@ -15,7 +15,7 @@
 .sliderContent {
     position: absolute;
     bottom: 7rem;
-    z-index: 97;
+    z-index: 95;
     background-color: #0C2B1C;
     background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
     padding: 1rem 3rem 1rem 10rem;
