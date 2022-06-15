@@ -82,8 +82,8 @@ const QuickViewButton = styled.div`
     justify-content: center;
     align-items: flex-end;
     width: 100%;
-    height: 100%;
-    padding: 0 0 1rem;
+    height: auto;
+    padding: 1rem 1rem;
     
     text-align: center;
     color: #fff;
@@ -121,6 +121,7 @@ export default function RoomsGrid(props) {
         
         let isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
         if(!isMobileDevice){
+            const quickview = document.querySelector('.quickview-btn')
             const modal = document.querySelector('dialog')
             const closeButton = document.querySelector('#closeBtn')
 
@@ -128,7 +129,7 @@ export default function RoomsGrid(props) {
                 label.addEventListener('click', handleFilterClick);
             })
 
-            document.querySelectorAll('.room-tile').forEach(room => { 
+            document.querySelectorAll('.quickview-btn').forEach(room => { 
                 room.addEventListener('click', handleClick);
             })
 
