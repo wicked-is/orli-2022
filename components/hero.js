@@ -80,7 +80,7 @@ export default function Hero(props) {
                             {
                                 includeFeaturedRoomCta && (
                                     <a style={{
-                                        zIndex: 99999,
+                                        zIndex: 98,
                                         position: 'absolute',
                                         right: '3rem',
                                         top: '12rem'
