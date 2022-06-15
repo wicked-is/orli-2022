@@ -93,6 +93,9 @@ const BlogTile = styled.div`
         width: 100% !important;
         background-image: url(${props.background}) !important;
         background-size: cover !important;
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
         margin: 6rem 0 !important;
