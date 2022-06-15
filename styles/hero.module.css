@@ -145,13 +145,13 @@
 
 .subnavigationContainer li p,
 .subnavigationonlyContainer li p {
-    font-family: 'GT Walsheim'; 
+    font-family: 'GT Walsheim Light'; 
     font-weight: 300;
 }
 
 .subnavigationContainer li:hover p,
 .subnavigationonlyContainer li:hover p {
-    font-family: 'GT Walsheim'; 
+    font-family: 'GT Walsheim Bold'; 
     font-weight: 700 !important;
 }
 
