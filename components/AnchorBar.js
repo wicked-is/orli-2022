@@ -14,6 +14,7 @@ const SubNavContainer = styled.ul`
     align-items: flex-start;
     justify-content: center;
     list-style: none;
+    z-index: 98;
 
     p {
         font-family: 'GT Walsheim Light'; 
@@ -52,6 +53,23 @@ export default function AnchorBar(props) {
     const { anchorNavigation } = props
 
     useEffect(() => {  
+
+        var maincontent = gsap.utils.toArray('main');
+          var journalnav = gsap.utils.toArray('.subnavjournal');
+      
+            gsap.to(journalnav, {
+              scrollTrigger: {
+                  trigger: journalnav,
+                  start: "top-=0 143px",
+                  endTrigger: maincontent,
+                  end: "bottom-=0 bottom-=150",
+                  pin: journalnav,
+                  markers: true,
+                  pinSpacing: false,
+                  scrub: true,
+                  onRefresh: self => self.pin.parentNode.style.float = "right",
+              }, y: 0
+            });
         // var tl =  gsap.timeline()
         // tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
         // tl.to('main', { opacity:1, duration: 0.6});
@@ -78,7 +96,7 @@ export default function AnchorBar(props) {
     }, [])
 
     return (
-        <SubNavContainer>               
+        <SubNavContainer className="subnavjournal">              
             {   
                 anchorNavigation.map((item, index) => {
                     return (

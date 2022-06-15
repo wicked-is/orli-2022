@@ -52,7 +52,7 @@ export default function DefaultPage(props) {
                     toggleActions: "play reverse play reverse"
                 }
             });
-        })
+        });
     },[])
 
     const gatherSections = () => {
