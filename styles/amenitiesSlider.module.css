@@ -7,7 +7,7 @@
     padding-right: 0px;
     background: transparent;
 }
-
+.item {width: 95%;}
 .amenity img {
     width: 100%;
 }
