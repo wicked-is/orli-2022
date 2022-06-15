@@ -229,7 +229,7 @@ export default function DefaultRoomsPage(props) {
               }
             </ul>
           </NeighborhoodContainer>
-          <p className="sans-serif xs-copy underline arrow-left relative">Back to All Rooms</p>
+          <p className="sans-serif xs-copy underline arrow-left relative"><a href="/find-your-room">Back to All Rooms</a></p>
         </SingleRoomContent>
 
         <SingleRoomBookingForm className="sidebar">
