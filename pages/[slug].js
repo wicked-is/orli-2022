@@ -230,6 +230,7 @@ export async function getStaticProps({ params }) {
                 description
                 ctaLink
                 ctaText
+                anchor
                 amenities {
                   ... on Amenity {
                     title

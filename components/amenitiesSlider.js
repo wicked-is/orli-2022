@@ -13,6 +13,7 @@ export default function AmenitiesSlider(props) {
     let isMobileDevice;
 
     const {
+        anchor,
         amenities,
         subHeadline: title,
         headline: blurb,
@@ -37,6 +38,7 @@ export default function AmenitiesSlider(props) {
 
     return (
         <section className={`${styles.amenitiesSlider}`} >
+            { anchor && <a id={anchor} name={anchor} class="anchor"></a>}
             <Flickity
                 options={{
                     cellAlign: 'left',
