@@ -38,7 +38,7 @@ export default function AmenitiesSlider(props) {
 
     return (
         <section className={`${styles.amenitiesSlider}`} >
-            { anchor && <a id={anchor} name={anchor} class="anchor"></a>}
+            { anchor && <a id={anchor} name={anchor} className="anchor"></a>}
             <Flickity
                 options={{
                     cellAlign: 'left',
