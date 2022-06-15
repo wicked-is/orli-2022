@@ -56,7 +56,7 @@ export default function AmenitiesSlider(props) {
                 {
                     amenities.map((item, index) => {
                         return (
-                            <div key={item.title} className={styles.item} style={{ backgroundImage: isMobileDevice ? `url(${item.featuredImage.node.mediaItemUrl})` : '', marginRight: '3rem' }}>
+                            <div key={item.title} className={styles.item} style={{ backgroundImage: isMobileDevice ? `url(${item.featuredImage.node.mediaItemUrl})` : '', paddingRight: '3rem' }}>
                                 {
                                     !isMobileDevice && (
                                         <Image src={item.featuredImage.node.mediaItemUrl} alt={item.title} width={1435} height={928} layout="intrinsic" />

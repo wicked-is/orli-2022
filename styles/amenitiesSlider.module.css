@@ -24,8 +24,11 @@
 
 .sliderNav {
     position: absolute;
-    top: 5rem;
-    right: 2rem;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 5rem 3rem 0;
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .sliderNav p {

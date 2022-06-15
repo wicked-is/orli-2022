@@ -13,7 +13,7 @@ export default function SpotifyFeature(props) {
                 <div className="fadein">
                     <p className="heading white">We&apos;re Friends, and Friends Share Music</p>
                     <Link href="/">
-                        <a className="xs-copy white" style={{ textDecoration: "underline" }}>Listen on Spotify</a>
+                        <a className="xs-copy white sans-serif" style={{ textDecoration: "underline" }}>Listen on Spotify</a>
                     </Link>
                 </div>
                 <div className={styles.spotifyEmbed}dangerouslySetInnerHTML={{ __html: props.spotifyEmbed }}></div>
