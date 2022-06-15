@@ -43,7 +43,7 @@ export default function BookingForm() {
                 </div>
                 <button type="submit" className="btn-submit xs-copy uppercase white bg-brown">Search</button>
             </form>
-            <a class="xs-copy body-copy underline white" style={{ position: 'absolute', bottom: '-40px', left: 0 }}>
+            <a className="xs-copy body-copy underline white" style={{ position: 'absolute', bottom: '-40px', left: 0 }}>
                 Book Multiple Rooms
             </a>
         </>
