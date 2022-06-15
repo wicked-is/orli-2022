@@ -1,5 +1,5 @@
 .footer {
-  padding: 7.5rem 0;
+  /* padding: 7.5rem 0; */
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -12,7 +12,7 @@
   background: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/footer-bg.jpg') no-repeat center center;
 }
 .footer > div {
-  width: 80vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   margin: auto;
@@ -21,6 +21,9 @@
 
 .footer > div > div:first-of-type {
   flex: 1;
+  padding-top: 7.5rem;
+  padding-left: 7.5rem;
+  border-right: 2px solid rgba(255, 255, 255, .2);
 }
 .footer > div > div:last-of-type {
   flex: 2;
@@ -31,19 +34,23 @@
 .footer>div>div:last-of-type > div {
   display: grid;
   grid-template-columns: 1fr;
-  /* place-items: center; */
+}
+.footer>div>div:last-of-type > div:first-of-type {
+  padding: 7.5rem 0 6rem 7.5rem;
 }
 
 .footer>div>div:last-of-type>div:nth-of-type(2) {
   display: flex;
   justify-content: center;
+  padding: 7.5rem 0 6rem 7.5rem;
 }
 
 .footer>div>div:last-of-type > div:nth-of-type(3) {
   grid-column: 1 / span 2;
   display: flex;
-  padding-top: 6rem;
+  padding: 3rem 7.5rem  ;
   align-items: center;
+  border-top: 2px solid rgba(255, 255, 255, .2);
 }
 
 .footer .footer-logo {
