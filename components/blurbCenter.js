@@ -21,7 +21,7 @@ export default function BlurbCenter(props) {
                     <source src={webm} type="video/webm" />
                 </video>
             ) }
-            <div className="max-75 center">
+            <div className="max-60 center">
                 { !mp4ExternalLink && <div className={`${styles.icon} fadein`}>
                     <img src={icon.mediaItemUrl} alt={icon.altText}/>
                 </div> }

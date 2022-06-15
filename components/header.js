@@ -116,7 +116,7 @@ export default function Header(props) {
                         </ul>
                         <div className={styles.bottomnav}>
                             <div className="col-1-50">
-                                <address className="sans-serif xs-copy white left">
+                                <address className="sans-serif xs-copy white left" style={{ marginTop: '.88rem' }}>
                                     Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
                                 </address>
                                 <p className="directions xs-copy white left">
