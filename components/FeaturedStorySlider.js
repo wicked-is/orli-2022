@@ -50,7 +50,7 @@ export default function FeaturedStorySlider(props) {
                 {
                     featuredStories[0].blogPost.gallery.map((story, index) => {
                         return (
-                            <div key={story.altText} className={styles.story} style={{ paddingRight: '3rem' }}>
+                            <div key={story.altText} className={styles.story}>
                                 <Image src={story.mediaItemUrl} alt={story.altText} width={1335} height={928} layout="intrinsic" style={{ marginRight: '1rem' }} />
                             </div>
                         )
