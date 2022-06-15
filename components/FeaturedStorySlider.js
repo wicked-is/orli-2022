@@ -28,8 +28,6 @@ export default function FeaturedStorySlider(props) {
         })
     }, [sliderActive]);
 
-    console.log(featuredStories);
-
     return (
         <section className={styles.amenitiesSlider} >
             <Flickity

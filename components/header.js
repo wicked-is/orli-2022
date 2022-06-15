@@ -35,7 +35,6 @@ export default function Header(props) {
 
     function closeAnnouncementBar() {
         setAnnouncementbarIsOpen(false);
-        console.log('closing announcement bar');
     }
 
     return (
