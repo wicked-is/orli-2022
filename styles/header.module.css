@@ -175,6 +175,13 @@
     padding:8rem 0 2rem 0;
     width: 100%;
 }
+
+@media only screen and (max-width: 1680px) {
+    .navContianer.showMeMobile .mainNav {
+        padding:5rem 0 2rem 0;
+    }
+}
+
 .navContianer.showMeMobile .mainNav li {
     font-family: essonnes-display, serif;
     font-size: var(--heading);
@@ -265,6 +272,10 @@
         display: block;
     }
     .header .sitebranding {height: 5rem;}
+
+    .navContianer.showMeMobile .mainNav {
+        padding:10rem 0 2rem 0;
+    }
 
     .col140 {width: 100%;}
     .col160 {display: none;}
