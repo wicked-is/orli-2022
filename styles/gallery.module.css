@@ -37,8 +37,7 @@
 
 .subnavigationContainer li:hover p,
 .subnavigationonlyContainer li:hover p {
-    font-family: 'GT Walsheim Bold'; 
-    font-weight: 700;
+    color: var(--brown);
 }
 
 .galleryContainer {
