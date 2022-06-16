@@ -35,6 +35,7 @@ const SubNavContainer = styled.ul`
     }
 
     img {
+        max-height: 85px;
         height: 85px;
         width: auto;
     }

@@ -42,6 +42,10 @@ export default function Hero(props) {
             case 'Video':
                 return (
                     <div className={styles.heroContainer}>
+                        <div className={styles.herotextOver}>
+                            <p className="sans-serif sub-heading-bold white">{headline}</p>
+                            <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
+                        </div>
                         <video className={styles.heroVideo} autoPlay playsInline muted loop poster="">
                             <source src={mp4ExternalLink} type="video/mp4" />
                             <source src={webm} type="video/webm" />
