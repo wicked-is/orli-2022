@@ -93,9 +93,9 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_GatheringsCallout':
                     gatheredSections.push(<Gatherings key={componentKey} {...section} />)
                     break;
-                case 'Page_Flexiblecontent_Sections_FeaturedJournal':
-                    gatheredSections.push(<FullFeatureBlog key={componentKey} {...section} />)
-                    break;
+                //case 'Page_Flexiblecontent_Sections_FeaturedJournal':
+                    //gatheredSections.push(<FullFeatureBlog key={componentKey} {...section} />)
+                    //break;
                 case 'Page_Flexiblecontent_Sections_FollowAlong':
                     gatheredSections.push(<FauxSocialFeed key={componentKey} {...section} />)
                     break;

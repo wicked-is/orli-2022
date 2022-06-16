@@ -54,14 +54,14 @@ export default function BigImageSmallContent(props) {
     return (
         <section className={`${styles.container} ${order == 0 ? 'padding-top': ''}`}>
            {contentPosition === "Left" && (
-               <div className="max-80">
+               <div className="max-80 fadein">
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
                    )}
                <div className={`${styles.flex} ${paddingType}`}>
                 <div className={`${styles.col140} ${styles.textPaddingRight}`}>
                     { icon && (
-                        <p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.leftIcon} fadein`}/></p>
+                        <p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.leftIcon}`}/></p>
                         )
                     }
                     <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
@@ -140,7 +140,7 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Right" && (
-               <div className="max-80">
+               <div className="max-80 fadein">
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
@@ -199,7 +199,7 @@ export default function BigImageSmallContent(props) {
                 }
                 </div>
                 <div className={`${styles.col140} ${styles.textPaddingLeft}`}>
-                { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon} fadein`}/></p>)}
+                { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                     <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
                     <p className="serif heading black left">{headline}</p>
                     <p className="sans-serif body-copy black left">{blurb}</p>
@@ -210,7 +210,7 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Over Background Left" && (
-               <div className={`${styles.flex} ${paddingType}`}>
+               <div className={`${styles.flex} ${paddingType} fadein`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
@@ -220,7 +220,7 @@ export default function BigImageSmallContent(props) {
                             <div className="max-80">
                             <div className="flex">
                             <div className={styles.col140}>
-                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon} fadein`}/></p>)}
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
                             <p className="sans-serif body-copy white left">{blurb}</p>
@@ -238,7 +238,7 @@ export default function BigImageSmallContent(props) {
                     mediaType === "video" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
                             <div className={styles.overBackground}>
-                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon} fadein`}/></p>)}
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
                             <p className="sans-serif body-copy white left">{blurb}</p>
@@ -259,7 +259,7 @@ export default function BigImageSmallContent(props) {
            }
 
 {contentPosition === "Over Background Right" && (
-               <div className={`${styles.flex} ${paddingType}`}>
+               <div className={`${styles.flex} ${paddingType} fadein`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}
@@ -271,7 +271,7 @@ export default function BigImageSmallContent(props) {
                             <div className={styles.col160}>
                             </div>
                             <div className={styles.col140}>
-                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon} fadein`}/></p>)}
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
                             <p className="sans-serif body-copy white left">{blurb}</p>
@@ -288,8 +288,8 @@ export default function BigImageSmallContent(props) {
                 {
                     mediaType === "video" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
-                            <div className={styles.overBackground}>
-                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon} fadein`}/></p>)}
+                            <div className={`${styles.overBackground} fadein`}>
+                            { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
                             <p className="sans-serif body-copy white left">{blurb}</p>
