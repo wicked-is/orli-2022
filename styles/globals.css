@@ -43,14 +43,14 @@ a:visited, a:focus {outline: none;}
   --primary: var(--black);
   --secondary: var(--brown);
 
-  --letter-spacing: 0.2rem;
+  --letter-spacing: 0.15rem;
   --xl-heading: clamp(3.5rem, 3.5vw, 6rem);
   --heading: clamp(2.1rem, 2.6vw, 5rem);
   --pull-quote: clamp(1.8rem, 2.3vw, 4.6rem);
   --sub-heading: clamp(1.125rem, 1.125vw, rem);
   --body-copy: clamp(1.25rem, 1.25vw, 1.5rem);
   --nav-copy: clamp(0.9rem, 1.1vw, 1rem);
-  --xs-copy: clamp(0.8rem, 1.1vw, 1.1rem);
+  --xs-copy: clamp(0.8rem, 1vw, 1.2rem);
 }
 
 .flex { display: flex; }

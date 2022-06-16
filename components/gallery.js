@@ -40,7 +40,7 @@ export default function Gallery(props) {
                                     }}
                                 >
                                     <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
-                                    <p className="black xs-copy uppercase sans-serif center">{item.label}</p>
+                                    <p className="sans-serif nav-copy uppercase black center">{item.label}</p>
                                 </li>
                                 )
                         }, this)

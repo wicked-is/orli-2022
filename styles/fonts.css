@@ -14,6 +14,8 @@
 .sans-serif {font-family: 'GT Walsheim Light';}
 .sans-serif-bold {font-family: 'GT Walsheim Bold';}
 
+.letterSpacing {letter-spacing: var(--letter-spacing);}
+
 .xl-heading {
     font-size: var(--xl-heading);
     font-family: essonnes-display, serif;
@@ -78,6 +80,8 @@ input[type="date"] {
     line-height: 150%;
 }
 
+.nav-copy {font-size: var(--nav-copy); letter-spacing: 0.1rem;}
+
 .bold { font-weight: bold; }
 
 .uppercase {text-transform: uppercase;}
@@ -90,14 +94,14 @@ address {font-style: normal;}
 .cta-black:visited, .cta-black:focus {color: var(--black);} 
 .cta-white:visited, .cta-white:focus {color: var(--white);}
 
-.inactive p {
-    font-family: 'GT Walsheim Light';
-    font-weight: 400 !important;
-}
+.active p {
+    font-family: 'GT Walsheim Bold' !important;
+} 
 
-.active p, .inactive p:hover {
-    font-family: 'GT Walsheim Bold'; 
-    font-weight: 700 !important;
+.inactive p {font-family: 'GT Walsheim Light';}
+
+.inactive p:hover {
+    color: var(--brown);
 }
 
 

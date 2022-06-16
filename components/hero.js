@@ -102,7 +102,7 @@ export default function Hero(props) {
                                             <li key={`ni-${index}`} className={`${toggleActiveStyles(index)}`} onClick={() => {toggleActive(index);}}>
                                                 <a href={item.link}>
                                                 <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
-                                                <p className={`black xs-copy uppercase center sans-serif-bold`}>{item.label}</p>
+                                                <p className={`black nav-copy uppercase center sans-serif-bold`}>{item.label}</p>
                                                 </a>
                                             </li>
                                     
@@ -173,7 +173,7 @@ export default function Hero(props) {
                                 <li key={`ni-${index}`} >
                                     <a href={item.link}>
                                     <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
-                                    <p className="black xs-copy uppercase center">{item.label}</p>
+                                    <p className="sans-serif nav-copy uppercase black center">{item.label}</p>
                                     </a>
                                 </li>
                                 )

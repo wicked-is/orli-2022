@@ -151,8 +151,7 @@
 
 .subnavigationContainer li:hover p,
 .subnavigationonlyContainer li:hover p {
-    font-family: 'GT Walsheim Bold'; 
-    font-weight: 700 !important;
+    color: var(--brown);
 }
 
 /* Placeholder styles so no error is thrown */
