@@ -31,6 +31,7 @@ const SubNavContainer = styled.ul`
         margin: auto 2rem; 
         cursor: pointer; 
         transition: 0.3s ease all;
+        text-align: center;
     }
 
     img {
