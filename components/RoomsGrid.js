@@ -242,7 +242,7 @@ export default function RoomsGrid(props) {
                     currentRooms.length != 0 ? currentRooms.map((room, index) => {
                         const roomFilters = room.singleRooms.amenities
                         return (
-                            <li className="room-tile" key={`room-${index}`}
+                            <li className="room-tile fadein" key={`room-${index}`}
                                 data-filter={roomFilters}
                                 data-sleeps={room.singleRooms.sleeps}
                                 data-roomtitle={room.title}
