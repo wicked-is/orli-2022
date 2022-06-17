@@ -17,7 +17,7 @@
     background: var(--white);
 }
 
-.header.open .sitebranding {background: transparent;}
+.header.open .sitebranding {background: transparent; top: 0;}
 
 .header .headerlogo {
     position: absolute;

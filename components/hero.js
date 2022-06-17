@@ -98,7 +98,7 @@ export default function Hero(props) {
                     return (
                     <div className={styles.heroContainer}>
                         <div className={styles.bigheroSubnav}>
-                            <ul className={styles.subnavigationContainer}>
+                            <ul className="subnavigationContainer">
                                 
                                 {
                                     subnavigation.map((item, index) => (
@@ -167,7 +167,7 @@ export default function Hero(props) {
             case 'SubNav Only':
                 return (
                     <div className={styles.bigheroSubnav}>
-                    <ul className={styles.subnavigationonlyContainer}>
+                    <ul className="subnavigationonlyContainer">
                                 {
                                     // This was the incorrect bit. You were calling parameters
                                     // on the item without having the item defined. 

@@ -132,3 +132,68 @@ label.rooms-filter {
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+.top-nav-active .subnavigationContainer,
+.tob-bar-not-active .subnavigationContainer,
+.top-nav-active .subnavigationonlyContainer,
+.tob-bar-not-active .subnavigationonlyContainer {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    background: var(--lt-grey);
+    left:0px;
+    right: 0px;
+    z-index: 98;
+    align-items: flex-start;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0rem 0rem 0rem;
+}
+
+.top-nav-active .subnavigationonlyContainer,
+.top-nav-active .subnavigationContainer {top: 128px;}
+
+.tob-bar-not-active .subnavigationContainer,
+.tob-bar-not-active.subnavigationonlyContainer {top: 80px;}
+
+.subnavigationContainer li,
+.subnavigationonlyContainer li {
+    position: relative; 
+    margin: auto 2rem; 
+    cursor: pointer; 
+    transition: 0.3s ease all;
+}
+
+@media only screen and (max-width: 1116px) {
+  .subnavigationContainer, 
+  .subnavigationonlyContainer {
+      overflow-x:scroll;
+      overflow-y:hidden;
+      justify-content: unset;
+  }
+  .subnavigationContainer li,
+  .subnavigationonlyContainer li {
+      position: relative; 
+      margin: auto 2rem;
+      cursor: pointer;
+      transition: 0.3s ease all;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .subnavigationContainer, 
+  .subnavigationonlyContainer {
+      top: 112px;
+  }
+}
+
+.subnavigationContainer li p,
+.subnavigationonlyContainer li p {
+    font-family: 'GT Walsheim Light'; 
+    font-weight: 300;
+}
+
+.subnavigationContainer li:hover p,
+.subnavigationonlyContainer li:hover p {
+    color: var(--brown);
+}
