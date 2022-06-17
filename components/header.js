@@ -43,7 +43,7 @@ export default function Header(props) {
             <Analytics siteNotLive/>
             <Script
                 src="https://www.bugherd.com/sidebarv2.js?apikey=dw2fpdf4dfctxv0wzdcnuw"
-                strategy="beforeInteractive"
+                strategy="afterInteractive"
             />
             <Head>
                 {/* Head elements required on every page */}
