@@ -134,8 +134,10 @@ label.rooms-filter {
 }
 
 .top-nav-active .subnavigationContainer,
+.top-bar-active .subnavigationContainer,
 .tob-bar-not-active .subnavigationContainer,
 .top-nav-active .subnavigationonlyContainer,
+.top-bar-active .subnavigationonlyContainer,
 .tob-bar-not-active .subnavigationonlyContainer {
     width: 100%;
     display: flex;
@@ -148,6 +150,7 @@ label.rooms-filter {
     justify-content: center;
     list-style: none;
     padding: 1rem 0rem 0rem 0rem;
+    margin-top: 0;
 }
 
 .top-nav-active .subnavigationonlyContainer,
