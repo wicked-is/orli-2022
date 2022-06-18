@@ -157,7 +157,7 @@ label.rooms-filter {
 .top-nav-active .subnavigationContainer {top: 128px;}
 
 .tob-bar-not-active .subnavigationContainer,
-.tob-bar-not-active.subnavigationonlyContainer {top: 88px;}
+.tob-bar-not-active.subnavigationonlyContainer {top: 80px;}
 
 .subnavigationContainer li,
 .subnavigationonlyContainer li {
