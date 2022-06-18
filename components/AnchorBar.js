@@ -57,19 +57,32 @@ export default function AnchorBar(props) {
     useEffect(() => {  
 
         var maincontent = gsap.utils.toArray('main');
-          var journalnav = gsap.utils.toArray('.subnavjournal');
-      
+        var journalnav = gsap.utils.toArray('.top-bar-active .subnavjournal');
+        var journalnavtwo = gsap.utils.toArray('.tob-bar-not-active .subnavjournal');
+
             gsap.to(journalnav, {
+            scrollTrigger: {
+                trigger: journalnav,
+                start: "top-=0 143px",
+                endTrigger: maincontent,
+                end: "bottom-=0 bottom-=150",
+                pin: journalnav,
+                markers: false,
+                pinSpacing: false,
+                scrub: true
+            }, y: 0
+            })
+
+            gsap.to(journalnavtwo, {
               scrollTrigger: {
-                  trigger: journalnav,
-                  start: "top-=0 143px",
+                  trigger: journalnavtwo,
+                  start: "top-=0 88px",
                   endTrigger: maincontent,
                   end: "bottom-=0 bottom-=150",
-                  pin: journalnav,
+                  pin: journalnavtwo,
                   markers: false,
                   pinSpacing: false,
-                  scrub: true,
-                  onRefresh: self => self.pin.parentNode.style.float = "right",
+                  scrub: true
               }, y: 0
             });
         // var tl =  gsap.timeline()
