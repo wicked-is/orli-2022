@@ -61,9 +61,9 @@ export default function RoomSlider(props) {
     
     return (
         <section className={`${styles.roomSlider}`}>
-            <Link href="/rooms">
+            {/*<Link href="/rooms">
                 <span className="sans-serif white xs-copy fadein"><a className={styles.cta} >Find Your Room</a></span>
-            </Link>
+            </Link>*/}
             {/* map over images */}
             <Flickity
                 options={{
