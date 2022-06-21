@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
-
 import styled, { css } from 'styled-components';
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 import styles from '../styles/roomsGrid.module.css'
-
 import BookingForm from '../components/bookingForm';
 
 const filterList = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Historic', 'ADA Accessible'];
@@ -18,6 +19,7 @@ const FilterContainer = styled.section`
     margin-inline: auto;
 
     background-color: var(--lt-grey);
+    z-index: 99999;
 
     @media screen and (max-width: 1100px) {
 
@@ -111,6 +113,8 @@ export default function RoomsGrid(props) {
         slug: ''
     });
 
+    
+
     const [modalStatus, setModalStatus] = useState(false);
 
     const newFilters = [];
@@ -140,6 +144,36 @@ export default function RoomsGrid(props) {
             document.querySelector('input').blur();
             document.querySelector('dialog').close();
         }
+
+        const maincontent = gsap.utils.toArray('main');
+        const filterContainerTBA = gsap.utils.toArray('.top-bar-active .filter-container');
+        const filterContainerTBNA = gsap.utils.toArray('.tob-bar-not-active .filter-container');
+
+        gsap.to(filterContainerTBNA, {
+            scrollTrigger: {
+                trigger: filterContainerTBNA,
+                start: "top-=0 96px",
+                endTrigger: maincontent,
+                end: "bottom-=0 bottom-=150",
+                pin: filterContainerTBNA,
+                markers: false,
+                pinSpacing: false,
+                scrub: true
+            }, y: 0
+        })
+
+        gsap.to(filterContainerTBA, {
+            scrollTrigger: {
+                trigger: filterContainerTBA,
+                start: "top-=0 128px",
+                endTrigger: maincontent,
+                end: "bottom-=0 bottom-=150",
+                pin: filterContainerTBA,
+                markers: false,
+                pinSpacing: false,
+                scrub: true
+            }, y: 0
+        })
 
     }, []);
 
@@ -228,7 +262,7 @@ export default function RoomsGrid(props) {
                     </LeftHalf>
                 </ContentContainer>
             </dialog>
-            <FilterContainer>
+            <FilterContainer className="filter-container">
                 {
                     filters.map((filter, index) => { 
                         return (
