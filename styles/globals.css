@@ -200,3 +200,11 @@ label.rooms-filter {
 .subnavigationonlyContainer li:hover p {
     color: var(--brown);
 }
+.react-datepicker__navigation-icon--previous::before {
+  transform: rotate(225deg);
+  right: 1rem !important;
+}
+.react-datepicker__navigation-icon--next::before {
+  transform: rotate(45deg);
+  left: -2.4rem !important;
+}
