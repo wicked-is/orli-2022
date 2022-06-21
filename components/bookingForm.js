@@ -20,7 +20,7 @@ export default function BookingForm() {
                     <span className="sans-serif xs-copy">Check In</span>
                     <DatePicker
                         selected={startDate}
-                        placeholderText="Add Dates"
+                        placeholderText="Add Date"
                         onChange={(date) => setStartDate(date)}
                         selectsStart
                         startDate={startDate}
@@ -36,7 +36,7 @@ export default function BookingForm() {
                         selectsEnd
                         startDate={startDate}
                         endDate={endDate}
-                        placeholderText="Add Dates"
+                        placeholderText="Add Date"
                         minDate={startDate}
                         name="widget_date_to"
                     />
