@@ -7,7 +7,8 @@
     padding-right: 0px;
     background: transparent;
 }
-/* .item {width: 97.5%;} */
+/* Used for gap and nav placement */
+.item {width: 90vw;}
 
 .amenity img {
     width: 100%;
@@ -28,7 +29,8 @@
     top: 0;
     right: 0;
     height: 100%;
-    padding: 5rem 3rem 0;
+    width: 10vw;
+    padding: 5vh 2.5vw 0;
     background-color: rgba(0, 0, 0, .5);
 }
 
