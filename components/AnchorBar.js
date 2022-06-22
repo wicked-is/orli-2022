@@ -67,13 +67,26 @@ export default function AnchorBar(props) {
                 trigger: journalnav,
                 start: "top-=0 143px",
                 endTrigger: maincontent,
-                end: "bottom-=0 bottom-=150",
+                end: "bottom-=0 bottom-=0",
                 pin: journalnav,
                 markers: false,
                 pinSpacing: false,
                 scrub: true
             }, y: 0
             })
+
+            const icons = gsap.utils.toArray('.top-bar-active .subnavjournal .icon');
+            icons.forEach((icon) => {
+                gsap.to(journalnav, {
+                    scrollTrigger: {
+                      trigger: icon,
+                      start: "top-=0 0px",
+                      endTrigger: maincontent,
+                      end: "bottom-=0 bottom-=150",
+                      toggleClass: "hidden"
+                    }
+                  });
+                });
 
             gsap.to(journalnavtwo, {
               scrollTrigger: {
@@ -88,11 +101,11 @@ export default function AnchorBar(props) {
               }
             });
 
-            const icons = gsap.utils.toArray('.icon');
-            icons.forEach((icon) => {
+            const iconstwo = gsap.utils.toArray('.tob-bar-not-active .subnavjournal .icon');
+            iconstwo.forEach((icontwo) => {
                 gsap.to(journalnavtwo, {
                     scrollTrigger: {
-                      trigger: icon,
+                      trigger: icontwo,
                       start: "top-=0 0px",
                       endTrigger: maincontent,
                       end: "bottom-=0 bottom-=150",
@@ -100,6 +113,7 @@ export default function AnchorBar(props) {
                     }
                   });
                 });
+        
         // var tl =  gsap.timeline()
         // tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
         // tl.to('main', { opacity:1, duration: 0.6});
