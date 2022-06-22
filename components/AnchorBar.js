@@ -9,13 +9,13 @@ const SubNavContainer = styled.ul`
     background: var(--lt-grey);
     padding: 1rem 0rem 0rem;
     margin: 0;
-
     display: flex;
     align-items: flex-start;
     justify-content: center;
     list-style: none;
     z-index: 98;
-
+    height: auto !important; 
+    max-height: auto !important; 
     p {
         font-family: 'GT Walsheim Light'; 
         font-weight: 300;
@@ -28,25 +28,27 @@ const SubNavContainer = styled.ul`
 
     li {
         position: relative; 
-        margin: auto 2rem; 
+        margin: 0 2rem; 
         cursor: pointer; 
         transition: 0.3s ease all;
         text-align: center;
     }
 
-    img {
+    .icon {
         max-height: 85px;
         height: 85px;
-        width: auto;
-    }
-
-    .iconNav {
-        width: 100%; 
-        
-        max-width: 4rem;
+        width: 100%;
+        max-width: auto;
         margin: auto; 
         text-align: center; 
         display: block;
+        transition: 0.3s ease all;
+    }
+    .icon.hidden {
+        max-height: 0px !important;
+        min-height: 0px !important;
+        height: 0px !important;
+        display: none !important;
     }
 `
 
@@ -78,13 +80,26 @@ export default function AnchorBar(props) {
                   trigger: journalnavtwo,
                   start: "top-=0 88px",
                   endTrigger: maincontent,
-                  end: "bottom-=0 bottom-=150",
+                  end: "bottom-=0 bottom-=0",
                   pin: journalnavtwo,
                   markers: false,
                   pinSpacing: false,
                   scrub: true
-              }, y: 0
+              }
             });
+
+            const icons = gsap.utils.toArray('.icon');
+            icons.forEach((icon) => {
+                gsap.to(journalnavtwo, {
+                    scrollTrigger: {
+                      trigger: icon,
+                      start: "top-=0 0px",
+                      endTrigger: maincontent,
+                      end: "bottom-=0 bottom-=150",
+                      toggleClass: "hidden"
+                    }
+                  });
+                });
         // var tl =  gsap.timeline()
         // tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
         // tl.to('main', { opacity:1, duration: 0.6});
@@ -117,7 +132,7 @@ export default function AnchorBar(props) {
                     return (
                         <li key={`ni-${index}`} >
                             <a href={item.anchor}>
-                            <img src={item.icon !== null ? item.icon.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="iconnav" alt={item.iconnav?.altText} />
+                            <img src={item.icon !== null ? item.icon.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="icon" alt={item.iconnav?.altText} />
                             <p className="black xs-copy uppercase center">{item.text}</p>
                             </a>
                         </li>

@@ -9,17 +9,6 @@
     align-items: flex-end;
 }
 
-.smheroContainer {
-    position: relative;
-    width: 100vw;
-    height: 80vh;
-    padding: 137px 0 0 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
 .heroVideo {
     width: 100%;
     height: 100%;
@@ -104,15 +93,6 @@
 .smallHero img {display: none}
 
 @media only screen and (max-width: 800px){
-    .smheroContainer {
-        position: relative;
-        width: 100vw;
-        height: auto;
-        padding: 0;
-        display: block;
-        justify-content: unset;
-        align-items: unset;
-    }
     .smallHero{position: relative; height: unset; background: unset;}
     .smallHero img {display: block; margin:5rem auto auto auto; text-align: center; width: 100%;}
 }

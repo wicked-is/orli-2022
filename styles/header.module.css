@@ -39,6 +39,7 @@
     padding: 1.4rem 2rem 0rem 2rem;
     right: 0rem;
     top: 0;
+    cursor: pointer;
     display: block;
     background: var(--brown);
     align-items: center;

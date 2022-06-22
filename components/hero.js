@@ -149,7 +149,7 @@ export default function Hero(props) {
                 )
             case 'Single Room':
                 return (
-                    <div className={styles.smheroContainer}>
+                    <div className="smheroContainer">
                         <div className={styles.smallHero} style={{
                             backgroundImage: `url(${imagePoster.node.mediaItemUrl})`
                         }}>

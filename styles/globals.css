@@ -63,16 +63,18 @@ a:visited, a:focus {outline: none;}
 .mb-0 { margin-bottom: 0;}
 
 label.rooms-filter { 
-  display: flex; 
-  align-items: center;
+  display: flex;
+  align-items:center;
+  margin-bottom: 1rem;
 }
 
 .rooms-filter span {
-  display: block;
+  display: inline-block;
   width: 16px;
   height: 16px;
   border: 1px solid var(--brown);
-  margin-right: 1rem;
+  margin-right: 0.7rem;
+  
 }
 
 .rooms-filter.active span, .rooms-filter:hover span { 
@@ -156,7 +158,7 @@ label.rooms-filter {
 .top-nav-active .subnavigationonlyContainer,
 .top-nav-active .subnavigationContainer {top: 128px;}
 
-.tob-bar-not-active .subnavigationContainer,
+.tob-bar-not-active .subnavigationContainer {top: 88px;}
 .tob-bar-not-active.subnavigationonlyContainer {top: 80px;}
 
 .subnavigationContainer li,
@@ -166,6 +168,19 @@ label.rooms-filter {
     cursor: pointer; 
     transition: 0.3s ease all;
 }
+
+.top-nav-active .smheroContainer,
+.tob-bar-not-active .smheroContainer {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.top-nav-active .smheroContainer {padding: 137px 0 0 0;}
+.tob-bar-not-active .smheroContainer {padding: 88px 0 0 0;}
 
 @media only screen and (max-width: 1116px) {
   .subnavigationContainer, 
@@ -180,6 +195,18 @@ label.rooms-filter {
       margin: auto 2rem;
       cursor: pointer;
       transition: 0.3s ease all;
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .smheroContainer {
+      position: relative;
+      width: 100vw;
+      height: auto;
+      padding: 0;
+      display: block;
+      justify-content: unset;
+      align-items: unset;
   }
 }
 
