@@ -590,8 +590,20 @@ export async function getStaticProps({ params }) {
               }
               ... on Page_Flexiblecontent_Sections_RoomsGrid {
                 fieldGroupName
+                roomsGridFilter {
+                  ... on Category {
+                    name
+                  }
+                }
                 roomsgrid {
                   ... on Room {
+                    categories(first: 10) {
+                      nodes {
+                        ... on Category {
+                          name
+                        }
+                      }
+                    }
                     singleRooms {
                       amenities
                     }

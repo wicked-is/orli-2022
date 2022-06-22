@@ -25,7 +25,6 @@ const FilterContainer = styled.section`
 
     }
 `
-
 const QuickViewContainer = styled.dialog`
     width: 100%;
     height: 100%;
@@ -37,7 +36,6 @@ const QuickViewContainer = styled.dialog`
     display: grid;
     place-items: center;
 `
-
 const ContentContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -67,15 +65,12 @@ const ContentContainer = styled.div`
         }
     }
 `
-
 const LeftHalf = styled.div`
     @media screen and (max-width: 768px) {
         padding-top: 3rem;
     }
 `
-
 const FilterLabel = styled.label``
-
 const QuickViewButton = styled.div`
     position: absolute;
     bottom: -100%;
@@ -94,7 +89,6 @@ const QuickViewButton = styled.div`
 
     transition: all .3s ease-in-out;
 `
-
 const RoomTile = styled.a`
     &:hover .quickview-btn {
         bottom: 0;
@@ -103,7 +97,7 @@ const RoomTile = styled.a`
 
 export default function RoomsGrid(props) {
 
-    const [filters, setFilters] = useState(filterList);
+    const [filters, setFilters] = useState(props.roomsGridFilter);
     const [currentRooms, setCurrentRooms] = useState(props.roomsgrid);
     const [dialogContent, setDialogContent] = useState({
         sleeps: '',
@@ -112,8 +106,6 @@ export default function RoomsGrid(props) {
         image: '',
         slug: ''
     });
-
-    
 
     const [modalStatus, setModalStatus] = useState(false);
 
@@ -200,8 +192,10 @@ export default function RoomsGrid(props) {
         const newRooms = [];
 
         newFilters.some(filter => { 
-            roomsgrid.forEach(room => {
-                if (room?.singleRooms?.amenities?.includes(filter)) {
+            roomsgrid.forEach((room, filter) => {
+                console.log(room?.categories?.nodes);
+                console.log(filter);
+                if (room?.categories?.nodes?.includes(filter)) {
                     newRooms.push(room);
                 }
             })
@@ -266,7 +260,7 @@ export default function RoomsGrid(props) {
                 {
                     filters.map((filter, index) => { 
                         return (
-                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter}><span id="checkbox"></span>{filter}</FilterLabel>
+                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
                         )
                     })
                 }
@@ -276,7 +270,7 @@ export default function RoomsGrid(props) {
                     currentRooms.length != 0 ? currentRooms.map((room, index) => {
                         const roomFilters = room.singleRooms.amenities
                         return (
-                            <li className="room-tile fadein" key={`room-${index}`}
+                            <li className="room-tile" key={`room-${index}`}
                                 data-filter={roomFilters}
                                 data-sleeps={room.singleRooms.sleeps}
                                 data-roomtitle={room.title}

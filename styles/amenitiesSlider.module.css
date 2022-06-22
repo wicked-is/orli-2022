@@ -8,7 +8,10 @@
     background: transparent;
 }
 /* Used for gap and nav placement */
-.item {width: 90vw;}
+.item {
+    width: 90vw;
+    padding-right: 20px;
+}
 
 .amenity img {
     width: 100%;
@@ -69,13 +72,13 @@
     .sliderNav {display: none;}
 
     .sliderContent {
-        position: absolute;
+        position: relative;
         bottom: unset;
         z-index: 97;
-        top: 2rem;
+        top: unset;
         background-color: #0C2B1C;
         background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
         padding: 1rem 2rem 1rem 2rem;
-        max-width: 95%;
+        max-width: 100%;
     }
 }

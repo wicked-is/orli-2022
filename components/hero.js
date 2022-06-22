@@ -87,7 +87,7 @@ export default function Hero(props) {
                                         zIndex: 98,
                                         position: 'absolute',
                                         right: '3rem',
-                                        top: '12rem'
+                                        top: '9rem'
                                     }} className="white xs-copy body-copy underline" href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
                                 )
                             }
