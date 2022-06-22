@@ -606,6 +606,9 @@ export async function getStaticProps({ params }) {
                     }
                     singleRooms {
                       amenities
+                      features {
+                        label
+                      }
                     }
                     title
                     slug

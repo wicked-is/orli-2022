@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 import styles from '../styles/roomsGrid.module.css'
 import BookingForm from '../components/bookingForm';
 
-const filterList = ['Outdoor Spaces', 'Workstation', 'Seating Area', 'Kitchenette', 'Ocean View', 'Historic', 'ADA Accessible'];
+const filterList = ["Outdoor Spaces", "Workstation", "Seating Area", "Kitchenette", "Ocean View", "Historic", "ADA Accessible"];
 
 const FilterContainer = styled.section`
     display: grid;    
@@ -97,7 +97,8 @@ const RoomTile = styled.a`
 
 export default function RoomsGrid(props) {
 
-    const [filters, setFilters] = useState(props.roomsGridFilter);
+    // const [filters, setFilters] = useState(props.roomsGridFilter);
+    const [filters, setFilters] = useState(filterList);
     const [currentRooms, setCurrentRooms] = useState(props.roomsgrid);
     const [dialogContent, setDialogContent] = useState({
         sleeps: '',
@@ -192,12 +193,20 @@ export default function RoomsGrid(props) {
         const newRooms = [];
 
         newFilters.some(filter => { 
-            roomsgrid.forEach((room, filter) => {
-                console.log(room?.categories?.nodes);
-                console.log(filter);
-                if (room?.categories?.nodes?.includes(filter)) {
-                    newRooms.push(room);
+            console.log(filter);
+            roomsgrid.forEach((room, index) => {
+                // if (room?.categories?.nodes?.includes(filter)) {
+                //     newRooms.push(room);
+                // }
+                // log()
+                if (room?.singleRooms?.amenities?.includes(filter)) {
+                     newRooms.push(room);
                 }
+                room.singleRooms.features.forEach((feature, index) => {
+                    if (feature.label == filter) {
+                        newRooms.push(room)
+                    }
+                })
             })
         })
 
@@ -260,7 +269,8 @@ export default function RoomsGrid(props) {
                 {
                     filters.map((filter, index) => { 
                         return (
-                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
+                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter}><span id="checkbox"></span>{filter}</FilterLabel>
+                            // <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
                         )
                     })
                 }

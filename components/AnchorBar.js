@@ -51,6 +51,22 @@ const SubNavContainer = styled.ul`
         display: none !important;
     }
 `
+const SubNavItemContent = styled.p`
+    display: inline-flex;
+    flex-direction: column;
+
+    &::after {
+        content: attr(data-text);
+        content: attr(data-text) / "";
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        user-select: none;
+        pointer-events: none;
+        font-family: 'GT Walsheim Bold';
+        font-weight: 700;
+    }
+`
 
 export default function AnchorBar(props) {
 
@@ -144,10 +160,10 @@ export default function AnchorBar(props) {
             {   
                 anchorNavigation.map((item, index) => {
                     return (
-                        <li key={`ni-${index}`} >
+                        <li key={`ni-${index}`}>
                             <a href={item.anchor}>
-                            <img src={item.icon !== null ? item.icon.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="icon" alt={item.iconnav?.altText} />
-                            <p className="black xs-copy uppercase center">{item.text}</p>
+                                <img src={item.icon !== null ? item.icon.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="icon" alt={item.iconnav?.altText} />
+                                <SubNavItemContent data-text={item.text} className="black xs-copy uppercase center">{item.text}</SubNavItemContent>
                             </a>
                         </li>
                         )

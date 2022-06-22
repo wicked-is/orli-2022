@@ -41,7 +41,7 @@ export default function BookingForm() {
                         name="widget_date_to"
                     />
                 </div>
-                <button type="submit" className="btn-submit xs-copy uppercase white bg-brown">Search</button>
+                <button type="submit" className="btn-submit xs-copy body-copy uppercase white bg-brown">Search</button>
             </form>
             <a className="xs-copy body-copy underline white" style={{ position: 'absolute', bottom: '-40px', left: 0 }}>
                 Book Multiple Rooms
