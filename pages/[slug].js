@@ -280,6 +280,7 @@ export async function getStaticProps({ params }) {
                 blurb
                 subHeadline
                 headline
+                greyBackground
                 icon {
                   mediaItemUrl
                   altText

@@ -52,7 +52,7 @@ export default function HistoricalSlider(props) {
                                 <div className={styles.yearTextContainer}>
                                     <div className={styles.yearContentContainer}>    
                                         <p className="xl-heading actual-year" data-text={previousYear} style={{ lineHeight: 1 }}>{year.year}</p>
-                                        <p className="sans-serif-bold" style={{ letterSpacing: 'var(--letter-spacing)'}} dangerouslySetInnerHTML={{ __html: year.caption }}></p>
+                                        <p className="sans-serif-bold uppercase" style={{ letterSpacing: 'var(--letter-spacing)'}} dangerouslySetInnerHTML={{ __html: year.caption }}></p>
                                     </div>
                                 </div>
                             </div>

@@ -64,7 +64,7 @@ export default function Gatherings(props) {
                 />
                 {
                     media[0].type === "Video" && (
-                        <div className={`${styles.videoBackground}`}>
+                        <div className={`${styles.videoBackground} hide-on-mobile`}>
                             <div>
                                 <video className={styles.videoBG} autoPlay playsInline muted loop>
                                     <source src={media[0].mp4} type="video/mp4" />

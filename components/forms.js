@@ -32,6 +32,7 @@ const FieldGroup = styled.div`
         border: none;
         border-bottom: 1px solid black;
         padding-block: .75rem;
+        border-radius: 0;
     }
 
     &:last-of-type {

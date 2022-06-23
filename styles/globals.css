@@ -53,6 +53,11 @@ a:visited, a:focus {outline: none;}
   --xs-copy: clamp(0.8rem, 1vw, 1.2rem);
 }
 
+/* hide spotify username */
+:not(.bu) .bs .bt:last-of-type span {
+  display: none;
+}
+
 .flex { display: flex; }
 .flex-column { flex-direction: column; }
 .justify-content-space-between { justify-content: space-between; }
@@ -182,10 +187,11 @@ label.rooms-filter {
 .top-nav-active .smheroContainer {padding: 137px 0 0 0;}
 .tob-bar-not-active .smheroContainer {padding: 88px 0 0 0;}
 
+.single-year .actual-year { display: inline-flex; }
 .single-year.is-selected p.actual-year::after {
   content: attr(data-text);
-  position: relative;
-  right: -25vw;
+  position: absolute;
+  left: 90%;
   -webkit-text-stroke: 1px white;
   color: transparent;
 }
@@ -218,6 +224,9 @@ label.rooms-filter {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .hide-on-mobile { display: none; }
+}
 @media only screen and (max-width: 600px) {
   .subnavigationContainer, 
   .subnavigationonlyContainer {

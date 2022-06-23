@@ -35,6 +35,7 @@ export default function BigImageSmallContent(props) {
     const {
         contentPosition,
         subHeadline,
+        greyBackground,
         headline,
         blurb,
         ctaLink,
@@ -52,7 +53,7 @@ export default function BigImageSmallContent(props) {
         slides } = props
     
     return (
-        <section className={`${styles.container} ${order == 0 ? 'padding-top': ''}`}>
+        <section className={`${styles.container} ${order == 0 ? 'padding-top': ''} ${greyBackground !== null && greyBackground == true ? `bg-lt-grey` : null}`}>
            {contentPosition === "Left" && (
                <div className="max-80 fadein">
                    { anchorTag && (

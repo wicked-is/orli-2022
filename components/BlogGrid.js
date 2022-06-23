@@ -69,6 +69,13 @@ const BlogTile = styled.div`
             margin: 1rem;
         }
     }
+    @media only screen and (max-width:768px) {
+        &:nth-child(3n + 4) {
+            width: 90%;
+            margin: 1rem;
+            padding: 4rem calc(5% + .5rem);
+        }
+    }
     @media only screen and (max-width:414px) {
         &:first-child,
         &:nth-child(1n + 3) {
