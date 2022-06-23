@@ -182,6 +182,14 @@ label.rooms-filter {
 .top-nav-active .smheroContainer {padding: 137px 0 0 0;}
 .tob-bar-not-active .smheroContainer {padding: 88px 0 0 0;}
 
+.single-year.is-selected p.actual-year::after {
+  content: attr(data-text);
+  position: relative;
+  right: -25vw;
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+}
+
 @media only screen and (max-width: 1116px) {
   .subnavigationContainer, 
   .subnavigationonlyContainer {

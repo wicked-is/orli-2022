@@ -71,6 +71,15 @@
     justify-content: center;
 }
 
+.yearContentContainer > .actual-year::after {
+    content: attr(data-text) / "";
+    font-family: essonnes-display, serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15rem;
+    margin: 0;
+}
+
 .yearContentContainer p:first-of-type {
     font-size: 15rem;
     margin: 0;
