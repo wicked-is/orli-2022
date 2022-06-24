@@ -76,6 +76,10 @@ const ContentContainer = styled.div`
             }
         }
     }
+
+    @media screen and (max-width: 800px) {
+        margin-inline: 0;
+    }
 `
 const RSVPLink = styled.a`
     display: block;

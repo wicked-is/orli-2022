@@ -11,7 +11,6 @@
 
 .blurbContainer video {
   position: absolute;
-  /* top: -25%; */
   left: 0;
   width: 100%;
   height: auto;
@@ -53,6 +52,12 @@
 @media only screen and (max-width: 1750px) {
   .intro-copy .copy{
     width: 85%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .blurbContainer video {
+    width: auto;
+    height: 100%;
   }
 }
 @media only screen and (max-width: 414px) {
