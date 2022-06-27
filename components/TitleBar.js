@@ -17,6 +17,10 @@ const TitleBarContainer = styled.section`
         max-width: 100%;
         padding-bottom: 0;
     `}
+
+    @media screen and (max-width: 900px) {
+        padding-top: 0;
+    }
 `
 
 export default function TitleBar(props) {

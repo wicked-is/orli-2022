@@ -25,6 +25,7 @@
     cursor: pointer;
     outline: none;
     width: 100%;
+    font-size: 18px;
 }
 
 .form button {

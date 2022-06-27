@@ -141,7 +141,7 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Right" && (
-               <div className="max-80 fadein">
+               <div className="max-80 fadein reorder">
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className="anchor"></a>
                    )}

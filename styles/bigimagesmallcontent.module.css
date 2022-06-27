@@ -65,7 +65,10 @@
 
 @media only screen and (max-width: 900px) {
 
-    .flex {flex-direction: column;}
+    .flex {
+        flex-direction: column;
+        padding-top: 0rem;
+    }
 
     .flex .col140, .flex .col160 {
         flex: 1;

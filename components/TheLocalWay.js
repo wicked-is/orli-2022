@@ -5,7 +5,7 @@ import TitleBar from "./TitleBar"
 const TheLocalWayContainer = styled.section`
     display: flex;
     flex-direction: column;
-    padding: 6rem 10%;
+    padding: 2rem 10% 6rem;
     background-color: var(--lt-grey);
 `
 

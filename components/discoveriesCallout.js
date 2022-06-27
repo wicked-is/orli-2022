@@ -16,7 +16,7 @@ export default function DiscoveriesCallout(props) {
     } = props;
 
     return (
-        <section className="bg-lt-grey" style={{ padding: '6rem 0' }}>
+        <section className="bg-lt-grey" style={{ padding: '6rem 0 3rem' }}>
             <div className="max-80">
                 <BlurbLeft
                     title={title}
