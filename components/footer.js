@@ -9,7 +9,7 @@ const MobileFooterContainer = styled.footer`
     display: flex;
     flex-direction: column;
     background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/06/footer-bg.jpg) no-repeat center center;
-    padding: 10%;
+    padding: 10% 10% 6rem 10%;
 `
 const ColumnContainer = styled.div`
     display: flex;
@@ -20,15 +20,28 @@ const GetDirectionsLink = styled.p`
     margin: 0 0 1.5rem;
 `
 const Left = styled.div`
+    width: 70%;
+    @media only screen and (max-width: 600px){
+        width: 60%;
+        margin: 0 10% 0 0; 
+        address, p {font-size: 0.9rem;}
+    }
     .socials {
-        padding-top: 0;
+        padding-top: 1rem;
         padding-bottom: 3rem;
     }
 `
 const Right = styled.div`
+    width: 30%;
     .footer-links {
         grid-template-columns: 1fr;
         font-size: var(--body-copy);
+    }
+    @media only screen and (max-width: 600px){
+        .footer-links {
+            font-size: 0.9rem;
+        }
+        .footer-links .privacy {padding: 5.5rem 0 0.5rem 0;}
     }
 `
 
@@ -186,8 +199,8 @@ export default function Footer() {
                                     <Link href="/">Our Story</Link>
                                     <Link href="/">The Journal</Link>
                                     <Link href="/">Gallery</Link>
-                                    <br /><br />
-                                    <Link href="/">Privacy Policy</Link>
+                                   
+                                    <a href="/" className="privacy">Privacy Policy</a>
                                     <Link href="/">Cookie Policy</Link>
                                 </div>
                             </Right>
