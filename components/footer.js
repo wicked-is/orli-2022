@@ -126,7 +126,7 @@ export default function Footer() {
                     </footer> 
                 */
             }
-            <Script id="googlem-maps" src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=3.49`} strategy="afterInteractive" />
+            <Script id="google-mmaps" src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAV1WnDACFeekncT34JftC0V8ZvS9P4J4U&callback=initMap&v=weekly`} strategy="afterInteractive" />
             { size.width < 768 ? (
                 <>
                     <MobileFooterContainer className="mobile-footer">
