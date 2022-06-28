@@ -3,12 +3,13 @@ import Image from 'next/image';
 import Flickity from 'react-flickity-component'
 import "flickity/css/flickity.css";
 
-import styles from '../styles/amenitiesSlider.module.css';
+import styles from '../styles/FeaturedStorySlider.module.css';
 
 export default function FeaturedStorySlider(props) {
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(0)
     const [loaded, setLoaded] = useState(false)
+    let isMobileDevice;
 
     const {
         featuredStories,
@@ -50,8 +51,12 @@ export default function FeaturedStorySlider(props) {
                 {
                     featuredStories[0].blogPost.gallery.map((story, index) => {
                         return (
-                            <div key={story.altText} className={styles.story}>
+                            <div key={story.altText} className={styles.story} style={{ background: `url(${story.mediaItemUrl})` }}>
+                                {
+                                !isMobileDevice && (
                                 <Image src={story.mediaItemUrl} alt={story.altText} width={1335} height={928} layout="intrinsic" style={{ marginRight: '1rem' }} />
+                                )
+                                }
                             </div>
                         )
                     })
