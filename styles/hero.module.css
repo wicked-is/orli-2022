@@ -27,12 +27,12 @@
     right:0;
     background-color: #fff;
     width: 100%;
-    max-width: 90%;
+    max-width: 60%;
     margin: auto;
     z-index: 9;
 }
 @media only screen and (max-width: 800px){
-    .horizontalFormContainer {background: transparent;}
+    .horizontalFormContainer {background: transparent; max-width: 90%;}
 }
 
 .bigheroSubnav {
