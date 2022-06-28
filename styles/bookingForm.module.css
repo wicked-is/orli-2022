@@ -1,8 +1,11 @@
+.formcontainer {position: relative; width: 100%;}
+
 .form {
     display: flex;
-    height: 100px;
+    height: 94px;
     align-self: flex-end;
     width: 100%;
+    background: var(--white);
 }
 
 .formGroup { 
@@ -20,18 +23,53 @@
 .formGroup input {
     border: 0;
     font-family: 'GT Walsheim Light';
-    padding: 0.5rem 0 0.2rem 0;
+    padding: 0.5rem 0;
     cursor: pointer;
     outline: none;
     width: 100%;
     font-size: clamp(1rem, 1.2vh, 1.4rem);
 }
 
-.form button {
-    width: 100%;
+.form .button {
     width: 25%;
     justify-content: flex-end;
     border: 0;
+}
+
+.bookingtext {
+    position: absolute; 
+    bottom: -40px;
+    left: 0;
+}
+
+@media only screen and (max-width: 800px) {
+    .bookingtext {
+        position: relative; 
+        bottom: unset;
+        width: 100%;
+        display: block;
+        margin: 4rem auto auto auto;
+        left: 0;
+    }
+    .form {
+        display: inline-block;
+        height: auto;
+        align-self: flex-end;
+        flex-direction: column;
+        width: 100%;
+    }
+    .formGroup { 
+      display: inline;
+      float: left;
+      padding: 1rem 1rem 0rem 1rem;
+      width: 50%;
+    }
+    .form .button {
+        width: 100%;
+        flex: 1;
+        padding: 1.4rem 0rem;
+        justify-content: unset;
+    }
 }
 
     .react-datepicker__navigation-icon--next::before {
