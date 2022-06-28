@@ -88,7 +88,7 @@ export default function Hero(props) {
                                         position: 'absolute',
                                         right: '3rem',
                                         top: '9rem'
-                                    }} className="white xs-copy body-copy underline" href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
+                                    }} className="white xs-copy body-copy underline textshadow" href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
                                 )
                             }
                         </div>

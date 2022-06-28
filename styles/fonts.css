@@ -110,6 +110,7 @@ address {font-style: normal;}
     color: var(--brown);
 }
 
+.textshadow {text-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.44);}
 
 .text-link {transition: 0.3s ease all;}
 .text-link:hover {color: var(--brown);}
