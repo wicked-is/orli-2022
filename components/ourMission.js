@@ -29,10 +29,10 @@ export default function OurMission(props) {
         <section className={`${styles.missionContainer} center bg-lt-grey`}>
             <p className={`${styles.center} serif sub-heading brown`}>{title}</p>
             <div className={styles.missionFlex}>
-                <div class={styles.orliimagecontainer}>
+                <div className={styles.orliimagecontainer}>
                     <Image src={logo.mediaItemUrl} alt={logo.altText} width={167} height={108} className={styles.orliimage}/>
                 </div>
-                <div class={styles.textcontainer}>
+                <div className={styles.textcontainer}>
                 <span className={`${styles.headingAnimate} heading`}>
                     <span data-word={animatableTexts[0].title} className="textAnimation"></span> 
                     <span data-word={animatableTexts[1].title} className="textAnimation2"></span>
