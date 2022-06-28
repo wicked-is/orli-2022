@@ -87,11 +87,12 @@ export default function RoomSlider(props) {
                 {
                     rooms.map(room => {
                         return (
-                            <div key={room.title} className={styles.room} style={{ backgroundImage: isMobile ? `url(${room.featuredImage.node.mediaItemUrl})` : '' }}>
+                            <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})` }}>
                                 <p className={`${styles.roommobile} serif heading white`}>{room.title}</p>
                                 {
                                     <Image src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={1436} height={1020} layout="intrinsic" />
                                 }
+                                <div className={styles.bottomgradient}></div>
                             </div>
                         )
                     })
@@ -110,7 +111,6 @@ export default function RoomSlider(props) {
                     })
                 }
             </div>
-            <div className={styles.bottomgradient}></div>
         </section>
     )
 }
