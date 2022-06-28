@@ -9,10 +9,12 @@
 
 .missionFlex {
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content: center; 
     padding: 7rem 0;
 }
+.orliimagecontainer {width: 100%; padding-bottom: 1rem;}
+.textcontainer {width: 100%; position: relative;}
 
 .center {text-align: center;}
 
