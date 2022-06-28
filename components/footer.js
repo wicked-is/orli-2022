@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from 'next/link'
+import Script from "next/script";
 import { useEffect } from "react";
 import { useWindowSize } from "../utils/hooks";
 import styled from "styled-components";
@@ -125,6 +126,7 @@ export default function Footer() {
                     </footer> 
                 */
             }
+            <Script id="googlem-maps" src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=3.49`} strategy="afterInteractive" />
             { size.width < 768 ? (
                 <>
                     <MobileFooterContainer className="mobile-footer">

@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import Image from 'next/image'
+import Script from "next/script";
 import styles from '../styles/GettingHere.module.css';
-
 import styled from 'styled-components';
+
+const MainMap = styled.div`
+    width: 100%;
+    height: 500px;
+`
 
 const BlurbContainer = styled.p`
     max-width: 60%;
@@ -11,7 +17,7 @@ const BlurbContainer = styled.p`
     }
 `
 
-export default function GettingHere({title, blurb, gettinghereimage}) {
+export default function GettingHere({ title, blurb, gettinghereimage }) {
 
     return (
         <section className={styles.container}>
