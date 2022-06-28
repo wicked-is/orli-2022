@@ -20,11 +20,11 @@
 .formGroup input {
     border: 0;
     font-family: 'GT Walsheim Light';
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 0.2rem 0;
     cursor: pointer;
     outline: none;
     width: 100%;
-    font-size: 18px;
+    font-size: clamp(1rem, 1.2vh, 1.4rem);
 }
 
 .form button {
