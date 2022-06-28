@@ -110,6 +110,7 @@ export default function RoomSlider(props) {
                     })
                 }
             </div>
+            <div class={styles.bottomgradient}></div>
         </section>
     )
 }
