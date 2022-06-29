@@ -192,16 +192,16 @@ export default function Footer() {
                             </Left>
                             <Right>
                                 <div className="footer-links">
-                                    <Link href="/">Amenities</Link>
-                                    <Link href="/">Rooms</Link>
-                                    <Link href="/">Location</Link>
-                                    <Link href="/">Events</Link>
-                                    <Link href="/">Our Story</Link>
-                                    <Link href="/">The Journal</Link>
-                                    <Link href="/">Gallery</Link>
+                                    <Link href="/amenities">Amenities</Link>
+                                    <Link href="/find-your-room">Rooms</Link>
+                                    <Link href="/discoveries">Location</Link>
+                                    <Link href="/gatherings">Events</Link>
+                                    <Link href="/our-story">Our Story</Link>
+                                    <Link href="/the-journal">The Journal</Link>
+                                    <Link href="/gallery">Gallery</Link>
                                    
-                                    <a href="/" className="privacy">Privacy Policy</a>
-                                    <Link href="/">Cookie Policy</Link>
+                                    <a href="/privacy-policy" className="privacy">Privacy Policy</a>
+                                    <Link href="/cookie-policy">Cookie Policy</Link>
                                 </div>
                             </Right>
                         </ColumnContainer>
@@ -230,13 +230,13 @@ export default function Footer() {
                     <div>
                         <div>
                             <div className="footer-links">
-                                    <Link href="/">Amenities</Link>
-                                    <Link href="/">Rooms</Link>
-                                    <Link href="/">Location</Link>
-                                    <Link href="/">Events</Link>
-                                    <Link href="/">Our Story</Link>
-                                    <Link href="/">The Journal</Link>
-                                    <Link href="/">Gallery</Link>
+                                <Link href="/amenities">Amenities</Link>
+                                    <Link href="/find-your-room">Rooms</Link>
+                                    <Link href="/discoveries">Location</Link>
+                                    <Link href="/gatherings">Events</Link>
+                                    <Link href="/our-story">Our Story</Link>
+                                    <Link href="/the-journal">The Journal</Link>
+                                    <Link href="/gallery">Gallery</Link>
                             </div>
                         </div>
                         <div>
@@ -281,7 +281,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <div>
-                                <p className="sans-serif copyright xs-copy white left">© 2022 Orli La Jolla | <Link href="/">Privacy Policy</Link> | <Link href="/">Cookie Policy</Link></p>
+                                <p className="sans-serif copyright xs-copy white left">© 2022 Orli La Jolla | <Link href="/privacy-policy">Privacy Policy</Link> | <Link href="/cookie-policy">Cookie Policy</Link></p>
                             </div>
                         </div>
                     </div>
