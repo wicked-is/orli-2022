@@ -200,7 +200,7 @@ export default function Footer() {
                                     <Link href="/the-journal">The Journal</Link>
                                     <Link href="/gallery">Gallery</Link>
                                    
-                                    <a href="/privacy-policy" className="privacy">Privacy Policy</a>
+                                    <Link href="/privacy-policy" className="privacy">Privacy Policy</Link>
                                     <Link href="/cookie-policy">Cookie Policy</Link>
                                 </div>
                             </Right>
