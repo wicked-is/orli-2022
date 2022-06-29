@@ -5,7 +5,7 @@ import TitleBar from "./TitleBar"
 
 const MainMap = styled.div`
     width: 100%;
-    height: 500px;
+    height: 602px;
 `
 
 const TheLocalWayContainer = styled.section`
@@ -56,8 +56,9 @@ export default function TheLocalWay(props) {
         
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 32.583944, lng: -117.113085, },
-                zoom: 7,
+                center: { lat: 32.838862, lng: -117.250063, },
+                zoom: 14,
+                mapTypeControl: false,
                 styles: [
                     {
                         "featureType": "administrative",
@@ -304,18 +305,21 @@ export default function TheLocalWay(props) {
                     }
                 ]
             });
-            console.log('m1',map);
+
+            new google.maps.Marker({
+                position: { lat: 32.843764, lng: -117.277141},
+                map,
+                icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/06/local-way-map-icon.png"
+            });
         }
 
         window.initMap = initMap;
-
-        console.log('m2',map);
     }, [])
 
     return (
         <TheLocalWayContainer>
             <TitleBar title="The Local Way" left="true" />
-            <div dangerouslySetInnerHTML={{ __html: iframe }} ></div>
+            { iframe && <div dangerouslySetInnerHTML={{ __html: iframe }} ></div> }
             <MainMap id="map"></MainMap>
             <ColumnsContainer>
                 {
