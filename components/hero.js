@@ -136,7 +136,7 @@ export default function Hero(props) {
                         scrollTrigger: {
                         trigger: icon,
                         start: "top top",
-                        endTrigger: "main",
+                        endTrigger: "footer",
                         end: "bottom top",
                         toggleClass: 'hide'
                       }
