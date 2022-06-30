@@ -27,7 +27,7 @@
     cursor: pointer;
     outline: none;
     width: 100%;
-    font-size: clamp(1rem, 1.2vh, 1.4rem);
+    /* font-size: clamp(1rem, 1.2vh, 1.4rem); */
 }
 
 .form .button {
@@ -40,6 +40,7 @@
     position: absolute; 
     bottom: -40px;
     left: 0;
+    letter-spacing: var(--letter-spacing);
 }
 
 @media only screen and (max-width: 800px) {

@@ -48,6 +48,7 @@ a:visited, a:focus {outline: none;}
   --heading: clamp(2.1rem, 2.6vw, 5rem);
   --pull-quote: clamp(1.8rem, 2.3vw, 4.6rem);
   --sub-heading: clamp(1.125rem, 1.125vw, rem);
+  /* --body-copy: clamp(1.25rem, 1.25vw, 1.5rem); */
   --body-copy: clamp(1.25rem, 1.25vw, 1.5rem);
   --nav-copy: clamp(0.9rem, 1.1vw, 1rem);
   --xs-copy: clamp(0.8rem, 1vw, 1.2rem);
