@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/gallery.module.css'
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Gallery(props) {
 
@@ -25,6 +28,22 @@ export default function Gallery(props) {
         setFilteredItems(newItems);
     }
 
+    useEffect(() => {
+        var icons = gsap.utils.toArray('.iconnav');
+    
+        icons.forEach((icon) => {
+          gsap.to(icon, {autoAlpha: 1,
+            scrollTrigger: {
+            trigger: icon,
+            start: "top top",
+            endTrigger: "footer",
+            end: "bottom top",
+            toggleClass: 'hide'
+          }
+        })
+        });
+        },[])
+
     return (
         <section>
             <div className={styles.bigheroSubnav}>
@@ -39,7 +58,7 @@ export default function Gallery(props) {
                                         handleFilterClick(item)
                                     }}
                                 >
-                                    <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
+                                    <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="iconnav" alt={item.iconnav?.altText} />
                                     <p className="sans-serif nav-copy uppercase black center">{item.label}</p>
                                 </li>
                                 )
