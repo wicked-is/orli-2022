@@ -47,6 +47,7 @@ export default function AmenitiesSlider(props) {
                     draggable: true,
                     wrapAround: true,
                     imagesLoaded: true,
+                    autoPlay: 6000,
                 }}
                 disableImagesLoaded={false} // default false
                 reloadOnUpdate={false} // default false
