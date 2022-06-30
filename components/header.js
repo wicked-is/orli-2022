@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/header.module.css';
 import Script from 'next/script';
 import Analytics from './Analytics'
+import WeatherWidget from './WeatherWidget';
 
 export default function Header(props) {
     
@@ -18,7 +19,7 @@ export default function Header(props) {
 
     useEffect(() => { 
         setNavImage(navImage);
-    });
+    }, [navImage]);
 
     useEffect(() => { 
         setAnnouncementbarIsOpen(topBar?.isAnnouncementBarActive)
@@ -97,6 +98,7 @@ export default function Header(props) {
                         <div className={styles.backgroundImage} style={{ background: `url(${navImage})`}}></div>
                     </div>
                     <div className={`${styles.col140} relative flex flex-column justify-content-space-between`}>
+                        <WeatherWidget />
                         <ul className={styles.mainNav}>
                             {
                                 navItems.map((item, index) => { 

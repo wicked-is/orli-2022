@@ -688,6 +688,12 @@ export async function getStaticProps({ params }) {
                       ... on Page_Flexiblecontent_Sections_TheLocalWay_columns_sections {
                         title
                         list
+                        locations {
+                          ... on Page_Flexiblecontent_Sections_TheLocalWay_columns_sections_locations {
+                            name
+                            address
+                          }
+                        }
                       }
                     }
                   }

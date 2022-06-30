@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Script from "next/script";
 import styled from "styled-components"
 
 import TitleBar from "./TitleBar"
@@ -7,14 +8,16 @@ const MainMap = styled.div`
     width: 100%;
     height: 602px;
 `
-
 const TheLocalWayContainer = styled.section`
     display: flex;
     flex-direction: column;
     padding: 2rem 10% 6rem;
     background-color: var(--lt-grey);
-`
 
+    p[data-address] {
+        margin: 0;
+    }
+`
 const ColumnsContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -34,16 +37,13 @@ const ColumnsContainer = styled.section`
         grid-template-columns: 1fr;
     }
 `
-
 const Column = styled.div``
-
 const ListContainer = styled.p`
     line-height: 32px;
     font-size: var(--body-copy);
     font-family: 'GT Walsheim Light';
     line-height: 150%;
 `
-
 const ColumnSection = styled.div`
     margin-bottom: 2rem;
 `
@@ -51,14 +51,21 @@ const ColumnSection = styled.div`
 export default function TheLocalWay(props) {
     const { title, iframe, columns } = props
 
+    const [currentMarker, setCurrentMarker] = useState(null);
+
+    let map;
+    let mainMarker;
+    const markers = [];
+    const currentPin = currentMarker
+
     useEffect(() => { 
-        let map;
         
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 32.838862, lng: -117.250063, },
                 zoom: 14,
                 mapTypeControl: false,
+                streetViewControl: false,
                 styles: [
                     {
                         "featureType": "administrative",
@@ -306,21 +313,70 @@ export default function TheLocalWay(props) {
                 ]
             });
 
-            new google.maps.Marker({
+            let newMarker = new google.maps.Marker({
                 position: { lat: 32.843764, lng: -117.277141},
-                map,
                 icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/06/local-way-map-icon.png"
             });
+
+            markers['mainMarker'] = newMarker
+            newMarker.setMap(map)
         }
 
         window.initMap = initMap;
+        
+        document.querySelectorAll('p[data-address]').forEach((item, index) => {
+            item.addEventListener('click', function (e) {
+
+                let geocoder = new google.maps.Geocoder();
+                let address = e?.target?.dataset?.address;
+                let name = e?.target?.dataset?.name;
+
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        let latitude = results[0].geometry.location.lat();
+                        let longitude = results[0].geometry.location.lng();
+
+                        let aNewMarker = new google.maps.Marker({
+                            position: { lat: latitude, lng: longitude},
+                            icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/06/local-way-map-icon.png"
+                        });
+
+                        markers[name] = aNewMarker
+                        markers[name].setMap(map)
+                        map.panTo({ lat: latitude, lng: longitude})
+                    } 
+                });
+            })
+            item.addEventListener('click', function (e) {
+
+                let address = e?.target?.dataset?.address;
+                let name = e?.target?.dataset?.name;
+                console.log('markers',markers);
+                markers.pop();
+            })
+            item.addEventListener('click', function (e) {
+                let name = e?.target?.dataset?.name;
+                console.log('cM', markers[`${name}`]);
+            })
+            item.addEventListener('click', function (e) {
+
+                let address = e?.target?.dataset?.address;
+                let name = e?.target?.dataset?.name;
+                console.log('markers',markers);
+                setCurrentMarker(name)
+            })
+            
+        })
+
     }, [])
 
     return (
         <TheLocalWayContainer>
+            <Script id="google-mmaps" src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAV1WnDACFeekncT34JftC0V8ZvS9P4J4U&callback=initMap&v=weekly`} strategy="afterInteractive" />
             <TitleBar title="The Local Way" left="true" />
             { iframe && <div dangerouslySetInnerHTML={{ __html: iframe }} ></div> }
             <MainMap id="map"></MainMap>
+            <p>{markers}</p>
             <ColumnsContainer>
                 {
                     columns.map((column, index) => {
@@ -331,7 +387,13 @@ export default function TheLocalWay(props) {
                                         return (
                                             <ColumnSection key={index}>
                                                 <h2 className="sans-serif sub-heading-bold black">{section.title}</h2>
-                                                <ListContainer dangerouslySetInnerHTML={{ __html: section.list }}></ListContainer>
+                                                <ListContainer>
+                                                    {
+                                                        section.locations && section.locations.map((location, index) => (
+                                                            <p key={location.name} data-address={location.address} data-name={location.name}>{location.name}</p>
+                                                        ))
+                                                    }
+                                                </ListContainer>
                                             </ColumnSection>
                                         )
                                     })

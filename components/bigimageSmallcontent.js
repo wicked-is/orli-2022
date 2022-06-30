@@ -102,7 +102,7 @@ export default function BigImageSmallContent(props) {
                                     slides.map((slides, index) => {
                                         return (
                                             <>
-                                                <div key={slides.slides} className={styles.slides}>
+                                                <div key={`slide-${slides.index}`} className={styles.slides}>
                                                     <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
                                                 </div>
                                             </>
@@ -176,7 +176,7 @@ export default function BigImageSmallContent(props) {
                 {
                     slides.map((slides, index) => {
                         return (
-                         <div key={slides.slides} className={styles.slides}>
+                         <div key={`slide-ind${index}`} className={styles.slides}>
                              <img src={slides.mediaItemUrl} alt={slides.altText} className={styles.sliderimage} layout="intrinsic" />
                         </div>
                         )}
