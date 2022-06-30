@@ -53,7 +53,7 @@ export default function DefaultPage(props) {
                 }
             });
         });
-        
+
     },[])
 
     const gatherSections = () => {

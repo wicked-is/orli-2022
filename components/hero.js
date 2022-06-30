@@ -3,6 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/hero.module.css'
 import { useEffect, useState } from 'react';
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero(props) {
     
@@ -125,6 +128,22 @@ export default function Hero(props) {
                     </div>
             )
             case 'Full Height Image with SubNav':
+                useEffect(() => {
+                    var icons = gsap.utils.toArray('.iconnav');
+                
+                    icons.forEach((icon) => {
+                      gsap.to(icon, {autoAlpha: 1,
+                        scrollTrigger: {
+                        trigger: icon,
+                        start: "top top",
+                        endTrigger: "main",
+                        end: "bottom top",
+                        toggleClass: 'hide'
+                      }
+                    })
+                    });
+                    },[])
+
                     return (
                     <div className={styles.heroContainer}>
                         <div className={styles.bigheroSubnav}>
@@ -135,7 +154,7 @@ export default function Hero(props) {
                                      
                                             <li key={`ni-${index}`} className={`${toggleActiveStyles(index)}`} onClick={() => {toggleActive(index);}}>
                                                 <a href={item.link}>
-                                                <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className={styles.iconnav} alt={item.iconnav?.altText} />
+                                                <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="iconnav" alt={item.iconnav?.altText} />
                                                 <p className={`black nav-copy uppercase center sans-serif-bold`}>{item.label}</p>
                                                 </a>
                                             </li>

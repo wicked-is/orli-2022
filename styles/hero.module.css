@@ -92,19 +92,6 @@
     margin: auto;
 }
 
-.iconnav {
-    width: 100%; 
-    max-width: 4rem;
-    margin: auto; 
-    text-align: center; 
-    display: block;
-}
-@media only screen and (max-width: 1116px) {
-    .iconnav {
-        max-width: 3rem;
-    }
-}
-
 /* Placeholder styles so no error is thrown */
 .smallHero { 
    width: 100%;

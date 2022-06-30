@@ -201,6 +201,20 @@ label.rooms-filter {
 .top-nav-active .smheroContainer {padding: 137px 0 0 0;}
 .tob-bar-not-active .smheroContainer {padding: 88px 0 0 0;}
 
+.iconnav {
+  width: 100%; 
+  max-width: 4rem;
+  margin: auto; 
+  text-align: center; 
+  display: block;
+}
+.hide {display: none !important;}
+@media only screen and (max-width: 1116px) {
+  .iconnav {
+      max-width: 3rem;
+  }
+}
+
 .single-year .actual-year { display: inline-flex; }
 .single-year.is-selected p.actual-year::after {
   content: attr(data-text);
