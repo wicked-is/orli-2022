@@ -6,11 +6,11 @@ const WidgetContainer = styled.div`
     position: relative;
     top: 2rem;
     left: 4rem;
+    p { margin: 0; padding: 0; }
 `
+const Title = styled.div``
 
 export default function WeatherWidget(props) {
-
-    const [weatherData, setWeatherData] = useState({})
 
     const { data, isLoading, errorMessage } = useOpenWeather({
         key: 'acf0f517d76844a6ac7c40b3e64dcae3',
@@ -20,13 +20,12 @@ export default function WeatherWidget(props) {
         unit: 'imperial'
     })
 
-    console.log('data', data);
     const time = new Date().toLocaleTimeString([], { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit' })
     
     return (
         <WidgetContainer className="body-copy white">
-            La Jolla, CA<br />
-            <span style={{ marginRight: '1rem' }}>{time}</span>{data?.current?.temperature?.current}&#176;
+            <Title className="sun">La Jolla, CA</Title>
+            <p><span style={{ marginRight: '1rem' }}>{time}</span>{data?.current?.temperature?.current}&#176;</p>
         </WidgetContainer>
     )
 }

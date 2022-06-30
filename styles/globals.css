@@ -118,6 +118,15 @@ label.rooms-filter {
   margin: 4rem 0rem 0rem 0rem !important;
 }
 
+.sun::before {
+  position: absolute;
+  content: '\2600';
+  display: inline-block;
+  left: -2rem;
+  width: 2rem;
+  height: 2rem;
+}
+
 
 @media only screen and (max-width: 900px) {
   .desc {
