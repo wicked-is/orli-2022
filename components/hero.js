@@ -94,6 +94,36 @@ export default function Hero(props) {
                         </div>
                     </div>
                 )
+            case 'Full Height Image with Booking Bar and Heading':
+                return (
+                    <div className={styles.heroContainer}>
+                        <div className={styles.bigHero} style={{
+                            backgroundImage: `url(${imagePoster.mediaItemUrl})`
+                        }}>
+                            <div className={styles.herotextOverBooking}>
+                            <p className="sans-serif sub-heading-bold white left">{headline}</p>
+                            <p className="serif heading white left" dangerouslySetInnerHTML={{ __html: blurb}}></p>
+                            </div>
+                            {
+                                includeBookingForm && (
+                                    <section className={styles.horizontalFormContainer}>
+                                        <BookingForm />
+                                    </section>
+                                )
+                            }
+                            {
+                                includeFeaturedRoomCta && (
+                                    <a style={{
+                                        zIndex: 98,
+                                        position: 'absolute',
+                                        right: '3rem',
+                                        top: '9rem'
+                                    }} className="white xs-copy body-copy underline textshadow" href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
+                                )
+                            }
+                        </div>
+                    </div>
+            )
             case 'Full Height Image with SubNav':
                     return (
                     <div className={styles.heroContainer}>

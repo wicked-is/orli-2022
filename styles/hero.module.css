@@ -17,6 +17,19 @@
     z-index: 0;
 }
 
+.herotextOverBooking {
+    width: 100%;
+    max-width: 60%;
+    display: block;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    bottom: 15rem;
+    left: 0;
+    right:0;
+    z-index: 10;
+}
+
 .horizontalFormContainer {
     display: flex;
     position: absolute;
@@ -33,6 +46,20 @@
 }
 @media only screen and (max-width: 800px){
     .horizontalFormContainer {background: transparent; max-width: 90%;}
+
+    .herotextOverBooking {
+        width: 100%;
+        max-width: 100%;
+        padding: 0rem 2rem;
+        display: block;
+        position: absolute;
+        margin: auto;
+        text-align: center;
+        bottom: 25rem;
+        left: 0;
+        right:0;
+        z-index: 10;
+    }
 }
 
 .bigheroSubnav {
