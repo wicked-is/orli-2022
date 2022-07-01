@@ -14,9 +14,19 @@
     width: 100%;
 }
 
-.orliimagecontainer{width: auto; position: absolute; display: block; left:30%; top: 0px; z-index: 9;}
+.orliimagecontainer {
+    width: auto; 
+    position: absolute; 
+    display: flex; 
+    align-items: center;
+    left:33%; 
+    top:0px; 
+    z-index: 9;
+}
 
-.textcontainer {width:300px; position: absolute; right: 31%; top: 2rem; z-index: 9; margin: auto;}
+.orliimagecontainer span {margin: 2rem auto auto 1rem;}
+
+.textcontainer {width:300px; position: absolute; right: 24%; top: 2rem; z-index: 9; margin: auto; text-align: left;}
 
 .center {text-align: center;}
 

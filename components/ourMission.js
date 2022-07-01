@@ -16,11 +16,11 @@ export default function OurMission(props) {
         var timeline = gsap.timeline({ repeat: -1 });
         
         timeline.fromTo(".cursor", {autoAlpha: 0, x:0},{autoAlpha: 1, duration: 0.5, repeat: -1, ease: "steps(1)"})
-            .to(".textAnimation", {text: {value: "is Intentional"}, duration: 1, delay: 1, ease: "none"})
+            .to(".textAnimation", {text: {value: "Intentional"}, duration: 1, delay: 1, ease: "none"})
             .to(".textAnimation", {delay: 2, duration: 0.5, autoAlpha: 0, display: 'none'})
-            .to(".textAnimation2", {text: {value: "is Local-Minded"}, duration: 1, delay: 1, ease: "none"})
+            .to(".textAnimation2", {text: {value: "Local-Minded"}, duration: 1, delay: 1, ease: "none"})
             .to(".textAnimation2", {delay: 2, duration: 0.5, autoAlpha: 0, display: 'none'})
-            .to(".textAnimation3", {text: {value: "is Effortless by Design"}, duration: 1.5, delay: 1, ease: "none"})
+            .to(".textAnimation3", {text: {value: "Effortless"}, duration: 1.5, delay: 1, ease: "none"})
             .to(".textAnimation3", {delay: 3, duration: 0.5, autoAlpha: 0, display: 'none'})
             .add(() => timeline.restart())
     },[])
@@ -29,8 +29,9 @@ export default function OurMission(props) {
         <section className={`${styles.missionContainer} center bg-lt-grey`}>
             <p className={`${styles.center} serif sub-heading brown`}>{title}</p>
             <div className={styles.missionFlex}>
-                <div className={styles.orliimagecontainer}>
+                <div className={`${styles.orliimagecontainer} serif heading`}>
                     <Image src={logo.mediaItemUrl} alt={logo.altText} width={167} height={108} className={styles.orliimage}/> 
+                    <span>is</span>
                 </div>
                 <div className={styles.textcontainer}>
                 <span className={`${styles.headingAnimate} heading`}>
