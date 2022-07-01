@@ -32,17 +32,18 @@ export default function Gallery(props) {
         var icons = gsap.utils.toArray('.iconnav');
     
         icons.forEach((icon) => {
-          gsap.to(icon, {autoAlpha: 1,
-            scrollTrigger: {
-            trigger: icon,
-            start: "top top",
-            endTrigger: "footer",
-            end: "bottom top",
-            toggleClass: 'hide'
-          }
-        })
+            gsap.to(icon, {
+                autoAlpha: 1,
+                scrollTrigger: {
+                    trigger: icon,
+                    start: "top top",
+                    endTrigger: "footer",
+                    end: "bottom top",
+                    toggleClass: 'hide'
+                }
+            })
         });
-        },[])
+    },[])
 
     return (
         <section>

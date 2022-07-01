@@ -40,6 +40,25 @@ export default function Hero(props) {
         }
     }
 
+    useEffect(() => {
+        var icons = gsap.utils.toArray('.iconnav');
+
+        if (icons) {
+            icons.forEach((icon) => {
+                gsap.to(icon, {
+                    autoAlpha: 1,
+                    scrollTrigger: {
+                        trigger: icon,
+                        start: "top top",
+                        endTrigger: "main",
+                        end: "bottom top",
+                        toggleClass: 'hide'
+                    }
+                })
+            });
+        }
+    },[])
+
     const heroStructure = (types) => { 
         switch (types) {
             case 'Video':
@@ -128,22 +147,6 @@ export default function Hero(props) {
                     </div>
             )
             case 'Full Height Image with SubNav':
-                useEffect(() => {
-                    var icons = gsap.utils.toArray('.iconnav');
-                
-                    icons.forEach((icon) => {
-                      gsap.to(icon, {autoAlpha: 1,
-                        scrollTrigger: {
-                        trigger: icon,
-                        start: "top top",
-                        endTrigger: "footer",
-                        end: "bottom top",
-                        toggleClass: 'hide'
-                      }
-                    })
-                    });
-                    },[])
-
                     return (
                     <div className={styles.heroContainer}>
                         <div className={styles.bigheroSubnav}>
