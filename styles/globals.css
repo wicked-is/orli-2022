@@ -121,9 +121,12 @@ label.rooms-filter {
 
 .sun::before {
   position: absolute;
-  content: '\2600';
+  content: '';
+  background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_SunWhite.svg');
+  background-size: cover;
   display: inline-block;
-  left: -2rem;
+  left: -3rem;
+  top: .25rem;
   width: 2rem;
   height: 2rem;
 }
