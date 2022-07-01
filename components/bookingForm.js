@@ -17,7 +17,7 @@ export default function BookingForm() {
         <div className={styles.formcontainer}>
             <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/uK87lN" target="_blank">
                 <div className={styles.formGroup}>
-                    <span className="sans-serif body-copy">Check In</span>
+                    <span className="sans-serif xs-copy">Check In</span>
                     <DatePicker
                         selected={startDate}
                         placeholderText="Add Date"
@@ -29,7 +29,7 @@ export default function BookingForm() {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <span className="sans-serif body-copy">Check Out</span>
+                    <span className="sans-serif xs-copy">Check Out</span>
                     <DatePicker
                         selected={endDate}
                         onChange={(date) => setEndDate(date)}
