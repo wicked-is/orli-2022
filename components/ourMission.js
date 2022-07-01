@@ -15,7 +15,7 @@ export default function OurMission(props) {
         gsap.registerPlugin(TextPlugin, CustomEase);
         var timeline = gsap.timeline({ repeat: -1 });
         
-        timeline.fromTo(".cursor", {autoAlpha: 0, x:-10},{autoAlpha: 1, duration: 0.5, repeat: -1, ease: "steps(1)"})
+        timeline.fromTo(".cursor", {autoAlpha: 0, x:0},{autoAlpha: 1, duration: 0.5, repeat: -1, ease: "steps(1)"})
             .to(".textAnimation", {text: {value: "is Intentional"}, duration: 1, delay: 1, ease: "none"})
             .to(".textAnimation", {delay: 2, duration: 0.5, autoAlpha: 0, display: 'none'})
             .to(".textAnimation2", {text: {value: "is Local-Minded"}, duration: 1, delay: 1, ease: "none"})
@@ -30,7 +30,7 @@ export default function OurMission(props) {
             <p className={`${styles.center} serif sub-heading brown`}>{title}</p>
             <div className={styles.missionFlex}>
                 <div className={styles.orliimagecontainer}>
-                    <Image src={logo.mediaItemUrl} alt={logo.altText} width={167} height={108} className={styles.orliimage}/>
+                    <Image src={logo.mediaItemUrl} alt={logo.altText} width={167} height={108} className={styles.orliimage}/> 
                 </div>
                 <div className={styles.textcontainer}>
                 <span className={`${styles.headingAnimate} heading`}>

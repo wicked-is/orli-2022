@@ -8,33 +8,51 @@
 }
 
 .missionFlex {
-    display:flex;
-    flex-direction:column;
-    justify-content: center; 
-    padding: 7rem 0;
+    display:inline-block;
+    margin: 7rem auto 12rem auto;
+    position: relative;
+    width: 100%;
 }
-.orliimagecontainer {width: 100%; padding-bottom: 1rem;}
-.textcontainer {width: 100%; position: relative;}
+
+.orliimagecontainer{width: auto; position: absolute; display: block; left:30%; top: 0px; z-index: 9;}
+
+.textcontainer {width:300px; position: absolute; right: 31%; top: 2rem; z-index: 9; margin: auto;}
 
 .center {text-align: center;}
 
 .headingAnimate {
-        align-self: center;
-        margin-left: 2rem;
+        align-self: left;
+        margin-left: 0rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1195px) {
+    .orliimagecontainer{left:28%;}
+    .textcontainer {right: 31%;}
+}
+@media only screen and (max-width: 1035px) {
+    .orliimagecontainer{left:28%;}
+    .textcontainer {right: 26%; width:300px;}
+}
+@media only screen and (max-width:800px) {
+    .orliimagecontainer{
+        position: relative; 
+        width: 100%; 
+        margin: auto;
+        display: block; 
+        text-align: center;
+        left: unset;
+    }
+    .textcontainer {
+        position: relative; 
+        width: 100%; 
+        margin: 2rem auto auto auto;
+        display: block; 
+        text-align: center;
+        right: unset;
+        top: unset;
+    }
     .missionContainer {
-        padding: 1rem 2rem 0 2rem;
+        padding: 4rem 2rem 0 2rem;
         height: 60vh;
     }
-
-    .center {text-align: left;}
-
-    .missionFlex {flex-direction:column; padding: 6rem 0 6rem 0;}
-
-    .missionFlex .orliimage {
-        flex: 1; 
-    }
-    .headingAnimate {margin-top: 2rem; margin-left: 0rem;}
 }
