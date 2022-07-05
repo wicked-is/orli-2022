@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react';
 import Script from "next/script";
 import styled from "styled-components"
 
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
+
 import TitleBar from "./TitleBar"
 
 const MainMap = styled.div`
@@ -60,6 +66,8 @@ export default function TheLocalWay(props) {
     const markers = [];
 
     useEffect(() => { 
+
+        let the_window = window
 
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
@@ -348,6 +356,8 @@ export default function TheLocalWay(props) {
                 if (infowindow !== null) {
                     infowindow.close()
                 }
+
+                gsap.to(the_window, {duration: 1, scrollTo: {y: "#map", offsetY: 100}});
 
                 geocoder.geocode( { 'address': address}, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
