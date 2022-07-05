@@ -293,6 +293,7 @@ label.rooms-filter {
   padding: 1rem;
   letter-spacing: var(--letter-spacing);
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .gm-style .gm-style-iw-t::after {
