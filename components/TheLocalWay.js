@@ -55,11 +55,12 @@ export default function TheLocalWay(props) {
 
     let map;
     let mainMarker;
+    let infowindow = null;
+
     const markers = [];
-    const currentPin = currentMarker
 
     useEffect(() => { 
-        
+
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 32.838862, lng: -117.250063, },
@@ -312,60 +313,68 @@ export default function TheLocalWay(props) {
                     }
                 ]
             });
+            infowindow = new google.maps.InfoWindow();
 
-            let newMarker = new google.maps.Marker({
+            mainMarker = new google.maps.Marker({
                 position: { lat: 32.843764, lng: -117.277141},
                 icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/06/local-way-map-icon.png"
             });
 
-            markers['mainMarker'] = newMarker
-            newMarker.setMap(map)
+            markers.push(mainMarker)
+            makeMarkersVisible(mainMarker)
+        }
+
+        // Hide irrelevant markers
+        const makeMarkersInvisible = (items) => {
+            items.forEach((item, index) => {
+                if (index == 0) return;
+                item.setMap(null)
+            })
+        }
+
+        // Set map for individual marker
+        const makeMarkersVisible = (marker) => {
+            marker.setMap(map)   
         }
 
         window.initMap = initMap;
         
         document.querySelectorAll('p[data-address]').forEach((item, index) => {
             item.addEventListener('click', function (e) {
-
                 let geocoder = new google.maps.Geocoder();
                 let address = e?.target?.dataset?.address;
                 let name = e?.target?.dataset?.name;
+
+                if (infowindow !== null) {
+                    infowindow.close()
+                }
 
                 geocoder.geocode( { 'address': address}, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         let latitude = results[0].geometry.location.lat();
                         let longitude = results[0].geometry.location.lng();
 
-                        let aNewMarker = new google.maps.Marker({
-                            position: { lat: latitude, lng: longitude},
-                            icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/06/local-way-map-icon.png"
+                        // let aNewMarker = new google.maps.Marker({
+                        //     position: { lat: latitude, lng: longitude},
+                        //     icon: "",
+                        //     title: name
+                        // });
+                        // infowindow.close();
+
+                        infowindow.setContent(`<div id="map-tip">${name}</div>`);
+                        infowindow.setPosition({ lat: latitude, lng: longitude})
+                        infowindow.open({
+                            map,
+                            shouldFocus: false,
                         });
 
-                        markers[name] = aNewMarker
-                        markers[name].setMap(map)
+                        // markers.push(aNewMarker)
+                        // makeMarkersInvisible(markers)
+                        // makeMarkersVisible(aNewMarker);
                         map.panTo({ lat: latitude, lng: longitude})
                     } 
                 });
             })
-            item.addEventListener('click', function (e) {
-
-                let address = e?.target?.dataset?.address;
-                let name = e?.target?.dataset?.name;
-                console.log('markers',markers);
-                markers.pop();
-            })
-            item.addEventListener('click', function (e) {
-                let name = e?.target?.dataset?.name;
-                console.log('cM', markers[`${name}`]);
-            })
-            item.addEventListener('click', function (e) {
-
-                let address = e?.target?.dataset?.address;
-                let name = e?.target?.dataset?.name;
-                console.log('markers',markers);
-                setCurrentMarker(name)
-            })
-            
         })
 
     }, [])
