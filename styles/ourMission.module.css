@@ -19,14 +19,12 @@
     position: absolute; 
     display: flex; 
     align-items: center;
-    left:33%; 
+    left:36%; 
     top:0px; 
     z-index: 9;
 }
 
 .orliimagecontainer span {margin: 2rem auto auto 1rem;}
-
-.textcontainer {width:300px; position: absolute; right: 24%; top: 2rem; z-index: 9; margin: auto; text-align: left;}
 
 .center {text-align: center;}
 
@@ -34,14 +32,8 @@
         align-self: left;
         margin-left: 0rem;
 }
-
-@media only screen and (max-width: 1195px) {
-    .orliimagecontainer{left:28%;}
-    .textcontainer {right: 31%;}
-}
 @media only screen and (max-width: 1035px) {
     .orliimagecontainer{left:28%;}
-    .textcontainer {right: 26%; width:300px;}
 }
 @media only screen and (max-width:800px) {
     .orliimagecontainer{
@@ -52,7 +44,8 @@
         text-align: center;
         left: unset;
     }
-    .textcontainer {
+    .orliimagecontainer span {vertical-align: middle;}
+    .headingAnimate {
         position: relative; 
         width: 100%; 
         margin: 2rem auto auto auto;

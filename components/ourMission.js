@@ -32,8 +32,6 @@ export default function OurMission(props) {
                 <div className={`${styles.orliimagecontainer} serif heading`}>
                     <Image src={logo.mediaItemUrl} alt={logo.altText} width={167} height={108} className={styles.orliimage}/> 
                     <span>is</span>
-                </div>
-                <div className={styles.textcontainer}>
                 <span className={`${styles.headingAnimate} heading`}>
                     <span data-word={animatableTexts[0].title} className="textAnimation"></span> 
                     <span data-word={animatableTexts[1].title} className="textAnimation2"></span>
