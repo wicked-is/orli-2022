@@ -19,12 +19,12 @@
     position: absolute; 
     display: flex; 
     align-items: center;
-    left:36%; 
+    left:34%; 
     top:0px; 
     z-index: 9;
 }
 
-.orliimagecontainer span {margin: 2rem auto auto 1rem;}
+.orliimagecontainer span {margin: 2rem auto auto 0.5rem;}
 
 .center {text-align: center;}
 
