@@ -49,7 +49,7 @@ export default function Header(props) {
             <Head>
                 {/* Head elements required on every page */}
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Favicon.jpg" />
             </Head>
             {
                 topBar?.isAnnouncementBarActive && (
