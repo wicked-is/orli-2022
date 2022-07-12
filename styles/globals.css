@@ -296,6 +296,8 @@ label.rooms-filter {
   text-align: center;
 }
 
+#map .gm-style .gm-style-iw-c { border-radius: 0px !important; }
+
 .gm-style .gm-style-iw-t::after {
   background: var(--brown) !important;
 }

@@ -12,7 +12,7 @@ import TitleBar from "./TitleBar"
 
 const MainMap = styled.div`
     width: 100%;
-    height: 602px;
+    height: 400px;
 `
 const TheLocalWayContainer = styled.section`
     display: flex;
@@ -27,9 +27,9 @@ const TheLocalWayContainer = styled.section`
 const ColumnsContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.6rem;
+    gap: 1rem;
 
-    padding-top: 5rem;
+    /* padding-top: 1rem; */
 
     @media (max-width: 1100px) {
         grid-template-columns: repeat(3, 1fr);
@@ -357,7 +357,7 @@ export default function TheLocalWay(props) {
                     infowindow.close()
                 }
 
-                gsap.to(the_window, {duration: 1, scrollTo: {y: "#map", offsetY: 100}});
+                // gsap.to(the_window, {duration: 1, scrollTo: {y: "#map", offsetY: 100}});
 
                 geocoder.geocode( { 'address': address}, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
