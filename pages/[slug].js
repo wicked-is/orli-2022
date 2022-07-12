@@ -15,6 +15,7 @@ import OurMission from '../components/ourMission';
 import Gatherings from '../components/gatherings';
 import FullFeatureBlog from '../components/fullFeatureBlog';
 import SpotifyFeature from '../components/spotifyFeature';
+import BookingIframe from '../components/BookingIframe';
 import FauxSocialFeed from '../components/fauxSocialFeed';
 import SEO from '../components/seo';
 import DiscoveriesCallout from '../components/discoveriesCallout';
@@ -94,6 +95,9 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_GatheringsCallout':
                     gatheredSections.push(<Gatherings key={componentKey} {...section} />)
                     break;
+                case 'Page_Flexiblecontent_Sections_BookingIframe':
+                    gatheredSections.push(<BookingIframe key={componentKey} {...section} />)
+                break;
                 //case 'Page_Flexiblecontent_Sections_FeaturedJournal':
                     //gatheredSections.push(<FullFeatureBlog key={componentKey} {...section} />)
                     //break;
@@ -634,6 +638,12 @@ export async function getStaticProps({ params }) {
                 ctaLink
                 ctaText
                 spotifyEmbed
+              }
+              ... on Page_Flexiblecontent_Sections_BookingIframe {
+                fieldGroupName
+                headline
+                blurb
+                embed
               }
               ... on Page_Flexiblecontent_Sections_Titlebar {
                 fieldGroupName
