@@ -23,7 +23,7 @@ export default function Gatherings(props) {
                 {
                     media[0].type === "Video" && (
                         <div className={`${styles.videoBackground}`}>
-                            <div style={{ aspectRatio: '1/1.4', overflow: 'hidden'}}>
+                            <div style={{ aspectRatio: '1/1.2', overflow: 'hidden'}}>
                                 <video className={styles.videoBG} autoPlay playsInline muted loop>
                                     <source src={media[0].mp4} type="video/mp4" />
                                     <source src={media[0].webm} />

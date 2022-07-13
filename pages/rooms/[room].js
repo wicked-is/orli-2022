@@ -41,6 +41,7 @@ const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
   margin: -8rem 0 0 0;
+  z-index: 1;
   @media screen and (max-width: 800px) {
     order: 1;
   }
