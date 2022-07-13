@@ -47,7 +47,7 @@ const SingleRoomBookingForm = styled.div`
   }
 `
 const FeatureContainer = styled.div`
-  margin: 3rem 0;
+  margin: 4.5rem 0 3rem;
 `
 const FeatureList = styled.div`
   list-style-type: none;
