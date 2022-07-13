@@ -119,7 +119,7 @@ export default function Header(props) {
                         <div className={styles.bottomnav}>
                             <div className="col-1-50">
                                 <address className="sans-serif xs-copy white left" style={{ marginTop: '.88rem' }}>
-                                    Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
+                                    Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla, CA 92037
                                 </address>
                                 <p className="directions xs-copy white left">
                                     <Link href="/">Get Directions</Link>
@@ -139,16 +139,17 @@ export default function Header(props) {
                                                 height={30} />
                                         </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link href="/" passHref>
                                             <Image
-                                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
-                                                alt="facebook Logo"
-                                                className="facebook"
-                                                width={14}
-                                                height={30} />
+                                               src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
+                                               alt="facebook Logo"
+                                               className="facebook"
+                                               width={14}
+                                               height={30} />
                                         </Link>
-                                    </li>
+                                        </li>
+                                    */}
                                     <li>
                                         <Link href="/">
                                             <Image
