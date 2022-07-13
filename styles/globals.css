@@ -180,7 +180,7 @@ label.rooms-filter {
 .top-nav-active .subnavigationonlyContainer,
 .top-nav-active .subnavigationContainer {top: 128px;}
 
-.tob-bar-not-active .subnavigationContainer {top: 88px;}
+.tob-bar-not-active .subnavigationContainer {top: 4rem;}
 .tob-bar-not-active.subnavigationonlyContainer {top: 80px;}
 
 .subnavigationContainer li,

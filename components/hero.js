@@ -157,8 +157,8 @@ export default function Hero(props) {
                                      
                                             <li key={`ni-${index}`} className={`${toggleActiveStyles(index)}`} onClick={() => {toggleActive(index);}}>
                                                 <a href={item.link}>
-                                                <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="iconnav" alt={item.iconnav?.altText} />
-                                                <p className={`black nav-copy uppercase center sans-serif-bold`}>{item.label}</p>
+                                                <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="iconnav" style={{ marginBottom: '1rem' }} alt={item.iconnav?.altText} />
+                                                <p className={`black nav-copy uppercase center sans-serif-bold mt-0`}>{item.label}</p>
                                                 </a>
                                             </li>
                                     

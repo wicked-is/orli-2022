@@ -3,7 +3,7 @@
     display: flex;
     position: fixed;
     background: var(--lt-grey);
-    top: 80px;
+    top: 3rem;
     left:0px;
     right: 0px;
     z-index: 10;
