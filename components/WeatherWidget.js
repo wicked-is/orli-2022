@@ -7,6 +7,9 @@ const WidgetContainer = styled.div`
     top: 2rem;
     left: 4rem;
     p { margin: 0; padding: 0; }
+    @media only screen and (max-width: 600px){
+        & { left: 12rem;}
+    }
 `
 const Title = styled.div``
 
@@ -23,7 +26,7 @@ export default function WeatherWidget(props) {
     const time = new Date().toLocaleTimeString([], { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit' })
     
     return (
-        <WidgetContainer className="body-copy white">
+        <WidgetContainer className="weather-copy white">
             <Title className="sun">La Jolla, CA</Title>
             <p><span style={{ marginRight: '1rem' }}>{time}</span>{data?.current?.temperature?.current}&#176;</p>
         </WidgetContainer>

@@ -234,9 +234,24 @@
 .col140 {width: 40%}
 .col160 {width: 60%}
 
+ul.socials {
+    padding: 1rem 0rem 0rem 0rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding-inline-start: 0px !important;
+    margin-block-start: 0em !important;
+    margin-block-end: 0em !important;
+  }
+  
+  ul.socials li {
+    padding: 0rem 1.5rem 0rem 0rem;
+  }
+
 @media only screen and (max-width: 800px) {
     .col160 {width: 40%;}
     .col140 {width: 60%;}
+    ul.socials { padding: 3rem 0rem 0rem 0rem;}
 }
 
 @media only screen and (max-width: 600px) {

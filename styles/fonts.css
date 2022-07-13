@@ -80,12 +80,7 @@ input[type="date"] {
     line-height: 150%;
 }
 
-@media screen and (max-width: 768px) {
-    .xs-copy {
-        font-size: var(--body-copy);
-    }
-}
-
+.weather-copy {font-size: var(--nav-copy); line-height: 1.5;}
 .nav-copy {font-size: var(--nav-copy); letter-spacing: 0.1rem;}
 
 .bold { font-weight: bold; }
