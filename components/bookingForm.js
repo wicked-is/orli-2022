@@ -8,38 +8,19 @@ import "react-datepicker/dist/react-datepicker.css";
 import styles from '../styles/bookingForm.module.css';
 
 export default function BookingForm() {
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
-    
-    const [counterValue, setCounterValue] = useState(1);
+    const [checkInType, setCheckInType] = useState('text');
+    const [checkOutType, setCheckOutType] = useState('text');
 
     return (
         <div className={styles.formcontainer}>
             <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/L1Jxph" target="_blank">
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
-                    <DatePicker
-                        selected={startDate}
-                        placeholderText="Add Date"
-                        onChange={(date) => setStartDate(date)}
-                        selectsStart
-                        startDate={startDate}
-                        endDate={endDate}
-                        name="widget_date"
-                    />
+                    <input type={checkInType} onFocus={() => setCheckInType('date')} name="widget_date" placeholder="Add Dates" className="sans-serif"/>
                 </div>
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check Out</span>
-                    <DatePicker
-                        selected={endDate}
-                        onChange={(date) => setEndDate(date)}
-                        selectsEnd
-                        startDate={startDate}
-                        endDate={endDate}
-                        placeholderText="Add Date"
-                        minDate={startDate}
-                        name="widget_date_to"
-                    />
+                    <input type={checkOutType} name="widget_date_to" placeholder="Add Dates" onFocus={() => setCheckOutType('date')} className="sans-serif"/>
                 </div>
                 <button type="submit" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
             </form>
