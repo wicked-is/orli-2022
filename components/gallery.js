@@ -59,8 +59,8 @@ export default function Gallery(props) {
                                         handleFilterClick(item)
                                     }}
                                 >
-                                    <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="iconnav" alt={item.iconnav?.altText} />
-                                    <p className="sans-serif nav-copy uppercase black center">{item.label}</p>
+                                    <img src={item.iconnav !== null ? item.iconnav.mediaItemUrl : 'https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg'} className="iconnav" style={{ marginBottom: '1rem' }} alt={item.iconnav?.altText} />
+                                    <p className="sans-serif nav-copy uppercase black center mt-0">{item.label}</p>
                                 </li>
                                 )
                         }, this)
