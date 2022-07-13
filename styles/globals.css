@@ -216,6 +216,14 @@ label.rooms-filter {
   .iconnav {
       max-width: 3rem;
   }
+  .top-nav-active .subnavigationContainer,
+  .top-bar-active .subnavigationContainer,
+  .tob-bar-not-active .subnavigationContainer,
+  .top-nav-active .subnavigationonlyContainer,
+  .top-bar-active .subnavigationonlyContainer,
+  .tob-bar-not-active .subnavigationonlyContainer {
+      justify-content: unset;
+  }
 }
 
 .single-year .actual-year { display: inline-flex; }
@@ -238,6 +246,7 @@ label.rooms-filter {
   .subnavigationonlyContainer li {
       position: relative; 
       margin: auto 2rem;
+      white-space: nowrap;
       cursor: pointer;
       transition: 0.3s ease all;
   }
@@ -258,12 +267,6 @@ label.rooms-filter {
 @media only screen and (max-width: 768px) {
   .hide-on-mobile { display: none; }
 }
-@media only screen and (max-width: 600px) {
-  .subnavigationContainer, 
-  .subnavigationonlyContainer {
-      top: 112px;
-  }
-}
 
 .subnavigationContainer li p,
 .subnavigationonlyContainer li p {
@@ -275,6 +278,19 @@ label.rooms-filter {
 .subnavigationonlyContainer li:hover p {
     color: var(--brown);
 }
+
+@media only screen and (max-width: 600px) {
+  .subnavigationContainer, 
+  .subnavigationonlyContainer {
+      top: 112px;
+  }
+  .subnavigationContainer li p,
+.subnavigationonlyContainer li p {line-height: 1; padding: 0rem 0rem 0rem 0rem;}
+
+  .tob-bar-not-active .subnavigationContainer {top: 80px; padding: 0.5rem 0 0.3rem 0;}
+  .tob-bar-not-active.subnavigationonlyContainer {top: 80px; padding: 0.5rem 0 0.3rem 0;}
+}
+
 .react-datepicker__navigation-icon--previous::before {
   transform: rotate(225deg);
   right: 1rem !important;
