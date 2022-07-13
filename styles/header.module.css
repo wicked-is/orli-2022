@@ -87,7 +87,7 @@
     overflow: visible;
     position: absolute;
     right: 260px;
-    top: 1.5rem;
+    top: 1.3rem;
     z-index: 1;
     opacity: 1;
 }
@@ -99,7 +99,7 @@
 }
 
 .hamburger .hamburger-box {
-    width: 50px;
+    width: 40px;
     height: 24px;
     display: inline-block;
     position: relative;
@@ -116,7 +116,7 @@
 .hamburger .hamburger-inner, 
 .hamburger .hamburger-inner::before, 
 .hamburger .hamburger-inner::after {
-    width: 50px;
+    width: 40px;
     height: 1px;
     background-color: var(--black);
     position: absolute;
