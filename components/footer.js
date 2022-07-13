@@ -194,8 +194,8 @@ export default function Footer() {
                                     <Link href="/amenities">Amenities</Link>
                                     <Link href="/discoveries">Location</Link>
                                     <Link href="/gatherings">Events</Link>
-                                    <Link href="/our-story">Our Story</Link>
-                                    <Link href="/the-journal">The Journal</Link>
+                                    <Link href="/our-story">Story</Link>
+                                    <Link href="/the-journal">Journal</Link>
                                     <Link href="/gallery">Gallery</Link>
                                    
                                     <Link href="/privacy-policy" className="privacy">Privacy Policy</Link>
@@ -229,9 +229,9 @@ export default function Footer() {
                         <div>
                             <div className="footer-links">
                                 <Link href="/find-your-room">Rooms</Link>
-                                <Link href="/our-story">Our Story</Link>
+                                <Link href="/our-story">Story</Link>
                                 <Link href="/amenities">Amenities</Link>
-                                <Link href="/the-journal">The Journal</Link>
+                                <Link href="/the-journal">Journal</Link>
                                 <Link href="/discoveries">Location</Link>
                                 <Link href="/gallery">Gallery</Link>
                                 <Link href="/gatherings">Events</Link>
