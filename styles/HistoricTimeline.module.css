@@ -17,10 +17,10 @@
 .sliderNavContainer {
     position: absolute;
     top: 6rem;
-    left: 0;
+    left: 6rem;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 30%;
 }
 
 .sliderContent {
@@ -70,7 +70,6 @@
     flex-direction: column;
     justify-content: center;
 }
-
 .yearContentContainer > .actual-year::after {
     content: attr(data-text) / "";
     font-family: essonnes-display, serif;
@@ -83,6 +82,8 @@
 .yearContentContainer p:first-of-type {
     font-size: 15rem;
     margin: 0;
+    display: block;
+    text-align: center;
 }
 
 .active {

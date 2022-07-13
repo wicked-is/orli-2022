@@ -51,7 +51,7 @@ export default function HistoricalSlider(props) {
                                 <Image src={year.image.mediaItemUrl} alt={year.image.altText} width={1920} height={969} layout="responsive" sizes="100vw" />
                                 <div className={styles.yearTextContainer}>
                                     <div className={styles.yearContentContainer}>    
-                                        <p className="xl-heading actual-year" data-text={previousYear} style={{ lineHeight: 1 }}>{year.year}</p>
+                                        <p className="xl-heading actual-year center" data-text={previousYear} style={{ lineHeight: 1 }}>{year.year}</p>
                                         <p className="sans-serif-bold uppercase" style={{ letterSpacing: 'var(--letter-spacing)'}} dangerouslySetInnerHTML={{ __html: year.caption }}></p>
                                     </div>
                                 </div>
