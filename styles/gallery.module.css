@@ -16,7 +16,8 @@
 .subnavigationContainer li,
 .subnavigationonlyContainer li {
     position: relative; 
-    margin: auto 2rem; 
+    margin: auto 2rem;
+    white-space: nowrap;
     cursor: pointer; 
     transition: 0.3s ease all;
 }
@@ -39,7 +40,14 @@
 .subnavigationonlyContainer li:hover p {
     color: var(--brown);
 }
-
+@media only screen and (max-width: 687px){
+    .subnavigationonlyContainer {justify-content: unset; overflow-x: scroll;}
+}
+@media only screen and (max-width: 600px){
+    .subnavigationonlyContainer {top: 63px; padding: 0.3rem 0rem 0rem 0rem;}
+    .subnavigationContainer li:hover p,
+    .subnavigationonlyContainer li:hover p {line-height:1; padding: 0rem;}
+}
 .galleryContainer {
     width: 100%;
     margin: auto;
