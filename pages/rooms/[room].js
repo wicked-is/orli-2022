@@ -41,6 +41,7 @@ const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
   margin: -8rem 0 0 0;
+  z-index: 1;
   @media screen and (max-width: 800px) {
     order: 1;
   }
@@ -149,7 +150,8 @@ export default function DefaultRoomsPage(props) {
         scrollTrigger: {
             trigger: content,
             start: "top-=80 150px",
-            end: "bottom+=150 bottom-=150",
+            endTrigger: "footer",
+            end: "bottom+=0 0px",
             pin: sidebar,
             markers: false,
             onRefresh: self => self.pin.parentNode.style.float = "right",
@@ -237,7 +239,7 @@ export default function DefaultRoomsPage(props) {
           <GreyBackground>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
-            <ReservationForm action={room.singleRooms.cloudbedsLink ? room.singleRooms.cloudbedsLink : 'https://hotels.cloudbeds.com/reservation/uK87lN'} method="POST">
+            <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
               <ReservationFormLabel className="sans-serif uppercase">Check In<input type={checkInType} onFocus={() => setCheckInType('date')} name="widget_date" placeholder="Add Dates" className="sans-serif"/></ReservationFormLabel><br />
               <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={checkOutType} name="widget_date_to" placeholder="Add Dates" onFocus={() => setCheckOutType('date')} className="sans-serif"/></ReservationFormLabel>
               <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>

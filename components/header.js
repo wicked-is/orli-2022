@@ -119,16 +119,12 @@ export default function Header(props) {
                         <div className={styles.bottomnav}>
                             <div className="col-1-50">
                                 <address className="sans-serif xs-copy white left" style={{ marginTop: '.88rem' }}>
-                                    Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
+                                    Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla, CA 92037
                                 </address>
                                 <p className="directions xs-copy white left">
-                                    <Link href="/">Get Directions</Link>
+                                    <Link target="_blank" href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">Get Directions</Link>
                                 </p>
-                            </div>
-                            <div className="col-1-50">
-                                <p className="sans-serif xs-copy white left">T: 123 555 5555<br/>
-                                E: email@stayorli.com</p>
-                                <ul className="socials">
+                                <ul className={styles.socials}>
                                     <li>
                                         <Link href="/">
                                             <Image
@@ -139,16 +135,17 @@ export default function Header(props) {
                                                 height={30} />
                                         </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link href="/" passHref>
                                             <Image
-                                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
-                                                alt="facebook Logo"
-                                                className="facebook"
-                                                width={14}
-                                                height={30} />
+                                               src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
+                                               alt="facebook Logo"
+                                               className="facebook"
+                                               width={14}
+                                               height={30} />
                                         </Link>
-                                    </li>
+                                        </li>
+                                    */}
                                     <li>
                                         <Link href="/">
                                             <Image
@@ -160,6 +157,10 @@ export default function Header(props) {
                                         </Link>
                                     </li>
                                 </ul>
+                            </div>
+                            <div className="col-1-50">
+                                <p className="sans-serif xs-copy white left">T: 123 555 5555<br/>
+                                E: email@stayorli.com</p>
                             </div>
                         </div>
                     </div>

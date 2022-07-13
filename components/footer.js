@@ -149,7 +149,7 @@ export default function Footer() {
                                 </address>
 
                                 <GetDirectionsLink className="directions xs-copy white left">
-                                    <Link href="/">Get Directions</Link>
+                                    <Link target="_blank" href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">Get Directions</Link>
                                 </GetDirectionsLink>
                                 <div>
                                     <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: 123 555 5555<br />E: email@stayorli.com</p>
@@ -190,8 +190,8 @@ export default function Footer() {
                             </Left>
                             <Right>
                                 <div className="footer-links">
-                                    <Link href="/amenities">Amenities</Link>
                                     <Link href="/find-your-room">Rooms</Link>
+                                    <Link href="/amenities">Amenities</Link>
                                     <Link href="/discoveries">Location</Link>
                                     <Link href="/gatherings">Events</Link>
                                     <Link href="/our-story">Our Story</Link>
@@ -217,7 +217,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <address className="sans-serif xs-copy white left">
-                                Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
+                                Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla<br/>La Jolla, CA 92037
                             </address>
                                 
                             <p className="directions xs-copy white left">
@@ -228,13 +228,16 @@ export default function Footer() {
                     <div>
                         <div>
                             <div className="footer-links">
+                                <Link href="/find-your-room">Rooms</Link>
+                                <Link href="/our-story">Our Story</Link>
                                 <Link href="/amenities">Amenities</Link>
-                                    <Link href="/find-your-room">Rooms</Link>
-                                    <Link href="/discoveries">Location</Link>
-                                    <Link href="/gatherings">Events</Link>
-                                    <Link href="/our-story">Our Story</Link>
-                                    <Link href="/the-journal">The Journal</Link>
-                                    <Link href="/gallery">Gallery</Link>
+                                <Link href="/the-journal">The Journal</Link>
+                                <Link href="/discoveries">Location</Link>
+                                <Link href="/gallery">Gallery</Link>
+                                <Link href="/gatherings">Events</Link>
+                                    
+                                    
+                                    
                             </div>
                         </div>
                         <div>

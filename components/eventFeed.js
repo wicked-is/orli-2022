@@ -18,7 +18,15 @@ const EventFeedContainer = styled.div`
     background-color: ${props => props.fullWidget ? 'var(--lt-grey)' : 'white'};
 
     article:first-of-type {
-        margin-top: ${props => props.fullWidget ? '0' : '4rem'};
+        margin-top: ${props => props.fullWidget ? '0' : '2rem'};
+    }
+
+    article p {
+        line-height: 1;
+    }
+
+    article h3 {
+        line-height: 1;
     }
 
     @media (max-width: 768px) {
