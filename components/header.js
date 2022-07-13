@@ -126,14 +126,14 @@ export default function Header(props) {
                                 </p>
                                 <ul className={styles.socials}>
                                     <li>
-                                        <Link href="/">
+                                        <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
                                             <Image
                                                 src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
                                                 alt="Instagram Logo"
                                                 className="instagram"
                                                 width={30}
                                                 height={30} />
-                                        </Link>
+                                        </a>
                                     </li>
                                     {/* <li>
                                         <Link href="/" passHref>
@@ -147,14 +147,14 @@ export default function Header(props) {
                                         </li>
                                     */}
                                     <li>
-                                        <Link href="/">
+                                        <a href="https://open.spotify.com/playlist/5dt0gGfjFDjfd4CJe22E8T?si=6d7e7bfb014b433d" target="_blank" rel="noopener noreferrer">
                                             <Image
                                                 src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
                                                 alt="spotify logo"
                                                 className="spotify"
                                                 width={30}
                                                 height={30} />
-                                        </Link>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
