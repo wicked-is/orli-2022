@@ -24,7 +24,7 @@
     /* max-width: 50%; */
 }
 
-.blurbpadding {padding: 4rem 0rem 0rem 0rem;}
+.blurbpadding {padding: 2rem 0rem 0rem 0rem;}
 
 @media only screen and (max-width: 800px) {
     .gatheringsContainer {flex-direction: column; gap: 2rem;}
