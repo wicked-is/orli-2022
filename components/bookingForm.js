@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import Counter from './counter'
+import Link from 'next/link';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -23,9 +24,11 @@ export default function BookingForm() {
                 </div>
                 <button type="submit" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
             </form>
-            <a href="/book-a-room/" className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
-                Book Multiple Rooms
-            </a>
+            <Link href="/book-a-room/" passHref>
+                <a href="/book-a-room/" className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                    Book Multiple Rooms
+                </a>
+            </Link>
         </div>
     )
 }
