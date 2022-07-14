@@ -45,6 +45,9 @@
     margin-top: 6rem;
 }
 
+.navItem img,
+.navItem.active img {display: none !important;}
+
 .sliderNav p a {
     color: var(--white);
     font-family: 'GT Walsheim Light';
@@ -129,7 +132,6 @@
 }
 
 @media only screen and (max-width: 800px){
-
     .sliderNav p:not(:first-of-type) a{
         margin-top: 0rem;
     }
@@ -142,7 +144,8 @@
         -o-text-stroke: 0px white;
         -moz-text-stroke: 0px white;
         -ms-text-stroke: 0px white;
-        margin: 0 14rem 0 0;
+        margin: 0rem 14rem 1rem 0;
+        padding: 1.5rem 0 1rem 0;
         line-height: 1.3;
     }
 
@@ -155,7 +158,7 @@
         flex-direction: column;
         width: 85%;
     }
-    .sliderNav p {margin-block-start: 0em; margin-block-end: 0em; line-height: 0.8;}
+    .sliderNav p {margin-block-start: 0em; margin-block-end: 0em; line-height: 0.5;}
     .sliderNav p a {
         font-family: 'GT Walsheim Light';
         text-transform: uppercase;
@@ -163,7 +166,7 @@
         cursor: pointer;
         margin: auto;
         display: block;
-        padding: 0rem 0rem 0.3rem 0rem;
+        padding: 2rem 0rem 0.3rem 0rem;
         -webkit-text-stroke: 1px white;
         -o-text-stroke: 1px white;
         -moz-text-stroke: 1px white;
@@ -175,10 +178,35 @@
     .sliderNav p a.active {
         color: var(--white);
         font-size:12rem; 
+        padding: 4rem 0 0 0;
         text-align: left;
         -webkit-text-stroke: 0px white;
         -o-text-stroke: 0px white;
         -moz-text-stroke: 0px white;
         -ms-text-stroke: 0px white;
     }
+    .navItem.active img {
+        display: inline !important; 
+        width: 29px; 
+        float: right; 
+        margin-top: 4rem;
+    }
+}
+@media only screen and (max-width: 600px){
+    .sliderNavContainer {
+        position: absolute;
+        top: 6rem;
+        left: 0rem;
+        right: 0rem;
+        padding: 0rem 1rem 0rem 3rem;
+        width: 100%;
+    }
+    .sliderNav p a.active {font-size:8rem;}
+    .navItem.active img {margin-top: 1.6rem; margin-right: 1rem;}
+    .mobiledescription.active {margin: 0 15% 0rem 0;}
+}
+@media only screen and (max-width: 420px){
+    .sliderNav p a {font-size: 5rem;}
+    .sliderNav p a.active {font-size:7rem;}
+    .mobiledescription.active {margin: 0 20% 0rem 0;}
 }

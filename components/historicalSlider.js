@@ -69,6 +69,7 @@ export default function HistoricalSlider(props) {
                                     <p key={`${year.year}-nav`} className={`${ sliderActive == index ? styles.active : '' }`}>
                                         <a className={`${styles.navItem} ${ sliderActive == index ? styles.active : '' }`} data-slide={index} onClick={() => changeSlider(index)}>
                                             {year.year}
+                                            <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_WhiteArrow-1.png" alt="arrow down"/>
                                         </a>
                                         <span className={`sans-serif-bold uppercase ${styles.mobiledescription} ${ sliderActive == index ? styles.active : '' }`} style={{ letterSpacing: 'var(--letter-spacing)'}} dangerouslySetInnerHTML={{ __html: year.caption }}></span>
                                     </p>
