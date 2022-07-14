@@ -97,6 +97,10 @@
         height: auto;
         background: unset;
     }
+    .roomHeading {
+        left: 2rem;
+        top: 2rem;
+    }
     .room img {display: block !important;}
     .roomSliderNavigation {display: none !important;}
 
