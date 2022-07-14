@@ -20,6 +20,7 @@ const EventFeedContainer = styled.div`
     article:first-of-type {
         margin-top: ${props => props.fullWidget ? '0' : '2rem'};
     }
+    article:last-of-type {border-bottom: 1px solid var(--black);}
 
     article p {
         line-height: 1;
