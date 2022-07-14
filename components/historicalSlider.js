@@ -47,11 +47,11 @@ export default function HistoricalSlider(props) {
                         let previousYear = years[nextIndex]?.year || years[0]?.year
                         
                         return (
-                            <div key={year.year} className={`${styles.year} single-year` }>
+                            <div key={year.year} className={`${styles.year} ${styles.singleyear}` } style={{ backgroundImage: `url(${year.image.mediaItemUrl})` }}>
                                 <Image src={year.image.mediaItemUrl} alt={year.image.altText} width={1920} height={969} layout="responsive" sizes="100vw" />
                                 <div className={styles.yearTextContainer}>
-                                    <div className={styles.yearContentContainer}>    
-                                        <p className="xl-heading actual-year center" data-text={previousYear} style={{ lineHeight: 1 }}>{year.year}</p>
+                                    <div className={styles.yearContentContainer}>
+                                        <p className={`xl-heading ${styles.actualyear} center`} data-text={previousYear} style={{ lineHeight: 1 }}>{year.year}</p>
                                         <p className="sans-serif-bold uppercase" style={{ letterSpacing: 'var(--letter-spacing)'}} dangerouslySetInnerHTML={{ __html: year.caption }}></p>
                                     </div>
                                 </div>
@@ -61,23 +61,22 @@ export default function HistoricalSlider(props) {
                 }
             </Flickity>
             <div className={styles.sliderNavContainer}>
-                <div className="max-80">
                     <p className={`serif heading white ${styles.sliderTitle}`}>Building History</p>
                     <div className={styles.sliderNav}>
                         {
                             years.map((year, index) => {
                                 return (
                                     <p key={`${year.year}-nav`} className={`${ sliderActive == index ? styles.active : '' }`}>
-                                        <a className={styles.navItem} data-slide={index} onClick={() => changeSlider(index)}>
+                                        <a className={`${styles.navItem} ${ sliderActive == index ? styles.active : '' }`} data-slide={index} onClick={() => changeSlider(index)}>
                                             {year.year}
                                         </a>
+                                        <span className={`sans-serif-bold uppercase ${styles.mobiledescription} ${ sliderActive == index ? styles.active : '' }`} style={{ letterSpacing: 'var(--letter-spacing)'}} dangerouslySetInnerHTML={{ __html: year.caption }}></span>
                                     </p>
                                 )
                             })
                         }
                     </div>
                 </div>
-            </div>
         </section>
     )
 }

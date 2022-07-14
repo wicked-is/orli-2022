@@ -226,15 +226,6 @@ label.rooms-filter {
   }
 }
 
-.single-year .actual-year { display: inline-flex; }
-.single-year.is-selected p.actual-year::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 90%;
-  -webkit-text-stroke: 1px white;
-  color: transparent;
-}
-
 @media only screen and (max-width: 1116px) {
   .subnavigationContainer, 
   .subnavigationonlyContainer {
