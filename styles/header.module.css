@@ -30,7 +30,7 @@
     display: block;
 }
 
-.header.open .headerlogo {filter: invert(1);}
+.header.open .headerlogo {filter: invert(1); top: 2rem;}
 
 .header .primarybutton  {
     position: absolute;
@@ -86,7 +86,7 @@
     margin: 0;
     overflow: visible;
     position: absolute;
-    right: 260px;
+    right: 14rem;
     top: 1.3rem;
     z-index: 1;
     opacity: 1;
@@ -285,7 +285,7 @@ ul.socials {
         width: 100%;
         max-width: 6rem;
         left: 2rem;
-        top: -0.4rem;
+        top:1rem;
         display: block;
     }
     .header .sitebranding {height: 5rem;}
