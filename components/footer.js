@@ -221,7 +221,7 @@ export default function Footer() {
                             </address>
                                 
                             <p className="directions xs-copy white left">
-                                <Link href="/">Get Directions</Link>
+                                <Link href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">Get Directions</Link>
                             </p>
                         </div>
                     </div>
