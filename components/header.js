@@ -8,6 +8,8 @@ import Script from 'next/script';
 import Analytics from './Analytics'
 import WeatherWidget from './WeatherWidget';
 
+import Favicon from '../public/favicon.ico'
+
 export default function Header(props) {
     
     const navItems = props.navItems
@@ -38,6 +40,8 @@ export default function Header(props) {
         setAnnouncementbarIsOpen(false);
     }
 
+    console.log(Favicon.src);
+
     return (
         <header className={`${styles.header} ${navIsOpen ? styles.open : ''}`}>
             
@@ -49,7 +53,8 @@ export default function Header(props) {
             <Head>
                 {/* Head elements required on every page */}
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-                <link rel="icon" href="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Favicon.jpg" />
+                {/* <link rel="icon" href="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Favicon.jpg" /> */}
+                <link rel="icon" href={Favicon.src} />
             </Head>
             {
                 topBar?.isAnnouncementBarActive && (
