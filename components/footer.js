@@ -217,7 +217,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <address className="sans-serif xs-copy white left">
-                                Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla<br/>La Jolla, CA 92037
+                                Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla, CA 92037
                             </address>
                                 
                             <p className="directions xs-copy white left">
