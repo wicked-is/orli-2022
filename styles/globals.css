@@ -226,7 +226,7 @@ label.rooms-filter {
   }
 }
 
-@media only screen and (max-width: 1116px) {
+@media only screen and (max-width: 1100px) {
   .subnavigationContainer, 
   .subnavigationonlyContainer {
       overflow-x:scroll;
