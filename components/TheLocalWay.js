@@ -23,6 +23,8 @@ const TheLocalWayContainer = styled.section`
     p[data-address] {
         margin: 0;
     }
+
+    iframe + div { border: 0 !important; }
 `
 const ColumnsContainer = styled.section`
     display: grid;
@@ -44,11 +46,16 @@ const ColumnsContainer = styled.section`
     }
 `
 const Column = styled.div``
-const ListContainer = styled.p`
+const ListContainer = styled.div`
     line-height: 32px;
     font-size: var(--body-copy);
     font-family: 'GT Walsheim Light';
     line-height: 150%;
+
+    p:hover {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 `
 const ColumnSection = styled.div`
     margin-bottom: 2rem;
@@ -70,6 +77,7 @@ export default function TheLocalWay(props) {
         let the_window = window
 
         function initMap() {
+            
             map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 32.838862, lng: -117.250063, },
                 zoom: 14,
@@ -330,6 +338,26 @@ export default function TheLocalWay(props) {
 
             markers.push(mainMarker)
             makeMarkersVisible(mainMarker)
+
+            // console.log(columns);
+            columns.map((column, index) => {
+                column.sections.map((section, index) => {
+                    section.locations.map((location, index) => {
+                        
+                        let aNewMarker = new google.maps.Marker({
+                            position: { lat: Number(location.lat), lng: Number(location.long)},
+                            icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/picker.svg",
+                            map: map
+                        });
+
+                        infowindow.setContent(`<div id="map-tip">${location.name}</div>`);
+                        infowindow.setPosition({ lat: Number(location.lat), lng: Number(location.long)})
+
+                        markers.push(aNewMarker)
+                        
+                    })
+                })
+            })
         }
 
         // Hide irrelevant markers
@@ -349,41 +377,19 @@ export default function TheLocalWay(props) {
         
         document.querySelectorAll('p[data-address]').forEach((item, index) => {
             item.addEventListener('click', function (e) {
-                let geocoder = new google.maps.Geocoder();
-                let address = e?.target?.dataset?.address;
-                let name = e?.target?.dataset?.name;
 
                 if (infowindow !== null) {
                     infowindow.close()
+                    infowindow.setContent(`<div id="map-tip">${item.dataset.name}</div>`);
+                    infowindow.setPosition({ lat: Number(item.dataset.lat), lng: Number(item.dataset.long)})
+                    infowindow.open({
+                        map,
+                        shouldFocus: false,
+                    });
                 }
+                
 
-                // gsap.to(the_window, {duration: 1, scrollTo: {y: "#map", offsetY: 100}});
-
-                geocoder.geocode( { 'address': address}, function(results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        let latitude = results[0].geometry.location.lat();
-                        let longitude = results[0].geometry.location.lng();
-
-                        // let aNewMarker = new google.maps.Marker({
-                        //     position: { lat: latitude, lng: longitude},
-                        //     icon: "",
-                        //     title: name
-                        // });
-                        // infowindow.close();
-
-                        infowindow.setContent(`<div id="map-tip">${name}</div>`);
-                        infowindow.setPosition({ lat: latitude, lng: longitude})
-                        infowindow.open({
-                            map,
-                            shouldFocus: false,
-                        });
-
-                        // markers.push(aNewMarker)
-                        // makeMarkersInvisible(markers)
-                        // makeMarkersVisible(aNewMarker);
-                        map.panTo({ lat: latitude, lng: longitude})
-                    } 
-                });
+                map.panTo({ lat: Number(item.dataset.lat), lng: Number(item.dataset.long)})
             })
         })
 
@@ -409,7 +415,7 @@ export default function TheLocalWay(props) {
                                                 <ListContainer>
                                                     {
                                                         section.locations && section.locations.map((location, index) => (
-                                                            <p key={location.name} data-address={location.address} data-name={location.name}>{location.name}</p>
+                                                            <p key={location.name} data-address={location.address} data-name={location.name} data-lat={location.lat} data-long={location.long}>{location.name}</p>
                                                         ))
                                                     }
                                                 </ListContainer>
