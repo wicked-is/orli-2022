@@ -190,22 +190,14 @@ export default function RoomsGrid(props) {
 
     const filterRooms = () => {
         
-        const newRooms = [];
+        let newRooms = [];
 
         newFilters.some(filter => { 
-            console.log(filter);
             roomsgrid.forEach((room, index) => {
-                // if (room?.categories?.nodes?.includes(filter)) {
-                //     newRooms.push(room);
-                // }
-                // log()
-                if (room?.singleRooms?.amenities?.includes(filter)) {
-                     newRooms.push(room);
-                }
-                room.singleRooms.features.forEach((feature, index) => {
-                    if (feature.label == filter) {
-                        newRooms.push(room)
-                    }
+                room.roomAmenities.nodes.map(amenity => {
+                    if (amenity.name.includes(filter)) {
+                        newRooms.push(room);
+                    }   
                 })
             })
         })
@@ -270,7 +262,6 @@ export default function RoomsGrid(props) {
                     filters.map((filter, index) => { 
                         return (
                             <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
-                            // <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
                         )
                     })
                 }
@@ -278,10 +269,13 @@ export default function RoomsGrid(props) {
             <ul className={styles.gridList}>
             {
                     currentRooms.length != 0 ? currentRooms.map((room, index) => {
-                        const roomFilters = room.singleRooms.amenities
+                        let filterList = []
+                        let filterName = room.roomAmenities.nodes.map(item => filterList.push(item.name))
+                        let filters = filterList.join(",")
+                        
                         return (
                             <li className="room-tile" key={`room-${index}`}
-                                data-filter={roomFilters}
+                                data-filter={filters}
                                 data-sleeps={room.singleRooms.sleeps}
                                 data-roomtitle={room.title}
                                 data-description={room.singleRooms.description}

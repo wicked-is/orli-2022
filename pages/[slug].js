@@ -608,11 +608,9 @@ export async function getStaticProps({ params }) {
                 }
                 roomsgrid {
                   ... on Room {
-                    categories(first: 10) {
+                    roomAmenities {
                       nodes {
-                        ... on Category {
-                          name
-                        }
+                        name
                       }
                     }
                     singleRooms {
