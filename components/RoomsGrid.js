@@ -97,8 +97,8 @@ const RoomTile = styled.a`
 
 export default function RoomsGrid(props) {
 
-    // const [filters, setFilters] = useState(props.roomsGridFilter);
-    const [filters, setFilters] = useState(filterList);
+    const [filters, setFilters] = useState(props.filters);
+    // const [filters, setFilters] = useState(filterList);
     const [currentRooms, setCurrentRooms] = useState(props.roomsgrid);
     const [dialogContent, setDialogContent] = useState({
         sleeps: '',
@@ -269,7 +269,7 @@ export default function RoomsGrid(props) {
                 {
                     filters.map((filter, index) => { 
                         return (
-                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter}><span id="checkbox"></span>{filter}</FilterLabel>
+                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
                             // <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
                         )
                     })

@@ -33,8 +33,9 @@ import EventFeed from '../components/eventFeed';
 
 export default function DefaultPage(props) {
 
+    const { roomAmenities } = props.data.data;
     const { seo } = props.data.data.page;
-    const { sections } = props.data.data.page.flexibleContent;  
+    const { sections } = props.data.data.page.flexibleContent; 
 
     useEffect(() => {
         var tl =  gsap.timeline()
@@ -132,7 +133,7 @@ export default function DefaultPage(props) {
                   gatheredSections.push(<TheLocalWay key={componentKey} {...section} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_RoomsGrid':
-                    gatheredSections.push(<RoomsGrid key={componentKey} {...section} />)
+                    gatheredSections.push(<RoomsGrid key={componentKey} {...section} filters={roomAmenities.nodes} />)
                     break;
                 default:
                     break;
@@ -208,6 +209,11 @@ export async function getStaticProps({ params }) {
               announcementBarText
               isAnnouncementBarActive
             }
+          }
+        }
+        roomAmenities {
+          nodes {
+            name
           }
         }
         page(id: "${slug}", idType: URI) {
