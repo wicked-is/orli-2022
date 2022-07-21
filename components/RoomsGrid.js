@@ -145,7 +145,7 @@ export default function RoomsGrid(props) {
         gsap.to(filterContainerTBNA, {
             scrollTrigger: {
                 trigger: filterContainerTBNA,
-                start: "top-=0 96px",
+                start: "top-=0 63px",
                 endTrigger: maincontent,
                 end: "bottom-=0 bottom-=150",
                 pin: filterContainerTBNA,

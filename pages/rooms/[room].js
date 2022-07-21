@@ -95,6 +95,7 @@ const ReservationForm = styled.form``
 const ReservationFormLabel = styled.label`
   display: flex;
   justify-content: space-between; 
+  align-items: center;
   * {
     flex: 1
     max-width: 50%
@@ -240,8 +241,8 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
             <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
-              <ReservationFormLabel className="sans-serif uppercase">Check In<input type={checkInType} onFocus={() => setCheckInType('date')} name="widget_date" placeholder="Add Dates" className="sans-serif"/></ReservationFormLabel><br />
-              <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={checkOutType} name="widget_date_to" placeholder="Add Dates" onFocus={() => setCheckOutType('date')} className="sans-serif"/></ReservationFormLabel>
+              <ReservationFormLabel className="sans-serif uppercase">Check In<input type={"date"} name="widget_date" placeholder="Add Dates" className="sans-serif"/></ReservationFormLabel><br />
+              <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={"date"} name="widget_date_to" placeholder="Add Dates" className="sans-serif"/></ReservationFormLabel>
               <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
             </ReservationForm>
           </GreyBackground>

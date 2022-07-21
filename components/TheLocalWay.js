@@ -79,7 +79,7 @@ export default function TheLocalWay(props) {
         function initMap() {
             
             map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 32.844810, lng: -117.267010, },
+                center: { lat: 32.843875, lng: -117.270995, },
                 zoom: 16,
                 mapTypeControl: false,
                 streetViewControl: false,

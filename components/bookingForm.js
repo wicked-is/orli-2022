@@ -16,11 +16,13 @@ export default function BookingForm() {
             <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/L1Jxph" target="_blank">
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
-                    <input type={checkInType} onFocus={() => setCheckInType('date')} name="widget_date" placeholder="Add Dates" className="sans-serif"/>
+                    {/* onFocus={() => setCheckInType('date')}  */}
+                    <input type={"date"} name="widget_date" placeholder="Add Dates" className="sans-serif"/>
                 </div>
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check Out</span>
-                    <input type={checkOutType} name="widget_date_to" placeholder="Add Dates" onFocus={() => setCheckOutType('date')} className="sans-serif"/>
+                    {/* onFocus={() => setCheckOutType('date')}  */}
+                    <input type={"date"} name="widget_date_to" placeholder="Add Dates" className="sans-serif"/>
                 </div>
                 <button type="submit" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
             </form>
