@@ -35,7 +35,7 @@ const FieldGroup = styled.div`
         border-radius: 0;
     }
 
-    &:last-of-type {
+    &.messageField {
         grid-column: 1/3;
 
         @media (max-width: 768px) {
@@ -43,6 +43,20 @@ const FieldGroup = styled.div`
         }
     }
 `;
+const SubmitButtonContainer = styled.div`
+    grid-column: 1/3;
+    @media (max-width: 768px) {
+        grid-column: 1/2;
+    }
+`
+const SubmitButton = styled.button`
+    width:245px;
+    height: 100px;
+    background-color: transparent;
+    border: 1px solid var(--brown);
+    color: var(--brown);
+    float: right;
+`
 
 export default function Form(props) {
     const {
@@ -94,6 +108,9 @@ export default function Form(props) {
                             <label className="sans-serif sub-heading-bold black" htmlFor="additionaldetails">Additional Details*</label>
                             <textarea required name="additionaldetails" placeholder="Your Message" rows="4" />
                         </FieldGroup>
+                        <SubmitButtonContainer>
+                            <SubmitButton className="sans-serif xs-copy center uppercase">Submit</SubmitButton>
+                        </SubmitButtonContainer>
                     </EventForm>
                 )
             case 'Contact Form':

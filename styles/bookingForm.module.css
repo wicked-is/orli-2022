@@ -2,7 +2,7 @@
 
 .form {
     display: flex;
-    height: 94px;
+    height: 80px;
     align-self: flex-end;
     width: 100%;
     background: var(--white);
@@ -23,7 +23,7 @@
 .formGroup input {
     border: 0;
     font-family: 'GT Walsheim Light';
-    padding: 0.5rem 0;
+    padding: 0;
     cursor: pointer;
     outline: none;
     width: 100%;

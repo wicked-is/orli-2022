@@ -142,18 +142,18 @@ export default function RoomsGrid(props) {
         const filterContainerTBA = gsap.utils.toArray('.top-bar-active .filter-container');
         const filterContainerTBNA = gsap.utils.toArray('.tob-bar-not-active .filter-container');
 
-        gsap.to(filterContainerTBNA, {
-            scrollTrigger: {
-                trigger: filterContainerTBNA,
-                start: "top-=0 63px",
-                endTrigger: maincontent,
-                end: "bottom-=0 bottom-=150",
-                pin: filterContainerTBNA,
-                markers: false,
-                pinSpacing: false,
-                scrub: true
-            }, y: 0
-        })
+        // gsap.to(filterContainerTBNA, {
+        //     scrollTrigger: {
+        //         trigger: filterContainerTBNA,
+        //         start: "top-=0 63px",
+        //         endTrigger: maincontent,
+        //         end: "bottom-=0 bottom-=150",
+        //         pin: filterContainerTBNA,
+        //         markers: false,
+        //         pinSpacing: false,
+        //         scrub: true
+        //     }, y: 0
+        // })
 
         gsap.to(filterContainerTBA, {
             scrollTrigger: {
