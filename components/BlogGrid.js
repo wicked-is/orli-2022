@@ -18,18 +18,21 @@ const BlogTile = styled.div`
     &:nth-child(1n + 3) {
         width: 27.33%;
         margin: 0.5rem 0.5rem 0.5rem 5rem;
+        position: relative;
     }
 
     &:nth-child(2),
     &:nth-child(2n) {
         width: 27.33%;
         margin: 0.5rem;
+        position: relative;
     }
 
     &:nth-child(3),
     &:nth-child(3n + 4) {
         width: 27.33%;
         margin: 0.5rem 5rem 0.5rem 0.5rem;
+        position: relative;
     }
 
     @media only screen and (max-width:1074px) {
@@ -135,7 +138,7 @@ export default function BlogGrid(props) {
                     return (
                         <BlogTile key={index} className="fadein" featured={featured} background={post.featuredImage.node.mediaItemUrl}>
                             { featured && ( <p className="xs-heading uppercase white">{category}</p> ) }
-                            <Image src={post.featuredImage.node.mediaItemUrl} width={430} height={436} layout="intrinsic" />
+                            <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} layout="intrinsic" alt={post.featuredImage.node.altText} className="blogImage" />
                             { !featured && ( <p className="xs-heading uppercase black">{category}</p> ) }
                             <Link href={post.link}>
                                 <p className="serif heading black">{post.title}</p>
