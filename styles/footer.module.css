@@ -2,6 +2,7 @@
   /* padding: 7.5rem 0; */
   width: 100%;
   display: flex;
+  z-index: 9;
   flex-direction: row;
   margin-inline: auto;
   position: relative;
