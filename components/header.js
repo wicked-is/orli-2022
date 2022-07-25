@@ -16,7 +16,7 @@ export default function Header(props) {
     const topBar = props.topBar
 
     const [navIsOpen, setNavIsOpen] = useState(false);
-    const [navImage, setNavImage] = useState('https://orlidev.wpengine.com/wp-content/uploads/2022/06/Orli_FindYourRoomweb.jpg');
+    const [navImage, setNavImage] = useState('https://orlidev.wpengine.com/wp-content/uploads/2022/06/Orli_TheJournalweb.jpg');
     const [announcementbarIsOpen, setAnnouncementbarIsOpen] = useState(false);
 
     useEffect(() => { 
