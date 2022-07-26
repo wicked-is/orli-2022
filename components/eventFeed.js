@@ -149,8 +149,8 @@ export default function EventFeed(props) {
             setCurrentEvent({
                 title: events[0].title,
                 description: events[0].singleEvent.description,
-                category: events[0].categories.nodes[0].name,
-                image: events[0].featuredImage.node.mediaItemUrl,
+                category: events[0]?.categories?.nodes[0]?.name,
+                image: events[0]?.featuredImage?.node?.mediaItemUrl,
                 date: events[0].singleEvent.date,
                 time: events[0].singleEvent.time,
                 address: events[0].singleEvent.address,
@@ -207,7 +207,7 @@ export default function EventFeed(props) {
                                 data-description={event?.singleEvent?.description}
                             >
                                 <a href="#">
-                                    <p className="sans-serif xs-copy left">{event.categories.nodes[0].name} | {day} {month} {year}</p>
+                                    <p className="sans-serif xs-copy left">{event?.categories?.nodes[0]?.name} | {day} {month} {year}</p>
                                     <div className="flexcenter">
                                         <div className="col-1-90">
                                             <h3 className="heading" style={{ margin: '0 0 1rem' }}>{event.title}<span className={styles.arrow}></span></h3>
