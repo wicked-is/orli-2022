@@ -27,7 +27,7 @@ export default function Header(props) {
         if (topBar.isAnnouncementBarActive) {
             setAnnouncementbarIsOpen(isAB_Active)
         }
-    }, []);
+    }, [topBar]);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
