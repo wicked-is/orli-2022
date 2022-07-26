@@ -22,9 +22,9 @@ export default function Header(props) {
     useEffect(() => { 
         setNavImage(navImage);
     }, [navImage]);
-
+    console.log(topBar);
     useEffect(() => { 
-        setAnnouncementbarIsOpen(topBar?.isAnnouncementBarActive)
+        setAnnouncementbarIsOpen(topBar.isAnnouncementBarActive == null ? false : true)
     }, []);
 
     function toggleNav() {
