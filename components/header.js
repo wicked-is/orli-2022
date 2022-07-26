@@ -24,10 +24,11 @@ export default function Header(props) {
     }, [navImage]);
 
     useEffect(() => { 
-        const isAB_Active = topBar.isAnnouncementBarActive === null ? false : true;
+        
+        const isAB_Active = topBar?.isAnnouncementBarActive === null ? false : true;
 
         setAnnouncementbarIsOpen(isAB_Active)
-    }, [topBar]);
+    }, [topBar.isAnnouncementBarActive]);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
