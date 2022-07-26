@@ -22,9 +22,11 @@ export default function Header(props) {
     useEffect(() => { 
         setNavImage(navImage);
     }, [navImage]);
+
     console.log(topBar);
+
     useEffect(() => { 
-        const isAB_Active = topBar.isAnnouncementBarActive === undefined ? false : true
+        const isAB_Active = topBar.isAnnouncementBarActive === null ? false : true
         setAnnouncementbarIsOpen(isAB_Active)
     }, []);
 
