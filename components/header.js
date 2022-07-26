@@ -13,7 +13,7 @@ import Favicon from '../public/favicon.ico'
 export default function Header(props) {
     
     const navItems = props.navItems
-    const topBar = props.topBar
+    const topBar = props?.topBar
 
     const [navIsOpen, setNavIsOpen] = useState(false);
     const [navImage, setNavImage] = useState('https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_OurStory2Web.jpg');
@@ -24,11 +24,10 @@ export default function Header(props) {
     }, [navImage]);
 
     useEffect(() => { 
-        
-        const isAB_Active = topBar?.isAnnouncementBarActive === null ? false : true;
-
-        setAnnouncementbarIsOpen(isAB_Active)
-    }, [topBar.isAnnouncementBarActive]);
+        if (topBar.isAnnouncementBarActive) {
+            setAnnouncementbarIsOpen(isAB_Active)
+        }
+    }, []);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
