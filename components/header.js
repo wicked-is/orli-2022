@@ -25,9 +25,9 @@ export default function Header(props) {
 
     useEffect(() => { 
         if (topBar.isAnnouncementBarActive) {
-            setAnnouncementbarIsOpen(isAB_Active)
+            setAnnouncementbarIsOpen(topBar.isAnnouncementBarActive)
         }
-    }, [topBar]);
+    }, []);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
