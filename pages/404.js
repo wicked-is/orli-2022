@@ -7,7 +7,6 @@ const FullSection = styled.section`
     justify-content: center;
     align-items: center;
     min-height: 65vh;
-    /* background-color: var(--blue); */
     padding-top: 4rem;
 `
 const Title = styled.p`
