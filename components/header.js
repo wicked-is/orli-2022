@@ -24,7 +24,7 @@ export default function Header(props) {
     }, [navImage]);
     console.log(topBar);
     useEffect(() => { 
-        setAnnouncementbarIsOpen(topBar.isAnnouncementBarActive == null ? false : true)
+        setAnnouncementbarIsOpen(topBar.isAnnouncementBarActive === undefined ? false : true)
     }, []);
 
     function toggleNav() {
