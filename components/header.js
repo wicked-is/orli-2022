@@ -57,7 +57,7 @@ export default function Header(props) {
                 <link rel="icon" href={Favicon.src} />
             </Head>
             {
-                topBar?.isAnnouncementBarActive && (
+                announcementbarIsOpen && (
                     <div className={styles.announcementbar} style={{
                         display: announcementbarIsOpen ? 'flex' : 'none'
                     }}>
