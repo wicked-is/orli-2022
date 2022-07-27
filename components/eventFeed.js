@@ -170,6 +170,7 @@ export default function EventFeed(props) {
                         address: el.dataset.address,
                         gcal: el.dataset.gcal,
                         acal: el.dataset.acal,
+                        locationName: el.dataset.locationName,
                     })
                 })
             });
@@ -206,6 +207,7 @@ export default function EventFeed(props) {
                                 data-acal={event?.singleEvent?.addToAppleCalendarLink}
                                 data-address={event?.singleEvent?.address}
                                 data-description={event?.singleEvent?.description}
+                                data-locationName={event?.singleEvent?.locationName}
                             >
                                 <a href="#">
                                     <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>

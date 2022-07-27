@@ -514,6 +514,10 @@ export async function getStaticProps({ params }) {
                     link
                     title
                     date
+                    singleEvent {
+                      locationName
+                      date
+                    }
                     categories {
                       nodes {
                         name
