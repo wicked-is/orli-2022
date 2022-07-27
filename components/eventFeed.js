@@ -95,7 +95,7 @@ const RSVPLink = styled.a`
     width: fit-content;
     color: var(--brown);
     border: 1px solid var(--brown);
-    padding: 2rem 4.5rem;
+    padding: 1.4rem 4.5rem;
     margin-block: 2.5rem;
 `
 const CalendarLinkContainer = styled.div`

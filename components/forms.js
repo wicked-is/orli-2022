@@ -56,7 +56,7 @@ const SubmitButton = styled.button`
     color: var(--brown);
     background-color: transparent;
     border: 1px solid var(--brown);
-    padding: 2rem 4.5rem;
+    padding: 1.3rem 4.5rem;
     margin-block: 2.5rem;
 `
 export default function Form(props) {

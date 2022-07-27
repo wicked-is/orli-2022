@@ -26,7 +26,7 @@ export default function WeatherWidget(props) {
     const time = new Date().toLocaleTimeString([], { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit' })
     
     return (
-        <WidgetContainer className="weather-copy white">
+        <WidgetContainer className="weather-copy white sans-serif">
             <Title className="sun">La Jolla, CA</Title>
             <p><span style={{ marginRight: '1rem' }}>{time}</span>{data?.current?.temperature?.current}&#176;</p>
         </WidgetContainer>
