@@ -67,7 +67,7 @@ export default function BigImageSmallContent(props) {
                     }
                     <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
                     <p className="serif heading black left">{headline}</p>
-                    <p className="sans-serif body-copy black left">{blurb}</p>
+                    <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: blurb}} ></div>
                     {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>
                 <div className={styles.col160}>
