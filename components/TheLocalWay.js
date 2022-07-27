@@ -77,10 +77,9 @@ export default function TheLocalWay(props) {
         let the_window = window
 
         function initMap() {
-            
             map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 32.843875, lng: -117.270995, },
-                zoom: 16,
+                center: { lat: 32.845857, lng: -117.268310, },
+                zoom: 14.7,
                 mapTypeControl: false,
                 streetViewControl: false,
                 styles: [

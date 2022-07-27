@@ -50,14 +50,15 @@ const SubmitButtonContainer = styled.div`
     }
 `
 const SubmitButton = styled.button`
-    width:245px;
-    height: 100px;
+    display: block;
+    width: fit-content;
+    float: right;
+    color: var(--brown);
     background-color: transparent;
     border: 1px solid var(--brown);
-    color: var(--brown);
-    float: right;
+    padding: 2rem 4.5rem;
+    margin-block: 2.5rem;
 `
-
 export default function Form(props) {
     const {
         type,

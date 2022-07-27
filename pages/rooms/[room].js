@@ -177,7 +177,7 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <h1 className="heading">{room.title}</h1>
             <p>{room.singleRooms.description}</p>
-            <p className="sans-serif xs-copy underline"><a>View Floorplan</a></p>
+            <p className="sans-serif xs-copy underline"><a>View Floor Plan</a></p>
           </SingleRoomMainDesc>
 
           <FeatureContainer>
