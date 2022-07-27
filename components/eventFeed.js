@@ -156,6 +156,7 @@ export default function EventFeed(props) {
                 address: events[0].singleEvent.address,
                 gcal: events[0].singleEvent.gcal,
                 acal: events[0].singleEvent.acal,
+                locationName: events[0].singleEvent.locationName,
             })
             document.querySelectorAll('.event-tile').forEach(el => {
                 el.addEventListener('mouseenter', () => {
@@ -207,7 +208,7 @@ export default function EventFeed(props) {
                                 data-description={event?.singleEvent?.description}
                             >
                                 <a href="#">
-                                    <p className="sans-serif xs-copy left">{event?.categories?.nodes[0]?.name} | {day} {month} {year}</p>
+                                    <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
                                     <div className="flexcenter">
                                         <div className="col-1-90">
                                             <h3 className="heading" style={{ margin: '0 0 1rem' }}>{event.title}<span className={styles.arrow}></span></h3>
@@ -228,7 +229,7 @@ export default function EventFeed(props) {
             </Left>
             {props.fullWidget && (
                 <Right>
-                    <HeadContainer style={{ backgroundImage: `url(${currentEvent.image ? currentEvent.image : '' })`}}>
+                    <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center center`, backgroundSize: 'cover'}}>
                         <p className="white sans-serif body-copy mb-0">{currentEvent.category  ? currentEvent.category : ''}</p>
                         <p className="heading white serif">{currentEvent.title}</p>
                     </HeadContainer>

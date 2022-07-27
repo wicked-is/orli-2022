@@ -742,6 +742,7 @@ export async function getStaticProps({ params }) {
                       time
                       address
                       description
+                      locationName
                     }
                   }
                 }
