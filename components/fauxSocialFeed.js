@@ -6,7 +6,7 @@ export default function FauxSocialFeed(props) {
 
     let { backgroundColor, ctaLink, ctaText, headline, image: images } = props;
 
-    if (props.images == undefined || props.images.length == 0 || props.images == null) {
+    if (props.image == undefined || props.image.length == 0 || props.image == null) {
         images = [
         {
             "altText": "",
