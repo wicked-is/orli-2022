@@ -242,7 +242,7 @@ export default function EventFeed(props) {
                         </div>
                         <p className="mt-0 sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: currentEvent.description }}></p>
                         <RSVPLink href="/">
-                            RSVP
+                            RSVP COMING SOON
                         </RSVPLink>
                         <CalendarLinkContainer>
                             <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal}>Add to Google Calendar</CalendarLink>

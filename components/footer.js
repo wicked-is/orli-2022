@@ -243,8 +243,8 @@ export default function Footer() {
                         <div>
                             <div>
                                 <div>
-                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: 123 555 5555<br/>
-                                    E: email@stayorli.com</p>
+                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:18583668949">858-366-8949</a><br/>
+                                    E: <a href="mailto:info@stayorli.com">info@stayorli.com</a></p>
                                     <ul className="socials">
                                         <li>
                                             <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">

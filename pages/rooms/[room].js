@@ -151,8 +151,8 @@ export default function DefaultRoomsPage(props) {
         scrollTrigger: {
             trigger: content,
             start: "top-=80 150px",
-            endTrigger: "footer",
-            end: "bottom+=0 0px",
+            endTrigger: ".Grey-bg",
+            end: "top bottom",
             pin: sidebar,
             markers: false,
             onRefresh: self => self.pin.parentNode.style.float = "right",
