@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useEffect } from "react";
 import { useWindowSize } from "../utils/hooks";
 import styled from "styled-components";
+import FauxSocialFeed from "./fauxSocialFeed";
 
 const MobileFooterContainer = styled.footer`
     display: flex;
@@ -44,7 +45,7 @@ const Right = styled.div`
     }
 `
 
-export default function Footer() {
+export default function Footer(props) {
 
     const size = useWindowSize();
 
@@ -138,6 +139,7 @@ export default function Footer() {
                     </footer> 
                 */
             }
+            <FauxSocialFeed image={props.footerImages } />
             { size.width < 768 ? (
                 <>
                     <MobileFooterContainer className="mobile-footer">

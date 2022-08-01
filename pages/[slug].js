@@ -209,6 +209,10 @@ export async function getStaticProps({ params }) {
               announcementBarText
               isAnnouncementBarActive
             }
+            socialFooter {
+              altText
+              mediaItemUrl
+            }
           }
         }
         roomAmenities {

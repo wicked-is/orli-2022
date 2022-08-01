@@ -4,10 +4,12 @@ import styles from '../styles/fauxSocialFeed.module.css'
 
 export default function FauxSocialFeed(props) {
 
-    let { backgroundColor, ctaLink, ctaText, headline, image: images } = props;
-
-    if (props.image == undefined || props.image.length == 0 || props.image == null) {
-        images = [
+    
+    let headline = props.headline || 'Follow Along';
+    let backgroundColor = props.backgroundColor || 'Grey';
+    let ctaLink = props.ctaLink || 'https://www.instagram.com/stayorli';
+    let ctaText = props.ctaText || '@StayOrli';
+    let images = props.image || [
         {
             "altText": "",
             "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_IG_01.jpg"
@@ -24,7 +26,7 @@ export default function FauxSocialFeed(props) {
             "altText": "Orli La Jolla California Cold Brew Bar",
             "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_drinkWeb.jpg"
         }
-    ]}
+    ];
 
     return (
         <section className={`${styles.fauxSocialFeedContainer} ${backgroundColor}-bg`}>
