@@ -35,6 +35,7 @@ const SingleRoomContent = styled.div`
     order: 2;
   }
 `
+
 const SingleRoomMainDesc = styled.div``
 
 const SingleRoomBookingForm = styled.div`
@@ -170,9 +171,9 @@ export default function DefaultRoomsPage(props) {
       gsap.to(sidebar, {
         scrollTrigger: {
             trigger: content,
-            start: "top-=80px 150px",
+            start: "top-=40px 150px",
             endTrigger: ".Grey-bg",
-            end: "top center",
+            end: "bottom-=0px 0px",
             pin: sidebar,
             markers: false,
             onRefresh: self => self.pin.parentNode.style.float = "right",
