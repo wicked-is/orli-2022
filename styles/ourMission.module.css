@@ -56,6 +56,6 @@
     }
     .missionContainer {
         padding: 4rem 2rem 0 2rem;
-        height: 60vh;
+        min-height: 60vh;
     }
 }

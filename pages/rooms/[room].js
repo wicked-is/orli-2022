@@ -170,7 +170,7 @@ export default function DefaultRoomsPage(props) {
       gsap.to(sidebar, {
         scrollTrigger: {
             trigger: content,
-            start: "top-=80 150px",
+            start: "top-=80px 150px",
             endTrigger: ".Grey-bg",
             end: "top center",
             pin: sidebar,

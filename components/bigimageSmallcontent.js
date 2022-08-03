@@ -223,7 +223,7 @@ export default function BigImageSmallContent(props) {
                             <div className={styles.col140}>
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
-                            <p className="serif heading white left">{headline}</p>
+                            <p className="serif heading white left mb-3">{headline}</p>
                             <p className="sans-serif body-copy white left">{blurb}</p>
                             {ctaText && (
                                 <a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>
