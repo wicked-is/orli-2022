@@ -166,7 +166,31 @@ export default function TheLocalWay(props) {
                         "elementType": "all",
                         "stylers": [
                             {
-                                "color": "#F2F2F2"
+                                "color": "#F5F5F5"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#022543"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
                             }
                         ]
                     },
@@ -176,6 +200,9 @@ export default function TheLocalWay(props) {
                         "stylers": [
                             {
                                 "color": "#F2F2F2"
+                            },
+                            {
+                                "visibility": "off"
                             }
                         ]
                     },
@@ -184,7 +211,7 @@ export default function TheLocalWay(props) {
                         "elementType": "all",
                         "stylers": [
                             {
-                                "visibility": "off"
+                                "visibility": "on"
                             }
                         ]
                     },
@@ -194,6 +221,9 @@ export default function TheLocalWay(props) {
                         "stylers": [
                             {
                                 "color": "#022543"
+                            },
+                            {
+                                "visibility": "on"
                             }
                         ]
                     },
@@ -212,12 +242,51 @@ export default function TheLocalWay(props) {
                         "stylers": [
                             {
                                 "color": "#022543"
+                            },
+                            {
+                                "visibility": "on"
                             }
                         ]
                     },
                     {
                         "featureType": "poi.attraction",
                         "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.attraction",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
                         "stylers": [
                             {
                                 "visibility": "off"
@@ -238,10 +307,58 @@ export default function TheLocalWay(props) {
                     },
                     {
                         "featureType": "poi.park",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
                         "elementType": "labels.text.fill",
                         "stylers": [
                             {
                                 "color": "#FF0000"
+                            },
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
                             }
                         ]
                     },
