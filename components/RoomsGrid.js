@@ -117,14 +117,11 @@ export default function RoomsGrid(props) {
     useEffect(() => { 
         
         let isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
+
         if(!isMobileDevice){
             const quickview = document.querySelector('.quickview-btn')
             const modal = document.querySelector('dialog')
             const closeButton = document.querySelector('#closeBtn')
-
-            document.querySelectorAll('label.rooms-filter').forEach(label => { 
-                label.addEventListener('click', handleFilterClick);
-            })
 
             document.querySelectorAll('.quickview-btn').forEach(room => { 
                 room.addEventListener('click', handleClick);
@@ -138,6 +135,10 @@ export default function RoomsGrid(props) {
             document.querySelector('dialog').close();
         }
 
+        document.querySelectorAll('label.rooms-filter').forEach(label => { 
+            label.addEventListener('click', handleFilterClick);
+        })
+        
         const maincontent = gsap.utils.toArray('main');
         const filterContainerTBA = gsap.utils.toArray('.top-bar-active .filter-container');
         const filterContainerTBNA = gsap.utils.toArray('.tob-bar-not-active .filter-container');
