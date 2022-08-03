@@ -1,12 +1,13 @@
 import Link from "next/link"
 import styled from "styled-components"
+import Header from "../components/header"
 
 const FullSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 65vh;
+    min-height: 55vh;
     padding-top: 4rem;
 `
 const Title = styled.p`
@@ -25,6 +26,7 @@ const StyledLink = styled.a`
 `
 
 export default function PageNotFound(props) {
+    
     return (
         <FullSection>
             <>
