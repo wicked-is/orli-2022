@@ -19,7 +19,7 @@ const FilterContainer = styled.section`
     margin-inline: auto;
     width: 100%;
     background-color: var(--lt-grey);
-    z-index: 99999;
+    z-index: 97;
 
     @media screen and (max-width: 1100px) {
 
