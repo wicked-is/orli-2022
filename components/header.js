@@ -24,10 +24,10 @@ export default function Header(props) {
     }, [navImage]);
 
     useEffect(() => { 
-        if (topBar.isAnnouncementBarActive) {
+        if (topBar) {
             setAnnouncementbarIsOpen(topBar.isAnnouncementBarActive)
         }
-    }, []);
+    }, [topBar]);
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen)
@@ -129,7 +129,7 @@ export default function Header(props) {
                                     Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla, CA 92037
                                 </address>
                                 <p className="directions xs-copy white left">
-                                    <Link target="_blank" href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">Get Directions</Link>
+                                    <Link target="_blank" href="https://www.google.com/maps/dir//7753+Draper+Ave,+La+Jolla,+CA+92037/@33.8137293,-121.1387246,7z/data=!4m8!4m7!1m0!1m5!1m1!1s0x80dc03e52e3f3043:0x627ad5339c24577!2m2!1d-117.2771412!2d32.8437645">Get Directions</Link>
                                 </p>
                                 <ul className={styles.socials}>
                                     <li>

@@ -19,6 +19,10 @@
 
 .header.open .sitebranding {background: transparent; top: 0;}
 
+@media screen and (max-width: 676px) {
+    .header.open .sitebranding {background: var(--green); top: 0;}
+}
+
 .header .headerlogo {
     position: absolute;
     z-index: 100;

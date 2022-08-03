@@ -53,10 +53,10 @@
         height: 6.5rem;
         width: calc(48px + 1rem);
         padding-inline: 1rem;
-        position: absolute;
+        position: fixed;
         right: 0;
-        top: -56px;
-        z-index: 999;
+        top: 112px;
+        z-index: 98;
         background-size: inherit;
         background-repeat: no-repeat;
         background-position: center center;
@@ -91,6 +91,7 @@
 .bigHero {
     width: 100%;
     height: 100vh;
+    position:relative;
     background-size: cover !important;
     -webkit-background-size: cover !important;
     -moz-background-size: cover !important;

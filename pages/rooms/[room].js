@@ -42,6 +42,7 @@ const SingleRoomBookingForm = styled.div`
   flex: 1;
   margin: -8rem 0 0 0;
   z-index: 1;
+  max-height: calc();
   @media screen and (max-width: 800px) {
     order: 1;
   }
@@ -71,12 +72,31 @@ const AmenitiesList = styled.ul`
   columns: 2;
 
   padding-inline-start: 0 !important;
+
+  @media screen and (max-width: 600px) {
+    columns: 1;
+  }
 `
 const AboutOrliContainer = styled.div`
   margin: 3rem 0;
 `
 const NeighborhoodContainer = styled.div`
   margin: 3rem 0;
+`
+const BulletItem = styled.li`
+  display: flex;
+  justify-content: space-between; 
+  font-size: 1.3rem;
+
+  @media screen and (max-width: 955px) {
+    flex-direction: column;
+    p:first-of-type {
+      margin-bottom: 0;
+    }
+    p:last-of-type {
+      margin-top: 0;
+    }
+  }
 `
 const GreyBackground = styled.div`
   background-color: var(--lt-grey);
@@ -152,7 +172,7 @@ export default function DefaultRoomsPage(props) {
             trigger: content,
             start: "top-=80 150px",
             endTrigger: ".Grey-bg",
-            end: "top bottom",
+            end: "top center",
             pin: sidebar,
             markers: false,
             onRefresh: self => self.pin.parentNode.style.float = "right",
@@ -161,10 +181,6 @@ export default function DefaultRoomsPage(props) {
       });
     }
   }, [])
-
-  // const sortedAmenities = room.singleRooms.amenities.sort(function (a, b) {
-  //   return b.indexOf("G") - a.indexOf("G");
-  // });
   
   return (
     <>
@@ -221,14 +237,14 @@ export default function DefaultRoomsPage(props) {
             <ul style={{ paddingInline: 0 }}>
               { 
                 room.singleRooms.neighborhoodBullets.map((bullet, index) => {
-                  return <li key={index} className="serif black uppercase brown" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem' }}>
+                  return <BulletItem key={index} className="serif black uppercase brown">
                     { bullet.pointOfInterest && ( 
                     <p>{bullet?.pointOfInterest}</p>
                     )}
                     { bullet.walkability && ( 
                     <p>{bullet?.walkability}</p>
                     )}
-                 </li>
+                 </BulletItem>
                 })
               }
             </ul>
@@ -248,8 +264,6 @@ export default function DefaultRoomsPage(props) {
           </GreyBackground>
         </SingleRoomBookingForm>
       </SingleRoomContentContainer>
-
-      <FauxSocialFeed ctaLink="https://www.instagram.com/stayorli/" ctaText="@StayOrli" headline="Follow Along" backgroundColor="Grey" />
     </>
   )
 }

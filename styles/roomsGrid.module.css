@@ -55,6 +55,12 @@
     min-height: 65vh;
 }
 
+@media screen and (max-width: 800px) {
+    .roomsGrid li:nth-child(7) {
+        min-height: unset;
+    }
+}
+
 .roomsGrid li:nth-child(7) .text {
     position: absolute;
     top: 2rem;
@@ -86,7 +92,7 @@
     .roomsGrid li:nth-child(12) {
         width: 44%;
         position: relative;
-        margin: 1% 1% 1% 5%;
+        margin: 1% 1% 7% 5%;
     }
     .roomsGrid li:nth-child(2),
     .roomsGrid li:nth-child(4),
@@ -96,6 +102,6 @@
     .roomsGrid li:nth-child(13) {
         width: 44%;
         position: relative;
-        margin: 1% 5% 1% 1%;
+        margin: 1% 5% 7% 1%;
     }
 }

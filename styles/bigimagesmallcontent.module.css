@@ -13,9 +13,11 @@
     align-items: center;
 }
 
-.flex .col140 {width: 40%;}
+.flex .col140 {width: 40%; margin-bottom: 2rem;}
 
-.flex .col160 {width: 60%;}
+.flex .col160 {
+    width: 60%;
+}
 
 .textPaddingLeft {padding-left: 4rem;}
 .textPaddingRight {padding-right: 4rem;}
@@ -61,7 +63,9 @@
     width: 100%;
     margin: 0px;
 }
-.slides .sliderimage {width: 100%;}
+.slides .sliderimage {width: 100%;
+    cursor: url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.svg"), url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.png"), url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.cur"), auto !important;
+}
 
 @media only screen and (max-width: 900px) {
 

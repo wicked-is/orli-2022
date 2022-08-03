@@ -28,7 +28,7 @@ export default function PageNotFound(props) {
     return (
         <FullSection>
             <>
-                <Title white mb>This page cannot be found.</Title>
+                <Title mb>This page cannot be found.</Title>
                 <Link href="/" passHref>
                     <StyledLink>Visit Home</StyledLink>
                 </Link>

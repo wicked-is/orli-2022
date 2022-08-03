@@ -66,7 +66,7 @@ export default function BigImageSmallContent(props) {
                         )
                     }
                     <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
-                    <p className="serif heading black left">{headline}</p>
+                    <p className="serif heading black left mb-3">{headline}</p>
                     <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: blurb}} ></div>
                     {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>
@@ -202,7 +202,7 @@ export default function BigImageSmallContent(props) {
                 <div className={`${styles.col140} ${styles.textPaddingLeft}`}>
                 { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                     <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
-                    <p className="serif heading black left">{headline}</p>
+                    <p className="serif heading black left mb-3">{headline}</p>
                     <p className="sans-serif body-copy black left">{blurb}</p>
                     {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>

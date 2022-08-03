@@ -73,7 +73,14 @@
     }
 }
 
-    .react-datepicker__navigation-icon--next::before {
-        transform: rotate(45deg);
-        left: -12px;
+@media screen and (max-width: 550px) {
+    .form .button {
+        position: relative !important;
+        top: 2px !important;
     }
+}
+
+.react-datepicker__navigation-icon--next::before {
+    transform: rotate(45deg);
+    left: -12px;
+}

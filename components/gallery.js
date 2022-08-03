@@ -3,6 +3,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/gallery.module.css'
+import { useWindowSize } from "../utils/hooks";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +14,8 @@ export default function Gallery(props) {
         items,
         filters
     } = props
+
+    const size = useWindowSize();
 
     const [filteredItems, setFilteredItems] = useState(items)
 
@@ -43,7 +46,9 @@ export default function Gallery(props) {
                 }
             })
         });
-    },[])
+
+        
+    }, [])
 
     return (
         <section>
@@ -55,6 +60,7 @@ export default function Gallery(props) {
                                 <li 
                                     key={`ni-${index}`} 
                                     data-filter={item.filter}
+                                    className={`${ size.width < 768 ? 'pt-p5' : ''}`}
                                     onClick={() => {
                                         handleFilterClick(item)
                                     }}

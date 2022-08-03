@@ -57,6 +57,17 @@ export default function Hero(props) {
                 })
             });
         }
+
+        gsap.to('.w-arrow:after', {
+            height: '2.5rem',
+            scrollTrigger: {
+                trigger: '.w-arrow:after',
+                start: "top top",
+                endTrigger: "main",
+                end: "bottom top",
+                toggleClass: 'hide'
+            }
+        })
     },[])
 
     const heroStructure = (types) => { 
@@ -149,7 +160,7 @@ export default function Hero(props) {
             case 'Full Height Image with SubNav':
                     return (
                     <div className={styles.heroContainer}>
-                        <div className={styles.bigheroSubnav}>
+                        <div className={`${styles.bigheroSubnav} w-arrow`}>
                             <ul className="subnavigationContainer">
                                 
                                 {

@@ -118,7 +118,7 @@ const CalendarLink = styled.a`
         display: block;
         width:20px;
         height:21px;
-        background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/Apple_logo_black-1.png');
+        background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/google-logo-white.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
@@ -129,7 +129,7 @@ const CalendarLink = styled.a`
         display: block;
         width:20px;
         height:25px;
-        background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/google-logo-white.png');
+        background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/06/Apple_logo_black-1.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
@@ -211,13 +211,13 @@ export default function EventFeed(props) {
                             >
                                 <a href="#">
                                     <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
-                                    <div className="flexcenter">
-                                        <div className="col-1-90">
+                                    <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
+                                        <div className="col-1-90-a">
                                             <h3 className="heading" style={{ margin: '0 0 1rem' }}>{event.title}<span className={styles.arrow}></span></h3>
                                         </div>
                                         {
                                             !props.fullWidget && (
-                                                <div className="col-1-10">
+                                                <div className="col-1-10-a" style={{ maxWidth: '50px' }}>
                                                     <img className={styles.arrow} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/orange-arrow.svg" alt="arrow"/>
                                                 </div>
                                             )

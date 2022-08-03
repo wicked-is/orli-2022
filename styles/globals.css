@@ -167,6 +167,7 @@ label.rooms-filter {
     display: flex;
     position: fixed;
     background: var(--lt-grey);
+    top: 4rem;
     left:0px;
     right: 0px;
     z-index: 98;
