@@ -37,17 +37,18 @@ export default function AmenitiesSlider(props) {
     }, [sliderActive]);
 
     return (
-        <section className={`${styles.amenitiesSlider}`} >
+        <section className={`${styles.amenitiesSlider} amenitiesSliderglobal`} >
             { anchor && <a id={anchor} name={anchor} className="anchor"></a>}
             <Flickity
                 options={{
+                    draggable: true,
                     cellAlign: 'left',
                     prevNextButtons: false,
                     pageDots: false,
-                    draggable: true,
                     wrapAround: true,
                     imagesLoaded: true,
                     autoPlay: 6000,
+                    asNavFor: '.sliderNav',
                 }}
                 disableImagesLoaded={false} // default false
                 reloadOnUpdate={false} // default false

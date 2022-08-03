@@ -339,6 +339,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: auto;
 }
 
-.flickity-viewport {
-  cursor: url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.svg"), url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.png"), url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.cur"), auto !important;
+.amenitiesSliderglobal .flickity-viewport,
+.roomsSliderglobal .flickity-viewport {
+  cursor: url(https://orlidev.wpengine.com/wp-content/uploads/2022/08/icon-drag-white.png),
+  url(https://orlidev.wpengine.com/wp-content/uploads/2022/08/icon-drag-white.svg),
+  url(/public/assets/icons/icon-drag.cur), grab !important;
 }
