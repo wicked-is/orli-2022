@@ -11,7 +11,7 @@ const BlogGridContainer = styled.section`
 `
 const BlogTile = styled.div`
     display: inline;
-
+    cursor: pointer;
 
     /* grid-column-end: 5; */
     &:first-child,
@@ -114,13 +114,9 @@ const BlogTile = styled.div`
 
         p { color: #fff; }
     `}
-
-    
 `
 
 export default function BlogGrid(props) {
-
-
 
     const { posts } = props;
 
@@ -140,7 +136,7 @@ export default function BlogGrid(props) {
                             { featured && ( <p className="xs-heading uppercase white">{category}</p> ) }
                             <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} layout="intrinsic" alt={post.featuredImage.node.altText} className="blogImage" />
                             { !featured && ( <p className="xs-heading uppercase black">{category}</p> ) }
-                            <Link href={post.link}>
+                            <Link href={post.slug}>
                                 <p className="serif heading black">{post.title}</p>
                             </Link>
                         </BlogTile>

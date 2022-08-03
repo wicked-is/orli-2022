@@ -8,6 +8,8 @@ import Hero from '../../components/hero';
 import SEO from '../../components/seo';
 import styled from 'styled-components';
 
+import ToggleCaret from '../../public/assets/icons/Orli_Caret.svg';
+
 const SingleRoomContentContainer = styled.section`
   display: flex;
   flex-direction: row;
@@ -187,7 +189,7 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <h1 className="heading">{room.title}</h1>
             <p>{room.singleRooms.description}</p>
-            <p className="sans-serif xs-copy underline mb-3" onClick={() => setShowingFloorplan(!showingFloorplan)}><a>View Floor Plan ^</a></p>
+            <p className="sans-serif xs-copy underline mb-3" onClick={() => setShowingFloorplan(!showingFloorplan)}><a>View Floor Plan <img src="/assets/icons/Orli_Caret.svg" width="12px" height="7px" /></a></p>
             {
               showingFloorplan && room.singleRooms.floorplan && <img src={room.singleRooms.floorplan.mediaItemUrl} alt={room.singleRooms.floorplan.altText} width="90%" height="auto" style={{ marginInline: 'auto' }} />
             }
