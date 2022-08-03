@@ -149,9 +149,7 @@ const ReservationButton = styled.button`
 `
 
 export default function DefaultRoomsPage(props) {
-
-  const [checkInType, setCheckInType] = useState('text');
-  const [checkOutType, setCheckOutType] = useState('text');
+  const [showingFloorplan, setShowingFloorplan] = useState(false)
 
   const { room } = props.data.data;
 
@@ -194,7 +192,10 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <h1 className="heading">{room.title}</h1>
             <p>{room.singleRooms.description}</p>
-            <p className="sans-serif xs-copy underline"><a>View Floor Plan</a></p>
+            <p className="sans-serif xs-copy underline mb-3" onClick={() => setShowingFloorplan(!showingFloorplan)}><a>View Floor Plan</a></p>
+            {
+              showingFloorplan && room.singleRooms.floorplan && <img src={room.singleRooms.floorplan.mediaItemUrl} alt={room.singleRooms.floorplan.altText} width="100%" height="auto" />
+            }
           </SingleRoomMainDesc>
 
           <FeatureContainer>
@@ -331,6 +332,10 @@ export async function getStaticProps({ params }) {
         }
         singleRooms {
           cloudbedsLink
+          floorplan {
+            mediaItemUrl
+            altText
+          }
           aboutOrliDescription
           aboutOrliTitle
           amenities

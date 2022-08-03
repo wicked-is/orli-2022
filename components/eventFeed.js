@@ -209,7 +209,7 @@ export default function EventFeed(props) {
                                 data-description={event?.singleEvent?.description}
                                 data-locationName={event?.singleEvent?.locationName}
                             >
-                                <a href="#">
+                                <a href="/gatherings">
                                     <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
                                     <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
                                         <div className="col-1-90-a">
