@@ -15,9 +15,9 @@ const FilterContainer = styled.section`
     display: grid;    
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     align-items: center;
-    padding: 2rem 10%;
+    padding: 2rem 10% 1rem 10%;
     margin-inline: auto;
-
+    width: 100%;
     background-color: var(--lt-grey);
     z-index: 99999;
 
@@ -158,7 +158,7 @@ export default function RoomsGrid(props) {
         gsap.to(filterContainerTBA, {
             scrollTrigger: {
                 trigger: filterContainerTBA,
-                start: "top-=0 128px",
+                start: "top-=0 64px",
                 endTrigger: maincontent,
                 end: "bottom-=0 bottom-=150",
                 pin: filterContainerTBA,
