@@ -6,9 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 import Hero from '../../components/hero';
 import SEO from '../../components/seo';
-
 import styled from 'styled-components';
-import FauxSocialFeed from '../../components/fauxSocialFeed';
 
 const SingleRoomContentContainer = styled.section`
   display: flex;
@@ -35,9 +33,7 @@ const SingleRoomContent = styled.div`
     order: 2;
   }
 `
-
 const SingleRoomMainDesc = styled.div``
-
 const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
@@ -112,7 +108,6 @@ const GreyBackground = styled.div`
   }
 `
 const ReservationForm = styled.form``
-
 const ReservationFormLabel = styled.label`
   display: flex;
   justify-content: space-between; 
@@ -192,9 +187,9 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <h1 className="heading">{room.title}</h1>
             <p>{room.singleRooms.description}</p>
-            <p className="sans-serif xs-copy underline mb-3" onClick={() => setShowingFloorplan(!showingFloorplan)}><a>View Floor Plan</a></p>
+            <p className="sans-serif xs-copy underline mb-3" onClick={() => setShowingFloorplan(!showingFloorplan)}><a>View Floor Plan ^</a></p>
             {
-              showingFloorplan && room.singleRooms.floorplan && <img src={room.singleRooms.floorplan.mediaItemUrl} alt={room.singleRooms.floorplan.altText} width="100%" height="auto" />
+              showingFloorplan && room.singleRooms.floorplan && <img src={room.singleRooms.floorplan.mediaItemUrl} alt={room.singleRooms.floorplan.altText} width="90%" height="auto" style={{ marginInline: 'auto' }} />
             }
           </SingleRoomMainDesc>
 

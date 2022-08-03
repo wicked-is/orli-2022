@@ -145,7 +145,7 @@ export default function DefaultPage(props) {
     
     return (
         <>
-            <SEO title={seo.title} description={seo.metaDesc} />
+            <SEO title={seo.title} description={seo.metaDesc} fullhead={seo.fullHead} />
             {gatherSections()}
         </>
     )
@@ -153,7 +153,7 @@ export default function DefaultPage(props) {
 
 // Get all dynamic [slug]s from the CMS
 export async function getStaticPaths() {
-
+    
     const res = await fetch(process.env.WP_GQL_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -175,6 +175,8 @@ export async function getStaticPaths() {
     const paths = pages.data.pages.nodes.map(page => ({
         params: { slug: page.slug }
     }));
+  
+    console.log('paths: ', paths);
 
     return {
         paths,
@@ -224,6 +226,7 @@ export async function getStaticProps({ params }) {
           seo {
             title
             metaDesc
+            fullHead
           }
           flexibleContent {
             sections {
