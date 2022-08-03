@@ -127,7 +127,7 @@ export default function Header(props) {
                                     Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla, CA 92037
                                 </address>
                                 <p className="directions xs-copy white left">
-                                    <Link target="_blank" href="https://www.google.com/maps/dir//7753+Draper+Ave,+La+Jolla,+CA+92037/@33.8137293,-121.1387246,7z/data=!4m8!4m7!1m0!1m5!1m1!1s0x80dc03e52e3f3043:0x627ad5339c24577!2m2!1d-117.2771412!2d32.8437645">Get Directions</Link>
+                                    <Link target="_blank" href="https://goo.gl/maps/MvajX29ZNg3kz5M69">Get Directions</Link>
                                 </p>
                                 <ul className={styles.socials}>
                                     <li>
