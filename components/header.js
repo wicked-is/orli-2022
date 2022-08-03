@@ -42,8 +42,6 @@ export default function Header(props) {
         setAnnouncementbarIsOpen(false);
     }
 
-    console.log(Favicon.src);
-
     return (
         <header className={`${styles.header} ${navIsOpen ? styles.open : ''}`}>
             
