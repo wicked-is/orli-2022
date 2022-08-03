@@ -8,8 +8,6 @@ function MyApp(props) {
   const announcementBar = props.pageProps?.data?.data?.myOptionsPage?.options?.announcementBar;
   const socialItems = props.pageProps?.data?.data?.myOptionsPage?.options?.socialFooter;
 
-  console.log(props);
-
   return (
       <Layout navItems={navItems == null ? [] : navItems} topBar={announcementBar} footerImages={socialItems}>
         <Component {...pageProps} />
