@@ -63,9 +63,7 @@
     width: 100%;
     margin: 0px;
 }
-.slides .sliderimage {width: 100%;
-    cursor: url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.svg"), url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.png"), url("https://orlidev.wpengine.com/wp-content/uploads/2022/08/drag-cursor.cur"), auto !important;
-}
+.slides .sliderimage {width: 100%;}
 
 @media only screen and (max-width: 900px) {
 
