@@ -23,7 +23,7 @@ export default function HistoricalSlider(props) {
     }, [sliderActive]);
 
     return (
-        <section className={styles.historicTimelineContainer}>
+        <section className={`${styles.historicTimelineContainer} timelineSliderglobal`}>
             <Flickity
                 options={{
                     cellAlign: 'left',
