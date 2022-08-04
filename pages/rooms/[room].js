@@ -51,16 +51,27 @@ const FeatureContainer = styled.div`
 `
 const FeatureList = styled.div`
   list-style-type: none;
-  display: inline-flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3,150px);
   gap: 1rem;
 
+
   text-align: center;
+
+  div {
+    max-width: 130px;
+  }
 
   img {
     height: 100px;
     width: auto;
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 150px);
+  }
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(1, 150px);
   }
 `
 const AmenitiesContainer = styled.div`
