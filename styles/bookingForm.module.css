@@ -81,7 +81,8 @@
     .form .button {
         position: relative !important;
         top: 2px !important;
-    }
+        margin-top: 0;
+        margin-bottom: 0;
 }
 
 .react-datepicker__navigation-icon--next::before {
