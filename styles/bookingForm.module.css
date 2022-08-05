@@ -70,6 +70,8 @@
         flex: 1;
         padding: 1.4rem 0rem;
         justify-content: unset;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 
