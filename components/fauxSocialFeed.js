@@ -41,7 +41,7 @@ export default function FauxSocialFeed(props) {
                     {
                         images.map((image, index) => {
                             return (
-                                <Link href={ctaLink} passHref>
+                                <Link href={ctaLink} passHref key={`${index}-img`}>
                                     <a target="_blank">           
                                         <Image key={`faux-${index}`} src={image.mediaItemUrl} width={348} height={348} layout="responsive" alt={image.altText} />
                                     </a>
