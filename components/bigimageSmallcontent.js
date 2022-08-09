@@ -70,7 +70,7 @@ export default function BigImageSmallContent(props) {
                     <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: blurb}} ></div>
                     {ctaText && (<a href={ctaLink} className="sans-serif xs-copy black left cta-black">{ctaText}</a>)}
                 </div>
-                <div className={styles.col160}>
+                <div className={`${styles.col160} smallslider`}>
                 {
                     mediaType === "Image" && (
                         <div className={styles.textPaddingLeft}>
