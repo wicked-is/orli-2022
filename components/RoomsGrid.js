@@ -71,6 +71,7 @@ const LeftHalf = styled.div`
     }
 `
 const FilterLabel = styled.label``
+
 const QuickViewButton = styled.div`
     position: absolute;
     bottom: -100%;
@@ -265,7 +266,7 @@ export default function RoomsGrid(props) {
                 {
                     filters.map((filter, index) => { 
                         return (
-                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><span id="checkbox"></span>{filter.name}</FilterLabel>
+                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><div className="checkbox" data-label_filter={filter.name}></div>{filter.name}</FilterLabel>
                         )
                     })
                 }

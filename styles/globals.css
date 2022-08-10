@@ -74,7 +74,7 @@ label.rooms-filter {
   margin-bottom: 1rem;
 }
 
-.rooms-filter span {
+.rooms-filter .checkbox {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -83,7 +83,9 @@ label.rooms-filter {
   
 }
 
-.rooms-filter.active span, .rooms-filter:hover span { 
+.rooms-filter.active .checkbox,
+.rooms-filter:hover .checkbox,
+.rooms-filter .checkbox.active {
   background-color: var(--brown);
 }
 
