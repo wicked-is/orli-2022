@@ -49,24 +49,24 @@ export default function FeaturedStorySlider(props) {
                 className="featured-story-slider"
             >
                 {
-                    featuredStories[0].blogPost.gallery.map((story, index) => {
+                    featuredStories.map((story, index) => {
                         return (
-                            <div key={story.altText} className={styles.story} style={{ background: `url(${story.mediaItemUrl})` }}>
+                            <div key={story.altText} className={styles.story} style={{ background: `url(${story.featuredImage.node.mediaItemUrl})` }}>
                                 {
                                 !isMobileDevice && (
-                                <Image src={story.mediaItemUrl} alt={story.altText} width={1335} height={928} layout="intrinsic" style={{ marginRight: '1rem' }} />
+                                    <Image src={story.featuredImage.node.mediaItemUrl} alt={story.featuredImage.node.altText} width={1335} height={928} layout="intrinsic" style={{ marginRight: '1rem' }} />
                                 )
                                 }
+                                <div className={styles.sliderContent}>
+                                    <p className="sans-serif-bold sub-heading white">{title}</p>
+                                    <p className="heading white" style={{ margin: 0 }}>{story.title}</p>
+                                    <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+                                </div>
                             </div>
                         )
                     })
                 }
             </Flickity>
-            <div className={styles.sliderContent}>
-                <p className="sans-serif-bold sub-heading white">{title}</p>
-                <p className="heading white" style={{ margin: 0 }}>{featuredStories[0].title}</p>
-                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
-            </div>
             {/* <div className={styles.sliderNav}>
                 {
                     featuredStories.map((story, index) => {
