@@ -31,11 +31,14 @@ const FormField = styled.input`
     &::placeholder {
         color: white;
     }
+    &:focus {
+        outline: none;
+    }
 `
 const FormButton = styled.button`
     width: 270px;
     max-width: 85%;
-    height: 100px;
+    height: 80px;
     margin-inline: auto;
     background-color: var(--brown);
     border: 0;
