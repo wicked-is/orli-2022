@@ -28,6 +28,7 @@ const FormField = styled.input`
     text-align: left;
     margin-bottom: 2rem;
 
+    cursor: pointer;
     &::placeholder {
         color: white;
     }
@@ -43,6 +44,7 @@ const FormButton = styled.button`
     background-color: var(--brown);
     border: 0;
     color: white;
+    cursor: pointer;
 `
 export default function Gate(props) {
 
