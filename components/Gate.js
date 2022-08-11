@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
+import Link from "next/link"
 
 const GateContainer = styled.section`
     z-index: 99999999999;
@@ -10,10 +11,15 @@ const GateContainer = styled.section`
     height: 100vh;
     display: grid;
     place-items: center;
-    background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/08/gate-background.jpg');
+    background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/08/bg.png');
     background-size: cover;
     background-position: top left;
     overflow: hidden;
+`
+const Logo = styled.a`
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
 `
 const ContentContainer = styled.div`
     display: flex;
@@ -68,6 +74,11 @@ export default function Gate(props) {
 
     return (
         <GateContainer>
+            <Link passHref href="/">
+                <Logo>
+                    <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/Orli_Logo_WithLocator_Black-1.png" alt="Orli La Jolla Logo" width={124} height={72} />
+                </Logo>
+            </Link>
             <ContentContainer>
                 <FormField className="body-copy sans-serif" type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                 <FormButton className="body-copy sans-serif" onClick={(e) => handleSubmit(e)}>Submit</FormButton>
