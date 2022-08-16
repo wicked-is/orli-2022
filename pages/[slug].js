@@ -29,13 +29,16 @@ import TitleBar from '../components/TitleBar';
 import TheLocalWay from '../components/TheLocalWay';
 import GettingHere from '../components/GettingHere';
 import EventFeed from '../components/eventFeed';
+import ContentBlock from '../components/ContentBlock';
 
 
 export default function DefaultPage(props) {
-
+    
     const roomAmenities = props?.data?.data?.roomAmenities;
     const seo = props?.data?.data?.page?.seo || props?.data?.data?.post?.seo;
     const sections = props?.data?.data?.page?.flexibleContent?.sections || props?.data?.data?.post?.flexibleContent?.sections; 
+    const title = props?.data?.data?.post?.title || null
+    const categories = props?.data?.data?.post?.categories || null
 
     useEffect(() => {
         var tl =  gsap.timeline()
@@ -75,8 +78,10 @@ export default function DefaultPage(props) {
                     gatheredSections.push(<EventFeed key={componentKey} {...section} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Hero':
+                  gatheredSections.push(<Hero key={componentKey} {...section} />)
+                  break;
                 case 'Post_Flexiblecontent_Sections_Hero':
-                    gatheredSections.push(<Hero key={componentKey} {...section} />)
+                    gatheredSections.push(<Hero key={componentKey} postTitle={title} {...section} categories={categories} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_HistoricTimeline':
                 case 'Post_Flexiblecontent_Sections_HistoricTimeline':
@@ -154,6 +159,10 @@ export default function DefaultPage(props) {
                 case 'Post_Flexiblecontent_Sections_TheLocalWay':
                   gatheredSections.push(<TheLocalWay key={componentKey} {...section} />)
                   break;
+                case 'Page_Flexiblecontent_Sections_ContentBlock':
+                case 'Post_Flexiblecontent_Sections_ContentBlock':
+                  gatheredSections.push(<ContentBlock key={componentKey} {...section} />)
+                  break;
                 case 'Page_Flexiblecontent_Sections_RoomsGrid':
                 case 'Post_Flexiblecontent_Sections_RoomsGrid':
                     gatheredSections.push(<RoomsGrid key={componentKey} {...section} filters={roomAmenities.nodes} />)
@@ -208,7 +217,6 @@ export async function getStaticPaths() {
     }));
   
     const paths = [...pages, ...posts]
-    console.log('paths: ', paths);
 
     return {
         paths,
@@ -790,6 +798,10 @@ export async function getStaticProps({ params }) {
                   }
                 }
               }
+              ... on Page_Flexiblecontent_Sections_ContentBlock {
+                fieldGroupName
+                content
+              }
             }
           }
         }
@@ -798,6 +810,12 @@ export async function getStaticProps({ params }) {
             title
             metaDesc
             fullHead
+          }
+          title
+          categories(first: 1) {
+            nodes {
+              name
+            }
           }
           flexibleContent {
             sections {
@@ -1328,6 +1346,11 @@ export async function getStaticProps({ params }) {
                     }
                   }
                 }
+              }
+              ... on Post_Flexiblecontent_Sections_ContentBlock {
+                fieldGroupName
+                content
+                anchor
               }
             }
           }

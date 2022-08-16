@@ -455,7 +455,6 @@ export default function TheLocalWay(props) {
             markers.push(mainMarker)
             makeMarkersVisible(mainMarker)
 
-            // console.log(columns);
             columns.map((column, index) => {
                 column.sections.map((section, index) => {
                     section.locations.map((location, index) => {
