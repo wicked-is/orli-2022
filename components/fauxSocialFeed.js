@@ -29,7 +29,7 @@ export default function FauxSocialFeed(props) {
     ];
 
     return (
-        <section className={`${styles.fauxSocialFeedContainer} ${backgroundColor}-bg`}>
+        <section className={`${styles.fauxSocialFeedContainer} ${backgroundColor}-bg fauxsocial`}>
             <div className={`${styles.max80}`}>
                 <div className={styles.topContainer}>
                     <h2 className="heading">{headline}</h2>

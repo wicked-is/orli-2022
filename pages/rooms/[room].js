@@ -161,12 +161,13 @@ export default function DefaultRoomsPage(props) {
 
   const { room } = props.data.data;
 
-  useEffect(() => {  
-
+  useEffect(() => {
     var tl =  gsap.timeline()
     tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
     tl.to('main', { opacity:1, duration: 0.6});
+  }, [])
 
+  useEffect(() => {
     var	wideScreen = window.matchMedia("(min-width: 800px)");
     var	narrowScreen = window.matchMedia("(max-width: 799px)");
 
@@ -178,8 +179,8 @@ export default function DefaultRoomsPage(props) {
         scrollTrigger: {
             trigger: content,
             start: "top-=40px 150px",
-            endTrigger: ".Grey-bg",
-            end: "bottom-=0px 0px",
+            endTrigger: "footer",
+            end: "top-=0px 0px",
             pin: sidebar,
             markers: false,
             onRefresh: self => self.pin.parentNode.style.float = "right",

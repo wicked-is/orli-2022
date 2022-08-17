@@ -1,8 +1,15 @@
 .container {width: 100%; margin: auto; display: block;}
 
 .anchor {
+    display: block;
     position: relative;
-    top: -80px;
+    top: -150px;
+}
+
+.fullanchor {
+    display: block;
+    position: absolute;
+    top: -150px;
 }
 
 .flex {

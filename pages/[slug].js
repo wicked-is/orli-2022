@@ -186,11 +186,13 @@ export async function getStaticPaths() {
                     pages {
                       nodes {
                         slug
+                        uri
                       }
                     }
                     posts {
                       nodes {
                         slug
+                        uri
                       }
                     }
                 }
@@ -466,6 +468,7 @@ export async function getStaticProps({ params }) {
                     }
                     title
                     uri
+                    slug
                   }
                 }
               }
@@ -720,6 +723,7 @@ export async function getStaticProps({ params }) {
                     }
                     slug
                     title
+                    uri
                     blogPost {
                       featured
                     }
@@ -1005,6 +1009,7 @@ export async function getStaticProps({ params }) {
                     }
                     title
                     uri
+                    slug
                   }
                 }
               }
