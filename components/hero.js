@@ -227,6 +227,21 @@ export default function Hero(props) {
                         } 
                     </div>
                 )
+            case 'Single Journal':
+                return (
+                    <div className="smheroContainer">
+                        <div className={styles.smallJournalHero} style={{
+                            backgroundImage: `url(${imagePoster.mediaItemUrl})`,
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            flexDirection: 'column',
+                            padding: '5rem',
+                        }}>
+                            <p className="xs-heading uppercase letterSpacing white">{props.categories.nodes[0].name}</p>
+                            <p className="serif heading white">{props.postTitle}</p>
+                        </div>
+                    </div>
+                )
             case 'SubNav Only':
                 return (
                     <div className={styles.bigheroSubnav}>
