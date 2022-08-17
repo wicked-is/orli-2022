@@ -52,7 +52,7 @@ const FeatureContainer = styled.div`
 const FeatureList = styled.div`
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(3,150px);
+  grid-template-columns: repeat(4,150px);
   gap: 1rem;
 
 
@@ -67,11 +67,20 @@ const FeatureList = styled.div`
     width: auto;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 150px);
+  }
+  @media screen and (max-width: 820px) {
     grid-template-columns: repeat(2, 150px);
   }
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(3, 150px);
+  }
   @media screen and (max-width: 700px) {
-    grid-template-columns: repeat(1, 150px);
+    grid-template-columns: repeat(2, 50%);
+  }
+  @media screen and (max-width: 370px) {
+    grid-template-columns: repeat(1, 100%);
   }
 `
 const AmenitiesContainer = styled.div`
