@@ -20,7 +20,7 @@
 .header.open .sitebranding {background: transparent; top: 0;}
 
 @media screen and (max-width: 676px) {
-    .header.open .sitebranding {background: var(--green); top: 0;}
+    .header.open .sitebranding {background: transparent; top: 0;}
 }
 
 .header .headerlogo {
@@ -267,7 +267,7 @@ ul.socials {
 @media only screen and (max-width: 600px) {
     .hamburger {
         right: 2rem;
-        top: 1.8rem;
+        top: 1.5rem;
     }
 
     .header .primarybutton  {
@@ -277,7 +277,7 @@ ul.socials {
         width: fit-content;
         padding: 0.5rem 1rem 0.5rem 1rem;
         right: 7rem;
-        top: 1.4rem;
+        top: 1rem;
         display: block;
         background: var(--brown);
         align-items: center;
@@ -297,16 +297,21 @@ ul.socials {
         top:1rem;
         display: block;
     }
-    .header .sitebranding {height: 5rem;}
 
     .navContianer.showMeMobile .mainNav {
-        padding:3rem 0 2rem 0;
+        padding:6rem 0 2rem 0;
     }
 
     .col140 {width: 100%;}
     .col160 {display: none;}
 
     .navContianer.showMeMobile {overflow-y: scroll;}
+}
+
+@media only screen and (max-width: 437px) {
+    .navContianer.showMeMobile .mainNav {
+        padding:9rem 0 2rem 0;
+    }
 }
 
 @media only screen and (max-width: 428px) {
@@ -331,5 +336,6 @@ ul.socials {
         padding: 0rem 0rem 0.3rem 2rem;
     }
 
-    .bottomnav {padding: 0 2rem 2rem;}
+    .bottomnav {flex-direction: column; padding: 0 2rem 2rem;}
+    .bottomnav .col-1-50 {width: 100%;}
 }

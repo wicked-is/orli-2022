@@ -7,8 +7,13 @@ const WidgetContainer = styled.div`
     top: 2rem;
     left: 4rem;
     p { margin: 0; padding: 0; }
+
     @media only screen and (max-width: 600px){
         & { left: 12rem;}
+    }
+
+    @media only screen and (max-width: 437px){
+        & { top: 6rem; left: 7rem;}
     }
 `
 const Title = styled.div``
