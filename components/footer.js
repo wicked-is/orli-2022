@@ -179,7 +179,7 @@ export default function Footer(props) {
                                         <li>
                                             <a target="_blank" href="https://open.spotify.com/playlist/5dt0gGfjFDjfd4CJe22E8T?si=278d0b0810534a75" rel="noopener noreferrer">
                                                 <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
+                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/spotify-brands.svg"
                                                     alt="spotify logo"
                                                     className="spotify"
                                                     width={30}
@@ -271,7 +271,7 @@ export default function Footer(props) {
                                         <li>
                                             <a target="_blank" href="https://open.spotify.com/playlist/5dt0gGfjFDjfd4CJe22E8T?si=278d0b0810534a75" rel="noopener noreferrer">
                                                 <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
+                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/spotify-brands.svg"
                                                     alt="spotify logo"
                                                     className="spotify"
                                                     width={30}

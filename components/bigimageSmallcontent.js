@@ -143,7 +143,7 @@ export default function BigImageSmallContent(props) {
            {contentPosition === "Right" && (
                <div className="max-80 fadein reorder">
                    { anchorTag && (
-                       <a id={anchorTag} name={anchorTag} className="anchor"></a>
+                       <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
                    )}
                <div className={`${styles.flex} ${paddingType}`}>
                 <div className={styles.col160}>
@@ -211,9 +211,9 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Over Background Left" && (
-               <div className={`${styles.flex} ${paddingType} fadein`}>
+               <div className={`${styles.flex} ${paddingType} fadein relative`}>
                    { anchorTag && (
-                       <a id={anchorTag} name={anchorTag} className="anchor"></a>
+                       <a id={anchorTag} name={anchorTag} className={styles.fullanchor}></a>
                    )}
                     {
                     mediaType === "Image" && (
@@ -260,9 +260,9 @@ export default function BigImageSmallContent(props) {
            }
 
 {contentPosition === "Over Background Right" && (
-               <div className={`${styles.flex} ${paddingType} fadein`}>
+               <div className={`${styles.flex} ${paddingType} fadein relative`}>
                    { anchorTag && (
-                       <a id={anchorTag} name={anchorTag} className="anchor"></a>
+                       <a id={anchorTag} name={anchorTag} className={styles.fullanchor}></a>
                    )}
                     {
                     mediaType === "Image" && (

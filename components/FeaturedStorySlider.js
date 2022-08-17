@@ -60,7 +60,7 @@ export default function FeaturedStorySlider(props) {
                                 <div className={styles.sliderContent}>
                                     <p className="sans-serif-bold sub-heading white">{title}</p>
                                     <p className="heading white" style={{ margin: 0 }}>{story.title}</p>
-                                    <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+                                    <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={story.uri}>{ctaText}</a></p>
                                 </div>
                             </div>
                         )
