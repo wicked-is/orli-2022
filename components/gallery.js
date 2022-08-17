@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import Link from 'next/link'
 import Image from 'next/image'
+import Fancybox from '../components/FancyBox.js'
 import styles from '../styles/gallery.module.css'
 import { useWindowSize } from "../utils/hooks";
 import { gsap } from "gsap/dist/gsap";
@@ -97,45 +98,65 @@ export default function Gallery(props) {
                         return (
                             <div key={index}>
                                 {item.type === 'Image' && item.filter === 'Rooms' && (
-                                    <img src={item.image.mediaItemUrl} alt={item.image.altText} data-filter={item.filter} style={{width: "100%", display: "block"}}/>
+                                    <Fancybox>
+                                        <div data-fancybox="gallery" href={item.image.mediaItemUrl}>
+                                            <img src={item.image.mediaItemUrl} alt={item.image.altText} data-filter={item.filter} style={{width: "100%", display: "block"}}/>
+                                        </div>
+                                    </Fancybox>
                                 )}
                                 {item.type === 'Video' && item.filter === 'Rooms' && (
-                                    <div className={styles.videoContainer}>
+                                    <Fancybox>
+                                    <div className={styles.videoContainer} data-fancybox="gallery" href={item.mp4ExternalLink}>
                                         <video data-filter={item.filter} autoPlay playsInline muted loop poster="">
                                             <source src={item.mp4ExternalLink} type="video/mp4" />
                                             <source src={item.webm} type="video/webm" />
                                         </video>
                                     </div>
+                                    </Fancybox>
                                 )}
                                 {item.type === 'Image' && item.filter === 'Amenities' && (
-                                    <img src={item.image.mediaItemUrl} alt={item.image.altText} data-filter={item.filter} style={{width: "100%", display: "block"}}/>
+                                    <Fancybox>
+                                    <div data-fancybox="gallery" href={item.image.mediaItemUrl}>
+                                        <img src={item.image.mediaItemUrl} alt={item.image.altText} data-filter={item.filter} style={{width: "100%", display: "block"}}/>
+                                    </div>
+                                    </Fancybox>
                                 )}
                                 {item.type === 'Video' && item.filter === 'Amenities' && (
-                                    <div className={styles.videoContainer}>
+                                    <Fancybox>
+                                    <div className={styles.videoContainer} data-fancybox="gallery" href={item.mp4ExternalLink}>
                                         <video data-filter={item.filter} autoPlay playsInline muted loop poster="">
                                             <source src={item.mp4ExternalLink} type="video/mp4" />
                                             <source src={item.webm} type="video/webm" />
                                         </video>
                                     </div>
+                                    </Fancybox>
                                 )}
                                 {item.type === 'Image' && item.filter === 'Neighborhood' && (
-                                    <img src={item.image.mediaItemUrl} alt={item.image.altText} data-filter={item.filter} style={{width: "100%", display: "block"}}/>
+                                    <Fancybox>
+                                        <div data-fancybox="gallery" href={item.image.mediaItemUrl}>
+                                            <img src={item.image.mediaItemUrl} alt={item.image.altText} data-filter={item.filter} style={{width: "100%", display: "block"}}/>
+                                        </div>
+                                    </Fancybox>
                                 )}
                                 {item.type === 'Video' && item.filter === 'Neighborhood' && (
-                                    <div className={styles.videoContainer}>
-                                        <video data-filter={item.filter} autoPlay playsInline muted loop poster="">
-                                            <source src={item.mp4ExternalLink} type="video/mp4" />
-                                            <source src={item.webm} type="video/webm" />
-                                        </video>
-                                    </div>
+                                    <Fancybox>
+                                        <div data-fancybox="gallery" href={item.mp4ExternalLink} className={styles.videoContainer}>
+                                            <video data-filter={item.filter} autoPlay playsInline muted loop poster="">
+                                                <source src={item.mp4ExternalLink} type="video/mp4" />
+                                                <source src={item.webm} type="video/webm" />
+                                            </video>
+                                        </div>
+                                    </Fancybox>
                                 )}
                                 {item.type === 'Video' && item.filter === 'Video' && (
-                                    <div className={styles.videoContainer}>
+                                    <Fancybox>
+                                    <div data-fancybox="gallery" href={item.mp4ExternalLink} className={styles.videoContainer}>
                                         <video data-filter={item.filter} autoPlay playsInline muted loop poster="">
                                             <source src={item.mp4ExternalLink} type="video/mp4" />
                                             <source src={item.webm} type="video/webm" />
                                         </video>
                                     </div>
+                                    </Fancybox>
                                 )}  
                             </div>
                         )
