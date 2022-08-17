@@ -6,7 +6,7 @@ const ContentBlockInnerContainer = styled.div`
     width: 100%;
     max-width: 960px;
     margin-inline: auto;
-    margin-top: 3rem;
+    margin-top: 5rem;
     margin-bottom: 6rem;
 
     @media screen and (max-width: 1050px) {
