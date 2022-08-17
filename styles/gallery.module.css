@@ -1,60 +1,10 @@
-.subnavigationonlyContainer {
-    width: 100%;
-    display: flex;
-    position: fixed;
-    background: var(--lt-grey);
-    top: 3rem;
-    left:0px;
-    right: 0px;
-    z-index: 10;
-    align-items: flex-start;
-    justify-content: center;
-    list-style: none;
-    padding: 1rem 0rem 0rem 0rem;
-}
-
-.subnavigationContainer li,
-.subnavigationonlyContainer li {
-    position: relative; 
-    margin: auto 2rem;
-    white-space: nowrap;
-    cursor: pointer; 
-    transition: 0.3s ease all;
-}
-
-.iconnav {
-    width: 100%; 
-    max-width: 4rem;
-    margin: auto; 
-    text-align: center; 
-    display: block;
-}
-
-.subnavigationContainer li p,
-.subnavigationonlyContainer li p {
-    font-family: 'GT Walsheim Light'; 
-    font-weight: 300;
-}
-
-.subnavigationContainer li:hover p,
-.subnavigationonlyContainer li:hover p {
-    color: var(--brown);
-}
-@media only screen and (max-width: 687px){
-    .subnavigationonlyContainer {justify-content: unset; overflow-x: scroll;}
-}
-@media only screen and (max-width: 600px){
-    .subnavigationonlyContainer {top: 63px; padding: 0.3rem 0rem 0rem 0rem;}
-    .subnavigationContainer li:hover p,
-    .subnavigationonlyContainer li:hover p {line-height:1; padding: 0rem;}
-}
 .galleryContainer {
     width: 100%;
     margin: auto;
     max-width: 80%;
     text-align: center;
     display: block;
-    padding: 18rem 0rem 2rem 0rem;
+    padding: 14rem 0rem 2rem 0rem;
 }
 
 .videoContainer {
