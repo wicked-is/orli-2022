@@ -42,6 +42,7 @@ export default function Hero(props) {
 
     useEffect(() => {
         var icons = gsap.utils.toArray('.iconnav');
+        var arrows = gsap.utils.toArray('.arrowssub');
 
         if (icons) {
             icons.forEach((icon) => {
@@ -58,16 +59,20 @@ export default function Hero(props) {
             });
         }
 
-        gsap.to('.w-arrow:after', {
-            height: '2.5rem',
-            scrollTrigger: {
-                trigger: '.w-arrow:after',
-                start: "top top",
-                endTrigger: "main",
-                end: "bottom top",
-                toggleClass: 'hide'
-            }
-        })
+        if (arrows) {
+            icons.forEach((arrow) => {
+                gsap.to(arrow, {
+                    scrollTrigger: {
+                        trigger: arrows,
+                        start: "top top",
+                        endTrigger: "main",
+                        end: "bottom top",
+                        toggleClass: 'height'
+                    }
+                })
+            });
+        }
+
     },[])
 
     const heroStructure = (types) => { 
@@ -160,7 +165,7 @@ export default function Hero(props) {
             case 'Full Height Image with SubNav':
                     return (
                     <div className={styles.heroContainer}>
-                        <div className={`${styles.bigheroSubnav} w-arrow`}>
+                        <div className={`${styles.bigheroSubnav}`}>
                             <ul className="subnavigationContainer">
                                 
                                 {
@@ -177,6 +182,7 @@ export default function Hero(props) {
                                 }
                                 
                             </ul>
+                            <div className="arrowssub"></div>
                         <div className={styles.bigHero} style={{
                             backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }}>
@@ -262,6 +268,7 @@ export default function Hero(props) {
                         })
                     }
                             </ul>
+                            <div className="arrowssub"></div>
                     </div>
                 )
             default:
