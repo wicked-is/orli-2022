@@ -17,6 +17,7 @@
 
 .sliderContent {
     position: absolute;
+    cursor: initial;
     bottom: 7rem;
     z-index: 97;
     background-color: #0C2B1C;
