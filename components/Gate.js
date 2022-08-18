@@ -11,7 +11,7 @@ const GateContainer = styled.section`
     height: 100vh;
     display: grid;
     place-items: center;
-    background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/08/bg.png');
+    background-image: url('https://orlidev.wpengine.com/wp-content/uploads/2022/08/bg-with-lines.png');
     background-size: cover;
     background-position: top left;
     overflow: hidden;
