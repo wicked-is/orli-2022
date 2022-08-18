@@ -51,7 +51,7 @@ export default function FeaturedStorySlider(props) {
                 {
                     featuredStories.map((story, index) => {
                         return (
-                            <div key={story.altText} className={styles.story} style={{ background: `url(${story.featuredImage.node.mediaItemUrl})` }}>
+                            <div key={story.altText} className={styles.story} style={{ background: `url(${story.flexibleContent.sections[0].imagePoster.mediaItemUrl})` }}>
                                 {
                                 !isMobileDevice && (
                                     <Image src={story.featuredImage.node.mediaItemUrl} alt={story.featuredImage.node.altText} width={1335} height={928} layout="intrinsic" style={{ marginRight: '1rem' }} />

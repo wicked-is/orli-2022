@@ -504,6 +504,18 @@ export async function getStaticProps({ params }) {
                         altText
                       }
                     }
+                    flexibleContent {
+                      ... on Post_Flexiblecontent {
+                        sections {
+                          ... on Post_Flexiblecontent_Sections_Hero {
+                            imagePoster {
+                              mediaItemUrl
+                              altText
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
