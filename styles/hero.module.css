@@ -125,6 +125,16 @@
 
 .smallHero img, .smallJournalHero img {display: none}
 
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 0;
+}
+
 @media only screen and (max-width: 800px){
     .smallHero{position: relative; height: unset; background: unset;}
     .smallJournalHero {position: relative; height: unset; background: unset; padding-top: 15rem !important; }

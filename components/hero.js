@@ -242,9 +242,11 @@ export default function Hero(props) {
                             justifyContent: 'flex-end',
                             flexDirection: 'column',
                             padding: '5rem',
+                            position: 'relative',
                         }}>
-                            <p className="xs-heading uppercase letterSpacing white">{props.categories.nodes[0].name}</p>
-                            <p className="serif heading white">{props.postTitle}</p>
+                            <p className="xs-heading uppercase letterSpacing white" style={{ zIndex: 1}}>{props.categories.nodes[0].name}</p>
+                            <p className="serif heading white" style={{ zIndex: 1}}>{props.postTitle}</p>
+                            <div className={styles.overlay}></div>
                         </div>
                     </div>
                 )
