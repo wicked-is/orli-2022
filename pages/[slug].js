@@ -30,6 +30,7 @@ import TheLocalWay from '../components/TheLocalWay';
 import GettingHere from '../components/GettingHere';
 import EventFeed from '../components/eventFeed';
 import ContentBlock from '../components/ContentBlock';
+import ExploreMorePosts from '../components/ExploreMorePosts';
 
 
 export default function DefaultPage(props) {
@@ -162,6 +163,10 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_ContentBlock':
                 case 'Post_Flexiblecontent_Sections_ContentBlock':
                   gatheredSections.push(<ContentBlock key={componentKey} {...section} />)
+                  break;
+                case 'Page_Flexiblecontent_Sections_ExploreMorePosts':
+                case 'Post_Flexiblecontent_Sections_ExploreMorePosts':
+                  gatheredSections.push(<ExploreMorePosts key={componentKey} {...section} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_RoomsGrid':
                 case 'Post_Flexiblecontent_Sections_RoomsGrid':
@@ -818,6 +823,30 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 content
               }
+              ... on Page_Flexiblecontent_Sections_ExploreMorePosts {
+                fieldGroupName
+                anchor
+                title
+                posts {
+                  ... on Post {
+                    categories(first: 1) {
+                      nodes {
+                        slug
+                        name
+                        uri
+                      }
+                    }
+                    title
+                    uri
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -1368,6 +1397,30 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 content
                 anchor
+              }
+              ... on Post_Flexiblecontent_Sections_ExploreMorePosts {
+                fieldGroupName
+                anchor
+                title
+                posts {
+                  ... on Post {
+                    categories(first: 1) {
+                      nodes {
+                        slug
+                        name
+                        uri
+                      }
+                    }
+                    title
+                    uri
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                  }
+                }
               }
             }
           }
