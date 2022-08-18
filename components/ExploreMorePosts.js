@@ -49,7 +49,7 @@ export default function ExploreMorePosts(props) {
                     {
                         posts.map(post => {
                             return (
-                                <ExploreMorePostsTile>
+                                <ExploreMorePostsTile key={post.title}>
                                     <Link href={post.uri}><Image src={post.featuredImage.node.mediaItemUrl} alt={post.featuredImage.node.altText} width="430" height="436" layout="responsive" /></Link>
                                     <p className="xs-heading uppercase black">{post.categories.nodes[0].name}</p>
                                     <Link href={post.uri}><p className="heading left">{post.title}</p>
