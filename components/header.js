@@ -45,7 +45,7 @@ export default function Header(props) {
     return (
         <header className={`${styles.header} ${navIsOpen ? styles.open : ''}`}>
             
-            <Analytics siteNotLive/>
+            <Analytics/>
             <Script
                 src="https://www.bugherd.com/sidebarv2.js?apikey=dw2fpdf4dfctxv0wzdcnuw"
                 strategy="beforeInteractive"
