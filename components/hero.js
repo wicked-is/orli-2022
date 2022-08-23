@@ -281,6 +281,7 @@ export default function Hero(props) {
     return (
         <section>
             { heroStructure(types) }
+            <p>kat this is your branch</p>
         </section>
     )
 }
