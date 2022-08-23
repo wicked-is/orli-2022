@@ -281,6 +281,7 @@ export default function Hero(props) {
     return (
         <section>
             { heroStructure(types) }
+            <p>this is Jaclyns branch.</p>
         </section>
     )
 }
