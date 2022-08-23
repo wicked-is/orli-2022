@@ -281,6 +281,7 @@ export default function Hero(props) {
     return (
         <section>
             { heroStructure(types) }
+            <p>this is brians branch this can only been seen on the url i provided you</p>
         </section>
     )
 }
