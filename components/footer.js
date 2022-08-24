@@ -154,7 +154,7 @@ export default function Footer(props) {
                                     <Link target="_blank" href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">Get Directions</Link>
                                 </GetDirectionsLink>
                                 <div>
-                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: 858-366-8949<br />E: info@stayorli.com</p>
+                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:6195760806">619.576.0806</a><br />E: info@stayorli.com</p>
                                     <ul className="socials">
                                         <li>
                                             <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
@@ -245,7 +245,7 @@ export default function Footer(props) {
                         <div>
                             <div>
                                 <div>
-                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:18583668949">858-366-8949</a><br/>
+                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:6195760806">619.576.0806</a><br/>
                                     E: <a href="mailto:info@stayorli.com">info@stayorli.com</a></p>
                                     <ul className="socials">
                                         <li>
