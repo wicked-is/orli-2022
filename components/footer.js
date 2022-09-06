@@ -284,7 +284,7 @@ export default function Footer(props) {
                         </div>
                         <div>
                             <div>
-                                <p className="sans-serif copyright xs-copy white left">© 2022 Orli La Jolla | <Link href="/privacy-policy">Privacy Policy</Link> | <Link href="/cookie-policy">Cookie Policy</Link></p>
+                                <p className="sans-serif copyright xs-copy white left">© 2022 Orli La Jolla | <Link href="/privacy-policy">Privacy Policy</Link> | <Link href="/cookie-policy">Cookie Policy</Link> | <Link href="/terms-conditions">Terms & Conditions</Link></p>
                             </div>
                         </div>
                     </div>
