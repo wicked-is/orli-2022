@@ -199,9 +199,9 @@ export default function Footer(props) {
                                     <Link href="/our-story">Story</Link>
                                     <Link href="/the-journal">Journal</Link>
                                     <Link href="/gallery">Gallery</Link>
-                                   
                                     <Link href="/privacy-policy" className="privacy">Privacy Policy</Link>
                                     <Link href="/cookie-policy">Cookie Policy</Link>
+                                    <Link href="/terms-conditions">Cookie Policy</Link>
                                 </div>
                             </Right>
                         </ColumnContainer>
@@ -237,9 +237,6 @@ export default function Footer(props) {
                                 <Link href="/discoveries">Location</Link>
                                 <Link href="/gallery">Gallery</Link>
                                 <Link href="/gatherings">Events</Link>
-                                    
-                                    
-                                    
                             </div>
                         </div>
                         <div>
