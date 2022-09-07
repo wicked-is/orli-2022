@@ -1,6 +1,15 @@
 .amenitiesSlider {
     position: relative;
 }
+.roomGallerySlider {
+    position: fixed;
+    top: 4.75rem;
+    left: 0;
+    z-index: 999999999;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .75);
+}
 .amenity {
     width: 87%;
     margin-right: 0rem;

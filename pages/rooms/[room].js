@@ -202,7 +202,7 @@ export default function DefaultRoomsPage(props) {
   return (
     <>
       <SEO fullhead={room.seo.fullHead} />
-      <Hero types="Single Room" imagePoster={room.featuredImage} />
+      <Hero types="Single Room" imagePoster={room.featuredImage} gallery={room.singleRooms.gallery}/>
 
       <SingleRoomContentContainer className="content">
         <SingleRoomContent>
@@ -353,6 +353,9 @@ export async function getStaticProps({ params }) {
           floorplan {
             mediaItemUrl
             altText
+          }
+          gallery {
+            mediaItemUrl
           }
           aboutOrliDescription
           aboutOrliTitle

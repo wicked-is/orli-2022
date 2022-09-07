@@ -5,6 +5,7 @@ import styles from '../styles/hero.module.css'
 import { useEffect, useState } from 'react';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import RoomGallerySlider from './RoomGallerySlider';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero(props) {
@@ -12,6 +13,8 @@ export default function Hero(props) {
     const {
         types,
         includeBookingForm,
+        gallery,
+        includeRoomGallery,
         includeFeaturedRoomCta,
         featuredRoomCtaLink,
         featuredRoomCtaText,
@@ -38,6 +41,13 @@ export default function Hero(props) {
         } else {
             return "inactive";
         }
+    }
+
+    const [isGalleryVisible, setIsGalleryVisible] = useState(false);
+
+    const toggleGallery = (e) => {
+        e.preventDefault();
+        setIsGalleryVisible(!isGalleryVisible);
     }
 
     useEffect(() => {
@@ -229,6 +239,25 @@ export default function Hero(props) {
                                 <section className={styles.horizontalFormContainer}>
                                     <BookingForm />
                                 </section>
+                            )
+                        }
+                        {
+                            gallery && (
+                                <>
+                                    <Link href="/">
+                                        <a className="sans-serif xs-copy underline" style={{
+                                            position: 'absolute',
+                                            right: '2rem',
+                                            top: '5rem',
+                                            color: 'white',
+                                        }}
+                                        onClick={toggleGallery}
+                                        >
+                                            View Gallery
+                                        </a>
+                                    </Link>
+                                    { isGalleryVisible && <RoomGallerySlider gallery={gallery} toggleGallery={toggleGallery} /> }
+                                </>
                             )
                         } 
                     </div>
