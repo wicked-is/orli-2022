@@ -165,7 +165,7 @@ export default function Header(props) {
                             </div>
                             <div className="col-1-50">
                                 <p className="sans-serif xs-copy white left">T: <a href="tel:6195760806">619.576.0806</a><br/>
-                                E: <a href="mailto:info@stayorli.com">info@stayorli.com</a></p>
+                                E: <a href="mailto:hello@stayorli.com">hello@stayorli.com</a></p>
                             </div>
                         </div>
                     </div>
