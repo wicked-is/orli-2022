@@ -247,8 +247,7 @@ export default function Hero(props) {
                                     <Link href="/">
                                         <a className="sans-serif xs-copy underline" style={{
                                             position: 'absolute',
-                                            right: '2rem',
-                                            top: '5rem',
+                                            left: '10vw', bottom: '17.8rem',
                                             color: 'white',
                                         }}
                                         onClick={toggleGallery}
