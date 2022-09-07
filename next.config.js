@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['orlidev.wpengine.com', 'stayorli.com']
+    domains: ['orlidev.wpengine.com', 'stayorli.com', 'orlistg.wpengine.com']
   }
 }
 
