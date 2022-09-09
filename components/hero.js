@@ -231,7 +231,7 @@ export default function Hero(props) {
                     <div className="smheroContainer">
                         <div className={styles.smallHero} style={{
                             backgroundImage: `url(${imagePoster.node.mediaItemUrl})`
-                        }}>
+                        }} onClick={toggleGallery}>
                             <img src={imagePoster.node.mediaItemUrl} alt={imagePoster.node.altText} />
                         </div>
                         {
@@ -245,7 +245,7 @@ export default function Hero(props) {
                             gallery && (
                                 <>
                                     <Link href="/">
-                                        <a className="sans-serif xs-copy underline" style={{
+                                        <a className="sans-serif body-copy underline" style={{
                                             position: 'absolute',
                                             left: '10vw', bottom: '17.8rem',
                                             color: 'white',

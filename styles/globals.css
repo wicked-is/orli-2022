@@ -374,3 +374,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   url(https://orlidev.wpengine.com/wp-content/uploads/2022/08/icon-drag-white.svg),
   url(/public/assets/icons/icon-drag.cur), grab !important;
 }
+
+.smheroContainer .flickity-prev-next-button {
+  top: 95%;
+}
+
+.smheroContainer .flickity-prev-next-button.next {
+  right: 12rem;
+}
+
+.smheroContainer .flickity-button {
+  background: none;
+  background-image: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/OrliDownArrowRoomSlider.png);
+  background-repeat: no-repeat;
+}
+
+.smheroContainer .flickity-button svg { display: none; }
+.smheroContainer .flickity-button:hover { 
+  background: none; 
+  background-image: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/OrliDownArrowRoomSlider.png);
+  background-repeat: no-repeat;
+}
+
+.flickity-prev-next-button.previous {
+  left: 10px;
+  background: none;
+  background-image: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/OrliDownArrowRoomSliderLeft-e1662765268742.png) !important;
+  background-repeat: no-repeat;
+}

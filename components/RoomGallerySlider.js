@@ -38,7 +38,7 @@ export default function RoomGallerySlider(props) {
                 options={{
                     draggable: true,
                     cellAlign: 'left',
-                    prevNextButtons: false,
+                    prevNextButtons: true,
                     pageDots: false,
                     wrapAround: true,
                     imagesLoaded: true,
