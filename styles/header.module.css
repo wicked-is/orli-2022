@@ -20,7 +20,10 @@
 .header.open .sitebranding {background: transparent; top: 0;}
 
 @media screen and (max-width: 676px) {
-    .header.open .sitebranding {background: transparent; top: 0;}
+    .header.open .sitebranding {
+        background: transparent; 
+        top: 0;
+    }
 }
 
 .header .headerlogo {
@@ -172,9 +175,11 @@
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
+
 .mainNav, .bottomnav {
     display: none;
 }
+
 .navContianer.showMeMobile .mainNav {
     display: inline-block;
     list-style: none;
@@ -258,45 +263,129 @@ ul.socials {
     padding: 0rem 1.5rem 0rem 0rem;
   }
 
+  .mobileMenuword, .telephoneContainer {display: none;}
+
 @media only screen and (max-width: 800px) {
     .col160 {width: 40%;}
     .col140 {width: 60%;}
     ul.socials { padding: 3rem 0rem 0rem 0rem;}
-}
+    .header {
+        position: fixed;
+        top: unset;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99;
+        width: 100%;
+    }
+    
+    .header .sitebranding {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: unset;
+        width: 100%;
+    }
 
-@media only screen and (max-width: 600px) {
+    .header .hamburgerContainer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 33.33%;
+        background: #384740;
+        z-index: 999;
+    }
+
+    .header.open .hamburgerContainer {
+        position: relative;
+        background:transparent;
+    }
+
+    .hamburger .hamburger-inner, 
+    .hamburger .hamburger-inner::before, 
+    .hamburger .hamburger-inner::after {
+        width: 40px;
+        height: 1px;
+        background-color: var(--white);
+    }
+
     .hamburger {
-        right: 2rem;
+        right: 4.5rem;
         top: 1.5rem;
     }
+    
+    .header .headerlogo {display: none;}
+
+    .header .mobileMenuword {
+        position: absolute;
+        right: 8rem;
+        display: block;
+        top: 1.5rem;
+        color: var(--white);
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        font-size: var(--xs-copy);
+        text-transform: uppercase;
+        font-family: 'GT Walsheim Light';
+    }
+
+    .header.open .mobileMenuword {display: none;}
 
     .header .primarybutton  {
         position: absolute;
         z-index: 100;
         height:auto;
-        width: fit-content;
-        padding: 0.5rem 1rem 0.5rem 1rem;
-        right: 7rem;
-        top: 1rem;
+        width: 33.33%;
+        padding: 1.4rem 1rem 0rem 1rem;
+        left: 33.33%;
+        top: 0rem;
+        bottom: 0;
+        height: 100%;
         display: block;
         background: var(--brown);
         align-items: center;
         justify-content: center;
         transition: 0.3s ease all;
     }
+
     .header .primarybutton p {
         margin-block-start: 0em;
         margin-block-end: 0em;
     }
-    .header .headerlogo {
-        position: absolute;
+
+    .header .telephoneContainer {
+        position: absolute; 
+        display: block;
+        width: 33.33%;
+        left: 0px; 
+        top: 0px; 
+        bottom: 0px; 
+        height: 100%;
         z-index: 100;
+        padding: 1.5rem 0 0 0;
+        background: #022543;
+    }
+
+    .header .telephoneContainer img {
         width: 100%;
-        max-width: 6rem;
-        left: 2rem;
-        top:1rem;
+        max-width: 1.5rem;
+        margin: auto;
         display: block;
     }
+
+    .header.open .telephoneContainer {display: none;}
+}
+
+@media only screen and (max-width: 600px) {
+    .hamburger {
+        right: 1rem;
+        top: 1.5rem;
+    }
+
+    .header .mobileMenuword {left: 1rem;}
 
     .navContianer.showMeMobile .mainNav {
         padding:6rem 0 2rem 0;
@@ -314,22 +403,9 @@ ul.socials {
     }
 }
 
-@media only screen and (max-width: 428px) {
-    .header .headerlogo {width: 5rem;}
-}
-
 @media only screen and (max-width: 388px) {
-    .header .primarybutton  {
-        position: fixed; 
-        top: unset; 
-        bottom: 0px; 
-        left: 0px; 
-        right: 0px; 
-        width: 100%;
-        margin: auto;
-        display: block;
-        text-align: center;
-        padding: 1rem;
+    .header .primarybutton {
+        padding: 1.5rem 0.5rem 0 0.5rem;
     }
 
     .mainNav li {
@@ -338,4 +414,13 @@ ul.socials {
 
     .bottomnav {flex-direction: column; padding: 0 2rem 2rem;}
     .bottomnav .col-1-50 {width: 100%;}
+}
+@media only screen and (max-width: 362px) {
+    .header .primarybutton {
+        padding: 1.4rem 0.5rem 0 0.5rem;
+        left: 20%;
+        width: 40%;
+    }
+    .header .telephoneContainer {width: 20%;}
+    .header .hamburgerContainer {width: 40%;}
 }
