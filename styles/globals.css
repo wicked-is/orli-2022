@@ -366,14 +366,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: auto;
 }
 
-.smallslider .flickity-viewport,
+/* .smallslider .flickity-viewport,
 .timelineSliderglobal .flickity-viewport,
 .amenitiesSliderglobal .flickity-viewport,
 .roomsSliderglobal .flickity-viewport, .featured-story-slider .flickity-viewport {
   cursor: url(https://orlidev.wpengine.com/wp-content/uploads/2022/08/icon-drag-white.png),
   url(https://orlidev.wpengine.com/wp-content/uploads/2022/08/icon-drag-white.svg),
   url(/public/assets/icons/icon-drag.cur), grab !important;
-}
+} */
 
 .smheroContainer .flickity-prev-next-button {
   top: 95%;
@@ -401,4 +401,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: none;
   background-image: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/OrliDownArrowRoomSliderLeft-e1662765268742.png) !important;
   background-repeat: no-repeat;
+  background-position: center center;
 }
