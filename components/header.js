@@ -86,12 +86,12 @@ export default function Header(props) {
 
                 <Link href="/find-your-room">
                     <div className={styles.primarybutton}>
-                        <p className="sans-serif xs-copy white center uppercase">Find Your Room</p>
+                        <p className="sans-serif xs-copy white center uppercase mobilehideme">Find Your Room</p>
+                        <p className="sans-serif xs-copy white center uppercase mobileshowme">Rooms</p>
                     </div>
                 </Link>
 
             <div className={styles.hamburgerContainer}>
-                <p className={styles.mobileMenuword}>Menu</p>
                 <div className="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
                     {
                         navIsOpen ? (

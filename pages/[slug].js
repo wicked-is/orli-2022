@@ -610,6 +610,7 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 blurb
                 headline
+                includeLogo
                 includeBookingForm
                 includeFeaturedRoomCta
                 featuredRoomCtaLink

@@ -135,7 +135,26 @@
     z-index: 0;
 }
 
+.mobileherologo {display: none}
+
 @media only screen and (max-width: 800px){
+    .mobileherologo {
+        display: block;
+        position: absolute; 
+        top: 35%;
+        left: 0px;
+        right: 0px;
+        z-index: 99;
+        margin: auto;
+        text-align: center;
+    }
+
+    .mobileherologo img {
+        filter:invert(1);
+        width: 100%;
+        max-width: 60%;
+    }
+
     .smallHero{position: relative; height: unset; background: unset;}
     .smallJournalHero {position: relative; height: unset; background: unset; padding-top: 15rem !important; }
     .smallHero img, .smallJournalHero img {display: block; margin:5rem auto auto auto; text-align: center; width: 100%;}
