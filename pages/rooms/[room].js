@@ -202,7 +202,7 @@ export default function DefaultRoomsPage(props) {
   return (
     <>
       <SEO fullhead={room.seo.fullHead} />
-      <Hero types="Single Room" imagePoster={room.featuredImage} gallery={room.singleRooms.gallery}/>
+      <Hero types="Single Room" imagePoster={room.singleRooms.roomshero} gallery={room.singleRooms.gallery}/>
 
       <SingleRoomContentContainer className="content">
         <SingleRoomContent>
@@ -351,6 +351,10 @@ export async function getStaticProps({ params }) {
         singleRooms {
           cloudbedsLink
           floorplan {
+            mediaItemUrl
+            altText
+          }
+          roomshero {
             mediaItemUrl
             altText
           }
