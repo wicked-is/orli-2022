@@ -33,7 +33,7 @@ export default function RoomGallerySlider(props) {
 
     return (
         <section className={`${styles.roomGallerySlider} amenitiesSliderglobal`} >
-            <p onClick={toggleGallery} style={{ cursor: "pointer", color: "white", fontSize: "2rem", position: "fixed", top: "3.5rem", right: "2rem", zIndex: 999 }}>&#10005;</p>
+            <p onClick={toggleGallery} style={{ cursor: "pointer", color: "white", fontSize: "2rem", position: "fixed", top: "3.5rem", right: "2rem", zIndex: 999, textShadow: "rgb(0 0 0 / 50%) 1px 1px 5px" }}>&#10005;</p>
             <Flickity
                 options={{
                     cellAlign: 'left',
