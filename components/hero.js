@@ -9,7 +9,6 @@ import RoomGallerySlider from './RoomGallerySlider';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero(props) {
-    
     const {
         types,
         includeBookingForm,
@@ -85,7 +84,7 @@ export default function Hero(props) {
 
     },[])
 
-    const heroStructure = (types) => { 
+    const heroStructure = (types) => {
         switch (types) {
             case 'Video':
                 return (
@@ -230,9 +229,9 @@ export default function Hero(props) {
                 return (
                     <div className="smheroContainer">
                         <div className={styles.smallHero} style={{
-                            backgroundImage: `url(${imagePoster.node.mediaItemUrl})`
+                            backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }} onClick={toggleGallery}>
-                            <img src={imagePoster.node.mediaItemUrl} alt={imagePoster.node.altText} />
+                            <img src={imagePoster.mediaItemUrl} alt={imagePoster.altText} />
                         </div>
                         {
                             includeBookingForm && (
