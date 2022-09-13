@@ -36,12 +36,13 @@ export default function RoomGallerySlider(props) {
             <p onClick={toggleGallery} style={{ cursor: "pointer", color: "white", fontSize: "2rem", position: "fixed", top: "3.5rem", right: "2rem", zIndex: 999 }}>&#10005;</p>
             <Flickity
                 options={{
-                    draggable: true,
                     cellAlign: 'left',
+                    draggable: true,
                     prevNextButtons: true,
+                    imagesLoaded: true,
+                    contian: true,
                     pageDots: false,
                     wrapAround: true,
-                    imagesLoaded: true,
                     autoPlay: 6000,
                 }}
                 disableImagesLoaded={false} // default false
@@ -54,12 +55,8 @@ export default function RoomGallerySlider(props) {
                 {
                     gallery.map((item, index) => {
                         return (
-                            <div key={`gallery-item-${index}`} className={styles.item} style={{ backgroundImage: `url(${item.mediaItemUrl})` }}>
-                                {
-                                    !isMobileDevice && (
-                                        <Image src={item.mediaItemUrl} width={1465} height={928} layout="intrinsic" />
-                                    )
-                                }
+                            <div key={`gallery-item-${index}`} className={styles.item}>
+                                 <img src={item.mediaItemUrl} />
                             </div>
                         )
                     })
