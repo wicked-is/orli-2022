@@ -263,9 +263,14 @@ ul.socials {
     padding: 0rem 1.5rem 0rem 0rem;
   }
 
-  .mobileMenuword, .telephoneContainer {display: none;}
+  .telephoneContainer {display: none;}
+
+  .mobileshowme {display: none;}
+  .mobilehideme {display: block;}
 
 @media only screen and (max-width: 800px) {
+    .mobilehideme {display: none;}
+    .mobileshowme {display: block;}
     .col160 {width: 40%;}
     .col140 {width: 60%;}
     ul.socials { padding: 3rem 0rem 0rem 0rem;}
@@ -313,33 +318,30 @@ ul.socials {
     }
 
     .hamburger {
-        right: 4.5rem;
-        top: 1.5rem;
+        right: 33%;
+        top: 1.3rem;
+    }
+
+    .hamburger::before {
+        content: "Menu";
+        color: var(--white);
+        position: absolute;
+        left: -3rem;
+        top: 1.2rem;
+        text-transform: uppercase;
+        font-size: var(--xs-copy);
+        margin: -1rem 1rem 0rem 0rem !important;
+        font-family: 'GT Walsheim Light';
     }
     
     .header .headerlogo {display: none;}
-
-    .header .mobileMenuword {
-        position: absolute;
-        right: 8rem;
-        display: block;
-        top: 1.5rem;
-        color: var(--white);
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-        font-size: var(--xs-copy);
-        text-transform: uppercase;
-        font-family: 'GT Walsheim Light';
-    }
-
-    .header.open .mobileMenuword {display: none;}
 
     .header .primarybutton  {
         position: absolute;
         z-index: 100;
         height:auto;
         width: 33.33%;
-        padding: 1.4rem 1rem 0rem 1rem;
+        padding: 1.5rem 1rem 0rem 1rem;
         left: 33.33%;
         top: 0rem;
         bottom: 0;
@@ -381,11 +383,9 @@ ul.socials {
 
 @media only screen and (max-width: 600px) {
     .hamburger {
-        right: 1rem;
+        right: 25%;
         top: 1.5rem;
     }
-
-    .header .mobileMenuword {left: 1rem;}
 
     .navContianer.showMeMobile .mainNav {
         padding:6rem 0 2rem 0;
@@ -415,11 +415,15 @@ ul.socials {
     .bottomnav {flex-direction: column; padding: 0 2rem 2rem;}
     .bottomnav .col-1-50 {width: 100%;}
 }
-@media only screen and (max-width: 362px) {
+@media only screen and (max-width: 367px) {
     .header .primarybutton {
         padding: 1.4rem 0.5rem 0 0.5rem;
         left: 20%;
         width: 40%;
+    }
+    .hamburger {
+        right: 1rem;
+        top: 1.5rem;
     }
     .header .telephoneContainer {width: 20%;}
     .header .hamburgerContainer {width: 40%;}

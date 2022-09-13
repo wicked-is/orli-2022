@@ -13,6 +13,7 @@ export default function Hero(props) {
         types,
         includeBookingForm,
         gallery,
+        includeLogo,
         includeRoomGallery,
         includeFeaturedRoomCta,
         featuredRoomCtaLink,
@@ -97,6 +98,13 @@ export default function Hero(props) {
                             <source src={mp4ExternalLink} type="video/mp4" />
                             <source src={webm} type="video/webm" />
                         </video>
+                        {
+                            includeLogo && (
+                                <div className={styles.mobileherologo}>
+                                <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" alt="Orli La Jolla Logo" />
+                                </div>
+                            )
+                        }
                         {
                             includeBookingForm && (
                                 <section className={styles.horizontalFormContainer}>
