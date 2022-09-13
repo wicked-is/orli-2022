@@ -3,7 +3,7 @@
 }
 .roomGallerySlider {
     position: fixed;
-    top: 4.75rem;
+    top: 4rem;
     left: 0;
     z-index: 999999999;
     height: 100vh;
@@ -17,7 +17,8 @@
 }
 
 /* Used for gap and nav placement */
-.item {
+.amenitiesSlider .item,
+.amenity .item {
     width: 88.5vw;
     margin-right: 1.4rem;
     height: 90vh;
@@ -29,8 +30,26 @@
     background-repeat: no-repeat;
 }
 
-.item img {
+.amenity .item img,
+.amenitiesSlider .item img {
     display: none !important;
+}
+
+.roomGallerySlider .item {
+    height: auto;
+    width: auto; 
+    margin: 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.roomGallerySlider .item img {
+    height: 100vh; 
+    max-height: 100%;
+    width: auto; 
+    display: block;
 }
 
 .sliderContent {
@@ -80,7 +99,8 @@
         top: 3rem;
         max-width: 85%;
     }
-    .item {
+    .amenity .item,
+    .amenitiesSlider .item {
         width: 88.5vw;
         margin-right: 1.4rem;
         height: 90vh;}
