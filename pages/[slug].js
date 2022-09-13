@@ -660,6 +660,12 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 rooms {
                   ... on Room {
+                    singleRooms {
+                      roomshero {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
                     featuredImage {
                       node {
                         altText
