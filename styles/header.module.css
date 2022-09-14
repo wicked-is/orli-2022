@@ -403,7 +403,12 @@ ul.socials {
     }
 }
 
-@media only screen and (max-width: 388px) {
+@media only screen and (max-width: 390px) {
+    .hamburger {
+        right: 17%;
+        top: 1.5rem;
+    }
+    
     .header .primarybutton {
         padding: 1.5rem 0.5rem 0 0.5rem;
     }
