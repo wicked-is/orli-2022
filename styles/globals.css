@@ -403,3 +403,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+.flickity-prev-next-button:focus {
+  box-shadow: 0 0 0 5px var(--grey);
+}
