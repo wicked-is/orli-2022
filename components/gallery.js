@@ -69,7 +69,7 @@ export default function Gallery(props) {
     return (
         <section>
             <div className={styles.bigheroSubnav}>
-                <ul className="subnavigationonlyContainer">
+                {/* <ul className="subnavigationonlyContainer">
                     {
                         filters && filters.map((item, index) => {
                             return (
@@ -88,7 +88,7 @@ export default function Gallery(props) {
                         }, this)
                     }
                 </ul>
-                <div className="arrowssub"></div>
+                <div className="arrowssub"></div> */}
             </div>
         <div className={styles.galleryContainer}>
             <ResponsiveMasonry columnsCountBreakPoints={{600: 1, 800: 2, 900: 2, 1000: 2}}>
