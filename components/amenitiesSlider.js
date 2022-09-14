@@ -47,7 +47,7 @@ export default function AmenitiesSlider(props) {
                     pageDots: false,
                     wrapAround: true,
                     imagesLoaded: true,
-                    autoPlay: 6000,
+                    // autoPlay: 7000,
                     asNavFor: '.sliderNav',
                 }}
                 disableImagesLoaded={false} // default false
