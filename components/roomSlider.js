@@ -10,7 +10,7 @@ import "flickity/css/flickity.css";
 export default function RoomSlider(props) {
 
     const slider = useRef(null)
-    const [sliderActive, setSliderActive] = useState(0)
+    const [sliderActive, setSliderActive] = useState(2)
     const [loaded, setLoaded] = useState(false)
     const [dimensions, setDimensions] = useState({ 
         height: null,
@@ -75,6 +75,7 @@ export default function RoomSlider(props) {
                     wrapAround: true,
                     asNavFor: '.roomSliderNavigation',
                     imagesLoaded: true,
+                    initialIndex: 2,
                     // fullscreen: true,
                     // autoPlay: 5000,
                 }}
