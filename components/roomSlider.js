@@ -61,7 +61,7 @@ export default function RoomSlider(props) {
     
     return (
         <section className={`${styles.roomSlider} roomsSliderglobal`}>
-            <p className={`${styles.roomHeading} serif heading white`}>Rooms</p>
+            <p className={`${styles.roomHeading} serif heading white`}>Featured Rooms</p>
             {/*<Link href="/rooms">
                 <span className="sans-serif white xs-copy fadein"><a className={styles.cta} >Find Your Room</a></span>
             </Link>*/}
