@@ -67,8 +67,8 @@
 
 .roomsGrid li:nth-child(7) .text {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
+    bottom: 4rem;
+    left: 5%;
     z-index: 9;
     display: block;
 }
