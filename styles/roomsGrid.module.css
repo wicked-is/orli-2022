@@ -55,6 +55,10 @@
     min-height: 65vh;
 }
 
+.roomsGrid li:nth-child(7) > a > div:first-of-type {
+    min-height: 65vh;
+}
+
 @media screen and (max-width: 800px) {
     .roomsGrid li:nth-child(7) {
         min-height: unset;
