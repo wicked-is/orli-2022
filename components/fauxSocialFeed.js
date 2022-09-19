@@ -12,19 +12,19 @@ export default function FauxSocialFeed(props) {
     let images = props.image || [
         {
             "altText": "",
-            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_IG_01.jpg"
+            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Post01.jpg"
         },
         {
             "altText": "",
-            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_IG_02.jpg"
+            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/07/ocean-view-3Edited2.jpg"
         },
         {
             "altText": "",
-            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_IG_04.jpg"
+            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/08/Orli_Recorder-scaled.jpg"
         },
         {
             "altText": "Orli La Jolla California Cold Brew Bar",
-            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_drinkWeb.jpg"
+            "mediaItemUrl": "https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Post10.jpg"
         }
     ];
 
