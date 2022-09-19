@@ -9,6 +9,10 @@ const MobileFooterContainer = styled.footer`
     display: flex;
     flex-direction: column;
     background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/06/footer-bg.jpg) no-repeat center center;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -o-background-size: cover !important;
+    -ms-background-size: cover !important;
     padding: 10% 10% 6rem 10%;
 `
 const ColumnContainer = styled.div`
@@ -143,6 +147,11 @@ export default function Footer(props) {
             { size.width < 768 ? (
                 <>
                     <MobileFooterContainer className="mobile-footer">
+                        <a href="https://orlidev.wpengine.com">
+                        <img
+                            className="mobilefooter-logo" 
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" alt="orli logo" />
+                        </a>
                         <p className="heading white mb-2">Contact Us</p>
                         <ColumnContainer>
                             <Left>
