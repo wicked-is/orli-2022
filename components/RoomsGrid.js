@@ -22,7 +22,6 @@ const FilterContainer = styled.section`
     z-index: 97;
 
     @media screen and (max-width: 1100px) {
-
     }
 `
 const QuickViewContainer = styled.dialog`
@@ -157,6 +156,25 @@ export default function RoomsGrid(props) {
         //     }, y: 0
         // })
 
+        var	wideScreen = window.matchMedia("(min-width: 800px)");
+        var	narrowScreen = window.matchMedia("(max-width: 799px)");
+
+        if(narrowScreen.matches) {
+            gsap.to(filterContainerTBA, {
+                scrollTrigger: {
+                    trigger: filterContainerTBA,
+                    start: "top-=0 -1px",
+                    endTrigger: maincontent,
+                    end: "bottom-=0 bottom-=150",
+                    pin: filterContainerTBA,
+                    markers: false,
+                    pinSpacing: false,
+                    scrub: true
+                }, y: 0
+            })
+        }
+
+        if(wideScreen.matches) {
         gsap.to(filterContainerTBA, {
             scrollTrigger: {
                 trigger: filterContainerTBA,
@@ -169,6 +187,7 @@ export default function RoomsGrid(props) {
                 scrub: true
             }, y: 0
         })
+        }
 
     }, []);
 
