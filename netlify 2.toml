@@ -1,0 +1,4 @@
+[context.staging.environment]
+    WP_GQL_API = "https://orlistg.wpengine.com/graphql"
+[context.dev.environment]
+    WP_GQL_API = "https://orlistg.wpengine.com/graphql"

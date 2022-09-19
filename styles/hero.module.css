@@ -144,7 +144,7 @@
         top: 35%;
         left: 0px;
         right: 0px;
-        z-index: 99;
+        z-index: 8;
         margin: auto;
         text-align: center;
     }
@@ -166,7 +166,7 @@
         top: 25%;
         left: 0px;
         right: 0px;
-        z-index: 99;
+        z-index: 8;
         margin: auto;
         text-align: center;
     }
