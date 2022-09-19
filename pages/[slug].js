@@ -116,10 +116,10 @@ export default function DefaultPage(props) {
                 case 'Post_Flexiblecontent_Sections_BookingIframe':
                     gatheredSections.push(<BookingIframe key={componentKey} {...section} />)
                 break;
-                //case 'Page_Flexiblecontent_Sections_FeaturedJournal':
-                //case 'Post_Flexiblecontent_Sections_FeaturedJournal':
-                    //gatheredSections.push(<FullFeatureBlog key={componentKey} {...section} />)
-                    //break;
+                case 'Page_Flexiblecontent_Sections_FeaturedJournal':
+                case 'Post_Flexiblecontent_Sections_FeaturedJournal':
+                    gatheredSections.push(<FullFeatureBlog key={componentKey} {...section} />)
+                    break;
                 case 'Page_Flexiblecontent_Sections_FollowAlong':
                 case 'Post_Flexiblecontent_Sections_FollowAlong':
                     gatheredSections.push(<FauxSocialFeed key={componentKey} {...section} />)
