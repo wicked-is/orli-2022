@@ -102,6 +102,7 @@ export default function Header(props) {
                             </span>
                         )
                     }
+                    <div class={styles.hamburgermenu}>Menu</div>
 				</div>
                 </div>
             </div>

@@ -268,6 +268,8 @@ ul.socials {
   .mobileshowme {display: none;}
   .mobilehideme {display: block;}
 
+  .header .hamburgermenu {display: none;}
+
 @media only screen and (max-width: 800px) {
     .mobilehideme {display: none;}
     .mobileshowme {display: block;}
@@ -322,10 +324,11 @@ ul.socials {
         top: 1.3rem;
     }
 
-    .hamburger::before {
-        content: "Menu";
+    .header .hamburgermenu {
         color: var(--white);
         position: absolute;
+        display: block;
+        z-index: 9;
         left: -3rem;
         top: 1.2rem;
         text-transform: uppercase;
@@ -333,7 +336,7 @@ ul.socials {
         margin: -1rem 1rem 0rem 0rem !important;
         font-family: 'GT Walsheim Light';
     }
-    
+    .header.open .hamburgermenu,
     .header .headerlogo {display: none;}
 
     .header .primarybutton  {
