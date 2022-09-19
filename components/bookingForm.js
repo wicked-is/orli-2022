@@ -8,8 +8,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import styles from '../styles/bookingForm.module.css';
 
 export default function BookingForm() {
-    const [checkInType, setCheckInType] = useState('text');
-    const [checkOutType, setCheckOutType] = useState('text');
+    const [checkOutDate, setCheckOutDate] = useState('');
+
+    const setCheckout = (date) => {
+        setCheckOutDate(date.target.value)
+    }
 
     return (
         <div className={styles.formcontainer}>
@@ -17,12 +20,12 @@ export default function BookingForm() {
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
                     {/* onFocus={() => setCheckInType('date')}  */}
-                    <input type={"date"} name="widget_date" placeholder="Add Dates" className="sans-serif"/>
+                    <input type="date" name="widget_date" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} />
                 </div>
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check Out</span>
                     {/* onFocus={() => setCheckOutType('date')}  */}
-                    <input type={"date"} name="widget_date_to" placeholder="Add Dates" className="sans-serif"/>
+                    <input type="date" value={checkOutDate} name="widget_date_to" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} />
                 </div>
                 <button type="submit" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
             </form>
