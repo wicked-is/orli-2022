@@ -29,11 +29,11 @@ export default function BookingForm() {
                 </div>
                 <button type="submit" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
             </form>
-            <Link href="/book-a-room/" passHref>
+            {/* <Link href="/book-a-room/" passHref>
                 <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
                     Book Multiple Rooms
                 </a>
-            </Link>
+            </Link> */}
         </div>
     )
 }
