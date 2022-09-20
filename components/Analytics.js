@@ -3,7 +3,7 @@ import Script from "next/script"
 export default function Analytics(props) {
 
     // const EXAMPLE_UA_CODE = "UA-130029095-1"
-    const UA_CODE = "UA-234602062-2"
+    const UA_CODE = "UA-234602062-1"
 
     return (
         !props.siteNotLive && (
