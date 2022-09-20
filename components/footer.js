@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from 'next/link'
-import { useEffect } from "react";
+import { useEffect, useState } from 'react';
 import { useWindowSize } from "../utils/hooks";
 import styled from "styled-components";
 import FauxSocialFeed from "./fauxSocialFeed";
@@ -52,6 +52,8 @@ const Right = styled.div`
 export default function Footer(props) {
 
     const size = useWindowSize();
+    
+    const [email, setEmail] = useState('');
 
     return (
         <>
@@ -147,6 +149,18 @@ export default function Footer(props) {
             { size.width < 768 ? (
                 <>
                     <MobileFooterContainer className="mobile-footer">
+                    <div className="email-signup">
+                                <p className="serif white left">Exclusive Offers, News & Events</p>
+                                <form id="emailcapture" action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/">
+                                        <input id="email" 
+                                        name="email" 
+                                        value={email} 
+                                        placeholder="Enter Email*"
+                                        />
+                                 <button className="submit">Submit</button>
+                                </form>
+                        </div>
+                        
                         <a href="https://orlidev.wpengine.com">
                         <img
                             className="mobilefooter-logo" 
@@ -237,6 +251,20 @@ export default function Footer(props) {
                         </div>
                     </div>
                     <div>
+                    <div>
+                        <div className="email-signup">
+                                <p className="serif white left">Exclusive Offers, News & Events</p>
+                                <form id="emailcapture" action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/">
+                                        <input id="email" 
+                                        name="email" 
+                                        value={email} 
+                                        placeholder="Enter Email*"
+                                        />
+                                 <button className="submit">Submit</button>
+                                </form>
+                        </div>
+                    </div>
+                    
                         <div>
                             <div className="footer-links">
                                 <Link href="/find-your-room">Rooms</Link>
@@ -288,6 +316,7 @@ export default function Footer(props) {
                                 </div>
                             </div>
                         </div>
+
                         <div>
                             <div>
                                 <p className="sans-serif copyright xs-copy white left">© 2022 Orli La Jolla | <Link href="/privacy-policy">Privacy Policy</Link> | <Link href="/cookie-policy">Cookie Policy</Link> | <Link href="/terms-conditions">Terms & Conditions</Link></p>
