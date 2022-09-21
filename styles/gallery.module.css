@@ -4,9 +4,9 @@
     max-width: 80%;
     text-align: center;
     display: block;
-    padding: 14rem 0rem 2rem 0rem;
+    padding: 8rem 0rem 2rem 0rem;
 }
-
+.galleryContainer h1 {padding: 0 0 2rem 0;}
 .videoContainer {
     position: relative;
     width: 100%;
