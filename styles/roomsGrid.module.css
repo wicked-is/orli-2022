@@ -144,4 +144,20 @@
         min-height: unset;
     }
     .roomsGrid li:nth-child(7) .text p {color: var(--black) !important;}
+
+    .roomsGrid li:nth-child(1) .text,
+    .roomsGrid li:nth-child(2) .text,
+    .roomsGrid li:nth-child(3) .text,
+    .roomsGrid li:nth-child(4) .text,
+    .roomsGrid li:nth-child(5) .text,
+    .roomsGrid li:nth-child(6) .text,
+    .roomsGrid li:nth-child(7) .text,
+    .roomsGrid li:nth-child(8) .text,
+    .roomsGrid li:nth-child(9) .text,
+    .roomsGrid li:nth-child(10) .text,
+    .roomsGrid li:nth-child(11) .text,
+    .roomsGrid li:nth-child(12) .text,
+    .roomsGrid li:nth-child(13) .text {
+        padding: 0rem 2rem 0rem 2rem;
+    }
 }
