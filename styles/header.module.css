@@ -336,7 +336,7 @@ ul.socials {
         margin: -1rem 1rem 0rem 0rem !important;
         font-family: 'GT Walsheim Light';
     }
-
+    .header.open .hamburgermenu {display: none;}
     .header .headerlogo {display: none;}
 
     .header.open .headerlogo {display: block; top: -20rem; left: 2rem;}
