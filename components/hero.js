@@ -237,7 +237,7 @@ export default function Hero(props) {
                 return (
                     <div className="smheroContainer">
                         <div className={styles.smallHero} style={{
-                            backgroundImage: `url(${imagePoster.mediaItemUrl})`
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35)), url(${imagePoster.mediaItemUrl})`
                         }} onClick={toggleGallery}>
                             <img src={imagePoster.mediaItemUrl} alt={imagePoster.altText} />
                         </div>
