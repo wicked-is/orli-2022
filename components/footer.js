@@ -160,7 +160,7 @@ export default function Footer(props) {
                                  <button className="submit">Submit</button>
                                 </form>
                         </div>
-                        
+
                         <a href="https://orlidev.wpengine.com">
                         <img
                             className="mobilefooter-logo" 
@@ -224,7 +224,7 @@ export default function Footer(props) {
                                     <Link href="/gallery">Gallery</Link>
                                     <Link href="/privacy-policy" className="privacy">Privacy Policy</Link>
                                     <Link href="/cookie-policy">Cookie Policy</Link>
-                                    <Link href="/terms-conditions">Cookie Policy</Link>
+                                    <Link href="/terms-conditions">Terms & Conditions</Link>
                                 </div>
                             </Right>
                         </ColumnContainer>
