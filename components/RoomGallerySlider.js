@@ -44,6 +44,8 @@ export default function RoomGallerySlider(props) {
                     pageDots: false,
                     wrapAround: true,
                     autoPlay: 6000,
+                    arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
+
                 }}
                 disableImagesLoaded={false} // default false
                 reloadOnUpdate={false} // default false

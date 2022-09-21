@@ -376,34 +376,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 } */
 
 .smheroContainer .flickity-prev-next-button {
-  top: 95%;
+  top: 85%;
 }
 
 .smheroContainer .flickity-prev-next-button.next {
-  right: 12rem;
+  right: 1rem;
 }
 
-.smheroContainer .flickity-button {
-  background: none;
-  background-image: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/OrliDownArrowRoomSlider.png);
-  background-repeat: no-repeat;
+.smheroContainer .flickity-prev-next-button.previous {
+  left: 1rem;
 }
 
-.smheroContainer .flickity-button svg { display: none; }
-.smheroContainer .flickity-button:hover { 
-  background: none; 
-  background-image: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/OrliDownArrowRoomSlider.png);
-  background-repeat: no-repeat;
-}
+.smheroContainer .flickity-prev-next-button .flickity-button-icon {fill: var(--brown);}
 
-.flickity-prev-next-button.previous {
-  left: 10px;
-  background: none;
-  background-image: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/OrliDownArrowRoomSliderLeft-e1662765268742.png) !important;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.flickity-prev-next-button:focus {
+.smheroContainer .flickity-prev-next-button:focus {
   box-shadow: 0 0 0 5px var(--green) !important;
 }
