@@ -72,105 +72,105 @@ export default function DefaultPage(props) {
             switch (section.fieldGroupName) { 
                 case 'Page_Flexiblecontent_Sections_AnchorBar':
                 case 'Post_Flexiblecontent_Sections_AnchorBar':
-                gatheredSections.push(<AnchorBar key={componentKey} {...section} />)
+                gatheredSections.push(<AnchorBar key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_EventFeed':
                 case 'Post_Flexiblecontent_Sections_EventFeed':
-                    gatheredSections.push(<EventFeed key={componentKey} {...section} />)
+                    gatheredSections.push(<EventFeed key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Hero':
-                  gatheredSections.push(<Hero key={componentKey} {...section} />)
+                  gatheredSections.push(<Hero key={componentKey} {...section} index={index} />)
                   break;
                 case 'Post_Flexiblecontent_Sections_Hero':
-                    gatheredSections.push(<Hero key={componentKey} postTitle={title} {...section} categories={categories} />)
+                    gatheredSections.push(<Hero key={componentKey} postTitle={title} {...section} categories={categories} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_HistoricTimeline':
                 case 'Post_Flexiblecontent_Sections_HistoricTimeline':
-                    gatheredSections.push(<HistoricalSlider key={componentKey} {...section} />)
+                    gatheredSections.push(<HistoricalSlider key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_CenteredCopy':
                 case 'Post_Flexiblecontent_Sections_CenteredCopy':
-                    gatheredSections.push(<BlurbCenter key={componentKey} {...section} />)
+                    gatheredSections.push(<BlurbCenter key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_RoomsSlider':
                 case 'Post_Flexiblecontent_Sections_RoomsSlider':
-                    gatheredSections.push(<RoomSlider key={componentKey} {...section} />)
+                    gatheredSections.push(<RoomSlider key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_DiscoveriesCallout':
                 case 'Post_Flexiblecontent_Sections_DiscoveriesCallout':
-                    gatheredSections.push(<DiscoveriesCallout key={componentKey} {...section} />)
+                    gatheredSections.push(<DiscoveriesCallout key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_AmenitiesSlider':
                 case 'Post_Flexiblecontent_Sections_AmenitiesSlider':
-                    gatheredSections.push(<AmenitiesSlider key={componentKey} {...section} />)
+                    gatheredSections.push(<AmenitiesSlider key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_OurMission':
                 case 'Post_Flexiblecontent_Sections_OurMission':
-                    gatheredSections.push(<OurMission key={componentKey} {...section} />)
+                    gatheredSections.push(<OurMission key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_GatheringsCallout':
                 case 'Post_Flexiblecontent_Sections_GatheringsCallout':
-                    gatheredSections.push(<Gatherings key={componentKey} {...section} />)
+                    gatheredSections.push(<Gatherings key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_BookingIframe':
                 case 'Post_Flexiblecontent_Sections_BookingIframe':
-                    gatheredSections.push(<BookingIframe key={componentKey} {...section} />)
+                    gatheredSections.push(<BookingIframe key={componentKey} {...section} index={index} />)
                 break;
                 case 'Page_Flexiblecontent_Sections_FeaturedJournal':
                 case 'Post_Flexiblecontent_Sections_FeaturedJournal':
-                    gatheredSections.push(<FullFeatureBlog key={componentKey} {...section} />)
+                    gatheredSections.push(<FullFeatureBlog key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_FollowAlong':
                 case 'Post_Flexiblecontent_Sections_FollowAlong':
-                    gatheredSections.push(<FauxSocialFeed key={componentKey} {...section} />)
+                    gatheredSections.push(<FauxSocialFeed key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_SpotifyFeature':
                 case 'Post_Flexiblecontent_Sections_SpotifyFeature':
-                    gatheredSections.push(<SpotifyFeature key={componentKey} {...section} />)
+                    gatheredSections.push(<SpotifyFeature key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_BigImageSmallContent':
                 case 'Post_Flexiblecontent_Sections_BigImageSmallContent':
-                    gatheredSections.push(<BigImageSmallContent key={componentKey} order={index} {...section} />)
+                    gatheredSections.push(<BigImageSmallContent key={componentKey} order={index} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Form':
                 case 'Post_Flexiblecontent_Sections_Form':
-                    gatheredSections.push(<Form key={componentKey} {...section} />)
+                    gatheredSections.push(<Form key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_FeaturedStorySlider':
                 case 'Post_Flexiblecontent_Sections_FeaturedStorySlider':
-                    gatheredSections.push(<FeaturedStorySlider key={componentKey} {...section} />)
+                    gatheredSections.push(<FeaturedStorySlider key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Gallery':
                 case 'Post_Flexiblecontent_Sections_Gallery':
-                    gatheredSections.push(<Gallery key={componentKey} {...section} />)
+                    gatheredSections.push(<Gallery key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_Titlebar':
                 case 'Post_Flexiblecontent_Sections_Titlebar':
-                    gatheredSections.push(<TitleBar key={componentKey} {...section} />)
+                    gatheredSections.push(<TitleBar key={componentKey} {...section} index={index} />)
                     break;
                 case 'Page_Flexiblecontent_Sections_BlogGrid':
                 case 'Post_Flexiblecontent_Sections_BlogGrid':
-                    gatheredSections.push(<BlogGrid key={componentKey} {...section} />)
+                    gatheredSections.push(<BlogGrid key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_GettingHere':
                 case 'Post_Flexiblecontent_Sections_GettingHere':
-                  gatheredSections.push(<GettingHere key={componentKey} {...section} />)
+                  gatheredSections.push(<GettingHere key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_TheLocalWay':
                 case 'Post_Flexiblecontent_Sections_TheLocalWay':
-                  gatheredSections.push(<TheLocalWay key={componentKey} {...section} />)
+                  gatheredSections.push(<TheLocalWay key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_ContentBlock':
                 case 'Post_Flexiblecontent_Sections_ContentBlock':
-                  gatheredSections.push(<ContentBlock key={componentKey} {...section} />)
+                  gatheredSections.push(<ContentBlock key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_ExploreMorePosts':
                 case 'Post_Flexiblecontent_Sections_ExploreMorePosts':
-                  gatheredSections.push(<ExploreMorePosts key={componentKey} {...section} />)
+                  gatheredSections.push(<ExploreMorePosts key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_RoomsGrid':
                 case 'Post_Flexiblecontent_Sections_RoomsGrid':
-                    gatheredSections.push(<RoomsGrid key={componentKey} {...section} filters={roomAmenities.nodes} />)
+                    gatheredSections.push(<RoomsGrid key={componentKey} {...section} filters={roomAmenities.nodes} index={index} />)
                     break;
                 default:
                     break;
