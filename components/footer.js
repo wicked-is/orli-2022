@@ -55,113 +55,43 @@ export default function Footer(props) {
     
     const [email, setEmail] = useState('');
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const res = await fetch('https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/', {
+            method: 'POST',
+            body: JSON.stringify({
+                email,
+            })
+        })
+            
+        handleResponse(res)
+    }
+
+    const handleResponse = async (res) => {
+        window.location.href = "/thank-you/";
+    }
+
     return (
         <>
-            {
-                /* 
-                    <footer className="footer">
-                        <div className="flex one">
-                            <div className="col-1-30">
-                                <img
-                                className="footer-logo" 
-                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" 
-                                width={380} height={75} 
-                                layout="responsive" />
-                            </div>
-                            <div className="col-1-45">
-                            <div className="flex">
-                            <div className="col-1-40">
-                                        <address className="sans-serif xs-copy white left">
-                                        Orli La Jolla<br/>555 Main Street,<br/>La Jolla<br/>California 12345
-                                        </address>
-                                    
-                                            <p className="directions xs-copy white left">
-                                            <Link href="/">Get Directions</Link>
-                                            </p>
-                            </div>
-                            <div className="col-1-60 text-padding-left">
-                                    <p className="sans-serif xs-copy white left">T: 123 555 5555<br/>
-                                    E: email@stayorli.com</p>
-                                    <ul className="socials">
-                                        <li>
-                                            <Link href="/">
-                                                <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
-                                                    alt="Instagram Logo"
-                                                    className="instagram"
-                                                    width={30}
-                                                    height={30} />
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/">
-                                                <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
-                                                    alt="facebook Logo"
-                                                    className="facebook"
-                                                    width={14}
-                                                    height={30} />
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/">
-                                                <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
-                                                    alt="spotify logo"
-                                                    className="spotify"
-                                                    width={30}
-                                                    height={30} />
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-1-25">
-                            <div className="footer-links">
-                                    <Link href="/">Amenities</Link>
-                                    <Link href="/">Rooms</Link>
-                                    <Link href="/">Location</Link>
-                                    <Link href="/">Events</Link>
-                                    <Link href="/">Our Story</Link>
-                                    <Link href="/">The Journal</Link>
-                                    <Link href="/">Gallery</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex two">
-                            <div className="col-1-30">
-                            </div>
-                            <div className="col-1-45">
-                                <p className="sans-serif copyright xs-copy white left">Orli La Jolla All Rights Reserved © 2022</p>
-                            </div>
-                            <div className="col-1-25">
-                                <div className="footer-links-two">
-                                    <Link href="/">Privacy Policy</Link>
-                                    <Link href="/">Cookie Policy</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </footer> 
-                */
-            }
             <FauxSocialFeed image={props.footerImages } />
             { size.width < 768 ? (
                 <>
                     <MobileFooterContainer className="mobile-footer">
                     <div className="email-signup">
                                 <p className="serif white left">Exclusive Offers, News & Events</p>
-                                <form id="emailcapture" action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/">
+                                <form id="emailcapture" onSubmit={handleSubmit}>
                                         <input id="email" 
                                         name="email" 
                                         value={email} 
                                         placeholder="Enter Email*"
+                                        onChange={() => setEmail(event.target.value)}
                                         />
                                  <button className="submit">Submit</button>
                                 </form>
                         </div>
 
-                        <a href="https://orlidev.wpengine.com">
+                        <a href="/">
                         <img
                             className="mobilefooter-logo" 
                             src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" alt="orli logo" />
@@ -254,7 +184,7 @@ export default function Footer(props) {
                     <div>
                         <div className="email-signup">
                                 <p className="serif white left">Exclusive Offers, News & Events</p>
-                                <form id="emailcapture" action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/">
+                                <form id="emailcapture" action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/"  onSubmit={handleSubmit}>
                                     <input id="email" 
                                         name="email" 
                                         value={email} 
