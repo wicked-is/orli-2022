@@ -46,10 +46,10 @@ export default function Header(props) {
         <header className={`${styles.header} ${navIsOpen ? styles.open : ''}`}>
             
             <Analytics/>
-            <Script
+            {/* <Script
                 src="https://www.bugherd.com/sidebarv2.js?apikey=dw2fpdf4dfctxv0wzdcnuw"
                 strategy="beforeInteractive"
-            />
+            /> */}
             <Head>
                 {/* Head elements required on every page */}
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
