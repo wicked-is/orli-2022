@@ -23,8 +23,11 @@ export default function BlurbCenter(props) {
             ) }
             <div className="max-60 center">
                 { !mp4ExternalLink && <div className={`${styles.icon} fadein`}>
-                    <img src={icon.mediaItemUrl} alt={icon.altText}/>
+                    <img src={icon?.mediaItemUrl} alt={icon?.altText}/>
                 </div> }
+                {headline && ( 
+                    <p className="serif heading black center fadein">{headline}</p>
+                )}
                 <p className="heading-italic fadein">
                     { blurb }
                 </p>
