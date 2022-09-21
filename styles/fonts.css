@@ -65,10 +65,33 @@
 }
 ::placeholder {
     /* font-size: initial; */
-    color: rgba(0,0,0,.5);
+    color: rgba(0,0,0,.7);
 }
+::-webkit-input-placeholder {
+    /* font-size: initial; */
+    color: rgba(0,0,0,.7);
+}
+::-moz-placeholder {
+    /* font-size: initial; */
+    color: rgba(0,0,0,.7);
+}
+:-ms-input-placeholder {
+    /* font-size: initial; */
+    color: rgba(0,0,0,.7);
+}
+:-moz-input-placeholder {
+    /* font-size: initial; */
+    color: rgba(0,0,0,.7);
+}
+
 input[type="date"] {
     color: rgba(0, 0, 0, .7);
+    border-radius: 0px;
+    background: transparent;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    -ms-border-radius: 0px;
 }
 
 .xs-heading {
