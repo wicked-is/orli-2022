@@ -91,6 +91,7 @@ export default function Gallery(props) {
                 <div className="arrowssub"></div> */}
             </div>
         <div className={styles.galleryContainer}>
+            <h1 className="serif heading dark center">Gallery</h1>
             <ResponsiveMasonry columnsCountBreakPoints={{600: 1, 800: 2, 900: 2, 1000: 2}}>
                 <Masonry columnsCount={2} gutter="10px">
                 {
