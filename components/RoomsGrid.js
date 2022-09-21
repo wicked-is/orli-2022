@@ -21,7 +21,8 @@ const FilterContainer = styled.section`
     background-color: var(--lt-grey);
     z-index: 97;
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 820px) {
+        & {display: none;}
     }
 `
 const QuickViewContainer = styled.dialog`
