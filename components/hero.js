@@ -235,11 +235,11 @@ export default function Hero(props) {
                 )
             case 'Single Room':
                 return (
-                    <div className="smheroContainer">
-                        <div className={styles.smallHero} style={{
+                    <div className="smheroContainer room">
+                        <div className={`${styles.smallHero} roomind`} style={{
                             backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }} onClick={toggleGallery}>
-                            <img src={imagePoster.mediaItemUrl} alt={imagePoster.altText} />
+                            <img src={imagePoster.mediaItemUrl} alt={imagePoster.altText} className="posterinmg"/>
                         </div>
                         {
                             includeBookingForm && (
@@ -252,11 +252,7 @@ export default function Hero(props) {
                             gallery && (
                                 <>
                                     <Link href="/">
-                                        <a className="sans-serif body-copy underline" style={{
-                                            position: 'absolute',
-                                            left: '10vw', bottom: '17.8rem',
-                                            color: 'white',
-                                        }}
+                                        <a className={`${styles.viewGallery} sans-serif white body-copy textshadow underline`}
                                         onClick={toggleGallery}
                                         >
                                             View Gallery

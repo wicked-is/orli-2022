@@ -137,6 +137,13 @@
 
 .mobileherologo {display: none}
 
+.viewGallery {
+    position: absolute;
+    z-index: 9;
+    left: 9rem;
+    bottom: 12rem;
+}
+
 @media only screen and (max-width: 800px){
     .mobileherologo {
         display: block;
@@ -156,8 +163,23 @@
     }
 
     .smallHero{position: relative; height: unset; background: unset;}
+
     .smallJournalHero {position: relative; height: unset; background: unset; padding-top: 15rem !important; }
-    .smallHero img, .smallJournalHero img {display: block; margin:5rem auto auto auto; text-align: center; width: 100%;}
+
+    .smallHero img, 
+    .smallJournalHero img {
+        display: block;
+        margin: 5rem auto auto auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    .viewGallery {
+        position: absolute;
+        z-index: 9;
+        left: 5rem;
+        bottom: 10rem;
+    }
 }
 @media only screen and (max-width: 420px){
     .mobileherologo {
