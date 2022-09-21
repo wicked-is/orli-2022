@@ -255,12 +255,13 @@ export default function Footer(props) {
                         <div className="email-signup">
                                 <p className="serif white left">Exclusive Offers, News & Events</p>
                                 <form id="emailcapture" action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/">
-                                        <input id="email" 
+                                    <input id="email" 
                                         name="email" 
                                         value={email} 
                                         placeholder="Enter Email*"
+                                        onChange={() => setEmail(event.target.value)}
                                         />
-                                 <button className="submit">Submit</button>
+                                    <button className="submit">Submit</button>
                                 </form>
                         </div>
                     </div>
