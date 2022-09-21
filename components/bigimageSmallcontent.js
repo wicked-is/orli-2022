@@ -55,7 +55,7 @@ export default function BigImageSmallContent(props) {
     return (
         <section className={`${styles.container} ${order == 0 ? '': ''} ${greyBackground !== null && greyBackground == true ? `bg-lt-grey` : null}`}>
            {contentPosition === "Left" && (
-               <div className="max-80 fadein">
+               <div className={`max-80 ${props.index == 0 ? null : 'fadein'}`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
                    )}
