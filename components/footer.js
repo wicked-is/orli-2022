@@ -148,7 +148,7 @@ export default function Footer(props) {
                                 <div className="footer-links">
                                     <Link href="/find-your-room">Rooms</Link>
                                     <Link href="/amenities">Amenities</Link>
-                                    <Link href="/discoveries">Location</Link>
+                                    <Link href="/discoveries">Discoveries</Link>
                                     <Link href="/gatherings">Events</Link>
                                     <Link href="/our-story">Story</Link>
                                     <Link href="/the-journal">Journal</Link>
@@ -207,7 +207,7 @@ export default function Footer(props) {
                                 <Link href="/our-story">Story</Link>
                                 <Link href="/amenities">Amenities</Link>
                                 <Link href="/the-journal">Journal</Link>
-                                <Link href="/discoveries">Location</Link>
+                                <Link href="/discoveries">Discoveries</Link>
                                 <Link href="/gallery">Gallery</Link>
                                 <Link href="/gatherings">Events</Link>
                             </div>
