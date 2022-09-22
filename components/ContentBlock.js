@@ -33,7 +33,7 @@ const ContentBlockInnerContainer = styled.div`
         max-width: 100%;
         height: 100%;
         
-        .aligncenter {
+        &.aligncenter {
             display: block;
             margin: 0 auto;
         }
