@@ -273,7 +273,7 @@ label.rooms-filter {
   .smheroContainer.room {
     position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 80vh !important;
   overflow: hidden;
   display: flex;
   justify-content: center;

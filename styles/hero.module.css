@@ -148,6 +148,15 @@
     bottom: 12rem;
 }
 
+@media only screen and (max-width: 1440px){
+    .viewGallery {
+        position: absolute;
+        z-index: 9;
+        left: 9rem;
+        bottom: 14rem;
+    }
+}
+
 @media only screen and (max-width: 800px){
     .mobileherologo {
         display: block;
