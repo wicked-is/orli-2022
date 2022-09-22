@@ -28,6 +28,10 @@ const ContentBlockInnerContainer = styled.div`
         font-family: 'GT Walsheim Light';
         line-height: 150%;
     }
+
+    img {
+        max-width: 100%;
+    }
 `
 
 export default function ContentBlock(props) {
