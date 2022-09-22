@@ -38,7 +38,6 @@ const ExploreMorePostsGrid = styled.div`
 `
 
 export default function ExploreMorePosts(props) {
-    console.log(props);
     const { anchor, posts, title } = props
     return (
         <ExploreMorePostsMainContainer>
