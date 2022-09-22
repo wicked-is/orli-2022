@@ -166,11 +166,13 @@ export default function Footer(props) {
                     <div>
                         <div>
                         <Link href="/">
+                            <a>
                         <img
                             className="footer-logo" 
                             src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" 
                             width={380} height={75} 
                             layout="responsive" />
+                            </a>
                         </Link>
                         </div>
                         <div>
