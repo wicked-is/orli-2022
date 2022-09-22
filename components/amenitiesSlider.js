@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Flickity from 'react-flickity-component'
 import "flickity/css/flickity.css";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 import styles from '../styles/amenitiesSlider.module.css';
 
@@ -25,6 +28,23 @@ export default function AmenitiesSlider(props) {
     const changeSlider = (e) => {
         slider.current.select(e.target.dataset.slide)
     }
+
+    useEffect(() => {
+        var slidersections = gsap.utils.toArray('.sliderfadein');
+
+        slidersections.forEach((slidersection) => {
+            gsap.to(slidersection, { autoAlpha: 1,
+                scrollTrigger: {
+                    trigger: slidersection,
+                    start: "+=0 80%",
+                    scrub: false,
+                    markers: false,
+                    toggleActions: "play reverse play reverse"
+                }
+            });
+        });
+
+    },[])
 
     useEffect(() => {
         isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
@@ -71,13 +91,13 @@ export default function AmenitiesSlider(props) {
                     })
                 }
             </Flickity>
-            <div className={`${styles.sliderContent} fadein`}>
+            <div className={`${styles.sliderContent} sliderfadein`}>
                 <p className="sans-serif-bold sub-heading white">{title}</p>
                 {blurb && <p className="heading white" style={{ margin: 0 }}>{blurb}</p>}
                 { description && !isMobileDevice && <p className="sans-serif body-copy white desc">{description}</p> }
                 <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
-            <div className={`${styles.sliderNav} fadein`}>
+            <div className={`${styles.sliderNav} sliderfadein`}>
                 {
                     amenities.map((amenity, index) => {
                         return (
