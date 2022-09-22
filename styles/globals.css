@@ -274,17 +274,17 @@ label.rooms-filter {
 
   .smheroContainer.room {
     position: relative;
-  width: 100vw;
-  height: 80vh !important;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+    width: 100vw;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .smheroContainer.room .roomind {
   width: 100%;
-  height: 80vh;
+  height: 80vh !important;
   margin: auto;
   display: inline-block;
   background-repeat: no-repeat;
