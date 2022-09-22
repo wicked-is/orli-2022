@@ -235,8 +235,8 @@ export default function Hero(props) {
                 )
             case 'Single Room':
                 return (
-                    <div className="smheroContainer">
-                        <div className={styles.smallHero} style={{
+                    <div className="smheroContainer room">
+                        <div className={`${styles.smallHero} roomind force`} style={{
                             backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35)), url(${imagePoster.mediaItemUrl})`
                         }} onClick={toggleGallery}>
                             <img src={imagePoster.mediaItemUrl} alt={imagePoster.altText} className="posterinmg"/>
