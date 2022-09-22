@@ -10,7 +10,7 @@ export default function TwoStaggeredPhotos({ left, right }) {
             </div>
             <div className={styles.right}>
                 {/* <Image src={right} width={708} height={434} layout="responsive" /> */}
-                <video poster={right} className={styles.videoBG} autoPlay playsInline muted loop>
+                <video poster={"https://orlidev.wpengine.com/wp-content/uploads/2022/09/Orli_Discoveries_RightWeb-1.jpg"} className={styles.videoBG} autoPlay playsInline muted loop>
                     <source src="https://stayorli.com/wp-content/uploads/2022/02/orlihero5-1.mp4" type="video/mp4" />
                     <source src="https://stayorli.com/wp-content/uploads/2022/02/orlihero5-1.webm" type="video/webm" />
                 </video>
