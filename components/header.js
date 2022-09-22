@@ -74,9 +74,9 @@ export default function Header(props) {
                 )
             }
             <div className={styles.sitebranding}>
-                <Link href="/">
+                <Link href="/"><div onClick={() => toggleNav()}>
                     <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" alt="Orli La Jolla Logo" className={styles.headerlogo} width={380} height={95} />
-                </Link>
+                </div></Link>
 
                 <div className={styles.telephoneContainer}>
                     <Link href="tel:+16195760806">
@@ -95,7 +95,7 @@ export default function Header(props) {
                 <div className="hamburger hamburger--collapse" type="button" onClick={() => toggleNav()}> 
                     {
                         navIsOpen ? (
-                            <img className={styles.close} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg" alt="close icon" onClick={() => toggleNav()} />
+                            <img className={styles.close} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg" alt="close icon" />
                         ) : (
                             <span className="hamburger-box">
                                 <span className="hamburger-inner"></span>
