@@ -89,6 +89,9 @@ label.rooms-filter {
   background-color: var(--brown);
 }
 
+.bgimgfade,
+.blurbcenterfade,
+.fadeintwo,
 .fadein {
   opacity: 0;
 }
