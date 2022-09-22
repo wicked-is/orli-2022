@@ -28,8 +28,6 @@ const ContentBlockInnerContainer = styled.div`
         font-family: 'GT Walsheim Light';
         line-height: 150%;
     }
-<<<<<<< HEAD
-=======
 
     img {
         max-width: 100%;
@@ -40,7 +38,6 @@ const ContentBlockInnerContainer = styled.div`
             margin: 0 auto;
         }
     }
->>>>>>> 193b70e (Update ContentBlock.js)
 `
 // .aligncenter
 // image swap
