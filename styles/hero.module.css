@@ -145,7 +145,13 @@
     position: absolute;
     z-index: 9;
     left: 9rem;
-    bottom: 12rem;
+    bottom: 3rem;
+}
+
+@media only screen and (max-width: 820px){
+    .viewGallery {
+        left: 4rem;
+    }
 }
 
 @media only screen and (max-width: 800px){
@@ -179,9 +185,7 @@
     }
 
     .viewGallery {
-        position: absolute;
-        z-index: 9;
-        left: 5rem;
+        left: 2.5rem;
         bottom: 10rem;
     }
 }

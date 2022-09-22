@@ -213,6 +213,8 @@ label.rooms-filter {
 .top-nav-active .smheroContainer {padding: 137px 0 0 0;}
 .tob-bar-not-active .smheroContainer {padding: 88px 0 0 0;}
 
+.smheroContainer {position: relative;}
+
 .iconnav {
   width: 100%; 
   max-width: 4rem;
@@ -273,7 +275,7 @@ label.rooms-filter {
   .smheroContainer.room {
     position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 80vh !important;
   overflow: hidden;
   display: flex;
   justify-content: center;
