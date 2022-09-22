@@ -4,6 +4,9 @@ import styles from '../styles/bigimagesmallcontent.module.css';
 import Flickity from 'react-flickity-component'
 import "flickity/css/flickity.css";
 import styled from "styled-components";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const SliderNavigationContainer = styled.div`
     display: flex;
@@ -17,6 +20,23 @@ export default function BigImageSmallContent(props) {
     const [sliderActive, setSliderActive] = useState(0)
     const [currentSlider, setCurrentSlider] = useState('1')
     const [currentSliderLength, setCurrentSliderLength] = useState('')
+
+    useEffect(() => {
+        var bgimgsections = gsap.utils.toArray('.bgimgfade');
+
+        bgimgsections.forEach((bgimgsection) => {
+            gsap.to(bgimgsection, { autoAlpha: 1,
+                scrollTrigger: {
+                    trigger: bgimgsection,
+                    start: "+=0 80%",
+                    scrub: false,
+                    markers: false,
+                    toggleActions: "play reverse play reverse"
+                }
+            });
+        });
+
+    },[])
 
     useEffect(() => { 
         if (slider.current !== null) {
@@ -55,7 +75,7 @@ export default function BigImageSmallContent(props) {
     return (
         <section className={`${styles.container} ${order == 0 ? '': ''} ${greyBackground !== null && greyBackground == true ? `bg-lt-grey` : null}`}>
            {contentPosition === "Left" && (
-               <div className={`max-80 ${props.index == 0 ? null : 'fadein'}`}>
+               <div className={`max-80 ${props.index == 0 ? null : 'bgimgfade'}`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
                    )}
@@ -141,7 +161,7 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Right" && (
-               <div className="max-80 fadein reorder">
+               <div className="max-80 bgimgfade reorder">
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
                    )}
@@ -211,7 +231,7 @@ export default function BigImageSmallContent(props) {
            )
            }
            {contentPosition === "Over Background Left" && (
-               <div className={`${styles.flex} ${paddingType} fadein relative`}>
+               <div className={`${styles.flex} ${paddingType} bgimgfade relative`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className={styles.fullanchor}></a>
                    )}
@@ -260,7 +280,7 @@ export default function BigImageSmallContent(props) {
            }
 
 {contentPosition === "Over Background Right" && (
-               <div className={`${styles.flex} ${paddingType} fadein relative`}>
+               <div className={`${styles.flex} ${paddingType} bgimgfade relative`}>
                    { anchorTag && (
                        <a id={anchorTag} name={anchorTag} className={styles.fullanchor}></a>
                    )}
@@ -289,7 +309,7 @@ export default function BigImageSmallContent(props) {
                 {
                     mediaType === "video" && (
                         <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
-                            <div className={`${styles.overBackground} fadein`}>
+                            <div className={`${styles.overBackground} bgimgfade`}>
                             { icon && (<p className="right"><img src={icon?.mediaItemUrl} alt={icon?.altText} layout="responsive" className={`${styles.rightIcon}`}/></p>)}
                             <p className="sans-serif sub-heading-bold white left">{subHeadline}</p>
                             <p className="serif heading white left">{headline}</p>
