@@ -90,8 +90,8 @@ export default function Footer(props) {
                                  <button className="submit">Submit</button>
                                 </form>
                         </div>
-                        <Link>
-                            <a href="/">
+                        <Link href="/">
+                            <a>
                                 <img
                                     className="mobilefooter-logo" 
                                     src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg" alt="orli logo" />
