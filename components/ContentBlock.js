@@ -32,9 +32,15 @@ const ContentBlockInnerContainer = styled.div`
     img {
         max-width: 100%;
         height: 100%;
+        
+        .aligncenter {
+            display: block;
+            margin: 0 auto;
+        }
     }
 `
-
+// .aligncenter
+// image swap
 export default function ContentBlock(props) {
     const { anchor, content } = props
     return (
