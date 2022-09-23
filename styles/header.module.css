@@ -311,6 +311,7 @@ ul.socials {
     .header.open .hamburgerContainer {
         position: relative;
         background:transparent;
+        z-index: 9;
     }
 
     .hamburger .hamburger-inner, 
