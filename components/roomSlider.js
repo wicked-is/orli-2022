@@ -91,7 +91,7 @@ export default function RoomSlider(props) {
                 {
                     rooms.map(room => {
                         return (
-                            <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.singleRooms.roomshero.mediaItemUrl})` }}>
+                            <div key={room.title} className={styles.room} style={{ backgroundImage: isMobile ? null : `url(${room.singleRooms.roomshero.mediaItemUrl})` }} data-mobile={isMobile}>
                                 <p className={`${styles.roommobile} serif heading white`}>
                                 <a href={room.singleRooms.slug}>{room.title}</a>
                                 </p>
