@@ -384,9 +384,17 @@ button.gm-ui-hover-effect { display: none !important; }
 input[type="date"] {
   display: inline-block;
   position: relative;
+  color: rgba(0, 0, 0, .7);
+  border-radius: 0px;
+  background: transparent;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  -ms-border-radius: 0px;
+  cursor: pointer;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+/*input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
   bottom: 0;
   color: transparent;
@@ -397,7 +405,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   right: 0;
   top: 0;
   width: auto;
-}
+}*/
 
 /* .smallslider .flickity-viewport,
 .timelineSliderglobal .flickity-viewport,
