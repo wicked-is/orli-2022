@@ -26,6 +26,33 @@ export default function Hero(props) {
         subnavigation
     } = props
 
+    const [dimensions, setDimensions] = useState({ 
+        height: null,
+        width: null
+    })
+    const [isMobile, setIsMobile] = useState(false)
+    
+    useEffect(() => {
+        function handleResize() {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+
+            if (window.innerWidth < 820) {
+                setIsMobile(true)
+            } else {
+                setIsMobile(false)
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
+
     const [appState, changeState] = useState({
         activeObject: null,
         objects: [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}, {id: 8}]
@@ -183,7 +210,7 @@ export default function Hero(props) {
                     return (
                     <div className={styles.heroContainer}>
                         <div className={`${styles.bigheroSubnav}`}>
-                            <ul className="subnavigationContainer">
+                            <ul className="subnavigationContainer" style={{ display: isMobile ? 'none' : 'flex' }}>
                                 
                                 {
                                     subnavigation.map((item, index) => (
@@ -199,7 +226,7 @@ export default function Hero(props) {
                                 }
                                 
                             </ul>
-                            <div className="arrowssub"></div>
+                            <div className="arrowssub" style={{ display: isMobile ? 'none' : 'initial' }}></div>
                         <div className={styles.bigHero} style={{
                             backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }}>
@@ -283,7 +310,7 @@ export default function Hero(props) {
                 )
             case 'SubNav Only':
                 return (
-                    <div className={styles.bigheroSubnav}>
+                    <div className={styles.bigheroSubnav} style={{opacity: isMobile ? '0' : '1', height: isMobile ? '0' : 'initial' }}>
                     <ul className="subnavigationonlyContainer">
                                 {
                                     // This was the incorrect bit. You were calling parameters
