@@ -386,7 +386,6 @@ input[type="date"] {
   position: relative;
   color: rgba(0, 0, 0, 0.7);
   border-radius: 0px;
-  background: transparent;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -o-border-radius: 0px;
@@ -404,6 +403,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   right: 0;
   top: 0;
   width: auto;
+}
+
+::placeholder {
+  color: rgba(0,0,0,0.7);
+}
+
+::-webkit-placeholder {
+  color: rgba(0,0,0,0.7);
+}
+
+::-moz-placeholder {
+  color: rgba(0,0,0,0.7);
+}
+
+::-o-placeholder {
+  color: rgba(0,0,0,0.7);
 }
 
 /* .smallslider .flickity-viewport,

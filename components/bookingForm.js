@@ -16,7 +16,7 @@ export default function BookingForm() {
 
     return (
         <div className={styles.formcontainer}>
-            <form className={styles.form} method="post" action="https://hotels.cloudbeds.com/reservation/L1Jxph" target="_blank">
+            <form className={styles.form} method="POST" action="https://hotels.cloudbeds.com/reservation/L1Jxph" target="_blank">
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
                     {/* onFocus={() => setCheckInType('date')}  */}
