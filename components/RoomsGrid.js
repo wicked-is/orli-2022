@@ -190,6 +190,8 @@ export default function RoomsGrid(props) {
         })
         }
 
+        document.querySelector('#roomdialog').close();
+
     }, []);
 
     const handleFilterClick = (e) => { 
