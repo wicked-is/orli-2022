@@ -51,6 +51,33 @@ export default function AmenitiesSlider(props) {
         isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
     }, [])
 
+    const [dimensions, setDimensions] = useState({ 
+        height: null,
+        width: null
+    })
+    const [isMobile, setIsMobile] = useState(false)
+    
+    useEffect(() => {
+        function handleResize() {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+
+            if (window.innerWidth < 768) {
+                setIsMobile(true)
+            } else {
+                setIsMobile(false)
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
+
     useEffect(() => {
         slider.current.on('change', () => {
             setSliderActive(slider.current.selectedIndex)
@@ -92,7 +119,7 @@ export default function AmenitiesSlider(props) {
                 {
                     amenities.map((item, index) => {
                         return (
-                            <div key={item.title} className={styles.item} style={{ backgroundImage: `url(${item.featuredImage.node.mediaItemUrl})` }}>
+                            <div key={item.title} className={styles.item} style={{ backgroundImage: isMobile ? null : `url(${item.featuredImage.node.mediaItemUrl})` }} data-mobile={isMobile}>
                                 <p className={`${styles.mobileTitle} serif heading white left textshadow`}>
                                     <a href={item.amenityContent?.sliderLink}>{item.title}</a>
                                 </p>
@@ -189,7 +216,7 @@ export default function AmenitiesSlider(props) {
                 return null;
             }
     }
-
+    console.log(isMobile)
     return (
         <section className={`${styles.amenitiesSlider} amenitiesSliderglobal`} >
             { sliderStructure(types) }

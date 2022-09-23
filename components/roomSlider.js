@@ -12,17 +12,18 @@ export default function RoomSlider(props) {
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(2)
     const [loaded, setLoaded] = useState(false)
-    const [dimensions, setDimensions] = useState({ 
-        height: null,
-        width: null
-    })
-    const [isMobile, setIsMobile] = useState(false)
 
     const { rooms } = props
 
     const changeSlider = (e) => {
         slider.current.select(e.target.dataset.slide)
     }
+
+    const [dimensions, setDimensions] = useState({ 
+        height: null,
+        width: null
+    })
+    const [isMobile, setIsMobile] = useState(false)
     
     useEffect(() => {
         function handleResize() {
@@ -44,14 +45,6 @@ export default function RoomSlider(props) {
             window.removeEventListener('resize', handleResize)
         }
     })
-
-    // useEffect(() => {
-    //     let isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
-
-    //     if (isMobileDevice) {
-    //         setIsMobile(true)
-    //     }
-    // }, [window.innerWidth, window.innerHeight])
 
     useEffect(() => {
         slider.current.on('change', () => {
