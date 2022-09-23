@@ -6,7 +6,7 @@
 
 .photoContainer div:first-of-type {
     flex: 1;
-    align-self: flex-end;
+    align-self: center;
 }
 
 .photoContainer div:last-of-type {
