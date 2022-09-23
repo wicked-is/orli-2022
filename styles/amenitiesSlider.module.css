@@ -1,5 +1,6 @@
 .amenitiesSlider {
     position: relative;
+    background-color: var(--lt-grey);
 }
 .roomGallerySlider {
     position: fixed;
