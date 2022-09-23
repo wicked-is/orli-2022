@@ -292,6 +292,7 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 subHeadline
                 headline
+                types
                 description
                 ctaLink
                 ctaText
@@ -299,6 +300,14 @@ export async function getStaticProps({ params }) {
                 amenities {
                   ... on Amenity {
                     title
+                    link
+                    amenityContent {
+                      sliderLink
+                      mobileSliderImage {
+                          altText
+                          mediaItemUrl
+                      }
+                    }
                     featuredImage {
                       ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
                         node {
@@ -887,12 +896,21 @@ export async function getStaticProps({ params }) {
                 subHeadline
                 headline
                 description
+                types
                 ctaLink
                 ctaText
                 anchor
                 amenities {
                   ... on Amenity {
                     title
+                    link
+                    amenityContent {
+                      mobileSliderImage {
+                          altText
+                          mediaItemUrl
+                      }
+                      sliderLink
+                    }
                     featuredImage {
                       ... on NodeWithFeaturedImageToMediaItemConnectionEdge {
                         node {
