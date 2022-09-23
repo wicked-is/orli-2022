@@ -20,12 +20,12 @@ export default function BookingForm() {
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
                     {/* onFocus={() => setCheckInType('date')}  */}
-                    <input type="date" name="widget_date" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} />
+                    <input type={"date"} name="widget_date" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} />
                 </div>
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check Out</span>
                     {/* onFocus={() => setCheckOutType('date')}  */}
-                    <input type="date" value={checkOutDate} name="widget_date_to" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} />
+                    <input type={"date"} name="widget_date_to" placeholder="Add Dates" className="sans-serif" value={checkOutDate} onChange={setCheckout} />
                 </div>
                 <button type="submit" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
             </form>
