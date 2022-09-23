@@ -408,6 +408,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   url(/public/assets/icons/icon-drag.cur), grab !important;
 } */
 
+.eventsSlider .flickity-prev-next-button.previous,
+.eventsSlider .flickity-prev-next-button.next {display: none !important;}
+
+@media only screen and (max-width: 800px) {
+  .eventsSlider .flickity-prev-next-button.previous {display: none !important;}
+
+  .eventsSlider .flickity-prev-next-button.next {display: block !important;}
+
+  .eventsSlider .flickity-prev-next-button.next {top: unset; right: 2rem; bottom: 1rem;}
+
+  .eventsSlider .flickity-prev-next-button.next .flickity-button-icon {fill: var(--brown);}
+
+  .eventsSlider  .flickity-prev-next-button:focus {
+    box-shadow: 0 0 0 5px var(--green) !important;
+  }
+}
+
 .smheroContainer .flickity-prev-next-button {
   top: 85%;
 }

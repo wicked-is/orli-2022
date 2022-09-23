@@ -17,6 +17,7 @@ export default function AmenitiesSlider(props) {
 
     const {
         anchor,
+        types,
         amenities,
         subHeadline: title,
         headline: blurb,
@@ -56,9 +57,18 @@ export default function AmenitiesSlider(props) {
         })
     }, [sliderActive]);
 
-    return (
-        <section className={`${styles.amenitiesSlider} amenitiesSliderglobal`} >
-            { anchor && <a id={anchor} name={anchor} className="anchor"></a>}
+    const sliderStructure = (types) => {
+        switch (types) {
+            case 'Amenities':
+                return (
+                    <>
+                    { anchor && <a id={anchor} name={anchor} className="anchor"></a>}
+            <div className={`${styles.sliderContent} sliderfadein`}>
+                <p className="sans-serif-bold sub-heading white">{title}</p>
+                {blurb && <p className="heading white" style={{ margin: 0 }}>{blurb}</p>}
+                { description && !isMobileDevice && <p className="sans-serif body-copy white desc">{description}</p> }
+                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+            </div>
             <Flickity
                 options={{
                     draggable: true,
@@ -81,9 +91,13 @@ export default function AmenitiesSlider(props) {
                     amenities.map((item, index) => {
                         return (
                             <div key={item.title} className={styles.item} style={{ backgroundImage: `url(${item.featuredImage.node.mediaItemUrl})` }}>
+                                <p className={`${styles.mobileTitle} serif heading white left textshadow`}>
+                                    <a href={item.amenityContent?.sliderLink}>{item.title}</a>
+                                </p>
+                                <a href={item.amenityContent?.sliderLink}><img src="https://orlidev.wpengine.com/wp-content/uploads/2022/09/arrow-right-solid.svg" alt="arrow" className={styles.mobileArrow}/></a>
                                 {
                                     !isMobileDevice && (
-                                        <Image src={item.featuredImage.node.mediaItemUrl} alt={item.title} width={1465} height={928} layout="intrinsic" />
+                                        <Image src={item.amenityContent?.mobileSliderImage?.mediaItemUrl} alt={item.amenityContent?.mobileSliderImage?.altText} width={856} height={890} layout="intrinsic" className={styles.mobileSliderImg}/>
                                     )
                                 }
                             </div>
@@ -91,12 +105,6 @@ export default function AmenitiesSlider(props) {
                     })
                 }
             </Flickity>
-            <div className={`${styles.sliderContent} sliderfadein`}>
-                <p className="sans-serif-bold sub-heading white">{title}</p>
-                {blurb && <p className="heading white" style={{ margin: 0 }}>{blurb}</p>}
-                { description && !isMobileDevice && <p className="sans-serif body-copy white desc">{description}</p> }
-                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
-            </div>
             <div className={`${styles.sliderNav} sliderfadein`}>
                 {
                     amenities.map((amenity, index) => {
@@ -110,6 +118,79 @@ export default function AmenitiesSlider(props) {
                     })
                 }
             </div>
+            </>
+                )
+            case 'Events':
+                return (
+                    <>
+                    { anchor && <a id={anchor} name={anchor} className="anchor"></a>}
+            <div className={`${styles.sliderContent} sliderfadein`}>
+                <p className="sans-serif-bold sub-heading white">{title}</p>
+                {blurb && <p className="heading white" style={{ margin: 0 }}>{blurb}</p>}
+                { description && !isMobileDevice && <p className="sans-serif body-copy white desc">{description}</p> }
+                <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
+            </div>
+            <div className="eventsSlider">
+            <Flickity
+                options={{
+                    draggable: true,
+                    cellAlign: 'left',
+                    prevNextButtons: true,
+                    arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
+                    pageDots: false,
+                    wrapAround: true,
+                    imagesLoaded: true,
+                    // autoPlay: 7000,
+                    asNavFor: '.sliderNavEvents',
+                }}
+                disableImagesLoaded={false} // default false
+                reloadOnUpdate={false} // default false
+                static // default false
+                flickityRef={c => {
+                    slider.current = c
+                }}
+            >
+                {
+                    amenities.map((item, index) => {
+                        return (
+                            <div key={item.title} className={styles.item} style={{ backgroundImage: `url(${item.featuredImage.node.mediaItemUrl})` }}>
+                                <p className={`${styles.mobileTitle} serif heading white left textshadow`}>
+                                    {item.title}
+                                </p>
+                                {
+                                    !isMobileDevice && (
+                                        <img src={item.featuredImage.node.mediaItemUrl} alt={item.featuredImage.node.altText} layout="responsive" className={styles.mobileSliderImg}/>
+                                    )
+                                }
+                            </div>
+                        )
+                    })
+                }
+            </Flickity>
+            </div>
+            <div className={`${styles.sliderNavEvents} sliderfadein`}>
+                {
+                    amenities.map((amenity, index) => {
+                        return (
+                            <p key={`${amenity.title}-nav`} className={`${ sliderActive == index ? styles.active : '' }`}>
+                                <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
+                                    {amenity.title}
+                                </a>
+                            </p>
+                        )
+                    })
+                }
+            </div>
+            </>
+                )
+                default:
+                return null;
+            }
+    }
+
+    return (
+        <section className={`${styles.amenitiesSlider} amenitiesSliderglobal`} >
+            { sliderStructure(types) }
         </section>
     )
 }
