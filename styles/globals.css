@@ -408,24 +408,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   url(/public/assets/icons/icon-drag.cur), grab !important;
 } */
 
+.amenitiesSliderarrows .flickity-prev-next-button.previous,
+.amenitiesSliderarrows .flickity-prev-next-button.next,
 .roomsSliderarrows .flickity-prev-next-button.previous,
 .roomsSliderarrows .flickity-prev-next-button.next,
 .eventsSlider .flickity-prev-next-button.previous,
 .eventsSlider .flickity-prev-next-button.next {display: none !important;}
 
 @media only screen and (max-width: 800px) {
+  .amenitiesSliderarrows .flickity-prev-next-button.previous,
   .roomsSliderarrows .flickity-prev-next-button.previous,
   .eventsSlider .flickity-prev-next-button.previous {display: none !important;}
 
+  .amenitiesSliderarrows .flickity-prev-next-button.next,
   .roomsSliderarrows .flickity-prev-next-button.next,
   .eventsSlider .flickity-prev-next-button.next {display: block !important;}
 
+  .amenitiesSliderarrows .flickity-prev-next-button.next,
   .roomsSliderarrows .flickity-prev-next-button.next,
   .eventsSlider .flickity-prev-next-button.next {top: unset; right: 2rem; bottom: 1rem;}
 
+  .amenitiesSliderarrows .flickity-prev-next-button.next .flickity-button-icon,
   .roomsSliderarrows .flickity-prev-next-button.next .flickity-button-icon,
   .eventsSlider .flickity-prev-next-button.next .flickity-button-icon {fill: var(--brown);}
 
+  .amenitiesSliderarrows .flickity-prev-next-button:focus,
   .roomsSliderarrows .flickity-prev-next-button:focus,
   .eventsSlider .flickity-prev-next-button:focus {
     box-shadow: 0 0 0 5px var(--green) !important;
