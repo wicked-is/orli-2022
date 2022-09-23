@@ -69,11 +69,13 @@ export default function AmenitiesSlider(props) {
                 { description && !isMobileDevice && <p className="sans-serif body-copy white desc">{description}</p> }
                 <p className="sans-serif xs-copy white" style={{ textDecoration: 'underline'}}><a href={ctaLink}>{ctaText}</a></p>
             </div>
+            <div className="amenitiesSliderarrows">
             <Flickity
                 options={{
                     draggable: true,
                     cellAlign: 'left',
-                    prevNextButtons: false,
+                    prevNextButtons: true,
+                    arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
                     pageDots: false,
                     wrapAround: true,
                     imagesLoaded: true,
@@ -94,7 +96,6 @@ export default function AmenitiesSlider(props) {
                                 <p className={`${styles.mobileTitle} serif heading white left textshadow`}>
                                     <a href={item.amenityContent?.sliderLink}>{item.title}</a>
                                 </p>
-                                <a href={item.amenityContent?.sliderLink}><img src="https://orlidev.wpengine.com/wp-content/uploads/2022/09/arrow-right-solid.svg" alt="arrow" className={styles.mobileArrow}/></a>
                                 {
                                     !isMobileDevice && (
                                         <Image src={item.amenityContent?.mobileSliderImage?.mediaItemUrl} alt={item.amenityContent?.mobileSliderImage?.altText} width={856} height={890} layout="intrinsic" className={styles.mobileSliderImg}/>
@@ -105,6 +106,7 @@ export default function AmenitiesSlider(props) {
                     })
                 }
             </Flickity>
+            </div>
             <div className={`${styles.sliderNav} sliderfadein`}>
                 {
                     amenities.map((amenity, index) => {
