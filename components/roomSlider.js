@@ -66,10 +66,12 @@ export default function RoomSlider(props) {
                 <span className="sans-serif white xs-copy fadein"><a className={styles.cta} >Find Your Room</a></span>
             </Link>*/}
             {/* map over images */}
+            <div className="roomsSliderarrows">
             <Flickity
                 options={{
                     cellAlign: 'center',
-                    prevNextButtons: false,
+                    prevNextButtons: true,
+                    arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
                     pageDots: false,
                     draggable: true,
                     wrapAround: true,
@@ -90,16 +92,19 @@ export default function RoomSlider(props) {
                     rooms.map(room => {
                         return (
                             <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.singleRooms.roomshero.mediaItemUrl})` }}>
-                                <p className={`${styles.roommobile} serif heading white`}>{room.title}</p>
-                                {
-                                    <Image src={room.singleRooms.roomshero.mediaItemUrl} alt={room.singleRooms.roomshero.altText} width={1436} height={1020} layout="intrinsic" />
-                                }
+                                <p className={`${styles.roommobile} serif heading white`}>
+                                <a href={room.singleRooms.slug}>{room.title}</a>
+                                </p>
+                                    {
+                                        <Image src={room.singleRooms.roomshero.mediaItemUrl} alt={room.singleRooms.roomshero.altText} width={1436} height={1020} layout="intrinsic" />
+                                    }
                                 <div className={styles.bottomgradient}></div>
                             </div>
                         )
                     })
                 }
             </Flickity>
+            </div>
             <div className={`${styles.roomSliderNavigation}`}>
                 {
                     rooms.map((room, index) => {
@@ -108,6 +113,7 @@ export default function RoomSlider(props) {
                                 <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
                                     {room.title}
                                 </a>
+                                <a href={room.singleRooms.slug} className={`${styles.explore} sans-serif center white textshadow`}>Explore This Room</a>
                             </p>
                         )
                     })
