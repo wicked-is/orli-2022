@@ -216,7 +216,7 @@ export default function AmenitiesSlider(props) {
                 return null;
             }
     }
-    console.log(isMobile)
+    
     return (
         <section className={`${styles.amenitiesSlider} amenitiesSliderglobal`} >
             { sliderStructure(types) }
