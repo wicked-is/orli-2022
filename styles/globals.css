@@ -267,11 +267,12 @@ label.rooms-filter {
 
 @media only screen and (max-width: 800px){
   .subnavigationContainer {display: none !important;}
+
   .smheroContainer {
       position: relative;
       width: 100vw;
       height: auto;
-      padding: 0;
+      padding: 0; 
       display: block;
       justify-content: unset;
       align-items: unset;
