@@ -88,14 +88,14 @@ const GreyBGMobile = styled.div `
   @media only screen and (max-width: 820px){
     & {
       background: var(--lt-grey);
-      padding: 4rem 2rem;
+      padding: 2rem 2rem;
       margin-top: -8px;
     }
   }
 `
 const MobilePadding = styled.div `
   @media only screen and (max-width: 820px) {
-    padding: 0rem 2rem;
+    padding: 2rem 2rem 0 2rem;
   }
 `
 
