@@ -438,6 +438,26 @@ input[type="date"]::-webkit-input-placeholder {
   color: #000 !important;
 }
 
+@media (max-width: 767px) { 
+  @supports (-webkit-overflow-scrolling: touch) {
+    input[type="date"]:before {
+      color: #000;
+      content: attr(placeholder);
+    }
+
+    input[type="date"].filled:before {
+      color: #000;
+      content: "" !important;
+    }
+
+    input[type="date"]:not(.filled):before {
+      color: #000;
+      content: attr(placeholder);
+    }
+  }
+}
+
+
 /* .smallslider .flickity-viewport,
 .timelineSliderglobal .flickity-viewport,
 .amenitiesSliderglobal .flickity-viewport,
