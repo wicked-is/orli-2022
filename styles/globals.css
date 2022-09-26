@@ -396,10 +396,6 @@ input[type="date"] {
   -ms-border-radius: 0px;
   cursor: pointer;
   background: transparent;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
