@@ -70,7 +70,7 @@ export default function Footer(props) {
     }
 
     const handleResponse = async (res) => {
-        if (res.state)
+        if (res.status === 200)
             setSuccess(true);
     }
 
