@@ -388,17 +388,23 @@ button.gm-ui-hover-effect { display: none !important; }
 input[type="date"] {
   display: inline-block;
   position: relative;
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--black);
   border-radius: 0px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -o-border-radius: 0px;
   -ms-border-radius: 0px;
   cursor: pointer;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
+  color: var(--black);
   bottom: 0;
   cursor: pointer;
   height: auto;
@@ -410,19 +416,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 ::placeholder {
-  color: rgba(0,0,0,0.7);
+  color: var(--black);
 }
 
 ::-webkit-placeholder {
-  color: rgba(0,0,0,0.7);
+  color: var(--black);
 }
 
 ::-moz-placeholder {
-  color: rgba(0,0,0,0.7);
+  color: var(--black);
 }
 
 ::-o-placeholder {
-  color: rgba(0,0,0,0.7);
+  color: var(--black);
 }
 
 /* .smallslider .flickity-viewport,
