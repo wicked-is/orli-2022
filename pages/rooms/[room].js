@@ -229,7 +229,7 @@ const ReservationFormLabel = styled.label`
     background-color: transparent;
     border: 0px;
     text-align: center;
-
+    color: var(--black);
     &:after {
 
     }
