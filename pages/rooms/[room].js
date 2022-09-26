@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Flickity from 'react-flickity-component'
+import "flickity/css/flickity.css";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -17,24 +19,78 @@ const SingleRoomContentContainer = styled.section`
   max-width: 80vw;
   margin: auto auto 3rem; 
   gap: 2rem;
-
+  @media screen and (max-width: 820px) {
+    & {max-width: 100vw;}
+  }
   @media screen and (max-width: 800px) {
     flex-direction: column !important;
     flex-wrap: wrap;
     gap: unset;
   }
 `
+const MobileRoomsHero = styled.div`
+display: none;
+  @media only screen and (max-width: 820px){
+    & {
+      width: 100%;
+      margin: auto;
+      display: inline-block;
+      position: relative;
+    }
+    & .roomGalleryMobileitem {width: 100%; margin: auto; display: block;}
+
+    & .roomGalleryMobileitem img {width: 100%;}
+
+    & .flickity-button .flickity-button-icon {fill: var(--brown);}
+
+    & .flickity-button {
+      background: hsl(0 0% 100% / 100%);
+    }
+
+    & .flickity-prev-next-button:focus {
+      box-shadow: 0 0 0 5px var(--green) !important;
+    }
+    & .flickity-prev-next-button.previous {top: unset; left: 1rem; bottom: 1rem;}
+    & .flickity-prev-next-button.next {top: unset; right: 1rem; bottom: 1rem;}
+  }
+`
+
+const MobileBookingForm = styled.div`
+  display: none;
+  @media only screen and (max-width: 820px){
+    & {
+      display: block;
+      width: 100%;
+      margin: auto;
+    }
+  }
+`
+
 const SingleRoomContent = styled.div`
   width: 100%;
   flex: 2;
   margin-top: 3rem;
-  
   @media screen and (max-width: 800px) {
     flex: 1;
     width: 100%;
     order: 2;
   }
 `
+
+const GreyBGMobile = styled.div `
+  @media only screen and (max-width: 820px){
+    & {
+      background: var(--lt-grey);
+      padding: 4rem 2rem;
+    }
+  }
+`
+const MobilePadding = styled.div `
+  @media only screen and (max-width: 820px) {
+    padding: 0rem 2rem;
+  }
+`
+
 const SingleRoomMainDesc = styled.div``
 const SingleRoomBookingForm = styled.div`
   width: 100%;
@@ -42,12 +98,15 @@ const SingleRoomBookingForm = styled.div`
   margin: -8rem 0 0 0;
   z-index: 1;
   max-height: calc();
-  @media screen and (max-width: 800px) {
-    order: 1;
+  @media screen and (max-width: 820px) {
+    & {display: none;}
   }
 `
 const FeatureContainer = styled.div`
   margin: 4.5rem 0 3rem;
+  @media only screen and (max-width: 820px) {
+    padding: 0rem 2rem;
+  }
 `
 const FeatureList = styled.div`
   list-style-type: none;
@@ -85,6 +144,9 @@ const FeatureList = styled.div`
 `
 const AmenitiesContainer = styled.div`
   margin: 3rem 0; 
+  @media screen and (max-width: 820px) {
+    padding: 0rem 2rem;
+  }
 `
 const AmenitiesList = styled.ul`
   list-style-type: none;
@@ -98,9 +160,18 @@ const AmenitiesList = styled.ul`
 `
 const AboutOrliContainer = styled.div`
   margin: 3rem 0;
+  @media screen and (max-width: 820px) {
+    padding: 0rem 2rem;
+  }
 `
 const NeighborhoodContainer = styled.div`
   margin: 3rem 0;
+  
+  & p {padding: 4rem 0 0 0;}
+
+  @media screen and (max-width: 820px) {
+    padding: 0rem 2rem;
+  }
 `
 const BulletItem = styled.li`
   display: flex;
@@ -130,6 +201,7 @@ const GreyBackground = styled.div`
   }
 `
 const ReservationForm = styled.form``
+
 const ReservationFormLabel = styled.label`
   display: flex;
   justify-content: space-between; 
@@ -166,6 +238,19 @@ const ReservationButton = styled.button`
 `
 
 export default function DefaultRoomsPage(props) {
+  const slider = useRef(null)
+  const [sliderActive, setSliderActive] = useState(0)
+
+  const changeSlider = (e) => {
+    slider.current.select(e.target.dataset.slide)
+  }
+
+  useEffect(() => {
+    slider.current.on('change', () => {
+        setSliderActive(slider.current.selectedIndex)
+    })
+  }, [sliderActive]);
+
   const [showingFloorplan, setShowingFloorplan] = useState(false)
 
   const { room } = props.data.data;
@@ -209,17 +294,58 @@ export default function DefaultRoomsPage(props) {
     <>
       <SEO fullhead={room.seo.fullHead} />
       <Hero types="Single Room" imagePoster={room.singleRooms.roomshero} gallery={room.singleRooms.gallery}/>
+      <MobileRoomsHero>
+        <Flickity
+        options={{
+          cellAlign: 'left',
+          draggable: true,
+          prevNextButtons: true,
+          imagesLoaded: true,
+          contian: true,
+          pageDots: false,
+          wrapAround: true,
+          arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
 
+      }}
+        disableImagesLoaded={false} // default false
+        reloadOnUpdate={false} // default false
+        static // default false
+        flickityRef={c => {
+          slider.current = c
+        }}
+        >
+        {
+          room.singleRooms.gallery.map((item, index) => {
+            return (
+              <div key={`gallery-item-${index}`} className="roomGalleryMobileitem">
+                <img src={item.mediaItemUrl} />
+              </div>
+            )
+          })
+        }
+        </Flickity>
+      </MobileRoomsHero>
       <SingleRoomContentContainer className="content">
         <SingleRoomContent>
           <SingleRoomMainDesc className="sans-serif body-copy black">
+            <GreyBGMobile>
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <h1 className="heading">{room.title}</h1>
+            <MobileBookingForm>
+            <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
+              <ReservationFormLabel className="sans-serif uppercase">Check In<input type={"date"} name="widget_date" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} /></ReservationFormLabel><br />
+              <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={"date"} name="widget_date_to" placeholder="Add Dates" className="sans-serif" value={checkOutDate} onChange={setCheckout} /></ReservationFormLabel>
+              <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
+            </ReservationForm>
+            </MobileBookingForm>
+            </GreyBGMobile>
+            <MobilePadding>
             <p>{room.singleRooms.description}</p>
             <p className="sans-serif xs-copy underline mb-3" onClick={() => setShowingFloorplan(!showingFloorplan)}><a>View Floor Plan <img src="/assets/icons/Orli_Caret.svg" width="12px" height="7px" /></a></p>
             {
               showingFloorplan && room.singleRooms.floorplan && <img src={room.singleRooms.floorplan.mediaItemUrl} alt={room.singleRooms.floorplan.altText} width="90%" height="auto" style={{ marginInline: 'auto' }} />
             }
+            </MobilePadding>
           </SingleRoomMainDesc>
 
           <FeatureContainer>
@@ -274,8 +400,8 @@ export default function DefaultRoomsPage(props) {
                 })
               }
             </ul>
+            <p className="sans-serif xs-copy underline arrow-left relative"><Link href="/find-your-room">Back to All Rooms</Link></p>
           </NeighborhoodContainer>
-          <p className="sans-serif xs-copy underline arrow-left relative"><Link href="/find-your-room">Back to All Rooms</Link></p>
         </SingleRoomContent>
 
         <SingleRoomBookingForm className="sidebar">
