@@ -259,7 +259,14 @@ label.rooms-filter {
   }
 }
 
+@media only screen and (max-width: 820px){
+  .smheroContainer.room {
+    display: none;
+}
+}
+
 @media only screen and (max-width: 800px){
+  .subnavigationContainer {display: none !important;}
   .smheroContainer {
       position: relative;
       width: 100vw;
@@ -297,11 +304,7 @@ label.rooms-filter {
   -webkit-background-position: center center;
 }
 }
-@media only screen and (max-width: 820px){
-  .smheroContainer.room {
-    display: none;
-}
-}
+
 @media only screen and (max-width: 768px) {
   .hide-on-mobile { display: none; }
 }
@@ -345,11 +348,12 @@ label.rooms-filter {
   .subnavigationonlyContainer {
       top: 112px;
   }
-  .subnavigationContainer li p,
-.subnavigationonlyContainer li p {line-height: 1; padding: 0rem 0rem 0rem 0rem;}
+
+ /* .subnavigationContainer li p,
+  .subnavigationonlyContainer li p {line-height: 1; padding: 0rem 0rem 0rem 0rem;}
 
   .tob-bar-not-active .subnavigationContainer {top: 80px; padding: 0.5rem 0 0.3rem 0;}
-  .tob-bar-not-active.subnavigationonlyContainer {top: 80px; padding: 0.5rem 0 0.3rem 0;}
+  .tob-bar-not-active.subnavigationonlyContainer {top: 80px; padding: 0.5rem 0 0.3rem 0;}*/
 }
 
 .react-datepicker__navigation-icon--previous::before {
