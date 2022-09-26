@@ -386,7 +386,6 @@ input[type="date"] {
   -moz-appearance: textfield;
   min-height: 1.2em;
   -webkit-text-fill-color: #000;
-  -webkit-opacity: 1;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -406,21 +405,27 @@ input[type="date"]::-webkit-input-placeholder {
   color: #000 !important;
 }
 
-::placeholder {
+input[type="date"]::placeholder {
   color: #000 !important;
 }
 
-::-webkit-placeholder {
+input[type="date"]::-webkit-placeholder {
   color: #000 !important;
 }
 
-:-moz-placeholder {
+input[type="date"]:-moz-placeholder {
   color: #000 !important;
 }
 
-:-o-placeholder {
+input[type="date"]:-o-placeholder {
   color: #000 !important;
 }
+
+input[type="email"]::-webkit-input-placeholder,
+input[type="email"]::placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="email"]::-webkit-placeholder,
+input[type="email"]:-o-placeholder  {color: #fff !important;}
 
 @media (max-width: 767px) { 
   @supports (-webkit-overflow-scrolling: touch) {
