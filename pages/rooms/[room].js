@@ -89,6 +89,7 @@ const GreyBGMobile = styled.div `
     & {
       background: var(--lt-grey);
       padding: 4rem 2rem;
+      margin-top: -8px;
     }
   }
 `
