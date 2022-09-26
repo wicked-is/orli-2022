@@ -416,20 +416,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: auto;
 }
 
+input[type="date"]::-webkit-input-placeholder {
+  color: var(--black) !important;
+}
+
 ::placeholder {
-  color: var(--black);
+  color: var(--black) !important;
 }
 
 ::-webkit-placeholder {
-  color: var(--black);
+  color: var(--black) !important;
 }
 
-::-moz-placeholder {
-  color: var(--black);
+:-moz-placeholder {
+  color: var(--black) !important;
 }
 
-::-o-placeholder {
-  color: var(--black);
+:-o-placeholder {
+  color: var(--black) !important;
 }
 
 /* .smallslider .flickity-viewport,
