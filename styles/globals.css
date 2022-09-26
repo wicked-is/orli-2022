@@ -401,6 +401,8 @@ input[type="date"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   min-height: 1.2em;
+  -webkit-text-fill-color: #000;
+  -webkit-opacity: 1;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -417,23 +419,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 input[type="date"]::-webkit-input-placeholder {
-  color: var(--black) !important;
+  color: #000 !important;
 }
 
 ::placeholder {
-  color: var(--black) !important;
+  color: #000 !important;
 }
 
 ::-webkit-placeholder {
-  color: var(--black) !important;
+  color: #000 !important;
 }
 
 :-moz-placeholder {
-  color: var(--black) !important;
+  color: #000 !important;
 }
 
 :-o-placeholder {
-  color: var(--black) !important;
+  color: #000 !important;
 }
 
 /* .smallslider .flickity-viewport,
