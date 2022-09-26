@@ -389,6 +389,7 @@ input[type="date"] {
   display: inline-block;
   position: relative;
   color: var(--black);
+  font-size: var(--body-copy);
   border-radius: 0px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -396,6 +397,10 @@ input[type="date"] {
   -ms-border-radius: 0px;
   cursor: pointer;
   background: transparent;
+  display:block;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  min-height: 1.2em;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
