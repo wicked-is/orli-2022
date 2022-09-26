@@ -70,10 +70,17 @@ const SingleRoomContent = styled.div`
   width: 100%;
   flex: 2;
   margin-top: 3rem;
+  @media screen and (max-width: 820px) {
+    &{
+      margin-top: 0rem;
+    }
+  }
   @media screen and (max-width: 800px) {
-    flex: 1;
-    width: 100%;
-    order: 2;
+    & {
+        flex: 1;
+        width: 100%;
+        order: 2;
+    }
   }
 `
 
