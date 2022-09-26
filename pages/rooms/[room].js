@@ -310,6 +310,7 @@ export default function DefaultRoomsPage(props) {
           imagesLoaded: true,
           contian: true,
           pageDots: false,
+          adaptiveHeight: true,
           wrapAround: true,
           arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
 
@@ -340,8 +341,10 @@ export default function DefaultRoomsPage(props) {
             <h1 className="heading">{room.title}</h1>
             <MobileBookingForm>
             <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
-              <ReservationFormLabel className="sans-serif uppercase">Check In<input type={"date"} name="widget_date" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} /></ReservationFormLabel><br />
-              <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={"date"} name="widget_date_to" placeholder="Add Dates" className="sans-serif" value={checkOutDate} onChange={setCheckout} /></ReservationFormLabel>
+              <ReservationFormLabel className="sans-serif uppercase">Check In
+                <input type={"date"} name="widget_date" placeholder="Add Dates" className="sans-serif" onChange={setCheckout} /></ReservationFormLabel><br />
+              <ReservationFormLabel className="sans-serif uppercase">Check Out
+                <input type={"date"} name="widget_date_to" placeholder="Add Dates" className="sans-serif" value={checkOutDate} onChange={setCheckout} /></ReservationFormLabel>
               <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
             </ReservationForm>
             </MobileBookingForm>
