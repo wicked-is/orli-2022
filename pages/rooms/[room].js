@@ -37,9 +37,11 @@ display: none;
       display: inline-block;
       position: relative;
     }
-    & .roomGalleryMobileitem {width: 100%; margin: auto; display: block;}
+    & .roomGalleryMobileitem.landscape {width: 100%; margin: auto;}
+    & .roomGalleryMobileitem.portrait {height: 100%; width: auto; margin: auto;}
 
-    & .roomGalleryMobileitem img {width: 100%;}
+    & .roomGalleryMobileitem.landscape img {width: 100%;}
+    & .roomGalleryMobileitem.portrait img {height: 100%; width: auto;}
 
     & .flickity-button .flickity-button-icon {fill: var(--brown);}
 
@@ -305,7 +307,7 @@ export default function DefaultRoomsPage(props) {
       <MobileRoomsHero>
         <Flickity
         options={{
-          cellAlign: 'left',
+          cellAlign: 'center',
           draggable: true,
           prevNextButtons: true,
           imagesLoaded: true,
@@ -324,10 +326,10 @@ export default function DefaultRoomsPage(props) {
         }}
         >
         {
-          room.singleRooms.gallery.map((item, index) => {
+          room.singleRooms.mobileGallery.map((item, index) => {
             return (
-              <div key={`gallery-item-${index}`} className="roomGalleryMobileitem">
-                <img src={item.mediaItemUrl} />
+              <div key={`gallery-item-${index}`} className={`roomGalleryMobileitem ${item.imageType}`}>
+                <img src={item.image.mediaItemUrl} />
               </div>
             )
           })
@@ -503,6 +505,13 @@ export async function getStaticProps({ params }) {
           }
           gallery {
             mediaItemUrl
+          }
+          mobileGallery {
+            imageType
+            image {
+              mediaItemUrl
+              altText
+            }
           }
           aboutOrliDescription
           aboutOrliTitle
