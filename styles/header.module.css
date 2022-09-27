@@ -269,7 +269,7 @@ ul.socials {
   .mobilehideme {display: block;}
 
   .header .hamburgermenu {display: none;}
-
+  
 @media only screen and (max-width: 800px) {
     .mobilehideme {display: none;}
     .mobileshowme {display: block;}
