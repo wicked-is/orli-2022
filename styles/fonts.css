@@ -12,7 +12,7 @@
 
 .serif {font-family: essonnes-display, serif;}
 .sans-serif {font-family: 'GT Walsheim Light';}
-.sans-serif-bold {font-family: 'GT Walsheim Bold';}
+.sans-serif-bold, .gtbold {font-family: 'GT Walsheim Bold';}
 
 .letterSpacing {letter-spacing: var(--letter-spacing);}
 
