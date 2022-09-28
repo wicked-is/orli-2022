@@ -91,6 +91,9 @@ const SingleRoomContent = styled.div`
 
 const GreyBGMobile = styled.div `
   @media only screen and (max-width: 820px){
+    & p.sans-serif-bold.sub-heading {
+      margin-block-end: 0.5rem !important;
+    }
     & {
       background: var(--lt-grey);
       padding: 2rem 2rem;
@@ -225,10 +228,10 @@ const ReservationFormLabel = styled.label`
   }
 
   &:first-of-type {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   &:last-of-type {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   input {
@@ -245,6 +248,7 @@ const ReservationButton = styled.button`
   width: 100%;
   height: 5rem;
   color: #fff;
+  font-size: var(--xs-copy);
   border: 0;
   background-color: var(--brown);
 
