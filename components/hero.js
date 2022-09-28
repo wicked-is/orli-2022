@@ -229,12 +229,7 @@ export default function Hero(props) {
                             }
                             {
                                 includeFeaturedRoomCta && (
-                                    <a style={{
-                                        zIndex: 98,
-                                        position: 'absolute',
-                                        right: '3rem',
-                                        top: '9rem'
-                                    }} className="white xs-copy body-copy underline textshadow" href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
+                                    <a className={`${styles.ftroomcta} white xs-copy body-copy underline textshadow`} href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
                                 )
                             }
                         </div>
