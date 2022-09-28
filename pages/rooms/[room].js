@@ -55,6 +55,9 @@ display: none;
     & .flickity-prev-next-button.previous {top: unset; left: 1rem; bottom: 1rem;}
     & .flickity-prev-next-button.next {top: unset; right: 1rem; bottom: 1rem;}
   }
+  @media only screen and (max-width: 414px){
+    & .roomGalleryMobileitem.portrait img {height: 98.8%; width: auto;}
+  }
 `
 
 const MobileBookingForm = styled.div`
