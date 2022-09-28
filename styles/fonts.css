@@ -64,31 +64,6 @@
     line-height: 150%;
 }
 
-::placeholder {
-    /* font-size: initial; */
-    color: rgba(0,0,0,0.7);
-}
-::-webkit-placeholder {
-    /* font-size: initial; */
-    color: rgba(0,0,0,0.7);
-}
-::-webkit-input-placeholder {
-    /* font-size: initial; */
-    color: rgba(0,0,0,0.7);
-}
-::-moz-placeholder {
-    /* font-size: initial; */
-    color: rgba(0,0,0,0.7);
-}
-:-ms-input-placeholder {
-    /* font-size: initial; */
-    color: rgba(0,0,0,0.7);
-}
-:-moz-input-placeholder {
-    /* font-size: initial; */
-    color: rgba(0,0,0,0.7);
-}
-
 .xs-heading {
     font-size: var(--xs-copy);
     font-family: 'GT Walsheim Bold';
@@ -123,7 +98,7 @@ address {font-style: normal;}
     color: var(--brown);
 }
 
-.textshadow {text-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.44);}
+.textshadow {text-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.9);}
 
 .text-link {transition: 0.3s ease all;}
 .text-link:hover {color: var(--brown);}

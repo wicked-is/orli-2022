@@ -351,9 +351,9 @@ export default function DefaultRoomsPage(props) {
             <MobileBookingForm>
             <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
               <ReservationFormLabel className="sans-serif uppercase">Check In
-                <input type={"date"} name="widget_date" placeholder="mm/dd/yyyy" className="sans-serif" onChange={setCheckout} /></ReservationFormLabel><br />
+                <input type={"date"} name="widget_date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='date')" className="sans-serif" onChange={setCheckout} /></ReservationFormLabel><br />
               <ReservationFormLabel className="sans-serif uppercase">Check Out
-                <input type={"date"} name="widget_date_to" placeholder="mm/dd/yyyy" className="sans-serif" value={checkOutDate} onChange={setCheckout} /></ReservationFormLabel>
+                <input type={"date"} name="widget_date_to" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="(this.type='date')" className="sans-serif" value={checkOutDate} onChange={setCheckout} /></ReservationFormLabel>
               <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
             </ReservationForm>
             </MobileBookingForm>
