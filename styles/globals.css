@@ -442,6 +442,7 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
       content:"" !important;
     }
 
+    input[type="date"]:not(:empty):before,
     input[type="date"]:not(:empty) {
       color: #000;
       content:"" !important;
