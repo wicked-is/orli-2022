@@ -50,6 +50,23 @@
     margin: auto;
     z-index: 9;
 }
+
+.bookmultipleroomsContainer {
+    display: block;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right:0;
+    width: 100%;
+    max-width: 60%;
+    margin: auto;
+    z-index: 9;
+}
+
+@media only screen and (max-width: 820px){
+    .bookmultipleroomsContainer {display: none;}
+}
+
 @media only screen and (max-width: 800px){
     .horizontalFormContainer {
         background: transparent; 

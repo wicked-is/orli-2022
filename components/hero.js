@@ -15,6 +15,7 @@ export default function Hero(props) {
         gallery,
         includeLogo,
         includeRoomGallery,
+        includeBookMultipleRoomsLink,
         includeFeaturedRoomCta,
         featuredRoomCtaLink,
         featuredRoomCtaText,
@@ -140,6 +141,17 @@ export default function Hero(props) {
                             )
                         }
                         {
+                            includeBookMultipleRoomsLink && (
+                                <div className={styles.bookmultipleroomsContainer}>
+                                    <Link href="/book-a-room/" passHref>
+                                        <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                            Book Multiple Rooms
+                                        </a>
+                                    </Link>
+                                </div>
+                            )
+                        }
+                        {
                             includeFeaturedRoomCta && (
                                 <a href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
                             )
@@ -161,6 +173,17 @@ export default function Hero(props) {
                                     <section className={styles.horizontalFormContainer}>
                                         <BookingForm />
                                     </section>
+                                )
+                            }
+                            { 
+                                includeBookMultipleRoomsLink && (
+                                    <div className={styles.bookmultipleroomsContainer}>
+                                        <Link href="/book-a-room/" passHref>
+                                            <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                                Book Multiple Rooms
+                                            </a>
+                                        </Link>
+                                    </div>
                                 )
                             }
                             {
@@ -191,6 +214,17 @@ export default function Hero(props) {
                                     <section className={styles.horizontalFormContainer}>
                                         <BookingForm />
                                     </section>
+                                )
+                            }
+                            {
+                                includeBookMultipleRoomsLink && (
+                                    <div className={styles.bookmultipleroomsContainer}>
+                                        <Link href="/book-a-room/" passHref>
+                                            <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                                Book Multiple Rooms
+                                            </a>
+                                        </Link>
+                                    </div>
                                 )
                             }
                             {
@@ -242,7 +276,18 @@ export default function Hero(props) {
                                     <BookingForm />
                                 </section>
                             )
-                        } 
+                        }
+                        { 
+                            includeBookMultipleRoomsLink && (
+                            <div className={styles.bookmultipleroomsContainer}>
+                                <Link href="/book-a-room/" passHref>
+                                    <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                        Book Multiple Rooms
+                                    </a>
+                                </Link>
+                            </div>
+                            )
+                        }
                     </div>
                 )
             case 'Small Hero Image':
