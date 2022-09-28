@@ -433,12 +433,17 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
 @media (max-width: 767px) { 
   @supports (-webkit-overflow-scrolling: touch) {
 
-    input[type="date"]:empty {
+    input[type="date"]:empty:before {
       color: #000;
       content: attr(placeholder);
     }
 
-    input[type="date"]:focus {
+    input[type="date"]:not(:empty):before {
+      color: #000;
+      content:"" !important;
+    }
+
+    input[type="date"]:focus:before {
       color: #000;
       content:"" !important;
     }
