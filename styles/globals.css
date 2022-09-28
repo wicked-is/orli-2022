@@ -443,7 +443,7 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
       content: "" !important;
     }
 
-    input[type="date"]:not(:empty):before {
+    input[type="date"]:valid:before {
       color: #000;
       content: "" !important;
     }
