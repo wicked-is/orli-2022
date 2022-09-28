@@ -197,7 +197,7 @@ export async function getStaticPaths() {
         body: JSON.stringify({
             query: `
                 query Pages {
-                    pages {
+                    pages(first: 999) {
                       nodes {
                         slug
                         uri
