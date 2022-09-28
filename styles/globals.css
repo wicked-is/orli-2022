@@ -430,7 +430,7 @@ input[type="email"]:-moz-placeholder,
 input[type="email"]::-webkit-placeholder,
 input[type="email"]:-o-placeholder  {color: #fff !important;}
 
-/*@media (max-width: 767px) { 
+@media (max-width: 767px) { 
   @supports (-webkit-overflow-scrolling: touch) {
     input[type="date"]:before {
       color: #000;
@@ -448,8 +448,7 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
       content:"" !important;
     }
   }
-}*/
-
+}
 
 /* .smallslider .flickity-viewport,
 .timelineSliderglobal .flickity-viewport,
