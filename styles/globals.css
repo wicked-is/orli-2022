@@ -432,19 +432,15 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
 
 @media (max-width: 767px) { 
   @supports (-webkit-overflow-scrolling: touch) {
-    input[type="date"]:before {
+
+    input[type="date"]:not(.filled):before {
       color: #000;
       content: attr(placeholder);
     }
 
     input[type="date"].filled:before {
       color: #000;
-      content: "" !important;
-    }
-
-    input[type="date"]:not(.filled):before {
-      color: #000;
-      content: attr(placeholder);
+      content:"" !important;
     }
   }
 }
