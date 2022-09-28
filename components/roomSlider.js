@@ -104,7 +104,7 @@ export default function RoomSlider(props) {
                         return (
                             <p key={room.title} className={`${ sliderActive == index ? styles.active : 'sub-heading-bold' }`} style={{ margin: '0 1rem' }}>
                                 <a className={styles.navItem} data-slide={index} onClick={changeSlider}>
-                                    {room.title}
+                                    {room.title === "The Irving Gill Penthouse" ? "The Penthouse" : room.title}
                                 </a>
                                 <a href={room.singleRooms.slug} className={`${styles.explore} sans-serif center white textshadow`}>Explore This Room</a>
                             </p>
