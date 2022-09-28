@@ -98,6 +98,8 @@ address {font-style: normal;}
     color: var(--brown);
 }
 
+.dropshadow {text-shadow:0 0rem 1rem rgb(0,0,0);}
+
 .textshadow {text-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.9);}
 
 .text-link {transition: 0.3s ease all;}

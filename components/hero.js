@@ -229,7 +229,7 @@ export default function Hero(props) {
                             }
                             {
                                 includeFeaturedRoomCta && (
-                                    <a className={`${styles.ftroomcta} white xs-copy body-copy underline textshadow`} href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
+                                    <a className={`${styles.ftroomcta} white xs-copy body-copy underline dropshadow`} href={featuredRoomCtaLink}>{featuredRoomCtaText}</a>
                                 )
                             }
                         </div>
