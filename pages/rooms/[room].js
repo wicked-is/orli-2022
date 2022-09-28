@@ -38,10 +38,10 @@ display: none;
       position: relative;
     }
     & .roomGalleryMobileitem.landscape {width: 100%; margin: auto;}
-    & .roomGalleryMobileitem.portrait {height: 100%; width: auto; margin: auto;}
+    & .roomGalleryMobileitem.portrait {height: 100%; width: auto; margin: auto; overflow: hidden;}
 
     & .roomGalleryMobileitem.landscape img {width: 100%;}
-    & .roomGalleryMobileitem.portrait img {height: 100%; width: auto;}
+    & .roomGalleryMobileitem.portrait img {height: 99.2%; width: auto;}
 
     & .flickity-button .flickity-button-icon {fill: var(--brown);}
 
@@ -313,7 +313,6 @@ export default function DefaultRoomsPage(props) {
           imagesLoaded: true,
           contian: true,
           pageDots: false,
-          adaptiveHeight: true,
           wrapAround: true,
           arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
 
