@@ -438,14 +438,14 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
       content: attr(placeholder);
     }
 
-    input[type="date"]:not(:empty):before {
-      color: #000;
-      content:"" !important;
-    }
-
     input[type="date"]:focus:before {
       color: #000;
-      content:"" !important;
+      content: "" !important;
+    }
+
+    input[type="date"]:not(:empty):before {
+      color: #000;
+      content: "" !important;
     }
   }
 }
