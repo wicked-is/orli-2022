@@ -621,6 +621,7 @@ export async function getStaticProps({ params }) {
                 headline
                 includeLogo
                 includeBookingForm
+                includeBookMultipleRoomsLink
                 includeFeaturedRoomCta
                 featuredRoomCtaLink
                 featuredRoomCtaText
@@ -1212,6 +1213,7 @@ export async function getStaticProps({ params }) {
                 blurb
                 headline
                 includeBookingForm
+                includeBookMultipleRoomsLink
                 includeFeaturedRoomCta
                 featuredRoomCtaLink
                 featuredRoomCtaText
