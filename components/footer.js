@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useWindowSize } from "../utils/hooks";
 import styled from "styled-components";
 import FauxSocialFeed from "./fauxSocialFeed";
+import Script from "next/script";
 
 const MobileFooterContainer = styled.footer`
     display: flex;
@@ -273,6 +274,9 @@ export default function Footer(props) {
                     </div>
                 </footer> 
             ) }
+            <Script id="userway" strategy="afterInteractive">
+                {`(function(d){var s = d.createElement("script");s.setAttribute("data-account", "DA15DgPw2p");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)`}
+            </Script>
         </>
     )
 }
