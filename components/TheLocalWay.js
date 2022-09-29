@@ -50,6 +50,13 @@ const Column = styled.div`
         font-weight: bold;
         text-decoration: underline;
     }
+        @media only screen and (max-width: 800px){
+            & .listcontainer {display: none;}
+            &.activecol .activecoltwo .listcontainer.showme {
+                display: block;
+                padding: 0 0 1rem 0;
+            }
+        }
 `
 const ListContainer = styled.div`
     line-height: 32px;
@@ -64,6 +71,24 @@ const ListContainer = styled.div`
 `
 const ColumnSection = styled.div`
     margin-bottom: 2rem;
+    @media only screen and (max-width: 800px){
+       & {
+        margin-bottom: 0rem;  
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+       } 
+       & h2:after {
+        width: 1rem;
+        content: url(https://orlidev.wpengine.com/wp-content/uploads/2022/09/arrow-down.svg);
+        position:absolute;
+        right: 2rem;
+       }
+       & h2 {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        padding: 0 0 1rem 0;
+       }
+       &:nth-child(2) {padding: 1rem 0 0 0;}
+    }
 `
 
 export default function TheLocalWay(props) {
@@ -91,6 +116,12 @@ export default function TheLocalWay(props) {
 
     const toggleClassthree = (main) => {
         setActivethree(main);
+    };
+
+    const [isShow, setShow] = useState(false);
+
+    const toggleShow = (index) => {
+        setShow(index);
     };
 
     useEffect(() => { 
@@ -546,9 +577,9 @@ export default function TheLocalWay(props) {
                                 {
                                     column.sections.map((section, index) => {
                                         return (
-                                            <ColumnSection key={index} className={isActivetwo === index ? 'activecoltwo': null} onClick={() => toggleClasstwo(index)}>
-                                                <h2 className="sans-serif sub-heading-bold black">{section.title}</h2>
-                                                <ListContainer>
+                                            <ColumnSection key={index} className={`columnnumber ${isActivetwo === index ? 'activecoltwo': null}`} onClick={() => toggleClasstwo(index)}>
+                                                <h2 onClick={() => toggleShow(index)} className="sans-serif sub-heading-bold black">{section.title}</h2>
+                                                <ListContainer className={`listcontainer ${isShow === index ? 'showme': null}`}>
                                                     {
                                                         section.locations && section.locations.map((location, i, index) => (
                                                             <p className={isActive === i ? 'activestate': null}
