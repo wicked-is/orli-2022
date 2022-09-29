@@ -51,6 +51,12 @@ const ListContainer = styled.div`
     font-size: var(--body-copy);
     font-family: 'GT Walsheim Light';
     line-height: 150%;
+    cursor: pointer;
+
+    p.activestate {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 
     p:hover {
         font-weight: bold;
@@ -71,6 +77,12 @@ export default function TheLocalWay(props) {
     let infowindow = null;
 
     const markers = [];
+
+    const [isActive, setActive] = useState(null);
+
+    const toggleClass = (i) => {
+        setActive(i);
+    };
 
     useEffect(() => { 
 
@@ -529,8 +541,16 @@ export default function TheLocalWay(props) {
                                                 <h2 className="sans-serif sub-heading-bold black">{section.title}</h2>
                                                 <ListContainer>
                                                     {
-                                                        section.locations && section.locations.map((location, index) => (
-                                                            <p key={location.name} data-address={location.address} data-name={location.name} data-lat={location.lat} data-long={location.long}>{location.name}</p>
+                                                        section.locations && section.locations.map((location, i, index) => (
+                                                            <p className={isActive === i ? 'activestate': ""}
+                                                               onClick={(i) => toggleClass(i)} 
+                                                               key={i}
+                                                               data-address={location.address} 
+                                                               data-name={location.name} 
+                                                               data-lat={location.lat} 
+                                                               data-long={location.long}>
+                                                                    {location.name}
+                                                            </p>
                                                         ))
                                                     }
                                                 </ListContainer>
