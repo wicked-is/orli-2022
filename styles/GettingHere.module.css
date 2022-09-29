@@ -10,3 +10,13 @@
     margin: 4rem auto auto auto; 
     display: block;
 }
+
+@media only screen and (max-width: 800px){
+    .ghimg {display: none;}
+    
+    .ghimgmobile {
+        width: 100%; 
+        margin: 4rem auto auto auto; 
+        display: block;
+    }
+}

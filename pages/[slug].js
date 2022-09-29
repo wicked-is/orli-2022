@@ -781,6 +781,10 @@ export async function getStaticProps({ params }) {
                   altText
                   mediaItemUrl
                 }
+                gettinghereimagemobile {
+                  altText
+                  mediaItemUrl
+                }
               }
               ... on Page_Flexiblecontent_Sections_TheLocalWay {
                 fieldGroupName
@@ -1369,6 +1373,10 @@ export async function getStaticProps({ params }) {
                 title
                 blurb
                 gettinghereimage {
+                  altText
+                  mediaItemUrl
+                }
+                gettinghereimagemobile {
                   altText
                   mediaItemUrl
                 }
