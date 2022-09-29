@@ -24,7 +24,7 @@ const TheLocalWayContainer = styled.section`
         margin: 0;
     }
 
-    iframe + div { border: 0 !important; }
+    iframe + div { border: 0 !important;}
 `
 const ColumnsContainer = styled.section`
     display: grid;
@@ -45,19 +45,18 @@ const ColumnsContainer = styled.section`
         grid-template-columns: 1fr;
     }
 `
-const Column = styled.div``
+const Column = styled.div` 
+    &.activecol .activecoltwo p.activestate {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+`
 const ListContainer = styled.div`
     line-height: 32px;
     font-size: var(--body-copy);
     font-family: 'GT Walsheim Light';
     line-height: 150%;
     cursor: pointer;
-
-    p.activestate {
-        font-weight: bold;
-        text-decoration: underline;
-    }
-
     p:hover {
         font-weight: bold;
         text-decoration: underline;
@@ -78,10 +77,20 @@ export default function TheLocalWay(props) {
 
     const markers = [];
 
-    const [isActive, setActive] = useState(null);
+    const [isActive, setActive] = useState(false);
+    const [isActivetwo, setActivetwo] = useState(false);
+    const [isActivethree, setActivethree] = useState(false);
 
     const toggleClass = (i) => {
         setActive(i);
+    };
+
+    const toggleClasstwo = (index) => {
+        setActivetwo(index);
+    };
+
+    const toggleClassthree = (main) => {
+        setActivethree(main);
     };
 
     useEffect(() => { 
@@ -531,20 +540,20 @@ export default function TheLocalWay(props) {
             <p>{markers}</p>
             <ColumnsContainer>
                 {
-                    columns.map((column, index) => {
+                    columns.map((column, main, index) => {
                         return (
-                            <Column key={index}>
+                            <Column key={main} className={isActivethree === main ? 'activecol': null} onClick={() => toggleClassthree(main)}>
                                 {
                                     column.sections.map((section, index) => {
                                         return (
-                                            <ColumnSection key={index}>
+                                            <ColumnSection key={index} className={isActivetwo === index ? 'activecoltwo': null} onClick={() => toggleClasstwo(index)}>
                                                 <h2 className="sans-serif sub-heading-bold black">{section.title}</h2>
                                                 <ListContainer>
                                                     {
                                                         section.locations && section.locations.map((location, i, index) => (
-                                                            <p className={isActive === i ? 'activestate': ""}
-                                                               onClick={(i) => toggleClass(i)} 
-                                                               key={i}
+                                                            <p className={isActive === i ? 'activestate': null}
+                                                               key={i} 
+                                                               onClick={() => toggleClass(i)}
                                                                data-address={location.address} 
                                                                data-name={location.name} 
                                                                data-lat={location.lat} 
