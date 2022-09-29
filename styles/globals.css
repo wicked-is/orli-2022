@@ -361,7 +361,7 @@ label.rooms-filter {
 
 #map .gm-style .gm-style-iw-c { border-radius: 0px !important; }
 
-.gm-style .gm-style-iw-t::after {
+#map .gm-style .gm-style-iw-tc::after {
   background: var(--brown) !important;
 }
 
