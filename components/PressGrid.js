@@ -16,7 +16,7 @@ const PressGridContainer = styled.section`
 const PressTile = styled.div`
     display: inline;
     width: 27.33%;
-    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem 1.5rem 0.5rem;
     position: relative;
 
     & img.blogImage {
@@ -29,7 +29,9 @@ const PressTile = styled.div`
         color: var(--brown);
     }
     @media only screen and (max-width:600px){
-        & {width: 98%;}
+        & {width: 98%;
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+    }
     }
 `
 const PubTitle = styled.p`
@@ -68,7 +70,7 @@ export default function PressGrid(props) {
                     return (
                             <PressTile key={index} className="fadein">
                                 <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
-                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
+                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={400} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
                                 </a>
                                 <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
                                     <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
