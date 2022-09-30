@@ -160,6 +160,7 @@ export default function Footer(props) {
                                     <Link href="/our-story">Story</Link>
                                     <Link href="/the-journal">Journal</Link>
                                     <Link href="/gallery">Gallery</Link>
+                                    <Link href="/press">Press</Link>
                                     <Link href="/privacy-policy" className="privacy">Privacy Policy</Link>
                                     <Link href="/cookie-policy">Cookie Policy</Link>
                                     <Link href="/terms-conditions">Terms & Conditions</Link>
@@ -220,6 +221,7 @@ export default function Footer(props) {
                                     <Link href="/discoveries">Discoveries</Link>
                                     <Link href="/gallery">Gallery</Link>
                                     <Link href="/gatherings">Events</Link>
+                                    <Link href="/press">Press</Link>
                                 </div>
                             </div>
                             <div>
