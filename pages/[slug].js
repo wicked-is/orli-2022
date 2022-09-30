@@ -441,17 +441,20 @@ export async function getStaticProps({ params }) {
                   altText
                   mediaItemUrl
                 }
-                media {
-                  ... on Page_Flexiblecontent_Sections_DiscoveriesCallout_media {
-                    type
-                    imagePoster {
-                      altText
-                      mediaItemUrl
-                    }
-                    mp4
-                    webm
-                  }
+                typeLeft
+                typeRight
+                imagePosterLeft {
+                  altText
+                  mediaItemUrl
                 }
+                imagePosterRight {
+                  altText
+                  mediaItemUrl
+                }
+                mp4Left
+                webmLeft
+                mp4Right
+                webmRight
                 title
               }
               ... on Page_Flexiblecontent_Sections_EventSlider {
@@ -1050,17 +1053,20 @@ export async function getStaticProps({ params }) {
                   altText
                   mediaItemUrl
                 }
-                media {
-                  ... on Post_Flexiblecontent_Sections_DiscoveriesCallout_media {
-                    type
-                    imagePoster {
-                      altText
-                      mediaItemUrl
-                    }
-                    mp4
-                    webm
-                  }
+                typeLeft
+                typeRight
+                imagePosterLeft {
+                  altText
+                  mediaItemUrl
                 }
+                imagePosterRight {
+                  altText
+                  mediaItemUrl
+                }
+                mp4Left
+                webmLeft
+                mp4Right
+                webmRight
                 title
               }
               ... on Post_Flexiblecontent_Sections_EventSlider {

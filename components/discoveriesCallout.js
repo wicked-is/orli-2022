@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import BlurbLeft from '../components/blurbLeft';
-import TwoStaggeredPhotos from '../components/twoStaggeredImages';
+import styles from '../styles/twoStaggeredImages.module.css';
 
 export default function DiscoveriesCallout(props) {
     /**
@@ -10,8 +11,15 @@ export default function DiscoveriesCallout(props) {
         blurb,
         ctaLink,
         ctaText,
+        typeLeft,
+        typeRight,
+        imagePosterLeft,
+        imagePosterRight,
         icon,
-        media,
+        mp4Left,
+        webmLeft,
+        mp4Right,
+        webmRight,
         title
     } = props;
 
@@ -25,7 +33,30 @@ export default function DiscoveriesCallout(props) {
                     ctaLink={ctaLink}
                     icon={icon}
                 />
-                <TwoStaggeredPhotos left="https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_TheJournal_01-scaled.jpg" right="https://orlidev.wpengine.com/wp-content/uploads/2022/01/Orli_Interior-1Web.jpg" />
+                <div className={styles.photoContainer}>
+                    <div className={styles.left}>
+                        {imagePosterLeft &&
+                            <Image src={imagePosterLeft.mediaItemUrl} alt={imagePosterLeft.altText} width={561} height={370} layout="responsive" />
+                        }
+                        {mp4Left &&
+                            <video className={styles.videoBG} autoPlay playsInline muted loop>
+                                <source src={mp4Left} type="video/mp4" />
+                                <source src={webmLeft} type="video/webm" />
+                            </video>
+                        }
+                    </div>
+                    <div className={styles.right}>
+                        {imagePosterRight &&
+                            <Image src={imagePosterRight.mediaItemUrl} alt={imagePosterRight.altText} width={708} height={434} layout="responsive" />
+                        }
+                        {mp4Right &&
+                            <video className={styles.videoBG} autoPlay playsInline muted loop>
+                                <source src={mp4Right} type="video/mp4" />
+                                <source src={webmRight} type="video/webm" />
+                            </video>
+                        }
+                    </div>
+                </div>
             </div>
         </section>
     )
