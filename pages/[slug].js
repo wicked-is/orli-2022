@@ -8,6 +8,7 @@ import Hero from '../components/hero';
 import BlurbCenter from '../components/blurbCenter';
 import BlurbLeft from '../components/blurbLeft';
 import BlogGrid from '../components/BlogGrid';
+import PressGrid from '../components/PressGrid';
 import RoomSlider from '../components/roomSlider';
 import RoomsGrid from '../components/RoomsGrid';
 import AmenitiesSlider from '../components/amenitiesSlider';
@@ -151,6 +152,9 @@ export default function DefaultPage(props) {
                 case 'Page_Flexiblecontent_Sections_BlogGrid':
                 case 'Post_Flexiblecontent_Sections_BlogGrid':
                     gatheredSections.push(<BlogGrid key={componentKey} {...section} index={index} />)
+                  break;
+                case 'Post_Flexiblecontent_Sections_PressGrid':
+                    gatheredSections.push(<PressGrid key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_GettingHere':
                 case 'Post_Flexiblecontent_Sections_GettingHere':
@@ -1346,6 +1350,36 @@ export async function getStaticProps({ params }) {
                 icon {
                   mediaItemUrl
                   altText
+                }
+              }
+              ... on Post_Flexiblecontent_Sections_PressGrid {
+                fieldGroupName
+                posts {
+                  ... on Post {
+                    categories(first:13) {
+                      nodes {
+                        ... on Category {
+                          link
+                          name
+                        }
+                      }
+                    }
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                    singlePress {
+                      externalLink
+                      publicationName
+                    }
+                    link
+                    title
+                    blogPost {
+                      featured
+                    }
+                  }  
                 }
               }
               ... on Post_Flexiblecontent_Sections_BlogGrid {
