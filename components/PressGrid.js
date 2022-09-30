@@ -1,7 +1,7 @@
+import styled, { css } from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import styled, { css } from 'styled-components';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +13,6 @@ const PressGridContainer = styled.section`
     justify-content: center;
     margin-bottom: 6rem;
 `
-
 const PressTile = styled.div`
     display: inline;
     width: 27.33%;
@@ -23,44 +22,20 @@ const PressTile = styled.div`
     & img.blogImage {
         cursor: pointer;
     }
-
     & img.blogImage:hover p.heading {
         color: var(--brown) !important;
     }
-
     & p.heading:hover {
         color: var(--brown);
     }
-
-    ${props => props.featured && css`
-        display: block;
-        min-height: 70vh;
-        width: 100% !important;
-        background-image: url(${props.background}) !important;
-        background-size: cover !important;
-        -webkit-background-size: cover !important;
-        -moz-background-size: cover !important;
-        -o-background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        margin: 8rem 0 !important;
-        padding: 4rem 6rem;
-        cursor: pointer;
-
-        img, span { display: none !important; }
-        p { color: #fff; }
-        & p.heading:hover {color: #fff !important;}
-    `}
     @media only screen and (max-width:600px){
         & {width: 98%;}
     }
 `
-
 const PubTitle = styled.p`
     cursor: pointer;
     transition: 0.3s ease all;
 `
-
 const PressTitle = styled.p`
     cursor: pointer;
     transition: 0.3s ease all;
@@ -84,25 +59,24 @@ export default function PressGrid(props) {
                 }
             });
         });
-
     },[])
+
     return (
         <PressGridContainer>
             {
-                posts && posts.map((post, index) => {
-                    const featured = post.blogPost.featured === null ? false : post.blogPost.featured;                 
+                posts && posts.map((post, index) => {         
                     return (
-                            <PressTile key={index} className="fadein" featured={featured} background={post.featuredImage.node.mediaItemUrl}>
-                                <a href={post?.singlePress?.externallink} target="_blank" rel="noopener">
-                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} layout="intrinsic" alt={post.featuredImage.node.altText} className="blogImage" />
+                            <PressTile key={index} className="fadein">
+                                <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
+                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
                                 </a>
-                                <a href={post?.singlePress?.externallink} target="_blank" rel="noopener">
+                                <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
                                     <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
                                     <PressTitle className="serif heading black">{post.title}</PressTitle>
                                 </a>
                             </PressTile>
-                    )
-                })
+                            )
+                    })
             }
         </PressGridContainer>
     )
