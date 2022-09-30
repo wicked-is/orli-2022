@@ -72,7 +72,7 @@ export default function HistoricalSlider(props) {
                                             {year.year}
                                             <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_WhiteArrow-1.png" alt="arrow down"/>
                                         </a>
-                                        <span className={`sans-serif-bold uppercase ${styles.mobiledescription} ${ sliderActive == index ? styles.active : '' }`} style={{ letterSpacing: 'var(--letter-spacing)'}} dangerouslySetInnerHTML={{ __html: year.caption }}></span>
+                                        <span className={`sans-serif-bold uppercase ${styles.mobiledescription} ${ sliderActive == index ? styles.active : '' }`} dangerouslySetInnerHTML={{ __html: year.caption }}></span>
                                     </p>
                                 )
                             })
