@@ -153,6 +153,7 @@ export default function DefaultPage(props) {
                 case 'Post_Flexiblecontent_Sections_BlogGrid':
                     gatheredSections.push(<BlogGrid key={componentKey} {...section} index={index} />)
                   break;
+                case 'Page_Flexiblecontent_Sections_PressGrid':
                 case 'Post_Flexiblecontent_Sections_PressGrid':
                     gatheredSections.push(<PressGrid key={componentKey} {...section} index={index} />)
                   break;
@@ -751,6 +752,36 @@ export async function getStaticProps({ params }) {
                 icon {
                   mediaItemUrl
                   altText
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_PressGrid {
+                fieldGroupName
+                posts {
+                  ... on Post {
+                    categories(first:13) {
+                      nodes {
+                        ... on Category {
+                          link
+                          name
+                        }
+                      }
+                    }
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                    singlePress {
+                      externalLink
+                      publicationName
+                    }
+                    link
+                    title
+                    blogPost {
+                      featured
+                    }
+                  }  
                 }
               }
               ... on Page_Flexiblecontent_Sections_BlogGrid {
