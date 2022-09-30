@@ -49,7 +49,7 @@
 .navItem.active img {display: none !important;}
 
 .sliderNav p a {
-    color: var(--white);
+    color: rgba(255,255,255,0.7);
     font-family: 'GT Walsheim Light';
     text-transform: uppercase;
     font-size: var(--xs-copy);
@@ -132,6 +132,14 @@
 }
 
 @media only screen and (max-width: 800px){
+    .sliderNav {
+        margin-top: 3rem;
+    }
+
+    .sliderNavContainer {
+        top: 4rem;
+    }
+
     .sliderNav p:not(:first-of-type) a{
         margin-top: 0rem;
     }
@@ -139,7 +147,9 @@
     .yearTextContainer {display: none;}
     .mobiledescription.active {
         display: block; 
+        letter-spacing: var(--letter-spacing);
         color: var(--white);
+        font-size: clamp(1rem, 1.2vw, 1.4rem);
         -webkit-text-stroke: 0px white;
         -o-text-stroke: 0px white;
         -moz-text-stroke: 0px white;
@@ -158,7 +168,9 @@
         flex-direction: column;
         width: 85%;
     }
+    
     .sliderNav p {margin-block-start: 0em; margin-block-end: 0em; line-height: 0.5;}
+
     .sliderNav p a {
         font-family: 'GT Walsheim Light';
         text-transform: uppercase;
@@ -195,18 +207,30 @@
 @media only screen and (max-width: 600px){
     .sliderNavContainer {
         position: absolute;
-        top: 6rem;
+        top: 4rem;
         left: 0rem;
         right: 0rem;
-        padding: 0rem 1rem 0rem 3rem;
+        padding: 0rem 1rem 0rem 2rem;
         width: 100%;
     }
     .sliderNav p a.active {font-size:8rem;}
     .navItem.active img {margin-top: 1.6rem; margin-right: 1rem;}
-    .mobiledescription.active {margin: 0 15% 0rem 0;}
+    .mobiledescription.active {
+        margin: 0 15% 0rem 0;
+        font-size: clamp(0.8rem, 1vw, 1.2rem);
+        text-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.9);
+    }
+    .navItem.active img {
+        display: inline !important; 
+        width: 29px; 
+        float: right; 
+        margin-top: 0rem;
+    }
+    .sliderNav p a {font-size: 2.5rem; padding: 1rem 0rem 0.3rem 0rem;}
+    .sliderNav p a.active {font-size:4.5rem; padding: 2rem 0 0 0;}
 }
 @media only screen and (max-width: 420px){
-    .sliderNav p a {font-size: 5rem;}
-    .sliderNav p a.active {font-size:7rem;}
-    .mobiledescription.active {margin: 0 20% 0rem 0;}
+    .mobiledescription.active {margin: 0 1rem 0rem 0;}
+    .sliderNav p a {font-size: 2rem; padding: 1rem 0rem 0.3rem 0rem;}
+    .sliderNav p a.active {font-size:4rem; padding: 2rem 0 0 0;}
 }
