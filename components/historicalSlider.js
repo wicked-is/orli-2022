@@ -31,6 +31,7 @@ export default function HistoricalSlider(props) {
                     pageDots: false,
                     draggable: true,
                     wrapAround: true,
+                    adaptiveHeight: true,
                     imagesLoaded: true,
                     fullscreen: true,
                 }}
