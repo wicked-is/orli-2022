@@ -6,7 +6,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const BlogGridContainer = styled.section`
+const PressGridContainer = styled.section`
     display: flex;
     align-items; flex-start;
     flex-wrap: wrap;
@@ -14,7 +14,7 @@ const BlogGridContainer = styled.section`
     margin-bottom: 6rem;
 `
 
-const BlogTile = styled.div`
+const PressTile = styled.div`
     display: inline;
     width: 27.33%;
     margin: 0.5rem 0.5rem 0.5rem 0.5rem;
@@ -61,7 +61,7 @@ const PubTitle = styled.p`
     transition: 0.3s ease all;
 `
 
-const BlogTitle = styled.p`
+const PressTitle = styled.p`
     cursor: pointer;
     transition: 0.3s ease all;
 `
@@ -87,30 +87,23 @@ export default function PressGrid(props) {
 
     },[])
     return (
-        <BlogGridContainer>
+        <PressGridContainer>
             {
                 posts && posts.map((post, index) => {
-                    
-                    const featured = post.blogPost.featured === null ?
-                        false :
-                        post.blogPost.featured;                 
-                    const category = post.categories.nodes[0].name;
-
+                    const featured = post.blogPost.featured === null ? false : post.blogPost.featured;                 
                     return (
-                            <BlogTile key={index} className="fadein" featured={featured} background={post.featuredImage.node.mediaItemUrl}>
-                            { featured && ( <p className="xs-heading uppercase white">{category}</p> ) }
-                            <Link href={post.singlePress.externallink} target="_blank" rel="noopener">
-                                <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} layout="intrinsic" alt={post.featuredImage.node.altText} className="blogImage" />
-                            </Link>
-                            { !featured && ( <p className="xs-heading uppercase black">{category}</p> ) }
-                            <Link href={post.singlePress.externallink} target="_blank" rel="noopener">
-                                <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
-                                <BlogTitle className="serif heading black">{post.title}</BlogTitle>
-                            </Link>
-                            </BlogTile>
+                            <PressTile key={index} className="fadein" featured={featured} background={post.featuredImage.node.mediaItemUrl}>
+                                <a href={post?.singlePress?.externallink} target="_blank" rel="noopener">
+                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} layout="intrinsic" alt={post.featuredImage.node.altText} className="blogImage" />
+                                </a>
+                                <a href={post?.singlePress?.externallink} target="_blank" rel="noopener">
+                                    <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
+                                    <PressTitle className="serif heading black">{post.title}</PressTitle>
+                                </a>
+                            </PressTile>
                     )
                 })
             }
-        </BlogGridContainer>
+        </PressGridContainer>
     )
 }
