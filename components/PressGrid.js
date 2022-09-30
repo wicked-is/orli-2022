@@ -67,10 +67,10 @@ export default function PressGrid(props) {
                 posts && posts.map((post, index) => {         
                     return (
                             <PressTile key={index} className="fadein">
-                                <a href={post.singlePress.externalLink} target="_blank" rel="noopener">
+                                <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
                                     <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
                                 </a>
-                                <a href={post.singlePress.externalLink} target="_blank" rel="noopener">
+                                <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
                                     <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
                                     <PressTitle className="serif heading black">{post.title}</PressTitle>
                                 </a>
