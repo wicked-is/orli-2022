@@ -501,8 +501,10 @@ export default function TheLocalWay(props) {
 
             mainMarker = new google.maps.Marker({
                 position: { lat: 32.843764, lng: -117.277141},
-                icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/navy-pin.png"
+                icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/navy-pin.png",
             });
+
+
 
             markers.push(mainMarker)
             makeMarkersVisible(mainMarker)
@@ -516,6 +518,11 @@ export default function TheLocalWay(props) {
                             icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/picker.svg",
                             map: map
                         });
+
+                        aNewMarker.addListener('click', function() {
+                            infowindow.setContent(`<div id="map-tip">${location.name}</div>`);
+                            infowindow.open(map, aNewMarker);
+                        })
 
                         infowindow.setContent(`<div id="map-tip">${location.name}</div>`);
                         infowindow.setPosition({ lat: Number(location.lat), lng: Number(location.long)})
