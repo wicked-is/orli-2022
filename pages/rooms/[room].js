@@ -335,7 +335,7 @@ export default function DefaultRoomsPage(props) {
           room.singleRooms.mobileGallery.map((item, index) => {
             return (
               <div key={`gallery-item-${index}`} className={`roomGalleryMobileitem ${item.imageType}`}>
-                <img src={item.image.mediaItemUrl} />
+                <img src={item.image.mediaItemUrl} alt={item.image.altText}/>
               </div>
             )
           })
