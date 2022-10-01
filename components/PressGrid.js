@@ -17,7 +17,7 @@ const PressGridContainer = styled.section`
 const PressTile = styled.div`
     display: inline;
     width: 27.33%;
-    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem 1.5rem 0.5rem;
     position: relative;
 
     & img.blogImage {
@@ -52,7 +52,9 @@ const PressTile = styled.div`
         & p.heading:hover {color: #fff !important;}
     `}
     @media only screen and (max-width:600px){
-        & {width: 98%;}
+        & {width: 98%;
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+    }
     }
 `
 
@@ -92,11 +94,11 @@ export default function PressGrid(props) {
                 posts && posts.map((post, index) => {
                     const featured = post.blogPost.featured === null ? false : post.blogPost.featured;                 
                     return (
-                            <PressTile key={index} className="fadein" featured={featured} background={post.featuredImage.node.mediaItemUrl}>
-                                <a href={post?.singlePress?.externallink} target="_blank" rel="noopener">
-                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} layout="intrinsic" alt={post.featuredImage.node.altText} className="blogImage" />
+                            <PressTile key={index} className="fadein">
+                                <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
+                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={400} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
                                 </a>
-                                <a href={post?.singlePress?.externallink} target="_blank" rel="noopener">
+                                <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
                                     <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
                                     <PressTitle className="serif heading black">{post.title}</PressTitle>
                                 </a>
