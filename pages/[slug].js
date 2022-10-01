@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // Components
+import SEO from '../components/seo';
 import Hero from '../components/hero';
 import BlurbCenter from '../components/blurbCenter';
 import BlurbLeft from '../components/blurbLeft';
@@ -18,7 +19,6 @@ import FullFeatureBlog from '../components/fullFeatureBlog';
 import SpotifyFeature from '../components/spotifyFeature';
 import BookingIframe from '../components/BookingIframe';
 import FauxSocialFeed from '../components/fauxSocialFeed';
-import SEO from '../components/seo';
 import DiscoveriesCallout from '../components/discoveriesCallout';
 import BigImageSmallContent from '../components/bigimageSmallcontent';
 import HistoricalSlider from '../components/historicalSlider';
@@ -159,19 +159,19 @@ export default function DefaultPage(props) {
                   break;
                 case 'Page_Flexiblecontent_Sections_GettingHere':
                 case 'Post_Flexiblecontent_Sections_GettingHere':
-                  gatheredSections.push(<GettingHere key={componentKey} {...section} index={index} />)
+                    gatheredSections.push(<GettingHere key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_TheLocalWay':
                 case 'Post_Flexiblecontent_Sections_TheLocalWay':
-                  gatheredSections.push(<TheLocalWay key={componentKey} {...section} index={index} />)
+                    gatheredSections.push(<TheLocalWay key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_ContentBlock':
                 case 'Post_Flexiblecontent_Sections_ContentBlock':
-                  gatheredSections.push(<ContentBlock key={componentKey} {...section} index={index} />)
+                    gatheredSections.push(<ContentBlock key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_ExploreMorePosts':
                 case 'Post_Flexiblecontent_Sections_ExploreMorePosts':
-                  gatheredSections.push(<ExploreMorePosts key={componentKey} {...section} index={index} />)
+                    gatheredSections.push(<ExploreMorePosts key={componentKey} {...section} index={index} />)
                   break;
                 case 'Page_Flexiblecontent_Sections_RoomsGrid':
                 case 'Post_Flexiblecontent_Sections_RoomsGrid':
@@ -758,14 +758,6 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 posts {
                   ... on Post {
-                    categories(first:13) {
-                      nodes {
-                        ... on Category {
-                          link
-                          name
-                        }
-                      }
-                    }
                     featuredImage {
                       node {
                         mediaItemUrl
@@ -778,9 +770,6 @@ export async function getStaticProps({ params }) {
                     }
                     link
                     title
-                    blogPost {
-                      featured
-                    }
                   }  
                 }
               }
@@ -1387,14 +1376,6 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 posts {
                   ... on Post {
-                    categories(first:13) {
-                      nodes {
-                        ... on Category {
-                          link
-                          name
-                        }
-                      }
-                    }
                     featuredImage {
                       node {
                         mediaItemUrl
@@ -1407,9 +1388,6 @@ export async function getStaticProps({ params }) {
                     }
                     link
                     title
-                    blogPost {
-                      featured
-                    }
                   }  
                 }
               }
@@ -1432,6 +1410,8 @@ export async function getStaticProps({ params }) {
                       }
                     }
                     link
+                    slug
+                    uri
                     title
                     blogPost {
                       featured

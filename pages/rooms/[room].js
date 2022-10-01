@@ -497,6 +497,8 @@ export async function getStaticProps({ params }) {
       }
       room(id: "${room}", idType: URI) {
         seo {
+          title
+          metaDesc
           fullHead
         }
         singleRooms {
