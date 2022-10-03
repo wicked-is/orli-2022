@@ -208,7 +208,7 @@ export async function getStaticPaths() {
                         uri
                       }
                     }
-                    posts {
+                    posts(first: 999) {
                       nodes {
                         slug
                         uri
