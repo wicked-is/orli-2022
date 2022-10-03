@@ -755,6 +755,7 @@ export async function getStaticProps({ params }) {
               ... on Page_Flexiblecontent_Sections_Titlebar {
                 fieldGroupName
                 title
+                showIcons
                 icon {
                   mediaItemUrl
                   altText
@@ -1390,6 +1391,7 @@ export async function getStaticProps({ params }) {
               ... on Post_Flexiblecontent_Sections_Titlebar {
                 fieldGroupName
                 title
+                showIcons
                 icon {
                   mediaItemUrl
                   altText
