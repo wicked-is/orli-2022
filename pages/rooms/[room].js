@@ -1,49 +1,66 @@
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import Flickity from 'react-flickity-component'
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Flickity from "react-flickity-component";
 import "flickity/css/flickity.css";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import Hero from '../../components/hero';
-import SEO from '../../components/seo';
-import styled from 'styled-components';
+import Hero from "../../components/hero";
+import SEO from "../../components/seo";
+import styled from "styled-components";
 
-import ToggleCaret from '../../public/assets/icons/Orli_Caret.svg';
+import ToggleCaret from "../../public/assets/icons/Orli_Caret.svg";
 
 const SingleRoomContentContainer = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   max-width: 80vw;
-  margin: auto auto 3rem; 
+  margin: auto auto 3rem;
   gap: 2rem;
   @media screen and (max-width: 820px) {
-    & {max-width: 100vw;}
+    & {
+      max-width: 100vw;
+    }
   }
   @media screen and (max-width: 800px) {
     flex-direction: column !important;
     flex-wrap: wrap;
     gap: unset;
   }
-`
+`;
 const MobileRoomsHero = styled.div`
-display: none;
-  @media only screen and (max-width: 820px){
+  display: none;
+  @media only screen and (max-width: 820px) {
     & {
       width: 100%;
       margin: auto;
       display: inline-block;
       position: relative;
     }
-    & .roomGalleryMobileitem.landscape {width: 100%; margin: auto;}
-    & .roomGalleryMobileitem.portrait {height: 100%; width: auto; margin: auto; overflow: hidden;}
+    & .roomGalleryMobileitem.landscape {
+      width: 100%;
+      margin: auto;
+    }
+    & .roomGalleryMobileitem.portrait {
+      height: 100%;
+      width: auto;
+      margin: auto;
+      overflow: hidden;
+    }
 
-    & .roomGalleryMobileitem.landscape img {width: 100%;}
-    & .roomGalleryMobileitem.portrait img {height: 99.2%; width: auto;}
+    & .roomGalleryMobileitem.landscape img {
+      width: 100%;
+    }
+    & .roomGalleryMobileitem.portrait img {
+      height: 99.2%;
+      width: auto;
+    }
 
-    & .flickity-button .flickity-button-icon {fill: var(--brown);}
+    & .flickity-button .flickity-button-icon {
+      fill: var(--brown);
+    }
 
     & .flickity-button {
       background: hsl(0 0% 100% / 100%);
@@ -52,45 +69,56 @@ display: none;
     & .flickity-prev-next-button:focus {
       box-shadow: 0 0 0 5px var(--green) !important;
     }
-    & .flickity-prev-next-button.previous {top: unset; left: 1rem; bottom: 1rem;}
-    & .flickity-prev-next-button.next {top: unset; right: 1rem; bottom: 1rem;}
+    & .flickity-prev-next-button.previous {
+      top: unset;
+      left: 1rem;
+      bottom: 1rem;
+    }
+    & .flickity-prev-next-button.next {
+      top: unset;
+      right: 1rem;
+      bottom: 1rem;
+    }
   }
-  @media only screen and (max-width: 414px){
-    & .roomGalleryMobileitem.portrait img {height: 98.8%; width: auto;}
+  @media only screen and (max-width: 414px) {
+    & .roomGalleryMobileitem.portrait img {
+      height: 98.8%;
+      width: auto;
+    }
   }
-`
+`;
 
 const MobileBookingForm = styled.div`
   display: none;
-  @media only screen and (max-width: 820px){
+  @media only screen and (max-width: 820px) {
     & {
       display: block;
       width: 100%;
       margin: auto;
     }
   }
-`
+`;
 
 const SingleRoomContent = styled.div`
   width: 100%;
   flex: 2;
   margin-top: 3rem;
   @media screen and (max-width: 820px) {
-    &{
+    & {
       margin-top: 0rem;
     }
   }
   @media screen and (max-width: 800px) {
     & {
-        flex: 1;
-        width: 100%;
-        order: 2;
+      flex: 1;
+      width: 100%;
+      order: 2;
     }
   }
-`
+`;
 
-const GreyBGMobile = styled.div `
-  @media only screen and (max-width: 820px){
+const GreyBGMobile = styled.div`
+  @media only screen and (max-width: 820px) {
     & p.sans-serif-bold.sub-heading {
       margin-block-end: 0.5rem !important;
     }
@@ -100,14 +128,14 @@ const GreyBGMobile = styled.div `
       margin-top: -8px;
     }
   }
-`
-const MobilePadding = styled.div `
+`;
+const MobilePadding = styled.div`
   @media only screen and (max-width: 820px) {
     padding: 2rem 2rem 0 2rem;
   }
-`
+`;
 
-const SingleRoomMainDesc = styled.div``
+const SingleRoomMainDesc = styled.div``;
 const SingleRoomBookingForm = styled.div`
   width: 100%;
   flex: 1;
@@ -115,21 +143,22 @@ const SingleRoomBookingForm = styled.div`
   z-index: 1;
   max-height: calc();
   @media screen and (max-width: 820px) {
-    & {display: none;}
+    & {
+      display: none;
+    }
   }
-`
+`;
 const FeatureContainer = styled.div`
   margin: 4.5rem 0 3rem;
   @media only screen and (max-width: 820px) {
     padding: 0rem 2rem;
   }
-`
+`;
 const FeatureList = styled.div`
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(4,150px);
+  grid-template-columns: repeat(4, 150px);
   gap: 1rem;
-
 
   text-align: center;
 
@@ -157,13 +186,13 @@ const FeatureList = styled.div`
   @media screen and (max-width: 370px) {
     grid-template-columns: repeat(1, 100%);
   }
-`
+`;
 const AmenitiesContainer = styled.div`
-  margin: 3rem 0; 
+  margin: 3rem 0;
   @media screen and (max-width: 820px) {
     padding: 0rem 2rem;
   }
-`
+`;
 const AmenitiesList = styled.ul`
   list-style-type: none;
   columns: 2;
@@ -173,25 +202,27 @@ const AmenitiesList = styled.ul`
   @media screen and (max-width: 600px) {
     columns: 1;
   }
-`
+`;
 const AboutOrliContainer = styled.div`
   margin: 3rem 0;
   @media screen and (max-width: 820px) {
     padding: 0rem 2rem;
   }
-`
+`;
 const NeighborhoodContainer = styled.div`
   margin: 3rem 0;
-  
-  & p {padding: 4rem 0 0 0;}
+
+  & p {
+    padding: 4rem 0 0 0;
+  }
 
   @media screen and (max-width: 820px) {
     padding: 0rem 2rem;
   }
-`
+`;
 const BulletItem = styled.li`
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   font-size: 1.3rem;
 
   @media screen and (max-width: 955px) {
@@ -203,7 +234,7 @@ const BulletItem = styled.li`
       margin-top: 0;
     }
   }
-`
+`;
 const GreyBackground = styled.div`
   background-color: var(--lt-grey);
   padding: 2rem;
@@ -215,8 +246,8 @@ const GreyBackground = styled.div`
   @media screen and (max-width: 800px) {
     top: 1rem;
   }
-`
-const ReservationForm = styled.form``
+`;
+const ReservationForm = styled.form``;
 
 const ReservationFormLabel = styled.label`
   display: flex;
@@ -243,7 +274,7 @@ const ReservationFormLabel = styled.label`
 
     }
   }
-`
+`;
 const ReservationButton = styled.button`
   width: 100%;
   height: 5rem;
@@ -251,202 +282,302 @@ const ReservationButton = styled.button`
   font-size: var(--xs-copy);
   border: 0;
   background-color: var(--brown);
-
-`
+`;
 
 export default function DefaultRoomsPage(props) {
-  const slider = useRef(null)
-  const [sliderActive, setSliderActive] = useState(0)
+  const slider = useRef(null);
+  const [sliderActive, setSliderActive] = useState(0);
 
   const changeSlider = (e) => {
-    slider.current.select(e.target.dataset.slide)
-  }
+    slider.current.select(e.target.dataset.slide);
+  };
 
   useEffect(() => {
-    slider.current.on('change', () => {
-        setSliderActive(slider.current.selectedIndex)
-    })
+    slider.current.on("change", () => {
+      setSliderActive(slider.current.selectedIndex);
+    });
   }, [sliderActive]);
 
-  const [showingFloorplan, setShowingFloorplan] = useState(false)
+  const [showingFloorplan, setShowingFloorplan] = useState(false);
 
   const { room } = props.data.data;
 
   useEffect(() => {
-    var tl =  gsap.timeline()
-    tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
-    tl.to('main', { opacity:1, duration: 0.6});
-  }, [])
+    var tl = gsap.timeline();
+    tl.fromTo("header", { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    tl.to("main", { opacity: 1, duration: 0.6 });
+  }, []);
 
   useEffect(() => {
-    var	wideScreen = window.matchMedia("(min-width: 800px)");
-    var	narrowScreen = window.matchMedia("(max-width: 799px)");
+    var wideScreen = window.matchMedia("(min-width: 800px)");
+    var narrowScreen = window.matchMedia("(max-width: 799px)");
 
-    var content = gsap.utils.toArray('.content');
-    var sidebar = gsap.utils.toArray('.sidebar');
+    var content = gsap.utils.toArray(".content");
+    var sidebar = gsap.utils.toArray(".sidebar");
 
-    if(wideScreen.matches) {
+    if (wideScreen.matches) {
       gsap.to(sidebar, {
         scrollTrigger: {
-            trigger: content,
-            start: "top-=40px 150px",
-            endTrigger: ".footer",
-            end: "top-=0px 0px",
-            pin: sidebar,
-            markers: false,
-            onRefresh: self => self.pin.parentNode.style.float = "right",
-            pinSpacing: false,
-        }, y: 0
+          trigger: content,
+          start: "top-=40px 150px",
+          endTrigger: ".footer",
+          end: "top-=0px 0px",
+          pin: sidebar,
+          markers: false,
+          onRefresh: (self) => (self.pin.parentNode.style.float = "right"),
+          pinSpacing: false,
+        },
+        y: 0,
       });
     }
-  }, [])
+  }, []);
 
-  const [checkOutDate, setCheckOutDate] = useState('');
+  const [checkOutDate, setCheckOutDate] = useState("");
 
   const setCheckout = (date) => {
-      setCheckOutDate(date.target.value)
-  }
-  
+    setCheckOutDate(date.target.value);
+  };
+
   return (
     <>
       <SEO fullhead={room.seo.fullHead} />
-      <Hero types="Single Room" imagePoster={room.singleRooms.roomshero} gallery={room.singleRooms.gallery}/>
+      <Hero
+        types="Single Room"
+        imagePoster={room.singleRooms.roomshero}
+        gallery={room.singleRooms.gallery}
+      />
       <MobileRoomsHero>
         <Flickity
-        options={{
-          cellAlign: 'center',
-          draggable: true,
-          prevNextButtons: true,
-          imagesLoaded: true,
-          contian: true,
-          pageDots: false,
-          wrapAround: true,
-          arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
-
-      }}
-        disableImagesLoaded={false} // default false
-        reloadOnUpdate={false} // default false
-        static // default false
-        flickityRef={c => {
-          slider.current = c
-        }}
+          options={{
+            cellAlign: "center",
+            draggable: true,
+            prevNextButtons: true,
+            imagesLoaded: true,
+            contian: true,
+            pageDots: false,
+            wrapAround: true,
+            arrowShape:
+              "M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z",
+          }}
+          disableImagesLoaded={false} // default false
+          reloadOnUpdate={false} // default false
+          static // default false
+          flickityRef={(c) => {
+            slider.current = c;
+          }}
         >
-        {
-          room.singleRooms.mobileGallery.map((item, index) => {
+          {room.singleRooms.mobileGallery.map((item, index) => {
             return (
-              <div key={`gallery-item-${index}`} className={`roomGalleryMobileitem ${item.imageType}`}>
-                <img src={item.image.mediaItemUrl} alt={item.image.altText}/>
+              <div
+                key={`gallery-item-${index}`}
+                className={`roomGalleryMobileitem ${item.imageType}`}
+              >
+                <img src={item.image.mediaItemUrl} alt={item.image.altText} />
               </div>
-            )
-          })
-        }
+            );
+          })}
         </Flickity>
       </MobileRoomsHero>
       <SingleRoomContentContainer className="content">
         <SingleRoomContent>
           <SingleRoomMainDesc className="sans-serif body-copy black">
             <GreyBGMobile>
-            <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
-            <h1 className="heading">{room.title}</h1>
-            <MobileBookingForm>
-            <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
-              <ReservationFormLabel className="sans-serif uppercase">Check In
-                <input type={"date"} name="widget_date" placeholder="mm/dd/yyyy" className="sans-serif" onChange={setCheckout} /></ReservationFormLabel><br />
-              <ReservationFormLabel className="sans-serif uppercase">Check Out
-                <input type={"date"} name="widget_date_to" placeholder="mm/dd/yyyy" className="sans-serif" value={checkOutDate} onChange={setCheckout} /></ReservationFormLabel>
-              <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
-            </ReservationForm>
-            </MobileBookingForm>
+              <p className="sans-serif-bold sub-heading">
+                Sleeps {room.singleRooms.sleeps}
+              </p>
+              <h1 className="heading">{room.title}</h1>
+              <MobileBookingForm>
+                <ReservationForm
+                  action={room.singleRooms.cloudbedsLink}
+                  method="POST"
+                  target="_blank"
+                >
+                  <ReservationFormLabel className="sans-serif uppercase">
+                    Check In
+                    <input
+                      type={"date"}
+                      name="widget_date"
+                      placeholder="mm/dd/yyyy"
+                      className="sans-serif"
+                      onChange={setCheckout}
+                    />
+                  </ReservationFormLabel>
+                  <br />
+                  <ReservationFormLabel className="sans-serif uppercase">
+                    Check Out
+                    <input
+                      type={"date"}
+                      name="widget_date_to"
+                      placeholder="mm/dd/yyyy"
+                      className="sans-serif"
+                      value={checkOutDate}
+                      onChange={setCheckout}
+                    />
+                  </ReservationFormLabel>
+                  <ReservationButton className="sans-serif uppercase">
+                    Check Availability
+                  </ReservationButton>
+                </ReservationForm>
+              </MobileBookingForm>
             </GreyBGMobile>
             <MobilePadding>
-            <p>{room.singleRooms.description}</p>
-            <p className="sans-serif xs-copy underline mb-3" onClick={() => setShowingFloorplan(!showingFloorplan)}><a>View Floor Plan <img src="/assets/icons/Orli_Caret.svg" width="12px" height="7px" /></a></p>
-            {
-              showingFloorplan && room.singleRooms.floorplan && <img src={room.singleRooms.floorplan.mediaItemUrl} alt={room.singleRooms.floorplan.altText} width="90%" height="auto" style={{ marginInline: 'auto' }} />
-            }
+              <p>{room.singleRooms.description}</p>
+              <p
+                className="sans-serif xs-copy underline mb-3"
+                onClick={() => setShowingFloorplan(!showingFloorplan)}
+              >
+                <a>
+                  View Floor Plan{" "}
+                  <img
+                    src="/assets/icons/Orli_Caret.svg"
+                    width="12px"
+                    height="7px"
+                  />
+                </a>
+              </p>
+              {showingFloorplan && room.singleRooms.floorplan && (
+                <img
+                  src={room.singleRooms.floorplan.mediaItemUrl}
+                  alt={room.singleRooms.floorplan.altText}
+                  width="90%"
+                  height="auto"
+                  style={{ marginInline: "auto" }}
+                />
+              )}
             </MobilePadding>
           </SingleRoomMainDesc>
 
           <FeatureContainer>
             <p className="sans-serif-bold sub-heading">Highlights</p>
             <FeatureList>
-              {
-                room.singleRooms.features.map((feature, index) => {
-                  return <div key={index} className="sans-serif body-copy black">
-                    { feature.icon && (
-                    <img src={feature?.icon?.mediaItemUrl} alt={feature.altText} />
+              {room.singleRooms.features.map((feature, index) => {
+                return (
+                  <div key={index} className="sans-serif body-copy black">
+                    {feature.icon && (
+                      <img
+                        src={feature?.icon?.mediaItemUrl}
+                        alt={feature.altText}
+                      />
                     )}
                     <p>{feature.label}</p>
                   </div>
-                })
-              }
+                );
+              })}
             </FeatureList>
           </FeatureContainer>
 
           <AmenitiesContainer>
             <p className="sans-serif-bold sub-heading">Features</p>
             <AmenitiesList>
-              {
-                room.singleRooms.amenities.map((amenity, index) => {
-                  return <li key={index} style={{ marginBottom: '.5rem'}} className="sans-serif body-copy black">
+              {room.singleRooms.amenities.map((amenity, index) => {
+                return (
+                  <li
+                    key={index}
+                    style={{ marginBottom: ".5rem" }}
+                    className="sans-serif body-copy black"
+                  >
                     {amenity}
                   </li>
-                })
-              }
+                );
+              })}
             </AmenitiesList>
-            <p className="sans-serif body-copy black" style={{ marginTop: '2rem' }}>When booking, see available add-on amenities including the Wellness Package, Pup Package, and more.</p>
+            <p
+              className="sans-serif body-copy black"
+              style={{ marginTop: "2rem" }}
+            >
+              When booking, see available add-on amenities including the
+              Wellness Package, Pup Package, and more.
+            </p>
           </AmenitiesContainer>
 
           <AboutOrliContainer>
             <h2 className="heading">{room.singleRooms.aboutOrliTitle}</h2>
-            <div className="sans-serif body-copy black" dangerouslySetInnerHTML={{ __html: room.singleRooms.aboutOrliDescription }}></div>
+            <div
+              className="sans-serif body-copy black"
+              dangerouslySetInnerHTML={{
+                __html: room.singleRooms.aboutOrliDescription,
+              }}
+            ></div>
           </AboutOrliContainer>
 
           <NeighborhoodContainer>
             <h2 className="heading">{room.singleRooms.neighborhoodTitle}</h2>
-            <div className="sans-serif body-copy black" dangerouslySetInnerHTML={{ __html: room.singleRooms.neighborhoodDescription }}></div>
+            <div
+              className="sans-serif body-copy black"
+              dangerouslySetInnerHTML={{
+                __html: room.singleRooms.neighborhoodDescription,
+              }}
+            ></div>
             <ul style={{ paddingInline: 0 }}>
-              { 
-                room.singleRooms.neighborhoodBullets.map((bullet, index) => {
-                  return <BulletItem key={index} className="serif black uppercase brown">
-                    { bullet.pointOfInterest && ( 
-                    <p>{bullet?.pointOfInterest}</p>
-                    )}
-                    { bullet.walkability && ( 
-                    <p>{bullet?.walkability}</p>
-                    )}
-                 </BulletItem>
-                })
-              }
+              {room.singleRooms.neighborhoodBullets.map((bullet, index) => {
+                return (
+                  <BulletItem
+                    key={index}
+                    className="serif black uppercase brown"
+                  >
+                    {bullet.pointOfInterest && <p>{bullet?.pointOfInterest}</p>}
+                    {bullet.walkability && <p>{bullet?.walkability}</p>}
+                  </BulletItem>
+                );
+              })}
             </ul>
-            <p className="sans-serif xs-copy underline arrow-left relative"><Link href="/find-your-room">Back to All Rooms</Link></p>
+            <p className="sans-serif xs-copy underline arrow-left relative">
+              <Link href="/find-your-room">Back to All Rooms</Link>
+            </p>
           </NeighborhoodContainer>
         </SingleRoomContent>
 
         <SingleRoomBookingForm className="sidebar">
           <GreyBackground>
-            <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
+            <p className="sans-serif-bold sub-heading">
+              Sleeps {room.singleRooms.sleeps}
+            </p>
             <p className="heading">Reservations</p>
-            <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
-              <ReservationFormLabel className="sans-serif uppercase">Check In<input type={"date"} name="widget_date" placeholder="mm/dd/yyyy" className="sans-serif" onChange={setCheckout} /></ReservationFormLabel><br />
-              <ReservationFormLabel className="sans-serif uppercase">Check Out<input type={"date"} name="widget_date_to" placeholder="mm/dd/yyyy" className="sans-serif" value={checkOutDate} onChange={setCheckout} /></ReservationFormLabel>
-              <ReservationButton className="sans-serif uppercase">Check Availability</ReservationButton>
+            <ReservationForm
+              action={room.singleRooms.cloudbedsLink}
+              method="POST"
+              target="_blank"
+            >
+              <ReservationFormLabel className="sans-serif uppercase">
+                Check In
+                <input
+                  type={"date"}
+                  name="widget_date"
+                  placeholder="mm/dd/yyyy"
+                  className="sans-serif"
+                  onChange={setCheckout}
+                />
+              </ReservationFormLabel>
+              <br />
+              <ReservationFormLabel className="sans-serif uppercase">
+                Check Out
+                <input
+                  type={"date"}
+                  name="widget_date_to"
+                  placeholder="mm/dd/yyyy"
+                  className="sans-serif"
+                  value={checkOutDate}
+                  onChange={setCheckout}
+                />
+              </ReservationFormLabel>
+              <ReservationButton className="sans-serif uppercase">
+                Check Availability
+              </ReservationButton>
             </ReservationForm>
           </GreyBackground>
         </SingleRoomBookingForm>
       </SingleRoomContentContainer>
     </>
-  )
+  );
 }
 
 // Get all dynamic [room]s from the CMS
 export async function getStaticPaths() {
-
-    const res = await fetch(process.env.WP_GQL_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            query: `
+  const res = await fetch(process.env.WP_GQL_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      query: `
                 query Rooms {
                     rooms(first: 100) {
                         nodes {
@@ -454,26 +585,26 @@ export async function getStaticPaths() {
                         }
                     }
                 }
-            `
-        })
-    })
+            `,
+    }),
+  });
 
-    const rooms = await res.json()
-    
-    const paths = rooms.data.rooms.nodes.map(room => ({
-        params: { room: room.slug }
-    }));
+  const rooms = await res.json();
 
-    return {
-        paths,
-        fallback: false,
-    }
+  const paths = rooms.data.rooms.nodes.map((room) => ({
+    params: { room: room.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 // Get relative [slug] data
 export async function getStaticProps({ params }) {
-  const { room } = params ;
-  
+  const { room } = params;
+
   // Query for Sections and SEO data
   const roomsQuery = `
     query Rooms {
@@ -553,21 +684,43 @@ export async function getStaticProps({ params }) {
         }
       }
     }
-    `
-  
+    `;
+
   // Get page sections and SEO data
   const res = await fetch(process.env.WP_GQL_API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: roomsQuery })
-  })
-
-  const data = await res.json()
-  const page = data
-  
-  return {
-      props: {
-          data: page
-      }
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query: roomsQuery }),
+  });
+  // If status is not OK.
+  if (!res?.ok) {
+    return {
+      notFound: true,
+    };
   }
+
+  let page;
+
+  // Try...catch method is best way to get data on build runtime.
+
+  try {
+    const data = await res?.text();
+    page = JSON.parse(data);
+  } catch (e) {
+    return {
+      notFound: true,
+    };
+  }
+
+  if (!page) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      data: page,
+    },
+  };
 }
