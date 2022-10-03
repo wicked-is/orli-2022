@@ -350,7 +350,7 @@ export async function getStaticProps({ params }) {
             name
           }
         }
-        page(id: "${slug}", idType: URI, first: 999) {
+        page(id: "${slug}", idType: URI) {
           seo {
             title
             metaDesc
@@ -975,7 +975,7 @@ export async function getStaticProps({ params }) {
             }
           }
         }
-        post(id: "${slug}", idType: SLUG, first: 999) {
+        post(id: "${slug}", idType: SLUG) {
           seo {
             title
             metaDesc
