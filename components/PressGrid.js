@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PressGridContainer = styled.section`
     display: flex;
-    align-items; flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 6rem;
@@ -17,7 +17,7 @@ const PressGridContainer = styled.section`
 const PressTile = styled.div`
     display: inline;
     width: 27.33%;
-    margin: 0.5rem 0.5rem 1.5rem 0.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     position: relative;
 
     & img.blogImage {
@@ -52,9 +52,7 @@ const PressTile = styled.div`
         & p.heading:hover {color: #fff !important;}
     `}
     @media only screen and (max-width:600px){
-        & {width: 98%;
-        margin: 0.5rem 0.5rem 1rem 0.5rem;
-    }
+        & {width: 98%;}
     }
 `
 
@@ -95,8 +93,8 @@ export default function PressGrid(props) {
                     const featured = post.blogPost.featured === null ? false : post.blogPost.featured;                 
                     return (
                             <PressTile key={index} className="fadein">
-                                <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
-                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={400} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
+                                <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
+                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
                                 </a>
                                 <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
                                     <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
