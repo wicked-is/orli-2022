@@ -14,6 +14,8 @@ export default function Hero(props) {
         includeBookingForm,
         gallery,
         includeLogo,
+        pressLink,
+        pressLogo,
         includeRoomGallery,
         includeBookMultipleRoomsLink,
         includeFeaturedRoomCta,
@@ -371,6 +373,26 @@ export default function Hero(props) {
                             <div className="arrowssub"></div>
                     </div>
                 )
+            case 'Single Press':
+                return (
+                    <div className="smheroContainer">
+                            <div className={styles.smallPressHero} style={{backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
+                                <div className={styles.logoOver}>
+                                    <Image src={pressLogo.mediaItemUrl} alt={pressLogo.altText} width={721} height={135} layout="intrinsic"/>
+                                </div>
+                                <div className={styles.textOver}>
+                                <p className="xs-heading uppercase letterSpacing white" style={{ zIndex: 1}}>The Latest</p>
+                                <p className="serif heading white left">
+                                    <a target="_blank" href={pressLink} rel="noreferrer noopener">{headline}</a>
+                                </p>
+                                <p className="sans-serif white left xs-copy underline">
+                                    <a target="_blank" href={pressLink} rel="noreferrer noopener">Read More</a>
+                                </p>
+                                </div>
+                                <div className={styles.overlay}></div>
+                            </div>
+                    </div>
+            )
             default:
                 return null;
         }

@@ -158,6 +158,38 @@
    -webkit-background-position: center center;
 }
 
+.smallPressHero {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 70vh;
+    position: relative;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    -ms-background-size: cover !important;
+    background-position: center center;
+    -webkit-background-position: center center;
+}
+.smallPressHero .logoOver {
+    width: 14rem;
+    position: absolute;
+    top: 7rem;
+    z-index: 9;
+    display: block;
+    margin: auto;
+    left: 5.5rem;
+}
+
+.smallPressHero .textOver{
+    position: absolute;
+    z-index: 9;
+    bottom: 2rem;
+    left: 5.5rem;
+    width: 60%;
+}
+
 .smallHero img, .smallJournalHero img {display: none}
 
 .overlay {
@@ -182,6 +214,25 @@
 @media only screen and (max-width: 820px){
     .viewGallery {
         display: none;
+    }
+
+    .smallPressHero .logoOver {
+        width: 14rem;
+        position: absolute;
+        top: 4rem;
+        z-index: 9;
+        display: block;
+        margin: auto;
+        left: 4rem;
+    }
+    
+    .smallPressHero .textOver{
+        position: absolute;
+        z-index: 9;
+        bottom: 2rem;
+        left: 4rem;
+        right: 4rem;
+        width: 90%;
     }
 }
 
