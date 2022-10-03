@@ -703,6 +703,12 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 blurb
                 headline
+                pressLink
+                publicationTitle
+                pressLogo {
+                  mediaItemUrl
+                  altText
+                }
                 includeLogo
                 includeBookingForm
                 includeBookMultipleRoomsLink
@@ -1322,6 +1328,12 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 blurb
                 headline
+                pressLink
+                publicationTitle
+                pressLogo {
+                  mediaItemUrl
+                  altText
+                }
                 includeBookingForm
                 includeBookMultipleRoomsLink
                 includeFeaturedRoomCta
