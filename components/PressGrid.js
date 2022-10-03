@@ -89,15 +89,23 @@ export default function PressGrid(props) {
     return (
         <PressGridContainer>
             {
-                posts && posts.map((post, index) => {
-                    const featured = post.blogPost.featured === null ? false : post.blogPost.featured;                 
+                posts && posts.map((post, index) => {     
+                    const featured = post.blogPost.featured === null ?
+                        false :
+                        post.blogPost.featured;
+                    
+                    const category = post.categories.nodes[0].name;
+
                     return (
-                            <PressTile key={index} className="fadein">
-                                <a href={post.singlePress.externalLink} target="_blank" rel="noreferrer">
-                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={436} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
+                            <PressTile key={index} featured={featured} className="fadein">
+                                <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
+                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={400} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
                                 </a>
                                 <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
-                                    <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
+                                    { featured && ( 
+                                        <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
+                                     ) }
+                                    { !featured && ( <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle> ) }
                                     <PressTitle className="serif heading black">{post.title}</PressTitle>
                                 </a>
                             </PressTile>
