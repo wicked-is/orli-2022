@@ -513,17 +513,20 @@ export default function TheLocalWay(props) {
                 column.sections.map((section, index) => {
                     section.locations.map((location, index) => {
                         
+                        // Create New Pin
                         let aNewMarker = new google.maps.Marker({
                             position: { lat: Number(location.lat), lng: Number(location.long)},
                             icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/picker.svg",
                             map: map
                         });
 
+                        // Show Title on Pin Click
                         aNewMarker.addListener('click', function() {
                             infowindow.setContent(`<div id="map-tip">${location.name}</div>`);
                             infowindow.open(map, aNewMarker);
                         })
 
+                        // Set Info Window Content
                         infowindow.setContent(`<div id="map-tip">${location.name}</div>`);
                         infowindow.setPosition({ lat: Number(location.lat), lng: Number(location.long)})
 
