@@ -6,8 +6,8 @@ export default function SpotifyFeature(props) {
         <section className={styles.spotifyFeature}>
             <div className={styles.overlay}></div>
             <video className={styles.videoBG} autoPlay playsInline muted loop>
-                <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/pexels-pavel-danilyuk-7318864.mp4" type="video/mp4" />
-                <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/02/orlihero3-1.webm" type="video/webm" />
+                <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/10/Orli_SpotifySessions_v2_Web_1728x700.mp4" type="video/mp4" />
+                <source src="https://orlidev.wpengine.com/wp-content/uploads/2022/10/Orli_SpotifySessions_v2_Web_1728x700.webm" type="video/webm" />
             </video>
             <div className={`${styles.container} ${styles.max70}`}>
                 <div className="fadein">
