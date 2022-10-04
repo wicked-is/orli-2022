@@ -147,6 +147,13 @@ export default function Header(props) {
                                 <p className="directions xs-copy white left">
                                     <Link target="_blank" href="https://goo.gl/maps/MvajX29ZNg3kz5M69">Get Directions</Link>
                                 </p>
+                            </div>
+                            <div className="col-1-50">
+                                <p className="sans-serif xs-copy white left">
+                                    T: <a href="tel:6195760806">619.576.0806</a><br/>
+                                    E: <a href="mailto:hello@stayorli.com">hello@stayorli.com</a><br/>
+                                </p>
+                                <p className={`${styles.contact} sans-serif xs-copy white left`}><a href="/contact">Contact</a></p>
                                 <ul className={styles.socials}>
                                     <li>
                                         <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
@@ -180,17 +187,6 @@ export default function Header(props) {
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
-                            <div className="col-1-50">
-                            <p className="sans-serif xs-copy white left"><span className="uppercase">General Inquiries</span><br/>
-                                T: <a href="tel:6195760806">619.576.0806</a><br/>
-                                E: <a href="mailto:hello@stayorli.com">hello@stayorli.com</a>
-                            </p>
-
-                                <p className="sans-serif xs-copy white left">
-                                <span className="uppercase">Media & Press Inquiries</span><br/>
-                                E: <a href="mailto:brian@wicked.is">brian@wicked.is</a>
-                                </p>
                             </div>
                         </div>
                     </div>
