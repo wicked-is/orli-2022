@@ -145,7 +145,7 @@ export default function Header(props) {
                                     Orli La Jolla<br/>7753 Draper Ave,<br/>La Jolla, CA 92037
                                 </address>
                                 <p className="directions xs-copy white left">
-                                    <Link target="_blank" href="https://goo.gl/maps/MvajX29ZNg3kz5M69">Get Directions</Link>
+                                    <Link target="_blank" href="https://goo.gl/maps/MvajX29ZNg3kz5M69" rel="noreferrer">Get Directions</Link>
                                 </p>
                             </div>
                             <div className="col-1-50">
@@ -153,7 +153,9 @@ export default function Header(props) {
                                     T: <a href="tel:6195760806">619.576.0806</a><br/>
                                     E: <a href="mailto:hello@stayorli.com">hello@stayorli.com</a><br/>
                                 </p>
-                                <p className={`${styles.contact} sans-serif xs-copy white left`}><a href="/contact">Contact</a></p>
+                                <p className={`${styles.contact} sans-serif xs-copy white left`}>
+                                    <Link href="/contact">Contact</Link>
+                                </p>
                                 <ul className={styles.socials}>
                                     <li>
                                         <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
