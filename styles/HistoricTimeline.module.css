@@ -48,6 +48,8 @@
 .navItem img,
 .navItem.active img {display: none !important;}
 
+.sliderNav p {padding: 0 0 2rem 0;}
+
 .sliderNav p a {
     color: rgba(255,255,255,0.7);
     font-family: 'GT Walsheim Light';
