@@ -26,6 +26,7 @@ import Form from '../components/forms';
 import Gallery from '../components/gallery';
 import FeaturedStorySlider from '../components/FeaturedStorySlider';
 import AnchorBar from '../components/AnchorBar';
+import ContactBlock from '../components/ContactBlock';
 import TitleBar from '../components/TitleBar';
 import TheLocalWay from '../components/TheLocalWay';
 import GettingHere from '../components/GettingHere';
@@ -73,8 +74,12 @@ export default function DefaultPage(props) {
             switch (section.fieldGroupName) { 
                 case 'Page_Flexiblecontent_Sections_AnchorBar':
                 case 'Post_Flexiblecontent_Sections_AnchorBar':
-                gatheredSections.push(<AnchorBar key={componentKey} {...section} index={index} />)
+                  gatheredSections.push(<AnchorBar key={componentKey} {...section} index={index} />)
                     break;
+                case 'Page_Flexiblecontent_Sections_ContactBlock':
+                case 'Post_Flexiblecontent_Sections_ContactBlock':
+                  gatheredSections.push(<ContactBlock key={componentKey} {...section} index={index} />)
+                      break;
                 case 'Page_Flexiblecontent_Sections_EventFeed':
                 case 'Post_Flexiblecontent_Sections_EventFeed':
                     gatheredSections.push(<EventFeed key={componentKey} {...section} index={index} />)
@@ -890,6 +895,17 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 content
               }
+              ... on Page_Flexiblecontent_Sections_ContactBlock {
+                fieldGroupName
+                reservationsBlurb
+                eventsBlurb
+                mediaBlurb
+                developmentBlurb
+                backgroundImage {
+                  mediaItemUrl
+                  altText
+                }
+              }
               ... on Page_Flexiblecontent_Sections_ExploreMorePosts {
                 fieldGroupName
                 anchor
@@ -1525,6 +1541,17 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 content
                 anchor
+              }
+              ... on Post_Flexiblecontent_Sections_ContactBlock {
+                fieldGroupName
+                reservationsBlurb
+                eventsBlurb
+                mediaBlurb
+                developmentBlurb
+                backgroundImage {
+                  mediaItemUrl
+                  altText
+                }
               }
               ... on Post_Flexiblecontent_Sections_ExploreMorePosts {
                 fieldGroupName
