@@ -5,9 +5,15 @@
     padding: 6rem 0;
     
 }
+
 .videoBackground {
     margin-top: 3rem;
+    -webkit-aspect-ratio: 1/1.2;
+    -moz-aspect-ratio: 1/1.2; 
+    -o-aspect-ratio: 1/1.2;
+    overflow: hidden;
 }
+
 .videoBackground video {
     max-width: 100%;
     position: relative;
@@ -26,8 +32,13 @@
 
 .blurbpadding {padding: 2rem 0rem 0rem 0rem;}
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 820px) {
     .gatheringsContainer {flex-direction: column; gap: 2rem;}
     .left, .right {flex: 1; width: 100%; padding: 0;}
-    .videoBackground {margin-top: 4rem}
+    .right p {margin-block-start: 0rem;}
+    .videoBackground {
+        margin-top: 4rem; 
+        -webkit-aspect-ratio: unset;
+        -moz-aspect-ratio: unset; 
+        -o-aspect-ratio: unset;}
 }

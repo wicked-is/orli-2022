@@ -64,13 +64,11 @@ export default function Gatherings(props) {
                 />
                 {
                     media[0].type === "Video" && (
-                        <div className={`${styles.videoBackground} hide-on-mobile`}>
-                             <div style={{ aspectRatio: '1/1.2', overflow: 'hidden'}}>
+                        <div className={`${styles.videoBackground}`}>
                                 <video className={styles.videoBG} autoPlay playsInline muted loop>
                                     <source src={media[0].mp4} type="video/mp4" />
                                     <source src={media[0].webm} />
                                 </video>
-                            </div>
                         </div>
                     )
                 }
@@ -85,9 +83,9 @@ export default function Gatherings(props) {
             <div className={styles.right}>
                 {
                     media[1].type === "Image" && (
-                        <>
-                            <Image src={media[1].imagePoster.sourceUrl} alt={media[1].imagePoster.altText} width={561} height={370} layout="responsive" />
-                        </>
+                        <div className="hide-on-mobile">
+                            <Image src={media[1].imagePoster.sourceUrl} alt={media[1].imagePoster.altText} width={561} height={370} layout="responsive"/>
+                        </div>
                     )
                 }
                 <p className={`${styles.blurbpadding} sans-serif body-copy black left`}>{blurb}</p>
