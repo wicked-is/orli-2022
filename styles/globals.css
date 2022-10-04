@@ -288,8 +288,8 @@ label.rooms-filter {
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .hide-on-mobile { display: none; }
+@media only screen and (max-width: 820px) {
+  .hide-on-mobile { display: none !important; }
 }
 
 .subnavigationContainer li p,
