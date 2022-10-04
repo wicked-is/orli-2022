@@ -287,20 +287,14 @@ export default function Hero(props) {
                         }
                     </div>
                 )
-            case 'Small Hero Image':
+            case 'Small Image':
                 return (
-                    <div className={styles.heroContainer}>
-                        <div className={styles.smallHero}>
-                            <img src={image.mediaUrl} alt={image.altText} />
+                        <div className={styles.smallHeroImage} style={{backgroundImage: `url(${imagePoster.mediaItemUrl})`}}>
+                            <div className={styles.textOver}>
+                                {headline && (<p className="sans-serif sub-heading-bold white">{headline}</p>)}
+                                {blurb && (<h1 className="serif heading white">{blurb}</h1>)}
+                            </div>
                         </div>
-                        {
-                            includeBookingForm && (
-                                <section className={styles.horizontalFormContainer}>
-                                    <BookingForm />
-                                </section>
-                            )
-                        } 
-                    </div>
                 )
             case 'Single Room':
                 return (
