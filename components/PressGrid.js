@@ -76,7 +76,7 @@ const PubTitle = styled.p`
 
 const PressTitle = styled.p`
     cursor: pointer;
-    transition: 0.3s ease all;
+    transition: 0.30s ease all;
 `
 
 export default function PressGrid(props) {
