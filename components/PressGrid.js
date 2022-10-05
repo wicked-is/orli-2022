@@ -7,17 +7,24 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const PressGridContainer = styled.section`
+    width: calc(100% / 6rem);
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 6rem;
+    justify-content: left;
+    margin: auto 6rem 6rem 6rem;
+    @media only screen and (max-width:831px) {
+        & {
+            width: calc(100% / 4rem);
+            margin: auto 4rem 6rem 4rem;
+        }
+    }
 `
 
 const PressTile = styled.div`
     display: inline;
-    width: 27.33%;
-    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    width: 30.33%;
+    margin: 0.5rem 1rem 3rem 1rem;
     position: relative;
 
     & img.blogImage {
@@ -51,8 +58,14 @@ const PressTile = styled.div`
         p { color: #fff; }
         & p.heading:hover {color: #fff !important;}
     `}
-    @media only screen and (max-width:600px){
-        & {width: 98%;}
+    @media only screen and (max-width:1257px){
+        & {width: 29.33%;}
+    }
+    @media only screen and (max-width:991px){
+        & {width: 45%;}
+    }
+    @media only screen and (max-width:767px){
+        & {width: 100%; margin: 0 0 3rem 0;}
     }
 `
 
@@ -92,9 +105,9 @@ export default function PressGrid(props) {
                 posts && posts.map((post, index) => {
 
                     return (
-                            <PressTile key={index} className="fadein">
+                            <PressTile key={`${index}${post.slug}`} className="fadein">
                                 <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
-                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={400} alt={post.featuredImage.node.altText} layout="intrinsic" className="blogImage" />
+                                    <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={400} alt={post.featuredImage.node.altText} layout="responsive" className="blogImage" />
                                 </a>
                                 <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
                                     <PubTitle className="sans-serif xs-heading black uppercase">{post.singlePress.publicationName}</PubTitle>
