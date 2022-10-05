@@ -13,19 +13,13 @@ import styled from 'styled-components';
 import ToggleCaret from '../../public/assets/icons/Orli_Caret.svg';
 
 const SingleRoomContentContainer = styled.section`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  max-width: 80vw;
-  margin: auto auto 3rem; 
-  gap: 2rem;
+  display: inline-block;
+  padding: 0 6rem;
+  max-width: 100%;
+  position: relative;
+  margin: auto auto 3rem;
   @media screen and (max-width: 820px) {
-    & {max-width: 100vw;}
-  }
-  @media screen and (max-width: 800px) {
-    flex-direction: column !important;
-    flex-wrap: wrap;
-    gap: unset;
+    & {padding: 0 0rem;}
   }
 `
 const MobileRoomsHero = styled.div`
@@ -72,21 +66,19 @@ const MobileBookingForm = styled.div`
 `
 
 const SingleRoomContent = styled.div`
-  width: 100%;
-  flex: 2;
+  width: 70%;
+  display: inline;
+  float: left;
+  padding: 0 4rem 0 0;
   margin-top: 3rem;
   @media screen and (max-width: 820px) {
     &{
       margin-top: 0rem;
+      width: 100%;
+      padding: 0 0rem 0 0;
     }
   }
-  @media screen and (max-width: 800px) {
-    & {
-        flex: 1;
-        width: 100%;
-        order: 2;
-    }
-  }
+
 `
 
 const GreyBGMobile = styled.div `
@@ -108,12 +100,16 @@ const MobilePadding = styled.div `
 `
 
 const SingleRoomMainDesc = styled.div``
+
 const SingleRoomBookingForm = styled.div`
-  width: 100%;
-  flex: 1;
   margin: -8rem 0 0 0;
   z-index: 1;
+  width: 30%;
+  display: inline;
+  float: left;
   max-height: calc();
+  position: relative;
+
   @media screen and (max-width: 820px) {
     & {display: none;}
   }
@@ -207,10 +203,12 @@ const BulletItem = styled.li`
 const GreyBackground = styled.div`
   background-color: var(--lt-grey);
   padding: 2rem;
-  margin: 1rem 0 3rem;
-  position: relative;
-  top: 0rem;
-  z-index: 8;
+
+  &.fixed {position: fixed; width: 27%; top: 6rem; right: 6rem;}
+
+  @media screen and (max-width: 1680px) {
+    &.fixed {position: fixed; width: 26%; top: 6rem; right: 6rem;}
+  }
 
   @media screen and (max-width: 800px) {
     top: 1rem;
@@ -288,16 +286,14 @@ export default function DefaultRoomsPage(props) {
     if(wideScreen.matches) {
       gsap.to(sidebar, {
         scrollTrigger: {
-            trigger: content,
-            start: "top-=40px 150px",
-            endTrigger: ".footer",
-            end: "top-=0px 0px",
-            pin: sidebar,
+            trigger: sidebar,
+            start: "top+=0px 80px",
+            endTrigger: content,
+            end: "bottom bottom-=33%",
             markers: false,
-            onRefresh: self => self.pin.parentNode.style.float = "right",
-            pinSpacing: false,
-        }, y: 0
-      });
+            toggleClass: {targets: ".greyBackground", className: "fixed"}
+        }
+        });
     }
   }, [])
 
@@ -422,9 +418,9 @@ export default function DefaultRoomsPage(props) {
             <p className="sans-serif xs-copy underline arrow-left relative"><Link href="/find-your-room">Back to All Rooms</Link></p>
           </NeighborhoodContainer>
         </SingleRoomContent>
-
+        
         <SingleRoomBookingForm className="sidebar">
-          <GreyBackground>
+          <GreyBackground className="greyBackground">
             <p className="sans-serif-bold sub-heading">Sleeps {room.singleRooms.sleeps}</p>
             <p className="heading">Reservations</p>
             <ReservationForm action={room.singleRooms.cloudbedsLink} method="POST" target="_blank">
@@ -434,6 +430,7 @@ export default function DefaultRoomsPage(props) {
             </ReservationForm>
           </GreyBackground>
         </SingleRoomBookingForm>
+
       </SingleRoomContentContainer>
     </>
   )

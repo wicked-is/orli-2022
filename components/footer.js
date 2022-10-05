@@ -77,7 +77,8 @@ export default function Footer(props) {
 
     return (
         <>
-            <FauxSocialFeed image={props.footerImages } />
+            <FauxSocialFeed image={props.footerImages }/>
+            
             { size.width < 768 ? (
                 <>
                     <MobileFooterContainer className="mobile-footer">
