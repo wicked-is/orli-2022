@@ -468,7 +468,7 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
 .amenitiesSliderarrows .flickity-button{background: hsl(0 0% 100% / 100%);}
 
 .amenitiesSliderarrows .flickity-prev-next-button.next {
-  z-index: 9999;
+  z-index: 10;
   top: unset; 
   bottom: 2rem;
   right: 2rem;
