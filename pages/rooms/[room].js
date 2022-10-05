@@ -289,7 +289,7 @@ export default function DefaultRoomsPage(props) {
             trigger: sidebar,
             start: "top+=0px 80px",
             endTrigger: content,
-            end: "bottom bottom-=33%",
+            end: "bottom bottom-=35%",
             markers: false,
             toggleClass: {targets: ".greyBackground", className: "fixed"}
         }
