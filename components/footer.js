@@ -113,9 +113,10 @@ export default function Footer(props) {
                                     <Link target="_blank" href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">Get Directions</Link>
                                 </GetDirectionsLink>
                                 <div>
-                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:6195760806">619.576.0806</a><br />E: info@stayorli.com<br /><br />
-                                    Media & Press: <br />
-                                    E: <a href="mailto:brian@wicked.is">brian@wicked.is</a></p>
+                                    <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:6195760806">619.576.0806</a><br />
+                                        E: info@stayorli.com<br /><br />
+                                        <Link href="/contact">Contact</Link>
+                                    </p>
                                     <ul className="socials">
                                         <li>
                                             <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
@@ -229,8 +230,7 @@ export default function Footer(props) {
                                     <div>
                                         <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:6195760806">619.576.0806</a><br/>
                                         E: <a href="mailto:hello@stayorli.com">hello@stayorli.com</a><br /><br />
-                                        Media & Press: <br />
-                                        E: <a href="mailto:brian@wicked.is">brian@wicked.is</a></p>
+                                        <Link href="/contact">Contact</Link></p>
                                         <ul className="socials">
                                             <li>
                                                 <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
