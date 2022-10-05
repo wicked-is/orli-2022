@@ -250,49 +250,47 @@ export default function Hero(props) {
                         </div>
                     </div>
                 );
-            case "Single Room":
+            case 'Single Room':
                 return (
                     <div className="smheroContainer room">
-                        <div
-                            className={`${styles.smallHero} roomind force`}
-                            style={{
-                                backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35)), url(${imagePoster.mediaItemUrl})`,
-                            }}
-                            onClick={toggleGallery}>
-                            <img
-                                src={imagePoster.mediaItemUrl}
-                                alt={imagePoster.altText}
-                                className="posterinmg"
-                            />
+                        <div className={`${styles.smallHero} roomind force`} style={{
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35)), url(${imagePoster.mediaItemUrl})`
+                        }} onClick={toggleGallery}>
+                            <img src={imagePoster.mediaItemUrl} alt={imagePoster.altText} className="posterinmg"/>
                         </div>
-                        {includeBookingForm && (
-                            <section className={styles.horizontalFormContainer}>
-                                <BookingForm />
-                            </section>
-                        )}
-                        {includeBookMultipleRoomsLink && (
-                            <div className={styles.bookmultipleroomsContainer}>
-                                <Link href="/book-a-room/" passHref>
-                                    <a
-                                        className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
-                                        Book Multiple Rooms
-                                    </a>
-                                </Link>
-                            </div>
-                        )}
-                        {includeFeaturedRoomCta && (
-                            <a
-                                style={{
-                                    zIndex: 98,
-                                    position: "absolute",
-                                    right: "3rem",
-                                    top: "9rem",
-                                }}
-                                className="white xs-copy body-copy underline textshadow"
-                                href={featuredRoomCtaLink}>
-                                {featuredRoomCtaText}
-                            </a>
-                        )}
+                        {
+                            includeBookingForm && (
+                                <section className={styles.horizontalFormContainer}>
+                                    <BookingForm />
+                                </section>
+                            )}
+                            {includeBookMultipleRoomsLink && (
+                                <div
+                                    className={
+                                        styles.bookmultipleroomsContainer
+                                    }>
+                                    <Link href="/book-a-room/" passHref>
+                                        <a
+                                            className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                            Book Multiple Rooms
+                                        </a>
+                                    </Link>
+                                </div>
+                            )}
+                            {includeFeaturedRoomCta && (
+                                <a
+                                    style={{
+                                        zIndex: 98,
+                                        position: "absolute",
+                                        right: "3rem",
+                                        top: "9rem",
+                                    }}
+                                    className="white xs-copy body-copy underline textshadow"
+                                    href={featuredRoomCtaLink}>
+                                    {featuredRoomCtaText}
+                                </a>
+                            )}
+                        </div>
                     </div>
                 );
             case "Full Height Image with Booking Bar and Heading":
