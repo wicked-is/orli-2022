@@ -89,9 +89,6 @@ label.rooms-filter {
   background-color: var(--brown);
 }
 
-.fadeinpress {opacity: 0}
-.fadeinpress:nth-child(1), .fadeinpress:nth-child(2), .fadeinpress:nth-child(3) {opacity: 1 !important;}
-
 .sliderfadein,
 .bgimgfade,
 .blurbcenterfade,
