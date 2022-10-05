@@ -460,11 +460,24 @@ input[type="email"]:-o-placeholder  {color: #fff !important;}
 } */
 
 .amenitiesSliderarrows .flickity-prev-next-button.previous,
-.amenitiesSliderarrows .flickity-prev-next-button.next,
 .roomsSliderarrows .flickity-prev-next-button.previous,
 .roomsSliderarrows .flickity-prev-next-button.next,
 .eventsSlider .flickity-prev-next-button.previous,
 .eventsSlider .flickity-prev-next-button.next {display: none !important;}
+
+.amenitiesSliderarrows .flickity-button{background: hsl(0 0% 100% / 100%);}
+
+.amenitiesSliderarrows .flickity-prev-next-button.next {
+  z-index: 9999;
+  top: unset; 
+  bottom: 2rem;
+  right: 2rem;
+  opacity: 1;
+}
+
+.amenitiesSliderarrows .flickity-prev-next-button:focus {
+    box-shadow: 0 0 0 5px var(--green) !important;
+}
 
 @media only screen and (max-width: 800px) {
   .amenitiesSliderarrows .flickity-prev-next-button.previous,
