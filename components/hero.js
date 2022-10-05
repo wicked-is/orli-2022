@@ -128,59 +128,6 @@ export default function Hero(props) {
             case "Video":
                 return (
                     <div className={styles.heroContainer}>
-                        <div className={`${styles.bigheroSubnav}`}>
-                            <ul
-                                className="subnavigationContainer"
-                                style={{ display: isMobile ? "none" : "flex" }}>
-                                {subnavigation.map((item, index) => (
-                                    <li
-                                        key={`ni-${index}`}
-                                        className={`${toggleActiveStyles(
-                                            index
-                                        )}`}
-                                        onClick={() => {
-                                            toggleActive(index);
-                                        }}>
-                                        <a href={item.link}>
-                                            <img
-                                                src={
-                                                    item.iconnav !== null
-                                                        ? item.iconnav
-                                                              .mediaItemUrl
-                                                        : "https://orlidev.wpengine.com/wp-content/uploads/2022/03/Orli_agave-1.svg"
-                                                }
-                                                className="iconnav"
-                                                style={{ marginBottom: "1rem" }}
-                                                alt={item.iconnav?.altText}
-                                            />
-                                            <p
-                                                className={`black nav-copy uppercase center sans-serif-bold mt-0`}>
-                                                {item.label}
-                                            </p>
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div
-                                className="arrowssub"
-                                style={{
-                                    display: isMobile ? "none" : "initial",
-                                }}></div>
-                            <div
-                                className={styles.bigHero}
-                                style={{
-                                    backgroundImage: `url(${imagePoster.mediaItemUrl})`,
-                                }}>
-                                {/* <div className={styles.herotextOver}>
-                                    <p className="sans-serif sub-heading-bold white">
-                                        {headline}
-                                    </p>
-                                    <p className="serif heading white">
-                                        {blurb}
-                                    </p>
-                                </div> */}
-                            </div>
-                        </div>
                         <div className={styles.herotextOver}>
                             <p className="sans-serif sub-heading-bold white">
                                 {headline}
