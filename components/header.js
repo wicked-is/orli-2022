@@ -154,7 +154,7 @@ export default function Header(props) {
                                     E: <a href="mailto:hello@stayorli.com">hello@stayorli.com</a><br/>
                                 </p>
                                 <p className={`${styles.contact} sans-serif xs-copy white left`}>
-                                    <Link href="/contact">Contact</Link>
+                                    <Link href="/contact" onClick={(e) => handleClick(e)}><span onClick={() => toggleNav()}>Contact</span></Link>
                                 </p>
                                 <ul className={styles.socials}>
                                     <li>
