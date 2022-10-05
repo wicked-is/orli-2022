@@ -48,7 +48,7 @@ const PressTile = styled.div`
         -webkit-background-size: cover !important;
         -moz-background-size: cover !important;
         -o-background-size: cover !important;
-        background-position: center !important;
+        background-position: center center;
         background-repeat: no-repeat !important;
         margin: 8rem 0 !important;
         padding: 4rem 6rem;
@@ -84,7 +84,7 @@ export default function PressGrid(props) {
     const { posts } = props;
 
     useEffect(() => {
-        var sections = gsap.utils.toArray('.fadein');
+        var sections = gsap.utils.toArray('.fadeinpress');
 
         sections.forEach((section) => {
             gsap.to(section, { autoAlpha: 1,
@@ -105,7 +105,7 @@ export default function PressGrid(props) {
                 posts && posts.map((post, index) => {
 
                     return (
-                            <PressTile key={`${index}${post.slug}`} className="fadein">
+                            <PressTile key={`${index}${post.slug}`} className="fadeinpress">
                                 <a target="_blank" href={post.singlePress.externalLink} rel="noreferrer noopener">
                                     <Image src={post.featuredImage.node.mediaItemUrl} width={500} height={400} alt={post.featuredImage.node.altText} layout="responsive" className="blogImage" />
                                 </a>
