@@ -402,12 +402,12 @@ export default function BigImageSmallContent(props) {
                             className={`${styles.halfBanner} ${styles.videoBackground} ${styles.backgroundVideo}`}>
                             <div className={`${styles.overBackground}`}>
                                 {icon && (
-                                    <p className="right">
+                                    <p className="left">
                                         <img
                                             src={icon?.mediaItemUrl}
                                             alt={icon?.altText}
                                             layout="responsive"
-                                            className={`${styles.rightIcon}`}
+                                            className={`${styles.leftIcon}`}
                                         />
                                     </p>
                                 )}
