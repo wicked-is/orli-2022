@@ -142,7 +142,7 @@ export default function PressGrid(props) {
                                 <PubTitle className="sans-serif xs-heading black uppercase">
                                     {post.singlePress.publicationName}
                                 </PubTitle>
-                                <PressTitle className="serif heading black">
+                                <PressTitle className="serif press-heading black">
                                     {post.title}
                                 </PressTitle>
                             </a>
