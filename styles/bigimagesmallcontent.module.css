@@ -72,8 +72,20 @@
 }
 
 .overBackground {
-    max-width: 40%;
+    width: 40%;
     margin: 10%;
+}
+
+@media screen and (max-width: 768px) {
+    .overBackground {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .overBackground {
+        width: 80%;
+        margin-top: 18vh;
+    }
 }
 
 .videoBackground {
