@@ -116,7 +116,7 @@ export default function Footer(props) {
                                 <div>
                                     <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:6195760806">619.576.0806</a><br />
                                         E: info@stayorli.com<br /><br />
-                                        <Link href="/contact">Contact</Link>
+                                        <span className="contactText"><Link href="/contact">Contact</Link></span>
                                     </p>
                                     <ul className="socials">
                                         <li>
@@ -231,7 +231,7 @@ export default function Footer(props) {
                                     <div>
                                         <p className="sans-serif xs-copy white left mt-0" id="phone-number">T: <a href="tel:6195760806">619.576.0806</a><br/>
                                         E: <a href="mailto:hello@stayorli.com">hello@stayorli.com</a><br /><br />
-                                        <Link href="/contact">Contact</Link></p>
+                                        <span className="contactText"><Link href="/contact">Contact</Link></span></p>
                                         <ul className="socials">
                                             <li>
                                                 <a href="https://www.instagram.com/stayorli/" target="_blank" rel="noopener noreferrer">
