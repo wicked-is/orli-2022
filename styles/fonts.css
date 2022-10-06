@@ -1,20 +1,29 @@
 /*-- Typography --*/
 @font-face {
-	font-family: 'GT Walsheim Light';
-	src:  url('../public/assets/fonts/GT-Walsheim-Light.woff2') format('woff2'),
-		  url('../public/assets/fonts/GT-Walsheim-Light.woff') format('woff');
+    font-family: "GT Walsheim Light";
+    src: url("../public/assets/fonts/GT-Walsheim-Light.woff2") format("woff2"),
+        url("../public/assets/fonts/GT-Walsheim-Light.woff") format("woff");
 }
 @font-face {
-	font-family: 'GT Walsheim Bold';
-	src:  url('../public/assets/fonts/GT-Walsheim-Bold.woff2') format('woff2'),
-		  url('../public/assets/fonts/GT-Walsheim-Bold.woff') format('woff');
+    font-family: "GT Walsheim Bold";
+    src: url("../public/assets/fonts/GT-Walsheim-Bold.woff2") format("woff2"),
+        url("../public/assets/fonts/GT-Walsheim-Bold.woff") format("woff");
 }
 
-.serif {font-family: essonnes-display, serif;}
-.sans-serif {font-family: 'GT Walsheim Light';}
-.sans-serif-bold, .gtbold {font-family: 'GT Walsheim Bold';}
+.serif {
+    font-family: essonnes-display, serif;
+}
+.sans-serif {
+    font-family: "GT Walsheim Light";
+}
+.sans-serif-bold,
+.gtbold {
+    font-family: "GT Walsheim Bold";
+}
 
-.letterSpacing {letter-spacing: var(--letter-spacing);}
+.letterSpacing {
+    letter-spacing: var(--letter-spacing);
+}
 
 .xl-heading {
     font-size: var(--xl-heading);
@@ -34,6 +43,15 @@
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
+.press-heading {
+    font-size: var(--press-heading);
+    font-family: essonnes-display, serif;
+    font-weight: 300;
+    line-height: 1.2;
+    font-style: normal;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
 
 .pull-quote,
 .heading-italic {
@@ -42,8 +60,12 @@
     line-height: 1.2;
     font-style: italic;
 }
-.pull-quote {font-size: var(--pull-quote);}
-.heading-italic {font-size: var(--heading);}
+.pull-quote {
+    font-size: var(--pull-quote);
+}
+.heading-italic {
+    font-size: var(--heading);
+}
 
 .sub-heading {
     font-size: var(--sub-heading);
@@ -53,54 +75,90 @@
 
 .sub-heading-bold {
     font-size: var(--sub-heading);
-    font-family: 'GT Walsheim Bold';
+    font-family: "GT Walsheim Bold";
     letter-spacing: var(--letter-spacing);
     text-transform: uppercase;
 }
 
-.body-copy, input, textarea {
+.body-copy,
+input,
+textarea {
     font-size: var(--body-copy);
-    font-family: 'GT Walsheim Light';
+    font-family: "GT Walsheim Light";
     line-height: 150%;
 }
 
 .xs-heading {
     font-size: var(--xs-copy);
-    font-family: 'GT Walsheim Bold';
+    font-family: "GT Walsheim Bold";
 }
-.xs-copy, ::placeholder {
+.xs-copy,
+::placeholder {
     font-size: var(--xs-copy);
     line-height: 150%;
 }
 
-.weather-copy {font-size: var(--nav-copy); line-height: 1.5;}
-.nav-copy {font-size: var(--nav-copy); letter-spacing: 0.1rem;}
+.weather-copy {
+    font-size: var(--nav-copy);
+    line-height: 1.5;
+}
+.nav-copy {
+    font-size: var(--nav-copy);
+    letter-spacing: 0.1rem;
+}
 
-.bold { font-weight: bold; }
+.bold {
+    font-weight: bold;
+}
 
-.uppercase {text-transform: uppercase;}
-.underline {text-decoration: underline;}
+.uppercase {
+    text-transform: uppercase;
+}
+.underline {
+    text-decoration: underline;
+}
 
-address {font-style: normal;}
+address {
+    font-style: normal;
+}
 
-.cta-black, .cta-white {text-decoration: underline;}
+.cta-black,
+.cta-white {
+    text-decoration: underline;
+}
 
-.cta-black:visited, .cta-black:focus {color: var(--black);} 
-.cta-white:visited, .cta-white:focus {color: var(--white);}
+.cta-black:visited,
+.cta-black:focus {
+    color: var(--black);
+}
+.cta-white:visited,
+.cta-white:focus {
+    color: var(--white);
+}
 
 .active p {
-    font-family: 'GT Walsheim Bold' !important;
-} 
+    font-family: "GT Walsheim Bold" !important;
+}
 
-.inactive p {font-family: 'GT Walsheim Light';}
+.inactive p {
+    font-family: "GT Walsheim Light";
+}
 
 .inactive p:hover {
     color: var(--brown);
 }
 
-.dropshadow {text-shadow:0 0rem 1rem rgb(0,0,0);}
+.dropshadow {
+    text-shadow: 0 0rem 1rem rgb(0, 0, 0);
+}
 
-.textshadow {text-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.9);}
+.textshadow {
+    text-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.9);
+}
 
-.text-link {transition: 0.3s ease all;}
-.text-link:hover {color: var(--brown);}
+.text-link {
+    transition: 0.3s ease all;
+}
+.text-link:hover {
+    color: var(--brown);
+}
