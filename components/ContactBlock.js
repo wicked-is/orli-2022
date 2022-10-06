@@ -30,6 +30,13 @@ const ContactBlockInnerContainer = styled.div`
     align-items: flex-start;
     flex-wrap: wrap;
     max-width: 80%;
+
+    @media only screen and (max-width: 1280px) {
+        & {
+            max-width: 85%;
+        }
+    }
+
     @media only screen and (max-width: 820px) {
         & {max-width: 100%;}
     }
@@ -42,7 +49,10 @@ const Column = styled.div`
     & a:visited, 
     & a:focus {color: var(--white);}
     
-    @media only screen and (max-width: 820px) {
+    & .res-padding {padding: 0.3rem 0 0 0;}
+
+    @media only screen and (max-width: 1024px) {
+        & .res-padding {padding: 0rem 0 0 0;}
         & {
             width: 50%;
             padding: 0 0rem 0 0;
@@ -71,7 +81,7 @@ export default function ContactBlock(props) {
             <ContactBlockInnerContainer>
                 <Column>
                     <p className="sans-serif sub-heading-bold white uppercase left">Reservations</p>
-                    <div className="sans-serif body-copy white left" dangerouslySetInnerHTML={{ __html: reservationsBlurb}}></div>
+                    <div className="res-padding sans-serif body-copy white left" dangerouslySetInnerHTML={{ __html: reservationsBlurb}}></div>
                 </Column>
 
                 <Column>
@@ -81,7 +91,7 @@ export default function ContactBlock(props) {
 
                 <Column>
                     <p className="sans-serif sub-heading-bold white uppercase left">MEDIA/PR</p>
-                    <div className="sans-serif body-copy white left" dangerouslySetInnerHTML={{ __html: mediaBlurb}}></div>
+                    <div className="res-padding sans-serif body-copy white left" dangerouslySetInnerHTML={{ __html: mediaBlurb}}></div>
                 </Column>
 
                 <Column>
