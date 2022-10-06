@@ -411,13 +411,13 @@ export default function BigImageSmallContent(props) {
                                         />
                                     </p>
                                 )}
-                                <p className="sans-serif sub-heading-bold white left">
+                                <p className="sans-serif sub-heading-bold white left textshadow">
                                     {subHeadline}
                                 </p>
-                                <p className="serif heading white left">
+                                <p className="serif heading white left textshadow">
                                     {headline}
                                 </p>
-                                <p className="sans-serif body-copy white left">
+                                <p className="sans-serif body-copy white left textshadow">
                                     {blurb}
                                 </p>
                                 {ctaText && (
