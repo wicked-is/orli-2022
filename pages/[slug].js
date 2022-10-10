@@ -1754,13 +1754,6 @@ export async function getStaticProps({ params }) {
         body: JSON.stringify({ query: pageQuery }),
     });
 
-    // Get page sections and SEO data
-    const res = await fetch(process.env.WP_GQL_API, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: pageQuery }),
-    });
-
     // If status is not OK.
     if (!res?.ok) {
         return {
