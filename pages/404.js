@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { useEffect } from "react"
-import styled from "styled-components"
-import Header from "../components/header"
+import Link from "next/link";
+import { useEffect } from "react";
+import styled from "styled-components";
+import Header from "../components/header";
 import { gsap } from "gsap/dist/gsap";
 
 const FullSection = styled.section`
@@ -11,9 +11,9 @@ const FullSection = styled.section`
     align-items: center;
     min-height: 55vh;
     padding-top: 4rem;
-`
+`;
 const Title = styled.p`
-    color: ${props => props.white ? '#fff' : '#000'};
+    color: ${props => (props.white ? "#fff" : "#000")};
     z-index: 1;
     font-size: var(--heading);
     font-family: essonnes-display, serif;
@@ -22,19 +22,18 @@ const Title = styled.p`
     font-style: normal;
     margin-block-start: 0em;
     margin-block-end: 2rem;
-`
+`;
 const StyledLink = styled.a`
     color: var(--primary);
     text-transform: uppercase;
     text-decoration: underline;
-`
+`;
 
 export default function PageNotFound(props) {
-
     useEffect(() => {
-        var tl = gsap.timeline()
-            tl.fromTo('header', {opacity: 0}, { opacity:1, duration: 0.5});
-            tl.to('main', { opacity:1, duration: 0.6});
+        var tl = gsap.timeline();
+        tl.fromTo("header", { opacity: 0 }, { opacity: 1, duration: 0.5 });
+        tl.to("main", { opacity: 1, duration: 0.6 });
         tl.play();
         // var sections = gsap.utils.toArray('.fadein');
 
@@ -49,9 +48,8 @@ export default function PageNotFound(props) {
         //         }
         //     });
         // });
+    }, []);
 
-    },[])
-    
     return (
         <FullSection>
             <>
@@ -61,5 +59,5 @@ export default function PageNotFound(props) {
                 </Link>
             </>
         </FullSection>
-    )
+    );
 }
