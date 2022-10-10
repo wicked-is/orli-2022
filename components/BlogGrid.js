@@ -8,9 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const BlogGridContainer = styled.section`
     display: flex;
-    align-items; flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
     margin-bottom: 6rem;
 `;
 
