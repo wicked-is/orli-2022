@@ -198,8 +198,8 @@ export default function BlogGrid(props) {
                             <Link href={post.uri}>
                                 <Image
                                     src={post.featuredImage.node.mediaItemUrl}
-                                    width={500}
-                                    height={436}
+                                    width={640}
+                                    height={427}
                                     layout="intrinsic"
                                     alt={post.featuredImage.node.altText}
                                     className="blogImage"

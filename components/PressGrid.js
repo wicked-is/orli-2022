@@ -128,8 +128,8 @@ export default function PressGrid(props) {
                                 rel="noreferrer noopener">
                                 <Image
                                     src={post.featuredImage.node.mediaItemUrl}
-                                    width={500}
-                                    height={400}
+                                    width={640}
+                                    height={427}
                                     alt={post.featuredImage.node.altText}
                                     layout="responsive"
                                     className="blogImage"
