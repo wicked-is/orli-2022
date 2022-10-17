@@ -499,8 +499,8 @@ export default function DefaultRoomsPage(props) {
                             className="sans-serif body-copy black"
                             style={{ marginTop: "2rem" }}>
                             When booking, see available add-on amenities
-                            including the Wellness Package, Pup Package, and
-                            more.
+                            including The Juice Fix, The Dog Lover, The
+                            Celebration, and more.
                         </p>
                     </AmenitiesContainer>
 
