@@ -120,6 +120,9 @@ const VideoContainer = styled.video`
     }
 `;
 const TileMedia = styled.div`
+    background-image: ${props => props.bg && `url(${props.bg})`};
+    position: relative;
+    overflow: hidden;
     @media screen and (max-width: 600px) {
         background-image: ${props => props.bg && `url(${props.bg})`};
         position: relative;
