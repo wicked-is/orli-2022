@@ -12,7 +12,7 @@
     width: 100%;
     margin: auto;
     flex-wrap: wrap;
-    list-style:none;
+    list-style: none;
     margin-block-start: 0em;
     margin-block-end: 0em;
     margin-inline-start: 0px;
@@ -45,7 +45,7 @@
     width: 28.33%;
     position: relative;
     margin: 2% 1% 2% 1%;
-} 
+}
 
 .roomsGrid li:nth-child(7) {
     width: 100%;
@@ -59,6 +59,11 @@
     min-height: 65vh;
 }
 
+@media screen and (min-width: 600px) {
+    .roomsGrid li:nth-child(7) > a > div:first-of-type {
+        background-image: unset;
+    }
+}
 @media screen and (max-width: 800px) {
     .roomsGrid li:nth-child(7) {
         min-height: unset;
@@ -73,7 +78,9 @@
     display: block;
 }
 
-.roomsGrid li:nth-child(7) .text p {color: var(--white) !important;}
+.roomsGrid li:nth-child(7) .text p {
+    color: var(--white) !important;
+}
 
 .room {
     background-position: center center;
@@ -82,9 +89,12 @@
     -moz-background-size: cover;
     -o-background-size: cover;
 }
-.roomimage {display: none !important;}
+.roomimage {
+    display: none !important;
+}
 
-.keyFt:before, .theme:before {
+.keyFt:before,
+.theme:before {
     content: "|";
     margin: 0 0.5rem;
 }
@@ -143,7 +153,9 @@
     .roomsGrid li:nth-child(7) > a > div:first-of-type {
         min-height: unset;
     }
-    .roomsGrid li:nth-child(7) .text p {color: var(--black) !important;}
+    .roomsGrid li:nth-child(7) .text p {
+        color: var(--black) !important;
+    }
 
     .roomsGrid li:nth-child(1) .text,
     .roomsGrid li:nth-child(2) .text,
