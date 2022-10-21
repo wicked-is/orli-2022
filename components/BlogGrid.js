@@ -10,7 +10,7 @@ const BlogGridContainer = styled.section`
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    /* justify-content: center; */
+    justify-content: center;
     margin-bottom: 6rem;
 `;
 
@@ -98,13 +98,17 @@ const BlogTile = styled.div`
         }
     }
     @media only screen and (max-width: 768px) {
+        &:nth-child(3),
         &:nth-child(3n + 4) {
-            width: 90%;
-            margin: 1rem;
-            padding: 4rem calc(5% + 0.5rem);
+            width: 100%;
+            margin: auto;
         }
+        &:nth-child(3) {padding: 4rem 3.2rem 0rem 3.2rem;}
+        &:nth-child(3n + 4){padding: 4rem 3.2rem;}
+        &:nth-child(3) span,
+        &:nth-child(3n + 4) span{display: block !important;}
     }
-    @media only screen and (max-width: 414px) {
+    @media only screen and (max-width: 600px) {
         &:first-child,
         &:nth-child(1n + 3) {
             width: 98%;
@@ -120,6 +124,12 @@ const BlogTile = styled.div`
             width: 98%;
             margin: 1rem;
         }
+
+        &:nth-child(3),
+        &:nth-child(3n + 4){padding: 0rem;}
+
+        &:nth-child(3) span,
+        &:nth-child(3n + 4) span{display: inline-block !important;}
     }
 
     ${props =>
@@ -150,6 +160,10 @@ const BlogTile = styled.div`
 
             & p.heading:hover {
                 color: #fff !important;
+            }
+            @media only screen and (max-width: 600px) {
+                margin: 2rem 0 !important;
+                padding: 2rem !important;
             }
         `}
 `;
