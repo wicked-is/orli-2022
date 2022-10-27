@@ -78,6 +78,7 @@ export default function Header(props) {
           link: "/gallery/",
         },
       ];
+
   const topBar = props?.topBar;
 
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -111,56 +112,110 @@ export default function Header(props) {
 
   return (
     <header className={`${styles.header} ${navIsOpen ? styles.open : ""}`}>
-      <Analytics />
-      {/* <Script
-                src="https://www.bugherd.com/sidebarv2.js?apikey=dw2fpdf4dfctxv0wzdcnuw"
-                strategy="beforeInteractive"
-            /> */}
-      <Head>
-        {/* Head elements required on every page */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
-        {/* <link rel="icon" href="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Favicon.jpg" /> */}
-        <link rel="icon" href={Favicon.src} />
-      </Head>
-      {announcementbarIsOpen && (
-        <div
-          className={styles.announcementbar}
-          style={{
-            display: announcementbarIsOpen ? "flex" : "none",
-          }}
-        >
-          <p className="sans-serif white xs-copy center">
-            {topBar.announcementBarText}
-          </p>
-          <button
-            style={{
-              color: "#ffffff",
-              backgroundColor: "transparent",
-              border: "none",
-              fontSize: "1rem",
-            }}
-            onClick={closeAnnouncementBar}
-          >
-            &#10005;
-          </button>
-        </div>
-      )}
-      <div className={styles.sitebranding}>
-        {navIsOpen ? (
-          <Link href="/">
-            <div className="openclick" onClick={() => toggleNav()}>
-              <img
-                src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
-                alt="Orli La Jolla Logo"
-                className={styles.headerlogo}
-                width={380}
-                height={95}
-              />
+        <Analytics />
+        {/* <Script
+            src="https://www.bugherd.com/sidebarv2.js?apikey=dw2fpdf4dfctxv0wzdcnuw"
+            strategy="beforeInteractive"
+        /> */}
+        <Head>
+            {/* Head elements required on every page */}
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"></meta>
+            <meta
+                name="google-site-verification"
+                content="W9uWEzplTotR5onZfBsXYP24CcPGRroR12P-KHIxlGY"
+            />
+            {/* <link rel="icon" href="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Favicon.jpg" /> */}
+            <link rel="icon" href={Favicon.src} />
+        </Head>
+        { announcementbarIsOpen && (
+            <div
+                className={styles.announcementbar}
+                style={{
+                    display: announcementbarIsOpen ? "flex" : "none",
+                }}>
+                <p className="sans-serif white xs-copy center">
+                    {topBar.announcementBarText}
+                </p>
+                <button
+                    style={{
+                        color: "#ffffff",
+                        backgroundColor: "transparent",
+                        border: "none",
+                        fontSize: "1rem",
+                    }}
+                    onClick={closeAnnouncementBar}>
+                    &#10005;
+                </button>
             </div>
-          </Link>
+        )}
+            <div className={styles.sitebranding}>
+                { navIsOpen ? (
+                    <Link href="/">
+                        <div className="openclick" onClick={() => toggleNav()}>
+                            <img
+                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
+                                alt="Orli La Jolla Logo"
+                                className={styles.headerlogo}
+                                width={380}
+                                height={95}
+                            />
+                        </div>
+                    </Link>
+                ) : (
+                    <Link href="/">
+                        <img
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
+                            alt="Orli La Jolla Logo"
+                            className={styles.headerlogo}
+                            width={380}
+                            height={95}
+                        />
+                    </Link>
+                )
+                }
+
+                <div className={styles.telephoneContainer}>
+                    <Link href="tel:+16195760806">
+                        <img
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/09/phone-solid.svg"
+                            alt="telephone link"
+                        />
+                    </Link>
+                </div>
+
+                <Link href="/find-your-room">
+                    <div className={styles.primarybutton}>
+                        <p className="sans-serif xs-copy white center uppercase mobilehideme">
+                            Find Your Room
+                        </p>
+                        <p className="sans-serif xs-copy white center uppercase mobileshowme">
+                            Rooms
+                        </p>
+                    </div>
+                </Link>
+
+                <div className={styles.hamburgerContainer}>
+                    <div
+                        className="hamburger hamburger--collapse"
+                        type="button"
+                        onClick={() => toggleNav()}>
+                        {navIsOpen ? (
+                            <img
+                                className={styles.close}
+                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/white-copy.svg"
+                                alt="close icon"
+                            />
+                        ) : (
+                            <span className="hamburger-box">
+                                <span className="hamburger-inner"></span>
+                            </span>
+                        )}
+                        <div className={styles.hamburgermenu}>Menu</div>
+                    </div>
+                </div>
+            </div>
         ) : (
           <Link href="/">
             <img
