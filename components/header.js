@@ -121,6 +121,10 @@ export default function Header(props) {
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"></meta>
+                <meta
+                    name="google-site-verification"
+                    content="W9uWEzplTotR5onZfBsXYP24CcPGRroR12P-KHIxlGY"
+                />
                 {/* <link rel="icon" href="https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Favicon.jpg" /> */}
                 <link rel="icon" href={Favicon.src} />
             </Head>

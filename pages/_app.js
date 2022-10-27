@@ -2,6 +2,8 @@ import "../styles/globals.css";
 
 import Layout from "../components/layout";
 
+import { WeatherProvider } from "../context/WeatherContext";
+
 function MyApp(props) {
     const { Component, pageProps } = props;
     const navItems =
@@ -12,15 +14,15 @@ function MyApp(props) {
     const socialItems =
         props.pageProps?.data?.data?.myOptionsPage?.options?.socialFooter;
 
-    console.log(props);
-
     return (
-        <Layout
-            navItems={navItems == null ? [] : navItems}
-            topBar={announcementBar}
-            footerImages={socialItems}>
-            <Component {...pageProps} />
-        </Layout>
+        <WeatherProvider>
+            <Layout
+                navItems={navItems == null ? [] : navItems}
+                topBar={announcementBar}
+                footerImages={socialItems}>
+                <Component {...pageProps} />
+            </Layout>
+        </WeatherProvider>
     );
 }
 
