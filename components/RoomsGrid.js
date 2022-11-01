@@ -29,11 +29,9 @@ const FilterContainer = styled.section`
     background-color: var(--lt-grey);
     z-index: 97;
 
-    @media screen and (max-width: 820px) {
-        & {
-            display: none;
-        }
-    }
+    /* @media screen and (max-width: 820px) {
+        & {display: none;}
+    } */
 `;
 const QuickViewContainer = styled.dialog`
     width: 100%;
@@ -151,10 +149,6 @@ export default function RoomsGrid(props) {
         let isMobileDevice = window.matchMedia(
             "screen and (max-width: 768px)"
         ).matches;
-
-        let isUnderSixHundred = window.matchMedia(
-            "screen and (max-width: 600px)"
-        );
 
         if (!isMobileDevice) {
             const quickview = document.querySelector(".quickview-btn");
