@@ -1,18 +1,26 @@
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image'
-import Link from 'next/link';
-import styled, { css } from 'styled-components';
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import styled, { css } from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import styles from '../styles/roomsGrid.module.css'
-import BookingForm from '../components/bookingForm';
+import styles from "../styles/roomsGrid.module.css";
+import BookingForm from "../components/bookingForm";
 
-const filterList = ["Outdoor Spaces", "Workstation", "Seating Area", "Kitchenette", "Ocean View", "Historic", "ADA Accessible"];
+const filterList = [
+    "Outdoor Spaces",
+    "Workstation",
+    "Seating Area",
+    "Kitchenette",
+    "Ocean View",
+    "Historic",
+    "ADA Accessible",
+];
 
 const FilterContainer = styled.section`
-    display: grid;    
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     align-items: center;
     padding: 2rem 10% 1rem 10%;
@@ -21,21 +29,21 @@ const FilterContainer = styled.section`
     background-color: var(--lt-grey);
     z-index: 97;
 
-    @media screen and (max-width: 820px) {
+    /* @media screen and (max-width: 820px) {
         & {display: none;}
-    }
-`
+    } */
+`;
 const QuickViewContainer = styled.dialog`
     width: 100%;
     height: 100%;
     border: 0px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     z-index: 9999999999;
     display: grid;
     place-items: center;
-`
+`;
 const ContentContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -52,7 +60,6 @@ const ContentContainer = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-
         margin: 5vh auto;
         grid-template-columns: 1fr;
 
@@ -64,13 +71,13 @@ const ContentContainer = styled.div`
             padding: 3rem 0 0;
         }
     }
-`
+`;
 const LeftHalf = styled.div`
     @media screen and (max-width: 768px) {
         padding-top: 3rem;
     }
-`
-const FilterLabel = styled.label``
+`;
+const FilterLabel = styled.label``;
 
 const QuickViewButton = styled.div`
     position: absolute;
@@ -82,67 +89,71 @@ const QuickViewButton = styled.div`
     width: 100%;
     height: auto;
     padding: 1rem 1rem;
-    
+
     text-align: center;
     color: #fff;
     text-decoration: underline;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, 0.3);
 
-    transition: all .3s ease-in-out;
-`
+    transition: all 0.3s ease-in-out;
+`;
 const RoomTile = styled.a`
     &:hover .quickview-btn {
         bottom: 0;
     }
-`
+`;
 
 export default function RoomsGrid(props) {
-
     const [filters, setFilters] = useState(props.filters);
     // const [filters, setFilters] = useState(filterList);
     const [currentRooms, setCurrentRooms] = useState(props.roomsgrid);
     const [dialogContent, setDialogContent] = useState({
-        sleeps: '',
-        title: '',
-        description: '',
-        image: '',
-        slug: ''
+        sleeps: "",
+        title: "",
+        description: "",
+        image: "",
+        slug: "",
     });
 
     const [modalStatus, setModalStatus] = useState(false);
 
     const newFilters = [];
 
-    const { roomsgrid } = props
+    const { roomsgrid } = props;
 
-    useEffect(() => { 
-        
-        let isMobileDevice = window.matchMedia("screen and (max-width: 768px)").matches;
+    useEffect(() => {
+        let isMobileDevice = window.matchMedia(
+            "screen and (max-width: 768px)"
+        ).matches;
 
-        if(!isMobileDevice){
-            const quickview = document.querySelector('.quickview-btn')
-            const modal = document.querySelector('dialog')
-            const closeButton = document.querySelector('#closeBtn')
+        if (!isMobileDevice) {
+            const quickview = document.querySelector(".quickview-btn");
+            const modal = document.querySelector("dialog");
+            const closeButton = document.querySelector("#closeBtn");
 
-            document.querySelectorAll('.quickview-btn').forEach(room => { 
-                room.addEventListener('click', handleClick);
-            })
+            document.querySelectorAll(".quickview-btn").forEach(room => {
+                room.addEventListener("click", handleClick);
+            });
 
-            closeButton.addEventListener('click', () => {
-                document.querySelector('#roomdialog').close();
-            })
+            closeButton.addEventListener("click", () => {
+                document.querySelector("#roomdialog").close();
+            });
 
-            document.querySelector('input').blur();
-            document.querySelector('dialog').close();
+            document.querySelector("input").blur();
+            document.querySelector("dialog").close();
         }
 
-        document.querySelectorAll('label.rooms-filter').forEach(label => { 
-            label.addEventListener('click', handleFilterClick);
-        })
-        
-        const maincontent = gsap.utils.toArray('main');
-        const filterContainerTBA = gsap.utils.toArray('.top-bar-active .filter-container');
-        const filterContainerTBNA = gsap.utils.toArray('.tob-bar-not-active .filter-container');
+        document.querySelectorAll("label.rooms-filter").forEach(label => {
+            label.addEventListener("click", handleFilterClick);
+        });
+
+        const maincontent = gsap.utils.toArray("main");
+        const filterContainerTBA = gsap.utils.toArray(
+            ".top-bar-active .filter-container"
+        );
+        const filterContainerTBNA = gsap.utils.toArray(
+            ".tob-bar-not-active .filter-container"
+        );
 
         // gsap.to(filterContainerTBNA, {
         //     scrollTrigger: {
@@ -157,10 +168,10 @@ export default function RoomsGrid(props) {
         //     }, y: 0
         // })
 
-        var	wideScreen = window.matchMedia("(min-width: 800px)");
-        var	narrowScreen = window.matchMedia("(max-width: 799px)");
+        var wideScreen = window.matchMedia("(min-width: 800px)");
+        var narrowScreen = window.matchMedia("(max-width: 799px)");
 
-        if(narrowScreen.matches) {
+        if (narrowScreen.matches) {
             gsap.to(filterContainerTBA, {
                 scrollTrigger: {
                     trigger: filterContainerTBA,
@@ -170,39 +181,51 @@ export default function RoomsGrid(props) {
                     pin: filterContainerTBA,
                     markers: false,
                     pinSpacing: false,
-                    scrub: true
-                }, y: 0
-            })
+                    scrub: true,
+                },
+                y: 0,
+            });
         }
 
-        if(wideScreen.matches) {
-        gsap.to(filterContainerTBA, {
-            scrollTrigger: {
-                trigger: filterContainerTBA,
-                start: "top-=0 64px",
-                endTrigger: maincontent,
-                end: "bottom-=0 bottom-=150",
-                pin: filterContainerTBA,
-                markers: false,
-                pinSpacing: false,
-                scrub: true
-            }, y: 0
-        })
+        if (wideScreen.matches) {
+            gsap.to(filterContainerTBA, {
+                scrollTrigger: {
+                    trigger: filterContainerTBA,
+                    start: "top-=0 64px",
+                    endTrigger: maincontent,
+                    end: "bottom-=0 bottom-=150",
+                    pin: filterContainerTBA,
+                    markers: false,
+                    pinSpacing: false,
+                    scrub: true,
+                },
+                y: 0,
+            });
         }
 
-        document.querySelector('#roomdialog').close();
-
+        document.querySelector("#roomdialog").close();
     }, []);
 
-    const handleFilterClick = (e) => { 
+    const handleFilterClick = e => {
         e.preventDefault();
 
-        e.target.classList.toggle('active');
+        e.target.classList.toggle("active");
 
-        if (newFilters.includes(e.target.dataset.label_filter || e.target.parentElement.dataset.label_filter)) {
-            newFilters.pop(e.target.dataset.label_filter || e.target.parentElement.dataset.label_filter);
+        if (
+            newFilters.includes(
+                e.target.dataset.label_filter ||
+                    e.target.parentElement.dataset.label_filter
+            )
+        ) {
+            newFilters.pop(
+                e.target.dataset.label_filter ||
+                    e.target.parentElement.dataset.label_filter
+            );
         } else {
-            newFilters.push(e.target.dataset.label_filter || e.target.parentElement.dataset.label_filter);
+            newFilters.push(
+                e.target.dataset.label_filter ||
+                    e.target.parentElement.dataset.label_filter
+            );
         }
 
         if (newFilters.length == 0) {
@@ -210,128 +233,200 @@ export default function RoomsGrid(props) {
         }
 
         filterRooms();
-    }
+    };
 
     const filterRooms = () => {
-        
         let newRooms = [];
 
-        newFilters.some(filter => { 
+        newFilters.some(filter => {
             roomsgrid.forEach((room, index) => {
                 room.roomAmenities.nodes.map(amenity => {
                     if (amenity.name.includes(filter)) {
                         newRooms.push(room);
-                    }   
-                })
-            })
-        })
+                    }
+                });
+            });
+        });
 
         setCurrentRooms(newRooms);
-    }
+    };
 
-    const handleClick = (e) => {
+    const handleClick = e => {
         e.preventDefault();
-        const { sleeps, roomtitle, description, image, slug } = e.target.parentElement.closest('li').dataset;
+        const { sleeps, roomtitle, description, image, slug } =
+            e.target.parentElement.closest("li").dataset;
 
         setDialogContent({
             sleeps,
             roomtitle,
             description,
             image,
-            slug
+            slug,
         });
 
-        document.querySelector('dialog').show();
-        document.querySelector('input').blur();
-        document.querySelector('input').blur();
-    }
-    
+        document.querySelector("dialog").show();
+        document.querySelector("input").blur();
+        document.querySelector("input").blur();
+    };
+
     return (
         <section className={styles.roomsGrid}>
-            <dialog id="roomdialog" style={{
-                width: "100%",
-                height: "100%",
-                border: "0px",
-                backgroundColor: "rgba(0,0,0,0.5)",
-                position: "fixed",
-                top: "0",
-                zIndex: "9999999999",
-            }}>
+            <dialog
+                id="roomdialog"
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "0px",
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                    position: "fixed",
+                    top: "0",
+                    zIndex: "9999999999",
+                }}>
                 <ContentContainer>
-                    <div style={{
-                        backgroundImage: `url(${dialogContent.image})`,
-                    }}></div>
+                    <div
+                        style={{
+                            backgroundImage: `url(${dialogContent.image})`,
+                        }}></div>
                     <LeftHalf className="relative">
-                        <div><p id="closeBtn" className="heading" style={{
-                            fontSize: '2rem',
-                            margin: 0,
-                            position: 'absolute',
-                            right: '2rem',
-                            top: '2rem'
-                        }}>&#10005;</p></div>
-                        <div style={{ display: 'flex', flexDirection: 'column', margin: "auto 10% 1rem" }}>
-                            <p className="sans-serif-bold sub-heading">Sleeps {dialogContent.sleeps}</p>
-                            <h2 className="heading">{dialogContent.roomtitle}</h2>
-                            <p className='sans-serif body-copy black'>{dialogContent.description}</p>
-                            <a className="sans-serif xs-copy underline text-link" href={`/rooms/${dialogContent.slug}`}>Learn More</a>
+                        <div>
+                            <p
+                                id="closeBtn"
+                                className="heading"
+                                style={{
+                                    fontSize: "2rem",
+                                    margin: 0,
+                                    position: "absolute",
+                                    right: "2rem",
+                                    top: "2rem",
+                                }}>
+                                &#10005;
+                            </p>
                         </div>
-                        <div style={{ marginTop: 'auto', width: '100%', backgroundColor: 'white' }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                margin: "auto 10% 1rem",
+                            }}>
+                            <p className="sans-serif-bold sub-heading">
+                                Sleeps {dialogContent.sleeps}
+                            </p>
+                            <h2 className="heading">
+                                {dialogContent.roomtitle}
+                            </h2>
+                            <p className="sans-serif body-copy black">
+                                {dialogContent.description}
+                            </p>
+                            <a
+                                className="sans-serif xs-copy underline text-link"
+                                href={`/rooms/${dialogContent.slug}`}>
+                                Learn More
+                            </a>
+                        </div>
+                        <div
+                            style={{
+                                marginTop: "auto",
+                                width: "100%",
+                                backgroundColor: "white",
+                            }}>
                             <BookingForm />
                         </div>
                     </LeftHalf>
                 </ContentContainer>
             </dialog>
             <FilterContainer className="filter-container">
-                {
-                    filters.map((filter, index) => { 
-                        return (
-                            <FilterLabel key={`filter-${index}`} className="rooms-filter sans-serif" data-label_filter={filter.name}><div className="checkbox" data-label_filter={filter.name}></div>{filter.name}</FilterLabel>
-                        )
-                    })
-                }
+                {filters.map((filter, index) => {
+                    return (
+                        <FilterLabel
+                            key={`filter-${index}`}
+                            className="rooms-filter sans-serif"
+                            data-label_filter={filter.name}>
+                            <div
+                                className="checkbox"
+                                data-label_filter={filter.name}></div>
+                            {filter.name}
+                        </FilterLabel>
+                    );
+                })}
             </FilterContainer>
             <ul className={styles.gridList}>
-            {
-                    currentRooms.length != 0 ? currentRooms.map((room, index) => {
-                        let filterList = []
-                        let filterName = room.roomAmenities.nodes.map(item => filterList.push(item.name))
-                        let filters = filterList.join(",")
-                        
+                {currentRooms.length != 0 ? (
+                    currentRooms.map((room, index) => {
+                        let filterList = [];
+                        let filterName = room.roomAmenities.nodes.map(item =>
+                            filterList.push(item.name)
+                        );
+                        let filters = filterList.join(",");
+
                         return (
-                            <li className="room-tile" key={`room-${index}`}
+                            <li
+                                className="room-tile"
+                                key={`room-${index}`}
                                 data-filter={filters}
                                 data-sleeps={room.singleRooms.sleeps}
                                 data-roomtitle={room.title}
                                 data-description={room.singleRooms.description}
                                 data-slug={room.slug}
-                                data-image={room.featuredImage.node.mediaItemUrl}>
+                                data-image={
+                                    room.featuredImage.node.mediaItemUrl
+                                }>
                                 <RoomTile href={`/rooms/${room.slug}`}>
-                                    <div key={room.title} className={styles.room} style={{ backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})`, position: 'relative', overflow: 'hidden' }}>
-                                        <Image className={styles.roomimage} src={room.featuredImage.node.mediaItemUrl} alt={room.altText} width={430} height={436} layout="intrinsic" />
+                                    <div
+                                        key={room.title}
+                                        className={styles.room}
+                                        style={{
+                                            backgroundImage: `url(${room.featuredImage.node.mediaItemUrl})`,
+                                            position: "relative",
+                                            overflow: "hidden",
+                                        }}>
+                                        <Image
+                                            className={styles.roomimage}
+                                            src={
+                                                room.featuredImage.node
+                                                    .mediaItemUrl
+                                            }
+                                            alt={room.altText}
+                                            width={430}
+                                            height={436}
+                                            layout="intrinsic"
+                                        />
                                         <QuickViewButton className="quickview-btn">
                                             Quick View
                                         </QuickViewButton>
                                     </div>
                                     <div className={styles.text}>
-                                        <p className="xs-heading uppercase letterSpacing black">Sleeps {room.singleRooms.sleeps}<span className={styles.keyFt}>{room.singleRooms.keyFeature}</span><span className={styles.theme}>{room.singleRooms.theme}</span></p>
-                                        <p className={`${styles.roommobile} serif heading black`}>{room.title}</p>
+                                        <p className="xs-heading uppercase letterSpacing black">
+                                            Sleeps {room.singleRooms.sleeps}
+                                            <span className={styles.keyFt}>
+                                                {room.singleRooms.keyFeature}
+                                            </span>
+                                            <span className={styles.theme}>
+                                                {room.singleRooms.theme}
+                                            </span>
+                                        </p>
+                                        <p
+                                            className={`${styles.roommobile} serif heading black`}>
+                                            {room.title}
+                                        </p>
                                     </div>
                                 </RoomTile>
                             </li>
-                        )
-                    }) : (
-                        <p className="heading" style={{
-                                minHeight: '50vh',
-                                display: 'grid',
-                                placeItems: 'center',
-                                textAlign: 'center',
-                                width: '100%',
+                        );
+                    })
+                ) : (
+                    <p
+                        className="heading"
+                        style={{
+                            minHeight: "50vh",
+                            display: "grid",
+                            placeItems: "center",
+                            textAlign: "center",
+                            width: "100%",
                         }}>
-                            No rooms match this filter!
-                        </p>
-                    )
-                }
+                        No rooms match this filter!
+                    </p>
+                )}
             </ul>
         </section>
-    )
+    );
 }
