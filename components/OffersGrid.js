@@ -38,11 +38,11 @@ const ImageBlock = styled.div`
         bottom: 0px;
         left: 0px;
         right: 0px;
-        height: 8rem;
+        height: 9rem;
         background: rgb(0,0,0);
-        background: -moz-linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 100%);
-        background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 100%);
-        background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 100%);
+        background: -moz-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%);
+        background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%);
     }
 `;
 
@@ -102,7 +102,16 @@ const OffersTitle = styled.div`
         padding: 0rem 4rem;
     }
 
-    & .hovershow .colflex a {color: #ffffff; border-bottom: 1px solid #fff;}
+    & .hovershow .colflex a {
+        color: #ffffff; 
+        border-bottom: 1px solid #fff;
+        font-family: "GT Walsheim Light";
+    }
+
+    @media only screen and (max-width: 820px){
+        & .hovershow {display: block;}
+        & .hovershow .colflex {padding: 0rem 2rem;}
+    }
 `;
 
 export default function OffersGrid(props) {
@@ -132,14 +141,14 @@ export default function OffersGrid(props) {
                         <OffersTile
                             key={`${index}${offer.slug}`}
                             className="fadeinpress">
-                                <ImageBlock style={{backgroundImage: `url(${offer.singleOffers.offerImage.mediaItemUrl})`}}>
+                                <ImageBlock style={{backgroundImage: `url(${offer.featuredImage.node.mediaItemUrl})`}}>
                                     <OffersTitle>
                                         <p className="serif press-heading white center">{offer.title}</p>
                                         <div className="hovershow">
                                             <p className="sans-serif white body center">{offer.singleOffers.highlights}</p>
                                             <div className="colflex">
                                                 <Link href={`${offer.singleOffers.bookingLink}`}>Book Now</Link>
-                                                <Link href={`/offers/${offer.slug}`}>Read More</Link>
+                                                <Link href={`/offers/${offer.slug}`}>View Offer</Link>
                                             </div>
                                         </div>
                                     </OffersTitle>

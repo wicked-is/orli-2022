@@ -83,6 +83,7 @@ const ReservationButton = styled.button`
     text-transform: uppercase;
     font-size: var(--xs-copy);
     border: 0;
+    font-family: "GT Walsheim Light";
     background-color: var(--brown);
     @media only screen and (max-width: 600px) {
         width: 100%;
