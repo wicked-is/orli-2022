@@ -9,6 +9,7 @@ import BlurbCenter from "../components/blurbCenter";
 import BlurbLeft from "../components/blurbLeft";
 import BlogGrid from "../components/BlogGrid";
 import PressGrid from "../components/PressGrid";
+import OffersGrid from "../components/OffersGrid";
 import RoomSlider from "../components/roomSlider";
 import RoomsGrid from "../components/RoomsGrid";
 import AmenitiesSlider from "../components/amenitiesSlider";
@@ -292,6 +293,16 @@ export default function DefaultPage(props) {
                             {...section}
                             index={index}
                         />
+                    );
+                    break;
+                case "Page_Flexiblecontent_Sections_OffersGrid":
+                case "Post_Flexiblecontent_Sections_OffersGrid":
+                    gatheredSections.push(
+                          <OffersGrid
+                              key={componentKey}
+                              {...section}
+                              index={index}
+                          />
                     );
                     break;
                 case "Page_Flexiblecontent_Sections_GettingHere":
@@ -952,6 +963,31 @@ export async function getStaticProps({ params }) {
                   }  
                 }
               }
+              ... on Page_Flexiblecontent_Sections_OffersGrid {
+                fieldGroupName
+                offers {
+                  ... on Offer {
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                    singleOffers {
+                      bookingLink
+                      highlights
+                      offerImage {
+                        mediaItemUrl
+                        altText
+                      }
+                      offerDescription
+                    }
+                    slug
+                    link
+                    title
+                  }  
+                }
+              }
               ... on Page_Flexiblecontent_Sections_BlogGrid {
                 fieldGroupName
                 posts {
@@ -1585,6 +1621,31 @@ export async function getStaticProps({ params }) {
                       externalLink
                       publicationName
                     }
+                    link
+                    title
+                  }  
+                }
+              }
+              ... on Post_Flexiblecontent_Sections_OffersGrid {
+                fieldGroupName
+                offers {
+                  ... on Offer {
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                      }
+                    }
+                    singleOffers {
+                      highlights
+                      bookingLink
+                      offerImage {
+                        mediaItemUrl
+                        altText
+                      }
+                      offerDescription
+                    }
+                    slug
                     link
                     title
                   }  
