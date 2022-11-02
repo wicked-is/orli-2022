@@ -147,8 +147,8 @@ export default function OffersGrid(props) {
                                         <div className="hovershow">
                                             <p className="sans-serif white body center">{offer.singleOffers.highlights}</p>
                                             <div className="colflex">
-                                                <Link href={`${offer.singleOffers.bookingLink}`}>Book Now</Link>
-                                                <Link href={`/offers/${offer.slug}`}>View Offer</Link>
+                                                <Link src={`${offer.singleOffers.bookingLink}`} passHref><a target="_blank">Book Now</a></Link>
+                                                <Link src={`/offers/${offer.slug}`}>View Offer</Link>
                                             </div>
                                         </div>
                                     </OffersTitle>

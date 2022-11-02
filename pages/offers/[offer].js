@@ -116,10 +116,10 @@ export default function DefaultOffersPage(props) {
                             __html: `${offer.singleOffers.offerDescription}`,
                         }}></div>
                         <ReservationButton>
-                            <Link href={`${offer.singleOffers.bookingLink}`}>Book Now</Link>
+                            <Link src={`${offer.singleOffers.bookingLink}`} passHref><a target="_blank">Book Now</a></Link>
                         </ReservationButton>
                         <p className="terms-link sans-serif white body underline left">
-                            <Link href="/terms-conditions">Terms & Conditions</Link>
+                            <Link src="/terms-conditions">Terms & Conditions</Link>
                         </p>
                     </TextContainer>
                 </SingleOfferContent>
