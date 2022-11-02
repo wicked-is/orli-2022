@@ -59,8 +59,12 @@ flex-wrap: wrap;
 
 & .terms-link a:visited,
 & .terms-link a:focus {color: var(--white);}
-@media only screen and (max-width: 1024px) {
+
+@media only screen and (max-width: 1440px) {
     & {width: 55%;}
+}
+@media only screen and (max-width: 1024px) {
+    & {width: 60%;}
 }
 @media only screen and (max-width: 820px) {
     & {
