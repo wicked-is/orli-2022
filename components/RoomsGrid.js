@@ -109,7 +109,7 @@ const VideoContainer = styled.video`
     left: 0;
     filter: brightness(0.5);
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 1600px) {
         width: unset;
         height: 100%;
     }
@@ -196,6 +196,11 @@ export default function RoomsGrid(props) {
 
         var wideScreen = window.matchMedia("(min-width: 800px)");
         var narrowScreen = window.matchMedia("(max-width: 799px)");
+
+        if (narrowScreen.matches) {
+            document.querySelector("#video-container").style.display = "none";
+        }
+        // console.log(narrowScreen.matches);
 
         if (narrowScreen.matches) {
             gsap.to(filterContainerTBA, {
@@ -401,6 +406,7 @@ export default function RoomsGrid(props) {
                                     {room.singleRooms
                                         .includeVideoOnFindYourRoomTile && (
                                         <VideoContainer
+                                            id="video-container"
                                             autoPlay
                                             muted
                                             loop
