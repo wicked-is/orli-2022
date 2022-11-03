@@ -107,6 +107,7 @@ const VideoContainer = styled.video`
     position: absolute;
     top: 0;
     left: 0;
+    filter: brightness(0.5);
 
     @media screen and (max-width: 1100px) {
         width: unset;
