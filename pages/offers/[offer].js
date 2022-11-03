@@ -17,7 +17,7 @@ margin: auto;
 `;
 const SingleOfferContent = styled.div`
 width: 100%;
-height: 100vh;
+height: auto;
 display: inline-block;
 z-index: 2;
 background-position: center center;
@@ -51,7 +51,7 @@ flex-wrap: wrap;
     padding-inline-start: 1rem;
 }
 & ul li,
-& p {line-height: 1.5}
+& p {line-height: 1.5; font-size: var(--body-copy);}
 
 & .terms-link {
     width: 100%; margin: auto; display: block; padding: 1rem 0 0 0;
@@ -61,7 +61,7 @@ flex-wrap: wrap;
 & .terms-link a:focus {color: var(--white);}
 
 @media only screen and (max-width: 1440px) {
-    & {width: 55%;}
+    & {width: 60%;}
 }
 @media only screen and (max-width: 1024px) {
     & {width: 60%;}
@@ -121,6 +121,11 @@ const QuickViewContainer = styled.dialog`
         padding: 2rem;
         margin: auto 10% 1rem;
         background: #ffffff;
+    }
+    & .inner p {
+        font-family: "GT Walsheim Light";
+        color: #000;
+        font-size: var(--body-copy);
     }
     @media only screen and (max-width: 600px){
         & .inner {
