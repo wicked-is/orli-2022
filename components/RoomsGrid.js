@@ -116,6 +116,7 @@ const VideoContainer = styled.video`
 
     @media screen and (max-width: 600px) {
         display: none;
+        pointer-events: none;
     }
 `;
 const TileMedia = styled.div`
