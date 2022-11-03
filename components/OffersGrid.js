@@ -162,7 +162,7 @@ export default function OffersGrid(props) {
                                                 <Link href={`${offer.singleOffers.bookingLink}`} passHref>
                                                     <a target="_blank">Book Now</a>
                                                 </Link>
-                                                <Link href={`/offers/${offer.slug}`}>View Offer</Link>
+                                                <Link href={`/offer/${offer.slug}`}>View Offer</Link>
                                             </div>
                                         </div>
                                     </OffersTitle>
