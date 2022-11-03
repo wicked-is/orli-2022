@@ -965,6 +965,7 @@ export async function getStaticProps({ params }) {
               }
               ... on Page_Flexiblecontent_Sections_OffersGrid {
                 fieldGroupName
+                heading
                 offers {
                   ... on Offer {
                     featuredImage {
@@ -1629,6 +1630,7 @@ export async function getStaticProps({ params }) {
               }
               ... on Post_Flexiblecontent_Sections_OffersGrid {
                 fieldGroupName
+                heading
                 offers {
                   ... on Offer {
                     featuredImage {

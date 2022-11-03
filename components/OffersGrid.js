@@ -12,9 +12,20 @@ const OffersGridContainer = styled.section`
     margin: auto;
     position: relative;
     padding: 6rem 5.5rem 6rem 5.5rem;
+    & h1 {
+        margin: 2rem auto 2rem auto;
+    }
     @media only screen and (max-width: 820px) {
         & {
             padding: 6rem 3.5rem 6rem 3.5rem;
+        }
+        & h1 {
+            margin: 0rem auto 2rem auto;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        & {
+            padding: 6rem 2rem 6rem 2rem;
         }
     }
 `;
@@ -115,7 +126,7 @@ const OffersTitle = styled.div`
 `;
 
 export default function OffersGrid(props) {
-    const { offers } = props;
+    const { offers, heading } = props;
 
     useEffect(() => {
         var sections = gsap.utils.toArray(".fadeinpress");
@@ -135,12 +146,13 @@ export default function OffersGrid(props) {
     }, []);
     return (
         <OffersGridContainer>
+            {heading && (<h1 className="serif heading black center">{heading}</h1>)}
             {offers &&
                 offers.map((offer, index) => {
                     return (
                         <OffersTile
                             key={`${index}${offer.slug}`}
-                            className="fadeinpress">
+                            className="fadeinoffers">
                                 <ImageBlock style={{backgroundImage: `url(${offer.featuredImage.node.mediaItemUrl})`}}>
                                     <OffersTitle>
                                         <p className="serif press-heading white center">{offer.title}</p>
