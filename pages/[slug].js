@@ -981,6 +981,7 @@ export async function getStaticProps({ params }) {
                         altText
                       }
                       offerDescription
+                      offerTermsConditions
                     }
                     slug
                     link
@@ -1644,6 +1645,7 @@ export async function getStaticProps({ params }) {
                         altText
                       }
                       offerDescription
+                      offerTermsConditions
                     }
                     slug
                     link

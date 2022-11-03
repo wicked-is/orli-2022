@@ -94,8 +94,63 @@ const ReservationButton = styled.button`
     }
 `;
 
+const QuickViewContainer = styled.dialog`
+    width: 100%;
+    height: 100vh;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 9999999999;
+    display: none;
+    place-items: center;
+
+    &.show {display: grid;}
+
+    &  #closeBtn p {
+        font-size: 2rem;
+        margin: 0;
+        position: absolute;
+        right: 2rem;
+        color: #ffffff;
+        top: 2rem;
+    }
+    & .inner {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        margin: auto 10% 1rem;
+        background: #ffffff;
+    }
+    @media only screen and (max-width: 600px){
+        & .inner {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            height: 70vh;
+            margin: 0rem 1rem 0rem 1rem;
+            overflow: scroll;
+            background: #ffffff;
+        }
+    }
+`;
+
 export default function DefaultOffersPage(props) {
     const { offer } = props.data.data;
+
+    const [isActive, setIsActive] = useState(false);
+    const handleClick = e => {
+        e.preventDefault();
+
+        setIsActive(current => !current);
+    };
+
+
+    const closeClick = e => {
+        e.preventDefault();
+
+        setIsActive(false);
+    };
 
     useEffect(() => {
         var tl = gsap.timeline();
@@ -107,6 +162,19 @@ export default function DefaultOffersPage(props) {
         <>
             <SEO fullhead={offer.seo.fullHead} />
             <SingleOfferContainer className="content">
+            <QuickViewContainer dialog id="roomdialog" className={isActive ? 'show' : ''}>
+                <div className="ContentContainer">
+                    <div id="closeBtn" className="heading" onClick={closeClick}>
+                        <p>&#10005;</p>
+                    </div>
+                    <div className="inner">
+                            <h3 className="serif heading black left">Terms & Conditions</h3>
+                            <div dangerouslySetInnerHTML={{
+                            __html: `${offer.singleOffers.offerTermsConditions}`,
+                        }}></div>
+                    </div>
+                </div>
+            </QuickViewContainer>
                 <SingleOfferContent style={{
                     backgroundImage: `url(${offer.singleOffers.offerImage.mediaItemUrl})`
                 }}>
@@ -125,7 +193,7 @@ export default function DefaultOffersPage(props) {
                             </Link>
                         </ReservationButton>
                         <p className="terms-link sans-serif white body underline left">
-                            <Link href="/terms-conditions">Terms & Conditions</Link>
+                            <Link href="null" passHref><a onClick={handleClick}>Terms & Conditions</a></Link>
                         </p>
                     </TextContainer>
                 </SingleOfferContent>
@@ -200,6 +268,7 @@ export async function getStaticProps({ params }) {
             altText
           }
           offerDescription
+          offerTermsConditions
         }
         status
         slug
