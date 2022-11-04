@@ -200,7 +200,7 @@
 
 .navContianer.showMeMobile .mainNav li {
     font-family: essonnes-display, serif;
-    font-size: var(--heading);
+    font-size: clamp(1.6rem, 2vw, 4.6rem);
     padding: 0rem 0rem 0.3rem 4rem;
 }
 
