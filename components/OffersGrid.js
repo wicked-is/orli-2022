@@ -121,7 +121,8 @@ const OffersTitle = styled.div`
 
     @media only screen and (max-width: 820px){
         & .hovershow {display: block;}
-        & .hovershow .colflex {padding: 0rem 2rem;}
+        & .hovershow .colflex,
+        & .hovershow p {padding: 0rem 2rem;}
     }
 `;
 
