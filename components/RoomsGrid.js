@@ -410,6 +410,7 @@ export default function RoomsGrid(props) {
                                             autoPlay
                                             muted
                                             loop
+                                            playsInline
                                             poster={
                                                 room.featuredImage.node
                                                     .mediaItemUrl
