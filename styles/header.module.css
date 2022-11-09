@@ -98,12 +98,14 @@
     margin: 0;
     overflow: visible;
     position: absolute;
-    right: 14rem;
+    right: 16rem;
     top: 1.3rem;
     z-index: 1;
     opacity: 1;
 }
-
+@media only screen and (max-width: 1680px){
+    .hamburger {right: 14rem;}
+}
 .hamburger .hamburger-inner {
     display: block;
     top: 50%;
