@@ -203,11 +203,6 @@
     font-size: clamp(1.8rem, 2.4vw, 4.6rem);
     padding: 0rem 0rem 0.3rem 4rem;
 }
-@media only screen and (max-width: 1440px) {
-    .navContianer.showMeMobile .mainNav li {
-        font-size: clamp(1.6rem, 2vw, 4.6rem);
-    }
-}
 
 .navContianer.showMeMobile .bottomnav {
     width: 100%;
@@ -260,7 +255,8 @@
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
-and (orientation : landscape) {
+and (orientation : landscape) 
+and (-webkit-min-device-pixel-ratio: 1.5) {
     .navContianer.showMeMobile .mainNav {padding: 7rem 0 0rem 0;}
     .navContianer.showMeMobile .mainNav li {
         font-family: essonnes-display, serif;
@@ -279,7 +275,8 @@ and (orientation : landscape) {
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px) 
-and (orientation : portrait) {
+and (orientation : portrait) 
+and (-webkit-min-device-pixel-ratio: 1.5) {
     .navContianer.showMeMobile .mainNav {padding: 10rem 0 9rem 0;}
     .navContianer.showMeMobile .mainNav li {
         font-family: essonnes-display, serif;
@@ -298,7 +295,8 @@ and (orientation : portrait) {
 @media only screen 
 and (min-device-width : 600px) 
 and (max-device-width : 1024px) 
-and (orientation : landscape) {
+and (orientation : landscape) 
+and (-webkit-min-device-pixel-ratio: 1.5) {
     .navContianer.showMeMobile .mainNav {padding: 5rem 0 0rem 0;}
     .navContianer.showMeMobile .mainNav li {
         font-family: essonnes-display, serif;
@@ -317,7 +315,8 @@ and (orientation : landscape) {
 @media only screen 
 and (min-device-width : 800px) 
 and (max-device-width : 1280px)
-and (orientation : landscape) {
+and (orientation : landscape) 
+and (-webkit-min-device-pixel-ratio: 1.5) {
     .navContianer.showMeMobile .mainNav {padding: 7rem 0 0rem 0;}
     .navContianer.showMeMobile .mainNav li {
         font-family: essonnes-display, serif;
@@ -329,6 +328,13 @@ and (orientation : landscape) {
         display: flex; 
         align-items: flex-start;
         padding: 4rem 4rem 4rem;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .navContianer.showMeMobile .mainNav {padding: 8rem 0 2rem 0;}
+    .navContianer.showMeMobile .mainNav li {
+        font-size: clamp(1.6rem, 1.8rem, 2rem);
     }
 }
 
