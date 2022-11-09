@@ -294,6 +294,25 @@ and (orientation : portrait) {
     }
 }
 
+/* Nest HUB */
+@media only screen 
+and (min-device-width : 600px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+    .navContianer.showMeMobile .mainNav {padding: 5rem 0 0rem 0;}
+    .navContianer.showMeMobile .mainNav li {
+        font-family: essonnes-display, serif;
+        font-size: clamp(1.2rem, 2vw, 4.4rem);
+        padding: 0rem 0rem 0.3rem 4rem;
+    }
+    .navContianer.showMeMobile .bottomnav {
+        width: 100%;
+        display: flex; 
+        align-items: flex-start;
+        padding: 2rem 4rem 4rem;
+    }
+}
+
 .header .close {
     color: var(--white);
     position: absolute;
