@@ -211,130 +211,16 @@
     padding: 0 4rem 4rem;
 }
 
-/* iPad Pro Portrait */
-@media only screen 
-  and (min-width: 1024px) 
-  and (max-height: 1366px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-    .navContianer.showMeMobile .mainNav {padding: 10rem 0 24rem 0;}
-    .navContianer.showMeMobile .mainNav li {
-        font-family: essonnes-display, serif;
-        font-size: clamp(1.8rem, 2.6vw, 4.6rem);
-        padding: 0rem 0rem 1rem 4rem;
-    }
-    .navContianer.showMeMobile .bottomnav {
-        width: 100%;
-        display: flex; 
-        align-items: flex-start;
-        padding: 4rem 4rem 4rem;
-    }
-}
-
-/* iPad Pro Landscape */
-@media only screen 
-  and (min-width: 1024px)
-  and (max-height: 1366px)
-  and (orientation: landscape)
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-    .navContianer.showMeMobile .mainNav {padding: 10rem 0 2rem 0;}
-    .navContianer.showMeMobile .mainNav li {
-        font-family: essonnes-display, serif;
-        font-size: clamp(1.8rem, 2.6vw, 4.6rem);
-        padding: 0rem 0rem 0.3rem 4rem;
-    }
-    .navContianer.showMeMobile .bottomnav {
-        width: 100%;
-        display: flex; 
-        align-items: flex-start;
-        padding: 4rem 4rem 4rem;
-    }
-}
-
-/* iPad Landscape */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) 
-and (-webkit-min-device-pixel-ratio: 1.5) {
-    .navContianer.showMeMobile .mainNav {padding: 7rem 0 0rem 0;}
-    .navContianer.showMeMobile .mainNav li {
-        font-family: essonnes-display, serif;
-        font-size: clamp(1.8rem, 2.6vw, 4.6rem);
-        padding: 0rem 0rem 0.3rem 4rem;
-    }
-    .navContianer.showMeMobile .bottomnav {
-        width: 100%;
-        display: flex; 
-        align-items: flex-start;
-        padding: 4rem 4rem 4rem;
-    }
-}
-
-/* iPad Portrait */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) 
-and (-webkit-min-device-pixel-ratio: 1.5) {
-    .navContianer.showMeMobile .mainNav {padding: 10rem 0 9rem 0;}
-    .navContianer.showMeMobile .mainNav li {
-        font-family: essonnes-display, serif;
-        font-size: clamp(1.8rem, 2.6vw, 4.6rem);
-        padding: 0rem 0rem 0.3rem 4rem;
-    }
-    .navContianer.showMeMobile .bottomnav {
-        width: 100%;
-        display: flex; 
-        align-items: flex-start;
-        padding: 4rem 4rem 4rem;
-    }
-}
-
-/* Nest HUB */
-@media only screen 
-and (min-device-width : 600px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) 
-and (-webkit-min-device-pixel-ratio: 1.5) {
-    .navContianer.showMeMobile .mainNav {padding: 5rem 0 0rem 0;}
-    .navContianer.showMeMobile .mainNav li {
-        font-family: essonnes-display, serif;
-        font-size: clamp(1.2rem, 2vw, 4.4rem);
-        padding: 0rem 0rem 0.3rem 4rem;
-    }
-    .navContianer.showMeMobile .bottomnav {
-        width: 100%;
-        display: flex; 
-        align-items: flex-start;
-        padding: 2rem 4rem 4rem;
-    }
-}
-
-/* Nest HUB Max*/
-@media only screen 
-and (min-device-width : 800px) 
-and (max-device-width : 1280px)
-and (orientation : landscape) 
-and (-webkit-min-device-pixel-ratio: 1.5) {
-    .navContianer.showMeMobile .mainNav {padding: 7rem 0 0rem 0;}
-    .navContianer.showMeMobile .mainNav li {
-        font-family: essonnes-display, serif;
-        font-size: clamp(1.2rem, 2vw, 4.4rem);
-        padding: 0rem 0rem 0.3rem 4rem;
-    }
-    .navContianer.showMeMobile .bottomnav {
-        width: 100%;
-        display: flex; 
-        align-items: flex-start;
-        padding: 4rem 4rem 4rem;
-    }
-}
-
 @media only screen and (max-width: 1440px) {
-    .navContianer.showMeMobile .mainNav {padding: 8rem 0 2rem 0;}
+    .navContianer.showMeMobile .mainNav {padding: 6rem 0 2rem 0;}
     .navContianer.showMeMobile .mainNav li {
         font-size: clamp(1.6rem, 1.8rem, 2rem);
+    }
+    .navContianer.showMeMobile .bottomnav {
+        width: 100%;
+        display: flex; 
+        align-items: flex-start;
+        padding: 0rem 4rem 4rem;
     }
 }
 
