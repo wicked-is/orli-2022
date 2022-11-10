@@ -170,7 +170,8 @@ export default function RoomsGrid(props) {
         }
 
         document.querySelectorAll("label.rooms-filter").forEach(label => {
-            label.addEventListener("click, touchend", handleFilterClick);
+            label.addEventListener("click", handleFilterClick);
+            label.addEventListener("touchend", handleFilterClick);
         });
 
         const maincontent = gsap.utils.toArray("main");
@@ -262,6 +263,8 @@ export default function RoomsGrid(props) {
         if (newFilters.length == 0) {
             return setCurrentRooms(roomsgrid);
         }
+
+        console.log(e);
 
         filterRooms();
     };
