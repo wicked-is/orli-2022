@@ -170,7 +170,7 @@ export default function RoomsGrid(props) {
         }
 
         document.querySelectorAll("label.rooms-filter").forEach(label => {
-            label.addEventListener("click", handleFilterClick);
+            label.addEventListener("click, touchend", handleFilterClick);
         });
 
         const maincontent = gsap.utils.toArray("main");
