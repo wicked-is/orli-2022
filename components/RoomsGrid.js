@@ -241,7 +241,16 @@ export default function RoomsGrid(props) {
     const handleFilterClick = e => {
         e.preventDefault();
 
-        e.target.classList.toggle("active");
+        if (
+            e?.target?.parentElement?.nodeName
+                ?.toString()
+                ?.toLowerCase()
+                ?.includes("label")
+        ) {
+            e.target.parentElement.classList.toggle("active");
+        } else {
+            e.target.classList.toggle("active");
+        }
 
         if (
             newFilters.includes(
