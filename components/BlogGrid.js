@@ -32,10 +32,9 @@ const BlogTile = styled.div`
         color: var(--brown) !important;
     }
 
-    &:first-child,
-    &:nth-child(1n + 3) {
+    & {
         width: 27.33%;
-        margin: 0.5rem 0.5rem 0.5rem 5rem;
+        margin: 0.5rem 0.5rem 2rem 0.5rem;
         position: relative;
     }
 
@@ -46,90 +45,37 @@ const BlogTile = styled.div`
         color: var(--brown);
     }
 
-    &:nth-child(2),
-    &:nth-child(2n) {
-        width: 27.33%;
-        margin: 0.5rem;
-        position: relative;
-    }
-
-    &:nth-child(3),
-    &:nth-child(3n + 4) {
-        width: 27.33%;
-        margin: 0.5rem 5rem 0.5rem 0.5rem;
-        position: relative;
-    }
 
     @media only screen and (max-width: 1074px) {
-        &:first-child,
-        &:nth-child(1n + 3) {
-            width: 26.33%;
-            margin: 0.5rem 0.5rem 0.5rem 5rem;
-        }
-
-        &:nth-child(2),
-        &:nth-child(2n) {
+        & {
             width: 26.33%;
             margin: 0.5rem;
-        }
-
-        &:nth-child(3),
-        &:nth-child(3n + 4) {
-            width: 26.33%;
-            margin: 0.5rem 5rem 0.5rem 0.5rem;
         }
     }
 
     @media only screen and (max-width: 913px) {
-        &:first-child,
-        &:nth-child(1n + 3) {
+        & {
             width: 43%;
-            margin: 1rem 0.5rem 1rem 1rem;
-        }
-        &:nth-child(2),
-        &:nth-child(2n) {
-            width: 43%;
-            margin: 1rem 1rem 1rem 0.5rem;
-        }
-        &:nth-child(3),
-        &:nth-child(3n + 4) {
-            width: 90%;
             margin: 1rem;
         }
-    }
-    @media only screen and (max-width: 768px) {
-        &:nth-child(3),
-        &:nth-child(3n + 4) {
+
+        &:nth-child(3n+1) {
             width: 100%;
+            height: 100%;
             margin: auto;
         }
-        &:nth-child(3) {padding: 4rem 3.2rem 0rem 3.2rem;}
-        &:nth-child(3n + 4){padding: 4rem 3.2rem;}
-        &:nth-child(3) span,
-        &:nth-child(3n + 4) span{display: block !important;}
+        &:nth-child(3n+1) {padding: 4rem 2rem 2rem 2rem;}
+
+        &:nth-child(3n+1) span {display: block !important; width: 100%; height: 100%;}
+        &:nth-child(3n+1) img {display: block; width: 100% !important; height: auto !important;}
     }
+
     @media only screen and (max-width: 600px) {
-        &:first-child,
-        &:nth-child(1n + 3) {
+        & {
             width: 98%;
-            margin: 1rem;
+            margin: 1rem 2rem 1rem 2rem;
         }
-        &:nth-child(2),
-        &:nth-child(2n) {
-            width: 98%;
-            margin: 1rem;
-        }
-        &:nth-child(3),
-        &:nth-child(3n + 4) {
-            width: 98%;
-            margin: 1rem;
-        }
-
-        &:nth-child(3),
-        &:nth-child(3n + 4){padding: 0rem;}
-
-        &:nth-child(3) span,
-        &:nth-child(3n + 4) span{display: inline-block !important;}
+        &:nth-child(3n+1) {padding: 1rem 2rem 1rem 2rem;}
     }
 
     ${props =>
@@ -179,7 +125,7 @@ export default function BlogGrid(props) {
                 autoAlpha: 1,
                 scrollTrigger: {
                     trigger: section,
-                    start: "+=0 80%",
+                    start: "bottom+=0 0%",
                     scrub: false,
                     markers: false,
                     toggleActions: "play reverse play reverse",
