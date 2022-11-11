@@ -117,22 +117,6 @@ const BlogTile = styled.div`
 export default function BlogGrid(props) {
     const { posts } = props;
 
-    useEffect(() => {
-        var sections = gsap.utils.toArray(".fadein");
-
-        sections.forEach(section => {
-            gsap.to(section, {
-                autoAlpha: 1,
-                scrollTrigger: {
-                    trigger: section,
-                    start: "bottom+=0 0%",
-                    scrub: false,
-                    markers: false,
-                    toggleActions: "play reverse play reverse",
-                },
-            });
-        });
-    }, []);
     return (
         <BlogGridContainer>
             {posts &&
@@ -147,7 +131,6 @@ export default function BlogGrid(props) {
                     return (
                         <BlogTile
                             key={index}
-                            className="fadein"
                             featured={featured}
                             background={post.featuredImage.node.mediaItemUrl}>
                             {featured && (
