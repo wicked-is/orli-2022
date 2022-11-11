@@ -103,9 +103,8 @@ label.rooms-filter {
     border: 1px solid var(--brown);
     margin-right: 0.7rem;
 }
-
+.rooms-filter:hover .checkbox {background-color: #dddddd;}
 .rooms-filter.active .checkbox,
-.rooms-filter:hover .checkbox,
 .rooms-filter .checkbox.active {
     background-color: var(--brown);
 }
