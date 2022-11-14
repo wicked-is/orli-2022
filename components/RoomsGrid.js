@@ -204,37 +204,37 @@ export default function RoomsGrid(props) {
         }
         // console.log(narrowScreen.matches);
 
-        if (narrowScreen.matches) {
-            gsap.to(filterContainerTBA, {
-                scrollTrigger: {
-                    trigger: filterContainerTBA,
-                    start: "top-=0 -1px",
-                    endTrigger: maincontent,
-                    end: "bottom-=0 bottom-=150",
-                    pin: filterContainerTBA,
-                    markers: false,
-                    pinSpacing: false,
-                    scrub: true,
-                },
-                y: 0,
-            });
-        }
+        // if (narrowScreen.matches) {
+        //     gsap.to(filterContainerTBA, {
+        //         scrollTrigger: {
+        //             trigger: filterContainerTBA,
+        //             start: "top-=0 -1px",
+        //             endTrigger: maincontent,
+        //             end: "bottom-=0 bottom-=150",
+        //             pin: filterContainerTBA,
+        //             markers: false,
+        //             pinSpacing: false,
+        //             scrub: true,
+        //         },
+        //         y: 0,
+        //     });
+        // }
 
-        if (wideScreen.matches) {
-            gsap.to(filterContainerTBA, {
-                scrollTrigger: {
-                    trigger: filterContainerTBA,
-                    start: "top-=0 64px",
-                    endTrigger: maincontent,
-                    end: "bottom-=0 bottom-=150",
-                    pin: filterContainerTBA,
-                    markers: false,
-                    pinSpacing: false,
-                    scrub: true,
-                },
-                y: 0,
-            });
-        }
+        // if (wideScreen.matches) {
+        //     gsap.to(filterContainerTBA, {
+        //         scrollTrigger: {
+        //             trigger: filterContainerTBA,
+        //             start: "top-=0 64px",
+        //             endTrigger: maincontent,
+        //             end: "bottom-=0 bottom-=150",
+        //             pin: filterContainerTBA,
+        //             markers: false,
+        //             pinSpacing: false,
+        //             scrub: true,
+        //         },
+        //         y: 0,
+        //     });
+        // }
 
         document.querySelector("#roomdialog").close();
     }, []);
@@ -274,8 +274,6 @@ export default function RoomsGrid(props) {
             return setCurrentRooms(roomsgrid);
         }
 
-        console.log(e);
-
         filterRooms();
     };
 
@@ -284,8 +282,12 @@ export default function RoomsGrid(props) {
 
         newFilters.some(filter => {
             roomsgrid.forEach((room, index) => {
+                console.log({ currentRooms, room });
                 room.roomAmenities.nodes.map(amenity => {
-                    if (amenity.name.includes(filter)) {
+                    if (
+                        amenity.name.includes(filter) &&
+                        !newRooms.includes(room)
+                    ) {
                         newRooms.push(room);
                     }
                 });
@@ -423,27 +425,27 @@ export default function RoomsGrid(props) {
                                             room.featuredImage.node.mediaItemUrl
                                         }>
                                         {room.singleRooms
-                                        .includeVideoOnFindYourRoomTile && (
-                                        <VideoContainer
-                                            id="video-container"
-                                            autoPlay
-                                            muted
-                                            loop
-                                            playsInline
-                                            poster={
-                                                room.featuredImage.node
-                                                    .mediaItemUrl
-                                            }>
-                                            <source
-                                                src={`${room.singleRooms.featuredVideoUrl}.mp4`}
-                                                type="video/mp4"
-                                            />
-                                            <source
-                                                src={`${room.singleRooms.featuredVideoUrl}.webm`}
-                                                type="video/webm"
-                                            />
-                                        </VideoContainer>
-                                    )}
+                                            .includeVideoOnFindYourRoomTile && (
+                                            <VideoContainer
+                                                id="video-container"
+                                                autoPlay
+                                                muted
+                                                loop
+                                                playsInline
+                                                poster={
+                                                    room.featuredImage.node
+                                                        .mediaItemUrl
+                                                }>
+                                                <source
+                                                    src={`${room.singleRooms.featuredVideoUrl}.mp4`}
+                                                    type="video/mp4"
+                                                />
+                                                <source
+                                                    src={`${room.singleRooms.featuredVideoUrl}.webm`}
+                                                    type="video/webm"
+                                                />
+                                            </VideoContainer>
+                                        )}
                                         <Image
                                             className={styles.roomimage}
                                             src={
