@@ -20,6 +20,16 @@
     padding-inline-start: 0px;
 }
 
+.gridList li {
+    container: tile / inline-size;
+}
+
+@container tile (max-width: 565px) {
+    .gridList li video {
+        display: none;
+    }
+}
+
 .roomsGrid li:nth-child(1),
 .roomsGrid li:nth-child(4),
 .roomsGrid li:nth-child(8),
@@ -53,6 +63,12 @@
     position: relative;
     margin: 3% 0 3% 0;
     min-height: 65vh;
+}
+
+@container tile (max-width: 565) {
+    .roomsGrid li video {
+        display: none;
+    }
 }
 
 .roomsGrid li:nth-child(7) > a > div:first-of-type {
