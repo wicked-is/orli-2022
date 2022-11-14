@@ -416,7 +416,13 @@ export default function RoomsGrid(props) {
                                     room.featuredImage.node.mediaItemUrl
                                 }>
                                 <RoomTile href={`/rooms/${room.slug}`}>
-                                    {room.singleRooms
+                                    <TileMedia
+                                        key={room.title}
+                                        className={styles.room}
+                                        bg={
+                                            room.featuredImage.node.mediaItemUrl
+                                        }>
+                                        {room.singleRooms
                                         .includeVideoOnFindYourRoomTile && (
                                         <VideoContainer
                                             id="video-container"
@@ -438,12 +444,6 @@ export default function RoomsGrid(props) {
                                             />
                                         </VideoContainer>
                                     )}
-                                    <TileMedia
-                                        key={room.title}
-                                        className={styles.room}
-                                        bg={
-                                            room.featuredImage.node.mediaItemUrl
-                                        }>
                                         <Image
                                             className={styles.roomimage}
                                             src={
