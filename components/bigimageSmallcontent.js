@@ -181,6 +181,7 @@ export default function BigImageSmallContent(props) {
                           width: "37px",
                           height: "22px",
                         }}
+                        alt="previous arrow"
                       />
                       <img
                         id="next-arrow"
@@ -189,6 +190,7 @@ export default function BigImageSmallContent(props) {
                           width: "37px",
                           height: "22px",
                         }}
+                        alt="next arrow"
                       />
                     </div>
                   </SliderNavigationContainer>
