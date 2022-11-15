@@ -27,7 +27,7 @@ export default function BookingForm() {
                     {/* onFocus={() => setCheckOutType('date')}  */}
                     <input type={"date"} name="widget_date_to" placeholder="mm/dd/yyyy" className="sans-serif" value={checkOutDate} onChange={setCheckout} />
                 </div>
-                <button type="submit" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
+                <button type="submit" aria-label="search button" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
             </form>
         </div>
     )
