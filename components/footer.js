@@ -231,6 +231,7 @@ export default function Footer(props) {
                       src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
                       width={380}
                       height={75}
+                      alt="orli la jolla logo"
                       //   layout="responsive"
                     />
                   </a>
