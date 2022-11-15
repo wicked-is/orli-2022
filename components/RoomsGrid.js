@@ -280,6 +280,10 @@ export default function RoomsGrid(props) {
     const filterRooms = () => {
         let newRooms = [];
 
+        if (newFilters.length < 1) {
+            return setCurrentRooms(roomsgrid);
+        }
+
         newFilters.some(filter => {
             roomsgrid.forEach((room, index) => {
                 console.log({ currentRooms, room });
