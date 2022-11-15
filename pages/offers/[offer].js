@@ -12,72 +12,95 @@ import styled from "styled-components";
 import ToggleCaret from "../../public/assets/icons/Orli_Caret.svg";
 
 const SingleOfferContainer = styled.div`
-width: inline-block;
-margin: auto;
+    width: inline-block;
+    margin: auto;
 `;
 const SingleOfferContent = styled.div`
-width: 100%;
-height: auto;
-display: inline-block;
-z-index: 2;
-background-position: center center;
-background-size: cover !important;
--webkit-background-size: cover !important;
--moz-background-size: cover !important;
--o-background-size: cover !important;
-
-& .mobileshow {display: none;}
-
-@media only screen and (max-width: 820px) {
+    width: 100%;
     height: auto;
-    background-image: unset !important;
-    & .mobileshow {display: block;}
-}
+    display: inline-block;
+    z-index: 2;
+    background-position: center center;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+
+    & .mobileshow {
+        display: none;
+    }
+
+    @media only screen and (max-width: 820px) {
+        height: auto;
+        background-image: unset !important;
+        & .mobileshow {
+            display: block;
+        }
+    }
 `;
 
 const TextContainer = styled.div`
-padding: 8rem 6rem;
-width: 40%;
-display: flex;
-flex-wrap: wrap;
+    padding: 8rem 6rem;
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
 
-& h2, & h1 {width: 100%;}
-& h1 {padding: 0rem 0rem 2rem 0rem;}
-& ul {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 1rem;
-}
-& ul li,
-& p {line-height: 1.5; font-size: var(--body-copy);}
-
-& .terms-link {
-    width: 100%; margin: auto; display: block; padding: 1rem 0 0 0;
-}
-
-& .terms-link a:visited,
-& .terms-link a:focus {color: var(--white);}
-
-@media only screen and (max-width: 1440px) {
-    & {width: 60%;}
-}
-@media only screen and (max-width: 1024px) {
-    & {width: 60%;}
-}
-@media only screen and (max-width: 820px) {
-    & {
-        padding: 4rem 4rem;
+    & h2,
+    & h1 {
         width: 100%;
-        display: inline-block;
-        flex-wrap: unset;
     }
-    & .terms-link,
+    & h1 {
+        padding: 0rem 0rem 2rem 0rem;
+    }
+    & ul {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 1rem;
+    }
+    & ul li,
+    & p {
+        line-height: 1.5;
+        font-size: var(--body-copy);
+    }
+
+    & .terms-link {
+        width: 100%;
+        margin: auto;
+        display: block;
+        padding: 1rem 0 0 0;
+    }
+
     & .terms-link a:visited,
-    & .terms-link a:focus,
-    & .white {color: #000;}
-}
+    & .terms-link a:focus {
+        color: var(--white);
+    }
+
+    @media only screen and (max-width: 1440px) {
+        & {
+            width: 60%;
+        }
+    }
+    @media only screen and (max-width: 1024px) {
+        & {
+            width: 60%;
+        }
+    }
+    @media only screen and (max-width: 820px) {
+        & {
+            padding: 4rem 4rem;
+            width: 100%;
+            display: inline-block;
+            flex-wrap: unset;
+        }
+        & .terms-link,
+        & .terms-link a:visited,
+        & .terms-link a:focus,
+        & .white {
+            color: #000;
+        }
+    }
 `;
 
 const ReservationButton = styled.button`
@@ -105,9 +128,11 @@ const QuickViewContainer = styled.dialog`
     display: none;
     place-items: center;
 
-    &.show {display: grid;}
+    &.show {
+        display: grid;
+    }
 
-    &  #closeBtn p {
+    & #closeBtn p {
         font-size: 2rem;
         margin: 0;
         position: absolute;
@@ -127,7 +152,7 @@ const QuickViewContainer = styled.dialog`
         color: #000;
         font-size: var(--body-copy);
     }
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 600px) {
         & .inner {
             display: flex;
             flex-direction: column;
@@ -150,7 +175,6 @@ export default function DefaultOffersPage(props) {
         setIsActive(current => !current);
     };
 
-
     const closeClick = e => {
         e.preventDefault();
 
@@ -167,38 +191,64 @@ export default function DefaultOffersPage(props) {
         <>
             <SEO fullhead={offer.seo.fullHead} />
             <SingleOfferContainer className="content">
-            <QuickViewContainer dialog id="roomdialog" className={isActive ? 'show' : ''}>
-                <div className="ContentContainer">
-                    <div id="closeBtn" className="heading" onClick={closeClick}>
-                        <p>&#10005;</p>
+                <QuickViewContainer
+                    dialog
+                    id="roomdialog"
+                    className={isActive ? "show" : ""}>
+                    <div className="ContentContainer">
+                        <div
+                            id="closeBtn"
+                            className="heading"
+                            onClick={closeClick}>
+                            <p>&#10005;</p>
+                        </div>
+                        <div className="inner">
+                            <h3 className="serif heading black left">
+                                Terms & Conditions
+                            </h3>
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: `${offer.singleOffers.offerTermsConditions}`,
+                                }}></div>
+                        </div>
                     </div>
-                    <div className="inner">
-                            <h3 className="serif heading black left">Terms & Conditions</h3>
-                            <div dangerouslySetInnerHTML={{
-                            __html: `${offer.singleOffers.offerTermsConditions}`,
-                        }}></div>
-                    </div>
-                </div>
-            </QuickViewContainer>
-                <SingleOfferContent style={{
-                    backgroundImage: `url(${offer.singleOffers.offerImage.mediaItemUrl})`
-                }}>
+                </QuickViewContainer>
+                <SingleOfferContent
+                    style={{
+                        backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url(${offer.singleOffers.offerImage.mediaItemUrl})`,
+                    }}>
                     <div className="mobileshow">
-                        <Image src={offer.singleOffers.offerImage.mediaItemUrl} alt={offer.singleOffers.offerImage.altText} width={1728} height={1003} layout="responsive"/>
+                        <Image
+                            src={offer.singleOffers.offerImage.mediaItemUrl}
+                            alt={offer.singleOffers.offerImage.altText}
+                            width={1728}
+                            height={1003}
+                            layout="responsive"
+                        />
                     </div>
                     <TextContainer>
-                        <h2 className="sans-serif-bold sub-heading white left">Offers</h2>
-                        <h1 className="serif heading white left">{offer.title}</h1>
-                        <div className="sans-serif white left" dangerouslySetInnerHTML={{
-                            __html: `${offer.singleOffers.offerDescription}`,
-                        }}></div>
+                        <h2 className="sans-serif-bold sub-heading white left">
+                            Offers
+                        </h2>
+                        <h1 className="serif heading white left">
+                            {offer.title}
+                        </h1>
+                        <div
+                            className="sans-serif white left"
+                            dangerouslySetInnerHTML={{
+                                __html: `${offer.singleOffers.offerDescription}`,
+                            }}></div>
                         <ReservationButton>
-                            <Link href={`${offer.singleOffers.bookingLink}`} passHref>
+                            <Link
+                                href={`${offer.singleOffers.bookingLink}`}
+                                passHref>
                                 <a target="_blank">Book Now</a>
                             </Link>
                         </ReservationButton>
                         <p className="terms-link sans-serif white body underline left">
-                            <Link href="null" passHref><a onClick={handleClick}>Terms & Conditions</a></Link>
+                            <Link href="null" passHref>
+                                <a onClick={handleClick}>Terms & Conditions</a>
+                            </Link>
                         </p>
                     </TextContainer>
                 </SingleOfferContent>
