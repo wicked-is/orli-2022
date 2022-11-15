@@ -424,7 +424,7 @@ export default function RoomsGrid(props) {
                                         bg={
                                             room.featuredImage.node.mediaItemUrl
                                         }>
-                                        {room.singleRooms
+                                         {room.singleRooms
                                             .includeVideoOnFindYourRoomTile && (
                                             <VideoContainer
                                                 id="video-container"

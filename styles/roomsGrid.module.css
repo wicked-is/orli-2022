@@ -24,17 +24,10 @@
     container: tile / inline-size;
 }
 
-@container tile (max-width: 565px) {
-    .gridList li video {
-        display: none;
-    }
-}
-
 .roomsGrid li:nth-child(1),
 .roomsGrid li:nth-child(4),
 .roomsGrid li:nth-child(8),
-.roomsGrid li:nth-child(11),
-.roomsGrid li:nth-child(7) {
+.roomsGrid li:nth-child(11) {
     width: 28.33%;
     position: relative;
     margin: 2% 1% 2% 5%;
@@ -66,21 +59,10 @@
     min-height: 65vh;
 }
 
-@container tile (max-width: 565px) {
-    .roomsGrid li video {
-        display: none;
-    }
-}
-
 .roomsGrid li:nth-child(7) > a > div:first-of-type {
     min-height: 65vh;
 }
 
-@media screen and (min-width: 600px) {
-    .roomsGrid li:nth-child(7) > a > div:first-of-type {
-        background-image: unset;
-    }
-}
 @media screen and (max-width: 800px) {
     .roomsGrid li:nth-child(7) {
         min-height: unset;
@@ -106,6 +88,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
 }
+
 .roomimage {
     display: none !important;
 }
@@ -114,6 +97,25 @@
 .theme:before {
     content: "|";
     margin: 0 0.5rem;
+}
+
+@container tile (max-width: 565px) {
+    .roomsGrid li video {
+        display: none;
+    }
+    .roomsGrid li:nth-child(7) .text {
+        position: relative;
+        bottom: unset;
+        left: unset;
+        z-index: 9;
+        display: block;
+    }
+    .roomsGrid li:nth-child(7) > a > div:first-of-type {
+        min-height: unset;
+    }
+    .roomsGrid li:nth-child(7) .text p {
+        color: var(--black) !important;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -139,6 +141,7 @@
     }
 }
 @media screen and (max-width: 600px) {
+    .roomsGrid li:nth-child(7):has(video) {min-height: unset;}
     .roomsGrid li:nth-child(1),
     .roomsGrid li:nth-child(3),
     .roomsGrid li:nth-child(5),
