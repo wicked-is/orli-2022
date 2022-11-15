@@ -501,7 +501,9 @@ export default function TheLocalWay(props) {
 
             mainMarker = new google.maps.Marker({
                 position: { lat: 32.843764, lng: -117.277141},
-                icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/navy-pin.png"
+                icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/navy-pin.png",
+                title: 'Location Marker',
+                optimized: false,
             });
 
             markers.push(mainMarker)
@@ -515,7 +517,9 @@ export default function TheLocalWay(props) {
                         let aNewMarker = new google.maps.Marker({
                             position: { lat: Number(location.lat), lng: Number(location.long)},
                             icon: "https://orlidev.wpengine.com/wp-content/uploads/2022/07/picker.svg",
-                            map: map
+                            map: map,
+                            title: 'Location Marker',
+                            optimized: false,
                         });
 
                         // Show Title on Pin Click
