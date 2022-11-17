@@ -14,12 +14,11 @@ export default function Layout(props) {
         maxDisplays: 2,
         eventThrottle: 100,
         onExitIntent: () => {
-            console.log('exit-intent triggered')
-            setshowModal('true');
+            console.log('exit-intent triggered');
+            setshowModal(true);
         }    
     })
-  
-    removeExitIntent()
+
     }
 
     return (

@@ -145,6 +145,11 @@ input#email::placeholder {
     color: var(--white);
 }
 
+.exitForm input::placeholder,
+.exitForm input#email::placeholder {
+    color: var(--black) !important;
+}
+
 .email-signup button {
     background: var(--brown);
     color: var(--white);

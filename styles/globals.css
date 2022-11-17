@@ -490,14 +490,6 @@ input[type="date"]:-o-placeholder {
     color: #000 !important;
 }
 
-input[type="email"]::-webkit-input-placeholder,
-input[type="email"]::placeholder,
-input[type="email"]:-moz-placeholder,
-input[type="email"]::-webkit-placeholder,
-input[type="email"]:-o-placeholder {
-    color: #fff !important;
-}
-
 @media (max-width: 767px) {
     @supports (-webkit-overflow-scrolling: touch) {
         input[type="date"]:before {

@@ -29,14 +29,34 @@ const ExitContainer = styled.div`
     top: 50%;
     left: 50%;
     -ms-transform: translateY(-50%, -50%);
+    -webkit-transform: translateY(-50%, -50%);
     transform: translate(-50%, -50%);
+
+    @media only screen and (max-width: 820px) {
+        & {
+            flex-direction: column;
+            flex-wrap: unset;
+            overflow-y: scroll;
+            max-width: 80%;
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        & {
+            height: 80vh;
+        }
+    }
 `;
 
 const ImageContainer = styled.div`
     width: 50%;
-    overflow: hidden;
     height: 100%;
-    position: relative;
+    overflow: hidden;
+
+    @media only screen and (max-width: 820px) {
+        & {
+            display: none;
+        }
+    }
 `;
 
 const ContentContainer = styled.div`
@@ -46,29 +66,63 @@ const ContentContainer = styled.div`
     position: relative;
 
     & .close {
-        position: absolute; right: 1rem; top: 1rem;
+        position: absolute; 
+        right: 1rem; 
+        top: 1rem;
+    }
+    @media only screen and (max-width: 820px) {
+        & {
+            width: 100%; 
+            height: auto;
+        }
     }
 `;
 
 const TextContainer = styled.div`
     padding: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    width: 100%;
+    -ms-transform: translateY(-50%, -50%);
+    -webkit-transform: translateY(-50%, -50%);
+    transform: translate(-50%, -50%);
 
+    & #firstname,
+    & #lastname,
     & #email {
         border-left: 0px;
+        color: var(--black);
         width: 100%;
         border-top: 0px;
+        font-size: var(--body);
         border-right: 0px;
         border-bottom: 1px solid var(--black);
+        padding: 1rem 0rem;
+        font-family: "GT Walsheim Light";
     }
     & .submit {
         background: var(--brown);
         color: var(--white);
         text-transform: uppercase;
-        padding: 0.5rem 2rem;
+        padding: 0.7rem 2rem;
         border: 0px;
         margin: 2rem auto auto;
         font-family: "GT Walsheim Light";
         font-size: var(--xs-copy);
+    }
+
+    @media only screen and (max-width: 1024px) {
+        & {
+            position: relative;
+            padding: 3rem 2rem;
+        }
+    }
+    @media only screen and (max-width: 820px) {
+        & {
+            position: relative;
+            padding: 4rem 2rem;
+        }
     }
 `;
 
@@ -86,7 +140,7 @@ export default function ExitIntent(props) {
         e.preventDefault();
 
         const res = await fetch(
-            "https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/",
+            "https://hooks.zapier.com/hooks/catch/2001353/bpab493/",
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -118,7 +172,7 @@ export default function ExitIntent(props) {
                 <div className="close" onClick={() => props.toggleModal(false)}>
                     <Image src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg" alt="close" width={30} height={30} layout="intrinsic"/>
                 </div>
-                <TextContainer>
+                <TextContainer className="exitForm">
                     <h3 className="serif heading black left">Psst! Don't Miss Out</h3>
                     <p className="sans-serif body black left">Be the first to know about exclusive offers and special happenings at Orli La Jolla.
 </p>  
@@ -128,7 +182,7 @@ export default function ExitIntent(props) {
                             display: "flex",
                             alignContent: "center",
                         }}>
-                            <p className="sans-serif copyright xs-copy white left" style={{
+                            <p className="sans-serif copyright body black left" style={{
                                 verticalAlign: "center",
                             }}>
                                 Success. Thanks for joining us.
@@ -137,7 +191,7 @@ export default function ExitIntent(props) {
                         ) : (
                         <form
                             id="emailcapture"
-                            action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/"
+                            action="https://hooks.zapier.com/hooks/catch/2001353/bpab493/"
                             onSubmit={handleSubmit}>
                             <input
                                 id="firstname"
@@ -166,7 +220,7 @@ export default function ExitIntent(props) {
                                         setEmail(event.target.value)
                                     }
                                 />
-                            <button className="submit" aria-label="button">Submit</button>
+                            <button className="submit" aria-label="button">Add Me</button>
                         </form>
                     )}
                 </TextContainer>
