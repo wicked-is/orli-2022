@@ -18,39 +18,35 @@ const SingleOfferContainer = styled.div`
 const SingleOfferContent = styled.div`
     width: 100%;
     height: auto;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     z-index: 2;
-    background-position: center center;
-    background-size: cover !important;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
 
-    & .mobileshow {
-        display: none;
-    }
-
-    @media only screen and (max-width: 820px) {
-        height: auto;
-        background-image: unset !important;
-        & .mobileshow {
-            display: block;
-        }
+    @media screen and (max-width: 865px) {
+        flex-direction: column;
     }
 `;
-
+const ImageContainer = styled.div`
+    flex: 1.5;
+    padding: 8rem 0rem 3rem 6rem;
+    @media screen and (max-width: 865px) {
+        padding: 0;
+    }
+`;
 const TextContainer = styled.div`
-    padding: 8rem 6rem;
-    width: 40%;
+    padding: 8rem 6rem 3rem 6rem;
+    /* width: 40%; */
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 
     & h2,
     & h1 {
         width: 100%;
     }
     & h1 {
-        padding: 0rem 0rem 2rem 0rem;
+        padding: 0;
     }
     & ul {
         margin-block-start: 0em;
@@ -77,15 +73,15 @@ const TextContainer = styled.div`
         color: var(--white);
     }
 
-    @media only screen and (max-width: 1440px) {
+    @media only screen and (max-width: 1100px) {
         & {
-            width: 60%;
+            padding: 8rem 3rem 3rem;
         }
     }
-    @media only screen and (max-width: 1024px) {
-        & {
-            width: 60%;
-        }
+    @media screen and (max-width: 865px) {
+        padding-top: 3rem;
+        width: 75vw;
+        margin: 0 auto;
     }
     @media only screen and (max-width: 820px) {
         & {
@@ -104,7 +100,7 @@ const TextContainer = styled.div`
 `;
 
 const ReservationButton = styled.button`
-    margin: 2rem 0 0 0;
+    margin: 0;
     padding: 1.5rem 4rem;
     color: #fff;
     text-transform: uppercase;
@@ -213,28 +209,25 @@ export default function DefaultOffersPage(props) {
                         </div>
                     </div>
                 </QuickViewContainer>
-                <SingleOfferContent
-                    style={{
-                        backgroundImage: `linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)), url(${offer.singleOffers.offerImage.mediaItemUrl})`,
-                    }}>
-                    <div className="mobileshow">
+                <SingleOfferContent>
+                    <ImageContainer>
                         <Image
                             src={offer.singleOffers.offerImage.mediaItemUrl}
                             alt={offer.singleOffers.offerImage.altText}
-                            width={1728}
-                            height={1003}
+                            width={853}
+                            height={698}
+                            // width={1728}
+                            // height={1003}
                             layout="responsive"
                         />
-                    </div>
+                    </ImageContainer>
                     <TextContainer>
-                        <h2 className="sans-serif-bold sub-heading white left">
+                        <h2 className="sans-serif-bold sub-heading left">
                             Offers
                         </h2>
-                        <h1 className="serif heading white left">
-                            {offer.title}
-                        </h1>
+                        <h1 className="serif heading left">{offer.title}</h1>
                         <div
-                            className="sans-serif white left"
+                            className="sans-serif left"
                             dangerouslySetInnerHTML={{
                                 __html: `${offer.singleOffers.offerDescription}`,
                             }}></div>
@@ -245,7 +238,7 @@ export default function DefaultOffersPage(props) {
                                 <a target="_blank">Book Now</a>
                             </Link>
                         </ReservationButton>
-                        <p className="terms-link sans-serif white body underline left">
+                        <p className="terms-link sans-serif body underline left">
                             <Link href="null" passHref>
                                 <a onClick={handleClick}>Terms & Conditions</a>
                             </Link>
