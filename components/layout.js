@@ -29,7 +29,6 @@ export default function Layout(props) {
             }`}>
             <Header navItems={props.navItems} topBar={props.topBar} />
             <main>{props.children}</main>
-            {/* { showModal && <ExitIntent toggleModal={setshowModal}/>} */}
             <Footer footerImages={props.footerImages} />
         </div>
     );

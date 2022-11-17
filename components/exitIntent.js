@@ -52,9 +52,30 @@ const ImageContainer = styled.div`
     height: 100%;
     overflow: hidden;
 
+    @media only screen and (max-width:1024px) {
+        & { 
+            width: 50%;
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        & span {position: unset !important;}
+
+        & .desktop {
+            width: auto !important;
+            min-width: auto !important;
+            max-width: unset !important;
+            height: 100% !important;
+            min-height: 100% !important;
+            max-height: 100% !important;
+            margin: 0 0 0 -25rem;
+        }
+    }
+
     @media only screen and (max-width: 820px) {
         & {
-            display: none;
+            display: none
         }
     }
 `;
@@ -168,6 +189,7 @@ export default function ExitIntent(props) {
                         width={1136}
                         height={1318}
                         layout="intrinsic"
+                        className="desktop"
                     />
                 </ImageContainer>
                 <ContentContainer>
