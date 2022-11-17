@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useWindowSize } from "../utils/hooks";
 import styled, { css } from "styled-components";
 
@@ -12,7 +12,7 @@ const ExitUnderlay = styled.div`
     display: block;
     left: 0px;
     bottom: 0px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 998;
 `;
 
@@ -66,13 +66,13 @@ const ContentContainer = styled.div`
     position: relative;
 
     & .close {
-        position: absolute; 
-        right: 1rem; 
+        position: absolute;
+        right: 1rem;
         top: 1rem;
     }
     @media only screen and (max-width: 820px) {
         & {
-            width: 100%; 
+            width: 100%;
             height: auto;
         }
     }
@@ -82,7 +82,7 @@ const TextContainer = styled.div`
     padding: 4rem;
     position: absolute;
     top: 50%;
-    left: 50%; 
+    left: 50%;
     width: 100%;
     -ms-transform: translateY(-50%, -50%);
     -webkit-transform: translateY(-50%, -50%);
@@ -127,7 +127,7 @@ const TextContainer = styled.div`
 `;
 
 export default function ExitIntent(props) {
-    const {headline, bodyCopy, image} = props
+    const { headline, bodyCopy, image } = props;
 
     const size = useWindowSize();
 
@@ -144,7 +144,9 @@ export default function ExitIntent(props) {
             {
                 method: "POST",
                 body: JSON.stringify({
-                    email, firstname, lastname
+                    email,
+                    firstname,
+                    lastname,
                 }),
             }
         );
@@ -158,61 +160,74 @@ export default function ExitIntent(props) {
 
     return (
         <section>
-        <ExitContainer>
-            <ImageContainer>
-            <Image 
-                src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/orli-la-jolla-girl-and-dog-at-window.jpg"
-                alt="orli la jolla woman and dog by the window"
-                width={1136}
-                height={1318}
-                layout="intrinsic"
-            />
-            </ImageContainer>
-            <ContentContainer>
-                <div className="close" onClick={() => props.toggleModal(false)}>
-                    <Image src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg" alt="close" width={30} height={30} layout="intrinsic"/>
-                </div>
-                <TextContainer className="exitForm">
-                    <h3 className="serif heading black left">Psst! Don't Miss Out</h3>
-                    <p className="sans-serif body black left">Be the first to know about exclusive offers and special happenings at Orli La Jolla.
-</p>  
-                    {success ? (
-                        <div style={{
-                            minHeight: "47px",
-                            display: "flex",
-                            alignContent: "center",
-                        }}>
-                            <p className="sans-serif copyright body black left" style={{
-                                verticalAlign: "center",
-                            }}>
-                                Success. Thanks for joining us.
-                            </p>
-                        </div>
+            <ExitContainer>
+                <ImageContainer>
+                    <Image
+                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/orli-la-jolla-girl-and-dog-at-window.jpg"
+                        alt="orli la jolla woman and dog by the window"
+                        width={1136}
+                        height={1318}
+                        layout="intrinsic"
+                    />
+                </ImageContainer>
+                <ContentContainer>
+                    <div
+                        className="close"
+                        onClick={() => props.toggleModal(false)}>
+                        <Image
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg"
+                            alt="close"
+                            width={30}
+                            height={30}
+                            layout="intrinsic"
+                        />
+                    </div>
+                    <TextContainer className="exitForm">
+                        <h3 className="serif heading black left">
+                            Psst! Don&apos;t Miss Out
+                        </h3>
+                        <p className="sans-serif body black left">
+                            Be the first to know about exclusive offers and
+                            special happenings at Orli La Jolla.
+                        </p>
+                        {success ? (
+                            <div
+                                style={{
+                                    minHeight: "47px",
+                                    display: "flex",
+                                    alignContent: "center",
+                                }}>
+                                <p
+                                    className="sans-serif copyright body black left"
+                                    style={{
+                                        verticalAlign: "center",
+                                    }}>
+                                    Success. Thanks for joining us.
+                                </p>
+                            </div>
                         ) : (
-                        <form
-                            id="emailcapture"
-                            action="https://hooks.zapier.com/hooks/catch/2001353/bpab493/"
-                            onSubmit={handleSubmit}>
-                            <input
-                                id="firstname"
-                                name="firstname"
-                                value={firstname}
-                                 placeholder="First Name*"
-                                onChange={() =>
-                                 setFirst(event.target.value)
-                                }
-                             />
-                             <input
-                                id="lastname"
-                                name="lastname"
-                                value={lastname}
-                                 placeholder="Last Name*"
-                                onChange={() =>
-                                 setLast(event.target.value)
-                                }
-                              />
-                            <input
-                                id="email"
+                            <form
+                                id="emailcapture"
+                                action="https://hooks.zapier.com/hooks/catch/2001353/bpab493/"
+                                onSubmit={handleSubmit}>
+                                <input
+                                    id="firstname"
+                                    name="firstname"
+                                    value={firstname}
+                                    placeholder="First Name*"
+                                    onChange={() =>
+                                        setFirst(event.target.value)
+                                    }
+                                />
+                                <input
+                                    id="lastname"
+                                    name="lastname"
+                                    value={lastname}
+                                    placeholder="Last Name*"
+                                    onChange={() => setLast(event.target.value)}
+                                />
+                                <input
+                                    id="email"
                                     name="email"
                                     value={email}
                                     placeholder="Enter Email*"
@@ -220,13 +235,15 @@ export default function ExitIntent(props) {
                                         setEmail(event.target.value)
                                     }
                                 />
-                            <button className="submit" aria-label="button">Add Me</button>
-                        </form>
-                    )}
-                </TextContainer>
-            </ContentContainer>
-        </ExitContainer>
-        <ExitUnderlay></ExitUnderlay>
+                                <button className="submit" aria-label="button">
+                                    Add Me
+                                </button>
+                            </form>
+                        )}
+                    </TextContainer>
+                </ContentContainer>
+            </ExitContainer>
+            <ExitUnderlay></ExitUnderlay>
         </section>
     );
 }
