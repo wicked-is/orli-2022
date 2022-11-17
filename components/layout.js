@@ -2,9 +2,26 @@ import { useEffect, useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import Gate from "../components/Gate";
+import exitIntent from 'exit-intent'
+import ExitIntent from "../components/exitIntent";
 
 export default function Layout(props) {
-    const [isLoggedIn, setisLoggedIn] = useState(false);
+    const [showModal, setshowModal] = useState(false);
+
+    if (typeof document !== 'undefined') {
+    const removeExitIntent = exitIntent({
+        threshold: 50,
+        maxDisplays: 2,
+        eventThrottle: 100,
+        onExitIntent: () => {
+            console.log('exit-intent triggered')
+            setshowModal('true');
+        }    
+    })
+  
+    removeExitIntent()
+    }
+
     return (
         <div
             className={`${
@@ -14,6 +31,7 @@ export default function Layout(props) {
             }`}>
             <Header navItems={props.navItems} topBar={props.topBar} />
             <main>{props.children}</main>
+            { showModal && <ExitIntent toggleModal={setshowModal}/>}
             <Footer footerImages={props.footerImages} />
         </div>
     );

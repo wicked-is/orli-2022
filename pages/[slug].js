@@ -444,6 +444,14 @@ export async function getStaticProps({ params }) {
               announcementBarText
               isAnnouncementBarActive
             }
+            exitPopup {
+              bodyCopy
+              headline
+              image {
+                altText
+                mediaItemUrl
+              }
+            }
             socialFooter {
               altText
               mediaItemUrl
