@@ -60,9 +60,7 @@ const ImageContainer = styled.div`
     position: relative;
 
     background: ${props =>
-        props.bgImage &&
-        props.onPage &&
-        `url(${props.bgImage}) no-repeat right center`};
+        props.bgImage && `url(${props.bgImage}) no-repeat right center`};
     background-size: ${props => props.bgImage && `cover`};
 
     & span {
@@ -76,6 +74,9 @@ const ImageContainer = styled.div`
         height: 100% !important;
         min-height: 100% !important;
         max-height: 100% !important;
+    }
+    img {
+        display: none !important;
     }
 
     @media only screen and (max-width: 1024px) {
