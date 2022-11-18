@@ -19,25 +19,31 @@ const ExitUnderlay = styled.div`
 const ExitContainer = styled.div`
     position: fixed;
     width: 100%;
-    max-width: 70%;
+    max-width: ${props => (props.onPage ? "100vw" : "70%")};
     margin: auto;
     display: flex;
-    height: 70vh;
+    height: ${props => (props.onPage ? "100vh" : "70vh")};
     flex-wrap: wrap;
     z-index: 999;
     align-items: center;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translateY(-50%, -50%);
-    -webkit-transform: translateY(-50%, -50%);
-    transform: translate(-50%, -50%);
+    top: ${props => (props.onPage ? "64px" : "50%")};
+    left: ${props => (props.onPage ? "0" : "50%")};
+    -ms-transform: ${props =>
+        props.onPage ? "unset" : "translateY(-50%, -50%)"};
+    -webkit-transform: ${props =>
+        props.onPage ? "unset" : "translateY(-50%, -50%)"};
+    transform: ${props => {
+        return props.onPage ? "unset" : "translate(-50%, -50%)";
+    }};
 
     @media only screen and (max-width: 820px) {
         & {
             flex-direction: column;
             flex-wrap: unset;
             overflow-y: scroll;
-            max-width: 80%;
+            max-width: ${props => (props.onPage ? "100%" : "80%")};
+            top: ${props => props.onPage && "0"};
+            height: ${props => props.onPage && "90vh"};
         }
     }
     @media only screen and (max-width: 375px) {
@@ -49,22 +55,30 @@ const ExitContainer = styled.div`
 
 const ImageContainer = styled.div`
     width: 50%;
-    height: 70vh;
+    height: ${props => (props.onPage ? "100vh" : "70vh")};
     overflow: hidden;
     position: relative;
 
-    & span {position: unset !important;}
+    background: ${props =>
+        props.bgImage &&
+        props.onPage &&
+        `url(${props.bgImage}) no-repeat right center`};
+    background-size: ${props => props.bgImage && `cover`};
+
+    & span {
+        position: unset !important;
+    }
 
     & .desktop {
         width: unset !important;
         max-width: unset !important;
         min-width: unset !important;
-        height: 100%!important;
+        height: 100% !important;
         min-height: 100% !important;
         max-height: 100% !important;
     }
 
-    @media only screen and (max-width:1024px) {
+    @media only screen and (max-width: 1024px) {
         & .desktop {
             margin: 0 0 0 -18rem !important;
         }
@@ -72,7 +86,8 @@ const ImageContainer = styled.div`
 
     @media only screen and (max-width: 820px) {
         & {
-            display: none
+            display: ${props => (props.onPage ? "block" : "none")};
+            width: ${props => props.onPage && "100%"};
         }
     }
 `;
@@ -146,7 +161,7 @@ const TextContainer = styled.div`
 `;
 
 export default function ExitIntent(props) {
-    const { headline, bodyCopy, image } = props;
+    const { headline, bodyCopy, image, isPage } = props;
 
     const size = useWindowSize();
 
@@ -179,29 +194,38 @@ export default function ExitIntent(props) {
 
     return (
         <section>
-            <ExitContainer>
-                <ImageContainer>
-                    <Image
-                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/orli-la-jolla-girl-and-dog-at-window.jpg"
-                        alt="orli la jolla woman and dog by the window"
-                        width={1136}
-                        height={1318}
-                        layout="intrinsic"
-                        className="desktop"
-                    />
-                </ImageContainer>
-                <ContentContainer>
-                    <div
-                        className="close"
-                        onClick={() => props.toggleModal(false)}>
+            <ExitContainer onPage={isPage}>
+                <ImageContainer
+                    onPage={isPage}
+                    bgImage="https://orlidev.wpengine.com/wp-content/uploads/2022/11/orli-la-jolla-girl-and-dog-at-window.jpg">
+                    {!isPage && (
                         <Image
-                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg"
-                            alt="close"
-                            width={30}
-                            height={30}
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/orli-la-jolla-girl-and-dog-at-window.jpg"
+                            alt="orli la jolla woman and dog by the window"
+                            width={1136}
+                            height={1318}
                             layout="intrinsic"
+                            className="desktop"
                         />
-                    </div>
+                    )}
+                </ImageContainer>
+                <ContentContainer onPage={isPage}>
+                    {!isPage && size.width > 821 && (
+                        <div
+                            className="close"
+                            onClick={() => {
+                                props.toggleModal.sethasModalShown(true);
+                                props.toggleModal.setshowModal(false);
+                            }}>
+                            <Image
+                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg"
+                                alt="close"
+                                width={30}
+                                height={30}
+                                layout="intrinsic"
+                            />
+                        </div>
+                    )}
                     <TextContainer className="exitForm">
                         <h3 className="serif heading black left">
                             Psst! Don&apos;t Miss Out
@@ -263,7 +287,7 @@ export default function ExitIntent(props) {
                     </TextContainer>
                 </ContentContainer>
             </ExitContainer>
-            <ExitUnderlay></ExitUnderlay>
+            {!isPage && <ExitUnderlay></ExitUnderlay>}
         </section>
     );
 }

@@ -7,14 +7,14 @@ import ExitIntent from "../components/exitIntent";
 
 export default function Layout(props) {
     const [showModal, setshowModal] = useState(false);
+    const [hasModalShown, sethasModalShown] = useState(false);
 
     if (typeof document !== "undefined") {
         const removeExitIntent = exitIntent({
             threshold: 10,
-            maxDisplays: 2,
-            eventThrottle: 100,
+            maxDisplays: 1,
+            eventThrottle: 200,
             onExitIntent: () => {
-                console.log("exit-intent triggered");
                 setshowModal(true);
             },
         });
@@ -29,8 +29,10 @@ export default function Layout(props) {
             }`}>
             <Header navItems={props.navItems} topBar={props.topBar} />
             <main>{props.children}</main>
-            {showModal && <ExitIntent toggleModal={setshowModal} />}
-            <Footer footerImages={props.footerImages} />
+            {showModal && !hasModalShown && props.page !== "/email" && (
+                <ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
+            )}
+            <Footer page={props.page} />
         </div>
     );
 }

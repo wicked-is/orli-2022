@@ -84,249 +84,68 @@ export default function Footer(props) {
 
     return (
         <>
-            <FauxSocialFeed image={props.footerImages} />
+            {props.page !== "/email" && (
+                <FauxSocialFeed image={props.footerImages} />
+            )}
 
-            {size.width < 768 ? (
-                <>
-                    <MobileFooterContainer className="mobile-footer">
-                        <div className="email-signup">
-                            <p className="serif white left">
-                                Exclusive Offers, News & Events
-                            </p>
-                            {success ? (
-                                <div className="sans-serif body-copy white left">
-                                    <p>Success. Thanks for joining us.</p>
-                                </div>
-                            ) : (
-                                <form id="emailcapture" onSubmit={handleSubmit}>
-                                    <input
-                                        id="email"
-                                        name="email"
-                                        value={email}
-                                        placeholder="Enter Email*"
-                                        onChange={() =>
-                                            setEmail(event.target.value)
-                                        }
-                                    />
-                                    <button className="submit">Submit</button>
-                                </form>
-                            )}
-                        </div>
-                        <Link href="/">
-                            <a>
-                                <img
-                                    className="mobilefooter-logo"
-                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
-                                    alt="orli logo"
-                                />
-                            </a>
-                        </Link>
-                        <p className="heading white mb-2">Contact Us</p>
-                        <ColumnContainer>
-                            <Left>
-                                <address className="sans-serif xs-copy white left">
-                                    Orli La Jolla
-                                    <br />
-                                    7753 Draper Ave,
-                                    <br />
-                                    La Jolla, CA 92037
-                                </address>
-
-                                <GetDirectionsLink className="directions xs-copy white left">
-                                    <Link
-                                        target="_blank"
-                                        href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">
-                                        Get Directions
-                                    </Link>
-                                </GetDirectionsLink>
-                                <div>
-                                    <p
-                                        className="sans-serif xs-copy white left mt-0"
-                                        id="phone-number">
-                                        T:{" "}
-                                        <a href="tel:6195760806">
-                                            619.576.0806
-                                        </a>
-                                        <br />
-                                        E: info@stayorli.com
-                                        <br />
-                                        <br />
-                                        <span className="contactText">
-                                            <Link href="/contact">Contact</Link>
-                                        </span>
-                                    </p>
-                                    <ul className="socials">
-                                        <li>
-                                            <a
-                                                href="https://www.instagram.com/stayorli/"
-                                                target="_blank"
-                                                rel="noopener noreferrer">
-                                                <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
-                                                    alt="Instagram Logo"
-                                                    className="instagram"
-                                                    width={30}
-                                                    height={30}
-                                                />
-                                            </a>
-                                        </li>
-                                        {/* <li>
-                                            <Link href="/">
-                                                <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
-                                                    alt="facebook Logo"
-                                                    className="facebook"
-                                                    width={14}
-                                                    height={30} />
-                                            </Link>
-                                        </li> */}
-                                        <li>
-                                            <a
-                                                target="_blank"
-                                                href="https://open.spotify.com/playlist/5dt0gGfjFDjfd4CJe22E8T?si=278d0b0810534a75"
-                                                rel="noopener noreferrer">
-                                                <Image
-                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/spotify-brands.svg"
-                                                    alt="spotify logo"
-                                                    className="spotify"
-                                                    width={30}
-                                                    height={30}
-                                                />
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p className="sans-serif copyright xs-copy white left">
-                                    © 2022 Orli La Jolla
+            {props.page !== "/email" &&
+                (size.width < 768 ? (
+                    <>
+                        <MobileFooterContainer className="mobile-footer">
+                            <div className="email-signup">
+                                <p className="serif white left">
+                                    Exclusive Offers, News & Events
                                 </p>
-                            </Left>
-                            <Right>
-                                <div className="footer-links">
-                                    <Link href="/find-your-room">Rooms</Link>
-                                    <Link href="/amenities">Amenities</Link>
-                                    <Link href="/discoveries">Discoveries</Link>
-                                    <Link href="/gatherings">Events</Link>
-                                    <Link href="/our-story">Story</Link>
-                                    <Link href="/the-journal">Journal</Link>
-                                    <Link href="/gallery">Gallery</Link>
-                                    <Link href="/press">Press</Link>
-                                    <Link
-                                        href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
-                                        passHref>
-                                        <a target="_blank">Gift Cards</a>
-                                    </Link>
-                                    <Link
-                                        href="/privacy-policy"
-                                        className="privacy">
-                                        Privacy Policy
-                                    </Link>
-                                    <Link href="/cookie-policy">
-                                        Cookie Policy
-                                    </Link>
-                                    <Link href="/terms-conditions">
-                                        Terms & Conditions
-                                    </Link>
-                                </div>
-                            </Right>
-                        </ColumnContainer>
-                    </MobileFooterContainer>
-                </>
-            ) : (
-                <footer className="footer desk-footer">
-                    <div className="inner-container">
-                        <div>
-                            <div>
-                                <Link href="/">
-                                    <a>
-                                        <img
-                                            className="footer-logo"
-                                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
-                                            width={380}
-                                            height={75}
-                                            alt="orli la jolla logo"
-                                            //   layout="responsive"
+                                {success ? (
+                                    <div className="sans-serif body-copy white left">
+                                        <p>Success. Thanks for joining us.</p>
+                                    </div>
+                                ) : (
+                                    <form
+                                        id="emailcapture"
+                                        onSubmit={handleSubmit}>
+                                        <input
+                                            id="email"
+                                            name="email"
+                                            value={email}
+                                            placeholder="Enter Email*"
+                                            onChange={() =>
+                                                setEmail(event.target.value)
+                                            }
                                         />
-                                    </a>
-                                </Link>
+                                        <button className="submit">
+                                            Submit
+                                        </button>
+                                    </form>
+                                )}
                             </div>
-                            <div>
-                                <address className="sans-serif xs-copy white left">
-                                    Orli La Jolla
-                                    <br />
-                                    7753 Draper Ave,
-                                    <br />
-                                    La Jolla, CA 92037
-                                </address>
+                            <Link href="/">
+                                <a>
+                                    <img
+                                        className="mobilefooter-logo"
+                                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
+                                        alt="orli logo"
+                                    />
+                                </a>
+                            </Link>
+                            <p className="heading white mb-2">Contact Us</p>
+                            <ColumnContainer>
+                                <Left>
+                                    <address className="sans-serif xs-copy white left">
+                                        Orli La Jolla
+                                        <br />
+                                        7753 Draper Ave,
+                                        <br />
+                                        La Jolla, CA 92037
+                                    </address>
 
-                                <p className="directions xs-copy white left">
-                                    <Link href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">
-                                        Get Directions
-                                    </Link>
-                                </p>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div className="email-signup">
-                                    <p className="serif white left">
-                                        Exclusive Offers, News & Events
-                                    </p>
-                                    {success ? (
-                                        <div
-                                            style={{
-                                                minHeight: "47px",
-                                                display: "flex",
-                                                alignContent: "center",
-                                            }}>
-                                            <p
-                                                className="sans-serif copyright xs-copy white left"
-                                                style={{
-                                                    verticalAlign: "center",
-                                                }}>
-                                                Success. Thanks for joining us.
-                                            </p>
-                                        </div>
-                                    ) : (
-                                        <form
-                                            id="emailcapture"
-                                            action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/"
-                                            onSubmit={handleSubmit}>
-                                            <input
-                                                id="email"
-                                                name="email"
-                                                value={email}
-                                                placeholder="Enter Email*"
-                                                onChange={() =>
-                                                    setEmail(event.target.value)
-                                                }
-                                            />
-                                            <button className="submit">
-                                                Submit
-                                            </button>
-                                        </form>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div>
-                                <div className="footer-links">
-                                    <Link href="/find-your-room">Rooms</Link>
-                                    <Link href="/our-story">Story</Link>
-                                    <Link href="/amenities">Amenities</Link>
-                                    <Link href="/the-journal">Journal</Link>
-                                    <Link href="/discoveries">Discoveries</Link>
-                                    <Link href="/gallery">Gallery</Link>
-                                    <Link href="/gatherings">Events</Link>
-                                    <Link href="/press">Press</Link>
-                                    <Link
-                                        href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
-                                        passHref>
-                                        <a target="_blank">Gift Cards</a>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
+                                    <GetDirectionsLink className="directions xs-copy white left">
+                                        <Link
+                                            target="_blank"
+                                            href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">
+                                            Get Directions
+                                        </Link>
+                                    </GetDirectionsLink>
                                     <div>
                                         <p
                                             className="sans-serif xs-copy white left mt-0"
@@ -336,10 +155,7 @@ export default function Footer(props) {
                                                 619.576.0806
                                             </a>
                                             <br />
-                                            E:{" "}
-                                            <a href="mailto:hello@stayorli.com">
-                                                hello@stayorli.com
-                                            </a>
+                                            E: info@stayorli.com
                                             <br />
                                             <br />
                                             <span className="contactText">
@@ -364,15 +180,15 @@ export default function Footer(props) {
                                                 </a>
                                             </li>
                                             {/* <li>
-                                                <Link href="/">
-                                                    <Image
-                                                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
-                                                        alt="facebook Logo"
-                                                        className="facebook"
-                                                        width={14}
-                                                        height={30} />
-                                                </Link>
-                                            </li> */}
+                                            <Link href="/">
+                                                <Image
+                                                    src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
+                                                    alt="facebook Logo"
+                                                    className="facebook"
+                                                    width={14}
+                                                    height={30} />
+                                            </Link>
+                                        </li> */}
                                             <li>
                                                 <a
                                                     target="_blank"
@@ -389,31 +205,235 @@ export default function Footer(props) {
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div>
                                     <p className="sans-serif copyright xs-copy white left">
-                                        © 2022 Orli La Jolla |{" "}
-                                        <Link href="/privacy-policy">
+                                        © 2022 Orli La Jolla
+                                    </p>
+                                </Left>
+                                <Right>
+                                    <div className="footer-links">
+                                        <Link href="/find-your-room">
+                                            Rooms
+                                        </Link>
+                                        <Link href="/amenities">Amenities</Link>
+                                        <Link href="/discoveries">
+                                            Discoveries
+                                        </Link>
+                                        <Link href="/gatherings">Events</Link>
+                                        <Link href="/our-story">Story</Link>
+                                        <Link href="/the-journal">Journal</Link>
+                                        <Link href="/gallery">Gallery</Link>
+                                        <Link href="/press">Press</Link>
+                                        <Link
+                                            href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
+                                            passHref>
+                                            <a target="_blank">Gift Cards</a>
+                                        </Link>
+                                        <Link
+                                            href="/privacy-policy"
+                                            className="privacy">
                                             Privacy Policy
-                                        </Link>{" "}
-                                        |{" "}
+                                        </Link>
                                         <Link href="/cookie-policy">
                                             Cookie Policy
-                                        </Link>{" "}
-                                        |{" "}
+                                        </Link>
                                         <Link href="/terms-conditions">
                                             Terms & Conditions
+                                        </Link>
+                                    </div>
+                                </Right>
+                            </ColumnContainer>
+                        </MobileFooterContainer>
+                    </>
+                ) : (
+                    <footer className="footer desk-footer">
+                        <div className="inner-container">
+                            <div>
+                                <div>
+                                    <Link href="/">
+                                        <a>
+                                            <img
+                                                className="footer-logo"
+                                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
+                                                width={380}
+                                                height={75}
+                                                alt="orli la jolla logo"
+                                                //   layout="responsive"
+                                            />
+                                        </a>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <address className="sans-serif xs-copy white left">
+                                        Orli La Jolla
+                                        <br />
+                                        7753 Draper Ave,
+                                        <br />
+                                        La Jolla, CA 92037
+                                    </address>
+
+                                    <p className="directions xs-copy white left">
+                                        <Link href="https://www.google.com/search?q=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&rlz=1C5CHFA_enUS963US963&oq=7753+Draper+Ave%2C+La+Jolla%2C+CA+92037&aqs=chrome..69i57j0i512j69i60l3.816j0j4&sourceid=chrome&ie=UTF-8#">
+                                            Get Directions
                                         </Link>
                                     </p>
                                 </div>
                             </div>
+                            <div>
+                                <div>
+                                    <div className="email-signup">
+                                        <p className="serif white left">
+                                            Exclusive Offers, News & Events
+                                        </p>
+                                        {success ? (
+                                            <div
+                                                style={{
+                                                    minHeight: "47px",
+                                                    display: "flex",
+                                                    alignContent: "center",
+                                                }}>
+                                                <p
+                                                    className="sans-serif copyright xs-copy white left"
+                                                    style={{
+                                                        verticalAlign: "center",
+                                                    }}>
+                                                    Success. Thanks for joining
+                                                    us.
+                                                </p>
+                                            </div>
+                                        ) : (
+                                            <form
+                                                id="emailcapture"
+                                                action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/"
+                                                onSubmit={handleSubmit}>
+                                                <input
+                                                    id="email"
+                                                    name="email"
+                                                    value={email}
+                                                    placeholder="Enter Email*"
+                                                    onChange={() =>
+                                                        setEmail(
+                                                            event.target.value
+                                                        )
+                                                    }
+                                                />
+                                                <button className="submit">
+                                                    Submit
+                                                </button>
+                                            </form>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div className="footer-links">
+                                        <Link href="/find-your-room">
+                                            Rooms
+                                        </Link>
+                                        <Link href="/our-story">Story</Link>
+                                        <Link href="/amenities">Amenities</Link>
+                                        <Link href="/the-journal">Journal</Link>
+                                        <Link href="/discoveries">
+                                            Discoveries
+                                        </Link>
+                                        <Link href="/gallery">Gallery</Link>
+                                        <Link href="/gatherings">Events</Link>
+                                        <Link href="/press">Press</Link>
+                                        <Link
+                                            href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
+                                            passHref>
+                                            <a target="_blank">Gift Cards</a>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <p
+                                                className="sans-serif xs-copy white left mt-0"
+                                                id="phone-number">
+                                                T:{" "}
+                                                <a href="tel:6195760806">
+                                                    619.576.0806
+                                                </a>
+                                                <br />
+                                                E:{" "}
+                                                <a href="mailto:hello@stayorli.com">
+                                                    hello@stayorli.com
+                                                </a>
+                                                <br />
+                                                <br />
+                                                <span className="contactText">
+                                                    <Link href="/contact">
+                                                        Contact
+                                                    </Link>
+                                                </span>
+                                            </p>
+                                            <ul className="socials">
+                                                <li>
+                                                    <a
+                                                        href="https://www.instagram.com/stayorli/"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer">
+                                                        <Image
+                                                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
+                                                            alt="Instagram Logo"
+                                                            className="instagram"
+                                                            width={30}
+                                                            height={30}
+                                                        />
+                                                    </a>
+                                                </li>
+                                                {/* <li>
+                                                <Link href="/">
+                                                    <Image
+                                                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/facebook.svg"
+                                                        alt="facebook Logo"
+                                                        className="facebook"
+                                                        width={14}
+                                                        height={30} />
+                                                </Link>
+                                            </li> */}
+                                                <li>
+                                                    <a
+                                                        target="_blank"
+                                                        href="https://open.spotify.com/playlist/5dt0gGfjFDjfd4CJe22E8T?si=278d0b0810534a75"
+                                                        rel="noopener noreferrer">
+                                                        <Image
+                                                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/spotify-brands.svg"
+                                                            alt="spotify logo"
+                                                            className="spotify"
+                                                            width={30}
+                                                            height={30}
+                                                        />
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <p className="sans-serif copyright xs-copy white left">
+                                            © 2022 Orli La Jolla |{" "}
+                                            <Link href="/privacy-policy">
+                                                Privacy Policy
+                                            </Link>{" "}
+                                            |{" "}
+                                            <Link href="/cookie-policy">
+                                                Cookie Policy
+                                            </Link>{" "}
+                                            |{" "}
+                                            <Link href="/terms-conditions">
+                                                Terms & Conditions
+                                            </Link>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </footer>
-            )}
+                    </footer>
+                ))}
             <Script id="userway" strategy="afterInteractive">
                 {`(function(d){var s = d.createElement("script");s.setAttribute("data-account", "DA15DgPw2p");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)`}
             </Script>

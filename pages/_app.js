@@ -19,7 +19,8 @@ function MyApp(props) {
             <Layout
                 navItems={navItems == null ? [] : navItems}
                 topBar={announcementBar}
-                footerImages={socialItems}>
+                footerImages={socialItems}
+                page={props?.router?.state?.pathname}>
                 <Component {...pageProps} />
             </Layout>
         </WeatherProvider>
