@@ -236,7 +236,7 @@ export default function ExitIntent(props) {
                                     id="firstname"
                                     name="firstname"
                                     value={firstname}
-                                    placeholder="First Name*"
+                                    placeholder="First Name"
                                     onChange={() =>
                                         setFirst(event.target.value)
                                     }
@@ -245,7 +245,7 @@ export default function ExitIntent(props) {
                                     id="lastname"
                                     name="lastname"
                                     value={lastname}
-                                    placeholder="Last Name*"
+                                    placeholder="Last Name"
                                     onChange={() => setLast(event.target.value)}
                                 />
                                 <input
