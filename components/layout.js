@@ -22,13 +22,13 @@ export default function Layout(props) {
 
     return (
         <>
-            <noscript>
+            {/* <noscript>
                 <iframe
                     src="https://www.googletagmanager.com/ns.html?id=GTM-PMRKR2L"
                     height="0"
                     width="0"
                     style="display:none;visibility:hidden"></iframe>
-            </noscript>
+            </noscript> */}
 
             <div
                 className={`${
