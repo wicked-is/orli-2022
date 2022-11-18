@@ -65,23 +65,8 @@ const ImageContainer = styled.div`
     }
 
     @media only screen and (max-width:1024px) {
-        & { 
-            width: 50%;
-            position: relative;
-            height: 70vh;
-            overflow: hidden;
-        }
-
-        & span {position: unset !important;}
-
         & .desktop {
-            width: auto !important;
-            min-width: auto !important;
-            max-width: unset !important;
-            height: 100% !important;
-            min-height: 100% !important;
-            max-height: 100% !important;
-            margin: 0 0 0 -25rem;
+            margin: 0 0 0 -18rem !important;
         }
     }
 
@@ -146,7 +131,7 @@ const TextContainer = styled.div`
         font-size: var(--xs-copy);
     }
 
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1220px) {
         & {
             position: relative;
             padding: 3rem 2rem;
