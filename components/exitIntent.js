@@ -49,8 +49,20 @@ const ExitContainer = styled.div`
 
 const ImageContainer = styled.div`
     width: 50%;
-    height: 100%;
+    height: 70vh;
     overflow: hidden;
+    position: relative;
+
+    & span {position: unset !important;}
+
+    & .desktop {
+        width: unset !important;
+        max-width: unset !important;
+        min-width: unset !important;
+        height: 100%!important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+    }
 
     @media only screen and (max-width:1024px) {
         & { 
