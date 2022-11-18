@@ -90,6 +90,7 @@ const ContentContainer = styled.div`
         position: absolute;
         right: 1rem;
         top: 1rem;
+        z-index: 999;
     }
     @media only screen and (max-width: 820px) {
         & {
