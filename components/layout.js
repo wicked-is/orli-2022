@@ -10,7 +10,7 @@ export default function Layout(props) {
 
     if (typeof document !== "undefined") {
         const removeExitIntent = exitIntent({
-            threshold: 30,
+            threshold: 10,
             maxDisplays: 2,
             eventThrottle: 100,
             onExitIntent: () => {
