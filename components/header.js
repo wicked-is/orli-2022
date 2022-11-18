@@ -122,6 +122,10 @@ export default function Header(props) {
                 />
                 <link rel="icon" href={Favicon.src} />
             </Head>
+            <noscript
+                dangerouslySetInnerHTML={{
+                    __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMRKR2L" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+                }}></noscript>
             {announcementbarIsOpen && (
                 <div
                     className={styles.announcementbar}

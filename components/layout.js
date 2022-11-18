@@ -10,7 +10,7 @@ export default function Layout(props) {
 
     if (typeof document !== "undefined") {
         const removeExitIntent = exitIntent({
-            threshold: 30,
+            threshold: 10,
             maxDisplays: 2,
             eventThrottle: 100,
             onExitIntent: () => {
@@ -21,26 +21,16 @@ export default function Layout(props) {
     }
 
     return (
-        <>
-            {/* <noscript>
-                <iframe
-                    src="https://www.googletagmanager.com/ns.html?id=GTM-PMRKR2L"
-                    height="0"
-                    width="0"
-                    style="display:none;visibility:hidden"></iframe>
-            </noscript> */}
-
-            <div
-                className={`${
-                    props.topBar?.isAnnouncementBarActive === undefined
-                        ? "tob-bar-not-active"
-                        : "top-bar-active"
-                }`}>
-                <Header navItems={props.navItems} topBar={props.topBar} />
-                <main>{props.children}</main>
-                {showModal && <ExitIntent toggleModal={setshowModal} />}
-                <Footer footerImages={props.footerImages} />
-            </div>
-        </>
+        <div
+            className={`${
+                props.topBar?.isAnnouncementBarActive === undefined
+                    ? "tob-bar-not-active"
+                    : "top-bar-active"
+            }`}>
+            <Header navItems={props.navItems} topBar={props.topBar} />
+            <main>{props.children}</main>
+            {showModal && <ExitIntent toggleModal={setshowModal} />}
+            <Footer footerImages={props.footerImages} />
+        </div>
     );
 }
