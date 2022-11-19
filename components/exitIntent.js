@@ -190,7 +190,9 @@ export default function ExitIntent(props) {
     };
 
     const handleResponse = async res => {
-        if (res.status === 200) setSuccess(true);
+        if (res.status === 200) {
+            setSuccess(true);
+        }
     };
 
     return (

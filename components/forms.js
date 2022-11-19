@@ -1,5 +1,6 @@
-import styles from '../styles/forms.module.css';
-import styled from 'styled-components'
+import { useEffect, useState } from "react";
+import styles from "../styles/forms.module.css";
+import styled from "styled-components";
 
 const FormContentContainer = styled.div`
     max-width: 60vw;
@@ -11,7 +12,7 @@ const FormContentContainer = styled.div`
     @media (max-width: 601px) {
         max-width: 80vw;
     }
-`
+`;
 
 const EventForm = styled.form`
     display: grid;
@@ -22,16 +23,17 @@ const EventForm = styled.form`
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
-`
+`;
 
 const FieldGroup = styled.div`
     display: flex;
     flex-direction: column;
 
-    input, textarea {
+    input,
+    textarea {
         border: none;
         border-bottom: 1px solid black;
-        padding-block: .75rem;
+        padding-block: 0.75rem;
         border-radius: 0;
     }
 
@@ -48,7 +50,7 @@ const SubmitButtonContainer = styled.div`
     @media (max-width: 768px) {
         grid-column: 1/2;
     }
-`
+`;
 const SubmitButton = styled.button`
     display: block;
     width: fit-content;
@@ -58,80 +60,223 @@ const SubmitButton = styled.button`
     border: 1px solid var(--brown);
     padding: 1.3rem 4.5rem;
     margin-block: 2.5rem;
-`
+`;
 export default function Form(props) {
-    const {
-        type,
-        subHeadline,
-        headline,
-        blurb,
-        anchorTag
-    } = props
-    
-    const formStructure = (type) => { 
+    const { type, subHeadline, headline, blurb, anchorTag } = props;
+
+    const [firstname, setFirst] = useState("");
+    const [lastname, setLast] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [startdate, setStart] = useState("");
+    const [enddate, setEnd] = useState("");
+    const [numOfGuests, setNumOfGuests] = useState("");
+    const [numOfRooms, setNumOfRooms] = useState("");
+    const [message, setMessage] = useState("");
+    const [success, setSuccess] = useState(false);
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+
+        const res = await fetch(
+            "https://hooks.zapier.com/hooks/catch/2001353/bplvi15/",
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    email,
+                    firstname,
+                    lastname,
+                    phone,
+                    startdate,
+                    enddate,
+                    numOfGuests,
+                    numOfRooms,
+                    message,
+                }),
+            }
+        );
+
+        handleResponse(res);
+    };
+
+    const handleResponse = async res => {
+        if (res.status === 200) {
+            setSuccess(true);
+            window.location.href = "/thank-you";
+        }
+    };
+
+    const formStructure = type => {
         switch (type) {
-            case 'Event Booking':
+            case "Event Booking":
                 return (
-                    <EventForm>
+                    <EventForm
+                        id="emailcapture"
+                        action="https://hooks.zapier.com/hooks/catch/2001353/bplvi15/"
+                        onSubmit={handleSubmit}>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="firstname">First name *</label>
-                            <input required type="text" name="firstname" placeholder="First Name" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="firstname">
+                                First name *
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                name="firstname"
+                                placeholder="First Name"
+                                value={firstname}
+                                onChange={e => setFirst(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="lastname">Last Name *</label>
-                            <input required type="text" name="lastname" placeholder="Last Name" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="lastname">
+                                Last Name *
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                name="lastname"
+                                placeholder="Last Name"
+                                value={lastname}
+                                onChange={e => setLast(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="phonenumber">Phone Number*</label>
-                            <input required type="text" name="phonenumber" placeholder="Your Number" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="phonenumber">
+                                Phone Number*
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                name="phonenumber"
+                                placeholder="Your Number"
+                                value={phone}
+                                onChange={e => setPhone(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="email">Email Address*</label>
-                            <input required type="email" name="email" placeholder="Your Email" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="email">
+                                Email Address*
+                            </label>
+                            <input
+                                required
+                                type="email"
+                                name="email"
+                                placeholder="Your Email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="startdate">Event Start Date*</label>
-                            <input required type="date" name="startdate" placeholder="Event Start Date" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="startdate">
+                                Event Start Date*
+                            </label>
+                            <input
+                                required
+                                type="date"
+                                name="startdate"
+                                placeholder="Event Start Date"
+                                value={startdate}
+                                onChange={e => setStart(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="enddate">Event End Date*</label>
-                            <input required type="date" name="enddate" placeholder="Event End Date" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="enddate">
+                                Event End Date*
+                            </label>
+                            <input
+                                required
+                                type="date"
+                                name="enddate"
+                                placeholder="Event End Date"
+                                value={enddate}
+                                onChange={e => setEnd(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="nguests">Number of Guests</label>
-                            <input required type="number" name="nguests" placeholder="Number of Guests" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="nguests">
+                                Number of Guests
+                            </label>
+                            <input
+                                required
+                                type="number"
+                                name="nguests"
+                                placeholder="Number of Guests"
+                                value={numOfGuests}
+                                onChange={e => setNumOfGuests(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup>
-                            <label className="sans-serif sub-heading-bold black" htmlFor="nroom">Number of Guest Rooms</label>
-                            <input required type="number" name="nrooms" placeholder="Number of Guest Rooms" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="nroom">
+                                Number of Guest Rooms
+                            </label>
+                            <input
+                                required
+                                type="number"
+                                name="nrooms"
+                                placeholder="Number of Guest Rooms"
+                                value={numOfRooms}
+                                onChange={e => setNumOfRooms(e.target.value)}
+                            />
                         </FieldGroup>
                         <FieldGroup className="messageField">
-                            <label className="sans-serif sub-heading-bold black" htmlFor="additionaldetails">Additional Details*</label>
-                            <textarea required name="additionaldetails" placeholder="Your Message" rows="4" />
+                            <label
+                                className="sans-serif sub-heading-bold black"
+                                htmlFor="additionaldetails">
+                                Additional Details*
+                            </label>
+                            <textarea
+                                required
+                                name="additionaldetails"
+                                placeholder="Your Message"
+                                rows="4"
+                                value={message}
+                                onChange={e => setMessage(e.target.value)}
+                            />
                         </FieldGroup>
                         <SubmitButtonContainer>
-                            <SubmitButton className="sans-serif xs-copy center uppercase">Submit</SubmitButton>
+                            <SubmitButton className="sans-serif xs-copy center uppercase">
+                                Submit
+                            </SubmitButton>
                         </SubmitButtonContainer>
                     </EventForm>
-                )
-            case 'Contact Form':
-                return (
-                    <form className={styles.EventForm} >
-                    </form>
-                )
-                default:
-                    return null;
-            }
-    }
+                );
+            case "Contact Form":
+                return <form className={styles.EventForm}></form>;
+            default:
+                return null;
+        }
+    };
     return (
         <section className="max-80">
             <FormContentContainer>
-                { anchorTag && (<a id={anchorTag} name={anchorTag} className="anchor"></a>)}
-                <p className="sans-serif sub-heading-bold black left">{subHeadline}</p>
+                {anchorTag && (
+                    <a id={anchorTag} name={anchorTag} className="anchor"></a>
+                )}
+                <p className="sans-serif sub-heading-bold black left">
+                    {subHeadline}
+                </p>
                 <h3 className="serif heading black left">{headline}</h3>
-                <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: blurb}}></div>
+                <div
+                    className="sans-serif body-copy black left"
+                    dangerouslySetInnerHTML={{ __html: blurb }}></div>
                 {formStructure(type)}
             </FormContentContainer>
         </section>
-    )
+    );
 }
