@@ -5,6 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Components
 import Hero from "../components/hero";
+import FullWidthMedia from "../components/fullWidthMedia";
 import BlurbCenter from "../components/blurbCenter";
 import BlurbLeft from "../components/blurbLeft";
 import BlogGrid from "../components/BlogGrid";
@@ -118,6 +119,15 @@ export default function DefaultPage(props) {
                         />
                     );
                     break;
+                case "Post_Flexiblecontent_Sections_FullWidthMedia":
+                      gatheredSections.push(
+                          <FullWidthMedia
+                              key={componentKey}
+                              {...section}
+                              index={index}
+                          />
+                      );
+                   break;
                 case "Page_Flexiblecontent_Sections_HistoricTimeline":
                 case "Post_Flexiblecontent_Sections_HistoricTimeline":
                     gatheredSections.push(
@@ -625,6 +635,7 @@ export async function getStaticProps({ params }) {
                 mp4ExternalLink
                 webm
                 greyBackground
+                isBlogSummary
               }
               ... on Page_Flexiblecontent_Sections_DiscoveriesCallout {
                 fieldGroupName
@@ -810,6 +821,18 @@ export async function getStaticProps({ params }) {
                     ctaText
                     ctaLink
                   }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_FullWidthMedia {
+                fieldGroupName
+                types
+                iframeembed
+                imageCaption
+                videoCaption
+                mpfour
+                fullImage {
+                  mediaItemUrl
+                  altText
                 }
               }
               ... on Page_Flexiblecontent_Sections_Hero {
@@ -1303,6 +1326,7 @@ export async function getStaticProps({ params }) {
                 mp4ExternalLink
                 webm
                 greyBackground
+                isBlogSummary
               }
               ... on Post_Flexiblecontent_Sections_DiscoveriesCallout {
                 fieldGroupName
@@ -1478,12 +1502,23 @@ export async function getStaticProps({ params }) {
                   }
                 }
               }
+              ... on Post_Flexiblecontent_Sections_FullWidthMedia {
+                fieldGroupName
+                types
+                iframeembed
+                imageCaption
+                videoCaption
+                mpfour
+                fullImage {
+                  mediaItemUrl
+                  altText
+                }
+              }
               ... on Post_Flexiblecontent_Sections_Hero {
                 fieldGroupName
                 blurb
                 headline
                 pressLink
-                datePublished
                 publicationTitle
                 pressLogo {
                   mediaItemUrl
@@ -1501,6 +1536,7 @@ export async function getStaticProps({ params }) {
                   mediaItemUrl
                   altText
                 }
+                datePublished
                 subnavigation {
                   ... on Post_Flexiblecontent_Sections_Hero_subnavigation {
                     link

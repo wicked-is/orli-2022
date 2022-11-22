@@ -30,11 +30,12 @@ export default function BlurbCenter(props) {
         icon,
         imagePoster,
         mp4ExternalLink,
-        webm
+        webm,
+        isBlogSummary
     } = props
 
     return (
-        <section className={`${styles.blurbContainer} ${greyBackground && 'bg-lt-grey'} ${mp4ExternalLink ? 'has-video' : ''}`}>
+        <section className={`${styles.blurbContainer} ${greyBackground && 'bg-lt-grey'} ${mp4ExternalLink ? 'has-video' : ''} ${isBlogSummary ? 'removepadding' : 'addpadding blurbcenterfade' }`}>
             {mp4ExternalLink && (
                 <video poster={imagePoster.mediaItemUrl} autoPlay playsInline muted loop>
                     <source src={mp4ExternalLink} type="video/mp4" />
@@ -42,13 +43,13 @@ export default function BlurbCenter(props) {
                 </video>
             ) }
             <div className="max-60 center">
-                { !mp4ExternalLink && <div className={`${styles.icon} blurbcenterfade`}>
+                { !mp4ExternalLink && <div className={`${styles.icon}`}>
                     <img src={icon?.mediaItemUrl} alt={icon?.altText}/>
                 </div> }
                 {headline && ( 
-                    <p className="serif heading black center blurbcenterfade">{headline}</p>
+                    <p className="serif heading black center">{headline}</p>
                 )}
-                <p className="heading-italic blurbcenterfade">
+                <p className="heading-italic">
                     { blurb }
                 </p>
             </div>
