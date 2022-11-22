@@ -45,7 +45,7 @@ const ImageCaption = styled.p`
     display: block;
     color: var(--black);
     text-align: left;
-    font-style: italic;
+    padding: 1rem 2rem 0rem 2rem;
 `;
 const VideoCaption = styled.p`
     width: 100%;
@@ -53,7 +53,7 @@ const VideoCaption = styled.p`
     display: block;
     color: var(--black);
     text-align: left;
-    font-style: italic;
+    padding: 1rem 2rem 0rem 2rem;
 `;
 
 export default function FullWidthMedia(props) {
