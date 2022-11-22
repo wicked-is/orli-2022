@@ -337,7 +337,7 @@ export default function Hero(props) {
                             <div className={styles.journalHeroText}>
                                 <p className="xs-heading uppercase letterSpacing white">{props.categories.nodes[0].name}</p>
                                 <p className="serif heading white">{props.postTitle}</p>
-                                <p className="sans-serif body white">{datePublished}</p>
+                                {datePublished && <p className="sans-serif body white">{datePublished}</p>}
                            </div>
                             <div className={styles.overlay}></div>
                         </div>
