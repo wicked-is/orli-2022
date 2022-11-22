@@ -1483,6 +1483,7 @@ export async function getStaticProps({ params }) {
                 blurb
                 headline
                 pressLink
+                datePublished
                 publicationTitle
                 pressLogo {
                   mediaItemUrl

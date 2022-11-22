@@ -23,6 +23,7 @@ export default function Hero(props) {
         featuredRoomCtaText,
         headline,
         blurb,
+        datePublished,
         imagePoster,
         mp4ExternalLink,
         webm,
@@ -331,15 +332,13 @@ export default function Hero(props) {
                 return (
                     <div className="smheroContainer">
                         <div className={styles.smallJournalHero} style={{
-                            backgroundImage: `url(${imagePoster.mediaItemUrl})`,
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            flexDirection: 'column',
-                            padding: '5rem',
-                            position: 'relative',
+                            backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }}>
-                            <p className="xs-heading uppercase letterSpacing white" style={{ zIndex: 1}}>{props.categories.nodes[0].name}</p>
-                            <p className="serif heading white" style={{ zIndex: 1}}>{props.postTitle}</p>
+                            <div className={styles.journalHeroText}>
+                                <p className="xs-heading uppercase letterSpacing white">{props.categories.nodes[0].name}</p>
+                                <p className="serif heading white">{props.postTitle}</p>
+                                <p className="sans-serif body white">{datePublished}</p>
+                           </div>
                             <div className={styles.overlay}></div>
                         </div>
                     </div>
