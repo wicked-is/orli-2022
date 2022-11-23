@@ -19,6 +19,7 @@ const FlexWrapper = styled.div`
         flex-direction: column;
         padding-top: 0rem;
     }
+    .reorder {flex-direction: reverse !important;}
   }
 `;
 const MediaWrapper = styled.div`
@@ -121,7 +122,7 @@ export default function BigImageSmallContent(props) {
     switch (contentPosition) {
         case 'Left':
             return (
-              <div className={`${paddingType} max-80 bgimgfade`}>
+              <div className={`${paddingType} bgimgfade`}>
                 {anchorTag && (
                   <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
                 )}
@@ -238,10 +239,16 @@ export default function BigImageSmallContent(props) {
                     </p>
                     )
                   }
-                  <p className="sans-serif sub-heading-bold black left">
-                    {subHeadline}
-                  </p>
-                  <p className="serif heading black left mb-3">{headline}</p>
+                  { subHeadline && (
+                    <p className="sans-serif sub-heading-bold black left">
+                      {subHeadline}
+                    </p> 
+                    )
+                  }
+                  { headline && (
+                    <p className="serif heading black left mb-3">{headline}</p>
+                    )
+                  }
                   <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{__html: blurb,}}>
                   </div>
                 { ctaText && (
@@ -259,11 +266,11 @@ export default function BigImageSmallContent(props) {
       )
       case 'Right':
         return (
-        <div className={`${paddingType} max-80 bgimgfade`}>
+        <div className={`${paddingType} bgimgfade`}>
           {anchorTag && (
             <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
           )}
-          <FlexWrapper>
+          <FlexWrapper className="reorder">
           <TextContainer className={`${styles.textPaddingRight}`}>
               {icon && (
                 <p className="right">
@@ -275,10 +282,16 @@ export default function BigImageSmallContent(props) {
                   />
                 </p>
               )}
-              <p className="sans-serif sub-heading-bold black left">
-                {subHeadline}
-              </p>
-              <p className="serif heading black left mb-3">{headline}</p>
+              { subHeadline && (
+                <p className="sans-serif sub-heading-bold black left">
+                  {subHeadline}
+                </p> 
+                )
+              }
+              { headline && (
+                <p className="serif heading black left mb-3">{headline}</p>
+                )
+              }
               <p className="sans-serif body-copy black left">{blurb}</p>
               {ctaText && (
                 <a
