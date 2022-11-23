@@ -115,7 +115,6 @@
   .padding-sides {padding: 0rem 2rem 0rem 2rem;}
   .padding-top-sides {padding: 0rem 2rem 0rem 2rem;}
 
-  .max-80 {max-width: 100%}
   .padding-top-bottom {
       padding: 3rem 0rem;
   }
@@ -126,5 +125,6 @@
   .max-60 {max-width: 80%;}
 }
 @media screen and (max-width: 800px) {
+  .padding-all {padding: 4rem 4rem}
   .max-60 {max-width: 80%;}
 }
