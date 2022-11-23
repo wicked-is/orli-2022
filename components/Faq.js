@@ -111,7 +111,6 @@ export default function FAQ(props) {
                                 <Tab>
                                     <Question className="sans-serif-bold uppercase">
                                         {faq.question}
-                                        const `{" "}
                                     </Question>
                                     <div id="close-faq"></div>
                                 </Tab>
