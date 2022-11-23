@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     margin: auto;
-    display: block;
+    display: inline-block;
 }
 
 .anchor {
@@ -14,23 +14,6 @@
     display: block;
     position: absolute;
     top: -150px;
-}
-
-.flex {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    /* align-content: flex-start;  */
-    align-items: center;
-}
-
-.flex .col140 {
-    width: 40%;
-    margin-bottom: 2rem;
-}
-
-.flex .col160 {
-    width: 60%;
 }
 
 .textPaddingLeft {
@@ -114,21 +97,6 @@
 }
 
 @media only screen and (max-width: 900px) {
-    .flex {
-        flex-direction: column;
-        padding-top: 0rem;
-    }
-
-    .flex .col140,
-    .flex .col160 {
-        flex: 1;
-    }
-
-    .flex .col140,
-    .flex .col160 {
-        width: 100%;
-    }
-
     .textPaddingLeft,
     .textPaddingRight {
         padding: 2rem 0 0 0;

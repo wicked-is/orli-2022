@@ -557,6 +557,7 @@ export async function getStaticProps({ params }) {
                 blurb
                 subHeadline
                 headline
+                imageCaption
                 greyBackground
                 icon {
                   mediaItemUrl
@@ -1247,6 +1248,7 @@ export async function getStaticProps({ params }) {
                 contentPosition
                 blurb
                 subHeadline
+                imageCaption
                 headline
                 greyBackground
                 icon {

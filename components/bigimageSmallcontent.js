@@ -8,6 +8,46 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+const FlexWrapper = styled.div`
+  width: 100%; 
+  margin: auto; 
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 900px) {
+    & {
+        flex-direction: column;
+        padding-top: 0rem;
+    }
+  }
+`;
+const MediaWrapper = styled.div`
+  width: 60%;
+  position: relative;
+  @media only screen and (max-width: 900px) {
+    & {
+        flex: 1;
+        width: 100%;
+    }
+  }
+`;
+
+const ImageCaption = styled.p`
+  padding: 0rem 0 0 0;
+`;
+
+const TextContainer = styled.div`
+  width: 40%;
+  margin-bottom: 2rem;
+  position: relative;   
+  @media only screen and (max-width: 900px) {
+    & {
+        flex: 1;
+        width: 100%;
+    }
+  }
+`;
+
 const SliderNavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -67,6 +107,7 @@ export default function BigImageSmallContent(props) {
     media,
     order,
     anchorTag,
+    imageCaption,
     imagePoster,
     paddingType,
     mediaFullWidth,
@@ -76,220 +117,154 @@ export default function BigImageSmallContent(props) {
     slides,
   } = props;
 
-  return (
-    <section
-      className={`${styles.container} ${order == 0 ? "" : ""} ${
-        greyBackground !== null && greyBackground == true ? `bg-lt-grey` : null
-      }`}
-    >
-      {contentPosition === "Left" && (
-        <div className={`max-80 ${props.index == 0 ? null : "bgimgfade"}`}>
-          {anchorTag && (
-            <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
-          )}
-          <div className={`${styles.flex} ${paddingType}`}>
-            <div className={`${styles.col140} ${styles.textPaddingRight}`}>
-              {icon && (
-                <p className="right">
-                  <img
-                    src={icon?.mediaItemUrl}
-                    alt={icon?.altText}
-                    // layout="responsive"
-                    className={`${styles.leftIcon}`}
-                  />
-                </p>
-              )}
-              <p className="sans-serif sub-heading-bold black left">
-                {subHeadline}
-              </p>
-              <p className="serif heading black left mb-3">{headline}</p>
-              <div
-                className="sans-serif body-copy black left"
-                dangerouslySetInnerHTML={{
-                  __html: blurb,
-                }}
-              ></div>
-              {ctaText && (
-                <a
-                  href={ctaLink}
-                  className="sans-serif xs-copy black left cta-black"
-                >
-                  {ctaText}
-                </a>
-              )}
-            </div>
-            <div className={`${styles.col160} smallslider`}>
-              {mediaType === "Image" && (
-                <div className={styles.textPaddingLeft}>
-                  <Image
-                    src={imagePoster.mediaItemUrl}
-                    alt={imagePoster.altText}
-                    width={561}
-                    height={370}
-                    layout="responsive"
-                  />
-                </div>
-              )}
-              {mediaType === "Slider" && (
-                <>
-                  <Flickity
-                    options={{
-                      cellAlign: "center",
-                      prevNextButtons: false,
-                      pageDots: false,
-                      draggable: true,
-                      wrapAround: true,
-                      imagesLoaded: true,
-                      adaptiveHeight: true,
-                    }}
-                    disableImagesLoaded={false} // default false
-                    reloadOnUpdate={false} // default false
-                    static // default false
-                    flickityRef={(c) => {
-                      slider.current = c;
-                    }}
-                  >
-                    {slides.map((slides, index) => {
-                      return (
-                        <>
-                          <div
-                            key={`slide-${slides.index}`}
-                            className={styles.slides}
-                          >
+  const mediacontentStructure = (contentPosition) => {
+    switch (contentPosition) {
+        case 'Left':
+            return (
+              <div className={`${paddingType} max-80 bgimgfade`}>
+                {anchorTag && (
+                  <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
+                )}
+              <FlexWrapper>
+                <MediaWrapper>
+                  { mediaType === "Image" && (
+                    <div className={styles.textPaddingRight}>
+                      <Image
+                        src={imagePoster.mediaItemUrl}
+                        alt={imagePoster.altText}
+                        width={561}
+                        height={370}
+                        layout="responsive"
+                      />
+                      <ImageCaption className="sans-serif body black left">{imageCaption}</ImageCaption>
+                    </div>
+                    )
+                  }
+                  { mediaType === "Slider" && (
+                    <>
+                      <Flickity
+                        options={{
+                          cellAlign: "center",
+                          prevNextButtons: false,
+                          pageDots: false,
+                          draggable: true,
+                          wrapAround: true,
+                          imagesLoaded: true,
+                          adaptiveHeight: true,
+                        }}
+                        disableImagesLoaded={false} // default false
+                        reloadOnUpdate={false} // default false
+                        static // default false
+                        flickityRef={(c) => {
+                          slider.current = c;
+                        }}
+                      >
+                        {slides.map((slides, index) => {
+                          return (
+                            <div
+                              key={`slide-${slides.index}`}
+                              className={styles.slides}
+                            >
                             <img
                               src={slides.mediaItemUrl}
                               alt={slides.altText}
                               className={styles.sliderimage}
                               // layout="intrinsic"
                             />
-                          </div>
-                        </>
-                      );
-                    })}
-                  </Flickity>
-                  <SliderNavigationContainer>
-                    <div className="serif brown">
-                      {currentSlider}/{currentSliderLength}
+                            </div>
+                          );
+                        })}
+                      </Flickity>
+                      <SliderNavigationContainer>
+                        <div className="serif brown">
+                          {currentSlider}/{currentSliderLength}
+                        </div>
+                        <div className="brown">
+                          <img
+                            id="previous-arrow"
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+                            style={{
+                              transform: "rotate(180deg)",
+                              marginRight: "1rem",
+                              width: "37px",
+                              height: "22px",
+                            }}
+                            alt="previous arrow"
+                          />
+                          <img
+                            id="next-arrow"
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+                            style={{
+                              width: "37px",
+                              height: "22px",
+                            }}
+                            alt="next arrow"
+                          />
+                        </div>
+                      </SliderNavigationContainer>
+                    </>
+                    )
+                  }
+                  { mediaType === "Video" && (
+                    <div className={`${styles.videoBackground}`}>
+                      <div>
+                        <video
+                          className={styles.videoBG}
+                          autoPlay
+                          playsInline
+                          muted
+                          loop
+                        >
+                        <source src={mp4OrExternalLink} type="video/mp4" />
+                        <source src={webm} type="video/webm" />
+                        </video>
+                      </div>
+                      <p className="serif xs-copy uppercase brown">
+                        <a href={ctaLink}>{ctaText}</a>
+                      </p>
                     </div>
-                    <div className="brown">
-                      <img
-                        id="previous-arrow"
-                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
-                        style={{
-                          transform: "rotate(180deg)",
-                          marginRight: "1rem",
-                          width: "37px",
-                          height: "22px",
-                        }}
-                        alt="previous arrow"
-                      />
-                      <img
-                        id="next-arrow"
-                        src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
-                        style={{
-                          width: "37px",
-                          height: "22px",
-                        }}
-                        alt="next arrow"
-                      />
-                    </div>
-                  </SliderNavigationContainer>
-                </>
-              )}
-              {mediaType === "Video" && (
-                <div className={`${styles.videoBackground}`}>
-                  <div>
-                    <video
-                      className={styles.videoBG}
-                      autoPlay
-                      playsInline
-                      muted
-                      loop
-                    >
-                      <source src={mp4OrExternalLink} type="video/mp4" />
-                      <source src={webm} type="video/webm" />
-                    </video>
-                  </div>
-                  <p className="serif xs-copy uppercase brown">
-                    <a href={ctaLink}>{ctaText}</a>
+                    )
+                  }
+                </MediaWrapper>
+                <TextContainer className={`${styles.textPaddingLeft}`}>
+                  { icon && (
+                    <p className="right">
+                    <img
+                      src={icon?.mediaItemUrl}
+                      alt={icon?.altText}
+                      // layout="responsive"
+                      className={`${styles.leftIcon}`}
+                    />
+                    </p>
+                    )
+                  }
+                  <p className="sans-serif sub-heading-bold black left">
+                    {subHeadline}
                   </p>
-                </div>
-              )}
-            </div>
-          </div>
+                  <p className="serif heading black left mb-3">{headline}</p>
+                  <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{__html: blurb,}}>
+                  </div>
+                { ctaText && (
+                  <a
+                    href={ctaLink}
+                    className="sans-serif xs-copy black left cta-black"
+                  >
+                    {ctaText}
+                  </a>
+                )
+                }
+            </TextContainer>
+          </FlexWrapper>
         </div>
-      )}
-      {contentPosition === "Right" && (
-        <div className="max-80 bgimgfade reorder">
+      )
+      case 'Right':
+        return (
+        <div className={`${paddingType} max-80 bgimgfade`}>
           {anchorTag && (
             <a id={anchorTag} name={anchorTag} className={styles.anchor}></a>
           )}
-          <div className={`${styles.flex} ${paddingType}`}>
-            <div className={styles.col160}>
-              {mediaType === "Image" && (
-                <div className={styles.textPaddingRight}>
-                  <Image
-                    src={imagePoster.mediaItemUrl}
-                    alt={imagePoster.altText}
-                    width={561}
-                    height={370}
-                    layout="responsive"
-                  />
-                </div>
-              )}
-              {mediaType === "Slider" && (
-                <Flickity
-                  options={{
-                    cellAlign: "center",
-                    prevNextButtons: false,
-                    pageDots: false,
-                    draggable: true,
-                    wrapAround: true,
-                    imagesLoaded: true,
-                    adaptiveHeight: true,
-                  }}
-                  disableImagesLoaded={false} // default false
-                  reloadOnUpdate={false} // default false
-                  static // default false
-                  flickityRef={(c) => {
-                    slider.current = c;
-                  }}
-                >
-                  {slides.map((slides, index) => {
-                    return (
-                      <div key={`slide-ind${index}`} className={styles.slides}>
-                        <img
-                          src={slides.mediaItemUrl}
-                          alt={slides.altText}
-                          className={styles.sliderimage}
-                          // layout="intrinsic"
-                        />
-                      </div>
-                    );
-                  })}
-                </Flickity>
-              )}
-              {mediaType === "Video" && (
-                <div className={`${styles.videoBackground}`}>
-                  <div>
-                    <video
-                      className={styles.videoBG}
-                      autoPlay
-                      playsInline
-                      muted
-                      loop
-                    >
-                      <source src={mp4OrExternalLink} type="video/mp4" />
-                      <source src={webm} type="video/webm" />
-                    </video>
-                  </div>
-                  <p className="serif xs-copy uppercase brown">
-                    <a href={ctaLink}>{ctaText}</a>
-                  </p>
-                </div>
-              )}
-            </div>
-            <div className={`${styles.col140} ${styles.textPaddingLeft}`}>
+          <FlexWrapper>
+          <TextContainer className={`${styles.textPaddingRight}`}>
               {icon && (
                 <p className="right">
                   <img
@@ -313,11 +288,113 @@ export default function BigImageSmallContent(props) {
                   {ctaText}
                 </a>
               )}
-            </div>
+            </TextContainer>
+
+            <MediaWrapper>
+              { mediaType === "Image" && (
+                <div className={styles.textPaddingLeft}>
+                  <Image
+                    src={imagePoster.mediaItemUrl}
+                    alt={imagePoster.altText}
+                    width={561}
+                    height={370}
+                    layout="responsive"
+                  />
+                  <ImageCaption className="sans-serif body black left">{imageCaption}</ImageCaption>
+                </div>
+                )
+              }
+              { mediaType === "Slider" && (
+                    <>
+                      <Flickity
+                        options={{
+                          cellAlign: "center",
+                          prevNextButtons: false,
+                          pageDots: false,
+                          draggable: true,
+                          wrapAround: true,
+                          imagesLoaded: true,
+                          adaptiveHeight: true,
+                        }}
+                        disableImagesLoaded={false} // default false
+                        reloadOnUpdate={false} // default false
+                        static // default false
+                        flickityRef={(c) => {
+                          slider.current = c;
+                        }}
+                      >
+                        {slides.map((slides, index) => {
+                          return (
+                            <div
+                              key={`slide-${slides.index}`}
+                              className={styles.slides}
+                            >
+                            <img
+                              src={slides.mediaItemUrl}
+                              alt={slides.altText}
+                              className={styles.sliderimage}
+                              // layout="intrinsic"
+                            />
+                            </div>
+                          );
+                        })}
+                      </Flickity>
+                      <SliderNavigationContainer>
+                        <div className="serif brown">
+                          {currentSlider}/{currentSliderLength}
+                        </div>
+                        <div className="brown">
+                          <img
+                            id="previous-arrow"
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+                            style={{
+                              transform: "rotate(180deg)",
+                              marginRight: "1rem",
+                              width: "37px",
+                              height: "22px",
+                            }}
+                            alt="previous arrow"
+                          />
+                          <img
+                            id="next-arrow"
+                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+                            style={{
+                              width: "37px",
+                              height: "22px",
+                            }}
+                            alt="next arrow"
+                          />
+                        </div>
+                      </SliderNavigationContainer>
+                    </>
+                    )
+                  }
+                  { mediaType === "Video" && (
+                    <div className={`${styles.videoBackground}`}>
+                      <div>
+                        <video
+                          className={styles.videoBG}
+                          autoPlay
+                          playsInline
+                          muted
+                          loop
+                        >
+                          <source src={mp4OrExternalLink} type="video/mp4" />
+                          <source src={webm} type="video/webm" />
+                        </video>
+                      </div>
+                      <p className="serif xs-copy uppercase brown">
+                        <a href={ctaLink}>{ctaText}</a>
+                      </p>
+                    </div>
+                  )
+                  }
+              </MediaWrapper>
+            </FlexWrapper>
           </div>
-        </div>
-      )}
-      {contentPosition === "Over Background Left" && (
+        )
+        case 'Over Background Left':
+        return (
         <div className={`${styles.flex} ${paddingType} bgimgfade relative`}>
           {anchorTag && (
             <a
@@ -404,9 +481,9 @@ export default function BigImageSmallContent(props) {
             </div>
           )}
         </div>
-      )}
-
-      {contentPosition === "Over Background Right" && (
+      )
+      case 'Over Background Right':
+        return (
         <div className={`${styles.flex} ${paddingType} bgimgfade relative`}>
           {anchorTag && (
             <a
@@ -488,7 +565,14 @@ export default function BigImageSmallContent(props) {
             </div>
           )}
         </div>
-      )}
-    </section>
-  );
+      )
+      default:
+      return null;
+    }
+  }
+    return (
+      <section className={`${styles.container} ${greyBackground !== null && greyBackground == true ? `bg-lt-grey` : null}`}>
+        { mediacontentStructure(contentPosition) }
+      </section>
+    )
 }
