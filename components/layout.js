@@ -19,7 +19,7 @@ export default function Layout(props) {
                     setshowModal(true);
                 },
             });
-        }, 60_000);
+        }, 20_000);
     }
 
     return (
