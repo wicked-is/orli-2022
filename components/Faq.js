@@ -11,6 +11,10 @@ const FAQContainer = styled.section`
     @media screen and (max-width: 1050px) {
         padding: 0 2rem;
     }
+
+    h2 {
+        margin: 8rem 0 4rem;
+    }
 `;
 
 const SingleFAQ = styled.div`
@@ -30,6 +34,9 @@ const SingleFAQ = styled.div`
     &.active {
         p {
             display: block;
+            font-size: var(--body-copy) !important;
+            font-family: "GT Walsheim Light" !important;
+            line-height: 150%;
         }
 
         div#close-faq {

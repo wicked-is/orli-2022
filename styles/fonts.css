@@ -136,7 +136,7 @@ address {
     color: var(--white);
 }
 
-.active p {
+:not(.faq).active p {
     font-family: "GT Walsheim Bold" !important;
 }
 
