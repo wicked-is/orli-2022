@@ -1,12 +1,16 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 
-const FAQContainer = styled.section`
+const FAQMainContainer = styled.section`
     width: 100%;
+    background-color: var(--lt-grey);
+`;
+
+const FAQContainer = styled.div`
     max-width: 960px;
+    padding-top: 5rem;
+    padding-bottom: 6rem;
     margin-inline: auto;
-    margin-top: 5rem;
-    margin-bottom: 6rem;
 
     @media screen and (max-width: 1050px) {
         padding: 0 2rem;
@@ -14,6 +18,10 @@ const FAQContainer = styled.section`
 
     h2 {
         margin: 8rem 0 4rem;
+    }
+
+    a span {
+        text-decoration: underline;
     }
 `;
 
@@ -87,32 +95,35 @@ export default function FAQ(props) {
         });
     }, []);
     return (
-        <FAQContainer>
-            <h2 className="heading">{title}</h2>
-            <p className="body-copy">{blurb}</p>
-            <a id={anchor} name={anchor}></a>
-            {faqs &&
-                faqs.map((faq, index) => {
-                    return (
-                        <SingleFAQ
-                            className="faq"
-                            id={`faq-${index + 1}`}
-                            key={`faq-${index + 1}`}>
-                            <a id={faq.anchor} name={faq.anchor}></a>
-                            <Tab>
-                                <Question className="sans-serif-bold uppercase">
-                                    {faq.question}
-                                </Question>
-                                <div id="close-faq"></div>
-                            </Tab>
-                            <Answer
-                                className="body-copy"
-                                dangerouslySetInnerHTML={{
-                                    __html: faq.answer,
-                                }}></Answer>
-                        </SingleFAQ>
-                    );
-                })}
-        </FAQContainer>
+        <FAQMainContainer>
+            <FAQContainer>
+                <h2 className="heading">{title}</h2>
+                <p className="body-copy">{blurb}</p>
+                <a id={anchor} name={anchor}></a>
+                {faqs &&
+                    faqs.map((faq, index) => {
+                        return (
+                            <SingleFAQ
+                                className="faq"
+                                id={`faq-${index + 1}`}
+                                key={`faq-${index + 1}`}>
+                                <a id={faq.anchor} name={faq.anchor}></a>
+                                <Tab>
+                                    <Question className="sans-serif-bold uppercase">
+                                        {faq.question}
+                                        const `{" "}
+                                    </Question>
+                                    <div id="close-faq"></div>
+                                </Tab>
+                                <Answer
+                                    className="body-copy"
+                                    dangerouslySetInnerHTML={{
+                                        __html: faq.answer,
+                                    }}></Answer>
+                            </SingleFAQ>
+                        );
+                    })}
+            </FAQContainer>
+        </FAQMainContainer>
     );
 }
