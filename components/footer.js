@@ -219,9 +219,10 @@ export default function Footer(props) {
                                             Discoveries
                                         </Link>
                                         <Link href="/gatherings">Events</Link>
+                                        <Link href="/gallery">Gallery</Link>
+                                        <Link href="/faq">FAQ</Link>
                                         <Link href="/our-story">Story</Link>
                                         <Link href="/the-journal">Journal</Link>
-                                        <Link href="/gallery">Gallery</Link>
                                         <Link href="/press">Press</Link>
                                         <Link
                                             href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
@@ -331,11 +332,12 @@ export default function Footer(props) {
                                         </Link>
                                         <Link href="/our-story">Story</Link>
                                         <Link href="/amenities">Amenities</Link>
+                                        <Link href="/gallery">Gallery</Link>
                                         <Link href="/the-journal">Journal</Link>
                                         <Link href="/discoveries">
                                             Discoveries
                                         </Link>
-                                        <Link href="/gallery">Gallery</Link>
+                                        <Link href="/faq">FAQ</Link>
                                         <Link href="/gatherings">Events</Link>
                                         <Link href="/press">Press</Link>
                                         <Link
