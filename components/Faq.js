@@ -81,7 +81,7 @@ export default function FAQ(props) {
     } = props;
 
     useEffect(() => {
-        let qs = document.querySelectorAll(".faq");
+        let qs = document.querySelectorAll(".faq h3, .faq #close-faq");
         qs.forEach(aq => {
             aq.addEventListener("click", handleTabClick);
         });
