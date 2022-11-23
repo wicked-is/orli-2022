@@ -68,7 +68,9 @@ export default function FAQ(props) {
                 {faqs &&
                     faqs.map((faq, index) => {
                         return (
-                            <SingleFAQ onClick={handleTabClick}>
+                            <SingleFAQ
+                                key={`faq-${index + 1}`}
+                                onClick={handleTabClick}>
                                 <a id={faq.anchor} name={faq.anchor}></a>
                                 <Tab>
                                     <Question className="sans-serif-bold uppercase">
