@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 const FAQContainer = styled.section`
@@ -17,7 +18,7 @@ const SingleFAQ = styled.div`
     p {
         display: none;
     }
-    span#close-faq {
+    div#close-faq {
         width: 23px;
         height: 23px;
         background: url("https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg")
@@ -25,12 +26,13 @@ const SingleFAQ = styled.div`
         background-size: contain;
         transform: rotate(45deg);
     }
-    :has(> .active) {
+
+    &.active {
         p {
             display: block;
         }
 
-        span#close-faq {
+        div#close-faq {
             transform: rotate(90deg);
         }
     }
@@ -49,7 +51,18 @@ const Answer = styled.p``;
 
 const handleTabClick = (e, index) => {
     e.preventDefault();
-    e.target.classList.toggle("active");
+
+    e.target.closest(".faq").classList.toggle("active");
+};
+const handleQClick = (e, index) => {
+    e.preventDefault();
+
+    e.target.closest(".faq").classList.add("active");
+};
+const handleXClick = (e, index) => {
+    e.preventDefault();
+
+    e.target.closest(".faq").classList.toggle("active");
 };
 
 export default function FAQ(props) {
@@ -59,34 +72,40 @@ export default function FAQ(props) {
         title = "Frequently Ask Questions",
         blurb,
     } = props;
-    {
-        return (
-            <FAQContainer>
-                <h2 className="heading">{title}</h2>
-                <p className="body-copy">{blurb}</p>
-                <a id={anchor} name={anchor}></a>
-                {faqs &&
-                    faqs.map((faq, index) => {
-                        return (
-                            <SingleFAQ
-                                key={`faq-${index + 1}`}
-                                onClick={handleTabClick}>
-                                <a id={faq.anchor} name={faq.anchor}></a>
-                                <Tab>
-                                    <Question className="sans-serif-bold uppercase">
-                                        {faq.question}
-                                    </Question>
-                                    <span id="close-faq"></span>
-                                </Tab>
-                                <Answer
-                                    className="body-copy"
-                                    dangerouslySetInnerHTML={{
-                                        __html: faq.answer,
-                                    }}></Answer>
-                            </SingleFAQ>
-                        );
-                    })}
-            </FAQContainer>
-        );
-    }
+
+    useEffect(() => {
+        let qs = document.querySelectorAll(".faq");
+        qs.forEach(aq => {
+            aq.addEventListener("click", handleTabClick);
+        });
+    }, []);
+    return (
+        <FAQContainer>
+            <h2 className="heading">{title}</h2>
+            <p className="body-copy">{blurb}</p>
+            <a id={anchor} name={anchor}></a>
+            {faqs &&
+                faqs.map((faq, index) => {
+                    return (
+                        <SingleFAQ
+                            className="faq"
+                            id={`faq-${index + 1}`}
+                            key={`faq-${index + 1}`}>
+                            <a id={faq.anchor} name={faq.anchor}></a>
+                            <Tab>
+                                <Question className="sans-serif-bold uppercase">
+                                    {faq.question}
+                                </Question>
+                                <div id="close-faq"></div>
+                            </Tab>
+                            <Answer
+                                className="body-copy"
+                                dangerouslySetInnerHTML={{
+                                    __html: faq.answer,
+                                }}></Answer>
+                        </SingleFAQ>
+                    );
+                })}
+        </FAQContainer>
+    );
 }
