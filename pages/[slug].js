@@ -35,6 +35,7 @@ import GettingHere from "../components/GettingHere";
 import EventFeed from "../components/eventFeed";
 import ContentBlock from "../components/ContentBlock";
 import ExploreMorePosts from "../components/ExploreMorePosts";
+import FAQ from "../components/Faq";
 
 export default function DefaultPage(props) {
     const roomAmenities = props?.data?.data?.roomAmenities;
@@ -120,14 +121,14 @@ export default function DefaultPage(props) {
                     );
                     break;
                 case "Post_Flexiblecontent_Sections_FullWidthMedia":
-                      gatheredSections.push(
-                          <FullWidthMedia
-                              key={componentKey}
-                              {...section}
-                              index={index}
-                          />
-                      );
-                   break;
+                    gatheredSections.push(
+                        <FullWidthMedia
+                            key={componentKey}
+                            {...section}
+                            index={index}
+                        />
+                    );
+                    break;
                 case "Page_Flexiblecontent_Sections_HistoricTimeline":
                 case "Post_Flexiblecontent_Sections_HistoricTimeline":
                     gatheredSections.push(
@@ -308,11 +309,11 @@ export default function DefaultPage(props) {
                 case "Page_Flexiblecontent_Sections_OffersGrid":
                 case "Post_Flexiblecontent_Sections_OffersGrid":
                     gatheredSections.push(
-                          <OffersGrid
-                              key={componentKey}
-                              {...section}
-                              index={index}
-                          />
+                        <OffersGrid
+                            key={componentKey}
+                            {...section}
+                            index={index}
+                        />
                     );
                     break;
                 case "Page_Flexiblecontent_Sections_GettingHere":
@@ -363,6 +364,17 @@ export default function DefaultPage(props) {
                             {...section}
                             filters={roomAmenities.nodes}
                             index={index}
+                        />
+                    );
+                    break;
+                case "Page_Flexiblecontent_Sections_Faqs":
+                case "Post_Flexiblecontent_Sections_Faqs":
+                    gatheredSections.push(
+                        <FAQ
+                            key={componentKey}
+                            {...section}
+                            index={index}
+                            filters={roomAmenities.nodes}
                         />
                     );
                     break;
@@ -490,6 +502,19 @@ export async function getStaticProps({ params }) {
                   }
                   text
                   anchor
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_Faqs {
+                fieldGroupName
+                anhor
+                title
+                blurb
+                faqs {
+                  ... on Page_Flexiblecontent_Sections_Faqs_faqs {
+                    anchor
+                    question
+                    answer
+                  }
                 }
               }
               ... on Page_Flexiblecontent_Sections_AmenitiesSlider {
