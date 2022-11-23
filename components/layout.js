@@ -10,14 +10,16 @@ export default function Layout(props) {
     const [hasModalShown, sethasModalShown] = useState(false);
 
     if (typeof document !== "undefined") {
-        const removeExitIntent = exitIntent({
-            threshold: 10,
-            maxDisplays: 1,
-            eventThrottle: 200,
-            onExitIntent: () => {
-                setshowModal(true);
-            },
-        });
+        setTimeout(() => {
+            const removeExitIntent = exitIntent({
+                threshold: 10,
+                maxDisplays: 1,
+                eventThrottle: 200,
+                onExitIntent: () => {
+                    setshowModal(true);
+                },
+            });
+        }, 60_000);
     }
 
     return (
