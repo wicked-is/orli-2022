@@ -10,6 +10,17 @@ const GiftGridContainer = styled.section `
     margin: auto;
     display: inline-block;
     padding: 4rem 6rem;
+
+    @media only screen and (max-width: 820px) {
+        & {
+            padding: 4rem 4rem;
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        & {
+            padding: 4rem 2rem;
+        }
+    }
 `;
 
 const GiftGridInner = styled.div `
@@ -17,6 +28,22 @@ const GiftGridInner = styled.div `
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem 0.5rem;
     align-items: flex-start;
+
+    @media only screen and (max-width: 820px) {
+        & {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        & {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        & {
+            grid-template-columns: 1fr;
+        }
+    }
 `;
 
 const SingleGift = styled.div `
@@ -124,20 +151,20 @@ export default function GiftGrid(props) {
                                 id={`gift-${index + 1}`}
                                 key={`gift-${index + 1}`}>
                                 
-                                <ImageContainer>
-                                    <Link href={gifts.link} target="_blank" rel="noopener">
-                                        <a><div className={`positionCenter color-${gifts.hoverColor}`}>
-                                            <p><span className="serif med-heading">{gifts.hoverText}</span><br/>
-                                            <span className="sans-serif body underline">Shop Now</span></p>
-                                        </div>
-                                        <div className={`overlay ${gifts.hoverColor}`}></div>
-                                        <Image src={gifts.image.mediaItemUrl} alt={gifts.image.altText} width={347} height={352} layout="responsive"/>
-                                        </a>
-                                    </Link>
-                                </ImageContainer>
-
-                                <p className="sans-serif sub-heading-bold black left">{gifts.brand}</p>
-                                <p className="serif med-heading black left">{gifts.productName}</p>
+                                <Link href={gifts.link} passHref>
+                                    <a target="_blank" rel="noopener">
+                                        <ImageContainer>
+                                            <div className={`positionCenter color-${gifts.hoverColor}`}>
+                                                <p><span className="serif med-heading">{gifts.hoverText}</span><br/>
+                                                <span className="sans-serif body underline">Shop Now</span></p>
+                                            </div>
+                                            <div className={`overlay ${gifts.hoverColor}`}></div>
+                                            <Image src={gifts.image.mediaItemUrl} alt={gifts.image.altText} width={347} height={352} layout="responsive"/>
+                                        </ImageContainer>
+                                        <p className="sans-serif sub-heading-bold black left">{gifts.brand}</p>
+                                        <p className="serif med-heading black left">{gifts.productName}</p>
+                                    </a>
+                                </Link>
                             </SingleGift>
                         );
                     })}
