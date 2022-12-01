@@ -15,7 +15,10 @@ export default function Hero(props) {
         gallery,
         includeLogo,
         pressLink,
+        subheading,
+        copy,
         pressLogo,
+        textPosition,
         includeRoomGallery,
         includeBookMultipleRoomsLink,
         includeFeaturedRoomCta,
@@ -167,9 +170,16 @@ export default function Hero(props) {
                         <div className={styles.bigHero} style={{
                             backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }}>
-                            <div className={styles.herotextOver}>
+                            <div className={`${textPosition=="Left Center" ? `${styles.herotextOver}` : `${styles.herotextOverCenter}`}`}>
+                            
                             <p className="sans-serif sub-heading-bold white">{headline}</p>
                             <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
+                            {
+                                subheading && ( <p className="sans-serif sub-heading-bold white">{subheading}</p> )
+                            }
+                            {
+                                copy && ( <p className="sans-serif body white">{copy}</p> )
+                            }
                             </div>
                             {
                                 includeBookingForm && (

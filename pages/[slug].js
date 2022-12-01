@@ -36,6 +36,7 @@ import EventFeed from "../components/eventFeed";
 import ContentBlock from "../components/ContentBlock";
 import ExploreMorePosts from "../components/ExploreMorePosts";
 import FAQ from "../components/Faq";
+import GiftGrid from "../components/GiftGrid";
 
 export default function DefaultPage(props) {
     const roomAmenities = props?.data?.data?.roomAmenities;
@@ -371,6 +372,16 @@ export default function DefaultPage(props) {
                 case "Post_Flexiblecontent_Sections_Faqs":
                     gatheredSections.push(
                         <FAQ
+                              key={componentKey}
+                              {...section}
+                              index={index}
+                              filters={roomAmenities.nodes}
+                        />
+                    );
+                    break;
+                case "Page_Flexiblecontent_Sections_GiftGrid":
+                    gatheredSections.push(
+                        <GiftGrid
                             key={componentKey}
                             {...section}
                             index={index}
@@ -502,6 +513,22 @@ export async function getStaticProps({ params }) {
                   }
                   text
                   anchor
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_GiftGrid {
+                fieldGroupName
+                giftRepeater {
+                  ... on Page_Flexiblecontent_Sections_GiftGrid_giftRepeater {
+                    image {
+                      altText
+                      mediaItemUrl
+                    }
+                    productName
+                    link
+                    brand
+                    hoverText
+                    hoverColor
+                  }
                 }
               }
               ... on Page_Flexiblecontent_Sections_Faqs {
@@ -865,6 +892,8 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 blurb
                 headline
+                subheading
+                copy
                 pressLink
                 publicationTitle
                 pressLogo {
@@ -879,6 +908,7 @@ export async function getStaticProps({ params }) {
                 featuredRoomCtaText
                 mp4ExternalLink
                 types
+                textPosition
                 webm
                 imagePoster {
                   mediaItemUrl
@@ -1545,6 +1575,8 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 blurb
                 headline
+                subheading
+                copy
                 pressLink
                 publicationTitle
                 pressLogo {
@@ -1558,6 +1590,7 @@ export async function getStaticProps({ params }) {
                 featuredRoomCtaText
                 mp4ExternalLink
                 types
+                textPosition
                 webm
                 imagePoster {
                   mediaItemUrl
