@@ -51,7 +51,7 @@
 }
 
 .backgroundVideo {
-    display: initial;
+    display: block;
 }
 
 .overBackground {
