@@ -14,6 +14,7 @@ export default function Hero(props) {
         includeBookingForm,
         gallery,
         includeLogo,
+        mobileImage,
         pressLink,
         subheading,
         copy,
@@ -124,7 +125,7 @@ export default function Hero(props) {
             case 'Video':
                 return (
                     <div className={styles.heroContainer}>
-                        <div className={styles.herotextOver}>
+                        <div className={`${textPosition=="Left Center" ? `${styles.herotextOver}` : 'null'} ${textPosition=="Center Center" ? `${styles.herotextCenterCenter}` : 'null'} ${textPosition=="Bottom Center" ? `${styles.herotextOverCenter}` : 'null'}`}>
                             <p className="sans-serif sub-heading-bold white">{headline}</p>
                             <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
                         </div>
@@ -170,7 +171,7 @@ export default function Hero(props) {
                         <div className={styles.bigHero} style={{
                             backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }}>
-                            <div className={`${textPosition=="Left Center" ? `${styles.herotextOver}` : `${styles.herotextOverCenter}`}`}>
+                            <div className={`${textPosition=="Left Center" ? `${styles.herotextOver}` : 'null'} ${textPosition=="Center Center" ? `${styles.herotextCenterCenter}` : 'null'} ${textPosition=="Bottom Center" ? `${styles.herotextOverCenter}` : 'null'}`}>
                             
                             <p className="sans-serif sub-heading-bold white">{headline}</p>
                             <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
@@ -272,9 +273,9 @@ export default function Hero(props) {
                         <div className={styles.bigHero} style={{
                             backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }}>
-                            <div className={styles.herotextOver}>
-                            <p className="sans-serif sub-heading-bold white">{headline}</p>
-                            <p className="serif heading white">{blurb}</p>
+                           <div className={`${textPosition=="Left Center" ? `${styles.herotextOver}` : 'null'} ${textPosition=="Center Center" ? `${styles.herotextCenterCenter}` : 'null'} ${textPosition=="Bottom Center" ? `${styles.herotextOverCenter}` : 'null'}`}>
+                                <p className="sans-serif sub-heading-bold white">{headline}</p>
+                                <p className="serif heading white">{blurb}</p>
                             </div>
                         </div>
                         </div>
@@ -296,6 +297,28 @@ export default function Hero(props) {
                             </div>
                             )
                         }
+                    </div>
+                )
+            case 'Full Height Image + Special Mobile Layout':
+                return (
+                    <div className={styles.specialheroContainer}>
+                        <div className={`${textPosition=="Left Center" ? `${styles.herotextOver}` : 'null'} ${textPosition=="Center Center" ? `${styles.herotextCenterCenter}` : 'null'} ${textPosition=="Bottom Center" ? `${styles.herotextOverCenter}` : 'null'}`}>
+                            
+                            <p className="sans-serif sub-heading-bold white">{headline}</p>
+                            <p className="serif heading white" dangerouslySetInnerHTML={{ __html: blurb}}></p>
+                            {
+                                subheading && ( <p className="sans-serif sub-heading-bold white">{subheading}</p> )
+                            }
+                            {
+                                copy && ( <p className="sans-serif body white">{copy}</p> )
+                            }
+                        </div>
+                        <div className={styles.desktopContainer}>
+                            <Image className={styles.heroContain} src={imagePoster.mediaItemUrl} alt={imagePoster.altText} width={1920} height={1080} layout="intrinsic"/>
+                        </div>
+                        <div className={styles.specialheromobileContainer}>
+                            <Image className={styles.mobileheroContain} src={mobileImage.mediaItemUrl} alt={mobileImage.altText} width={1080} height={1920} layout="intrinsic"/>
+                        </div>
                     </div>
                 )
             case 'Small Image':

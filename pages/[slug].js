@@ -917,6 +917,10 @@ export async function getStaticProps({ params }) {
                   mediaItemUrl
                   altText
                 }
+                mobileImage {
+                  mediaItemUrl
+                  altText
+                }
                 subnavigation {
                   ... on Page_Flexiblecontent_Sections_Hero_subnavigation {
                     link
