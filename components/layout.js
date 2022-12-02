@@ -30,7 +30,7 @@ export default function Layout(props) {
                     : "top-bar-active"
             }`}>
             <Header navItems={props.navItems} topBar={props.topBar} />
-            <main>{props.children}</main>
+            <main data-page={`${props.currentPage}`}>{props.children}</main>
             {showModal && !hasModalShown && props.page !== "/email" && (
                 <ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
             )}

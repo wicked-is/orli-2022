@@ -64,8 +64,8 @@ a:focus {
 .primary-btn {
     width: fit-content;
     width: -webkit-fit-content;
-    margin: auto; 
-    text-align: center; 
+    margin: auto;
+    text-align: center;
     display: block;
     background: var(--brown); 
     color: var(--white);
