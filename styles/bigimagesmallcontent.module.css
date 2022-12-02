@@ -58,28 +58,34 @@
     position: absolute;
     right: 6rem;
     width: 30%;
-    top: 10%;
+    transform: translateY(-50%);
+    top: 50%;
     z-index: 2;
 }
 
 .overBackground {
     width: 30%;
-    margin: 10% 10% 10% 6rem ;
+    position: absolute;
+    z-index: 2;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 6rem;
 }
 
 @media screen and (max-width: 862px) {
     .overBackground {
         width: 100%;
         margin: 0;
-        padding: 6rem 4rem;
+        left: 0;
+        right: 0;
+        padding: 0rem 4rem;
     }
     .overBackgroundLeft {
         position: absolute;
         right: 0rem;
         left: 0;
         width: 100%;
-        padding: 6rem 2rem; 
-        top: 0px;
+        padding: 0rem 4rem; 
         z-index: 2;
     }
 }
@@ -95,7 +101,6 @@
         left: 0;
         width: 100%;
         padding: 6rem 2rem; 
-        top: 0px;
         z-index: 2;
     }
 }
