@@ -610,6 +610,9 @@ export async function getStaticProps({ params }) {
                 subHeadline
                 headline
                 imageCaption
+                isThereACta
+                ctaLabel
+                ctaLink
                 greyBackground
                 icon {
                   mediaItemUrl
@@ -1305,6 +1308,9 @@ export async function getStaticProps({ params }) {
                 subHeadline
                 imageCaption
                 headline
+                isThereACta
+                ctaLabel
+                ctaLink
                 greyBackground
                 icon {
                   mediaItemUrl

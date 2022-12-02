@@ -61,6 +61,20 @@ a:focus {
     --xs-copy: clamp(0.8rem, 1vw, 1.2rem);
 }
 
+.primary-btn {
+    width: fit-content;
+    width: -webkit-fit-content;
+    margin: auto; 
+    text-align: center; 
+    display: block;
+    background: var(--brown); 
+    color: var(--white);
+    padding: 1.5rem 3rem;
+    text-transform: uppercase;
+    font-size: var(--xs-copy);
+    font-family: "GT Walsheim Light";
+}
+
 /* hide spotify username */
 :not(.bu) .bs .bt:last-of-type span {
     display: none;

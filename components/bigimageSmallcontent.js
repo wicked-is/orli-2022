@@ -102,8 +102,9 @@ export default function BigImageSmallContent(props) {
     greyBackground,
     headline,
     blurb,
+    isThereACta,
     ctaLink,
-    ctaText,
+    ctaLabel,
     icon,
     media,
     order,
@@ -221,7 +222,7 @@ export default function BigImageSmallContent(props) {
                         </video>
                       </div>
                       <p className="serif xs-copy uppercase brown">
-                        <a href={ctaLink}>{ctaText}</a>
+                        <a href={ctaLink}>{ctaLabel}</a>
                       </p>
                     </div>
                     )
@@ -251,12 +252,12 @@ export default function BigImageSmallContent(props) {
                   }
                   <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{__html: blurb,}}>
                   </div>
-                { ctaText && (
+                { isThereACta && (
                   <a
                     href={ctaLink}
                     className="sans-serif xs-copy black left cta-black"
                   >
-                    {ctaText}
+                    {ctaLabel}
                   </a>
                 )
                 }
@@ -293,12 +294,12 @@ export default function BigImageSmallContent(props) {
                 )
               }
               <p className="sans-serif body-copy black left">{blurb}</p>
-              {ctaText && (
+              {isThereACta && (
                 <a
                   href={ctaLink}
                   className="sans-serif xs-copy black left cta-black"
                 >
-                  {ctaText}
+                  {ctaLabel}
                 </a>
               )}
             </TextContainer>
@@ -397,7 +398,7 @@ export default function BigImageSmallContent(props) {
                         </video>
                       </div>
                       <p className="serif xs-copy uppercase brown">
-                        <a href={ctaLink}>{ctaText}</a>
+                        <a href={ctaLink}>{ctaLabel}</a>
                       </p>
                     </div>
                   )
@@ -444,9 +445,9 @@ export default function BigImageSmallContent(props) {
                     {ctaText && (
                       <a
                         href={ctaLink}
-                        className="sans-serif xs-copy black left cta-black"
+                        className="primary-btn"
                       >
-                        {ctaText}
+                        {ctaLabel}
                       </a>
                     )}
                   </div>
@@ -478,12 +479,12 @@ export default function BigImageSmallContent(props) {
                 <p className="sans-serif body-copy white left textshadow">
                   {blurb}
                 </p>
-                {ctaText && (
+                {isThereACta && (
                   <a
                     href={ctaLink}
-                    className="sans-serif xs-copy black left cta-black"
+                    className="primary-btn"
                   >
-                    {ctaText}
+                    {ctaLabel}
                   </a>
                 )}
               </div>
@@ -531,12 +532,12 @@ export default function BigImageSmallContent(props) {
                     </p>
                     <p className="serif heading white left">{headline}</p>
                     <p className="sans-serif body-copy white left">{blurb}</p>
-                    {ctaText && (
+                    {isThereACta && (
                       <a
                         href={ctaLink}
-                        className="sans-serif xs-copy black left cta-black"
+                        className="primary-btn"
                       >
-                        {ctaText}
+                        {ctaLabel}
                       </a>
                     )}
                   </div>
@@ -562,12 +563,71 @@ export default function BigImageSmallContent(props) {
                 </p>
                 <p className="serif heading white left">{headline}</p>
                 <p className="sans-serif body-copy white left">{blurb}</p>
-                {ctaText && (
+                {isThereACta && (
                   <a
                     href={ctaLink}
-                    className="sans-serif xs-copy black left cta-black"
+                    className="primary-btn"
                   >
-                    {ctaText}
+                    {ctaLabel}
+                  </a>
+                )}
+              </div>
+              <video className={styles.videoBG} autoPlay playsInline muted loop>
+                <source src={mp4OrExternalLink} type="video/mp4" />
+                <source src={webm} type="video/webm" />
+              </video>
+            </div>
+          )}
+        </div>
+      )
+      case 'Over Background Center':
+        return (
+          <div className={`${styles.flex} ${paddingType} bgimgfade relative`}>
+          {anchorTag && (
+            <a
+              id={anchorTag}
+              name={anchorTag}
+              className={styles.fullanchor}
+            ></a>
+          )}
+          {mediaType === "Image" && (
+            <div
+              className={`${styles.halfBanner} ${styles.backgroundImage}`}
+              style={{
+                backgroundImage: `url(${imagePoster.mediaItemUrl})`,
+              }}
+            >
+                <div className={styles.centerCenterText}>
+                    <p className="sans-serif sub-heading-bold white center">
+                      {subHeadline}
+                    </p>
+                    <p className="serif heading white center">{headline}</p>
+                    <p className="sans-serif body-copy white center">{blurb}</p>
+                    {isThereACta && (
+                      <a
+                        href={ctaLink}
+                        className="primary-btn"
+                      >
+                        {ctaLabel}
+                      </a>
+                    )}
+              </div>
+            </div>
+          )}
+          {mediaType === "Video" && (
+            <div className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
+              <div className={`${styles.centerCenterText} bgimgfade`}>
+                <p className="sans-serif sub-heading-bold white center">
+                  {subHeadline}
+                </p>
+                <p className="serif heading white center">{headline}</p>
+                <p className="sans-serif body-copy white center">{blurb}</p>
+                {isThereACta && (
+                  <a
+                    href={ctaLink}
+                    className="primary-btn"
+                  >
+                    {ctaLabel}
                   </a>
                 )}
               </div>
