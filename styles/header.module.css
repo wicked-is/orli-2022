@@ -73,6 +73,13 @@
     position: relative;
 }
 
+.header .announcementbar a,
+.header .announcementbar a:visited,
+.header .announcementbar a:focus {
+    text-decoration: underline;
+    color: var(--white);
+}
+
 .header .announcementbar button {
     position: absolute;
     right: 2rem;
@@ -413,6 +420,18 @@ ul.socials {
     }
 
     .header.open .telephoneContainer {display: none;}
+
+    .header .announcementbar {
+    background: var(--green);
+    width: 100%; 
+    margin: auto; 
+    display:flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    }
 }
 
 @media only screen and (max-width: 600px) {

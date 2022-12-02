@@ -141,9 +141,8 @@ export default function Header(props) {
                     style={{
                         display: announcementbarIsOpen ? "flex" : "none",
                     }}>
-                    <p className="sans-serif white xs-copy center">
-                        {topBar.announcementBarText}
-                    </p>
+                    <div className="sans-serif white xs-copy center" dangerouslySetInnerHTML={{__html: topBar.announcementBarText,}}>
+                    </div>
                     <button
                         style={{
                             color: "#ffffff",
