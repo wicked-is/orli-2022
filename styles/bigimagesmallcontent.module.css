@@ -150,3 +150,17 @@
     transform: translate(-50%, -50%);
     z-index: 9;
 }
+
+@media only screen and (max-width: 600px) {
+    .centerCenterText {
+        width: 100%;
+        padding: 0rem 4rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .centerCenterText {
+        width: 100%;
+        padding: 0rem 2rem;
+    }
+}
