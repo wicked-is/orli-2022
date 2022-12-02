@@ -54,20 +54,49 @@
     display: block;
 }
 
-.overBackground {
-    width: 40%;
-    margin: 10%;
+.overBackgroundLeft {
+    position: absolute;
+    right: 6rem;
+    width: 30%;
+    top: 10%;
+    z-index: 2;
 }
 
-@media screen and (max-width: 768px) {
+.overBackground {
+    width: 30%;
+    margin: 10% 10% 10% 6rem ;
+}
+
+@media screen and (max-width: 862px) {
     .overBackground {
-        width: 60%;
+        width: 100%;
+        margin: 0;
+        padding: 6rem 4rem;
+    }
+    .overBackgroundLeft {
+        position: absolute;
+        right: 0rem;
+        left: 0;
+        width: 100%;
+        padding: 6rem 2rem; 
+        top: 0px;
+        z-index: 2;
     }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 600px) {
     .overBackground {
-        width: 80%;
-        margin-top: 18vh;
+        width: 100%;
+        margin: 0;
+        padding: 6rem 4rem;
+    }
+    .overBackgroundLeft {
+        position: absolute;
+        right: 0rem;
+        left: 0;
+        width: 100%;
+        padding: 6rem 2rem; 
+        top: 0px;
+        z-index: 2;
     }
 }
 

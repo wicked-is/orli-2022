@@ -513,10 +513,7 @@ export default function BigImageSmallContent(props) {
                 backgroundImage: `url(${imagePoster.mediaItemUrl})`,
               }}
             >
-              <div className="max-80">
-                <div className={styles.flex}>
-                  <div className={styles.col160}></div>
-                  <div className={styles.col140}>
+              <div className={`${styles.overBackgroundLeft}`}>
                     {icon && (
                       <p className="right">
                         <img
@@ -540,9 +537,7 @@ export default function BigImageSmallContent(props) {
                         {ctaLabel}
                       </a>
                     )}
-                  </div>
-                </div>
-              </div>
+            </div>
             </div>
           )}
           {mediaType === "Video" && (
