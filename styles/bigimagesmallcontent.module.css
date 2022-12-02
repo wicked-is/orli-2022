@@ -49,6 +49,12 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
+@media only screen and (max-width: 820px) {
+    [data-page="/shop-orli"] .backgroundImage {
+        background-position: left center;
+    }
+}
+
 
 .backgroundVideo {
     display: block;
