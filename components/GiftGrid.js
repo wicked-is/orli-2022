@@ -133,6 +133,19 @@ const ImageContainer = styled.div `
     &:hover .overlay.green{
         opacity: 1;
     }
+
+    @media (hover: none) {
+        &:hover .color-orange p,
+        &:hover .color-blue p,
+        &:hover .color-grey p,
+        &:hover .color-green p,
+        &:hover .overlay.blue,
+        &:hover .overlay.orange,
+        &:hover .overlay.grey,
+        &:hover .overlay.green{
+         opacity: 0;
+        }
+    }
 `;
 
 export default function GiftGrid(props) {
