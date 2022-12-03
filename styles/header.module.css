@@ -78,6 +78,11 @@
 .header .announcementbar a:focus {
     text-decoration: underline;
     color: var(--white);
+    transition: 0.3s ease all;
+}
+
+.header .announcementbar a:hover {
+    opacity: 0.8;
 }
 
 .header .announcementbar button {
