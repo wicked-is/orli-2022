@@ -23,14 +23,14 @@ export default function Layout(props) {
     }
 
     return (
-        <div
-            className={`${
+        <div data-page={`${props.currentPage}`}
+             className={`${
                 props.topBar?.isAnnouncementBarActive === undefined
                     ? "tob-bar-not-active"
                     : "top-bar-active"
             }`}>
             <Header navItems={props.navItems} topBar={props.topBar} />
-            <main data-page={`${props.currentPage}`}>{props.children}</main>
+            <main>{props.children}</main>
             {showModal && !hasModalShown && props.page !== "/email" && (
                 <ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
             )}

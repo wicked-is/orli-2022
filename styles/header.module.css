@@ -73,6 +73,10 @@
     position: relative;
 }
 
+[data-page="/shop-orli"] .header .announcementbar {
+    display: none !important;
+}
+
 .header .announcementbar a,
 .header .announcementbar a:visited,
 .header .announcementbar a:focus {
@@ -436,6 +440,10 @@ ul.socials {
     justify-content: center;
     position: fixed;
     top: 0;
+    }
+
+    [data-page="/shop-orli"] .header .announcementbar {
+        display: none !important;
     }
 }
 
