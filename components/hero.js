@@ -1,3 +1,4 @@
+import Fancybox from "../components/FancyBox.js";
 import BookingForm from './bookingForm';
 import Link from 'next/link'
 import Image from 'next/image'
@@ -30,6 +31,7 @@ export default function Hero(props) {
         datePublished,
         imagePoster,
         mp4ExternalLink,
+        video,
         webm,
         subnavigation
     } = props
@@ -357,6 +359,18 @@ export default function Hero(props) {
                                     </Link>
                                     { isGalleryVisible && <RoomGallerySlider gallery={gallery} toggleGallery={toggleGallery} /> }
                                 </>
+                            )
+                        } 
+                        {
+                            video && (
+                                <Fancybox>
+                                    <a data-fancybox="video-gallery" href={props.video} className={`${styles.viewGallery} sans-serif white body-copy textshadow underline`}
+                                    style={{ left: "18rem" }}
+                                    target="_blank" rel="noopener noreferrer"
+                                    >
+                                        View Video
+                                    </a>
+                                </Fancybox>
                             )
                         } 
                     </div>

@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { useOpenWeather } from "react-open-weather";
 
 const WeatherContext = createContext();

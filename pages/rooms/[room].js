@@ -352,6 +352,7 @@ export default function DefaultRoomsPage(props) {
                 types="Single Room"
                 imagePoster={room.singleRooms.roomshero}
                 gallery={room.singleRooms.gallery}
+                video={room.singleRooms.featuredVideoUrl}
             />
             <MobileRoomsHero>
                 <Flickity
@@ -655,6 +656,7 @@ export async function getStaticProps({ params }) {
         }
         singleRooms {
           cloudbedsLink
+          featuredVideoUrl
           floorplan {
             mediaItemUrl
             altText

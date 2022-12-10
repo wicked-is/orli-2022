@@ -445,7 +445,7 @@ export default function RoomsGrid(props) {
                                                     type="video/mp4"
                                                 />
                                                 <source
-                                                    src={`${room.singleRooms.featuredVideoUrl}.webm`}
+                                                    src={`${room.singleRooms.featuredVideoUrl.replace(".mp4", ".webm")}`}
                                                     type="video/webm"
                                                 />
                                             </VideoContainer>
