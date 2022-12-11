@@ -29,7 +29,7 @@ const createSitemap = (data) => {
                 return `
                     <url>
                         <loc>${`https://stayorli.com/${slug}`}</loc>
-                        <lastmod>${modified}</lastmod>
+                        <lastmod>${modified.substring(0, 10)}</lastmod>
                         <changefreq>monthly</changefreq>
                     </url>
                 `;
@@ -44,7 +44,7 @@ const createSitemap = (data) => {
                 return `
                     <url>
                         <loc>${`https://stayorli.com/${slug}`}</loc>
-                        <lastmod>${modified}</lastmod>
+                        <lastmod>${modified.substring(0, 10)}</lastmod>
                         <changefreq>monthly</changefreq>
                     </url>
                 `;
@@ -59,7 +59,7 @@ const createSitemap = (data) => {
                 return `
                     <url>
                         <loc>${`https://stayorli.com/rooms/${slug}`}</loc>
-                        <lastmod>${modified}</lastmod>
+                        <lastmod>${modified.substring(0, 10)}</lastmod>
                         <changefreq>monthly</changefreq>
                     </url>
                 `;
@@ -74,7 +74,7 @@ const createSitemap = (data) => {
                 return `
                     <url>
                         <loc>${`https://stayorli.com/offers/${slug}`}</loc>
-                        <lastmod>${modified}</lastmod>
+                        <lastmod>${modified.substring(0, 10)}</lastmod>
                         <changefreq>monthly</changefreq>
                     </url>
                 `;
