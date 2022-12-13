@@ -276,7 +276,7 @@ export default function ExitIntent(props) {
                                 <input
                                     id="email"
                                     name="email"
-                                    aria-lable="Email"
+                                    aria-label="Email"
                                     value={email}
                                     placeholder="Enter Email*"
                                     onChange={() =>
