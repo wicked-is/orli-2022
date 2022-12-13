@@ -108,6 +108,7 @@ export default function Footer(props) {
                                             id="email"
                                             name="email"
                                             value={email}
+                                            aria-label="Email"
                                             placeholder="Enter Email*"
                                             onChange={() =>
                                                 setEmail(event.target.value)
