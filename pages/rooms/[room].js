@@ -154,8 +154,16 @@ const FeatureList = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 150px);
     gap: 1rem;
-
     text-align: center;
+
+    [data-page="/rooms/the-irving-gill-penthouse"] & {
+       grid-template-columns: repeat(5, 150px);
+    }
+    @media only screen and (max-width: 1500px){
+        [data-page="/rooms/the-irving-gill-penthouse"] & {
+            grid-template-columns: repeat(4, 150px);
+        }
+    }
 
     div {
         max-width: 130px;
