@@ -238,11 +238,7 @@ export default function DefaultOffersPage(props) {
                                 <a target="_blank">Book Now</a>
                             </Link>
                         </ReservationButton>
-                        <p className="terms-link sans-serif body underline left">
-                            <Link href="null" passHref>
-                                <a onClick={handleClick}>Terms & Conditions</a>
-                            </Link>
-                        </p>
+                        <p className="terms-link sans-serif body underline left" style={{ cursor: "pointer" }} onClick={handleClick}>Terms & Conditions</p>
                     </TextContainer>
                 </SingleOfferContent>
             </SingleOfferContainer>
