@@ -93,25 +93,25 @@ class Sitemap extends React.Component {
             body: JSON.stringify({
                 query: `
                     query Everything {
-                        pages {
+                        pages(first: 300) {
                             nodes {
                                 slug
                                 modified
                             }
                         }
-                        rooms {
+                        rooms(first: 300) {
                             nodes {
                                 slug
                                 modified
                             }
                         }
-                        posts {
+                        posts(first:300) {
                             nodes {
                                 slug
                                 modified
                             }
                         }
-                        offers {
+                        offers(first:300) {
                             nodes {
                                 slug
                                 modified
