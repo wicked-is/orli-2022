@@ -12,6 +12,15 @@ const nextConfig = {
         locales: ["en-US"],
         defaultLocale: "en-US",
     },
+    async redirects() {
+        return [
+        {
+            source: '/rooms',
+            destination: '/find-your-room',
+            permanent: true,
+        },
+        ]
+    },
 };
 
 module.exports = nextConfig;
