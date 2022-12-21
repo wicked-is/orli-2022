@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 
 /**
@@ -124,6 +125,7 @@ class Sitemap extends React.Component {
         const data = await resWithData.json();
 
         res.setHeader('Content-Type', 'text/xml');
+        res.setHeader("X-Robots-Tag", "noindex, nofollow");
         res.write(createSitemap(data));
         res.end();
   }
