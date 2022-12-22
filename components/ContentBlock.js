@@ -25,6 +25,17 @@ const ContentBlockInnerContainer = styled.div`
         margin-block-start: 0em;
         margin-block-end: 0em;
     }
+
+    ol li, 
+    ul li {
+        font-family: "GT Walsheim Light";
+        color: var(--black);
+        font-style: normal;
+        font-size: var(--body-copy);
+        line-height: 150%;
+        padding: 0 0 1rem 0;
+    }
+
     p {
         font-size: var(--body-copy);
         font-family: "GT Walsheim Light";
