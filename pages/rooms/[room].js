@@ -399,7 +399,7 @@ export default function DefaultRoomsPage(props) {
                             <p className="sans-serif-bold sub-heading">
                                 Sleeps {room.singleRooms.sleeps}
                             </p>
-                            <h1 className="heading">{room.title}</h1>
+                            <h1 className="heading">{room.title === "The Irving Gill Penthouse" ? "The Two-Story Irving Gill Penthouse" : room.title}</h1>
                             <MobileBookingForm>
                                 <ReservationForm
                                     action={room.singleRooms.cloudbedsLink}
