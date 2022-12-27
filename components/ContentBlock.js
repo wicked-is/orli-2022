@@ -12,7 +12,7 @@ const ContentBlockInnerContainer = styled.div`
     @media screen and (max-width: 1050px) {
         padding: 0 2rem;
     }
-    
+
     h1,
     h2,
     h3,
@@ -42,7 +42,10 @@ const ContentBlockInnerContainer = styled.div`
         font-family: "GT Walsheim Light";
         line-height: 150%;
     }
-
+    a, a:visited, a:focus {
+        color: var(--brown); 
+        text-decoration: underline;
+    }
     img {
         max-width: 100%;
         height: 100%;
