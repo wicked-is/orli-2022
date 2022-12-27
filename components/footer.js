@@ -238,6 +238,9 @@ export default function Footer(props) {
                                         <Link href="/cookie-policy">
                                             Cookie Policy
                                         </Link>
+                                        <Link href="/accessibility-statement">
+                                            Accessibility Statement
+                                        </Link>
                                         <Link href="/terms-conditions">
                                             Terms & Conditions
                                         </Link>
@@ -425,6 +428,10 @@ export default function Footer(props) {
                                             |{" "}
                                             <Link href="/cookie-policy">
                                                 Cookie Policy
+                                            </Link>{" "}
+                                            |{" "}
+                                            <Link href="/accessibility-statement">
+                                            Accessibility Statement
                                             </Link>{" "}
                                             |{" "}
                                             <Link href="/terms-conditions">
