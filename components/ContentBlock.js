@@ -12,7 +12,8 @@ const ContentBlockInnerContainer = styled.div`
     @media screen and (max-width: 1050px) {
         padding: 0 2rem;
     }
-
+    
+    h1,
     h2,
     h3,
     h4 {
