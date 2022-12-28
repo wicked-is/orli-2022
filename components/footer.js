@@ -207,7 +207,7 @@ export default function Footer(props) {
                                         </ul>
                                     </div>
                                     <p className="sans-serif copyright xs-copy white left">
-                                        © 2022 Orli La Jolla
+                                        © 2023 Orli La Jolla
                                     </p>
                                 </Left>
                                 <Right>
@@ -421,7 +421,7 @@ export default function Footer(props) {
                                 <div>
                                     <div>
                                         <p className="sans-serif copyright xs-copy white left">
-                                            © 2022 Orli La Jolla |{" "}
+                                            © 2023 Orli La Jolla |{" "}
                                             <Link href="/privacy-policy">
                                                 Privacy Policy
                                             </Link>{" "}
