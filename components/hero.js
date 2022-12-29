@@ -382,7 +382,7 @@ export default function Hero(props) {
                             backgroundImage: `url(${imagePoster.mediaItemUrl})`
                         }}>
                             <div className={styles.journalHeroText}>
-                                <p className="xs-heading uppercase letterSpacing white">{props.categories.nodes[0].name}</p>
+                                <div className="xs-heading uppercase letterSpacing white" dangerouslySetInnerHTML={{__html: props.categories.nodes[0].name,}}></div>
                                 <p className="serif heading white">{props.postTitle}</p>
                                 {datePublished && <p className="sans-serif body white">{datePublished}</p>}
                            </div>

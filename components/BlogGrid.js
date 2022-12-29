@@ -14,7 +14,7 @@ const BlogGridContainer = styled.section`
     margin-bottom: 6rem;
 `;
 
-const BlogTitle = styled.p`
+const BlogTitle = styled.div`
     cursor: pointer;
     transition: 0.3s ease all;
 `;
@@ -174,8 +174,7 @@ export default function BlogGrid(props) {
                                 <BlogTitle
                                     className={`serif ${
                                         featured ? "heading" : "press-heading"
-                                    } black`}>
-                                    {post.title}
+                                    } black`} dangerouslySetInnerHTML={{__html: post.title,}}>
                                 </BlogTitle>
                             </Link>
                         </BlogTile>
