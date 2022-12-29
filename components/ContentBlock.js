@@ -61,6 +61,14 @@ const ContentBlockInnerContainer = styled.div`
         max-width: 100%;
         margin: 0;
     }
+
+    @media only screen and (max-width: 700px) {
+        ol {
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            padding-inline-start: 20px;
+        }
+    }
 `;
 // .aligncenter
 // image swap
