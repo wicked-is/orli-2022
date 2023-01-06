@@ -674,6 +674,7 @@ export async function getStaticProps({ params }) {
           }
           gallery {
             mediaItemUrl
+            altText
           }
           mobileGallery {
             imageType

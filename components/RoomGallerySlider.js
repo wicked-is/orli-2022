@@ -57,7 +57,7 @@ export default function RoomGallerySlider(props) {
                     gallery.map((item, index) => {
                         return (
                             <div key={`gallery-item-${index}`} className={styles.item}>
-                                 <img src={item.mediaItemUrl} />
+                                <img src={item.mediaItemUrl} alt={item.altText} />
                             </div>
                         )
                     })
