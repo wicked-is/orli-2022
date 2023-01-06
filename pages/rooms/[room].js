@@ -446,6 +446,7 @@ export default function DefaultRoomsPage(props) {
                                         src="/assets/icons/Orli_Caret.svg"
                                         width="12px"
                                         height="7px"
+                                        alt="caret"
                                     />
                                 </a>
                             </p>
@@ -478,7 +479,7 @@ export default function DefaultRoomsPage(props) {
                                                 src={
                                                     feature?.icon?.mediaItemUrl
                                                 }
-                                                alt={feature.altText}
+                                                alt={feature?.icon?.altText}
                                             />
                                         )}
                                         <p>{feature.label}</p>
