@@ -456,7 +456,7 @@ export default function RoomsGrid(props) {
                                                 room.featuredImage.node
                                                     .mediaItemUrl
                                             }
-                                            alt={room.altText}
+                                            alt={room.featuredImage.node.altText}
                                             width={430}
                                             height={436}
                                             layout="intrinsic"
