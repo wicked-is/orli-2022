@@ -15,6 +15,7 @@ const SingleOfferContainer = styled.div`
     width: inline-block;
     margin: auto;
 `;
+
 const SingleOfferContent = styled.div`
     width: 100%;
     height: auto;
@@ -47,6 +48,10 @@ const TextContainer = styled.div`
     }
     & h1 {
         padding: 0;
+    }
+    & h3 {
+        margin-block-start: 0em;
+        margin-block-end: 1em;
     }
     & ul {
         margin-block-start: 0em;
@@ -226,6 +231,9 @@ export default function DefaultOffersPage(props) {
                             Offers
                         </h2>
                         <h1 className="serif heading left">{offer.title}</h1>
+                        { offer.singleOffers.highlights &&
+                            <h3 className="sans-serif body left black">{offer.singleOffers.highlights}</h3>
+                        }
                         <div
                             className="sans-serif left"
                             dangerouslySetInnerHTML={{
@@ -313,6 +321,7 @@ export async function getStaticProps({ params }) {
           }
           offerDescription
           offerTermsConditions
+          highlights
         }
         status
         slug
