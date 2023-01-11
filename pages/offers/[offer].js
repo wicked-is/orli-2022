@@ -231,9 +231,6 @@ export default function DefaultOffersPage(props) {
                             Offers
                         </h2>
                         <h1 className="serif heading left">{offer.title}</h1>
-                        { offer.singleOffers.highlights &&
-                            <h3 className="sans-serif body left black">{offer.singleOffers.highlights}</h3>
-                        }
                         <div
                             className="sans-serif left"
                             dangerouslySetInnerHTML={{
