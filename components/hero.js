@@ -152,8 +152,8 @@ export default function Hero(props) {
                         {
                             includeBookMultipleRoomsLink && (
                                 <div className={styles.bookmultipleroomsContainer}>
-                                    <Link href="/book-a-room/" passHref>
-                                        <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                    <Link href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13" passHref>
+                                        <a className={`${styles.bookingtext} sans-serif xs-copy underline white`} target="_blank">
                                             Book Multiple Rooms
                                         </a>
                                     </Link>
@@ -194,8 +194,8 @@ export default function Hero(props) {
                             { 
                                 includeBookMultipleRoomsLink && (
                                     <div className={styles.bookmultipleroomsContainer}>
-                                        <Link href="/book-a-room/" passHref>
-                                            <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                        <Link href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13" passHref>
+                                            <a className={`${styles.bookingtext} sans-serif xs-copy underline white`} target="_blank">
                                                 Book Multiple Rooms
                                             </a>
                                         </Link>
@@ -235,8 +235,8 @@ export default function Hero(props) {
                             {
                                 includeBookMultipleRoomsLink && (
                                     <div className={styles.bookmultipleroomsContainer}>
-                                        <Link href="/book-a-room/" passHref>
-                                            <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                        <Link href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13" passHref>
+                                            <a className={`${styles.bookingtext} sans-serif xs-copy underline white`} target="_blank">
                                                 Book Multiple Rooms
                                             </a>
                                         </Link>
@@ -291,8 +291,8 @@ export default function Hero(props) {
                         { 
                             includeBookMultipleRoomsLink && (
                             <div className={styles.bookmultipleroomsContainer}>
-                                <Link href="/book-a-room/" passHref>
-                                    <a className={`${styles.bookingtext} sans-serif xs-copy underline white`}>
+                                <Link href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13" passHref>
+                                    <a className={`${styles.bookingtext} sans-serif xs-copy underline white`} target="_blank">
                                         Book Multiple Rooms
                                     </a>
                                 </Link>
