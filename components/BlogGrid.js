@@ -173,7 +173,7 @@ export default function BlogGrid(props) {
                             <Link href={post.uri}>
                                 <BlogTitle
                                     className={`serif ${
-                                        featured ? "heading" : "press-heading"
+                                        featured ? "heading white" : "press-heading black"
                                     } black`} dangerouslySetInnerHTML={{__html: post.title,}}>
                                 </BlogTitle>
                             </Link>
