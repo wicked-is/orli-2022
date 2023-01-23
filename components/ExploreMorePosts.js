@@ -38,7 +38,8 @@ const ExploreMorePostsGrid = styled.div`
 `
 
 export default function ExploreMorePosts(props) {
-    const { anchor, posts, title } = props
+    const { anchor, posts, title = "Explore More Posts" } = props
+
     return (
         <ExploreMorePostsMainContainer>
             <a name={anchor} id={anchor}></a>
@@ -50,7 +51,7 @@ export default function ExploreMorePosts(props) {
                             return (
                                 <ExploreMorePostsTile key={post.title}>
                                     <Link href={post.uri}><Image src={post.featuredImage.node.mediaItemUrl} alt={post.featuredImage.node.altText} width="500" height="436" layout="responsive" style={{ objectFit: 'cover' }} /></Link>
-                                    <p className="xs-heading uppercase black">{post.categories.nodes[0].name}</p>
+                                    <p className="xs-heading uppercase black">{post?.categories?.nodes ? post?.categories?.nodes[0]?.name : post.categories.edges[0].node.name}</p>
                                     <Link href={post.uri}><p className="heading left">{post.title}</p>
                                     </Link>
                                 </ExploreMorePostsTile>

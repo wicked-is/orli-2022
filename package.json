@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.31",
+    "dotenv": "^16.0.3",
     "exit-intent": "^1.1.0",
     "flickity": "^3.0.0",
     "gsap": "^3.9.1",

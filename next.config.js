@@ -21,6 +21,9 @@ const nextConfig = {
         },
         ]
     },
+    env: {
+        WP_GQL_API: process.env.WP_GQL_API,
+    }
 };
 
 module.exports = nextConfig;

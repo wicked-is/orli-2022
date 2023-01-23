@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -39,363 +39,413 @@ import FAQ from "../components/Faq";
 import GiftGrid from "../components/GiftGrid";
 
 export default function DefaultPage(props) {
-    const roomAmenities = props?.data?.data?.roomAmenities;
-    const seo = props?.data?.data?.page?.seo || props?.data?.data?.post?.seo;
-    const sections =
-        props?.data?.data?.page?.flexibleContent?.sections ||
-        props?.data?.data?.post?.flexibleContent?.sections;
-    const title = props?.data?.data?.post?.title || null;
-    const categories = props?.data?.data?.post?.categories || null;
+  const roomAmenities = props?.data?.data?.roomAmenities;
+  const seo = props?.data?.data?.page?.seo || props?.data?.data?.post?.seo;
+  const sections =
+    props?.data?.data?.page?.flexibleContent?.sections ||
+    props?.data?.data?.post?.flexibleContent?.sections;
+  
+  const title = props?.data?.data?.post?.title || null;
+  const categories = props?.data?.data?.post?.categories || null;
+  const showMorePosts = props?.data?.data?.post?.blogPost?.includeMorePostsSection[0] === "true" ? true : null;
+  
+  const postId = props?.data?.data?.post?.postId || null;
+  const [morePosts, setMorePosts] = useState([]);
 
-    useEffect(() => {
-        var tl = gsap.timeline();
-        tl.fromTo("header", { opacity: 0 }, { opacity: 1, duration: 0.5 });
-        tl.to("main", { opacity: 1, duration: 0.6 });
+  useEffect(() => {
+      var tl = gsap.timeline();
+      tl.fromTo("header", { opacity: 0 }, { opacity: 1, duration: 0.5 });
+      tl.to("main", { opacity: 1, duration: 0.6 });
 
-        var sections = gsap.utils.toArray(".fadein");
+      var sections = gsap.utils.toArray(".fadein");
 
-        sections.forEach(section => {
-            gsap.to(section, {
-                autoAlpha: 1,
-                scrollTrigger: {
-                    trigger: section,
-                    start: "+=0 80%",
-                    scrub: false,
-                    markers: false,
-                    toggleActions: "play reverse play reverse",
-                },
-            });
-        });
-    }, []);
+      sections.forEach(section => {
+          gsap.to(section, {
+              autoAlpha: 1,
+              scrollTrigger: {
+                  trigger: section,
+                  start: "+=0 80%",
+                  scrub: false,
+                  markers: false,
+                  toggleActions: "play reverse play reverse",
+              },
+          });
+      });
+  }, []);
 
-    const gatherSections = () => {
-        const gatheredSections = [];
+  const gatherSections = () => {
+    const gatheredSections = [];
 
-        for (const [index, section] of sections.entries()) {
-            const componentKey = `section-${index}`;
+    for (const [index, section] of sections.entries()) {
+        const componentKey = `section-${index}`;
 
-            switch (section.fieldGroupName) {
-                case "Page_Flexiblecontent_Sections_AnchorBar":
-                case "Post_Flexiblecontent_Sections_AnchorBar":
-                    gatheredSections.push(
-                        <AnchorBar
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_ContactBlock":
-                case "Post_Flexiblecontent_Sections_ContactBlock":
-                    gatheredSections.push(
-                        <ContactBlock
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_EventFeed":
-                case "Post_Flexiblecontent_Sections_EventFeed":
-                    gatheredSections.push(
-                        <EventFeed
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_Hero":
-                    gatheredSections.push(
-                        <Hero key={componentKey} {...section} index={index} />
-                    );
-                    break;
-                case "Post_Flexiblecontent_Sections_Hero":
-                    gatheredSections.push(
-                        <Hero
-                            key={componentKey}
-                            postTitle={title}
-                            {...section}
-                            categories={categories}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Post_Flexiblecontent_Sections_FullWidthMedia":
-                    gatheredSections.push(
-                        <FullWidthMedia
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_HistoricTimeline":
-                case "Post_Flexiblecontent_Sections_HistoricTimeline":
-                    gatheredSections.push(
-                        <HistoricalSlider
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_CenteredCopy":
-                case "Post_Flexiblecontent_Sections_CenteredCopy":
-                    gatheredSections.push(
-                        <BlurbCenter
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_RoomsSlider":
-                case "Post_Flexiblecontent_Sections_RoomsSlider":
-                    gatheredSections.push(
-                        <RoomSlider
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_DiscoveriesCallout":
-                case "Post_Flexiblecontent_Sections_DiscoveriesCallout":
-                    gatheredSections.push(
-                        <DiscoveriesCallout
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_AmenitiesSlider":
-                case "Post_Flexiblecontent_Sections_AmenitiesSlider":
-                    gatheredSections.push(
-                        <AmenitiesSlider
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_OurMission":
-                case "Post_Flexiblecontent_Sections_OurMission":
-                    gatheredSections.push(
-                        <OurMission
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_GatheringsCallout":
-                case "Post_Flexiblecontent_Sections_GatheringsCallout":
-                    gatheredSections.push(
-                        <Gatherings
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_BookingIframe":
-                case "Post_Flexiblecontent_Sections_BookingIframe":
-                    gatheredSections.push(
-                        <BookingIframe
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_FeaturedJournal":
-                case "Post_Flexiblecontent_Sections_FeaturedJournal":
-                    gatheredSections.push(
-                        <FullFeatureBlog
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_FollowAlong":
-                case "Post_Flexiblecontent_Sections_FollowAlong":
-                    gatheredSections.push(
-                        <FauxSocialFeed
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_SpotifyFeature":
-                case "Post_Flexiblecontent_Sections_SpotifyFeature":
-                    gatheredSections.push(
-                        <SpotifyFeature
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_BigImageSmallContent":
-                case "Post_Flexiblecontent_Sections_BigImageSmallContent":
-                    gatheredSections.push(
-                        <BigImageSmallContent
-                            key={componentKey}
-                            order={index}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_Form":
-                case "Post_Flexiblecontent_Sections_Form":
-                    gatheredSections.push(
-                        <Form key={componentKey} {...section} index={index} />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_FeaturedStorySlider":
-                case "Post_Flexiblecontent_Sections_FeaturedStorySlider":
-                    gatheredSections.push(
-                        <FeaturedStorySlider
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_Gallery":
-                case "Post_Flexiblecontent_Sections_Gallery":
-                    gatheredSections.push(
-                        <Gallery
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_Titlebar":
-                case "Post_Flexiblecontent_Sections_Titlebar":
-                    gatheredSections.push(
-                        <TitleBar
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_BlogGrid":
-                case "Post_Flexiblecontent_Sections_BlogGrid":
-                    gatheredSections.push(
-                        <BlogGrid
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_PressGrid":
-                case "Post_Flexiblecontent_Sections_PressGrid":
-                    gatheredSections.push(
-                        <PressGrid
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_OffersGrid":
-                case "Post_Flexiblecontent_Sections_OffersGrid":
-                    gatheredSections.push(
-                        <OffersGrid
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_GettingHere":
-                case "Post_Flexiblecontent_Sections_GettingHere":
-                    gatheredSections.push(
-                        <GettingHere
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_TheLocalWay":
-                case "Post_Flexiblecontent_Sections_TheLocalWay":
-                    gatheredSections.push(
-                        <TheLocalWay
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_ContentBlock":
-                case "Post_Flexiblecontent_Sections_ContentBlock":
-                    gatheredSections.push(
-                        <ContentBlock
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_ExploreMorePosts":
-                case "Post_Flexiblecontent_Sections_ExploreMorePosts":
-                    gatheredSections.push(
-                        <ExploreMorePosts
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_RoomsGrid":
-                case "Post_Flexiblecontent_Sections_RoomsGrid":
-                    gatheredSections.push(
-                        <RoomsGrid
-                            key={componentKey}
-                            {...section}
-                            filters={roomAmenities.nodes}
-                            index={index}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_Faqs":
-                case "Post_Flexiblecontent_Sections_Faqs":
-                    gatheredSections.push(
-                        <FAQ
-                              key={componentKey}
-                              {...section}
-                              index={index}
-                              filters={roomAmenities.nodes}
-                        />
-                    );
-                    break;
-                case "Page_Flexiblecontent_Sections_GiftGrid":
-                    gatheredSections.push(
-                        <GiftGrid
-                            key={componentKey}
-                            {...section}
-                            index={index}
-                            filters={roomAmenities.nodes}
-                        />
-                    );
-                    break;
-                default:
-                    break;
-            }
+        switch (section.fieldGroupName) {
+            case "Page_Flexiblecontent_Sections_AnchorBar":
+            case "Post_Flexiblecontent_Sections_AnchorBar":
+                gatheredSections.push(
+                    <AnchorBar
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_ContactBlock":
+            case "Post_Flexiblecontent_Sections_ContactBlock":
+                gatheredSections.push(
+                    <ContactBlock
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_EventFeed":
+            case "Post_Flexiblecontent_Sections_EventFeed":
+                gatheredSections.push(
+                    <EventFeed
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_Hero":
+                gatheredSections.push(
+                    <Hero key={componentKey} {...section} index={index} />
+                );
+                break;
+            case "Post_Flexiblecontent_Sections_Hero":
+                gatheredSections.push(
+                    <Hero
+                        key={componentKey}
+                        postTitle={title}
+                        {...section}
+                        categories={categories}
+                        index={index}
+                    />
+                );
+                break;
+            case "Post_Flexiblecontent_Sections_FullWidthMedia":
+                gatheredSections.push(
+                    <FullWidthMedia
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_HistoricTimeline":
+            case "Post_Flexiblecontent_Sections_HistoricTimeline":
+                gatheredSections.push(
+                    <HistoricalSlider
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_CenteredCopy":
+            case "Post_Flexiblecontent_Sections_CenteredCopy":
+                gatheredSections.push(
+                    <BlurbCenter
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_RoomsSlider":
+            case "Post_Flexiblecontent_Sections_RoomsSlider":
+                gatheredSections.push(
+                    <RoomSlider
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_DiscoveriesCallout":
+            case "Post_Flexiblecontent_Sections_DiscoveriesCallout":
+                gatheredSections.push(
+                    <DiscoveriesCallout
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_AmenitiesSlider":
+            case "Post_Flexiblecontent_Sections_AmenitiesSlider":
+                gatheredSections.push(
+                    <AmenitiesSlider
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_OurMission":
+            case "Post_Flexiblecontent_Sections_OurMission":
+                gatheredSections.push(
+                    <OurMission
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_GatheringsCallout":
+            case "Post_Flexiblecontent_Sections_GatheringsCallout":
+                gatheredSections.push(
+                    <Gatherings
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_BookingIframe":
+            case "Post_Flexiblecontent_Sections_BookingIframe":
+                gatheredSections.push(
+                    <BookingIframe
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_FeaturedJournal":
+            case "Post_Flexiblecontent_Sections_FeaturedJournal":
+                gatheredSections.push(
+                    <FullFeatureBlog
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_FollowAlong":
+            case "Post_Flexiblecontent_Sections_FollowAlong":
+                gatheredSections.push(
+                    <FauxSocialFeed
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_SpotifyFeature":
+            case "Post_Flexiblecontent_Sections_SpotifyFeature":
+                gatheredSections.push(
+                    <SpotifyFeature
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_BigImageSmallContent":
+            case "Post_Flexiblecontent_Sections_BigImageSmallContent":
+                gatheredSections.push(
+                    <BigImageSmallContent
+                        key={componentKey}
+                        order={index}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_Form":
+            case "Post_Flexiblecontent_Sections_Form":
+                gatheredSections.push(
+                    <Form key={componentKey} {...section} index={index} />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_FeaturedStorySlider":
+            case "Post_Flexiblecontent_Sections_FeaturedStorySlider":
+                gatheredSections.push(
+                    <FeaturedStorySlider
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_Gallery":
+            case "Post_Flexiblecontent_Sections_Gallery":
+                gatheredSections.push(
+                    <Gallery
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_Titlebar":
+            case "Post_Flexiblecontent_Sections_Titlebar":
+                gatheredSections.push(
+                    <TitleBar
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_BlogGrid":
+            case "Post_Flexiblecontent_Sections_BlogGrid":
+                gatheredSections.push(
+                    <BlogGrid
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_PressGrid":
+            case "Post_Flexiblecontent_Sections_PressGrid":
+                gatheredSections.push(
+                    <PressGrid
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_OffersGrid":
+            case "Post_Flexiblecontent_Sections_OffersGrid":
+                gatheredSections.push(
+                    <OffersGrid
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_GettingHere":
+            case "Post_Flexiblecontent_Sections_GettingHere":
+                gatheredSections.push(
+                    <GettingHere
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_TheLocalWay":
+            case "Post_Flexiblecontent_Sections_TheLocalWay":
+                gatheredSections.push(
+                    <TheLocalWay
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_ContentBlock":
+            case "Post_Flexiblecontent_Sections_ContentBlock":
+                gatheredSections.push(
+                    <ContentBlock
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_ExploreMorePosts":
+            case "Post_Flexiblecontent_Sections_ExploreMorePosts":
+                gatheredSections.push(
+                    <ExploreMorePosts
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_RoomsGrid":
+            case "Post_Flexiblecontent_Sections_RoomsGrid":
+                gatheredSections.push(
+                    <RoomsGrid
+                        key={componentKey}
+                        {...section}
+                        filters={roomAmenities.nodes}
+                        index={index}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_Faqs":
+            case "Post_Flexiblecontent_Sections_Faqs":
+                gatheredSections.push(
+                    <FAQ
+                          key={componentKey}
+                          {...section}
+                          index={index}
+                          filters={roomAmenities.nodes}
+                    />
+                );
+                break;
+            case "Page_Flexiblecontent_Sections_GiftGrid":
+                gatheredSections.push(
+                    <GiftGrid
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                        filters={roomAmenities.nodes}
+                    />
+                );
+                break;
+            default:
+                break;
         }
+    }
 
-        return gatheredSections;
-    };
+    return gatheredSections;
+  };
+  
+  async function handleShowMorePosts() {
+    if (postId === null || postId === undefined)
+      return;
+
+    const res = await fetch(process.env.WP_GQL_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            query: `
+                query GetMorePosts {
+                  posts(first:3 where: { notIn: ${postId}} ) {
+                    nodes {
+                      title
+                      uri
+                      categories(first:1) {
+                        edges {
+                          node {
+                            name
+                          }
+                        }
+                      }
+                      featuredImage {
+                        node {
+                          altText
+                          mediaItemUrl
+                        }
+                      }
+                    }
+                  }
+                }
+            `,
+        }),
+    });
+
+    const data = await res.json();
+
+    setMorePosts(data.data.posts.nodes)
+  }
+  
+  useEffect(() => {
+    if (showMorePosts) {
+      handleShowMorePosts()
+    } 
+  }, [showMorePosts])
 
     return (
         <>
@@ -405,6 +455,9 @@ export default function DefaultPage(props) {
                 fullhead={seo.fullHead}
             />
             {gatherSections()}
+            {
+              showMorePosts ? <ExploreMorePosts posts={morePosts} /> : null
+            }
         </>
     );
 }
@@ -1222,6 +1275,7 @@ export async function getStaticProps({ params }) {
           }
         }
         post(id: "${slug}", idType: SLUG) {
+          postId
           seo {
             title
             metaDesc
@@ -1232,6 +1286,43 @@ export async function getStaticProps({ params }) {
             nodes {
               name
             }
+          }
+          next {
+            categories(first: 1) {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
+            title
+            featuredImage {
+              node {
+                altText
+                mediaItemUrl
+              }
+            }
+            uri
+          }
+          previous {
+            categories(first: 1) {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
+            title
+            featuredImage {
+              node {
+                altText
+                mediaItemUrl
+              }
+            }
+            uri
+          }
+          blogPost {
+            includeMorePostsSection
           }
           flexibleContent {
             sections {
