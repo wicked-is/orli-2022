@@ -57,7 +57,7 @@ export default function ExploreMorePosts(props) {
                                     </Link>
                                     <p className="xs-heading uppercase black">{post?.categories?.nodes ? post?.categories?.nodes[0]?.name : post.categories.edges[0].node.name}</p>
                                     <Link href={post.uri}>
-                                        <p className="heading left">{post.title}</p>
+                                        <p className="press-heading left">{post.title}</p>
                                     </Link>
                                 </ExploreMorePostsTile>
                             )
