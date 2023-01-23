@@ -295,7 +295,7 @@ export default function Header(props) {
                                     className={`${styles.contact} sans-serif xs-copy white left`}>
                                     <Link
                                         href="/contact"
-                                        onClick={e => handleClick(e)}>
+                                        >
                                         <span onClick={() => toggleNav()}>
                                             Contact
                                         </span>
