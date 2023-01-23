@@ -412,7 +412,7 @@ export default function DefaultPage(props) {
         body: JSON.stringify({
             query: `
                 query GetMorePosts {
-                  posts(first:3 where: { notIn: ${postId}} ) {
+                  posts(first:3 where: { notIn: 1820, categoryNotIn: 22 }) {
                     nodes {
                       title
                       uri
@@ -437,6 +437,7 @@ export default function DefaultPage(props) {
     });
 
     const data = await res.json();
+    console.log({data})
 
     setMorePosts(data.data.posts.nodes)
   }
@@ -456,7 +457,7 @@ export default function DefaultPage(props) {
             />
             {gatherSections()}
             {
-              showMorePosts ? <ExploreMorePosts posts={morePosts} /> : null
+              showMorePosts && morePosts !== [] ? <ExploreMorePosts posts={morePosts} /> : null
             }
         </>
     );

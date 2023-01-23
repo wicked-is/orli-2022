@@ -50,9 +50,14 @@ export default function ExploreMorePosts(props) {
                         posts.map(post => {
                             return (
                                 <ExploreMorePostsTile key={post.title}>
-                                    <Link href={post.uri}><Image src={post.featuredImage.node.mediaItemUrl} alt={post.featuredImage.node.altText} width="500" height="436" layout="responsive" style={{ objectFit: 'cover' }} /></Link>
+                                    <Link href={post.uri}>
+                                        <div style={{ width: '100%', height: "436px", position: "relative"}}>
+                                            <Image src={post.featuredImage.node.mediaItemUrl} alt={post.featuredImage.node.altText} layout="fill" objectFit="cover" objectPosition="50% 50%" />
+                                        </div>
+                                    </Link>
                                     <p className="xs-heading uppercase black">{post?.categories?.nodes ? post?.categories?.nodes[0]?.name : post.categories.edges[0].node.name}</p>
-                                    <Link href={post.uri}><p className="heading left">{post.title}</p>
+                                    <Link href={post.uri}>
+                                        <p className="heading left">{post.title}</p>
                                     </Link>
                                 </ExploreMorePostsTile>
                             )
