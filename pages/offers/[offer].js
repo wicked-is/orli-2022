@@ -227,23 +227,32 @@ export default function DefaultOffersPage(props) {
                         />
                     </ImageContainer>
                     <TextContainer>
-                        <h2 className="sans-serif-bold sub-heading left">
-                            Offers
-                        </h2>
-                        <h1 className="serif heading left">{offer.title}</h1>
-                        <div
-                            className="sans-serif left"
-                            dangerouslySetInnerHTML={{
-                                __html: `${offer.singleOffers.offerDescription}`,
-                            }}></div>
-                        <ReservationButton>
-                            <Link
-                                href={`${offer.singleOffers.bookingLink}`}
-                                passHref>
-                                <a target="_blank">Book Now</a>
-                            </Link>
-                        </ReservationButton>
-                        <p className="terms-link sans-serif body underline left" style={{ cursor: "pointer" }} onClick={handleClick}>Terms & Conditions</p>
+                        <div>
+                            <h2 className="sans-serif-bold sub-heading left">
+                                Offers
+                            </h2>
+                            <h1 className="serif heading left">
+                                {offer.title}
+                            </h1>
+                            <div
+                                className="sans-serif left"
+                                dangerouslySetInnerHTML={{
+                                    __html: `${offer.singleOffers.offerDescription}`,
+                                }}></div>
+                            <ReservationButton>
+                                <Link
+                                    href={`${offer.singleOffers.bookingLink}`}
+                                    passHref>
+                                    <a target="_blank">Book Now</a>
+                                </Link>
+                            </ReservationButton>
+                            <p
+                                className="terms-link sans-serif body underline left"
+                                style={{ cursor: "pointer" }}
+                                onClick={handleClick}>
+                                Terms & Conditions
+                            </p>
+                        </div>
                     </TextContainer>
                 </SingleOfferContent>
             </SingleOfferContainer>
