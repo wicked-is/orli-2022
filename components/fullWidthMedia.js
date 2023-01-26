@@ -199,7 +199,7 @@ export default function FullWidthMedia(props) {
                                     return (
                                     <div key={item.item} className="carouselitem">
                                         <Image src={item.image.mediaItemUrl} alt={item.image.altText} width={1920} height={1080} layout="responsive" />
-                                        <p class="sans-serif black body-copy left">{item.imageCaption}</p>
+                                        <p className="sans-serif black body-copy left">{item.imageCaption}</p>
                                     </div>
                                     )
                                 })
