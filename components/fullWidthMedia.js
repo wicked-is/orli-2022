@@ -201,7 +201,7 @@ export default function FullWidthMedia(props) {
                                         <Image src={item.image.mediaItemUrl} alt={item.image.altText} width={1920} height={1080} layout="responsive" />
                                         <p class="sans-serif black body-copy left">{item.imageCaption}</p>
                                     </div>
-                                )
+                                    )
                                 })
                                 }
                             </Flickity>
