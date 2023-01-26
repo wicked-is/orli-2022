@@ -944,6 +944,15 @@ export async function getStaticProps({ params }) {
                   mediaItemUrl
                   altText
                 }
+                sliderImages {
+                  ... on Page_Flexiblecontent_Sections_FullWidthMedia_sliderImages {
+                    image {
+                      mediaItemUrl
+                      altText
+                    }
+                    imageCaption
+                  }
+                }
               }
               ... on Page_Flexiblecontent_Sections_Hero {
                 fieldGroupName
@@ -1671,6 +1680,15 @@ export async function getStaticProps({ params }) {
                 fullImage {
                   mediaItemUrl
                   altText
+                }
+                sliderImages {
+                  ... on Post_Flexiblecontent_Sections_FullWidthMedia_sliderImages {
+                  image {
+                    mediaItemUrl
+                    altText
+                  }
+                  imageCaption
+                  }
                 }
               }
               ... on Post_Flexiblecontent_Sections_Hero {
