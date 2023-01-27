@@ -129,12 +129,15 @@ export default function FullWidthMedia(props) {
             setCurrentSliderLength(slider.current.cells.length);
           });
     
-          document
-            .querySelector("#previous-arrow")
-            .addEventListener("click", () => slider.current.previous());
-          document
-            .querySelector("#next-arrow")
-            .addEventListener("click", () => slider.current.next());
+          const prevArrows = document
+              .querySelectorAll(".previous-arrow")
+            
+            prevArrows.forEach(arrow => arrow.addEventListener("click", () => slider.current.previous()))
+          const nextArrows = document
+              .querySelectorAll(".next-arrow")
+            
+            nextArrows.forEach(arrow => arrow.addEventListener("click", () => slider.current.next()))
+            
         }
       }, [slider]);
 
@@ -208,28 +211,28 @@ export default function FullWidthMedia(props) {
                                 }
                             </Flickity>
                         <SliderNavigationContainer>
-                        <div className="brown">
-                          <img
-                            id="previous-arrow"
-                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
-                            style={{
-                              transform: "rotate(180deg)",
-                              marginRight: "1rem",
-                              width: "37px",
-                              height: "22px",
-                            }}
-                            alt="previous arrow"
-                          />
-                          <img
-                            id="next-arrow"
-                            src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
-                            style={{
-                              width: "37px",
-                              height: "22px",
-                            }}
-                            alt="next arrow"
-                          />
-                        </div>
+                            <div className="brown">
+                            <img
+                                className="previous-arrow"
+                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+                                style={{
+                                transform: "rotate(180deg)",
+                                marginRight: "1rem",
+                                width: "37px",
+                                height: "22px",
+                                }}
+                                alt="previous arrow"
+                            />
+                            <img
+                                className="next-arrow"
+                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+                                style={{
+                                width: "37px",
+                                height: "22px",
+                                }}
+                                alt="next arrow"
+                            />
+                            </div>
                       </SliderNavigationContainer>
                         </FullSlider>
                 )
