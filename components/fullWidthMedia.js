@@ -108,7 +108,8 @@ export default function FullWidthMedia(props) {
         imageCaption,
         videoCaption,
         mpfour,
-        sliderImages
+        sliderImages,
+        index
     } = props;
 
     const slider = useRef(null);
@@ -130,11 +131,12 @@ export default function FullWidthMedia(props) {
           });
     
           const prevArrows = document
-              .querySelectorAll(".previous-arrow")
+              .querySelectorAll(`.previous-arrow-${index}`)
             
             prevArrows.forEach(arrow => arrow.addEventListener("click", () => slider.current.previous()))
+            
           const nextArrows = document
-              .querySelectorAll(".next-arrow")
+              .querySelectorAll(`.next-arrow-${index}`)
             
             nextArrows.forEach(arrow => arrow.addEventListener("click", () => slider.current.next()))
             
@@ -181,14 +183,14 @@ export default function FullWidthMedia(props) {
                         <FullSlider>
                             <Flickity
                                 options={{
-                                cellAlign: 'center',
-                                prevNextButtons: false,
-                                pageDots: false,
-                                draggable: true,
-                                wrapAround: true,
-                                adaptiveHeight: true,
-                                imagesLoaded: true,
-                                fullscreen: true,
+                                    cellAlign: 'center',
+                                    prevNextButtons: false,
+                                    pageDots: false,
+                                    draggable: true,
+                                    wrapAround: true,
+                                    adaptiveHeight: true,
+                                    imagesLoaded: true,
+                                    fullscreen: true,
                                 }}
                                 disableImagesLoaded={false} // default false
                                 reloadOnUpdate={false} // default false
@@ -208,12 +210,12 @@ export default function FullWidthMedia(props) {
                                     </div>
                                     )
                                 })
-                                }
-                            </Flickity>
+                            }
+                        </Flickity>
                         <SliderNavigationContainer>
                             <div className="brown">
                             <img
-                                className="previous-arrow"
+                                className={`previous-arrow-${index}`}
                                 src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
                                 style={{
                                 transform: "rotate(180deg)",
@@ -224,7 +226,7 @@ export default function FullWidthMedia(props) {
                                 alt="previous arrow"
                             />
                             <img
-                                className="next-arrow"
+                                className={`next-arrow-${index}`}
                                 src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
                                 style={{
                                 width: "37px",
