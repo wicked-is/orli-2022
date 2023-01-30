@@ -117,7 +117,7 @@ const ContentContainer = styled.div`
         margin: 0 auto 0;
         /* padding: 1rem; */
         width: 100%;
-        height: 95vh;
+        height: 100vh;
 
         > div:last-child {
             padding: 1rem 0 2rem;
