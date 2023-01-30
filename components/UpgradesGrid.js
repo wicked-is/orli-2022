@@ -51,6 +51,14 @@ export const UpgradesGridPostQuery = `
 const UpgradesGridMainContainer = styled.section`
     background-color: #F2F1F0;
     padding: 6rem 5.5rem 6rem 5.5rem;
+    
+    @media screen and (max-width: 820px) {
+        padding: 6rem 3.5rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 6rem 2rem;
+    }
 `
 
 const UpgradesGridContainer = styled.div`
@@ -107,9 +115,9 @@ const ContentContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         margin: 0 auto 0;
-        padding: 1rem;
+        /* padding: 1rem; */
         width: 100%;
-        height: 80vh;
+        height: 85vh;
 
         > div:last-child {
             padding: 1rem 0 2rem;
@@ -134,7 +142,7 @@ export const SliderNavigationContainer = styled.div`
     justify-content: space-between;
 
     @media screen and (max-width: 500px) {
-        padding: 2.5rem 5vw 0;
+        padding: 1.5rem 5vw 0;
     }
 `
 
@@ -149,6 +157,11 @@ const ModalContentContainer = styled.div`
 
     @media screen and (max-width: 500px) {
         margin: 0 5vw 0;
+        padding: 1rem;
+
+        .body-copy.variable-height {
+            font-size: .85rem;
+        }
 
         a {
             width: 100% !important;
@@ -164,6 +177,9 @@ export const NavHolder = styled.div`
         flex-direction: column;
         align-items: flex-start;
         span { margin: 0 !important; }
+        padding: 0 1rem;
+
+        font-size: .85rem;
 
         :first-of-type {
             flex-direction: column-reverse
