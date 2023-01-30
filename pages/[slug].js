@@ -37,6 +37,7 @@ import ContentBlock from "../components/ContentBlock";
 import ExploreMorePosts from "../components/ExploreMorePosts";
 import FAQ from "../components/Faq";
 import GiftGrid from "../components/GiftGrid";
+import UpgradesGrid, { UpgradesGridPageQuery, UpgradesGridPostQuery } from "../components/UpgradesGrid";
 
 export default function DefaultPage(props) {
   const roomAmenities = props?.data?.data?.roomAmenities;
@@ -373,6 +374,16 @@ export default function DefaultPage(props) {
                     />
                 );
                 break;
+            case "Page_Flexiblecontent_Sections_UpgradesGrid":
+            case "Post_Flexiblecontent_Sections_UpgradesGrid":
+                gatheredSections.push(
+                    <UpgradesGrid
+                        key={componentKey}
+                        {...section}
+                        index={index}
+                    />
+                );
+                break;
             case "Page_Flexiblecontent_Sections_Faqs":
             case "Post_Flexiblecontent_Sections_Faqs":
                 gatheredSections.push(
@@ -558,6 +569,7 @@ export async function getStaticProps({ params }) {
           }
           flexibleContent {
             sections {
+              ${UpgradesGridPageQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {
@@ -1336,6 +1348,7 @@ export async function getStaticProps({ params }) {
           }
           flexibleContent {
             sections {
+              ${UpgradesGridPostQuery}
               ... on Post_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {
