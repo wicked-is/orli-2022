@@ -213,7 +213,8 @@ export default function ExitIntent(props) {
                     )}
                 </ImageContainer>
                 <ContentContainer onPage={isPage}>
-                    {!isPage && size.width > 821 && (
+                    {/* Removed Size conditional && size.width > 821  */}
+                    {!isPage && (
                         <div
                             className="close"
                             onClick={() => {
