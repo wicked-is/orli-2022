@@ -129,6 +129,20 @@ const ContentContainer = styled.div`
     }
 `;
 
+const OffersDialog = styled.dialog`
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    z-index: 9999999999;
+
+    @media screen and (max-width: 500px) {
+        padding: 0;
+    }
+`
+
 const LeftHalf = styled.div`
     @media screen and (max-width: 768px) {
         padding-top: 3rem;
@@ -287,17 +301,7 @@ export default function UpgradesGrid(props) {
                     }
                 </UpgradesGridInner>
             </UpgradesGridContainer>
-            <dialog
-                id="UpgradeSliderDialog"
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    border: "0px",
-                    backgroundColor: "rgba(0,0,0,0.5)",
-                    position: "fixed",
-                    top: "0",
-                    zIndex: "9999999999",
-                }}>
+            <OffersDialog id="UpgradeSliderDialog">
                 <div>
                     <p
                         id="closeBtn"
@@ -388,7 +392,7 @@ export default function UpgradesGrid(props) {
                         })
                     }
                 </Flickity>
-            </dialog>
+            </OffersDialog>
         </UpgradesGridMainContainer>
     )
 }
