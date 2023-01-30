@@ -352,6 +352,7 @@ export default function UpgradesGrid(props) {
                                                         alignItems: 'center'
                                                     }}
                                                     target="_blank"
+                                                    rel="noreferrer"
                                                     href={`${upgrade.Upgrades.externalLink}`}>
                                                     Book Now
                                                 </a>
