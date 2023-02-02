@@ -324,6 +324,7 @@ export default function UpgradesGrid(props) {
 
     return (
         <UpgradesGridMainContainer >
+            <a className="anchor" id="stay-enhancing-upgrades" href=""></a>
             <h2 className="serif heading black center">{title}</h2>
             <UpgradesGridContainer>
                 <UpgradesGridInner>
