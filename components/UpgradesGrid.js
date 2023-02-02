@@ -49,7 +49,7 @@ export const UpgradesGridPostQuery = `
 `
 
 const UpgradesGridMainContainer = styled.section`
-    background-color: #F2F1F0;
+    background-color: #fff;
     padding: 6rem 5.5rem 6rem 5.5rem;
     
     @media screen and (max-width: 820px) {

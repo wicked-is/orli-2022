@@ -12,6 +12,7 @@ const OffersGridContainer = styled.section`
     margin: auto;
     position: relative;
     padding: 6rem 5.5rem 6rem 5.5rem;
+    background-color: #F2F1F0;
     & h1 {
         margin: 2rem auto 2rem auto;
     }
