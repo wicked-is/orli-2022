@@ -149,6 +149,19 @@ const LeftHalf = styled.div`
     }
 `;
 
+const Gradient = styled.div`
+    position: absolute;
+    z-index: 3;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 9rem;
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%);
+`
+
 export const SliderNavigationContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -186,6 +199,7 @@ const ModalContentContainer = styled.div`
 export const NavHolder = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     @media screen and (max-width: 500px) {
         flex-direction: column;
@@ -202,6 +216,37 @@ export const NavHolder = styled.div`
         :last-of-type {
             align-items: flex-end;
         }
+    }
+`
+
+const ImageContainer = styled.div`
+    position: relative; 
+    width: 100%; 
+    min-height: 347px;
+
+    &:hover .hovershow {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        p {
+            color: white;
+        }
+    }
+`
+
+const HoverShow = styled.div`
+    display: none;
+    z-index: 5;
+    text-align: center;
+    
+    p {
+        color: #ffffff;
+        margin: 0 auto 1rem;
+        border-bottom: 1px solid #fff;
+        font-family: "GT Walsheim Light";
+        width: fit-content;
     }
 `
 
@@ -290,10 +335,15 @@ export default function UpgradesGrid(props) {
                                     className="center"
                                     onClick={changeSlider}
                                     data-slide={index}
+                                    style={{ cursor: 'pointer' }}
                                 >
-                                    <div  style={{ position: 'relative', width: '100%', minHeight: '347px' }} data-slide={index}>
-                                        <Image layout="fill" objectFit="cover" src={upgrade?.featuredImage?.node?.mediaItemUrl} alt={upgrade?.featuredImage?.node?.altText} data-slide={index} style={{ objectFit: 'cover !important'}} />
-                                    </div>
+                                    <ImageContainer data-slide={index}>
+                                        <Image layout="fill" objectFit="cover" src={upgrade?.featuredImage?.node?.mediaItemUrl} alt={upgrade?.featuredImage?.node?.altText} data-slide={index} style={{ objectFit: 'cover !important' }} />
+                                        <HoverShow className="hovershow">
+                                            <p>View Offer</p>
+                                        </HoverShow>
+                                        <Gradient />
+                                    </ImageContainer>
                                     <h3 className="serif press-heading center" data-slide={index}>{upgrade?.title}</h3>
                                 </div>
                             )
@@ -323,7 +373,7 @@ export default function UpgradesGrid(props) {
                         cellAlign: 'center',
                         prevNextButtons: false,
                         pageDots: false,
-                        draggable: true,
+                        draggable: false,
                         wrapAround: true,
                         imagesLoaded: true,
                         initialIndex: sliderActive,
