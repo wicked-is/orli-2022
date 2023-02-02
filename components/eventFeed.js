@@ -139,6 +139,9 @@ const CalendarLink = styled.a`
 export default function EventFeed(props) {
     const { events, fullWidget } = props;
 
+    if (events == null)
+        return null;
+    
     const [currentEvent, setCurrentEvent] = useState({
         category: '',
         image: '',
@@ -178,81 +181,81 @@ export default function EventFeed(props) {
     }, []);
 
     return (
-        <EventFeedContainer fullWidget={fullWidget} className={props.fullWidget ? 'fullWidget' : ''}>
-            <a id="upcoming" name="upcoming" className="anchor"></a>
-            <Left fullWidget={fullWidget}>
-                {fullWidget && <p className="sans-serif-bold sub-heading mt-0">Upcoming</p>}
-                {
-                    events.map((event, index) => {
-                        
-                        const date = new Date(event.date);
-                        let day = date.getDate();
-                        let month = months[date.getMonth()];
-                        let year = date.getFullYear();
-                        
-                        return (
-                            <article
-                                key={`event-${index}`}
-                                className={`${index == 0 ? `${styles.first} event-tile` : `event-tile`}`}
-                                style={{
-                                    borderTop: '1px solid black',
-                                    width: '100%'
-                                }}
-                                data-category={event?.categories?.nodes[0]?.name}
-                                data-title={event?.title}
-                                data-image={event?.featuredImage?.node.mediaItemUrl}
-                                data-date={event?.singleEvent?.date}
-                                data-time={event?.singleEvent?.time}
-                                data-gcal={event?.singleEvent?.addToGoogleCalendarLink}
-                                data-acal={event?.singleEvent?.addToAppleCalendarLink}
-                                data-address={event?.singleEvent?.address}
-                                data-description={event?.singleEvent?.description}
-                                data-locationName={event?.singleEvent?.locationName}
-                            >   
-                                <Link href="/gatherings" passHref>
-                                    <a>
-                                        <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
-                                        <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
-                                            <div className="col-1-90-a">
-                                                <h3 className="heading" style={{ margin: '0 0 1rem' }}>{event.title}<span className={styles.arrow}></span></h3>
+            <EventFeedContainer fullWidget={fullWidget} className={props.fullWidget ? 'fullWidget' : ''}>
+                <a id="upcoming" name="upcoming" className="anchor"></a>
+                <Left fullWidget={fullWidget}>
+                    {fullWidget && <p className="sans-serif-bold sub-heading mt-0">Upcoming</p>}
+                    {
+                        events.map((event, index) => {
+                            
+                            const date = new Date(event.date);
+                            let day = date.getDate();
+                            let month = months[date.getMonth()];
+                            let year = date.getFullYear();
+                            
+                            return (
+                                <article
+                                    key={`event-${index}`}
+                                    className={`${index == 0 ? `${styles.first} event-tile` : `event-tile`}`}
+                                    style={{
+                                        borderTop: '1px solid black',
+                                        width: '100%'
+                                    }}
+                                    data-category={event?.categories?.nodes[0]?.name}
+                                    data-title={event?.title}
+                                    data-image={event?.featuredImage?.node.mediaItemUrl}
+                                    data-date={event?.singleEvent?.date}
+                                    data-time={event?.singleEvent?.time}
+                                    data-gcal={event?.singleEvent?.addToGoogleCalendarLink}
+                                    data-acal={event?.singleEvent?.addToAppleCalendarLink}
+                                    data-address={event?.singleEvent?.address}
+                                    data-description={event?.singleEvent?.description}
+                                    data-locationName={event?.singleEvent?.locationName}
+                                >   
+                                    <Link href="/gatherings" passHref>
+                                        <a>
+                                            <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
+                                            <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
+                                                <div className="col-1-90-a">
+                                                    <h3 className="heading" style={{ margin: '0 0 1rem' }}>{event.title}<span className={styles.arrow}></span></h3>
+                                                </div>
+                                                {
+                                                    !props.fullWidget && (
+                                                        <div className="col-1-10-a" style={{ maxWidth: '50px' }}>
+                                                            <img className={styles.arrow} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/orange-arrow.svg" alt="arrow"/>
+                                                        </div>
+                                                    )
+                                                }
                                             </div>
-                                            {
-                                                !props.fullWidget && (
-                                                    <div className="col-1-10-a" style={{ maxWidth: '50px' }}>
-                                                        <img className={styles.arrow} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/orange-arrow.svg" alt="arrow"/>
-                                                    </div>
-                                                )
-                                            }
-                                        </div>
-                                    </a>
-                                </Link>
-                            </article>
-                        )
-                    })
-                }
-            </Left>
-            {props.fullWidget && (
-                <Right>
-                    <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center center`, backgroundSize: 'cover'}}>
-                        <p className="white sans-serif body-copy mb-0">{currentEvent.category  ? currentEvent.category : ''}</p>
-                        <p className="heading white serif">{currentEvent.title}</p>
-                    </HeadContainer>
-                    <ContentContainer>
-                        <div className="sans-serif body-copy black left">
-                            <p dangerouslySetInnerHTML={{ __html: `${currentEvent.date} ${currentEvent.time && (` <br />at ${currentEvent.time}`)}` }}></p>
-                            <p dangerouslySetInnerHTML={{ __html: currentEvent.address }}></p>
-                        </div>
-                        <p className="mt-0 sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: currentEvent.description }}></p>
-                        <RSVPLink href="/">
-                            RSVP COMING SOON
-                        </RSVPLink>
-                        <CalendarLinkContainer>
-                            <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal}>Add to Google Calendar</CalendarLink>
-                            <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.acal}>Add to Apple Calendar</CalendarLink>
-                        </CalendarLinkContainer>
-                    </ContentContainer>
-                </Right>
-            )}
-        </EventFeedContainer>
+                                        </a>
+                                    </Link>
+                                </article>
+                            )
+                        })
+                    }
+                </Left>
+                {props.fullWidget && (
+                    <Right>
+                        <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center center`, backgroundSize: 'cover'}}>
+                            <p className="white sans-serif body-copy mb-0">{currentEvent.category  ? currentEvent.category : ''}</p>
+                            <p className="heading white serif">{currentEvent.title}</p>
+                        </HeadContainer>
+                        <ContentContainer>
+                            <div className="sans-serif body-copy black left">
+                                <p dangerouslySetInnerHTML={{ __html: `${currentEvent.date} ${currentEvent.time && (` <br />at ${currentEvent.time}`)}` }}></p>
+                                <p dangerouslySetInnerHTML={{ __html: currentEvent.address }}></p>
+                            </div>
+                            <p className="mt-0 sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: currentEvent.description }}></p>
+                            <RSVPLink href="/">
+                                RSVP COMING SOON
+                            </RSVPLink>
+                            <CalendarLinkContainer>
+                                <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal}>Add to Google Calendar</CalendarLink>
+                                <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.acal}>Add to Apple Calendar</CalendarLink>
+                            </CalendarLinkContainer>
+                        </ContentContainer>
+                    </Right>
+                )}
+            </EventFeedContainer>
     )
 }
