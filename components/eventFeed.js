@@ -138,9 +138,6 @@ const CalendarLink = styled.a`
 
 export default function EventFeed(props) {
     const { events, fullWidget } = props;
-
-    if (events == null)
-        return null;
     
     const [currentEvent, setCurrentEvent] = useState({
         category: '',
@@ -180,7 +177,8 @@ export default function EventFeed(props) {
         }
     }, []);
 
-    return (
+    return events == null ?
+        null : (
             <EventFeedContainer fullWidget={fullWidget} className={props.fullWidget ? 'fullWidget' : ''}>
                 <a id="upcoming" name="upcoming" className="anchor"></a>
                 <Left fullWidget={fullWidget}>
