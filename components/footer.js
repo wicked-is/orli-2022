@@ -152,8 +152,8 @@ export default function Footer(props) {
                                             className="sans-serif xs-copy white left mt-0"
                                             id="phone-number">
                                             T:{" "}
-                                            <a href="tel:6195760806">
-                                                619.576.0806
+                                            <a href="tel:18587272776">
+                                                858.727.2776
                                             </a>
                                             <br />
                                             E: info@stayorli.com
@@ -358,8 +358,8 @@ export default function Footer(props) {
                                                 className="sans-serif xs-copy white left mt-0"
                                                 id="phone-number">
                                                 T:{" "}
-                                                <a href="tel:6195760806">
-                                                    619.576.0806
+                                                <a href="tel:18587272776">
+                                                    858.727.2776
                                                 </a>
                                                 <br />
                                                 E:{" "}
