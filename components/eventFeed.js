@@ -149,6 +149,7 @@ export default function EventFeed(props) {
             setCurrentEvent({
                 title: events[0].title,
                 description: events[0].singleEvent.description,
+                rsvp: events[0].singleEvent.rsvpLink,
                 category: events[0]?.categories?.nodes[0]?.name,
                 image: events[0]?.featuredImage?.node?.mediaItemUrl,
                 date: events[0].singleEvent.date,
@@ -244,7 +245,7 @@ export default function EventFeed(props) {
                                 <p dangerouslySetInnerHTML={{ __html: currentEvent.address }}></p>
                             </div>
                             <p className="mt-0 sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: currentEvent.description }}></p>
-                            <RSVPLink href="/">
+                            <RSVPLink href={currentEvent.rsvp} target={currentEvent?.rsvp?.includes('stayorli.com') && !currentEvent?.rsvp?.includes('shop.stayorli.com')  ? null : '_blank'}>
                                 RSVP COMING SOON
                             </RSVPLink>
                             <CalendarLinkContainer>
