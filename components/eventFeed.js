@@ -249,8 +249,8 @@ export default function EventFeed(props) {
                                 RSVP COMING SOON
                             </RSVPLink>
                             <CalendarLinkContainer>
-                                <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal}>Add to Google Calendar</CalendarLink>
-                                <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.acal}>Add to Apple Calendar</CalendarLink>
+                                <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal} target="_blank">Add to Google Calendar</CalendarLink>
+                                <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.acal} target="_blank">Add to Apple Calendar</CalendarLink>
                             </CalendarLinkContainer>
                         </ContentContainer>
                     </Right>
