@@ -334,14 +334,12 @@ export default function UpgradesGrid(props) {
                                 <div
                                     key={index}
                                     className="center"
-                                    onClick={changeSlider}
-                                    data-slide={index}
                                     style={{ cursor: 'pointer' }}
                                 >
-                                    <ImageContainer data-slide={index}>
-                                        <Image layout="fill" objectFit="cover" src={upgrade?.featuredImage?.node?.mediaItemUrl} alt={upgrade?.featuredImage?.node?.altText} data-slide={index} style={{ objectFit: 'cover !important' }} />
-                                        <HoverShow className="hovershow">
-                                            <p>View Offer</p>
+                                    <ImageContainer>
+                                        <Image layout="fill" objectFit="cover" src={upgrade?.featuredImage?.node?.mediaItemUrl} alt={upgrade?.featuredImage?.node?.altText} data-slide={index} style={{ objectFit: 'cover !important' }} onClick={changeSlider} />
+                                        <HoverShow className="hovershow" onClick={changeSlider} data-slide={index}>
+                                            <p onClick={changeSlider} data-slide={index}>View Offer</p>
                                         </HoverShow>
                                         <Gradient />
                                     </ImageContainer>
