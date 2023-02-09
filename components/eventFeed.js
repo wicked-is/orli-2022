@@ -150,6 +150,7 @@ export default function EventFeed(props) {
                 title: events[0].title,
                 description: events[0].singleEvent.description,
                 rsvp: events[0].singleEvent.rsvpLink,
+                rsvpText: events[0].singleEvent.rsvpText,
                 category: events[0]?.categories?.nodes[0]?.name,
                 image: events[0]?.featuredImage?.node?.mediaItemUrl,
                 date: events[0].singleEvent.date,
@@ -241,12 +242,12 @@ export default function EventFeed(props) {
                         </HeadContainer>
                         <ContentContainer>
                             <div className="sans-serif body-copy black left">
-                                <p dangerouslySetInnerHTML={{ __html: `${currentEvent.date} ${currentEvent.time && (` <br />at ${currentEvent.time}`)}` }}></p>
+                                <p dangerouslySetInnerHTML={{ __html: `${currentEvent.date} ${currentEvent.time && (` <br /> ${currentEvent.time}`)}` }}></p>
                                 <p dangerouslySetInnerHTML={{ __html: currentEvent.address }}></p>
                             </div>
                             <p className="mt-0 sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: currentEvent.description }}></p>
                             <RSVPLink href={currentEvent.rsvp} target={currentEvent?.rsvp?.includes('stayorli.com') && !currentEvent?.rsvp?.includes('shop.stayorli.com')  ? null : '_blank'}>
-                                RESERVE YOUR SPOT
+                                { currentEvent?.rsvpText ? currentEvent?.rsvpText : "Learn More"}
                             </RSVPLink>
                             <CalendarLinkContainer>
                                 <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal} target="_blank">Add to Google Calendar</CalendarLink>
