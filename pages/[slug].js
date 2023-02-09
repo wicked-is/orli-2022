@@ -1246,6 +1246,7 @@ export async function getStaticProps({ params }) {
                       addToGoogleCalendarLink
                       date
                       rsvpLink
+                      rsvpText
                       time
                       address
                       description

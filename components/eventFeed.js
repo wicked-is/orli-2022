@@ -168,6 +168,8 @@ export default function EventFeed(props) {
                         category: el.dataset.category,
                         image: el.dataset.image,
                         date: el.dataset.date,
+                        rsvp: el.dataset.rsvp,
+                        rsvpText: el.dataset.rsvptext,
                         time: el.dataset.time,
                         address: el.dataset.address,
                         gcal: el.dataset.gcal,
@@ -205,6 +207,8 @@ export default function EventFeed(props) {
                                     data-title={event?.title}
                                     data-image={event?.featuredImage?.node.mediaItemUrl}
                                     data-date={event?.singleEvent?.date}
+                                    data-rsvp={event?.singleEvent?.rsvpLink}
+                                    data-rsvptext={event?.singleEvent?.rsvpText}
                                     data-time={event?.singleEvent?.time}
                                     data-gcal={event?.singleEvent?.addToGoogleCalendarLink}
                                     data-acal={event?.singleEvent?.addToAppleCalendarLink}
