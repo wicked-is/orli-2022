@@ -19,6 +19,11 @@ const nextConfig = {
             destination: '/find-your-room',
             permanent: true,
         },
+        {
+            source: '/yoga-market',
+            destination: 'https://shop.stayorli.com/products/vinyasa-vuori-x-pura-vida-pop-up',
+            permanent: true,
+        },
         ]
     },
     env: {
