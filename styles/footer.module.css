@@ -122,6 +122,8 @@
     padding: 1rem 0rem 0rem 0rem;
     margin: 0rem 0rem 0rem 0rem;
 }
+
+header .directions { margin: .35rem 0 0 .5rem; padding: unset; }
 .email-signup p {
     font-size: clamp(1.6rem, 1.8vw, 2rem);
     margin-block-start: 0em;

@@ -10,6 +10,11 @@ import WeatherWidget from "./WeatherWidget";
 
 import Favicon from "../public/favicon.ico";
 
+import ShopifyIcon from "../public/assets/icons/Orli_Icon_Spotify.svg"
+import InstagramIcon from "../public/assets/icons/Orli_Icon_Instagram.svg"
+import LocationIcon from "../public/assets/icons/Orli_Icon_Location.svg"
+import BagIcon from "../public/assets/icons/Orli_Icon_bag.svg"
+
 export default function Header(props) {
     const navItems = props.navItems.length
         ? props.navItems
@@ -263,23 +268,41 @@ export default function Header(props) {
                         </ul>
                         <div className={styles.bottomnav}>
                             <div className="col-1-50">
-                                <address
-                                    className="sans-serif xs-copy white left"
-                                    style={{ marginTop: ".88rem" }}>
-                                    Orli La Jolla
-                                    <br />
-                                    7753 Draper Ave,
-                                    <br />
-                                    La Jolla, CA 92037
-                                </address>
-                                <p className="directions xs-copy white left">
-                                    <Link
-                                        target="_blank"
-                                        href="https://goo.gl/maps/MvajX29ZNg3kz5M69"
-                                        rel="noreferrer">
-                                        Get Directions
-                                    </Link>
-                                </p>
+                                <div style={{ display: 'flex' }}>
+                                    <Image
+                                        src={LocationIcon}
+                                        alt="location pin icon"
+                                        width={30}
+                                        height={30}
+                                        // style={{ paddingRight: '.5rem' }}
+                                    />
+                                    <address
+                                        className="sans-serif xs-copy white left"
+                                        style={{ marginTop: ".88rem", marginLeft: '.5rem' }}>
+                                        7753 Draper Ave,
+                                        <br />
+                                        La Jolla, CA 92037
+                                    </address>
+                                </div>
+                                <div style={{ display: 'flex', marginTop: '.5rem' }}>
+                                    <Image
+                                        src={BagIcon}
+                                        alt="shopping bag icon"
+                                        width={30}
+                                        height={30}
+                                    />
+                                    <p className="directions xs-copy white left">
+                                        <Link
+                                            target="_blank"
+                                            // href="https://goo.gl/maps/MvajX29ZNg3kz5M69"
+                                            href="https://shop.stayorli.com/"
+                                            rel="noreferrer"
+                                            style={{ textDecoration: 'underline '}}
+                                        >
+                                            Shop
+                                        </Link>
+                                    </p>
+                                </div>
                             </div>
                             <div className="col-1-50">
                                 <p className="sans-serif xs-copy white left">
@@ -308,7 +331,7 @@ export default function Header(props) {
                                             target="_blank"
                                             rel="noopener noreferrer">
                                             <Image
-                                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/instagram-copy.svg"
+                                                src={InstagramIcon}
                                                 alt="Instagram Logo"
                                                 className="instagram"
                                                 width={30}
@@ -333,7 +356,7 @@ export default function Header(props) {
                                             target="_blank"
                                             rel="noopener noreferrer">
                                             <Image
-                                                src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/spotify.svg"
+                                                src={ShopifyIcon}
                                                 alt="spotify logo"
                                                 className="spotify"
                                                 width={30}
