@@ -12,10 +12,12 @@ export default function BookingForm() {
     const [checkInDate, setCheckInDate] = useState('');
 
     const setCheckin = (date) => {
+        date.target.placeholder = ""
         setCheckInDate(date.target.value)
         setCheckOutDate(date.target.value)
     }
     const setCheckout = (date) => {
+        date.target.placeholder = ""
         setCheckOutDate(date.target.value)
     }
 
