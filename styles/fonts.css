@@ -9,9 +9,14 @@
     src: url("../public/assets/fonts/GT-Walsheim-Bold.woff2") format("woff2"),
         url("../public/assets/fonts/GT-Walsheim-Bold.woff") format("woff");
 }
+@font-face {
+    font-family: "GT Walsheim Regular";
+    src: url("../public/assets/fonts/GT-Walsheim-Regular.woff2") format("woff2"),
+        url("../public/assets/fonts/GT-Walsheim-Regular.woff") format("woff");
+}
 
-.bold-walsh {
-    font-family: "GT Walsheim Bold" !important;
+.walsh-regular {
+    font-family: "GT Walsheim Regular" !important;
 }
 
 .serif {
