@@ -212,7 +212,7 @@ export default function Footer(props) {
                                 </Left>
                                 <Right>
                                     <div className="footer-links">
-                                        <Link href="/offers-upgrades">Offers</Link>
+                                        <Link href="/offers">Offers</Link>
                                         <Link href="/faq">FAQ</Link>
                                         <Link href="/press">Press</Link>
                                         <Link
@@ -338,6 +338,11 @@ export default function Footer(props) {
                                             href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
                                             passHref>
                                             <a target="_blank">Gift Cards</a>
+                                        </Link>
+                                        <Link
+                                            href="https://shop.stayorli.com/"
+                                            passHref>
+                                            <a target="_blank">Shop</a>
                                         </Link>
                                     </div>
                                 </div>
