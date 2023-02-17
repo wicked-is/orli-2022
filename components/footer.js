@@ -212,13 +212,16 @@ export default function Footer(props) {
                                 </Left>
                                 <Right>
                                     <div className="footer-links">
-                                        <Link href="/offers">Offers</Link>
-                                        <Link href="/faq">FAQ</Link>
-                                        <Link href="/press">Press</Link>
+                                        <Link className="bold-walsh" passHref href="/offers">
+                                            <a className="bold-walsh">Offers</a></Link>
+                                        <Link className="bold-walsh" passHref href="/faq">
+                                            <a className="bold-walsh">FAQ</a></Link>
+                                        <Link className="bold-walsh" passHref href="/press">
+                                            <a className="bold-walsh">Press</a></Link>
                                         <Link
                                             href="https://shop.stayorli.com/"
                                             passHref>
-                                            <a target="_blank">Shop</a>
+                                            <a className="bold-walsh"  target="_blank">Shop</a>
                                         </Link>
                                         <Link
                                             href="/privacy-policy"

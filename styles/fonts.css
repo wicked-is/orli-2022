@@ -10,6 +10,10 @@
         url("../public/assets/fonts/GT-Walsheim-Bold.woff") format("woff");
 }
 
+.bold-walsh {
+    font-family: "GT Walsheim Bold" !important;
+}
+
 .serif {
     font-family: essonnes-display, serif;
 }
