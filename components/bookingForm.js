@@ -9,22 +9,25 @@ import styles from '../styles/bookingForm.module.css';
 
 export default function BookingForm() {
     const [checkOutDate, setCheckOutDate] = useState('');
+    const [checkInDate, setCheckInDate] = useState('');
 
+    const setCheckin = (date) => {
+        setCheckInDate(date.target.value)
+        setCheckOutDate(date.target.value)
+    }
     const setCheckout = (date) => {
         setCheckOutDate(date.target.value)
     }
 
     return (
         <div className={styles.formcontainer}>
-            <form className={styles.form} method="POST" action="https://hotels.cloudbeds.com/reservation/L1Jxph" target="_blank">
+            <form className={styles.form} method="POST" action={`https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=${checkInDate}&checkout=${checkOutDate}`} target="_blank">
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
-                    {/* onFocus={() => setCheckInType('date')}  */}
-                    <input type={"date"} aria-label="Check In Date" name="widget_date" placeholder="mm/dd/yyyy" className="sans-serif" onChange={setCheckout} />
+                    <input type={"date"} aria-label="Check In Date" name="widget_date" placeholder="mm/dd/yyyy" className="sans-serif" onChange={setCheckin} value={checkInDate} />
                 </div>
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check Out</span>
-                    {/* onFocus={() => setCheckOutType('date')}  */}
                     <input type={"date"} aria-label="Check Out Date" name="widget_date_to" placeholder="mm/dd/yyyy" className="sans-serif" value={checkOutDate} onChange={setCheckout} />
                 </div>
                 <button type="submit" aria-label="search button" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
