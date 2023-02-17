@@ -1,7 +1,13 @@
 .photoContainer {
     display: flex;
     min-height: 50vh;
-    gap: 5rem;
+    gap: 5rem;    
+}
+
+@media screen and (max-width: 414px) {
+    .photoContainer {
+        min-height: unset;
+    }
 }
 
 .photoContainer div:first-of-type {
