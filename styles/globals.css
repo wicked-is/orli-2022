@@ -60,6 +60,11 @@ a:focus {
     --nav-copy: clamp(0.9rem, 1.1vw, 1rem);
     --xs-copy: clamp(0.8rem, 1vw, 1.2rem);
 }
+@media screen and (max-width: 414px) {
+    :root {
+        --heading: clamp(1.5rem, 2.6vw, 5rem);
+    }
+}
 
 .primary-btn {
     width: fit-content;

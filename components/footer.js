@@ -212,23 +212,13 @@ export default function Footer(props) {
                                 </Left>
                                 <Right>
                                     <div className="footer-links">
-                                        <Link href="/find-your-room">
-                                            Rooms
-                                        </Link>
-                                        <Link href="/amenities">Amenities</Link>
-                                        <Link href="/discoveries">
-                                            Discoveries
-                                        </Link>
-                                        <Link href="/gatherings">Events</Link>
-                                        <Link href="/gallery">Gallery</Link>
+                                        <Link href="/offers-upgrades">Offers</Link>
                                         <Link href="/faq">FAQ</Link>
-                                        <Link href="/our-story">Story</Link>
-                                        <Link href="/the-journal">Journal</Link>
                                         <Link href="/press">Press</Link>
                                         <Link
-                                            href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
+                                            href="https://shop.stayorli.com/"
                                             passHref>
-                                            <a target="_blank">Gift Cards</a>
+                                            <a target="_blank">Shop</a>
                                         </Link>
                                         <Link
                                             href="/privacy-policy"
@@ -239,10 +229,10 @@ export default function Footer(props) {
                                             Cookie Policy
                                         </Link>
                                         <Link href="/accessibility-statement">
-                                            Accessibility Statement
+                                            Accessibility
                                         </Link>
                                         <Link href="/terms-conditions">
-                                            Terms & Conditions
+                                            Terms
                                         </Link>
                                     </div>
                                 </Right>
