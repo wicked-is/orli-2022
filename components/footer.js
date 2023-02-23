@@ -224,6 +224,11 @@ export default function Footer(props) {
                                             <a className="walsh-regular"  target="_blank">Shop</a>
                                         </Link>
                                         <Link
+                                            href="/offers/stashrewards"
+                                            passHref>
+                                            <a className="walsh-regular"  target="_blank">StashRewards</a>
+                                        </Link>
+                                        <Link
                                             href="/privacy-policy"
                                             className="privacy">
                                             Privacy Policy
@@ -346,6 +351,11 @@ export default function Footer(props) {
                                             href="https://shop.stayorli.com/"
                                             passHref>
                                             <a target="_blank">Shop</a>
+                                        </Link>
+                                        <Link
+                                            href="/offers/stashrewards"
+                                            passHref>
+                                            <a target="_blank">StashRewards</a>
                                         </Link>
                                     </div>
                                 </div>
