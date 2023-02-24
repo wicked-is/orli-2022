@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Components
 import Hero from "../components/hero";
 import FullWidthMedia from "../components/fullWidthMedia";
+import MediaTwoUp from "../components/mediaTwoUp";
 import BlurbCenter from "../components/blurbCenter";
 import BlurbLeft from "../components/blurbLeft";
 import BlogGrid from "../components/BlogGrid";
@@ -135,6 +136,15 @@ export default function DefaultPage(props) {
                         index={index}
                     />
                 );
+                break;
+            case "Post_Flexiblecontent_Sections_MediaTwoUp":
+                  gatheredSections.push(
+                      <MediaTwoUp
+                          key={componentKey}
+                          {...section}
+                          index={index}
+                      />
+                  );
                 break;
             case "Page_Flexiblecontent_Sections_HistoricTimeline":
             case "Post_Flexiblecontent_Sections_HistoricTimeline":
@@ -1683,6 +1693,26 @@ export async function getStaticProps({ params }) {
                     ctaLink
                   }
                 }
+              }
+              ... on Post_Flexiblecontent_Sections_MediaTwoUp {
+                fieldGroupName
+                layout
+                paddingType
+                anchorTag
+                leftMediaType
+                imagePosterLeft {
+                  mediaItemUrl
+                  altText
+                }
+                videoLeft
+                captionLeft
+                rightMediaType
+                imagePosterRight {
+                  mediaItemUrl
+                  altText
+                }
+                videoRight
+                captionRight
               }
               ... on Post_Flexiblecontent_Sections_FullWidthMedia {
                 fieldGroupName
