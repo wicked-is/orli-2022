@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image";
+import parse from "html-react-parser";
 import styled from "styled-components"
 import Flickity from 'react-flickity-component'
 import "flickity/css/flickity.css";
@@ -8,6 +9,7 @@ export const UpgradesGridPageQuery = `
     ... on Page_Flexiblecontent_Sections_UpgradesGrid {
         fieldGroupName
         title
+        tileCtaText
         upgrades {
             ... on Upgrade {
                 title
@@ -49,7 +51,7 @@ export const UpgradesGridPostQuery = `
 `
 
 const UpgradesGridMainContainer = styled.section`
-    background-color: #fff;
+    background-color: ${props => props.index % 2 === 0 ? 'var(--white)' : 'var(--lt-grey)'};
     padding: 6rem 5.5rem 6rem 5.5rem;
     
     @media screen and (max-width: 820px) {
@@ -251,7 +253,7 @@ const HoverShow = styled.div`
 `
 
 export default function UpgradesGrid(props) {
-    const { title, upgrades } = props
+    const { title, upgrades, tileCtaText, index } = props
 
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(1)
@@ -263,7 +265,7 @@ export default function UpgradesGrid(props) {
     })
 
     function changeSlider(e) {
-        let modalBox = document.querySelector("dialog")
+        let modalBox = document.querySelector(`#UpgradeSliderDialog-${index}`)
         e.preventDefault();
         setSliderActive(e.target.dataset.slide)
         slider.current.select(e.target.dataset.slide)
@@ -271,12 +273,12 @@ export default function UpgradesGrid(props) {
     }
 
     function openModalBox() {
-        let modalBox = document.querySelector("dialog")
+        let modalBox = document.querySelector(`#UpgradeSliderDialog-${index}`)
         modalBox.show();
     }
 
     function closeModalBox() {
-        let modalBox = document.querySelector("dialog")
+        let modalBox = document.querySelector(`#UpgradeSliderDialog-${index}`)
         modalBox.close();
     }
 
@@ -323,7 +325,7 @@ export default function UpgradesGrid(props) {
     }, [sliderActive]);
 
     return (
-        <UpgradesGridMainContainer >
+        <UpgradesGridMainContainer index={index}>
             <a className="anchor" id="stay-enhancing-upgrades" href=""></a>
             <h2 className="serif heading black center">{title}</h2>
             <UpgradesGridContainer>
@@ -339,7 +341,7 @@ export default function UpgradesGrid(props) {
                                     <ImageContainer>
                                         <Image layout="fill" objectFit="cover" src={upgrade?.featuredImage?.node?.mediaItemUrl} alt={upgrade?.featuredImage?.node?.altText} data-slide={index} style={{ objectFit: 'cover !important' }} onClick={changeSlider} />
                                         <HoverShow className="hovershow" onClick={changeSlider} data-slide={index}>
-                                            <p onClick={changeSlider} data-slide={index}>View Upgrade</p>
+                                            <p onClick={changeSlider} data-slide={index}>{tileCtaText}</p>
                                         </HoverShow>
                                         <Gradient />
                                     </ImageContainer>
@@ -350,11 +352,12 @@ export default function UpgradesGrid(props) {
                     }
                 </UpgradesGridInner>
             </UpgradesGridContainer>
-            <OffersDialog id="UpgradeSliderDialog">
+            <OffersDialog id={`UpgradeSliderDialog-${index}`}>
                 <div>
-                    <p
+                    <a
                         id="closeBtn"
                         className="heading"
+                        onClick={closeModalBox}
                         style={{
                             fontSize: "2rem",
                             margin: 0,
@@ -365,7 +368,7 @@ export default function UpgradesGrid(props) {
                             color: 'white'
                         }}>
                         &#10005;
-                    </p>
+                    </a>
                 </div>
                 <Flickity
                     options={{
@@ -403,9 +406,9 @@ export default function UpgradesGrid(props) {
                                                 <h2 className="heading">
                                                     {upgrade?.title}
                                                 </h2>
-                                                <p className="sans-serif body-copy black variable-height">
-                                                    {upgrade.Upgrades.description}
-                                                </p>
+                                                <div className="sans-serif body-copy black variable-height">
+                                                    {parse(upgrade.Upgrades.description)}
+                                                </div>
                                                 {/* <a
                                                     className="sans-serif uppercase text-link"
                                                     style={{
