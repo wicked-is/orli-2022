@@ -406,7 +406,7 @@ export default function UpgradesGrid(props) {
                                                 <p className="sans-serif body-copy black variable-height">
                                                     {upgrade.Upgrades.description}
                                                 </p>
-                                                <a
+                                                {/* <a
                                                     className="sans-serif uppercase text-link"
                                                     style={{
                                                         width: '215px',
@@ -424,7 +424,7 @@ export default function UpgradesGrid(props) {
                                                     rel="noreferrer"
                                                     href={`${upgrade.Upgrades.externalLink}`}>
                                                     Book Now
-                                                </a>
+                                                </a> */}
                                             </ModalContentContainer>
                                             <SliderNavigationContainer>
                                                 <NavHolder onClick={() => sliderPrevious()}>
