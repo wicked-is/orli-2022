@@ -221,15 +221,13 @@ export default function DefaultOffersPage(props) {
                             alt={offer.singleOffers.offerImage.altText}
                             width={853}
                             height={698}
-                            // width={1728}
-                            // height={1003}
                             layout="responsive"
                         />
                     </ImageContainer>
                     <TextContainer>
                         <div>
                             <h2 className="sans-serif-bold sub-heading left">
-                                Offers
+                                { offer.title.toLowerCase().includes('stash') ? null : "Offers" }
                             </h2>
                             <h1 className="serif heading left">
                                 {offer.title}
@@ -243,7 +241,7 @@ export default function DefaultOffersPage(props) {
                                 <Link
                                     href={`${offer.singleOffers.bookingLink}`}
                                     passHref>
-                                    <a target="_blank">Book Now</a>
+                                    <a target="_blank">{ offer.title.toLowerCase().includes('stash') ? "Learn More" : "Book Now" }</a>
                                 </Link>
                             </ReservationButton>
                             {offer?.singleOffers?.offerTermsConditions ? <p
