@@ -10,6 +10,7 @@ export const UpgradesGridPageQuery = `
         fieldGroupName
         title
         tileCtaText
+        modalSubtitle
         upgrades {
             ... on Upgrade {
                 title
@@ -32,6 +33,8 @@ export const UpgradesGridPostQuery = `
     ... on Post_Flexiblecontent_Sections_UpgradesGrid {
         fieldGroupName
         title
+        tileCtaText
+        modalSubtitle
         upgrades {
             ... on Upgrade {
                 title
@@ -253,7 +256,7 @@ const HoverShow = styled.div`
 `
 
 export default function UpgradesGrid(props) {
-    const { title, upgrades, tileCtaText, index } = props
+    const { title, upgrades, tileCtaText, modalSubtitle, index } = props
 
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(1)
@@ -401,7 +404,7 @@ export default function UpgradesGrid(props) {
                                         <LeftHalf className="relative">
                                             <ModalContentContainer>
                                                 <p className="sans-serif-bold sub-heading">
-                                                    Upgrades
+                                                    {modalSubtitle}
                                                 </p>
                                                 <h2 className="heading">
                                                     {upgrade?.title}
