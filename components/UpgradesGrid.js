@@ -255,6 +255,12 @@ const HoverShow = styled.div`
     }
 `
 
+const DescriptionContainer = styled.div`
+    a {
+        text-decoration:underline;
+    }
+`
+
 export default function UpgradesGrid(props) {
     const { title, upgrades, tileCtaText, modalSubtitle, index } = props
 
@@ -409,9 +415,9 @@ export default function UpgradesGrid(props) {
                                                 <h2 className="heading">
                                                     {upgrade?.title}
                                                 </h2>
-                                                <div className="sans-serif body-copy black variable-height">
+                                                <DescriptionContainer className="sans-serif body-copy black variable-height">
                                                     {parse(upgrade.Upgrades.description)}
-                                                </div>
+                                                </DescriptionContainer>
                                                 {/* <a
                                                     className="sans-serif uppercase text-link"
                                                     style={{
