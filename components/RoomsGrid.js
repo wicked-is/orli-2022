@@ -432,7 +432,7 @@ export default function RoomsGrid(props) {
                                             .includeVideoOnFindYourRoomTile && (
                                             <VideoContainer
                                                 id="video-container"
-                                                // autoPlay
+                                                autoPlay
                                                 muted
                                                 loop
                                                 playsInline
