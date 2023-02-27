@@ -432,12 +432,12 @@ export default function RoomsGrid(props) {
                                             .includeVideoOnFindYourRoomTile && (
                                             <VideoContainer
                                                 id="video-container"
-                                                autoPlay
+                                                // autoPlay
                                                 muted
                                                 loop
                                                 playsInline
                                                 poster={
-                                                    room.featuredImage.node
+                                                    room.singleRooms.featuredVideoPoster.mediaItemUrl ? room.singleRooms.featuredVideoPoster.mediaItemUrl : room.singleRooms.node
                                                         .mediaItemUrl
                                                 }>
                                                 <source

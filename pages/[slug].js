@@ -1080,6 +1080,9 @@ export async function getStaticProps({ params }) {
                       amenities
                       includeVideoOnFindYourRoomTile
                       featuredVideoUrl
+                      featuredVideoPoster {
+                        mediaItemUrl
+                      }
                       features {
                         label
                       }
@@ -1835,6 +1838,9 @@ export async function getStaticProps({ params }) {
                       amenities
                       includeVideoOnFindYourRoomTile
                       featuredVideoUrl
+                      featuredVideoPoster {
+                        mediaItemUrl
+                      }
                       features {
                         label
                       }
