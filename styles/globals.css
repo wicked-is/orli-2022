@@ -626,3 +626,8 @@ input[type="date"]:-o-placeholder {
   .addpadding {
     padding: 7rem 0 7.75rem;
   }
+
+  .anchor {
+    position: relative;
+    top: -75px;
+  }
