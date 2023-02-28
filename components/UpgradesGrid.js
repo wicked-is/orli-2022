@@ -262,7 +262,7 @@ const DescriptionContainer = styled.div`
 `
 
 export default function UpgradesGrid(props) {
-    const { title, upgrades, tileCtaText, modalSubtitle, index } = props
+    const { anchor, title, upgrades, tileCtaText, modalSubtitle, index } = props
 
     const slider = useRef(null)
     const [sliderActive, setSliderActive] = useState(1)
@@ -335,7 +335,7 @@ export default function UpgradesGrid(props) {
 
     return (
         <UpgradesGridMainContainer index={index}>
-            <a className="anchor" id="stay-enhancing-upgrades" href=""></a>
+            <a className="anchor" id={index === 0 ? "offers" : index === 1 ? "stay-enhancing-upgrades" : "perks" } href=""></a>
             <h2 className="serif heading black center">{title}</h2>
             <UpgradesGridContainer>
                 <UpgradesGridInner>
