@@ -116,7 +116,7 @@ export default function Header(props) {
 
     return (
         <header className={`${styles.header} ${navIsOpen ? styles.open : ""}`}>
-            <Analytics />
+            {/* <Analytics /> */}
             <Script
                 src="https://api.mews.com/distributor/distributor.min.js"
                 strategy="beforeInteractive"
@@ -125,17 +125,17 @@ export default function Header(props) {
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"></meta>
-                <meta
+                {/* <meta
                     name="google-site-verification"
                     content="W9uWEzplTotR5onZfBsXYP24CcPGRroR12P-KHIxlGY"
-                />
+                /> */}
                 <link rel="icon" href={Favicon.src} />
             </Head>
-            <noscript
+            {/* <noscript
                 dangerouslySetInnerHTML={{
                     __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMRKR2L" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-                }}></noscript>
-            <noscript
+                }}></noscript> */}
+            {/* <noscript
                 dangerouslySetInnerHTML={{
                     __html: `<img
                     height="1"
@@ -143,7 +143,7 @@ export default function Header(props) {
                     style="display:none"
                     src="https://www.facebook.com/tr?id=676429500584234&ev=PageView&noscript=1"
                 />`,
-                }}></noscript>
+                }}></noscript> */}
             {announcementbarIsOpen && (
                 <div
                     className={styles.announcementbar}
