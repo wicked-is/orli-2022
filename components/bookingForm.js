@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import Counter from './counter'
 import Link from 'next/link';
@@ -21,9 +21,27 @@ export default function BookingForm() {
         setCheckOutDate(date.target.value)
     }
 
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        
+        Mews.Distributor(
+            {
+                configurationIds: [ '93e27b6f-cba7-4e0b-a24a-819e1b7b388a'],
+                openElements: '.distributor-open',
+            }, function (api) {
+                // you can call API functions on a booking engine instance here
+                // set different start and end date
+                api.setStartDate(new Date(checkInDate));
+                api.setEndDate(new Date(checkOutDate));
+            }, {
+            dataBaseUrl: 'https://api.mews-demo.com'
+            }
+        );
+    }
+
     return (
         <div className={styles.formcontainer}>
-            <form className={styles.form} method="POST" action={`https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=${checkInDate}&checkout=${checkOutDate}`} target="_blank">
+            <form className={styles.form} method="POST" target="_blank" onSubmit={handleFormSubmit}>
                 <div className={styles.formGroup}>
                     <span className="sans-serif xs-copy">Check In</span>
                     <input type={"date"} aria-label="Check In Date" name="widget_date" placeholder="mm/dd/yyyy" className="sans-serif" onChange={setCheckin} value={checkInDate} />
@@ -32,7 +50,7 @@ export default function BookingForm() {
                     <span className="sans-serif xs-copy">Check Out</span>
                     <input type={"date"} aria-label="Check Out Date" name="widget_date_to" placeholder="mm/dd/yyyy" className="sans-serif" value={checkOutDate} onChange={setCheckout} />
                 </div>
-                <button type="submit" aria-label="search button" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown`}>Search</button>
+                <button type="submit" aria-label="search button" className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown distributor-open`}>Search</button>
             </form>
         </div>
     )
