@@ -216,7 +216,22 @@ export default function EventFeed(props) {
                                     data-description={event?.singleEvent?.description}
                                     data-locationName={event?.singleEvent?.locationName}
                                 >   
-                                    <Link href="/gatherings" passHref>
+                                    {props.fullWidget ?
+                                        <div>
+                                            <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
+                                            <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
+                                                <div className="col-1-90-a">
+                                                    <h3 className="heading" style={{ margin: '0 0 1rem' }}>{event.title}<span className={styles.arrow}></span></h3>
+                                                </div>
+                                                {
+                                                    !props.fullWidget && (
+                                                        <div className="col-1-10-a" style={{ maxWidth: '50px' }}>
+                                                            <img className={styles.arrow} src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/orange-arrow.svg" alt="arrow"/>
+                                                        </div>
+                                                    )
+                                                }
+                                            </div>
+                                        </div>: <Link href="/gatherings" passHref>
                                         <a>
                                             <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
                                             <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
@@ -232,7 +247,7 @@ export default function EventFeed(props) {
                                                 }
                                             </div>
                                         </a>
-                                    </Link>
+                                    </Link>}
                                 </article>
                             )
                         })
@@ -240,7 +255,7 @@ export default function EventFeed(props) {
                 </Left>
                 {props.fullWidget && (
                     <Right>
-                        <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center / cover`, backgroundSize: 'cover'}}>
+                        <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center/ cover`, backgroundSize: 'cover'}}>
                             <p className="white sans-serif body-copy mb-0">{currentEvent.category  ? currentEvent.category : ''}</p>
                             <p className="heading white serif">{currentEvent.title}</p>
                         </HeadContainer>
