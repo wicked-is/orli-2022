@@ -143,6 +143,33 @@ export default function EventFeed(props) {
         category: '',
         image: '',
     });
+
+    const [dimensions, setDimensions] = useState({
+        height: null,
+        width: null,
+    });
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        function handleResize() {
+        setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth,
+        });
+
+        if (window.innerWidth < 768) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+        }
+
+        window.addEventListener("resize", handleResize);
+
+        return (_) => {
+            window.removeEventListener("resize", handleResize);
+        };
+    });
     
     useEffect(() => {
         if (props.fullWidget) {
@@ -216,7 +243,7 @@ export default function EventFeed(props) {
                                     data-description={event?.singleEvent?.description}
                                     data-locationName={event?.singleEvent?.locationName}
                                 >   
-                                    {props.fullWidget ?
+                                    { props.fullWidget && !isMobile ?
                                         <div>
                                             <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
                                             <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
@@ -231,7 +258,7 @@ export default function EventFeed(props) {
                                                     )
                                                 }
                                             </div>
-                                        </div>: <Link href="/gatherings" passHref>
+                                        </div> : <Link href="/gatherings" passHref>
                                         <a>
                                             <p className="sans-serif xs-copy left">{event.singleEvent.locationName} | {event.singleEvent.date}</p>
                                             <div className="flexcenter-a" style={{ display: 'flex', justifyContent: 'space-between'}}>
