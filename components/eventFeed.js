@@ -240,7 +240,7 @@ export default function EventFeed(props) {
                 </Left>
                 {props.fullWidget && (
                     <Right>
-                        <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center center`, backgroundSize: 'cover'}}>
+                        <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center / cover`, backgroundSize: 'cover'}}>
                             <p className="white sans-serif body-copy mb-0">{currentEvent.category  ? currentEvent.category : ''}</p>
                             <p className="heading white serif">{currentEvent.title}</p>
                         </HeadContainer>
@@ -250,9 +250,9 @@ export default function EventFeed(props) {
                                 <p dangerouslySetInnerHTML={{ __html: currentEvent.address }}></p>
                             </div>
                             <p className="mt-0 sans-serif body-copy black left" dangerouslySetInnerHTML={{ __html: currentEvent.description }}></p>
-                            <RSVPLink href={currentEvent.rsvp} target={currentEvent?.rsvp?.includes('stayorli.com') && !currentEvent?.rsvp?.includes('shop.stayorli.com')  ? null : '_blank'}>
+                            {currentEvent.rsvp ? <RSVPLink href={currentEvent.rsvp} target={currentEvent?.rsvp?.includes('stayorli.com') && !currentEvent?.rsvp?.includes('shop.stayorli.com')  ? null : '_blank'}>
                                 { currentEvent?.rsvpText ? currentEvent?.rsvpText : "Learn More"}
-                            </RSVPLink>
+                            </RSVPLink> : null }
                             <CalendarLinkContainer>
                                 <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.gcal} target="_blank">Add to Google Calendar</CalendarLink>
                                 <CalendarLink className="sans-serif xs-copy black left underline" href={currentEvent.acal} target="_blank">Add to Apple Calendar</CalendarLink>
