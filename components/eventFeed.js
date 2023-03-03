@@ -66,6 +66,10 @@ const HeadContainer = styled.div`
             margin-bottom: 1.5rem;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        min-height: 115px;
+    }
 `
 const ContentContainer = styled.div`
     margin-right: 10vw;
