@@ -304,7 +304,7 @@ export default function EventFeed(props) {
                 </Left>
                 {props.fullWidget && (
                     <Right>
-                        <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center right / cover`, backgroundSize: 'cover'}}>
+                        <HeadContainer style={{ background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${currentEvent.image ? currentEvent.image : '' }) no-repeat center / cover`, backgroundSize: 'cover'}}>
                             <p className="white sans-serif body-copy mb-0">{currentEvent.category  ? currentEvent.category : ''}</p>
                             <p className="heading white serif">{currentEvent.title}</p>
                         </HeadContainer>
