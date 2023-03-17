@@ -31,6 +31,16 @@ const MediaWrapper = styled.div`
     min-height: unset !important;
     max-height: unset !important;
   }
+  .videoBackground {
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .videoBackground video {
+    width: 100%    !important;
+    height: auto   !important;
+  }
+  
   @media only screen and (max-width: 900px) {
     & {
         flex: 1;
@@ -215,8 +225,7 @@ export default function BigImageSmallContent(props) {
                     )
                   }
                   { mediaType === "Video" && (
-                    <div className={`${styles.videoBackground}`}>
-                      <div>
+                    <div className="videoBackground">
                         <video
                           className={styles.videoBG}
                           autoPlay
@@ -228,10 +237,6 @@ export default function BigImageSmallContent(props) {
                         <source src={webm} type="video/webm" />
                         </video>
                       </div>
-                      <p className="serif xs-copy uppercase brown">
-                        <a href={ctaLink}>{ctaLabel}</a>
-                      </p>
-                    </div>
                     )
                   }
                 </MediaWrapper>
@@ -393,8 +398,7 @@ export default function BigImageSmallContent(props) {
                     )
                   }
                   { mediaType === "Video" && (
-                    <div className={`${styles.videoBackground}`}>
-                      <div>
+                    <div className="videoBackground">
                         <video
                           className={styles.videoBG}
                           autoPlay
@@ -406,10 +410,6 @@ export default function BigImageSmallContent(props) {
                           <source src={webm} type="video/webm" />
                         </video>
                       </div>
-                      <p className="serif xs-copy uppercase brown">
-                        <a href={ctaLink}>{ctaLabel}</a>
-                      </p>
-                    </div>
                   )
                   }
               </MediaWrapper>
