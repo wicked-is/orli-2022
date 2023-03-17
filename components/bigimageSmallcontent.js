@@ -25,6 +25,12 @@ const FlexWrapper = styled.div`
 const MediaWrapper = styled.div`
   width: 60%;
   position: relative;
+  .imgfull {
+    width: 100%;
+    height: auto !important; 
+    min-height: unset !important;
+    max-height: unset !important;
+  }
   @media only screen and (max-width: 900px) {
     & {
         flex: 1;
@@ -137,6 +143,7 @@ export default function BigImageSmallContent(props) {
                         width={561}
                         height={370}
                         layout="responsive"
+                        className="imgfull"
                       />
                       <ImageCaption className="sans-serif body black left">{imageCaption}</ImageCaption>
                     </div>
@@ -293,7 +300,8 @@ export default function BigImageSmallContent(props) {
                 <p className="serif heading black left mb-3">{headline}</p>
                 )
               }
-              <p className="sans-serif body-copy black left">{blurb}</p>
+               <div className="sans-serif body-copy black left" dangerouslySetInnerHTML={{__html: blurb,}}>
+                  </div>
               {isThereACta && (
                 <a
                   href={ctaLink}
@@ -313,6 +321,7 @@ export default function BigImageSmallContent(props) {
                     width={561}
                     height={370}
                     layout="responsive"
+                    className="imgfull"
                   />
                   <ImageCaption className="sans-serif body black left">{imageCaption}</ImageCaption>
                 </div>
