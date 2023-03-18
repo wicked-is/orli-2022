@@ -16,6 +16,9 @@ export default function Layout(props) {
                 maxDisplays: 1,
                 eventThrottle: 200,
                 onExitIntent: () => {
+                    if (hasModalShown) {
+                        return;
+                    }
                     setshowModal(true);
                 },
             });
