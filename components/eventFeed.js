@@ -224,7 +224,20 @@ export default function EventFeed(props) {
 			document.querySelectorAll(".event-tile").forEach((el) => {
 				el.addEventListener("touchend", (e) => {
 					e.preventDefault();
-					console.log("clicked");
+					setCurrentEvent({
+						title: el.dataset.title,
+						description: el.dataset.description,
+						category: el.dataset.category,
+						image: el.dataset.image,
+						date: el.dataset.date,
+						rsvp: el.dataset.rsvp,
+						rsvpText: el.dataset.rsvptext,
+						time: el.dataset.time,
+						address: el.dataset.address,
+						gcal: el.dataset.gcal,
+						acal: el.dataset.acal,
+						locationName: el.dataset.locationName,
+					});
 					document.querySelector(".main-content").scrollIntoView({
 						behavior: `smooth`,
 					});
