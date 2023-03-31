@@ -1,3 +1,10 @@
+html :has(.react-calendar),
+.body :has(.react-calendar) {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
 /* calendar styles */
 .react-calendar {
 	width: 400px;
@@ -6,14 +13,21 @@
 	color: #222;
 	border-radius: 8px;
 	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-	font-family: Arial, Helvetica, sans-serif;
 	line-height: 1.125em;
+	padding: 1rem;
 }
+
+.react-calendar button {
+	font-family: "GT Walsheim Light" !important;
+	font-size: var(--body-copy);
+}
+
 .react-calendar__navigation button {
-	color: #8c361e;
+	font-family: essonnes-display, serif !important;
+	color: #000;
 	min-width: 44px;
 	background: none;
-	font-size: 16px;
+	font-size: var(--press-heading);
 	margin-top: 8px;
 }
 .react-calendar__navigation button:enabled:hover,

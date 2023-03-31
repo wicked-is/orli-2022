@@ -1,6 +1,7 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Calendar } from "react-calendar";
+import { useSyncExternalStore } from "react";
 
 const ContainerAndOverlay = styled.section`
 	position: fixed;
@@ -18,6 +19,35 @@ const ContainerAndOverlay = styled.section`
 `;
 
 export default function CalendarWidget(props) {
+	const [isMobile, setIsMobile] = useState(false);
+	const [_, setDimensions] = useState({
+		height: null,
+		width: null,
+	});
+
+	useEffect(() => {
+		function handleResize() {
+			setDimensions({
+				height: window.innerHeight,
+				width: window.innerWidth,
+			});
+
+			if (window.innerWidth < 768) {
+				setIsMobile(true);
+			} else {
+				setIsMobile(false);
+			}
+		}
+
+		handleResize();
+
+		window.addEventListener("resize", handleResize);
+
+		return (_) => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
 	function handleDateChange(value, event) {
 		console.log({ value, event });
 		props.handleCheckin(value[0]);
@@ -30,7 +60,7 @@ export default function CalendarWidget(props) {
 				selectRange={true}
 				returnValue="range"
 				onChange={handleDateChange}
-				showDoubleView={true}
+				showDoubleView={isMobile ? false : true}
 			/>
 		</ContainerAndOverlay>
 	);
