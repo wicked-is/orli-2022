@@ -222,7 +222,8 @@ export default function EventFeed(props) {
 
 			// for every event tile  click scroll to the bottom of the container
 			document.querySelectorAll(".event-tile").forEach((el) => {
-				el.addEventListener("touchend", () => {
+				el.addEventListener("touchend", (e) => {
+					e.preventDefault();
 					console.log("clicked");
 					document.querySelector(".main-content").scrollIntoView({
 						behavior: `smooth`,
