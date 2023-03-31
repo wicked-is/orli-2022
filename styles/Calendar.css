@@ -21,7 +21,10 @@ html :has(.react-calendar),
 	font-family: "GT Walsheim Light" !important;
 	font-size: var(--body-copy);
 }
-
+.react-calendar__month-view__weekdays {
+	font-family: "GT Walsheim Light" !important;
+	font-size: var(--body-copy);
+}
 .react-calendar__navigation button {
 	font-family: essonnes-display, serif !important;
 	color: #000;
