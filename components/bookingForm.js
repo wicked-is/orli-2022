@@ -10,7 +10,7 @@ import "react-calendar/dist/Calendar.css";
 import CalendarWidget from "./CalendarWidget";
 
 export default function BookingForm(props) {
-	const { isQuickView, closeDialog } = props;
+	const { isQuickView, closeDialog, roomId } = props;
 	const [checkOutDate, setCheckOutDate] = useState("");
 	const [checkInDate, setCheckInDate] = useState("");
 	const [calendarIsVisible, setcalendarIsVisible] = useState(false);
@@ -59,9 +59,8 @@ export default function BookingForm(props) {
 				api.setStartDate(new Date(checkInDate));
 				api.setEndDate(new Date(checkOutDate));
 
-				if (isQuickView) {
-					closeDialog();
-				}
+				if (isQuickView) closeDialog();
+				if (roomId.length > 0) api.showRates(roomId);
 				api.open();
 			}
 		);

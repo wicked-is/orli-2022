@@ -402,6 +402,9 @@ export default function DefaultRoomsPage(props) {
 				// set different start and end date
 				api.setStartDate(new Date(checkInDate));
 				api.setEndDate(new Date(checkOutDate));
+				if (room?.singleRooms?.mewsRoomId)
+					api.showRates(room.singleRooms.mewsRoomId);
+				api.open();
 			}
 		);
 	}

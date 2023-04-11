@@ -140,6 +140,7 @@ export default function RoomsGrid(props) {
 		description: "",
 		image: "",
 		slug: "",
+		roomId: "",
 	});
 
 	const [modalStatus, setModalStatus] = useState(false);
@@ -303,7 +304,7 @@ export default function RoomsGrid(props) {
 
 	const handleClick = (e) => {
 		e.preventDefault();
-		const { sleeps, roomtitle, description, image, slug } =
+		const { sleeps, roomtitle, description, image, slug, roomid } =
 			e.target.parentElement.closest("li").dataset;
 
 		setDialogContent({
@@ -312,6 +313,7 @@ export default function RoomsGrid(props) {
 			description,
 			image,
 			slug,
+			roomid,
 		});
 
 		document.querySelector("dialog").show();
@@ -381,6 +383,7 @@ export default function RoomsGrid(props) {
 							}}>
 							<BookingForm
 								isQuickView
+								roomId={dialogContent.roomid}
 								closeDialog={() =>
 									document
 										.querySelector("#roomdialog")
@@ -423,6 +426,7 @@ export default function RoomsGrid(props) {
 								data-filter={filters}
 								data-sleeps={room.singleRooms.sleeps}
 								data-roomtitle={room.title}
+								data-roomid={room.singleRooms.mewsRoomId}
 								data-description={room.singleRooms.description}
 								data-slug={room.slug}
 								data-image={
