@@ -80,6 +80,10 @@ const HeadContainer = styled.div`
 			margin-bottom: 1.5rem;
 		}
 	}
+
+	@media screen and (max-width: 500px) {
+		min-height: 115px;
+	}
 `;
 const ContentContainer = styled.div`
 	margin-right: 10vw;
@@ -202,7 +206,25 @@ export default function EventFeed(props) {
 				locationName: events[0].singleEvent.locationName,
 			});
 			document.querySelectorAll(".event-tile").forEach((el) => {
-				el.addEventListener("mouseenter", () => {
+				el.addEventListener("mouseenter", (event) => {
+					event.preventDefault();
+					setCurrentEvent({
+						title: el.dataset.title,
+						description: el.dataset.description,
+						category: el.dataset.category,
+						image: el.dataset.image,
+						date: el.dataset.date,
+						rsvp: el.dataset.rsvp,
+						rsvpText: el.dataset.rsvptext,
+						time: el.dataset.time,
+						address: el.dataset.address,
+						gcal: el.dataset.gcal,
+						acal: el.dataset.acal,
+						locationName: el.dataset.locationName,
+					});
+				});
+				el.addEventListener("touchend", (event) => {
+					event.preventDefault();
 					setCurrentEvent({
 						title: el.dataset.title,
 						description: el.dataset.description,
@@ -219,7 +241,6 @@ export default function EventFeed(props) {
 					});
 				});
 			});
-
 			// for every event tile  click scroll to the bottom of the container
 			document.querySelectorAll(".event-tile").forEach((el) => {
 				el.addEventListener("touchend", (e) => {
@@ -251,7 +272,7 @@ export default function EventFeed(props) {
 			fullWidget={fullWidget}
 			className={props.fullWidget ? "fullWidget" : ""}>
 			<a id="upcoming" name="upcoming" className="anchor"></a>
-			<Left fullWidget={fullWidget} className="main-feed">
+			<Left fullWidget={fullWidget}>
 				{fullWidget && (
 					<p className="sans-serif-bold sub-heading mt-0">Upcoming</p>
 				)}
@@ -380,7 +401,7 @@ export default function EventFeed(props) {
 						style={{
 							background: `linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${
 								currentEvent.image ? currentEvent.image : ""
-							}) no-repeat center/ cover`,
+							}) no-repeat center / cover`,
 							backgroundSize: "cover",
 						}}>
 						<p className="white sans-serif body-copy mb-0">
