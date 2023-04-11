@@ -71,16 +71,10 @@ export default function BookingForm() {
 			) : null}
 			<div className={styles.formcontainer}>
 				<form
-					className={styles.form}
-					method="POST"
 					// action={`https://app.mews.com/distributor/b6f6f212-71c7-4e05-897a-afb801278392?mewsStart=${checkInDate}&mewsEnd=${checkOutDate}`}
-					onSubmit={handleFormSubmit}
-					target="">
-					{/* <form
 					className={styles.form}
 					method="POST"
-					target="_blank"
-					onSubmit={handleFormSubmit}> */}
+					onSubmit={handleFormSubmit}>
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check In</span>
 						<input

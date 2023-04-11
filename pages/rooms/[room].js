@@ -384,6 +384,28 @@ export default function DefaultRoomsPage(props) {
 		setcalendarIsVisible(!calendarIsVisible);
 	}
 
+	function handleFormSubmit(e) {
+		e.preventDefault();
+
+		Mews.Distributor(
+			{
+				// This is the demo id
+				configurationIds: ["e12243c4-2c54-4d1c-a958-afb801279497"],
+				// This is the id from the Mews General Settings of the dashboard
+				// configurationIds: ["b6f6f212-71c7-4e05-897a-afb801278392"],
+				// This is the id from the Mews Booking Engines Settings of the dashboard
+				// configurationIds: ["e12243c4-2c54-4d1c-a958-afb801279497"],
+				openElements: ".distributor-open",
+			},
+			function (api) {
+				// you can call API functions on a booking engine instance here
+				// set different start and end date
+				api.setStartDate(new Date(checkInDate));
+				api.setEndDate(new Date(checkOutDate));
+			}
+		);
+	}
+
 	return (
 		<>
 			<SEO fullhead={room.seo.fullHead} />
@@ -440,9 +462,9 @@ export default function DefaultRoomsPage(props) {
 							</h1>
 							<MobileBookingForm>
 								<ReservationForm
-									action={room.singleRooms.cloudbedsLink}
-									method="POST"
-									target="_blank">
+									// action={room.singleRooms.cloudbedsLink}
+									onSubmit={handleFormSubmit}
+									method="POST">
 									<ReservationFormLabel className="sans-serif uppercase">
 										Check In
 										<input
@@ -465,7 +487,7 @@ export default function DefaultRoomsPage(props) {
 											onChange={setCheckout}
 										/>
 									</ReservationFormLabel>
-									<ReservationButton className="sans-serif uppercase">
+									<ReservationButton className="sans-serif uppercase distributor-open">
 										Check Availability
 									</ReservationButton>
 								</ReservationForm>
@@ -612,9 +634,8 @@ export default function DefaultRoomsPage(props) {
 						<p className="heading">Reservations</p>
 						<ReservationForm
 							// action={room.singleRooms.cloudbedsLink}
-							action={`https://app.mews.com/distributor/b6f6f212-71c7-4e05-897a-afb801278392?mewsStart=${checkInDate}&mewsEnd=${checkOutDate}`}
-							method="POST"
-							target="_blank">
+							onSubmit={handleFormSubmit}
+							method="POST">
 							<ReservationFormLabel className="sans-serif uppercase">
 								Check In
 								<input
@@ -640,7 +661,7 @@ export default function DefaultRoomsPage(props) {
 									onFocus={toggleShowCalendar}
 								/>
 							</ReservationFormLabel>
-							<ReservationButton className="sans-serif uppercase">
+							<ReservationButton className="sans-serif uppercase distributor-open">
 								Check Availability
 							</ReservationButton>
 						</ReservationForm>
@@ -711,6 +732,7 @@ export async function getStaticProps({ params }) {
           fullHead
         }
         singleRooms {
+			mewsRoomId
           cloudbedsLink
           featuredVideoUrl
           heroVideo
