@@ -412,6 +412,7 @@ export default function DefaultPage(props) {
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_GiftGrid":
+				case "Post_Flexiblecontent_Sections_GiftGrid":
 					gatheredSections.push(
 						<GiftGrid
 							key={componentKey}
@@ -608,6 +609,7 @@ export async function getStaticProps({ params }) {
                     link
                     brand
                     hoverText
+                    hoverBlurb
                     hoverColor
                   }
                 }
@@ -1369,6 +1371,23 @@ export async function getStaticProps({ params }) {
           flexibleContent {
             sections {
               ${UpgradesGridPostQuery}
+              ... on Post_Flexiblecontent_Sections_GiftGrid {
+                fieldGroupName
+                giftRepeater {
+                  ... on Post_Flexiblecontent_Sections_GiftGrid_giftRepeater {
+                    image {
+                      altText
+                      mediaItemUrl
+                    }
+                    productName
+                    link
+                    brand
+                    hoverText
+                    hoverBlurb
+                    hoverColor
+                  }
+                }
+              }
               ... on Post_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {
