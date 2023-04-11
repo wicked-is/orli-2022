@@ -9,7 +9,8 @@ import styles from "../styles/bookingForm.module.css";
 import "react-calendar/dist/Calendar.css";
 import CalendarWidget from "./CalendarWidget";
 
-export default function BookingForm() {
+export default function BookingForm(props) {
+	const { isQuickView, closeDialog } = props;
 	const [checkOutDate, setCheckOutDate] = useState("");
 	const [checkInDate, setCheckInDate] = useState("");
 	const [calendarIsVisible, setcalendarIsVisible] = useState(false);
@@ -57,6 +58,11 @@ export default function BookingForm() {
 				// set different start and end date
 				api.setStartDate(new Date(checkInDate));
 				api.setEndDate(new Date(checkOutDate));
+
+				if (isQuickView) {
+					closeDialog();
+				}
+				api.open();
 			}
 		);
 	}
