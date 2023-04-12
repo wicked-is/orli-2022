@@ -376,7 +376,7 @@ export default function DefaultRoomsPage(props) {
 		// setCheckOutDate(date.target.value);
 		setTimeout(() => {
 			toggleShowCalendar();
-		}, 1000);
+		}, 500);
 	};
 
 	function toggleShowCalendar() {

@@ -60,7 +60,8 @@ export default function CalendarWidget(props) {
 				selectRange={true}
 				returnValue="range"
 				onChange={handleDateChange}
-				showDoubleView={isMobile ? false : true}
+				goToRangeStartOnSelect={false}
+				showDoubleView={false}
 			/>
 		</ContainerAndOverlay>
 	);

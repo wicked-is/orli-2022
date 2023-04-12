@@ -19,20 +19,16 @@ export default function BookingForm(props) {
 	const checkOutRef = useRef(null);
 
 	const setCheckin = (date) => {
-		// checkInRef.current.placeholder = "";
 		checkInRef.current.value = date.toISOString().split("T")[0];
 		setCheckInDate(date.toISOString().split("T")[0]);
-		// setCheckOutDate(date.target.value);
 	};
 	const setCheckout = (date) => {
-		// checkOutRef.current.placeholder = "";
 		checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(date.toISOString().split("T")[0]);
-		// date.target.placeholder = "";
-		// setCheckOutDate(date.target.value);
+
 		setTimeout(() => {
 			toggleShowCalendar();
-		}, 1000);
+		}, 500);
 	};
 
 	function toggleShowCalendar() {
