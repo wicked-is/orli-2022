@@ -371,7 +371,13 @@ export default function DefaultRoomsPage(props) {
 	const setCheckout = (date) => {
 		// checkOutRef.current.placeholder = "";
 		// checkOutRef.current.value = date.toISOString().split("T")[0];
-		setCheckOutDate(date.toISOString().split("T")[0]);
+		setCheckOutDate(
+			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+			})
+		);
 		// date.target.placeholder = "";
 		// setCheckOutDate(date.target.value);
 		setTimeout(() => {
