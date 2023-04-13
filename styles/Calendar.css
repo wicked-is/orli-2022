@@ -20,6 +20,7 @@ html :has(.react-calendar),
 	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 	line-height: 1.125em;
 	padding: 1rem;
+	z-index: 999999999999;
 }
 
 .react-calendar button {

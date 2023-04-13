@@ -3,7 +3,21 @@ import styled from "styled-components";
 import { Calendar } from "react-calendar";
 import { useSyncExternalStore } from "react";
 
-const ContainerAndOverlay = styled.section`
+const Container = styled.section`
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 100vh;
+
+	display: grid;
+	place-items: center;
+	z-index: 999999999;
+`;
+
+const Overlay = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -12,10 +26,6 @@ const ContainerAndOverlay = styled.section`
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.5);
-
-	display: grid;
-	place-items: center;
-	z-index: 999999999;
 `;
 
 export default function CalendarWidget(props) {
@@ -54,8 +64,11 @@ export default function CalendarWidget(props) {
 		props.handleCheckout(value[1]);
 	}
 
+	function closeCalendarWidget() {}
+
 	return (
-		<ContainerAndOverlay onFocus={props.closeCalendarWidget}>
+		<Container>
+			<Overlay onClick={props.closeCalendarWidget}></Overlay>
 			<Calendar
 				selectRange={true}
 				returnValue="range"
@@ -63,6 +76,6 @@ export default function CalendarWidget(props) {
 				goToRangeStartOnSelect={false}
 				showDoubleView={false}
 			/>
-		</ContainerAndOverlay>
+		</Container>
 	);
 }

@@ -634,6 +634,7 @@ export default function DefaultRoomsPage(props) {
 						<CalendarWidget
 							handleCheckin={setCheckin}
 							handleCheckout={setCheckout}
+							closeCalendarWidget={toggleShowCalendar}
 						/>
 					) : null}
 					<GreyBackground className="greyBackground">

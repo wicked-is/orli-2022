@@ -74,6 +74,7 @@ export default function BookingForm(props) {
 				<CalendarWidget
 					handleCheckin={setCheckin}
 					handleCheckout={setCheckout}
+					closeCalendarWidget={toggleShowCalendar}
 				/>
 			) : null}
 			<div className={styles.formcontainer}>
