@@ -117,6 +117,10 @@ export default function Header(props) {
 	return (
 		<header className={`${styles.header} ${navIsOpen ? styles.open : ""}`}>
 			<Analytics />
+			<Script
+				src="https://app.mews.com/distributor/distributor.min.js"
+				strategy="beforeInteractive"
+			/>
 			<Head>
 				<meta
 					name="viewport"

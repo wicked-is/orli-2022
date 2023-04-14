@@ -1105,6 +1105,7 @@ export async function getStaticProps({ params }) {
                     singleRooms {
                       sleeps
                       keyFeature
+                      mewsRoomId
                       theme
                       description
                     }
@@ -1880,6 +1881,7 @@ export async function getStaticProps({ params }) {
                     }
                     singleRooms {
                       sleeps
+                      mewsRoomId
                       keyFeature
                       theme
                       description
