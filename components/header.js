@@ -137,6 +137,10 @@ export default function Header(props) {
 				}}></noscript>
 			<noscript
 				dangerouslySetInnerHTML={{
+					__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TG8CZ4V" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+				}}></noscript>
+			<noscript
+				dangerouslySetInnerHTML={{
 					__html: `<img
                     height="1"
                     width="1"
