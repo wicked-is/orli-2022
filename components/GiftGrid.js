@@ -27,6 +27,7 @@ const GiftGridInner = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	gap: 1rem 0.5rem;
+	grid-row-gap: 5rem;
 	align-items: flex-start;
 
 	@media only screen and (max-width: 820px) {
