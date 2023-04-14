@@ -365,12 +365,26 @@ export default function DefaultRoomsPage(props) {
 	const setCheckin = (date) => {
 		// checkInRef.current.placeholder = "";
 		// checkInRef.current.value = date.toISOString().split("T")[0];
+		console.log(
+			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+			})
+		);
 		setCheckInDate(date.toISOString().split("T")[0]);
 		// setCheckOutDate(date.target.value);
 	};
 	const setCheckout = (date) => {
 		// checkOutRef.current.placeholder = "";
 		// checkOutRef.current.value = date.toISOString().split("T")[0];
+		console.log(
+			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+			})
+		);
 		setCheckOutDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
 				year: "numeric",
@@ -406,8 +420,8 @@ export default function DefaultRoomsPage(props) {
 			function (api) {
 				// you can call API functions on a booking engine instance here
 				// set different start and end date
-				api.setStartDate(new Date(checkInDate));
-				api.setEndDate(new Date(checkOutDate));
+				api.setStartDate(new Date(checkInDate.replace(/-/g, "/")));
+				api.setEndDate(new Date(checkOutDate.replace(/-/g, "/")));
 				if (room?.singleRooms?.mewsRoomId)
 					api.showRates(room.singleRooms.mewsRoomId);
 				api.open();

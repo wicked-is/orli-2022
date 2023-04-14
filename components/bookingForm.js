@@ -58,8 +58,8 @@ export default function BookingForm(props) {
 			function (api) {
 				// you can call API functions on a booking engine instance here
 				// set different start and end date
-				api.setStartDate(new Date(checkInDate));
-				api.setEndDate(new Date(checkOutDate));
+				api.setStartDate(new Date(checkInDate.replace(/-/g, "/")));
+				api.setEndDate(new Date(checkOutDate.replace(/-/g, "/")));
 
 				if (isQuickView) closeDialog();
 				if (roomId.length > 0) api.showRates(roomId);
