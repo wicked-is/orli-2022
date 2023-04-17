@@ -57,6 +57,7 @@ const ContentContainer = styled.div`
 		background-color: var(--lt-grey);
 		display: flex;
 		flex-direction: column;
+		overflow: initial;
 	}
 
 	@media screen and (max-width: 768px) {
