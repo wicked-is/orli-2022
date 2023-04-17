@@ -349,12 +349,6 @@ export default function DefaultRoomsPage(props) {
 		}
 	}, []);
 
-	// const [checkOutDate, setCheckOutDate] = useState("");
-
-	// const setCheckout = date => {
-	//     setCheckOutDate(date.target.value);
-	// };
-
 	const [checkOutDate, setCheckOutDate] = useState("");
 	const [checkInDate, setCheckInDate] = useState("");
 	const [calendarIsVisible, setcalendarIsVisible] = useState(false);
@@ -364,27 +358,19 @@ export default function DefaultRoomsPage(props) {
 
 	const setCheckin = (date) => {
 		// checkInRef.current.placeholder = "";
-		// checkInRef.current.value = date.toISOString().split("T")[0];
-		console.log(
+		checkInRef.current.value = date.toISOString().split("T")[0];
+		setCheckInDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
 				year: "numeric",
 				month: "2-digit",
 				day: "2-digit",
 			})
 		);
-		setCheckInDate(date.toISOString().split("T")[0]);
 		// setCheckOutDate(date.target.value);
 	};
 	const setCheckout = (date) => {
 		// checkOutRef.current.placeholder = "";
-		// checkOutRef.current.value = date.toISOString().split("T")[0];
-		console.log(
-			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-			})
-		);
+		checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
 				year: "numeric",
@@ -396,16 +382,16 @@ export default function DefaultRoomsPage(props) {
 		// setCheckOutDate(date.target.value);
 		setTimeout(() => {
 			toggleShowCalendar();
+			handleFormSubmit();
 		}, 500);
 	};
 
 	function toggleShowCalendar() {
-		console.log("toggled");
 		setcalendarIsVisible(!calendarIsVisible);
 	}
 
 	function handleFormSubmit(e) {
-		e.preventDefault();
+		if (e) e.preventDefault();
 
 		Mews.Distributor(
 			{
@@ -420,8 +406,12 @@ export default function DefaultRoomsPage(props) {
 			function (api) {
 				// you can call API functions on a booking engine instance here
 				// set different start and end date
-				api.setStartDate(new Date(checkInDate.replace(/-/g, "/")));
-				api.setEndDate(new Date(checkOutDate.replace(/-/g, "/")));
+				api.setStartDate(
+					new Date(checkInRef.current.value.replace(/-/g, "/"))
+				);
+				api.setEndDate(
+					new Date(checkOutRef.current.value.replace(/-/g, "/"))
+				);
 				if (room?.singleRooms?.mewsRoomId)
 					api.showRates(room.singleRooms.mewsRoomId);
 				api.open();
@@ -495,7 +485,8 @@ export default function DefaultRoomsPage(props) {
 											name="widget_date"
 											placeholder="mm/dd/yyyy"
 											className="sans-serif"
-											onChange={setCheckout}
+											onChange={setCheckin}
+											ref={checkInRef}
 										/>
 									</ReservationFormLabel>
 									<br />
@@ -508,6 +499,7 @@ export default function DefaultRoomsPage(props) {
 											className="sans-serif"
 											value={checkOutDate}
 											onChange={setCheckout}
+											ref={checkOutRef}
 										/>
 									</ReservationFormLabel>
 									<ReservationButton className="sans-serif uppercase distributor-open">

@@ -20,7 +20,14 @@ export default function BookingForm(props) {
 
 	const setCheckin = (date) => {
 		checkInRef.current.value = date.toISOString().split("T")[0];
-		setCheckInDate(date.toISOString().split("T")[0]);
+		// setCheckInDate(date.toISOString().split("T")[0]);
+		setCheckInDate(
+			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+			})
+		);
 	};
 	const setCheckout = (date) => {
 		checkOutRef.current.value = date.toISOString().split("T")[0];
@@ -34,16 +41,16 @@ export default function BookingForm(props) {
 
 		setTimeout(() => {
 			toggleShowCalendar();
+			handleFormSubmit();
 		}, 500);
 	};
 
 	function toggleShowCalendar() {
-		console.log("toggled");
 		setcalendarIsVisible(!calendarIsVisible);
 	}
 
 	function handleFormSubmit(e) {
-		e.preventDefault();
+		if (e) e.preventDefault();
 
 		Mews.Distributor(
 			{
@@ -58,11 +65,15 @@ export default function BookingForm(props) {
 			function (api) {
 				// you can call API functions on a booking engine instance here
 				// set different start and end date
-				api.setStartDate(new Date(checkInDate.replace(/-/g, "/")));
-				api.setEndDate(new Date(checkOutDate.replace(/-/g, "/")));
+				api.setStartDate(
+					new Date(checkInRef.current.value.replace(/-/g, "/"))
+				);
+				api.setEndDate(
+					new Date(checkOutRef.current.value.replace(/-/g, "/"))
+				);
 
 				if (isQuickView) closeDialog();
-				if (roomId.length > 0) api.showRates(roomId);
+				if (roomId?.length > 0) api.showRates(roomId);
 				api.open();
 			}
 		);
