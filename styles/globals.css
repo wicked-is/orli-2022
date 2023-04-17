@@ -632,3 +632,10 @@ input[type="date"]:-o-placeholder {
 	position: relative;
 	top: -75px;
 }
+
+input::-webkit-calendar-picker-indicator {
+	display: none;
+}
+input[type="date"]::-webkit-input-placeholder {
+	visibility: hidden !important;
+}
