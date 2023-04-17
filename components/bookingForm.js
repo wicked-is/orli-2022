@@ -18,7 +18,8 @@ export default function BookingForm(props) {
 	const checkInRef = useRef(null);
 	const checkOutRef = useRef(null);
 
-	const setCheckin = (date) => {
+	const setCheckin = (e, date) => {
+		e.preventDefault();
 		checkInRef.current.value = date.toISOString().split("T")[0];
 		// setCheckInDate(date.toISOString().split("T")[0]);
 		setCheckInDate(
@@ -29,7 +30,8 @@ export default function BookingForm(props) {
 			})
 		);
 	};
-	const setCheckout = (date) => {
+	const setCheckout = (e, date) => {
+		e.preventDefault();
 		checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
@@ -110,8 +112,8 @@ export default function BookingForm(props) {
 							name="widget_date"
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
-							onFocus={toggleShowCalendar}
 							onChange={setCheckin}
+							onFocus={toggleShowCalendar}
 							value={checkInDate}
 							ref={checkInRef}
 						/>
