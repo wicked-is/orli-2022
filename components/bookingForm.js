@@ -69,7 +69,14 @@ export default function BookingForm(props) {
 	}
 
 	return (
-		<div style={{ background: "transparent !important", width: "100%" }}>
+		<div
+			id="booking-form"
+			style={{
+				background: "transparent !important",
+				width: "100%",
+				marginBottom: isQuickView ? "0" : "115px",
+				alignSelf: "flex-end",
+			}}>
 			{calendarIsVisible ? (
 				<CalendarWidget
 					handleCheckin={setCheckin}

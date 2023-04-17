@@ -1,92 +1,92 @@
-.formcontainer {position: relative; width: 100%;}
+/* .formcontainer {position: relative; width: 100%;} */
 
 .form {
-    display: flex;
-    height: 80px;
-    align-self: flex-end;
-    width: 100%;
-    background: var(--white);
+	display: flex;
+	height: 80px;
+	align-self: flex-end;
+	width: 100%;
+	background: var(--white);
 }
 
-.formGroup { 
-    padding: 0 1.2rem; 
-    align-self: center; 
-    min-width: 38%;
+.formGroup {
+	padding: 0 1.2rem;
+	align-self: center;
+	min-width: 38%;
 }
 
-.formGroup span { 
-    text-transform: uppercase; 
-    display: inline-block;
-    /* padding-bottom: 10px; */
+.formGroup span {
+	text-transform: uppercase;
+	display: inline-block;
+	/* padding-bottom: 10px; */
 }
 
 .formGroup input {
-    border: 0;
-    font-family: 'GT Walsheim Light';
-    padding: 0;
-    cursor: pointer;
-    outline: none;
-    width: 100%;
-    /* font-size: clamp(1rem, 1.2vh, 1.4rem); */
+	border: 0;
+	font-family: "GT Walsheim Light";
+	padding: 0;
+	cursor: pointer;
+	outline: none;
+	width: 100%;
+	/* font-size: clamp(1rem, 1.2vh, 1.4rem); */
 }
 
 .form .button {
-    width: 25%;
-    justify-content: flex-end;
-    border: 0;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+	width: 25%;
+	justify-content: flex-end;
+	border: 0;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 .bookingtext {
-    position: absolute; 
-    bottom: -40px;
-    left: 0;
-    letter-spacing: var(--letter-spacing);
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	letter-spacing: var(--letter-spacing);
 }
 
 @media only screen and (max-width: 800px) {
-    .bookingtext {
-        position: relative; 
-        bottom: unset;
-        width: 100%;
-        display: block;
-        margin: 2rem auto auto auto;
-        left: 0;
-    }
-    .form {
-        display: inline-block;
-        height: auto;
-        align-self: flex-end;
-        flex-direction: column;
-        width: 100%;
-    }
-    .formGroup { 
-      display: inline;
-      float: left;
-      padding: 1rem 1rem 1rem 1rem;
-      width: 50%;
-    }
-    .form .button {
-        width: 100%;
-        flex: 1;
-        padding: 1.4rem 0rem;
-        justify-content: unset;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+	.bookingtext {
+		position: relative;
+		bottom: unset;
+		width: 100%;
+		display: block;
+		margin: 2rem auto auto auto;
+		left: 0;
+	}
+	.form {
+		display: inline-block;
+		height: auto;
+		align-self: flex-end;
+		flex-direction: column;
+		width: 100%;
+	}
+	.formGroup {
+		display: inline;
+		float: left;
+		padding: 1rem 1rem 1rem 1rem;
+		width: 50%;
+	}
+	.form .button {
+		width: 100%;
+		flex: 1;
+		padding: 1.4rem 0rem;
+		justify-content: unset;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
 @media screen and (max-width: 550px) {
-    .form .button {
-        position: relative !important;
-        top: 2px !important;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+	.form .button {
+		position: relative !important;
+		top: 2px !important;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
 .react-datepicker__navigation-icon--next::before {
-    transform: rotate(45deg);
-    left: -12px;
+	transform: rotate(45deg);
+	left: -12px;
 }
