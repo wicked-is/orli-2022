@@ -6,9 +6,9 @@ html:has(.react-calendar),
 	z-index: 999999999;
 }
 
-.react-calendar__month-view__days__day--neighboringMonth {
+/* .react-calendar__month-view__days__day--neighboringMonth {
 	display: none;
-}
+} */
 
 /* calendar styles */
 .react-calendar {
