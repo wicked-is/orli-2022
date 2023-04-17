@@ -136,8 +136,13 @@
 @media only screen and (max-width: 800px) {
 	.horizontalFormContainer {
 		background: transparent;
-		max-width: 90%;
-		bottom: 175px;
+		max-width: 100vw;
+		bottom: 0;
+	}
+
+	.horizontalFormContainer :has(.react-container) {
+		max-width: 100vw !important;
+		bottom: 0 !important;
 	}
 
 	.herotextOverBooking {
@@ -471,6 +476,9 @@
 	}
 }
 @media only screen and (max-width: 420px) {
+	.horizontalFormContainer {
+		padding-inline: 8vw;
+	}
 	.mobileherologo {
 		display: block;
 		position: absolute;
