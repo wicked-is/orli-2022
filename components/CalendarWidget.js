@@ -74,8 +74,7 @@ export default function CalendarWidget(props) {
 				returnValue="range"
 				onChange={handleDateChange}
 				goToRangeStartOnSelect={true}
-				// showDoubleView={true}
-				activeStartDate={new Date()}
+				// activeStartDate={new Date()}
 			/>
 		</Container>
 	);
