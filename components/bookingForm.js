@@ -18,8 +18,7 @@ export default function BookingForm(props) {
 	const checkInRef = useRef(null);
 	const checkOutRef = useRef(null);
 
-	const setCheckin = (e, date) => {
-		e.preventDefault();
+	const setCheckin = (date) => {
 		checkInRef.current.value = date.toISOString().split("T")[0];
 		// setCheckInDate(date.toISOString().split("T")[0]);
 		setCheckInDate(
@@ -30,8 +29,7 @@ export default function BookingForm(props) {
 			})
 		);
 	};
-	const setCheckout = (e, date) => {
-		e.preventDefault();
+	const setCheckout = (date) => {
 		checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
@@ -47,8 +45,7 @@ export default function BookingForm(props) {
 		}, 500);
 	};
 
-	function toggleShowCalendar(e) {
-		e.preventDefault();
+	function toggleShowCalendar() {
 		setcalendarIsVisible(!calendarIsVisible);
 	}
 
@@ -107,7 +104,7 @@ export default function BookingForm(props) {
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check In</span>
 						<input
-							type={"date"}
+							type={"text"}
 							aria-label="Check In Date"
 							name="widget_date"
 							placeholder="mm/dd/yyyy"
@@ -121,7 +118,7 @@ export default function BookingForm(props) {
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check Out</span>
 						<input
-							type={"date"}
+							type={"text"}
 							aria-label="Check Out Date"
 							name="widget_date_to"
 							placeholder="mm/dd/yyyy"
