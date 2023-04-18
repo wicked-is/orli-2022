@@ -19,24 +19,31 @@ export default function BookingForm(props) {
 	const checkOutRef = useRef(null);
 
 	const setCheckin = (date) => {
-		checkInRef.current.value = date.toISOString().split("T")[0];
+		checkInRef.current.value = new Intl.DateTimeFormat("en-US").format(
+			date
+		);
 		// setCheckInDate(date.toISOString().split("T")[0]);
 		setCheckInDate(
-			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-			})
+			new Intl.DateTimeFormat("en-US").format(date)
+			// new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
+			// 	year: "numeric",
+			// 	month: "2-digit",
+			// 	day: "2-digit",
+			// })
 		);
 	};
 	const setCheckout = (date) => {
-		checkOutRef.current.value = date.toISOString().split("T")[0];
+		checkOutRef.current.value = new Intl.DateTimeFormat("en-US").format(
+			date
+		);
+		// checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(
-			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-			})
+			new Intl.DateTimeFormat("en-US").format(date)
+			// new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
+			// 	year: "numeric",
+			// 	month: "2-digit",
+			// 	day: "2-digit",
+			// })
 		);
 
 		setTimeout(() => {
@@ -105,7 +112,7 @@ export default function BookingForm(props) {
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check In</span>
 						<input
-							type={"date"}
+							type={"text"}
 							aria-label="Check In Date"
 							name="widget_date"
 							placeholder="mm/dd/yyyy"
@@ -119,7 +126,7 @@ export default function BookingForm(props) {
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check Out</span>
 						<input
-							type={"date"}
+							type={"text"}
 							aria-label="Check Out Date"
 							name="widget_date_to"
 							placeholder="mm/dd/yyyy"

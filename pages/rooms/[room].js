@@ -357,29 +357,17 @@ export default function DefaultRoomsPage(props) {
 	const checkOutRef = useRef(null);
 
 	const setCheckin = (date) => {
-		// checkInRef.current.placeholder = "";
-		checkInRef.current.value = date.toISOString().split("T")[0];
-		setCheckInDate(
-			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-			})
+		checkInRef.current.value = new Intl.DateTimeFormat("en-US").format(
+			date
 		);
-		// setCheckOutDate(date.target.value);
+		setCheckInDate(new Intl.DateTimeFormat("en-US").format(date));
 	};
 	const setCheckout = (date) => {
-		// checkOutRef.current.placeholder = "";
-		checkOutRef.current.value = date.toISOString().split("T")[0];
-		setCheckOutDate(
-			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-			})
+		checkOutRef.current.value = new Intl.DateTimeFormat("en-US").format(
+			date
 		);
-		// date.target.placeholder = "";
-		// setCheckOutDate(date.target.value);
+		setCheckOutDate(new Intl.DateTimeFormat("en-US").format(date));
+
 		setTimeout(() => {
 			toggleShowCalendar();
 			handleFormSubmit();
