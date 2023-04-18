@@ -104,7 +104,7 @@ export default function BookingForm(props) {
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check In</span>
 						<input
-							type={"text"}
+							type={"date"}
 							aria-label="Check In Date"
 							name="widget_date"
 							placeholder="mm/dd/yyyy"
@@ -118,7 +118,7 @@ export default function BookingForm(props) {
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check Out</span>
 						<input
-							type={"text"}
+							type={"date"}
 							aria-label="Check Out Date"
 							name="widget_date_to"
 							placeholder="mm/dd/yyyy"
