@@ -46,7 +46,7 @@ export default function BookingForm(props) {
 	};
 
 	function toggleShowCalendar(e) {
-		e.preventDefault();
+		// e.preventDefault();
 		setcalendarIsVisible(!calendarIsVisible);
 	}
 
