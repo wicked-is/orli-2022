@@ -19,6 +19,7 @@ export default function BookingForm(props) {
 	const checkOutRef = useRef(null);
 
 	const setCheckin = (date) => {
+		checkInRef.current.setAttribute("placeholder", "");
 		checkInRef.current.value = date.toISOString().split("T")[0];
 		// setCheckInDate(date.toISOString().split("T")[0]);
 		setCheckInDate(
@@ -30,6 +31,7 @@ export default function BookingForm(props) {
 		);
 	};
 	const setCheckout = (date) => {
+		checkOutRef.current.setAttribute("placeholder", "");
 		checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
