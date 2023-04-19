@@ -19,32 +19,35 @@ export default function BookingForm(props) {
 	const checkOutRef = useRef(null);
 
 	const setCheckin = (date) => {
+		// checkInRef.current.setAttribute("readOnly", false);
+		// checkInRef.current.removeAttribute("readOnly");
+		// checkInRef.current.removeAttribute("readonly");
+		// checkInRef.current.setAttribute("type", "date");
+		checkInRef.current.setAttribute(
+			"placeHolder",
+			new Intl.DateTimeFormat("en-US").format(date)
+		);
 		checkInRef.current.value = new Intl.DateTimeFormat("en-US").format(
 			date
 		);
 		// setCheckInDate(date.toISOString().split("T")[0]);
-		setCheckInDate(
-			new Intl.DateTimeFormat("en-US").format(date)
-			// new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
-			// 	year: "numeric",
-			// 	month: "2-digit",
-			// 	day: "2-digit",
-			// })
-		);
+		setCheckInDate(new Intl.DateTimeFormat("en-US").format(date));
 	};
 	const setCheckout = (date) => {
+		// checkOutRef.current.setAttribute("readOnly", false);
+		// checkOutRef.current.removeAttribute("readOnly");
+		// checkOutRef.current.removeAttribute("readonly");
+		// checkOutRef.current.setAttribute("type", "date");
+		checkOutRef.current.setAttribute(
+			"placeHolder",
+			new Intl.DateTimeFormat("en-US").format(date)
+		);
+
 		checkOutRef.current.value = new Intl.DateTimeFormat("en-US").format(
 			date
 		);
 		// checkOutRef.current.value = date.toISOString().split("T")[0];
-		setCheckOutDate(
-			new Intl.DateTimeFormat("en-US").format(date)
-			// new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
-			// 	year: "numeric",
-			// 	month: "2-digit",
-			// 	day: "2-digit",
-			// })
-		);
+		setCheckOutDate(new Intl.DateTimeFormat("en-US").format(date));
 
 		setTimeout(() => {
 			toggleShowCalendar();
@@ -112,31 +115,29 @@ export default function BookingForm(props) {
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check In</span>
 						<input
-							type={"date"}
-							readOnly
+							type={"text"}
 							aria-label="Check In Date"
 							name="widget_date"
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
-							onChange={setCheckin}
+							// onChange={setCheckin}
 							// onFocus={toggleShowCalendar}
-							onClick={toggleShowCalendar}
 							value={checkInDate}
+							onClick={toggleShowCalendar}
 							ref={checkInRef}
 						/>
 					</div>
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check Out</span>
 						<input
-							type={"date"}
-							readOnly
+							type={"text"}
 							aria-label="Check Out Date"
 							name="widget_date_to"
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
-							value={checkOutDate}
 							onChange={setCheckout}
 							// onFocus={toggleShowCalendar}
+							value={checkOutDate}
 							onClick={toggleShowCalendar}
 							ref={checkOutRef}
 						/>
