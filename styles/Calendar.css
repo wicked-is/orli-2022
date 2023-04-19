@@ -1,5 +1,5 @@
-html:has(.react-calendar),
-.body:has(.react-calendar) {
+html :has(.react-calendar),
+body :has(.react-calendar) {
 	margin: 0;
 	height: 100%;
 	overflow: hidden;
