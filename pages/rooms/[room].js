@@ -11,6 +11,7 @@ import SEO from "../../components/seo";
 import styled from "styled-components";
 
 import CalendarWidget from "../../components/CalendarWidget";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 import ToggleCaret from "../../public/assets/icons/Orli_Caret.svg";
 
@@ -352,13 +353,15 @@ export default function DefaultRoomsPage(props) {
 	const [checkOutDate, setCheckOutDate] = useState("");
 	const [checkInDate, setCheckInDate] = useState("");
 	const [calendarIsVisible, setcalendarIsVisible] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const checkInRef = useRef(null);
 	const checkOutRef = useRef(null);
 
 	const setCheckin = (date) => {
-		// checkInRef.current.placeholder = "";
+		checkInRef.current.setAttribute("placeholder", "");
 		checkInRef.current.value = date.toISOString().split("T")[0];
+		// setCheckInDate(date.toISOString().split("T")[0]);
 		setCheckInDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
 				year: "numeric",
@@ -366,10 +369,9 @@ export default function DefaultRoomsPage(props) {
 				day: "2-digit",
 			})
 		);
-		// setCheckOutDate(date.target.value);
 	};
 	const setCheckout = (date) => {
-		// checkOutRef.current.placeholder = "";
+		checkOutRef.current.setAttribute("placeholder", "");
 		checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
@@ -378,17 +380,28 @@ export default function DefaultRoomsPage(props) {
 				day: "2-digit",
 			})
 		);
-		// date.target.placeholder = "";
-		// setCheckOutDate(date.target.value);
+
 		setTimeout(() => {
+			toggleLoading();
 			toggleShowCalendar();
 			handleFormSubmit();
 		}, 500);
 	};
 
-	function toggleShowCalendar() {
+	function toggleShowCalendar(e) {
+		if (e) e.preventDefault();
 		setcalendarIsVisible(!calendarIsVisible);
 	}
+
+	function toggleLoading() {
+		setIsLoading(true);
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 7000);
+	}, [isLoading]);
 
 	function handleFormSubmit(e) {
 		if (e) e.preventDefault();
@@ -482,10 +495,17 @@ export default function DefaultRoomsPage(props) {
 										Check In
 										<input
 											type={"date"}
+											aria-label="Check In Date"
 											name="widget_date"
 											placeholder="mm/dd/yyyy"
 											className="sans-serif"
 											onChange={setCheckin}
+											onTouchEnd={(e) => {
+												e.preventDefault();
+												toggleShowCalendar();
+											}}
+											onClick={toggleShowCalendar}
+											value={checkInDate}
 											ref={checkInRef}
 										/>
 									</ReservationFormLabel>
@@ -494,16 +514,26 @@ export default function DefaultRoomsPage(props) {
 										Check Out
 										<input
 											type={"date"}
+											aria-label="Check Out Date"
 											name="widget_date_to"
 											placeholder="mm/dd/yyyy"
 											className="sans-serif"
 											value={checkOutDate}
+											onTouchEnd={(e) => {
+												e.preventDefault();
+												toggleShowCalendar();
+											}}
 											onChange={setCheckout}
+											onClick={toggleShowCalendar}
 											ref={checkOutRef}
 										/>
 									</ReservationFormLabel>
 									<ReservationButton className="sans-serif uppercase distributor-open">
-										Check Availability
+										{isLoading ? (
+											<LoadingSpinner />
+										) : (
+											"Check Availability"
+										)}
 									</ReservationButton>
 								</ReservationForm>
 							</MobileBookingForm>
@@ -656,12 +686,18 @@ export default function DefaultRoomsPage(props) {
 								Check In
 								<input
 									type={"date"}
+									aria-label="Check In Date"
 									name="widget_date"
 									placeholder="mm/dd/yyyy"
 									className="sans-serif"
-									value={checkInDate}
 									onChange={setCheckin}
-									onFocus={toggleShowCalendar}
+									onTouchEnd={(e) => {
+										e.preventDefault();
+										toggleShowCalendar();
+									}}
+									onClick={toggleShowCalendar}
+									value={checkInDate}
+									ref={checkInRef}
 								/>
 							</ReservationFormLabel>
 							<br />
@@ -669,16 +705,26 @@ export default function DefaultRoomsPage(props) {
 								Check Out
 								<input
 									type={"date"}
+									aria-label="Check Out Date"
 									name="widget_date_to"
 									placeholder="mm/dd/yyyy"
 									className="sans-serif"
 									value={checkOutDate}
+									onTouchEnd={(e) => {
+										e.preventDefault();
+										toggleShowCalendar();
+									}}
 									onChange={setCheckout}
-									onFocus={toggleShowCalendar}
+									onClick={toggleShowCalendar}
+									ref={checkOutRef}
 								/>
 							</ReservationFormLabel>
 							<ReservationButton className="sans-serif uppercase distributor-open">
-								Check Availability
+								{isLoading ? (
+									<LoadingSpinner />
+								) : (
+									"Check Availability"
+								)}
 							</ReservationButton>
 						</ReservationForm>
 					</GreyBackground>

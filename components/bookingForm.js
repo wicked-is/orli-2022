@@ -8,17 +8,20 @@ import Link from "next/link";
 import styles from "../styles/bookingForm.module.css";
 import "react-calendar/dist/Calendar.css";
 import CalendarWidget from "./CalendarWidget";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function BookingForm(props) {
 	const { isQuickView, closeDialog, roomId } = props;
 	const [checkOutDate, setCheckOutDate] = useState("");
 	const [checkInDate, setCheckInDate] = useState("");
 	const [calendarIsVisible, setcalendarIsVisible] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const checkInRef = useRef(null);
 	const checkOutRef = useRef(null);
 
 	const setCheckin = (date) => {
+		checkInRef.current.setAttribute("placeholder", "");
 		checkInRef.current.value = date.toISOString().split("T")[0];
 		// setCheckInDate(date.toISOString().split("T")[0]);
 		setCheckInDate(
@@ -30,6 +33,7 @@ export default function BookingForm(props) {
 		);
 	};
 	const setCheckout = (date) => {
+		checkOutRef.current.setAttribute("placeholder", "");
 		checkOutRef.current.value = date.toISOString().split("T")[0];
 		setCheckOutDate(
 			new Date(Date.parse(date)).toLocaleDateString("fr-CA", {
@@ -40,15 +44,26 @@ export default function BookingForm(props) {
 		);
 
 		setTimeout(() => {
+			toggleLoading();
 			toggleShowCalendar();
 			handleFormSubmit();
 		}, 500);
 	};
 
 	function toggleShowCalendar(e) {
-		// e.preventDefault();
+		if (e) e.preventDefault();
 		setcalendarIsVisible(!calendarIsVisible);
 	}
+
+	function toggleLoading() {
+		setIsLoading(true);
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 5000);
+	}, [isLoading]);
 
 	function handleFormSubmit(e) {
 		if (e) e.preventDefault();
@@ -111,7 +126,11 @@ export default function BookingForm(props) {
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
 							onChange={setCheckin}
-							onFocus={toggleShowCalendar}
+							onTouchEnd={(e) => {
+								e.preventDefault();
+								toggleShowCalendar();
+							}}
+							onClick={toggleShowCalendar}
 							value={checkInDate}
 							ref={checkInRef}
 						/>
@@ -125,8 +144,12 @@ export default function BookingForm(props) {
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
 							value={checkOutDate}
+							onTouchEnd={(e) => {
+								e.preventDefault();
+								toggleShowCalendar();
+							}}
 							onChange={setCheckout}
-							onFocus={toggleShowCalendar}
+							onClick={toggleShowCalendar}
 							ref={checkOutRef}
 						/>
 					</div>
@@ -134,7 +157,7 @@ export default function BookingForm(props) {
 						type="submit"
 						aria-label="search button"
 						className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown distributor-open`}>
-						Search
+						{isLoading ? <LoadingSpinner /> : "Search"}
 					</button>
 				</form>
 			</div>

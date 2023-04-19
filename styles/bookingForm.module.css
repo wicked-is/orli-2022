@@ -8,6 +8,17 @@
 	background: var(--white);
 }
 
+.form input::-webkit-datetime-edit-year-field:focus,
+.form input::-webkit-datetime-edit-month-field:focus,
+.form input::-webkit-datetime-edit-day-field:focus,
+.form input::-webkit-datetime-edit-hour-field:focus,
+.form input::-webkit-datetime-edit-minute-field:focus,
+.form input::-webkit-datetime-edit-second-field:focus,
+.form input::-webkit-datetime-edit-millisecond-field:focus,
+.form input::-webkit-datetime-edit-meridiem-field:focus {
+	background-color: transparent;
+}
+
 .formGroup {
 	padding: 0 1.2rem;
 	align-self: center;
