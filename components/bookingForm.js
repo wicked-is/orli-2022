@@ -8,12 +8,14 @@ import Link from "next/link";
 import styles from "../styles/bookingForm.module.css";
 import "react-calendar/dist/Calendar.css";
 import CalendarWidget from "./CalendarWidget";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function BookingForm(props) {
 	const { isQuickView, closeDialog, roomId } = props;
 	const [checkOutDate, setCheckOutDate] = useState("");
 	const [checkInDate, setCheckInDate] = useState("");
 	const [calendarIsVisible, setcalendarIsVisible] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const checkInRef = useRef(null);
 	const checkOutRef = useRef(null);
@@ -42,6 +44,7 @@ export default function BookingForm(props) {
 		);
 
 		setTimeout(() => {
+			toggleLoading();
 			toggleShowCalendar();
 			handleFormSubmit();
 		}, 500);
@@ -51,6 +54,16 @@ export default function BookingForm(props) {
 		if (e) e.preventDefault();
 		setcalendarIsVisible(!calendarIsVisible);
 	}
+
+	function toggleLoading() {
+		setIsLoading(true);
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 5000);
+	}, [isLoading]);
 
 	function handleFormSubmit(e) {
 		if (e) e.preventDefault();
@@ -144,7 +157,7 @@ export default function BookingForm(props) {
 						type="submit"
 						aria-label="search button"
 						className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown distributor-open`}>
-						Search
+						{isLoading ? <LoadingSpinner /> : "Search"}
 					</button>
 				</form>
 			</div>
