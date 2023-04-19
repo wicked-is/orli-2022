@@ -400,7 +400,7 @@ export default function DefaultRoomsPage(props) {
 	useEffect(() => {
 		setTimeout(() => {
 			setIsLoading(false);
-		}, 5000);
+		}, 7000);
 	}, [isLoading]);
 
 	function handleFormSubmit(e) {
