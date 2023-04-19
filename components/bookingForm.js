@@ -111,6 +111,10 @@ export default function BookingForm(props) {
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
 							onChange={setCheckin}
+							onTouchEnd={(e) => {
+								e.preventDefault();
+								toggleShowCalendar();
+							}}
 							onClick={toggleShowCalendar}
 							value={checkInDate}
 							ref={checkInRef}
@@ -125,6 +129,10 @@ export default function BookingForm(props) {
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
 							value={checkOutDate}
+							onTouchEnd={(e) => {
+								e.preventDefault();
+								toggleShowCalendar();
+							}}
 							onChange={setCheckout}
 							onClick={toggleShowCalendar}
 							ref={checkOutRef}
