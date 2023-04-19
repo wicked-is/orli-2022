@@ -639,3 +639,14 @@ input::-webkit-calendar-picker-indicator {
 input[type="date"]::-webkit-input-placeholder {
 	visibility: hidden !important;
 }
+
+input::-webkit-datetime-edit-year-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-hour-field:focus,
+input::-webkit-datetime-edit-minute-field:focus,
+input::-webkit-datetime-edit-second-field:focus,
+input::-webkit-datetime-edit-millisecond-field:focus,
+input::-webkit-datetime-edit-meridiem-field:focus {
+	background-color: transparent;
+}
