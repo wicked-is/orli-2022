@@ -52,7 +52,8 @@ export default function BookingForm(props) {
 		}, 500);
 	};
 
-	function toggleShowCalendar() {
+	function toggleShowCalendar(e) {
+		if (e) e.preventDefault();
 		setcalendarIsVisible(!calendarIsVisible);
 	}
 
@@ -117,10 +118,8 @@ export default function BookingForm(props) {
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
 							onChange={setCheckin}
-							onFocus={toggleShowCalendar}
-							onClick={(event) => {
-								event.preventDefault();
-							}}
+							// onFocus={toggleShowCalendar}
+							onClick={toggleShowCalendar}
 							value={checkInDate}
 							ref={checkInRef}
 						/>
@@ -135,10 +134,8 @@ export default function BookingForm(props) {
 							className="sans-serif"
 							value={checkOutDate}
 							onChange={setCheckout}
-							onFocus={toggleShowCalendar}
-							onClick={(event) => {
-								event.preventDefault();
-							}}
+							// onFocus={toggleShowCalendar}
+							onClick={toggleShowCalendar}
 							ref={checkOutRef}
 						/>
 					</div>
