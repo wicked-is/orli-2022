@@ -121,7 +121,9 @@
     font-weight: 300;
     padding: 3rem 0 0 0;
 }
-
+@media only screen and (max-width: 767px){
+    .trademark {padding: 0rem 0 0 0;}
+}
 .directions {
     width: fit-content;
     border-bottom: 1px solid #ffffff;

@@ -55,6 +55,9 @@ const Right = styled.div`
 		}
 	}
 `;
+const FullWidth = styled.div`
+	width: 100%;
+`;
 
 export default function Footer(props) {
 	const size = useWindowSize();
@@ -206,9 +209,6 @@ export default function Footer(props) {
 											</li>
 										</ul>
 									</div>
-									<p className="sans-serif copyright xs-copy white left">
-										© 2023 Orli La Jolla
-									</p>
 								</Left>
 								<Right>
 									<div className="footer-links">
@@ -269,6 +269,12 @@ export default function Footer(props) {
 									</div>
 								</Right>
 							</ColumnContainer>
+						<FullWidth>
+						<p className="trademark white left">In Honor of the<br/>Discerning Traveler</p>
+						<p className="sans-serif copyright xs-copy white left">
+										© 2023 Orli La Jolla
+						</p>
+						</FullWidth>
 						</MobileFooterContainer>
 					</>
 				) : (
