@@ -23,7 +23,7 @@
 
 .footer > div > div:first-of-type {
     flex: 1;
-    padding-top: 4rem;
+    padding-top: 6rem;
     padding-left: 7.5rem;
     border-right: 2px solid rgba(255, 255, 255, 0.2);
 }
@@ -117,9 +117,9 @@
 .trademark {
     font-family: essonnes-display, serif;
     font-style: italic;
-    font-size: clamp(1.8rem, 1.8vw, 3.2rem);
+    font-size: clamp(1.6rem, 1.6vw, 3.1rem);
     font-weight: 300;
-    padding: 3rem 0 0 0;
+    padding: 4.3rem 0 0 0;
 }
 @media only screen and (max-width: 767px){
     .trademark {padding: 0rem 0 0 0;}
