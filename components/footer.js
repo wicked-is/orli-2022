@@ -303,6 +303,7 @@ export default function Footer(props) {
 											Get Directions
 										</Link>
 									</p>
+									<p className="trademark white left">In Honor of the<br/>Discerning Traveler</p>
 								</div>
 							</div>
 							<div>
