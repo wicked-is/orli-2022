@@ -269,12 +269,16 @@ export default function Footer(props) {
 									</div>
 								</Right>
 							</ColumnContainer>
-						<FullWidth>
-						<p className="trademark white left">In Honor of the<br/>Discerning Traveler</p>
-						<p className="sans-serif copyright xs-copy white left">
-										© 2023 Orli La Jolla
-						</p>
-						</FullWidth>
+							<FullWidth>
+								<p className="trademark white left">
+									In Honor of the
+									<br />
+									Discerning Traveler &trade;
+								</p>
+								<p className="sans-serif copyright xs-copy white left">
+									© 2023 Orli La Jolla
+								</p>
+							</FullWidth>
 						</MobileFooterContainer>
 					</>
 				) : (
@@ -309,7 +313,11 @@ export default function Footer(props) {
 											Get Directions
 										</Link>
 									</p>
-									<p className="trademark white left">In Honor of the<br/>Discerning Traveler</p>
+									<p className="trademark white left">
+										In Honor of the
+										<br />
+										Discerning Traveler &trade;
+									</p>
 								</div>
 							</div>
 							<div>
