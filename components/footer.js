@@ -127,7 +127,7 @@ export default function Footer(props) {
 								<a>
 									<img
 										className="mobilefooter-logo"
-										src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
+										src="https://orlidev.wpengine.com/wp-content/uploads/2023/07/Orli_RegisteredLogo_White.svg"
 										alt="orli logo"
 									/>
 								</a>
@@ -290,7 +290,7 @@ export default function Footer(props) {
 										<a>
 											<img
 												className="footer-logo"
-												src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
+												src="https://orlidev.wpengine.com/wp-content/uploads/2023/07/Orli_RegisteredLogo_White.svg"
 												width={380}
 												height={75}
 												alt="orli la jolla logo"
