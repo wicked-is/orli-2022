@@ -190,7 +190,12 @@ export default function EventFeed(props) {
 	});
 
 	useEffect(() => {
-		if (props.fullWidget) {
+		const passedEvent = new URLSearchParams(window.location.search).get(
+			"event"
+		);
+		console.log(passedEvent);
+
+		if (props.fullWidget && passedEvent === null) {
 			setCurrentEvent({
 				title: events[0].title,
 				description: events[0].singleEvent.description,
@@ -205,6 +210,7 @@ export default function EventFeed(props) {
 				acal: events[0].singleEvent.acal,
 				locationName: events[0].singleEvent.locationName,
 			});
+
 			document.querySelectorAll(".event-tile").forEach((el) => {
 				el.addEventListener("mouseenter", (event) => {
 					event.preventDefault();
@@ -241,6 +247,7 @@ export default function EventFeed(props) {
 					});
 				});
 			});
+
 			// for every event tile  click scroll to the bottom of the container
 			document.querySelectorAll(".event-tile").forEach((el) => {
 				el.addEventListener("touchend", (e) => {
@@ -263,6 +270,32 @@ export default function EventFeed(props) {
 						behavior: `smooth`,
 					});
 				});
+			});
+		} else if (props.fullWidget && passedEvent !== null) {
+			const eventToSet = events.filter(
+				(event) =>
+					event.title
+						.toLowerCase()
+						.replace(/[^a-zA-Z0-9 ]/g, "")
+						.replaceAll(" ", "-")
+						.replace("--", "-") === passedEvent
+			)[0];
+
+			console.log("event: ", eventToSet);
+
+			setCurrentEvent({
+				title: eventToSet.title,
+				description: eventToSet.singleEvent.description,
+				rsvp: eventToSet.singleEvent.rsvpLink,
+				rsvpText: eventToSet.singleEvent.rsvpText,
+				category: eventToSet?.categories?.nodes[0]?.name,
+				image: eventToSet?.featuredImage?.node?.mediaItemUrl,
+				date: eventToSet.singleEvent.date,
+				time: eventToSet.singleEvent.time,
+				address: eventToSet.singleEvent.address,
+				gcal: eventToSet.singleEvent.gcal,
+				acal: eventToSet.singleEvent.acal,
+				locationName: eventToSet.singleEvent.locationName,
 			});
 		}
 	}, []);
@@ -349,7 +382,13 @@ export default function EventFeed(props) {
 									</div>
 								</div>
 							) : (
-								<Link href="/gatherings" passHref>
+								<Link
+									href={`/gatherings?event=${event.title
+										.toLowerCase()
+										.replace(/[^a-zA-Z0-9 ]/g, "")
+										.replaceAll(" ", "-")
+										.replace("--", "-")}#upcoming`}
+									passHref>
 									<a>
 										<p className="sans-serif xs-copy left">
 											{event.singleEvent.locationName} |{" "}
