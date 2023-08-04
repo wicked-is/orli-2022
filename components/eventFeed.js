@@ -297,6 +297,67 @@ export default function EventFeed(props) {
 				acal: eventToSet.singleEvent.acal,
 				locationName: eventToSet.singleEvent.locationName,
 			});
+
+			document.querySelectorAll(".event-tile").forEach((el) => {
+				el.addEventListener("mouseenter", (event) => {
+					event.preventDefault();
+					setCurrentEvent({
+						title: el.dataset.title,
+						description: el.dataset.description,
+						category: el.dataset.category,
+						image: el.dataset.image,
+						date: el.dataset.date,
+						rsvp: el.dataset.rsvp,
+						rsvpText: el.dataset.rsvptext,
+						time: el.dataset.time,
+						address: el.dataset.address,
+						gcal: el.dataset.gcal,
+						acal: el.dataset.acal,
+						locationName: el.dataset.locationName,
+					});
+				});
+				el.addEventListener("touchend", (event) => {
+					event.preventDefault();
+					setCurrentEvent({
+						title: el.dataset.title,
+						description: el.dataset.description,
+						category: el.dataset.category,
+						image: el.dataset.image,
+						date: el.dataset.date,
+						rsvp: el.dataset.rsvp,
+						rsvpText: el.dataset.rsvptext,
+						time: el.dataset.time,
+						address: el.dataset.address,
+						gcal: el.dataset.gcal,
+						acal: el.dataset.acal,
+						locationName: el.dataset.locationName,
+					});
+				});
+			});
+
+			// for every event tile  click scroll to the bottom of the container
+			document.querySelectorAll(".event-tile").forEach((el) => {
+				el.addEventListener("touchend", (e) => {
+					e.preventDefault();
+					setCurrentEvent({
+						title: el.dataset.title,
+						description: el.dataset.description,
+						category: el.dataset.category,
+						image: el.dataset.image,
+						date: el.dataset.date,
+						rsvp: el.dataset.rsvp,
+						rsvpText: el.dataset.rsvptext,
+						time: el.dataset.time,
+						address: el.dataset.address,
+						gcal: el.dataset.gcal,
+						acal: el.dataset.acal,
+						locationName: el.dataset.locationName,
+					});
+					document.querySelector(".main-content").scrollIntoView({
+						behavior: `smooth`,
+					});
+				});
+			});
 		}
 	}, []);
 
@@ -382,13 +443,7 @@ export default function EventFeed(props) {
 									</div>
 								</div>
 							) : (
-								<Link
-									href={`/gatherings?event=${event.title
-										.toLowerCase()
-										.replace(/[^a-zA-Z0-9 ]/g, "")
-										.replaceAll(" ", "-")
-										.replace("--", "-")}#upcoming`}
-									passHref>
+								<Link href={`/gatherings#upcoming`} passHref>
 									<a>
 										<p className="sans-serif xs-copy left">
 											{event.singleEvent.locationName} |{" "}
