@@ -479,11 +479,11 @@ export default function DefaultPage(props) {
 
 	return (
 		<>
-			{/* <SEO
+			<SEO
 				title={seo.title}
 				description={seo.metaDesc}
 				fullhead={seo.fullHead}
-			/> */}
+			/>
 			{gatherSections()}
 			{showMorePosts && morePosts !== [] ? (
 				<ExploreMorePosts posts={morePosts} />
