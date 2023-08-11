@@ -371,10 +371,12 @@ export default function EventFeed(props) {
 					<p className="sans-serif-bold sub-heading mt-0">Upcoming</p>
 				)}
 				{events.map((event, index) => {
-					const date = new Date(event.date);
-					let day = date.getDate();
-					let month = months[date.getMonth()];
-					let year = date.getFullYear();
+					if (fullWidget) {
+						const date = new Date(event.date);
+						let day = date.getDate();
+						let month = months[date.getMonth()];
+						let year = date.getFullYear();
+					}
 
 					return (
 						<article
@@ -443,11 +445,13 @@ export default function EventFeed(props) {
 									</div>
 								</div>
 							) : (
-								<Link href={`/gatherings#upcoming`} passHref>
+								<Link href={event.link} passHref>
 									<a>
 										<p className="sans-serif xs-copy left">
-											{event.singleEvent.locationName} |{" "}
-											{event.singleEvent.date}
+											{event?.singleEvent?.locationName &&
+												`${event.singleEvent.locationName} | `}
+											{event?.singleEvent?.date ||
+												event.date}
 										</p>
 										<div
 											className="flexcenter-a"

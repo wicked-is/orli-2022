@@ -60,6 +60,8 @@ export default function DefaultPage(props) {
 	const postId = props?.data?.data?.post?.postId || null;
 	const [morePosts, setMorePosts] = useState([]);
 
+	console.log(props.data);
+
 	useEffect(() => {
 		var tl = gsap.timeline();
 		tl.fromTo("header", { opacity: 0 }, { opacity: 1, duration: 0.5 });
@@ -477,11 +479,11 @@ export default function DefaultPage(props) {
 
 	return (
 		<>
-			<SEO
+			{/* <SEO
 				title={seo.title}
 				description={seo.metaDesc}
 				fullhead={seo.fullHead}
-			/>
+			/> */}
 			{gatherSections()}
 			{showMorePosts && morePosts !== [] ? (
 				<ExploreMorePosts posts={morePosts} />
@@ -933,20 +935,9 @@ export async function getStaticProps({ params }) {
                 type
                 anchorTag
                 events {
-                  ... on Event {
-                    link
-                    title
-                    date
-                    singleEvent {
-                      locationName
-                      date
-                    }
-                    categories {
-                      nodes {
-                        name
-                      }
-                    }
-                  }
+                  link
+                  title
+                  date
                 }
                 media {
                   ... on Page_Flexiblecontent_Sections_GatheringsCallout_media {
@@ -1694,20 +1685,9 @@ export async function getStaticProps({ params }) {
                 type
                 anchorTag
                 events {
-                  ... on Event {
-                    link
-                    title
-                    date
-                    singleEvent {
-                      locationName
-                      date
-                    }
-                    categories {
-                      nodes {
-                        name
-                      }
-                    }
-                  }
+                  link
+                  title
+                  date
                 }
                 media {
                   ... on Post_Flexiblecontent_Sections_GatheringsCallout_media {
