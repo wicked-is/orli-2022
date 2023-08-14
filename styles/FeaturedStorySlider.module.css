@@ -58,8 +58,9 @@
         position: absolute;
         bottom: unset;
         z-index: 97;
-        top: unset;
-        bottom: 3rem;
+        top: 50%;
+        transform: translateY(-50%);
+        bottom: unset;
         background-color: #0C2B1C;
         background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
         padding: 1rem 2rem 1rem 2rem;
