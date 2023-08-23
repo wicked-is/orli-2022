@@ -208,7 +208,7 @@ export default function EventFeed(props) {
 				address: events[0].singleEvent.address,
 				gcal: events[0].singleEvent.gcal,
 				acal: events[0].singleEvent.acal,
-				locationName: events[0].singleEvent.locationName,
+				locationname: events[0].singleEvent.locationName,
 			});
 
 			document.querySelectorAll(".event-tile").forEach((el) => {
@@ -226,7 +226,7 @@ export default function EventFeed(props) {
 						address: el.dataset.address,
 						gcal: el.dataset.gcal,
 						acal: el.dataset.acal,
-						locationName: el.dataset.locationName,
+						locationname: el.dataset.locationName,
 					});
 				});
 				el.addEventListener("touchend", (event) => {
@@ -243,7 +243,7 @@ export default function EventFeed(props) {
 						address: el.dataset.address,
 						gcal: el.dataset.gcal,
 						acal: el.dataset.acal,
-						locationName: el.dataset.locationName,
+						locationname: el.dataset.locationName,
 					});
 				});
 			});
@@ -264,7 +264,7 @@ export default function EventFeed(props) {
 						address: el.dataset.address,
 						gcal: el.dataset.gcal,
 						acal: el.dataset.acal,
-						locationName: el.dataset.locationName,
+						locationname: el.dataset.locationName,
 					});
 					document.querySelector(".main-content").scrollIntoView({
 						behavior: `smooth`,
@@ -295,7 +295,7 @@ export default function EventFeed(props) {
 				address: eventToSet.singleEvent.address,
 				gcal: eventToSet.singleEvent.gcal,
 				acal: eventToSet.singleEvent.acal,
-				locationName: eventToSet.singleEvent.locationName,
+				locationname: eventToSet.singleEvent.locationName,
 			});
 
 			document.querySelectorAll(".event-tile").forEach((el) => {
@@ -313,7 +313,7 @@ export default function EventFeed(props) {
 						address: el.dataset.address,
 						gcal: el.dataset.gcal,
 						acal: el.dataset.acal,
-						locationName: el.dataset.locationName,
+						locationname: el.dataset.locationName,
 					});
 				});
 				el.addEventListener("touchend", (event) => {
@@ -330,7 +330,7 @@ export default function EventFeed(props) {
 						address: el.dataset.address,
 						gcal: el.dataset.gcal,
 						acal: el.dataset.acal,
-						locationName: el.dataset.locationName,
+						locationname: el.dataset.locationName,
 					});
 				});
 			});
@@ -351,7 +351,7 @@ export default function EventFeed(props) {
 						address: el.dataset.address,
 						gcal: el.dataset.gcal,
 						acal: el.dataset.acal,
-						locationName: el.dataset.locationName,
+						locationame: el.dataset.locationName,
 					});
 					document.querySelector(".main-content").scrollIntoView({
 						behavior: `smooth`,
@@ -405,7 +405,7 @@ export default function EventFeed(props) {
 							}
 							data-address={event?.singleEvent?.address}
 							data-description={event?.singleEvent?.description}
-							data-locationName={
+							data-locationname={
 								event?.singleEvent?.locationName
 							}>
 							{props.fullWidget && !isMobile ? (
