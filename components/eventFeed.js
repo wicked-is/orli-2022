@@ -266,9 +266,9 @@ export default function EventFeed(props) {
 						acal: el.dataset.acal,
 						locationname: el.dataset.locationName,
 					});
-					document.querySelector(".main-content").scrollIntoView({
-						behavior: `smooth`,
-					});
+					// document.querySelector(".main-content").scrollIntoView({
+					// 	behavior: `smooth`,
+					// });
 				});
 			});
 		} else if (props.fullWidget && passedEvent !== null) {
@@ -351,11 +351,11 @@ export default function EventFeed(props) {
 						address: el.dataset.address,
 						gcal: el.dataset.gcal,
 						acal: el.dataset.acal,
-						locationame: el.dataset.locationName,
+						locationname: el.dataset.locationName,
 					});
-					document.querySelector(".main-content").scrollIntoView({
-						behavior: `smooth`,
-					});
+					// document.querySelector(".main-content").scrollIntoView({
+					// 	behavior: `smooth`,
+					// });
 				});
 			});
 		}
