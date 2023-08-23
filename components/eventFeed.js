@@ -168,26 +168,26 @@ export default function EventFeed(props) {
 	});
 	const [isMobile, setIsMobile] = useState(false);
 
-	useEffect(() => {
-		function handleResize() {
-			setDimensions({
-				height: window.innerHeight,
-				width: window.innerWidth,
-			});
+	// useEffect(() => {
+	// 	function handleResize() {
+	// 		setDimensions({
+	// 			height: window.innerHeight,
+	// 			width: window.innerWidth,
+	// 		});
 
-			if (window.innerWidth < 768) {
-				setIsMobile(true);
-			} else {
-				setIsMobile(false);
-			}
-		}
+	// 		if (window.innerWidth < 768) {
+	// 			setIsMobile(true);
+	// 		} else {
+	// 			setIsMobile(false);
+	// 		}
+	// 	}
 
-		window.addEventListener("resize", handleResize);
+	// 	window.addEventListener("resize", handleResize);
 
-		return (_) => {
-			window.removeEventListener("resize", handleResize);
-		};
-	});
+	// 	return (_) => {
+	// 		window.removeEventListener("resize", handleResize);
+	// 	};
+	// });
 
 	useEffect(() => {
 		const passedEvent = new URLSearchParams(window.location.search).get(
