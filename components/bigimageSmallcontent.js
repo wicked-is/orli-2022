@@ -543,6 +543,11 @@ export default function BigImageSmallContent(props) {
 								</video>
 							</div>
 						)}
+						{imageCaption && (
+							<p className="sans-serif body black left">
+								{imageCaption}
+							</p>
+						)}
 					</div>
 				);
 			case "Over Background Right":
