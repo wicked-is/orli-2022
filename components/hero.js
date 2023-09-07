@@ -622,7 +622,7 @@ export default function Hero(props) {
 									alt={pressLogo.altText}
 									// width={721}
 									// height={135}
-									layout="intrinsic"
+									// layout="intrinsic"
 									style={{
 										width: "auto",
 										height: "100%",
