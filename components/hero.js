@@ -625,7 +625,7 @@ export default function Hero(props) {
 									// layout="intrinsic"
 									style={{
 										width: "auto",
-										height: "100%",
+										// height: "100%",
 										maxWidth: "135px",
 									}}
 								/>
