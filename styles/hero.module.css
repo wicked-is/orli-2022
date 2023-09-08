@@ -419,6 +419,7 @@
 		display: block;
 		margin: auto;
 		left: 4rem;
+		max-width: 300px;
 	}
 
 	.smallPressHero .textOver {
