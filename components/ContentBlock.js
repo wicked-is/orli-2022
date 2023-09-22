@@ -8,11 +8,13 @@ const ContentBlockInnerContainer = styled.div`
 	margin-inline: auto;
 	margin-top: 5rem;
 	margin-bottom: 6rem;
-
+	
 	@media screen and (max-width: 1050px) {
 		padding: 0 2rem;
 	}
-
+	[data-page="/fall-essentials"] & {
+		margin-bottom: 3rem;
+	}
 	h1,
 	h2,
 	h3,
