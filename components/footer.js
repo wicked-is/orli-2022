@@ -243,7 +243,7 @@ export default function Footer(props) {
 												Shop
 											</a>
 										</Link>
-										<Link
+										{/* <Link
 											href="/offers/stashrewards"
 											passHref>
 											<a
@@ -251,7 +251,7 @@ export default function Footer(props) {
 												target="_blank">
 												StashRewards
 											</a>
-										</Link>
+										</Link> */}
 										<Link
 											href="/privacy-policy"
 											className="privacy">
@@ -391,11 +391,11 @@ export default function Footer(props) {
 											passHref>
 											<a target="_blank">Shop</a>
 										</Link>
-										<Link
+										{/* <Link
 											href="/offers/stashrewards"
 											passHref>
 											<a target="_blank">StashRewards</a>
-										</Link>
+										</Link> */}
 									</div>
 								</div>
 								<div>
