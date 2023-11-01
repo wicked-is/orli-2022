@@ -8,6 +8,7 @@ import Hero from "../components/hero";
 import FullWidthMedia from "../components/fullWidthMedia";
 import MediaTwoUp from "../components/mediaTwoUp";
 import BlurbCenter from "../components/blurbCenter";
+import ImagesThreeUp from "../components/ImagesThreeUp";
 import BlurbLeft from "../components/blurbLeft";
 import BlogGrid from "../components/BlogGrid";
 import PressGrid from "../components/PressGrid";
@@ -100,6 +101,16 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
+        case "Page_Flexiblecontent_Sections_ImagesThreeUp":
+        case "Post_Flexiblecontent_Sections_ImagesThreeUp":
+              gatheredSections.push(
+                <ImagesThreeUp
+                  key={componentKey}
+                  {...section}
+                  index={index}
+                />
+              );
+          break;
 				case "Page_Flexiblecontent_Sections_ContactBlock":
 				case "Post_Flexiblecontent_Sections_ContactBlock":
 					gatheredSections.push(
@@ -613,6 +624,21 @@ export async function getStaticProps({ params }) {
                     hoverText
                     hoverBlurb
                     hoverColor
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_ImagesThreeUp {
+                fieldGroupName
+                anchor
+                heading
+                paddingOptions
+                imageRepeater {
+                  ... on Page_Flexiblecontent_Sections_ImagesThreeUp_imageRepeater {
+                    image {
+                      altText
+                      mediaItemUrl
+                    }
+                    link
                   }
                 }
               }
