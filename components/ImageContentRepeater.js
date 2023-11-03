@@ -123,7 +123,7 @@ const MediaContent = styled.li`
         max-width: 100%;
     }
 
-    @media only screen and (max-width: 820px){
+    @media only screen and (max-width: 1024px){
         flex-direction: column-reverse;
         gap: 0;
 
