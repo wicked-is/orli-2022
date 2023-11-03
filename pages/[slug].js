@@ -9,6 +9,7 @@ import FullWidthMedia from "../components/fullWidthMedia";
 import MediaTwoUp from "../components/mediaTwoUp";
 import BlurbCenter from "../components/blurbCenter";
 import ImagesThreeUp from "../components/ImagesThreeUp";
+import ImageContentRepeater from "../components/ImageContentRepeater";
 import BlurbLeft from "../components/blurbLeft";
 import BlogGrid from "../components/BlogGrid";
 import PressGrid from "../components/PressGrid";
@@ -111,6 +112,16 @@ export default function DefaultPage(props) {
                 />
               );
           break;
+          case "Page_Flexiblecontent_Sections_ImageContentRepeater":
+          case "Post_Flexiblecontent_Sections_ImageContentRepeater":
+                  gatheredSections.push(
+                    <ImageContentRepeater
+                      key={componentKey}
+                      {...section}
+                      index={index}
+                    />
+                  );
+            break;
 				case "Page_Flexiblecontent_Sections_ContactBlock":
 				case "Post_Flexiblecontent_Sections_ContactBlock":
 					gatheredSections.push(
@@ -639,6 +650,25 @@ export async function getStaticProps({ params }) {
                       mediaItemUrl
                     }
                     link
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_ImageContentRepeater {
+                fieldGroupName
+                anchor
+                smallHeading
+                heading
+                paddingOptions
+                repeater {
+                  ... on Page_Flexiblecontent_Sections_ImageContentRepeater_repeater {
+                    image {
+                      altText
+                      mediaItemUrl
+                    }
+                    link
+                    title
+                    subheading
+                    content
                   }
                 }
               }
