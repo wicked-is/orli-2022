@@ -1825,6 +1825,10 @@ export async function getStaticProps({ params }) {
                   mediaItemUrl
                   altText
                 }
+                mobileImage {
+                  mediaItemUrl
+                  altText
+                }
                 datePublished
                 subnavigation {
                   ... on Post_Flexiblecontent_Sections_Hero_subnavigation {
