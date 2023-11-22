@@ -60,11 +60,13 @@ const SingleGift = styled.div`
 	& .med-heading {
 		margin-block-start: 0em;
 		margin-block-end: 0em;
+		padding: 0 1rem 0 0;
 	}
 
 	@media only screen and (max-width: 1024px) {
 		& .med-heading {
 			font-size: 1.5rem;
+			padding: 0 1rem 0 0;
 		}
 	}
 `;
