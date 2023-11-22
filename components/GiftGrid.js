@@ -11,7 +11,7 @@ const GiftGridContainer = styled.section`
 	display: inline-block;
 	padding: 4rem 6rem;
 
-	@media only screen and (max-width: 820px) {
+	@media only screen and (max-width: 1024px) {
 		& {
 			padding: 4rem 4rem;
 		}
@@ -33,6 +33,7 @@ const GiftGridInner = styled.div`
 	@media only screen and (max-width: 820px) {
 		& {
 			grid-template-columns: 1fr 1fr 1fr;
+			grid-row-gap: 4rem;
 		}
 	}
 	@media only screen and (max-width: 700px) {
@@ -59,6 +60,12 @@ const SingleGift = styled.div`
 	& .med-heading {
 		margin-block-start: 0em;
 		margin-block-end: 0em;
+	}
+
+	@media only screen and (max-width: 1024px) {
+		& .med-heading {
+			font-size: 1.5rem;
+		}
 	}
 `;
 
