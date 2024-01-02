@@ -276,7 +276,7 @@ export default function Footer(props) {
 									Discerning Traveler &trade;
 								</p>
 								<p className="sans-serif copyright xs-copy white left">
-									© 2023 Orli La Jolla
+									© 2024 Orli La Jolla
 								</p>
 							</FullWidth>
 						</MobileFooterContainer>
@@ -468,7 +468,7 @@ export default function Footer(props) {
 								<div>
 									<div>
 										<p className="sans-serif copyright xs-copy white left">
-											© 2023 Orli La Jolla |{" "}
+											© 2024 Orli La Jolla |{" "}
 											<Link href="/privacy-policy">
 												Privacy Policy
 											</Link>{" "}
