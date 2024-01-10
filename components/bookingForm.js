@@ -65,6 +65,11 @@ export default function BookingForm(props) {
 		}, 5000);
 	}, [isLoading]);
 
+	function handleFormFocus(e) {
+		e.preventDefault();
+		window.openBookingFlow();
+	}
+
 	function handleFormSubmit(e) {
 		if (e) e.preventDefault();
 
@@ -97,6 +102,8 @@ export default function BookingForm(props) {
 
 	return (
 		<div
+			// onFocus={() => console.log("focused")}
+			onFocus={handleFormFocus}
 			id="booking-form"
 			style={{
 				background: "transparent !important",
@@ -116,7 +123,8 @@ export default function BookingForm(props) {
 					// action={`https://app.mews.com/distributor/b6f6f212-71c7-4e05-897a-afb801278392?mewsStart=${checkInDate}&mewsEnd=${checkOutDate}`}
 					className={styles.form}
 					method="POST"
-					onSubmit={handleFormSubmit}>
+					// onSubmit={handleFormSubmit}
+				>
 					<div className={styles.formGroup}>
 						<span className="sans-serif xs-copy">Check In</span>
 						<input
@@ -125,12 +133,12 @@ export default function BookingForm(props) {
 							name="widget_date"
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
-							onChange={setCheckin}
-							onTouchEnd={(e) => {
-								e.preventDefault();
-								toggleShowCalendar();
-							}}
-							onClick={toggleShowCalendar}
+							// onChange={setCheckin}
+							// onTouchEnd={(e) => {
+							// 	e.preventDefault();
+							// 	toggleShowCalendar();
+							// }}
+							// onClick={toggleShowCalendar}
 							value={checkInDate}
 							ref={checkInRef}
 						/>
@@ -144,12 +152,12 @@ export default function BookingForm(props) {
 							placeholder="mm/dd/yyyy"
 							className="sans-serif"
 							value={checkOutDate}
-							onTouchEnd={(e) => {
-								e.preventDefault();
-								toggleShowCalendar();
-							}}
-							onChange={setCheckout}
-							onClick={toggleShowCalendar}
+							// onTouchEnd={(e) => {
+							// 	e.preventDefault();
+							// 	toggleShowCalendar();
+							// }}
+							// onChange={setCheckout}
+							// onClick={toggleShowCalendar}
 							ref={checkOutRef}
 						/>
 					</div>
