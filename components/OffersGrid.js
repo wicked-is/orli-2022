@@ -49,11 +49,11 @@ const ImageBlock = styled.div`
 		bottom: 0px;
 		left: 0px;
 		right: 0px;
-		height: 9rem;
+		height: 100%;
 		background: rgb(0, 0, 0);
 		background: -moz-linear-gradient(
 			0deg,
-			rgba(0, 0, 0, 0.7) 0%,
+			rgba(0, 0, 0, 0.95) 0%,
 			rgba(255, 255, 255, 0) 100%
 		);
 		background: -webkit-linear-gradient(
