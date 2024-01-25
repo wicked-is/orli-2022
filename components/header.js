@@ -130,103 +130,104 @@ export default function Header(props) {
 				data-theme='{
 					"v2": {
 						"palette": {
-							"primary": "rgba(109,119,103, 1)",
-							"primaryHover": "rgba(81, 85, 78, 1)",
-							"primaryDimmed": "rgba(109,119,103, 0.6)",
-							"primaryDisabled": "rgba(109,119,103, 0.32)",
-							"destructive": "rgba(190, 98, 98, 1)",
-							"destructiveHover": "rgba(157, 64, 64, 1)",
-							"destructiveDimmed": "rgba(215, 158, 154, 1)",
-							"destructiveDisabled": "rgba(233, 200, 193, 1)",
-							"success": "rgba(180, 199, 156, 1)",
-							"successHover": "rgba(147, 178, 108, 1)",
-							"successDimmed": "rgba(209, 219, 188, 1)",
-							"successDisabled": "rgba(230, 232, 211, 1)",
+							"primary": "rgba(140, 54, 30, 1)",
+							"primaryHover": "rgba(115, 52, 33, 1)",
+							"primaryDimmed": "rgba(140, 54, 30, 0.6)",
+							"primaryDisabled": "rgba(140, 54, 30, 0.32)",
+							"destructive": "rgba(124, 70, 70, 1)",
+							"destructiveHover": "rgba(101, 41, 41, 1)",
+							"destructiveDimmed": "rgba(124, 70, 70, 0.6)",
+							"destructiveDisabled": "rgba(124, 70, 70, 0.32)",
+							"success": "rgba(71, 99, 82, 1)",
+							"successHover": "rgba(40, 70, 52, 1)",
+							"successDimmed": "rgba(71, 99, 82, 0.6)",
+							"successDisabled": "rgba(71, 99, 82, 0.32)",
 							"positive": "rgba(0, 0, 0, 1)",
 							"positiveDimmed": "rgba(0, 0, 0, 0.6)",
 							"positiveDisabled": "rgba(0, 0, 0, 0.32)",
 							"negative": "rgba(255, 255, 255, 1)",
 							"negativeDimmed": "rgba(255, 255, 255, 0.6)",
 							"negativeDisabled": "rgba(255, 255, 255, 0.32)",
-							"cell": "rgba(235, 225, 211, 1)",
-							"cellHover": "rgba(240, 232, 212, 1)",
-							"cellSelected": "rgba(255, 244, 229, 1)",
-							"background": "rgba(231, 221, 207, 1)",
-							"backgroundAlternative": "rgba(109,119,103, 1)",
-							"separator": "rgba(220, 219, 215, 1)",
-							"textAlternative": "rgba(249, 248, 243, 1)"
+							"cell": "rgba(255, 255, 255, 1)",
+							"cellHover": "rgba(251, 248, 247, 1)",
+							"cellSelected": "rgba(239, 224, 219, 1)",
+							"background": "rgba(255, 255, 255, 1)",
+							"backgroundAlternative": "rgba(229,228,226, 1)",
+							"separator": "rgba(230, 230, 230, 1)",
+							"textAlternative": "rgba(0, 0, 0, 1)"
 						},
-					"typography": {
-					"fonts": { "primary": "Favorit" },
-					"largeTitle": {
-						"font-family": "RECKLESS NEUE",
-						"font-weight": "600",
-						"font-size": "34px",
-						"line-height": "41px"
-					},
-					"titleOne": {
-						"font-family": "RECKLESS NEUE",
-						"font-weight": "500",
-						"font-size": "28px",
-						"line-height": "34px",
-						"font-style": "italic"
-					},
-					"titleTwo": {
-						"font-family": "RECKLESS NEUE",
-						"font-weight": "600",
-						"font-size": "24px",
-						"line-height": "32px"
-					},
-					"titleThree": {
-						"font-family": "RECKLESS NEUE",
-						"font-weight": "500",
-						"font-size": "28px",
-						"line-height": "34px",
-						"font-style": "italic"
-					},
-					"headline": {
-						"font-family": "RECKLESS NEUE",
-						"font-weight": "400",
-						"font-size": "17px",
-						"line-height": "22px"
-					},
-					"body": {
-						"font-family": "GT AMERICA",
-						"font-weight": "400",
-						"font-size": "17px",
-						"line-height": "22px"
-					},
-					"callout": {
-						"font-family": "GT AMERICA",
-						"font-weight": "400",
-						"font-size": "16px",
-						"line-height": "21px"
-					},
-					"subhead": {
-						"font-family": "GT AMERICA",
-						"font-weight": "500",
-						"font-size": "15px",
-						"line-height": "20px"
-					},
-					"footnote": {
-						"font-family": "GT AMERICA",
-						"font-weight": "400",
-						"font-size": "13px",
-						"line-height": "18px"
-					},
-					"captionOne": {
-						"font-family": "GT AMERICA",
-						"font-weight": "400",
-						"font-size": "11px",
-						"line-height": "14px"
-					},
-					"captionTwo": {
-						"font-family": "GT AMERICA",
-						"font-weight": "400",
-						"font-size": "11px",
-						"line-height": "13px"
-					}
-					}
+						"typography": {
+							"fonts": { "primary": "essonnes-display" },
+							"largeTitle": {
+								"font-family": "essonnes-display",
+								"font-weight": "300",
+								"font-size": "43px",
+								"line-height": "41px",
+								"text-transform": "uppercase"
+							},
+							"titleOne": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "28px",
+								"line-height": "34px",
+								"font-style": "italic"
+							},
+							"titleTwo": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "24px",
+								"line-height": "32px"
+							},
+							"titleThree": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "28px",
+								"line-height": "34px",
+								"font-style": "italic"
+							},
+							"headline": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "17px",
+								"line-height": "22px"
+							},
+							"body": {
+								"font-family": "GT Walsheim",
+								"font-weight": "500",
+								"font-size": "16px",
+								"line-height": "22px"
+							},
+							"callout": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "16px",
+								"line-height": "21px"
+							},
+							"subhead": {
+								"font-family": "essonnes-display",
+								"font-weight": "300",
+								"font-size": "15px",
+								"line-height": "20px"
+							},
+							"footnote": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "13px",
+								"line-height": "18px"
+							},
+							"captionOne": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "11px",
+								"line-height": "14px"
+							},
+							"captionTwo": {
+								"font-family": "GT Walsheim",
+								"font-weight": "300",
+								"font-size": "11px",
+								"line-height": "13px"
+							}
+						}
 					}
 				}'
 			/>
