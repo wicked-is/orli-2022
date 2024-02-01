@@ -163,42 +163,42 @@ export default function Header(props) {
 								"font-weight": "300",
 								"font-size": "43px",
 								"line-height": "41px",
-								"text-transform": "uppercase"
+								"text-transform": "capitalize"
 							},
 							"titleOne": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "28px",
 								"line-height": "34px",
 								"font-style": "italic"
 							},
 							"titleTwo": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "24px",
 								"line-height": "32px"
 							},
 							"titleThree": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "28px",
 								"line-height": "34px",
 								"font-style": "italic"
 							},
 							"headline": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "17px",
 								"line-height": "22px"
 							},
 							"body": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "500",
 								"font-size": "16px",
 								"line-height": "22px"
 							},
 							"callout": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "16px",
 								"line-height": "21px"
@@ -210,19 +210,19 @@ export default function Header(props) {
 								"line-height": "20px"
 							},
 							"footnote": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "13px",
 								"line-height": "18px"
 							},
 							"captionOne": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "11px",
 								"line-height": "14px"
 							},
 							"captionTwo": {
-								"font-family": "GT Walsheim",
+								"font-family": "GT Walsheim Light",
 								"font-weight": "300",
 								"font-size": "11px",
 								"line-height": "13px"
