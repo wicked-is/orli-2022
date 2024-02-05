@@ -11,22 +11,22 @@ export default function FauxSocialFeed(props) {
         {
             altText: "",
             mediaItemUrl:
-                "https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Post01.jpg",
+                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Penthouse-58-9-1.jpg",
         },
         {
             altText: "",
             mediaItemUrl:
-                "https://orlidev.wpengine.com/wp-content/uploads/2022/07/ocean-view-3Edited2.jpg",
+                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Sunset-Suite-13-10-1.jpg",
         },
         {
             altText: "",
             mediaItemUrl:
-                "https://orlidev.wpengine.com/wp-content/uploads/2022/08/Orli_Recorder-scaled.jpg",
+                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Exterior-225-9-1.jpg",
         },
         {
-            altText: "Orli La Jolla California Cold Brew Bar",
+            altText: "Orli La Jolla Outdoor Gathering",
             mediaItemUrl:
-                "https://orlidev.wpengine.com/wp-content/uploads/2022/07/Orli_Post10.jpg",
+                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Exterior-27-2-1.jpg",
         },
     ];
 
