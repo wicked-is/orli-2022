@@ -9,24 +9,24 @@ export default function FauxSocialFeed(props) {
     let ctaText = props.ctaText || "@StayOrli";
     let images = props.image || [
         {
-            altText: "",
+            altText: "Orli La Jolla Balcony at sunset",
             mediaItemUrl:
-                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Penthouse-58-9-1.jpg",
+                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Penthouse-58-9-1-1.jpg",
         },
         {
-            altText: "",
+            altText: "Orli La Jolla room with a view of the kitchenette, desk and window seat",
             mediaItemUrl:
-                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Sunset-Suite-13-10-1.jpg",
+                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Sunset-Suite-13-10-1-1.jpg",
         },
         {
-            altText: "",
+            altText: "Orli La Jolla Exterior of building",
             mediaItemUrl:
                 "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Exterior-225-9-1.jpg",
         },
         {
             altText: "Orli La Jolla Outdoor Gathering",
             mediaItemUrl:
-                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Exterior-27-2-1.jpg",
+                "https://orlidev.wpengine.com/wp-content/uploads/2024/02/Orli-Exterior-27-2-1-1.jpg",
         },
     ];
 
@@ -53,8 +53,8 @@ export default function FauxSocialFeed(props) {
                                     <Image
                                         key={`faux-${index}`}
                                         src={image.mediaItemUrl}
-                                        width={348}
-                                        height={348}
+                                        width={1200}
+                                        height={1200}
                                         layout="responsive"
                                         alt={image.altText}
                                     />
