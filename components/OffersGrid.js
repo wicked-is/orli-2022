@@ -169,6 +169,12 @@ export default function OffersGrid(props) {
 			});
 		});
 	}, []);
+
+	function handleFormFocus(e) {
+		e.preventDefault();
+		if (props.closeDialog) closeDialog();
+		window.openBookingFlow();
+	}
 	return (
 		<OffersGridContainer>
 			{heading && (
@@ -193,11 +199,11 @@ export default function OffersGrid(props) {
 											{offer.singleOffers.highlights}
 										</p>
 										<div className="colflex">
-											<Link
-												href={`${offer.singleOffers.bookingLink}`}
-												passHref>
-												<a target="_blank">Book Now</a>
-											</Link>
+											<a
+												onClick={handleFormFocus}
+												target="_blank">
+												Book Now
+											</a>
 											<Link
 												href={`/offers/${offer.slug}`}>
 												View Offer

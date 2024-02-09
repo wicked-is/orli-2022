@@ -77,6 +77,12 @@ export default function Hero(props) {
 		],
 	});
 
+	function handleFormFocus(e) {
+		e.preventDefault();
+		if (props.closeDialog) closeDialog();
+		window.openBookingFlow();
+	}
+
 	function toggleActive(index) {
 		changeState({ ...appState, activeObject: appState.objects[index] });
 	}
@@ -181,15 +187,12 @@ export default function Hero(props) {
 						)}
 						{includeBookMultipleRoomsLink && (
 							<div className={styles.bookmultipleroomsContainer}>
-								<Link
-									href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13"
-									passHref>
-									<a
-										className={`${styles.bookingtext} sans-serif xs-copy underline white`}
-										target="_blank">
-										Book Multiple Rooms
-									</a>
-								</Link>
+								<a
+									onClick={handleFormFocus}
+									className={`${styles.bookingtext} sans-serif xs-copy underline white`}
+									target="_blank">
+									Book Multiple Rooms
+								</a>
 							</div>
 						)}
 						{includeFeaturedRoomCta && (
@@ -251,15 +254,12 @@ export default function Hero(props) {
 									className={
 										styles.bookmultipleroomsContainer
 									}>
-									<Link
-										href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13"
-										passHref>
-										<a
-											className={`${styles.bookingtext} sans-serif xs-copy underline white`}
-											target="_blank">
-											Book Multiple Rooms
-										</a>
-									</Link>
+									<a
+										onClick={handleFormFocus}
+										className={`${styles.bookingtext} sans-serif xs-copy underline white`}
+										target="_blank">
+										Book Multiple Rooms
+									</a>
 								</div>
 							)}
 							{includeFeaturedRoomCta && (
@@ -307,15 +307,12 @@ export default function Hero(props) {
 									className={
 										styles.bookmultipleroomsContainer
 									}>
-									<Link
-										href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13"
-										passHref>
-										<a
-											className={`${styles.bookingtext} sans-serif xs-copy underline white`}
-											target="_blank">
-											Book Multiple Rooms
-										</a>
-									</Link>
+									<a
+										onClick={handleFormFocus}
+										className={`${styles.bookingtext} sans-serif xs-copy underline white`}
+										target="_blank">
+										Book Multiple Rooms
+									</a>
 								</div>
 							)}
 							{includeFeaturedRoomCta && (
@@ -404,15 +401,12 @@ export default function Hero(props) {
 						)}
 						{includeBookMultipleRoomsLink && (
 							<div className={styles.bookmultipleroomsContainer}>
-								<Link
-									href="https://hotels.cloudbeds.com/reservation/L1Jxph#checkin=2023-01-12&checkout=2023-01-13"
-									passHref>
-									<a
-										className={`${styles.bookingtext} sans-serif xs-copy underline white`}
-										target="_blank">
-										Book Multiple Rooms
-									</a>
-								</Link>
+								<a
+									onClick={handleFormFocus}
+									className={`${styles.bookingtext} sans-serif xs-copy underline white`}
+									target="_blank">
+									Book Multiple Rooms
+								</a>
 							</div>
 						)}
 					</div>

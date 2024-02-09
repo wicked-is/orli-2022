@@ -67,6 +67,7 @@ export default function BookingForm(props) {
 
 	function handleFormFocus(e) {
 		e.preventDefault();
+		if (props.closeDialog) closeDialog();
 		window.openBookingFlow();
 	}
 
