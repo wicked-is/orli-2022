@@ -432,6 +432,12 @@ export default function DefaultRoomsPage(props) {
 		);
 	}
 
+	function handleFormFocus(e) {
+		e.preventDefault();
+		if (props.closeDialog) closeDialog();
+		window.openBookingFlow();
+	}
+
 	return (
 		<>
 			<SEO fullhead={room.seo.fullHead} />
@@ -489,7 +495,8 @@ export default function DefaultRoomsPage(props) {
 							<MobileBookingForm>
 								<ReservationForm
 									// action={room.singleRooms.cloudbedsLink}
-									onSubmit={handleFormSubmit}
+									// onSubmit={handleFormSubmit}
+									onFocus={handleFormFocus}
 									method="POST">
 									<ReservationFormLabel className="sans-serif uppercase">
 										Check In
@@ -499,13 +506,15 @@ export default function DefaultRoomsPage(props) {
 											name="widget_date"
 											placeholder="mm/dd/yyyy"
 											className="sans-serif"
-											onChange={setCheckin}
-											onTouchEnd={(e) => {
-												e.preventDefault();
-												toggleShowCalendar();
-											}}
-											onClick={toggleShowCalendar}
-											value={checkInDate}
+											onFocus={handleFormFocus}
+											onClick={handleFormFocus}
+											// onChange={setCheckin}
+											// onTouchEnd={(e) => {
+											// 	e.preventDefault();
+											// 	toggleShowCalendar();
+											// }}
+											// onClick={toggleShowCalendar}
+											// value={checkInDate}
 											ref={checkInRef}
 										/>
 									</ReservationFormLabel>
@@ -518,13 +527,15 @@ export default function DefaultRoomsPage(props) {
 											name="widget_date_to"
 											placeholder="mm/dd/yyyy"
 											className="sans-serif"
-											value={checkOutDate}
-											onTouchEnd={(e) => {
-												e.preventDefault();
-												toggleShowCalendar();
-											}}
-											onChange={setCheckout}
-											onClick={toggleShowCalendar}
+											// value={checkOutDate}
+											onFocus={handleFormFocus}
+											onClick={handleFormFocus}
+											// onTouchEnd={(e) => {
+											// 	e.preventDefault();
+											// 	toggleShowCalendar();
+											// }}
+											// onChange={setCheckout}
+											// onClick={toggleShowCalendar}
 											ref={checkOutRef}
 										/>
 									</ReservationFormLabel>
@@ -680,7 +691,7 @@ export default function DefaultRoomsPage(props) {
 						<p className="heading">Reservations</p>
 						<ReservationForm
 							// action={room.singleRooms.cloudbedsLink}
-							onSubmit={handleFormSubmit}
+							// onSubmit={handleFormSubmit}
 							method="POST">
 							<ReservationFormLabel className="sans-serif uppercase">
 								Check In
@@ -690,13 +701,15 @@ export default function DefaultRoomsPage(props) {
 									name="widget_date"
 									placeholder="mm/dd/yyyy"
 									className="sans-serif"
-									onChange={setCheckin}
-									onTouchEnd={(e) => {
-										e.preventDefault();
-										toggleShowCalendar();
-									}}
-									onClick={toggleShowCalendar}
-									value={checkInDate}
+									onFocus={handleFormFocus}
+									onClick={handleFormFocus}
+									// onChange={setCheckin}
+									// onTouchEnd={(e) => {
+									// 	e.preventDefault();
+									// 	toggleShowCalendar();
+									// }}
+									// onClick={toggleShowCalendar}
+									// value={checkInDate}
 									ref={checkInRef}
 								/>
 							</ReservationFormLabel>
@@ -709,17 +722,21 @@ export default function DefaultRoomsPage(props) {
 									name="widget_date_to"
 									placeholder="mm/dd/yyyy"
 									className="sans-serif"
-									value={checkOutDate}
-									onTouchEnd={(e) => {
-										e.preventDefault();
-										toggleShowCalendar();
-									}}
-									onChange={setCheckout}
-									onClick={toggleShowCalendar}
+									// value={checkOutDate}
+									// onTouchEnd={(e) => {
+									// 	e.preventDefault();
+									// 	toggleShowCalendar();
+									// }}
+									// onChange={setCheckout}
+									// onClick={toggleShowCalendar}
+									onFocus={handleFormFocus}
+									onClick={handleFormFocus}
 									ref={checkOutRef}
 								/>
 							</ReservationFormLabel>
-							<ReservationButton className="sans-serif uppercase distributor-open">
+							<ReservationButton
+								className="sans-serif uppercase distributor-open"
+								onClick={handleFormFocus}>
 								{isLoading ? (
 									<LoadingSpinner />
 								) : (

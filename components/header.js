@@ -121,6 +121,116 @@ export default function Header(props) {
 				src="https://app.mews.com/distributor/distributor.min.js"
 				strategy="beforeInteractive"
 			/>
+			<Script
+				id="lh-sdk"
+				type="module"
+				src="https://s3.us-east-2.amazonaws.com/cdn.prd.aws.life-house.com/rmms/booking-engine/2.0.0/sdk.min.js"
+				strategy="beforeInteractive"
+				data-hotel-id="b6f6f212-71c7-4e05-897a-afb801278392"
+				data-theme='{
+					"v2": {
+						"palette": {
+							"primary": "rgba(140, 54, 30, 1)",
+							"primaryHover": "rgba(115, 52, 33, 1)",
+							"primaryDimmed": "rgba(140, 54, 30, 0.6)",
+							"primaryDisabled": "rgba(140, 54, 30, 0.32)",
+							"destructive": "rgba(124, 70, 70, 1)",
+							"destructiveHover": "rgba(101, 41, 41, 1)",
+							"destructiveDimmed": "rgba(124, 70, 70, 0.6)",
+							"destructiveDisabled": "rgba(124, 70, 70, 0.32)",
+							"success": "rgba(71, 99, 82, 1)",
+							"successHover": "rgba(40, 70, 52, 1)",
+							"successDimmed": "rgba(71, 99, 82, 0.6)",
+							"successDisabled": "rgba(71, 99, 82, 0.32)",
+							"positive": "rgba(0, 0, 0, 1)",
+							"positiveDimmed": "rgba(0, 0, 0, 0.6)",
+							"positiveDisabled": "rgba(0, 0, 0, 0.32)",
+							"negative": "rgba(255, 255, 255, 1)",
+							"negativeDimmed": "rgba(255, 255, 255, 0.6)",
+							"negativeDisabled": "rgba(255, 255, 255, 0.32)",
+							"cell": "rgba(255, 255, 255, 1)",
+							"cellHover": "rgba(251, 248, 247, 1)",
+							"cellSelected": "rgba(239, 224, 219, 1)",
+							"background": "rgba(255, 255, 255, 1)",
+							"backgroundAlternative": "rgba(229,228,226, 1)",
+							"separator": "rgba(230, 230, 230, 1)",
+							"textAlternative": "rgba(0, 0, 0, 1)"
+						},
+						"typography": {
+							"fonts": { "primary": "essonnes-display" },
+							"largeTitle": {
+								"font-family": "essonnes-display",
+								"font-weight": "300",
+								"font-size": "43px",
+								"line-height": "41px",
+								"text-transform": "capitalize"
+							},
+							"titleOne": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "28px",
+								"line-height": "34px",
+								"font-style": "italic"
+							},
+							"titleTwo": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "24px",
+								"line-height": "32px"
+							},
+							"titleThree": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "28px",
+								"line-height": "34px",
+								"font-style": "italic"
+							},
+							"headline": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "17px",
+								"line-height": "22px"
+							},
+							"body": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "500",
+								"font-size": "16px",
+								"line-height": "22px"
+							},
+							"callout": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "16px",
+								"line-height": "21px"
+							},
+							"subhead": {
+								"font-family": "essonnes-display",
+								"font-weight": "300",
+								"font-size": "15px",
+								"line-height": "20px"
+							},
+							"footnote": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "13px",
+								"line-height": "18px"
+							},
+							"captionOne": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "11px",
+								"line-height": "14px"
+							},
+							"captionTwo": {
+								"font-family": "GT Walsheim Light",
+								"font-weight": "300",
+								"font-size": "11px",
+								"line-height": "13px"
+							}
+						}
+					}
+				}'
+			/>
 			<Head>
 				<meta
 					name="viewport"
