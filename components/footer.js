@@ -373,6 +373,7 @@ export default function Footer(props) {
 										</Link>
 										<Link href="/our-story">Story</Link>
 										<Link href="/amenities">Amenities</Link>
+										<Link href="/offers">Offers & Upgrades</Link>
 										<Link href="/gallery">Gallery</Link>
 										<Link href="/the-journal">Journal</Link>
 										<Link href="/discoveries">

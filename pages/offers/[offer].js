@@ -30,6 +30,18 @@ const SingleOfferContent = styled.div`
 const ImageContainer = styled.div`
     flex: 1.5;
     padding: 8rem 0rem 3rem 6rem;
+    position: relative;
+
+    & img {
+        width: 100% !important;
+        max-height: 100%;
+        min-height: 100%;
+        height: auto !important;
+        min-height: unset !important;
+        max-height: unset !important;
+        display: block;
+    }
+
     @media screen and (max-width: 865px) {
         padding: 0;
     }
