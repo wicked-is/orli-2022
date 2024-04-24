@@ -191,7 +191,7 @@ export default function Form(props) {
 	};
 
 	const formStructure = (type) => {
-		switch ("Event Vendor Inquiry") {
+		switch (type) {
 			case "Event Booking":
 				return (
 					<EventForm
