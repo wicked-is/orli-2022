@@ -62,7 +62,7 @@ export default function DefaultPage(props) {
 	const postId = props?.data?.data?.post?.postId || null;
 	const [morePosts, setMorePosts] = useState([]);
 
-	console.log(props.data);
+	// console.log(props.data);
 
 	useEffect(() => {
 		var tl = gsap.timeline();
@@ -102,26 +102,26 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
-        case "Page_Flexiblecontent_Sections_ImagesThreeUp":
-        case "Post_Flexiblecontent_Sections_ImagesThreeUp":
-              gatheredSections.push(
-                <ImagesThreeUp
-                  key={componentKey}
-                  {...section}
-                  index={index}
-                />
-              );
-          break;
-          case "Page_Flexiblecontent_Sections_ImageContentRepeater":
-          case "Post_Flexiblecontent_Sections_ImageContentRepeater":
-                  gatheredSections.push(
-                    <ImageContentRepeater
-                      key={componentKey}
-                      {...section}
-                      index={index}
-                    />
-                  );
-            break;
+				case "Page_Flexiblecontent_Sections_ImagesThreeUp":
+				case "Post_Flexiblecontent_Sections_ImagesThreeUp":
+					gatheredSections.push(
+						<ImagesThreeUp
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_ImageContentRepeater":
+				case "Post_Flexiblecontent_Sections_ImageContentRepeater":
+					gatheredSections.push(
+						<ImageContentRepeater
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
 				case "Page_Flexiblecontent_Sections_ContactBlock":
 				case "Post_Flexiblecontent_Sections_ContactBlock":
 					gatheredSections.push(
@@ -488,7 +488,7 @@ export default function DefaultPage(props) {
 		});
 
 		const data = await res.json();
-		console.log({ data });
+		// console.log({ data });
 
 		setMorePosts(data.data.posts.nodes);
 	}

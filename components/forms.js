@@ -25,6 +25,9 @@ const EventForm = styled.form`
 	}
 `;
 
+const InfluencerInquiryForm = styled(EventForm)``;
+const EventVendoryInquiryForm = styled(EventForm)``;
+
 const FieldGroup = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -58,10 +61,14 @@ const DisclaimerText = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	padding-right: 7rem;
+	justify-content: ${(props) => (props.wide ? "flex-start" : "center")};
+	padding-right: ${(props) => (props.wide ? "0" : "7rem")};
 	@media (max-width: 768px) {
 		padding-right: 0;
+	}
+
+	p {
+		margin-top: ${(props) => (props.wide ? "0" : "initial")};
 	}
 `;
 const SubmitButton = styled.button`
@@ -78,6 +85,64 @@ const SubmitButton = styled.button`
 		align-self: flex-end;
 	}
 `;
+const StyledCheckboxContainer = styled.label`
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-block: 1rem;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	&:hover input ~ span {
+		background-color: #fff;
+	}
+
+	input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+	span.checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 25px;
+		width: 25px;
+		border-radius: 50%;
+		background-color: #d9d9d9;
+	}
+	input:checked ~ span.checkmark {
+		background-color: #ccc;
+	}
+
+	span.checkmark:after {
+		content: "";
+		position: absolute;
+		display: none;
+	}
+	input:checked ~ span.checkmark:after {
+		display: block;
+	}
+	span.checkmark:after {
+		top: 6px;
+		left: 6px;
+		width: 12.5px;
+		height: 12.5px;
+		border-radius: 90%;
+		background: black;
+	}
+`;
+const CheckboxesContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+`;
 export default function Form(props) {
 	const { type, subHeadline, headline, blurb, anchorTag } = props;
 
@@ -90,6 +155,8 @@ export default function Form(props) {
 	const [numOfGuests, setNumOfGuests] = useState("");
 	const [numOfRooms, setNumOfRooms] = useState("");
 	const [message, setMessage] = useState("");
+	const [pastCollaborations, setPastCollaborations] = useState("");
+	const [mediaKitFile, setMediaKitFile] = useState(null);
 	const [success, setSuccess] = useState(false);
 
 	const handleSubmit = async (e) => {
@@ -124,7 +191,7 @@ export default function Form(props) {
 	};
 
 	const formStructure = (type) => {
-		switch (type) {
+		switch ("Event Vendor Inquiry") {
 			case "Event Booking":
 				return (
 					<EventForm
@@ -283,6 +350,339 @@ export default function Form(props) {
 				);
 			case "Contact Form":
 				return <form className={styles.EventForm}></form>;
+			case "Influencer Inquiry":
+				return (
+					<InfluencerInquiryForm
+						id="influencer-inquiry"
+						action=""
+						onSubmit={handleSubmit}>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="firstname">
+								First name *
+							</label>
+							<input
+								required
+								type="text"
+								name="firstname"
+								placeholder="First Name"
+								value={firstname}
+								onChange={(e) => setFirst(e.target.value)}
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="lastname">
+								Last Name *
+							</label>
+							<input
+								required
+								type="text"
+								name="lastname"
+								placeholder="Last Name"
+								value={lastname}
+								onChange={(e) => setLast(e.target.value)}
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="email">
+								Email Address*
+							</label>
+							<input
+								required
+								type="email"
+								name="email"
+								placeholder="Your Email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="phonenumber">
+								Phone Number*
+							</label>
+							<input
+								required
+								type="text"
+								name="phonenumber"
+								placeholder="Your Number"
+								value={phone}
+								onChange={(e) => setPhone(e.target.value)}
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="startdate">
+								PREFERRED DATE OF STAY - ARRIVAL
+							</label>
+							<input
+								type="date"
+								name="startdate"
+								placeholder="Preferred Date of Stay"
+								value={startdate}
+								onChange={(e) => setStart(e.target.value)}
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="enddate">
+								PREFERRED DATE OF STAY - DEPARTURE
+							</label>
+							<input
+								type="date"
+								name="enddate"
+								placeholder="Departure Date"
+								value={enddate}
+								onChange={(e) => setEnd(e.target.value)}
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="nguests">
+								Group Size
+							</label>
+							<input
+								type="number"
+								name="nguests"
+								placeholder="Number of People"
+								value={numOfGuests}
+								onChange={(e) => setNumOfGuests(e.target.value)}
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="mediaKit">
+								Media Kit
+							</label>
+							<input
+								type="file"
+								name="mediaKits"
+								placeholder="Choose Files"
+								multiple={true}
+								onChange={(e) =>
+									setMediaKitFile(e.target.files)
+								}
+							/>
+						</FieldGroup>
+						<FieldGroup className="messageField">
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="pastCollaborations">
+								Examples of Past Hotel Collaborations*
+							</label>
+							<textarea
+								required
+								name="pastCollaborations"
+								placeholder="Your Message"
+								rows="4"
+								value={message}
+								onChange={(e) => setMessage(e.target.value)}
+							/>
+						</FieldGroup>
+						<SubmitButtonContainer>
+							<SubmitButton className="sans-serif xs-copy center uppercase">
+								Submit
+							</SubmitButton>
+						</SubmitButtonContainer>
+					</InfluencerInquiryForm>
+				);
+			case "Event Vendor Inquiry":
+				return (
+					<EventVendoryInquiryForm
+						id="influencer-inquiry"
+						action=""
+						onSubmit={handleSubmit}>
+						{/* First name  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="firstname">
+								First name *
+							</label>
+							<input
+								required
+								type="text"
+								name="firstname"
+								placeholder="First Name"
+								value={firstname}
+								onChange={(e) => setFirst(e.target.value)}
+							/>
+						</FieldGroup>
+
+						{/* Last name  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="lastname">
+								Last Name *
+							</label>
+							<input
+								required
+								type="text"
+								name="lastname"
+								placeholder="Last Name"
+								value={lastname}
+								onChange={(e) => setLast(e.target.value)}
+							/>
+						</FieldGroup>
+
+						{/* Business Name  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="businessname">
+								Business Name
+							</label>
+							<input
+								type="text"
+								name="businessname"
+								placeholder="Business Name"
+							/>
+						</FieldGroup>
+
+						{/** Goods Or Services */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="goodsorservices">
+								Goods or Services
+							</label>
+							<input
+								type="text"
+								name="goodsorservices"
+								placeholder="Goods or Services"
+							/>
+						</FieldGroup>
+
+						{/* Email  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="email">
+								Email Address*
+							</label>
+							<input
+								required
+								type="email"
+								name="email"
+								placeholder="Your Email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</FieldGroup>
+
+						{/* Phone Number  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="phonenumber">
+								Phone Number*
+							</label>
+							<input
+								required
+								type="text"
+								name="phonenumber"
+								placeholder="Your Number"
+								value={phone}
+								onChange={(e) => setPhone(e.target.value)}
+							/>
+						</FieldGroup>
+
+						{/* Business Website */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="website">
+								Business Website
+							</label>
+							<input
+								type="text"
+								name="website"
+								placeholder="Business Website"
+							/>
+						</FieldGroup>
+
+						{/* Why Are You A Good Fit For Orli  */}
+						<FieldGroup className="messageField">
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="message">
+								Why Are You A Good Fit For Orli*
+							</label>
+							<textarea
+								required
+								name="message"
+								placeholder="Your Message"
+								rows="4"
+								value={message}
+								onChange={(e) => setMessage(e.target.value)}
+							/>
+						</FieldGroup>
+
+						{/** Are You Willing To Participate In Raffles */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="raffles">
+								Are You Willing To Participate In Raffles
+							</label>
+							<CheckboxesContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="raffles"
+										value="yes"
+									/>
+									<span className="checkmark"></span>
+									Yes
+								</StyledCheckboxContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="raffles"
+										value="no"
+									/>
+									<span className="checkmark"></span>
+									No
+								</StyledCheckboxContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="raffles"
+										value="maybe"
+									/>
+									<span className="checkmark"></span>
+									Maybe
+								</StyledCheckboxContainer>
+							</CheckboxesContainer>
+						</FieldGroup>
+
+						{/** Disclaimer Text */}
+						<DisclaimerText wide>
+							<p className="sans-serif xs-copy black left">
+								By submitting, I understand table displays
+								cannot exceed 4ft in length for events.
+							</p>
+						</DisclaimerText>
+
+						{/* Submit Button  */}
+						<SubmitButtonContainer>
+							<SubmitButton className="sans-serif xs-copy center uppercase">
+								Submit
+							</SubmitButton>
+						</SubmitButtonContainer>
+					</EventVendoryInquiryForm>
+				);
 			default:
 				return null;
 		}

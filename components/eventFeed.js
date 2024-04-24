@@ -193,7 +193,7 @@ export default function EventFeed(props) {
 		const passedEvent = new URLSearchParams(window.location.search).get(
 			"event"
 		);
-		console.log(passedEvent);
+		// console.log(passedEvent);
 
 		if (props.fullWidget && passedEvent === null) {
 			setCurrentEvent({
@@ -281,7 +281,7 @@ export default function EventFeed(props) {
 						.replace("--", "-") === passedEvent
 			)[0];
 
-			console.log("event: ", eventToSet);
+			// console.log("event: ", eventToSet);
 
 			setCurrentEvent({
 				title: eventToSet.title,

@@ -59,7 +59,7 @@ export default function CalendarWidget(props) {
 	}, []);
 
 	function handleDateChange(value, event) {
-		console.log({ value, event });
+		// console.log({ value, event });
 		props.handleCheckin(value[0]);
 		props.handleCheckout(value[1]);
 	}
