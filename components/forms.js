@@ -80,6 +80,7 @@ const SubmitButton = styled.button`
 	border: 1px solid var(--brown);
 	padding: 1.3rem 4.5rem;
 	margin-block: 2.5rem;
+	cursor: pointer;
 
 	@media (max-width: 768px) {
 		align-self: flex-end;
@@ -157,37 +158,49 @@ export default function Form(props) {
 	const [message, setMessage] = useState("");
 	const [pastCollaborations, setPastCollaborations] = useState("");
 	const [mediaKitFile, setMediaKitFile] = useState(null);
+	const [raffles, setRaffles] = useState("");
+	const [website, setWebsite] = useState("");
+	const [businessName, setBusinessName] = useState("");
+	const [goodsOrServices, setGoodsOrServices] = useState("");
 	const [success, setSuccess] = useState(false);
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e, type) => {
 		e.preventDefault();
+		console.log(type === "Influencer Inquiry");
 
-		const res = await fetch(
-			"https://hooks.zapier.com/hooks/catch/2001353/bplvi15/",
-			{
-				method: "POST",
-				body: JSON.stringify({
-					email,
-					firstname,
-					lastname,
-					phone,
-					startdate,
-					enddate,
-					numOfGuests,
-					numOfRooms,
-					message,
-				}),
-			}
-		);
+		const formData = new FormData(e.target);
+		console.log(formData);
+
+		let webHookUrl;
+		switch (type) {
+			case "Event Vendor Inquiry":
+				webHookUrl =
+					"https://hooks.zapier.com/hooks/catch/2001353/376eb76/";
+				break;
+			case "Influencer Inquiry":
+				webHookUrl =
+					"https://hooks.zapier.com/hooks/catch/2001353/37611qg/";
+				break;
+			case "Event Booking":
+			default:
+				webHookUrl =
+					"https://hooks.zapier.com/hooks/catch/2001353/bplvi15/";
+		}
+
+		const res = await fetch(webHookUrl, {
+			method: "POST",
+			body: formData,
+		});
 
 		handleResponse(res);
 	};
 
 	const handleResponse = async (res) => {
-		if (res.status === 200) {
-			setSuccess(true);
-			window.location.href = "/thank-you";
-		}
+		console.log(res);
+		// if (res.status === 200) {
+		// 	setSuccess(true);
+		// 	window.location.href = "/thank-you";
+		// }
 	};
 
 	const formStructure = (type) => {
@@ -197,7 +210,7 @@ export default function Form(props) {
 					<EventForm
 						id="emailcapture"
 						action="https://hooks.zapier.com/hooks/catch/2001353/bplvi15/"
-						onSubmit={handleSubmit}>
+						onSubmit={(e) => handleSubmit(e, type)}>
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -355,7 +368,8 @@ export default function Form(props) {
 					<InfluencerInquiryForm
 						id="influencer-inquiry"
 						action=""
-						onSubmit={handleSubmit}>
+						onSubmit={(e) => handleSubmit(e, type)}>
+						{/* First name  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -371,6 +385,8 @@ export default function Form(props) {
 								onChange={(e) => setFirst(e.target.value)}
 							/>
 						</FieldGroup>
+
+						{/* Last name  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -386,6 +402,8 @@ export default function Form(props) {
 								onChange={(e) => setLast(e.target.value)}
 							/>
 						</FieldGroup>
+
+						{/* Email  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -401,6 +419,8 @@ export default function Form(props) {
 								onChange={(e) => setEmail(e.target.value)}
 							/>
 						</FieldGroup>
+
+						{/* Phone Number  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -416,6 +436,36 @@ export default function Form(props) {
 								onChange={(e) => setPhone(e.target.value)}
 							/>
 						</FieldGroup>
+
+						{/* Instagram  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="instagram">
+								Instagram
+							</label>
+							<input
+								type="text"
+								name="instagram"
+								placeholder="Instagram"
+							/>
+						</FieldGroup>
+
+						{/* Additional Social media  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="socialmedia">
+								Additional Social Media
+							</label>
+							<input
+								type="text"
+								name="socialmedia"
+								placeholder="e.g. TikTok, Facebook"
+							/>
+						</FieldGroup>
+
+						{/* Preferred Date of Arrival  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -430,6 +480,8 @@ export default function Form(props) {
 								onChange={(e) => setStart(e.target.value)}
 							/>
 						</FieldGroup>
+
+						{/* Date of Departure  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -444,6 +496,8 @@ export default function Form(props) {
 								onChange={(e) => setEnd(e.target.value)}
 							/>
 						</FieldGroup>
+
+						{/* Group Size  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -458,6 +512,8 @@ export default function Form(props) {
 								onChange={(e) => setNumOfGuests(e.target.value)}
 							/>
 						</FieldGroup>
+
+						{/* Media Kit  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -474,6 +530,8 @@ export default function Form(props) {
 								}
 							/>
 						</FieldGroup>
+
+						{/* Examples of Past Collaborations  */}
 						<FieldGroup className="messageField">
 							<label
 								className="sans-serif sub-heading-bold black"
@@ -489,6 +547,7 @@ export default function Form(props) {
 								onChange={(e) => setMessage(e.target.value)}
 							/>
 						</FieldGroup>
+
 						<SubmitButtonContainer>
 							<SubmitButton className="sans-serif xs-copy center uppercase">
 								Submit
@@ -501,7 +560,7 @@ export default function Form(props) {
 					<EventVendoryInquiryForm
 						id="influencer-inquiry"
 						action=""
-						onSubmit={handleSubmit}>
+						onSubmit={(e) => handleSubmit(e, type)}>
 						{/* First name  */}
 						<FieldGroup>
 							<label
