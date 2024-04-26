@@ -373,7 +373,9 @@ export default function Footer(props) {
 										</Link>
 										<Link href="/our-story">Story</Link>
 										<Link href="/amenities">Amenities</Link>
-										<Link href="/offers">Offers & Upgrades</Link>
+										<Link href="/offers">
+											Offers&nbsp;&&nbsp;Upgrades
+										</Link>
 										<Link href="/gallery">Gallery</Link>
 										<Link href="/the-journal">Journal</Link>
 										<Link href="/discoveries">
@@ -392,11 +394,12 @@ export default function Footer(props) {
 											passHref>
 											<a target="_blank">Shop</a>
 										</Link>
-										{/* <Link
-											href="/offers/stashrewards"
-											passHref>
-											<a target="_blank">StashRewards</a>
-										</Link> */}
+										<Link href="/influencer-inquiry">
+											Influencer&nbsp;Inquiry
+										</Link>
+										<Link href="/event-vendor">
+											Event Vendor
+										</Link>
 									</div>
 								</div>
 								<div>
