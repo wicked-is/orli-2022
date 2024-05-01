@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useWindowSize } from "../utils/hooks";
-import styled from "styled-components";
-import FauxSocialFeed from "./fauxSocialFeed";
 import Script from "next/script";
+import { useState } from "react";
+import styled from "styled-components";
+import { useWindowSize } from "../utils/hooks";
+import FauxSocialFeed from "./fauxSocialFeed";
 
 const MobileFooterContainer = styled.footer`
 	display: flex;
@@ -377,13 +377,15 @@ export default function Footer(props) {
 											Offers&nbsp;&&nbsp;Upgrades
 										</Link>
 										<Link href="/gallery">Gallery</Link>
-										<Link href="/the-journal">Journal</Link>
-										<Link href="/discoveries">
-											Discoveries
+										<Link href="/influencer-inquiry">
+											Influencers
 										</Link>
+										<Link href="/press">Press</Link>
 										<Link href="/faq">FAQ</Link>
 										<Link href="/gatherings">Events</Link>
-										<Link href="/press">Press</Link>
+										<Link href="/event-vendor">
+											Event Vendors
+										</Link>
 										<Link
 											href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
 											passHref>
@@ -393,12 +395,6 @@ export default function Footer(props) {
 											href="https://shop.stayorli.com/"
 											passHref>
 											<a target="_blank">Shop</a>
-										</Link>
-										<Link href="/influencer-inquiry">
-											Influencer&nbsp;Inquiry
-										</Link>
-										<Link href="/event-vendor">
-											Event Vendor
 										</Link>
 									</div>
 								</div>
