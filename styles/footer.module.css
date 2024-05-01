@@ -83,7 +83,7 @@
 	/* display: grid; */
 	/* grid-template-columns: 1fr 1fr; */
 	/* grid-gap: 1rem; */
-	columns: 4;
+	columns: 3;
 	font-size: var(--xs-copy);
 	font-family: "GT Walsheim Light";
 }
