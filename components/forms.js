@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import styles from "../styles/forms.module.css";
+import { useState } from "react";
 import styled from "styled-components";
+import styles from "../styles/forms.module.css";
 
 const FormContentContainer = styled.div`
 	max-width: 60vw;
@@ -166,10 +166,8 @@ export default function Form(props) {
 
 	const handleSubmit = async (e, type) => {
 		e.preventDefault();
-		console.log(type === "Influencer Inquiry");
 
 		const formData = new FormData(e.target);
-		console.log(formData);
 
 		let webHookUrl;
 		switch (type) {
@@ -196,11 +194,10 @@ export default function Form(props) {
 	};
 
 	const handleResponse = async (res) => {
-		console.log(res);
-		// if (res.status === 200) {
-		// 	setSuccess(true);
-		// 	window.location.href = "/thank-you";
-		// }
+		if (res.status === 200) {
+			setSuccess(true);
+			window.location.href = "/thank-you";
+		}
 	};
 
 	const formStructure = (type) => {
