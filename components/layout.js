@@ -45,14 +45,15 @@ export default function Layout(props) {
 							right: "1rem",
 							zIndex: 99,
 						}}>
-						<Image src={OrliWebSticker} width={100} height={100} />
+						<Image src={OrliWebSticker} width={175} height={175} />
 					</a>
 				</Link>
 				{props.children}
 			</main>
-			{showModal && !hasModalShown && props.page !== "/email" && (
+			{/* {showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
-			)}
+			)} */}
+			<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			<Footer page={props.page} />
 		</div>
 	);
