@@ -45,7 +45,7 @@ export default function Layout(props) {
 							right: "1rem",
 							zIndex: 99,
 						}}>
-						<Image src={OrliWebSticker} width={175} height={175} />
+						<Image src={OrliWebSticker} width={100} height={100} />
 					</a>
 				</Link>
 				{props.children}
