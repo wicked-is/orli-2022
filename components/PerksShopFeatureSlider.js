@@ -106,8 +106,8 @@ export default function PerksShopFeatureSlider(props) {
 						<Content
 							className="black body-copy sans-serif"
 							style={{ marginTop: "1rem", marginBottom: "3rem" }}>
-							Explore La Jolla's charm with our signature Orli
-							candle & Room Spray. Infuse your space with the
+							Explore La Jolla&apos;s charm with our signature
+							Orli candle & Room Spray. Infuse your space with the
 							soothing aromas of cedar, leather, and cypress,
 							perfectly balanced with notesof citrus, rosemary,
 							and lavender.
@@ -155,8 +155,8 @@ export default function PerksShopFeatureSlider(props) {
 						<Content
 							className="black body-copy sans-serif"
 							style={{ marginTop: "1rem", marginBottom: "3rem" }}>
-							Explore La Jolla's charm with our signature Orli
-							candle & Room Spray. Infuse your space with the
+							Explore La Jolla&apos;s charm with our signature
+							Orli candle & Room Spray. Infuse your space with the
 							soothing aromas of cedar, leather, and cypress,
 							perfectly balanced with notesof citrus, rosemary,
 							and lavender.
