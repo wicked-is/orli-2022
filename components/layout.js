@@ -6,6 +6,7 @@ import ExitIntent from "../components/exitIntent";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import OrliWebSticker from "../public/assets/images/OfferWebSticker.png";
+import PerksShopFeatureSlider from "./PerksShopFeatureSlider";
 
 export default function Layout(props) {
 	const [showModal, setshowModal] = useState(false);
@@ -49,11 +50,11 @@ export default function Layout(props) {
 					</a>
 				</Link>
 				{props.children}
+				<PerksShopFeatureSlider />
 			</main>
-			{/* {showModal && !hasModalShown && props.page !== "/email" && (
+			{showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
-			)} */}
-			<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
+			)}
 			<Footer page={props.page} />
 		</div>
 	);
