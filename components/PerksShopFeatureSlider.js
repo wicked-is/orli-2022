@@ -54,7 +54,7 @@ export default function PerksShopFeatureSlider(props) {
 	const slider = useRef(null);
 	return (
 		<PerksShopFeatureSliderSection>
-			{props.anchor && <Anchor id={props.anchor} />}
+			{props.anchor && <a id={props.anchor}></a>}
 			<Flickity
 				options={{
 					draggable: true,
