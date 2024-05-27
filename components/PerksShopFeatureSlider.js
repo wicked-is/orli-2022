@@ -38,8 +38,9 @@ const SingleSection = styled.div`
 	gap: 2rem;
 	/* align-items: center; */
 	justify-content: center;
-	max-width: 90vw;
+	width: 90vw;
 	margin-right: 5vw;
+	max-width: 1440px;
 `;
 const MediaContainer = styled.div`
 	display: flex;
