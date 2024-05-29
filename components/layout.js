@@ -55,6 +55,7 @@ export default function Layout(props) {
 			{showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)}
+			{/* <ExitIntent toggleModal={{ setshowModal, sethasModalShown }} /> */}
 			<Footer page={props.page} />
 		</div>
 	);

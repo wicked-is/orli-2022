@@ -18,10 +18,10 @@ const ContentContainer = styled.div`
 	justify-content: center;
 `;
 const RightMedia = styled(Image)`
-	margin-top: 15rem;
+	margin-top: ${(props) => (props.$noTopMargin ? "0" : "15rem")};
 `;
 const RightMediaContainer = styled.div`
-	margin-top: 10rem;
+	margin-top: ${(props) => (props.$noTopMargin ? "0" : "10rem")};
 `;
 const BottomMedia = styled(Image)`
 	margin-top: 5rem;
@@ -127,7 +127,7 @@ export default function PerksShopFeatureSlider(props) {
 				</SingleSection>
 				<SingleSection>
 					<MediaContainer>
-						<Left>
+						<Left style={{ marginTop: "10rem" }}>
 							{/* <TopMedia
 								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-4.31-1.jpg"
 								width={393}
@@ -137,14 +137,17 @@ export default function PerksShopFeatureSlider(props) {
 								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-5.04-1.jpg"
 								width={428}
 								height={509}
-								style={{ justifySelf: "flex-end" }}
+								style={{
+									justifySelf: "flex-end",
+								}}
 							/>
 						</Left>
-						<RightMediaContainer>
+						<RightMediaContainer $noTopMargin={true}>
 							<RightMedia
-								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-4.32-1.jpg"
+								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-5.04-2.jpg"
 								width={416}
 								height={515}
+								$noTopMargin={true}
 							/>
 						</RightMediaContainer>
 					</MediaContainer>

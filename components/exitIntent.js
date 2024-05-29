@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
-import { useWindowSize } from "../utils/hooks";
 
 const ExitUnderlay = styled.div`
 	position: fixed;
@@ -165,7 +164,7 @@ const TextContainer = styled.div`
 export default function ExitIntent(props) {
 	const { headline, bodyCopy, image, isPage } = props;
 
-	const size = useWindowSize();
+	const router = useRouter();
 
 	const [email, setEmail] = useState("");
 	const [firstname, setFirst] = useState("");
@@ -221,7 +220,8 @@ export default function ExitIntent(props) {
 							onClick={() => {
 								props.toggleModal.sethasModalShown(true);
 								props.toggleModal.setshowModal(false);
-							}}>
+							}}
+							style={{ cursor: "pointer" }}>
 							<Image
 								src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg"
 								alt="close"
@@ -237,11 +237,18 @@ export default function ExitIntent(props) {
 						</h3>
 						<p className="sans-serif body black left">
 							Be the first to know about{" "}
-							<Link href="/offers">
-								<a style={{ textDecoration: "underline" }}>
-									exclusive offers
-								</a>
-							</Link>{" "}
+							<span
+								style={{
+									textDecoration: "underline",
+									cursor: "pointer",
+								}}
+								onClick={(e) => {
+									props.toggleModal.setshowModal(false);
+									router.push("/offers");
+									return true;
+								}}>
+								exclusive offers
+							</span>{" "}
 							and special happenings at Orli La Jolla.
 						</p>
 						{success ? (
