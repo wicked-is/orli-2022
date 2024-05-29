@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
 import { useWindowSize } from "../utils/hooks";
@@ -235,8 +236,13 @@ export default function ExitIntent(props) {
 							Psst! Don&apos;t Miss Out
 						</h3>
 						<p className="sans-serif body black left">
-							Be the first to know about exclusive offers and
-							special happenings at Orli La Jolla.
+							Be the first to know about{" "}
+							<Link href="/offers">
+								<a style={{ textDecoration: "underline" }}>
+									exclusive offers
+								</a>
+							</Link>{" "}
+							and special happenings at Orli La Jolla.
 						</p>
 						{success ? (
 							<div
@@ -306,7 +312,7 @@ export default function ExitIntent(props) {
 										<label
 											htmlFor="offers"
 											className="sans-serif ">
-											Are you interested in receiving:
+											Offers and News Updates
 										</label>
 									</div>
 									<div>
