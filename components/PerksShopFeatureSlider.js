@@ -150,17 +150,16 @@ export default function PerksShopFeatureSlider(props) {
 					</MediaContainer>
 					<ContentContainer>
 						<Subtitle className="sans-serif-bold sub-heading">
-							Shop
+							Perks & Partners
 						</Subtitle>
 						<Title className="heading">All Things Orli</Title>
 						<Content
 							className="black body-copy sans-serif"
 							style={{ marginTop: "1rem", marginBottom: "3rem" }}>
-							Explore La Jolla&apos;s charm with our signature
-							Orli candle & Room Spray. Infuse your space with the
-							soothing aromas of cedar, leather, and cypress,
-							perfectly balanced with notesof citrus, rosemary,
-							and lavender.
+							Discover Orli&apos;s exclusive perks andpartnerships
+							with local gems likeTrilogy Sanctuary yoga,
+							thrillingkayaking adventures, and theinspiring
+							Museum of ContemporaryArt San Diego.
 						</Content>
 						<Button
 							href="/shop"
