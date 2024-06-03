@@ -52,6 +52,7 @@ const MediaContainer = styled.div`
 const PerksShopFeatureSliderSection = styled.section``;
 
 export default function PerksShopFeatureSlider(props) {
+	console.log(props);
 	const slider = useRef(null);
 	return (
 		<PerksShopFeatureSliderSection>
@@ -77,105 +78,65 @@ export default function PerksShopFeatureSlider(props) {
 				flickityRef={(c) => {
 					slider.current = c;
 				}}>
-				<SingleSection>
-					<MediaContainer>
-						<Left>
-							<TopMedia
-								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-4.31-1.jpg"
-								width={393}
-								height={413}
-							/>
-							{/* <BottomMedia
-							src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-5.04-1.jpg"
-							width={428}
-							height={509}
-						/> */}
-						</Left>
-						<RightMediaContainer>
-							<RightMedia
-								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-4.32-1.jpg"
-								width={416}
-								height={515}
-							/>
-						</RightMediaContainer>
-					</MediaContainer>
-					<ContentContainer>
-						<Subtitle className="sans-serif-bold sub-heading">
-							Shop
-						</Subtitle>
-						<Title className="heading">All Things Orli</Title>
-						<Content
-							className="black body-copy sans-serif"
-							style={{ marginTop: "1rem", marginBottom: "3rem" }}>
-							Explore La Jolla&apos;s charm with our signature
-							Orli candle & Room Spray. Infuse your space with the
-							soothing aromas of cedar, leather, and cypress,
-							perfectly balanced with notesof citrus, rosemary,
-							and lavender.
-						</Content>
-						<Button
-							href="/shop"
-							style={{
-								padding: "1.25rem 2.5rem",
-								backgroundColor: "#8C351F",
-								maxWidth: "fit-content",
-								color: "white",
-							}}>
-							Shop Now
-						</Button>
-					</ContentContainer>
-				</SingleSection>
-				<SingleSection>
-					<MediaContainer>
-						<Left style={{ marginTop: "10rem" }}>
-							{/* <TopMedia
-								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-4.31-1.jpg"
-								width={393}
-								height={413}
-							/> */}
-							<BottomMedia
-								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-5.04-1.jpg"
-								width={428}
-								height={509}
+				{props?.features?.map((slide, index) => (
+					<SingleSection>
+						<MediaContainer>
+							<Left>
+								{!slide.leftBottomPhoto &&
+									slide.leftTopPhoto && (
+										<TopMedia
+											src={
+												slide.leftTopPhoto.mediaItemUrl
+											}
+											width={393}
+											height={413}
+										/>
+									)}
+								{!slide.leftTopPhoto &&
+									slide.leftBottomPhoto && (
+										<BottomMedia
+											src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-5.04-1.jpg"
+											width={428}
+											height={509}
+										/>
+									)}
+							</Left>
+							<RightMediaContainer>
+								<RightMedia
+									src={slide.rightPhoto.mediaItemUrl}
+									width={416}
+									height={515}
+								/>
+							</RightMediaContainer>
+						</MediaContainer>
+						<ContentContainer>
+							<Subtitle className="sans-serif-bold sub-heading">
+								{slide.subtitle}
+							</Subtitle>
+							<Title className="heading">{slide.title}</Title>
+							<Content
+								className="black body-copy sans-serif"
 								style={{
-									justifySelf: "flex-end",
+									marginTop: "1rem",
+									marginBottom: "3rem",
+								}}
+								dangerouslySetInnerHTML={{
+									__html: slide.content,
 								}}
 							/>
-						</Left>
-						<RightMediaContainer $noTopMargin={true}>
-							<RightMedia
-								src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-5.04-2.jpg"
-								width={416}
-								height={515}
-								$noTopMargin={true}
-							/>
-						</RightMediaContainer>
-					</MediaContainer>
-					<ContentContainer>
-						<Subtitle className="sans-serif-bold sub-heading">
-							Perks & Partners
-						</Subtitle>
-						<Title className="heading">All Things Orli</Title>
-						<Content
-							className="black body-copy sans-serif"
-							style={{ marginTop: "1rem", marginBottom: "3rem" }}>
-							Discover Orli&apos;s exclusive perks andpartnerships
-							with local gems likeTrilogy Sanctuary yoga,
-							thrillingkayaking adventures, and theinspiring
-							Museum of ContemporaryArt San Diego.
-						</Content>
-						<Button
-							href="/shop"
-							style={{
-								padding: "1.25rem 2.5rem",
-								backgroundColor: "#8C351F",
-								maxWidth: "fit-content",
-								color: "white",
-							}}>
-							Shop Now
-						</Button>
-					</ContentContainer>
-				</SingleSection>
+							<Button
+								href={slide.ctaLink}
+								style={{
+									padding: "1.25rem 2.5rem",
+									backgroundColor: "#8C351F",
+									maxWidth: "fit-content",
+									color: "white",
+								}}>
+								{slide.ctaText}
+							</Button>
+						</ContentContainer>
+					</SingleSection>
+				))}
 			</Flickity>
 		</PerksShopFeatureSliderSection>
 	);
