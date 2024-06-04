@@ -79,7 +79,7 @@ export default function PerksShopFeatureSlider(props) {
 					slider.current = c;
 				}}>
 				{props?.features?.map((slide, index) => (
-					<SingleSection>
+					<SingleSection key={`feature-section-${index}`}>
 						<MediaContainer>
 							<Left>
 								{!slide.leftBottomPhoto &&
