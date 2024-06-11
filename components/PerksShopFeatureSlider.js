@@ -16,6 +16,11 @@ const ContentContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	@media screen and (max-width: 900px) {
+		max-width: 80%;
+		margin: 0 auto;
+	}
 `;
 const RightMedia = styled(Image)`
 	margin-top: ${(props) => (props.$noTopMargin ? "0" : "15rem")};
@@ -41,6 +46,13 @@ const SingleSection = styled.div`
 	width: 90vw;
 	margin-right: 5vw;
 	max-width: 1440px;
+
+	@media screen and (max-width: 900px) {
+		flex-direction: column-reverse;
+		gap: 0;
+		width: 100vw;
+		margin-right: 0;
+	}
 `;
 const MediaContainer = styled.div`
 	display: flex;
