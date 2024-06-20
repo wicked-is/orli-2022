@@ -24,9 +24,14 @@ const ContentContainer = styled.div`
 `;
 const RightMedia = styled(Image)`
 	margin-top: ${(props) => (props.$noTopMargin ? "0" : "15rem")};
+	object-fit: cover;
 `;
 const RightMediaContainer = styled.div`
 	margin-top: ${(props) => (props.$noTopMargin ? "0" : "10rem")};
+
+	@media screen and (max-width: 810px) {
+		margin-top: 3rem;
+	}
 `;
 const BottomMedia = styled(Image)`
 	margin-top: 5rem;
@@ -60,11 +65,37 @@ const MediaContainer = styled.div`
 	gap: 2rem;
 	margin-block: 7rem;
 	flex: 1.75;
+	@media screen and (max-width: 810px) {
+		margin-block: unset;
+		margin: 2rem 0 4rem 0;
+	}
 `;
-const PerksShopFeatureSliderSection = styled.section``;
+const PerksShopFeatureSliderSection = styled.section`
+	@media screen and (max-width: 810px) {
+		${MediaContainer} {
+			opacity: 0;
+		}
+
+		${SingleSection}:nth-of-type(2) ${Left} {
+			margin-top: 4rem;
+		}
+		${SingleSection}:nth-of-type(2) ${RightMediaContainer} {
+			margin-top: 0;
+		}
+		.slider-container .flickity-viewport {
+			min-height: 95vh;
+		}
+
+		.is-selected ${MediaContainer} {
+			position: relative;
+			width: 160vw;
+			left: -29vw;
+			opacity: 1;
+		}
+	}
+`;
 
 export default function PerksShopFeatureSlider(props) {
-	console.log(props);
 	const slider = useRef(null);
 	return (
 		<PerksShopFeatureSliderSection>
@@ -74,16 +105,14 @@ export default function PerksShopFeatureSlider(props) {
 					draggable: true,
 					cellAlign: "left",
 					prevNextButtons: false,
-					// arrowShape:
-					// 	"M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z",
-					// pageDots: false,
+					pageDots: false,
 					wrapAround: true,
 					imagesLoaded: true,
 					selectedAttraction: 0.007,
 					friction: 0.17,
-					// autoPlay: 5500,
 					pauseAutoPlayOnHover: true,
 				}}
+				className="slider-container"
 				disableImagesLoaded={false} // default false
 				reloadOnUpdate={false} // default false
 				static // default false
@@ -118,6 +147,7 @@ export default function PerksShopFeatureSlider(props) {
 									src={slide.rightPhoto.mediaItemUrl}
 									width={416}
 									height={515}
+									style={{ objectFit: "cover !important" }}
 								/>
 							</RightMediaContainer>
 						</MediaContainer>
