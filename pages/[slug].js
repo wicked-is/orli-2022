@@ -667,6 +667,7 @@ export async function getStaticProps({ params }) {
                   }
                   leftBottomPhoto {
                     altText
+                    mediaItemUrl
                   }
                 }
               }

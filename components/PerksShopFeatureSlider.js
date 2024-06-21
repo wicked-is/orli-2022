@@ -35,8 +35,11 @@ const RightMediaContainer = styled.div`
 `;
 const BottomMedia = styled(Image)`
 	margin-top: 5rem;
+	object-fit: cover;
 `;
-const TopMedia = styled(Image)``;
+const TopMedia = styled(Image)`
+	object-fit: cover;
+`;
 const Left = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -136,7 +139,10 @@ export default function PerksShopFeatureSlider(props) {
 								{!slide.leftTopPhoto &&
 									slide.leftBottomPhoto && (
 										<BottomMedia
-											src="https://orlidev.wpengine.com/wp-content/uploads/2024/05/Screenshot-2024-05-14-at-5.04-1.jpg"
+											src={
+												slide.leftBottomPhoto
+													.mediaItemUrl
+											}
 											width={428}
 											height={509}
 										/>
