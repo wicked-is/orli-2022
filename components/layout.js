@@ -42,7 +42,7 @@ export default function Layout(props) {
 					<a
 						style={{
 							position: "fixed",
-							bottom: "1rem",
+							bottom: "4rem",
 							right: "1rem",
 							zIndex: 99,
 						}}>
@@ -50,7 +50,7 @@ export default function Layout(props) {
 					</a>
 				</Link>
 				{props.children}
-				<PerksShopFeatureSlider />
+				{/* <PerksShopFeatureSlider /> */}
 			</main>
 			{showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
