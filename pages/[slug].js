@@ -1,49 +1,49 @@
-import { useEffect, useState } from "react";
-import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from "gsap/dist/gsap";
+import { useEffect, useState } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 // Components
-import Hero from "../components/hero";
-import FullWidthMedia from "../components/fullWidthMedia";
-import MediaTwoUp from "../components/mediaTwoUp";
-import BlurbCenter from "../components/blurbCenter";
-import ImagesThreeUp from "../components/ImagesThreeUp";
-import ImageContentRepeater from "../components/ImageContentRepeater";
-import BlurbLeft from "../components/blurbLeft";
-import BlogGrid from "../components/BlogGrid";
-import PressGrid from "../components/PressGrid";
-import OffersGrid from "../components/OffersGrid";
-import RoomSlider from "../components/roomSlider";
-import RoomsGrid from "../components/RoomsGrid";
-import AmenitiesSlider from "../components/amenitiesSlider";
-import OurMission from "../components/ourMission";
-import Gatherings from "../components/gatherings";
-import FullFeatureBlog from "../components/fullFeatureBlog";
-import SpotifyFeature from "../components/spotifyFeature";
-import BookingIframe from "../components/BookingIframe";
-import FauxSocialFeed from "../components/fauxSocialFeed";
-import SEO from "../components/seo";
-import DiscoveriesCallout from "../components/discoveriesCallout";
-import BigImageSmallContent from "../components/bigimageSmallcontent";
-import HistoricalSlider from "../components/historicalSlider";
-import Form from "../components/forms";
-import Gallery from "../components/gallery";
-import FeaturedStorySlider from "../components/FeaturedStorySlider";
 import AnchorBar from "../components/AnchorBar";
+import BlogGrid from "../components/BlogGrid";
+import BookingIframe from "../components/BookingIframe";
 import ContactBlock from "../components/ContactBlock";
-import TitleBar from "../components/TitleBar";
-import TheLocalWay from "../components/TheLocalWay";
-import GettingHere from "../components/GettingHere";
-import EventFeed from "../components/eventFeed";
 import ContentBlock from "../components/ContentBlock";
 import ExploreMorePosts from "../components/ExploreMorePosts";
 import FAQ from "../components/Faq";
+import FeaturedStorySlider from "../components/FeaturedStorySlider";
+import GettingHere from "../components/GettingHere";
 import GiftGrid from "../components/GiftGrid";
+import ImageContentRepeater from "../components/ImageContentRepeater";
+import ImagesThreeUp from "../components/ImagesThreeUp";
+import OffersGrid from "../components/OffersGrid";
+import PerksShopFeatureSlider from "../components/PerksShopFeatureSlider";
+import PressGrid from "../components/PressGrid";
+import RoomsGrid from "../components/RoomsGrid";
+import TheLocalWay from "../components/TheLocalWay";
+import TitleBar from "../components/TitleBar";
 import UpgradesGrid, {
 	UpgradesGridPageQuery,
 	UpgradesGridPostQuery,
 } from "../components/UpgradesGrid";
+import AmenitiesSlider from "../components/amenitiesSlider";
+import BigImageSmallContent from "../components/bigimageSmallcontent";
+import BlurbCenter from "../components/blurbCenter";
+import DiscoveriesCallout from "../components/discoveriesCallout";
+import EventFeed from "../components/eventFeed";
+import FauxSocialFeed from "../components/fauxSocialFeed";
+import Form from "../components/forms";
+import FullFeatureBlog from "../components/fullFeatureBlog";
+import FullWidthMedia from "../components/fullWidthMedia";
+import Gallery from "../components/gallery";
+import Gatherings from "../components/gatherings";
+import Hero from "../components/hero";
+import HistoricalSlider from "../components/historicalSlider";
+import MediaTwoUp from "../components/mediaTwoUp";
+import OurMission from "../components/ourMission";
+import RoomSlider from "../components/roomSlider";
+import SEO from "../components/seo";
+import SpotifyFeature from "../components/spotifyFeature";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -435,6 +435,16 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
+				case "Page_Flexiblecontent_Sections_PerksShopSlider":
+				case "Post_Flexiblecontent_Sections_PerksShopSlider":
+					gatheredSections.push(
+						<PerksShopFeatureSlider
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
 				case "Page_Flexiblecontent_Sections_GiftGrid":
 				case "Post_Flexiblecontent_Sections_GiftGrid":
 					gatheredSections.push(
@@ -635,6 +645,29 @@ export async function getStaticProps({ params }) {
                     hoverText
                     hoverBlurb
                     hoverColor
+                  }
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_PerksShopSlider {
+                anchor
+                fieldGroupName
+                features {
+                  content
+                  ctaLink
+                  ctaText
+                  subtitle
+                  title
+                  rightPhoto {
+                    altText
+                    mediaItemUrl
+                  }
+                  leftTopPhoto {
+                    altText
+                    mediaItemUrl
+                  }
+                  leftBottomPhoto {
+                    altText
+                    mediaItemUrl
                   }
                 }
               }
