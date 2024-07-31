@@ -65,6 +65,7 @@ export default function Gallery(props) {
 				});
 			});
 		}
+		// setFilteredItems(items);
 	}, []);
 
 	return (
@@ -91,225 +92,198 @@ export default function Gallery(props) {
                 </ul>
                 <div className="arrowssub"></div> */}
 			</div>
+
 			<div
 				className={styles.galleryContainer}
 				style={{ paddingTop: index < 2 ? "8rem" : "2rem" }}>
 				<h1 className="serif heading dark center">Gallery</h1>
-				<ImageMasonry
-					numCols={2}
-					// columns={{ 320: 1, 480: 2, 800: 2 }}
-					// breakpoints={{ 350: 2, 750: 2, 900: 2 }}
-				>
-					{items &&
-						filteredItems.map((item, index) => {
-							return (
-								<div key={index} style={{ padding: ".25rem" }}>
-									{item.type === "Image" &&
-										item.filter === "Rooms" && (
-											<Fancybox>
-												<div
-													data-fancybox="gallery"
-													href={
+				<ImageMasonry numCols={2}>
+					{props.items.map((item, index) => {
+						return (
+							<div key={index} style={{ padding: ".25rem" }}>
+								{item.type === "Image" &&
+									item.filter === "Rooms" && (
+										<Fancybox>
+											<div
+												data-fancybox="gallery"
+												href={item.image.mediaItemUrl}>
+												<img
+													src={
 														item.image.mediaItemUrl
-													}>
-													<img
-														src={
-															item.image
-																.mediaItemUrl
-														}
-														alt={item.image.altText}
-														data-filter={
-															item.filter
-														}
-														style={{
-															width: "100%",
-															display: "block",
-														}}
-													/>
-												</div>
-											</Fancybox>
-										)}
-									{item.type === "Video" &&
-										item.filter === "Rooms" && (
-											<Fancybox>
-												<div
-													className={
-														styles.videoContainer
 													}
-													data-fancybox="gallery"
-													href={item.mp4ExternalLink}>
-													<video
-														data-filter={
-															item.filter
-														}
-														autoPlay
-														playsInline
-														muted
-														loop
-														poster="">
-														<source
-															src={
-																item.mp4ExternalLink
-															}
-															type="video/mp4"
-														/>
-														<source
-															src={item.webm}
-															type="video/webm"
-														/>
-													</video>
-												</div>
-											</Fancybox>
-										)}
-									{item.type === "Image" &&
-										item.filter === "Amenities" && (
-											<Fancybox>
-												<div
-													data-fancybox="gallery"
-													href={
-														item.image.mediaItemUrl
-													}>
-													<img
+													alt={item.image.altText}
+													data-filter={item.filter}
+													style={{
+														width: "100%",
+														display: "block",
+													}}
+												/>
+											</div>
+										</Fancybox>
+									)}
+								{item.type === "Video" &&
+									item.filter === "Rooms" && (
+										<Fancybox>
+											<div
+												className={
+													styles.videoContainer
+												}
+												data-fancybox="gallery"
+												href={item.mp4ExternalLink}>
+												<video
+													data-filter={item.filter}
+													autoPlay
+													playsInline
+													muted
+													loop
+													poster="">
+													<source
 														src={
-															item.image
-																.mediaItemUrl
+															item.mp4ExternalLink
 														}
-														alt={item.image.altText}
-														data-filter={
-															item.filter
-														}
-														style={{
-															width: "100%",
-															display: "block",
-														}}
+														type="video/mp4"
 													/>
-												</div>
-											</Fancybox>
-										)}
-									{item.type === "Video" &&
-										item.filter === "Amenities" && (
-											<Fancybox>
-												<div
-													className={
-														styles.videoContainer
+													<source
+														src={item.webm}
+														type="video/webm"
+													/>
+												</video>
+											</div>
+										</Fancybox>
+									)}
+								{item.type === "Image" &&
+									item.filter === "Amenities" && (
+										<Fancybox>
+											<div
+												data-fancybox="gallery"
+												href={item.image.mediaItemUrl}>
+												<img
+													src={
+														item.image.mediaItemUrl
 													}
-													data-fancybox="gallery"
-													href={item.mp4ExternalLink}>
-													<video
-														data-filter={
-															item.filter
-														}
-														autoPlay
-														playsInline
-														muted
-														loop
-														poster="">
-														<source
-															src={
-																item.mp4ExternalLink
-															}
-															type="video/mp4"
-														/>
-														<source
-															src={item.webm}
-															type="video/webm"
-														/>
-													</video>
-												</div>
-											</Fancybox>
-										)}
-									{item.type === "Image" &&
-										item.filter === "Neighborhood" && (
-											<Fancybox>
-												<div
-													data-fancybox="gallery"
-													href={
-														item.image.mediaItemUrl
-													}>
-													<img
+													alt={item.image.altText}
+													data-filter={item.filter}
+													style={{
+														width: "100%",
+														display: "block",
+													}}
+												/>
+											</div>
+										</Fancybox>
+									)}
+								{item.type === "Video" &&
+									item.filter === "Amenities" && (
+										<Fancybox>
+											<div
+												className={
+													styles.videoContainer
+												}
+												data-fancybox="gallery"
+												href={item.mp4ExternalLink}>
+												<video
+													data-filter={item.filter}
+													autoPlay
+													playsInline
+													muted
+													loop
+													poster="">
+													<source
 														src={
-															item.image
-																.mediaItemUrl
+															item.mp4ExternalLink
 														}
-														alt={item.image.altText}
-														data-filter={
-															item.filter
-														}
-														style={{
-															width: "100%",
-															display: "block",
-														}}
+														type="video/mp4"
 													/>
-												</div>
-											</Fancybox>
-										)}
-									{item.type === "Video" &&
-										item.filter === "Neighborhood" && (
-											<Fancybox>
-												<div
-													data-fancybox="gallery"
-													href={item.mp4ExternalLink}
-													className={
-														styles.videoContainer
-													}>
-													<video
-														data-filter={
-															item.filter
+													<source
+														src={item.webm}
+														type="video/webm"
+													/>
+												</video>
+											</div>
+										</Fancybox>
+									)}
+								{item.type === "Image" &&
+									item.filter === "Neighborhood" && (
+										<Fancybox>
+											<div
+												data-fancybox="gallery"
+												href={item.image.mediaItemUrl}>
+												<img
+													src={
+														item.image.mediaItemUrl
+													}
+													alt={item.image.altText}
+													data-filter={item.filter}
+													style={{
+														width: "100%",
+														display: "block",
+													}}
+												/>
+											</div>
+										</Fancybox>
+									)}
+								{item.type === "Video" &&
+									item.filter === "Neighborhood" && (
+										<Fancybox>
+											<div
+												data-fancybox="gallery"
+												href={item.mp4ExternalLink}
+												className={
+													styles.videoContainer
+												}>
+												<video
+													data-filter={item.filter}
+													autoPlay
+													playsInline
+													muted
+													loop
+													poster="">
+													<source
+														src={
+															item.mp4ExternalLink
 														}
-														autoPlay
-														playsInline
-														muted
-														loop
-														poster="">
-														<source
-															src={
-																item.mp4ExternalLink
-															}
-															type="video/mp4"
-														/>
-														<source
-															src={item.webm}
-															type="video/webm"
-														/>
-													</video>
-												</div>
-											</Fancybox>
-										)}
-									{item.type === "Video" &&
-										item.filter === "Video" && (
-											<Fancybox>
-												<div
-													data-fancybox="gallery"
-													href={item.mp4ExternalLink}
-													className={
-														styles.videoContainer
-													}>
-													<video
-														data-filter={
-															item.filter
+														type="video/mp4"
+													/>
+													<source
+														src={item.webm}
+														type="video/webm"
+													/>
+												</video>
+											</div>
+										</Fancybox>
+									)}
+								{item.type === "Video" &&
+									item.filter === "Video" && (
+										<Fancybox>
+											<div
+												data-fancybox="gallery"
+												href={item.mp4ExternalLink}
+												className={
+													styles.videoContainer
+												}>
+												<video
+													data-filter={item.filter}
+													autoPlay
+													playsInline
+													muted
+													loop
+													poster="">
+													<source
+														src={
+															item.mp4ExternalLink
 														}
-														autoPlay
-														playsInline
-														muted
-														loop
-														poster="">
-														<source
-															src={
-																item.mp4ExternalLink
-															}
-															type="video/mp4"
-														/>
-														<source
-															src={item.webm}
-															type="video/webm"
-														/>
-													</video>
-												</div>
-											</Fancybox>
-										)}
-								</div>
-							);
-						})}
+														type="video/mp4"
+													/>
+													<source
+														src={item.webm}
+														type="video/webm"
+													/>
+												</video>
+											</div>
+										</Fancybox>
+									)}
+							</div>
+						);
+					})}
 				</ImageMasonry>
 			</div>
 		</section>
