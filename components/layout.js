@@ -28,6 +28,20 @@ export default function Layout(props) {
 		}, 20_000);
 	}
 
+	function handleShopIconClick(e) {
+		// prevent default
+		e.preventDefault();
+		// send gtag event click, offers_button
+		window.gtag("event", "click", {
+			event_category: "offers_button",
+			event_label: "Shop Icon",
+		});
+
+		console.log("gtag event click");
+		// sent window location to /offers
+		window.location.href = "/offers";
+	}
+
 	return (
 		<div
 			data-page={`${props.currentPage}`}
@@ -46,7 +60,12 @@ export default function Layout(props) {
 							right: "1rem",
 							zIndex: 99,
 						}}>
-						<Image src={OrliWebSticker} width={75} height={75} />
+						<Image
+							src={OrliWebSticker}
+							width={75}
+							height={75}
+							id="shop-icon-btn"
+						/>
 					</a>
 				</Link>
 				{props.children}
