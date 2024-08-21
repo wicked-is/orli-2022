@@ -491,7 +491,7 @@ export default function Footer(props) {
 						</div>
 					</footer>
 				))}
-			<Script id="userway" strategy="afterInteractive">
+			<Script id="userway" strategy="lazyOnload">
 				{`(function(d){var s = d.createElement("script");s.setAttribute("data-account", "DA15DgPw2p");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)`}
 			</Script>
 			<noscript
