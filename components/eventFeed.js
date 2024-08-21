@@ -27,7 +27,7 @@ const EventFeedContainer = styled.div`
 
 	padding-block: ${(props) => (props.fullWidget ? "6rem" : "0")};
 	background-color: ${(props) =>
-		props.fullWidget ? "var(--lt-grey)" : "white"};
+		props.fullWidget ? "var(--lt-grey) !important" : "white !important"};
 
 	article:first-of-type {
 		margin-top: ${(props) => (props.fullWidget ? "0" : "2rem")};
