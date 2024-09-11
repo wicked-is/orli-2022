@@ -174,19 +174,31 @@ export default function ExitIntent(props) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		// use new form data to capture values from the current target
+		const formData = new FormData(e.currentTarget);
+
+		// create an empty object to store the form data
+		const formBody = {};
+
+		// write a function to add all formdata entries to formbody object
+		formData.forEach((entry, key) => {
+			formBody[key] = entry;
+		});
+
+		formBody["type"] = "exit-intent";
+
+		// send the form data to the server
 		const res = await fetch(
 			"https://hooks.zapier.com/hooks/catch/2001353/bpab493/",
 			{
 				method: "POST",
-				body: JSON.stringify({
-					email,
-					firstname,
-					lastname,
-				}),
+				body: JSON.stringify(formBody),
 			}
 		);
 
 		handleResponse(res);
+
+		// handleResponse(res, type);
 	};
 
 	const handleResponse = async (res) => {

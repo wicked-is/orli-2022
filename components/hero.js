@@ -619,20 +619,22 @@ export default function Hero(props) {
 							style={{
 								backgroundImage: `url(${imagePoster.mediaItemUrl})`,
 							}}>
-							<div className={styles.logoOver}>
-								<img
-									src={pressLogo.mediaItemUrl}
-									alt={pressLogo.altText}
-									// width={721}
-									// height={135}
-									// layout="intrinsic"
-									style={{
-										width: "auto",
-										// height: "100%",
-										maxWidth: "135px",
-									}}
-								/>
-							</div>
+							{pressLogo?.mediaItemUrl && (
+								<div className={styles.logoOver}>
+									<img
+										src={pressLogo.mediaItemUrl}
+										alt={pressLogo.altText}
+										// width={721}
+										// height={135}
+										// layout="intrinsic"
+										style={{
+											width: "auto",
+											// height: "100%",
+											maxWidth: "135px",
+										}}
+									/>
+								</div>
+							)}
 							<div className={styles.textOver}>
 								<p
 									className="xs-heading uppercase letterSpacing white"
