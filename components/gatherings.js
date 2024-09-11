@@ -50,9 +50,12 @@ export default function Gatherings(props) {
 										</video>
 									</div>
 									<p className="serif xs-copy uppercase brown">
-										<a href={media[0].ctaLink}>
-											{media[0].ctaText}
-										</a>
+										{media[0].ctaText &&
+											media[0].ctaLink && (
+												<a href={media[0].ctaLink}>
+													{media[0].ctaText}
+												</a>
+											)}
 									</p>
 								</div>
 							)}
