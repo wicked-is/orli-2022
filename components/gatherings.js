@@ -69,11 +69,13 @@ export default function Gatherings(props) {
 										height={370}
 										layout="responsive"
 									/>
-									<p className="serif xs-copy uppercase brown">
-										<a href={media[1].ctaLink}>
-											{media[1].ctaText}
-										</a>
-									</p>
+									{media[1].ctaLink && media[1].ctaText && (
+										<p className="serif xs-copy uppercase brown">
+											<a href={media[1].ctaLink}>
+												{media[1].ctaText}
+											</a>
+										</p>
+									)}
 								</>
 							)}
 							{type === "Weddings" ? (
