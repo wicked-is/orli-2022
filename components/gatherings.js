@@ -49,14 +49,13 @@ export default function Gatherings(props) {
 											<source src={media[0].webm} />
 										</video>
 									</div>
-									<p className="serif xs-copy uppercase brown">
-										{media[0].ctaText &&
-											media[0].ctaLink && (
-												<a href={media[0].ctaLink}>
-													{media[0].ctaText}
-												</a>
-											)}
-									</p>
+									{media[0].ctaText && media[0].ctaLink && (
+										<p className="serif xs-copy uppercase brown">
+											<a href={media[0].ctaLink}>
+												{media[0].ctaText}
+											</a>
+										</p>
+									)}
 								</div>
 							)}
 						</div>
