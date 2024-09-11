@@ -365,7 +365,11 @@ export default function EventFeed(props) {
 		<EventFeedContainer
 			fullWidget={fullWidget}
 			className={props.fullWidget ? "fullWidget" : ""}>
-			<a id="upcoming" name="upcoming" className="anchor"></a>
+			<a
+				id="upcoming"
+				name="upcoming"
+				className="anchor"
+				aria-hidden="true"></a>
 			<Left fullWidget={fullWidget}>
 				{fullWidget && (
 					<p className="sans-serif-bold sub-heading mt-0">Upcoming</p>

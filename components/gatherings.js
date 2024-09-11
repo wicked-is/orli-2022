@@ -148,7 +148,11 @@ export default function Gatherings(props) {
 	return (
 		<section id="events" className={`${styles.gatheringsContainer} max-80`}>
 			{anchorTag && (
-				<a id={anchorTag} name={anchorTag} className="anchor"></a>
+				<a
+					id={anchorTag}
+					name={anchorTag}
+					className="anchor"
+					aria-hidden="true"></a>
 			)}
 			{gatheringStructure(type)}
 		</section>
