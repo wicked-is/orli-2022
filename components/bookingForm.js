@@ -71,39 +71,38 @@ export default function BookingForm(props) {
 		window.openBookingFlow();
 	}
 
-	function handleFormSubmit(e) {
-		if (e) e.preventDefault();
+	// function handleFormSubmit(e) {
+	// 	if (e) e.preventDefault();
 
-		Mews.Distributor(
-			{
-				// This is the demo id
-				configurationIds: ["e12243c4-2c54-4d1c-a958-afb801279497"],
-				// This is the id from the Mews General Settings of the dashboard
-				// configurationIds: ["b6f6f212-71c7-4e05-897a-afb801278392"],
-				// This is the id from the Mews Booking Engines Settings of the dashboard
-				// configurationIds: ["e12243c4-2c54-4d1c-a958-afb801279497"],
-				openElements: ".distributor-open",
-			},
-			function (api) {
-				// you can call API functions on a booking engine instance here
-				// set different start and end date
-				api.setStartDate(
-					new Date(checkInRef.current.value.replace(/-/g, "/"))
-				);
-				api.setEndDate(
-					new Date(checkOutRef.current.value.replace(/-/g, "/"))
-				);
+	// 	Mews.Distributor(
+	// 		{
+	// 			// This is the demo id
+	// 			configurationIds: ["e12243c4-2c54-4d1c-a958-afb801279497"],
+	// 			// This is the id from the Mews General Settings of the dashboard
+	// 			// configurationIds: ["b6f6f212-71c7-4e05-897a-afb801278392"],
+	// 			// This is the id from the Mews Booking Engines Settings of the dashboard
+	// 			// configurationIds: ["e12243c4-2c54-4d1c-a958-afb801279497"],
+	// 			openElements: ".distributor-open",
+	// 		},
+	// 		function (api) {
+	// 			// you can call API functions on a booking engine instance here
+	// 			// set different start and end date
+	// 			api.setStartDate(
+	// 				new Date(checkInRef.current.value.replace(/-/g, "/"))
+	// 			);
+	// 			api.setEndDate(
+	// 				new Date(checkOutRef.current.value.replace(/-/g, "/"))
+	// 			);
 
-				if (isQuickView) closeDialog();
-				if (roomId?.length > 0) api.showRates(roomId);
-				api.open();
-			}
-		);
-	}
+	// 			if (isQuickView) closeDialog();
+	// 			if (roomId?.length > 0) api.showRates(roomId);
+	// 			api.open();
+	// 		}
+	// 	);
+	// }
 
 	return (
 		<div
-			// onFocus={() => console.log("focused")}
 			onFocus={handleFormFocus}
 			id="booking-form"
 			style={{
@@ -112,23 +111,17 @@ export default function BookingForm(props) {
 				marginBottom: isQuickView ? "0" : "115px",
 				alignSelf: "flex-end",
 			}}>
-			{calendarIsVisible ? (
-				<CalendarWidget
-					handleCheckin={setCheckin}
-					handleCheckout={setCheckout}
-					closeCalendarWidget={toggleShowCalendar}
-				/>
-			) : null}
-			<div className={styles.formcontainer}>
-				<form
-					// action={`https://app.mews.com/distributor/b6f6f212-71c7-4e05-897a-afb801278392?mewsStart=${checkInDate}&mewsEnd=${checkOutDate}`}
-					className={styles.form}
-					method="POST"
-					// onSubmit={handleFormSubmit}
-				>
-					<div className={styles.formGroup}>
-						<span className="sans-serif xs-copy">Check In</span>
+			<div
+				className={styles.formcontainer}
+				role="presentation"
+				tabIndex="-1">
+				<div className={styles.form} tabIndex="-1">
+					<div className={styles.formGroup} tabIndex="-1">
+						<span className="sans-serif xs-copy" tabIndex="-1">
+							Check In
+						</span>
 						<input
+							tabIndex="-1"
 							type={"date"}
 							aria-label="Check In Date"
 							name="widget_date"
@@ -144,9 +137,12 @@ export default function BookingForm(props) {
 							ref={checkInRef}
 						/>
 					</div>
-					<div className={styles.formGroup}>
-						<span className="sans-serif xs-copy">Check Out</span>
+					<div className={styles.formGroup} tabIndex="-1">
+						<span className="sans-serif xs-copy" tabIndex="-1">
+							Check Out
+						</span>
 						<input
+							tabIndex="-1"
 							type={"date"}
 							aria-label="Check Out Date"
 							name="widget_date_to"
@@ -163,12 +159,13 @@ export default function BookingForm(props) {
 						/>
 					</div>
 					<button
+						tabIndex="-1"
 						type="submit"
 						aria-label="search button"
 						className={`${styles.button} btn-submit xs-copy body-copy uppercase white bg-brown distributor-open`}>
 						{isLoading ? <LoadingSpinner /> : "Search"}
 					</button>
-				</form>
+				</div>
 			</div>
 		</div>
 	);

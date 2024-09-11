@@ -141,37 +141,46 @@ export default function Hero(props) {
 			case "Video":
 				return (
 					<div className={styles.heroContainer}>
-						<div
-							className={`${
-								textPosition == "Left Center"
-									? `${styles.herotextOver}`
-									: "null"
-							} ${
-								textPosition == "Center Center"
-									? `${styles.herotextCenterCenter}`
-									: "null"
-							} ${
-								textPosition == "Bottom Center"
-									? `${styles.herotextOverCenter}`
-									: "null"
-							}`}>
-							<p className="sans-serif sub-heading-bold white">
-								{headline}
-							</p>
-							<p
-								className="serif heading white"
-								dangerouslySetInnerHTML={{ __html: blurb }}></p>
-						</div>
-						<video
-							className={styles.heroVideo}
-							autoPlay
-							playsInline
-							muted
-							loop
-							poster="">
-							<source src={mp4ExternalLink} type="video/mp4" />
-							<source src={webm} type="video/webm" />
-						</video>
+						{headline || blurb ? (
+							<div
+								className={`${
+									textPosition == "Left Center"
+										? `${styles.herotextOver}`
+										: "null"
+								} ${
+									textPosition == "Center Center"
+										? `${styles.herotextCenterCenter}`
+										: "null"
+								} ${
+									textPosition == "Bottom Center"
+										? `${styles.herotextOverCenter}`
+										: "null"
+								}`}>
+								<p className="sans-serif sub-heading-bold white">
+									{headline}
+								</p>
+								<p
+									className="serif heading white"
+									dangerouslySetInnerHTML={{
+										__html: blurb,
+									}}></p>
+							</div>
+						) : null}
+						{mp4ExternalLink ? (
+							<video
+								className={styles.heroVideo}
+								autoPlay
+								playsInline
+								muted
+								loop
+								poster="">
+								<source
+									src={mp4ExternalLink}
+									type="video/mp4"
+								/>
+								<source src={webm} type="video/webm" />
+							</video>
+						) : null}
 						{includeLogo && (
 							<div className={styles.mobileherologo}>
 								<img

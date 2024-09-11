@@ -5,6 +5,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useWindowSize } from "../utils/hooks";
 import FauxSocialFeed from "./fauxSocialFeed";
+import OrliWebSticker from "../public/assets/images/OfferWebSticker.png";
 
 const MobileFooterContainer = styled.footer`
 	display: flex;
@@ -489,6 +490,25 @@ export default function Footer(props) {
 								</div>
 							</div>
 						</div>
+						<Link href="/offers" passHref>
+							<a
+								aria-label="link to offers page"
+								tabIndex={0}
+								style={{
+									position: "fixed",
+									bottom: "4rem",
+									right: "1rem",
+									zIndex: 99,
+								}}>
+								<Image
+									src={OrliWebSticker}
+									width={75}
+									height={75}
+									id="shop-icon-btn"
+									alt="Orli Offers graphic"
+								/>
+							</a>
+						</Link>
 					</footer>
 				))}
 			<Script id="userway" strategy="lazyOnload">

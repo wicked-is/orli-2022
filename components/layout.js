@@ -5,7 +5,7 @@ import { useState } from "react";
 import ExitIntent from "../components/exitIntent";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import OrliWebSticker from "../public/assets/images/OfferWebSticker.png";
+
 import PerksShopFeatureSlider from "./PerksShopFeatureSlider";
 
 export default function Layout(props) {
@@ -51,23 +51,7 @@ export default function Layout(props) {
 					: "top-bar-active"
 			}`}>
 			<Header navItems={props.navItems} topBar={props.topBar} />
-			<main>
-				<Link href="/offers" passHref>
-					<a
-						style={{
-							position: "fixed",
-							bottom: "4rem",
-							right: "1rem",
-							zIndex: 99,
-						}}>
-						<Image
-							src={OrliWebSticker}
-							width={75}
-							height={75}
-							id="shop-icon-btn"
-						/>
-					</a>
-				</Link>
+			<main id="main">
 				{props.children}
 				{/* <PerksShopFeatureSlider /> */}
 			</main>
