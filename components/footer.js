@@ -387,11 +387,11 @@ export default function Footer(props) {
 										<Link href="/event-vendor">
 											Event Vendors
 										</Link>
-										<Link
+										{/* <Link
 											href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
 											passHref>
 											<a target="_blank">Gift Cards</a>
-										</Link>
+										</Link> */}
 										<Link
 											href="https://shop.stayorli.com/"
 											passHref>
