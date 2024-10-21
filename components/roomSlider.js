@@ -76,8 +76,30 @@ export default function RoomSlider(props) {
 						imagesLoaded: true,
 						initialIndex: 2,
 						accessibility: true,
-						// fullscreen: true,
-						// autoPlay: 5000,
+						on: {
+							change: function (index) {
+								// set all non selected slides to tabindex -1
+								let allSlides = document.querySelectorAll(
+									".roomsSliderarrows .flickity-slider div"
+								);
+								allSlides.forEach((slide) => {
+									console.log("all slides");
+									console.log(slide);
+									slide.setAttribute("tabindex", "-1");
+									slide.setAttribute(
+										"name",
+										`slide-${index}`
+									);
+								});
+								// set selected slide to tabindex 0
+								let selectedSlide = document.querySelector(
+									`.roomsSliderarrows .flickity-slider div:nth-child(${
+										index + 1
+									})`
+								);
+								selectedSlide.setAttribute("tabindex", "0");
+							},
+						},
 					}}
 					disableImagesLoaded={false} // default false
 					reloadOnUpdate={false} // default false
@@ -139,12 +161,14 @@ export default function RoomSlider(props) {
 							<a
 								className={styles.navItem}
 								data-slide={index}
+								aria-lable={`Explore ${room.title}`}
 								onClick={changeSlider}>
 								{room.title === "The Irving Gill Penthouse"
 									? "The Penthouse"
 									: room.title}
 							</a>
 							<a
+								aria-lable={`Explore ${room.title}`}
 								href={room.singleRooms.slug}
 								className={`${styles.explore} sans-serif center white textshadow`}>
 								Explore This Room

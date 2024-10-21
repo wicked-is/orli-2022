@@ -41,6 +41,7 @@ export default function FauxSocialFeed(props) {
 					<Link href={ctaLink} passHref>
 						<a
 							className="sans-serif xs-copy underline"
+							aria-label="Open Orli Instagram account - @StayOrli"
 							target="_blank"
 							rel="noreferrer">
 							{ctaText}
@@ -51,7 +52,9 @@ export default function FauxSocialFeed(props) {
 					{images.map((image, index) => {
 						return (
 							<Link href={ctaLink} passHref key={`${index}-img`}>
-								<a target="_blank" aria-label="Orli Instagram">
+								<a
+									target="_blank"
+									aria-label="Open Orli Instagram account - @StayOrli">
 									<Image
 										key={`faux-${index}`}
 										src={image.mediaItemUrl}

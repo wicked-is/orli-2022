@@ -283,7 +283,7 @@ export default function Header(props) {
 						<div className="openclick" onClick={() => toggleNav()}>
 							<img
 								src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
-								alt="Orli La Jolla Logo"
+								alt="Orli La Jolla Logo White"
 								className={styles.headerlogo}
 								width={380}
 								height={95}
@@ -294,7 +294,7 @@ export default function Header(props) {
 					<Link href="/">
 						<img
 							src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
-							alt="Orli La Jolla Logo"
+							alt="Orli La Jolla Logo Black"
 							className={styles.headerlogo}
 							width={380}
 							height={95}

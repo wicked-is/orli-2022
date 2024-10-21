@@ -27,7 +27,9 @@
 		"react-open-weather": "^1.2.1",
 		"react-responsive-masonry": "^2.2.0",
 		"react-scroll-trigger": "^0.6.13",
-		"sass": "^1.49.9"
+		"react-slick": "^0.30.2",
+		"sass": "^1.49.9",
+		"slick-carousel": "^1.8.1"
 	},
 	"devDependencies": {
 		"eslint": "8.10.0",
