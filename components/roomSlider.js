@@ -83,8 +83,6 @@ export default function RoomSlider(props) {
 									".roomsSliderarrows .flickity-slider div"
 								);
 								allSlides.forEach((slide) => {
-									console.log("all slides");
-									console.log(slide);
 									slide.setAttribute("tabindex", "-1");
 									slide.setAttribute(
 										"name",
@@ -161,14 +159,14 @@ export default function RoomSlider(props) {
 							<a
 								className={styles.navItem}
 								data-slide={index}
-								aria-lable={`Explore ${room.title}`}
+								aria-label={`Explore ${room.title}`}
 								onClick={changeSlider}>
 								{room.title === "The Irving Gill Penthouse"
 									? "The Penthouse"
 									: room.title}
 							</a>
 							<a
-								aria-lable={`Explore ${room.title}`}
+								aria-label={`Explore ${room.title}`}
 								href={room.singleRooms.slug}
 								className={`${styles.explore} sans-serif center white textshadow`}>
 								Explore This Room
