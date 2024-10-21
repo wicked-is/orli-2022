@@ -150,8 +150,6 @@ export default function AmenitiesSlider(props) {
 													".amenitiesSliderarrows .flickity-slider div"
 												);
 											allSlides.forEach((slide) => {
-												console.log("all slides");
-												console.log(slide);
 												slide.setAttribute(
 													"tabindex",
 													"-1"

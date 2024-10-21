@@ -99,7 +99,6 @@ export default function Gallery(props) {
 				<h1 className="serif heading dark center">Gallery</h1>
 				<ImageMasonry numCols={2}>
 					{props.items.map((item, index) => {
-						console.log(`${index}`, item);
 						return (
 							<div
 								key={`gallery-item-${index}`}

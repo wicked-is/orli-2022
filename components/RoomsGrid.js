@@ -288,7 +288,6 @@ export default function RoomsGrid(props) {
 
 		newFilters.some((filter) => {
 			roomsgrid.forEach((room, index) => {
-				console.log({ currentRooms, room });
 				room.roomAmenities.nodes.map((amenity) => {
 					if (
 						amenity.name.includes(filter) &&
