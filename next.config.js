@@ -34,6 +34,16 @@ const nextConfig = {
 					"https://app.mews.com/distributor/e12243c4-2c54-4d1c-a958-afb801279497?mewsAvailabilityBlockId=23da4f18-e75f-4790-ba42-b0d501653344",
 				permanent: true,
 			},
+			{
+				source: "/contact-us",
+				destination: "/contact",
+				permanent: true,
+			},
+			{
+				source: "/offers/sense-sational-love",
+				destination: "/offers",
+				permanent: true,
+			},
 		];
 	},
 	env: {
