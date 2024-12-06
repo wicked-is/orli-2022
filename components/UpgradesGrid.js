@@ -55,7 +55,7 @@ export const UpgradesGridPostQuery = `
 
 const UpgradesGridMainContainer = styled.section`
 	background-color: ${(props) =>
-		props.index % 2 === 0 ? "var(--white)" : "var(--lt-grey)"};
+		props.index % 2 === 0 ? "var(--white)" : "var(--white)"};
 	padding: 6rem 5.5rem 6rem 5.5rem;
 
 	@media screen and (max-width: 820px) {
@@ -349,7 +349,7 @@ export default function UpgradesGrid(props) {
 	}, [sliderActive]);
 
 	return (
-		<UpgradesGridMainContainer index={index} style={{background: "#f2f1f0"}}>
+		<UpgradesGridMainContainer index={index}>
 			<a
 				aria-hidden="true"
 				aria-label={`anchor link ${
