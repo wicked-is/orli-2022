@@ -349,7 +349,7 @@ export default function UpgradesGrid(props) {
 	}, [sliderActive]);
 
 	return (
-		<UpgradesGridMainContainer index={index}>
+		<UpgradesGridMainContainer index={index} style={{background: "#f2f1f0"}}>
 			<a
 				aria-hidden="true"
 				aria-label={`anchor link ${
