@@ -212,10 +212,10 @@ export default function ExitIntent(props) {
 			<ExitContainer onPage={isPage}>
 				<ImageContainer
 					onPage={isPage}
-					bgImage="https://orlidev.wpengine.com/wp-content/uploads/2022/11/orli-la-jolla-girl-and-dog-at-window.jpg">
+					bgImage="https://orlidev.wpengine.com/wp-content/uploads/2024/12/Orli_2024_Med_Res_Will_Edwards-72_1.jpg">
 					{!isPage && (
 						<Image
-							src="https://orlidev.wpengine.com/wp-content/uploads/2022/11/orli-la-jolla-girl-and-dog-at-window.jpg"
+							src="https://orlidev.wpengine.com/wp-content/uploads/2024/12/Orli_2024_Med_Res_Will_Edwards-72_1.jpg"
 							alt="orli la jolla woman and dog by the window"
 							width={1136}
 							height={1318}
