@@ -69,6 +69,8 @@ export default function Footer(props) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		console.log(e);
+
 		const res = await fetch(
 			"https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/",
 			{
@@ -78,8 +80,9 @@ export default function Footer(props) {
 				}),
 			}
 		);
+		console.log(res);
 
-		handleResponse(res);
+		// handleResponse(res);
 	};
 
 	const handleResponse = async (res) => {
@@ -346,7 +349,7 @@ export default function Footer(props) {
 										) : (
 											<form
 												id="emailcapture"
-												action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/"
+												// action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/"
 												onSubmit={handleSubmit}>
 												<input
 													id="email"
@@ -359,7 +362,9 @@ export default function Footer(props) {
 														)
 													}
 												/>
-												<button className="submit">
+												<button
+													className="submit"
+													onSubmit={handleSubmit}>
 													Submit
 												</button>
 											</form>
@@ -469,7 +474,8 @@ export default function Footer(props) {
 								<div>
 									<div>
 										<p className="sans-serif copyright xs-copy white left">
-											© 2024 Orli La Jolla |{" "}
+											© {new Date().getFullYear()} Orli La
+											Jolla |{" "}
 											<Link href="/privacy-policy">
 												Privacy Policy
 											</Link>{" "}
