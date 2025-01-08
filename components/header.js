@@ -303,7 +303,7 @@ export default function Header(props) {
 				)}
 
 				<div className={styles.telephoneContainer}>
-					<Link href="tel:+16195760806">
+					<Link href="tel:+18587272776">
 						<img
 							src="https://orlidev.wpengine.com/wp-content/uploads/2022/09/phone-solid.svg"
 							alt="telephone link"
