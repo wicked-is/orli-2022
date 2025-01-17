@@ -71,7 +71,7 @@ export default function Gatherings(props) {
 									/>
 
 									{media[1]?.imagePoster &&
-										media[1]?.imagePoster?.caption(
+										media[1]?.imagePoster?.caption && (
 											<p
 												className={`${styles.caption} sans-serif xs-copy black`}
 												dangerouslySetInnerHTML={{
