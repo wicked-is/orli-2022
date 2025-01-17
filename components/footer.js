@@ -91,9 +91,7 @@ export default function Footer(props) {
 
 	return (
 		<>
-			{props.page !== "/email" && (
-				<FauxSocialFeed image={props.footerImages} />
-			)}
+			{props.page !== "/email" && <FauxSocialFeed image={props.page} />}
 
 			{props.page !== "/email" &&
 				(size.width < 768 ? (

@@ -59,7 +59,7 @@ export default function Layout(props) {
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)}
 			{/* <ExitIntent toggleModal={{ setshowModal, sethasModalShown }} /> */}
-			<Footer page={props.page} />
+			<Footer page={props.footerImages} />
 		</div>
 	);
 }
