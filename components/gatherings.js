@@ -69,6 +69,17 @@ export default function Gatherings(props) {
 										height={370}
 										layout="responsive"
 									/>
+
+									{media[1].imagePoster.caption.length >
+										2 && (
+										<p
+											className={`${styles.caption} sans-serif xs-copy black`}
+											dangerouslySetInnerHTML={{
+												__html: media[1].imagePoster
+													.caption,
+											}}
+										/>
+									)}
 									{media[1].ctaLink && media[1].ctaText && (
 										<p className="serif xs-copy uppercase brown">
 											<a href={media[1].ctaLink}>

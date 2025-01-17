@@ -1033,6 +1033,7 @@ export async function getStaticProps({ params }) {
                     imagePoster {
                       altText
                       sourceUrl
+                      caption
                     }
                     mp4
                     type
