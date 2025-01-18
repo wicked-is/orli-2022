@@ -521,6 +521,7 @@ export default function Form(props) {
 								type="file"
 								name="mediaKits"
 								placeholder="Choose Files"
+								accept=".pdf"
 								multiple={true}
 								onChange={(e) =>
 									setMediaKitFile(e.target.files)
