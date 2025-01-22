@@ -6,7 +6,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 import styles from "../styles/blurbLeft.module.css";
 
-export default function BlurbLeft({ content, ctaLink, ctaText, icon, title }) {
+export default function BlurbLeft({
+	caption,
+	content,
+	ctaLink,
+	ctaText,
+	icon,
+	title,
+}) {
 	useEffect(() => {
 		var twosections = gsap.utils.toArray(".fadeintwo");
 
@@ -44,7 +51,17 @@ export default function BlurbLeft({ content, ctaLink, ctaText, icon, title }) {
 				</p>
 			)}
 			{content && (
-				<p className={`${styles.content} heading`}>{content}</p>
+				<p
+					className={`${styles.content} ${
+						caption && styles.nbm
+					} heading`}>
+					{content}
+				</p>
+			)}
+			{caption && (
+				<p className={`${styles.content} black body-copy sans-serif`}>
+					{caption}
+				</p>
 			)}
 			{ctaLink && (
 				<p className={`${styles.cta} sans-serif xs-copy`}>

@@ -1,24 +1,34 @@
 .blurbLeftContainer {
-    position: relative;
+	position: relative;
 }
 
 .icon {
-    position: absolute;
-    right: 0;
+	position: absolute;
+	right: 0;
 }
 
 .content {
-    max-width: 75%;
-    margin-top: 0;
-    margin-bottom: 4rem;
+	max-width: 70%;
+	margin-top: 0;
+	margin-bottom: 4rem;
 }
 
-.cta { text-decoration: underline; }
+.cta {
+	text-decoration: underline;
+}
+
+.nbm {
+	margin-bottom: 1.25rem;
+}
 
 @media only screen and (max-width: 600px) {
-    .content {max-width: 100%;}
-    .icon {top: -5rem;}
-    .blurbLeftContainer .mobilepadding {
-        padding: 2rem 0rem 0rem 0rem;
-    }
+	.content {
+		max-width: 100%;
+	}
+	.icon {
+		top: -5rem;
+	}
+	.blurbLeftContainer .mobilepadding {
+		padding: 2rem 0rem 0rem 0rem;
+	}
 }

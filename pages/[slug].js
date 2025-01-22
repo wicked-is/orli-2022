@@ -870,6 +870,7 @@ export async function getStaticProps({ params }) {
               ... on Page_Flexiblecontent_Sections_DiscoveriesCallout {
                 fieldGroupName
                 blurb
+                caption
                 ctaLink
                 ctaText
                 icon {
