@@ -37,7 +37,6 @@ export default function Layout(props) {
 			event_label: "Shop Icon",
 		});
 
-		console.log("gtag event click");
 		// sent window location to /offers
 		window.location.href = "/offers";
 	}

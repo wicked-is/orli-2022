@@ -49,7 +49,6 @@ export default function WeatherWidget(props) {
 			.catch((error) => console.error("Error fetching data: ", error));
 	}, []);
 
-	console.log(weatherData);
 	return (
 		<WidgetContainer className="weather-copy white sans-serif">
 			<Title className="sun">La Jolla, CA</Title>
