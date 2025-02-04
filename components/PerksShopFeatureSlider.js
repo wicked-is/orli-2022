@@ -91,8 +91,8 @@ const PerksShopFeatureSliderSection = styled.section`
 
 		.is-selected ${MediaContainer} {
 			position: relative;
-			width: 160vw;
-			left: -29vw;
+			width: 100vw;
+			left: 0vw;
 			opacity: 1;
 		}
 	}
