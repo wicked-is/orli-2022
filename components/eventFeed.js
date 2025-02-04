@@ -393,6 +393,7 @@ export default function EventFeed(props) {
 							style={{
 								borderTop: "1px solid black",
 								width: "100%",
+								padding: "0.5rem 0",
 							}}
 							data-category={event?.categories?.nodes[0]?.name}
 							data-title={event?.title}
