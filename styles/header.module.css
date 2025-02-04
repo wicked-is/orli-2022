@@ -474,7 +474,7 @@ ul.socials {
         padding: 0 2rem 4rem;
     }
     .header.open .headerlogo {left: 1rem;}
-    .header .close {
+    .header.open .close {
         right: 2rem;
     }
 }
