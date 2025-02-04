@@ -20,7 +20,7 @@ const WidgetContainer = styled.div`
 	@media only screen and (max-width: 437px) {
 		& {
 			top: 6rem;
-			left: 7rem;
+			left: 5rem;
 		}
 	}
 `;

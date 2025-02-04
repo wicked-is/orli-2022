@@ -77,11 +77,6 @@
     -webkit-background-size: cover !important;
 }
 
-.room img {
-    width: 100%;
-    display: none !important;
-}
-
 .roommobile {
     display: none;
 }
@@ -114,8 +109,10 @@
 @media only screen and (max-width: 800px) {
     .room {
         width: 100%;
-        height: auto;
-        background: unset;
+        height: 85vh;
+        background-size: cover !important;
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
     }
     .roomHeading {
         left: 2rem;

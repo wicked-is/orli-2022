@@ -186,7 +186,7 @@ export default function AmenitiesSlider(props) {
 											className={styles.item}
 											style={{
 												backgroundImage: isMobile
-													? null
+													? `url(${item.featuredImage.node.mediaItemUrl})`
 													: `url(${item.featuredImage.node.mediaItemUrl})`,
 											}}
 											data-mobile={isMobile}>

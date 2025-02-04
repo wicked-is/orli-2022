@@ -116,7 +116,7 @@ export default function RoomSlider(props) {
 								} of ${rooms.length}`}
 								style={{
 									backgroundImage: isMobile
-										? null
+										? `url(${room.singleRooms.roomshero.mediaItemUrl})`
 										: `url(${room.singleRooms.roomshero.mediaItemUrl})`,
 								}}
 								data-mobile={isMobile}>
@@ -127,18 +127,7 @@ export default function RoomSlider(props) {
 										{room.title}
 									</a>
 								</p>
-								{
-									<Image
-										src={
-											room.singleRooms.roomshero
-												.mediaItemUrl
-										}
-										alt={room.singleRooms.roomshero.altText}
-										width={1436}
-										height={1020}
-										layout="intrinsic"
-									/>
-								}
+
 								<div className={styles.bottomgradient}></div>
 							</div>
 						);

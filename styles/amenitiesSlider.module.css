@@ -139,21 +139,24 @@
     } */
 	.sliderContent {
 		bottom: unset;
-		top: 0rem;
-		position: relative;
-		max-width: 100%;
+		top: 1rem;
+		position: absolute;
+		max-width: 90%;
+		z-index: 2;
 		display: block;
 	}
 	.amenity .item {
 		width: 88.5vw;
 		margin-right: 1.4rem;
-		height: 90vh;
+		height: 70vh;
 	}
-
 	.amenitiesSlider .item {
 		width: 100%;
 		margin-right: 0;
-		height: auto;
+		height: 70vh;
+		top: 0;
+		left: 0;
+		right: 0;
 	}
 
 	.mobileTitle {
