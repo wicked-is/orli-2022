@@ -134,6 +134,11 @@
     display: inline-block;
     position: relative;
 }
+@media only screen and (max-width: 820px){
+    .hamburger .hamburger-box {
+        display: none;
+    }
+}
 
 .hamburger .hamburger--collapse .hamburger-inner {
     top: auto;
@@ -374,7 +379,7 @@ ul.socials {
         position: absolute;
         display: block;
         z-index: 9;
-        left: -3rem;
+        left: -5rem;
         top: 1.2rem;
         text-transform: uppercase;
         font-size: var(--xs-copy);
@@ -397,7 +402,7 @@ ul.socials {
         bottom: 0;
         height: 100%;
         display: block;
-        background: var(--brown);
+        background: var(--white);
         align-items: center;
         justify-content: center;
         transition: 0.3s ease all;

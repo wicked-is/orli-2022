@@ -140,7 +140,7 @@ export default function Hero(props) {
 		switch (types) {
 			case "Video":
 				return (
-					<div className={styles.heroContainer}>
+					<div className={`${styles.heroContainer} ${styles.video}`}>
 						{headline || blurb ? (
 							<div
 								className={`${
@@ -193,6 +193,16 @@ export default function Hero(props) {
 							<section className={styles.horizontalFormContainer}>
 								<BookingForm />
 							</section>
+						)}
+						{includeBookingForm && (
+							<div className={styles.mobileHeroButton}>
+							<a
+								href="/find-your-room"
+								className={`${styles.findYourRoomLink} bg-brown xs-copy uppercase white`}
+								target="_blank">
+								Find Your Room
+							</a>
+						</div>
 						)}
 						{includeBookMultipleRoomsLink && (
 							<div className={styles.bookmultipleroomsContainer}>
