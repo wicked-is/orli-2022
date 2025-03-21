@@ -1,36 +1,28 @@
 import { useEffect, useState } from "react";
 // import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { ResponsiveMasonry } from "react-responsive-masonry";
+// import { ResponsiveMasonry } from "react-responsive-masonry";
 // import Responsive Masonry from 'react-responsive-masonry" only if typeof window is not undefined
-import Link from "next/link";
-import Image from "next/image";
+// import Link from "next/link";
+// import Image from "next/image";
 import Fancybox from "../components/FancyBox.js";
 import styles from "../styles/gallery.module.css";
 import { useWindowSize } from "../utils/hooks";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import ImageMasonry from "react-image-masonry";
+// import ImageMasonry from "react-image-masonry";
+import Masonry from "react-masonry-css";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Gallery(props) {
 	const { items, filters, index } = props;
 
 	const size = useWindowSize();
-
 	const [filteredItems, setFilteredItems] = useState(items);
 
-	const handleFilterClick = (currentItem) => {
-		if (currentItem.filter === "All") {
-			return setFilteredItems(items);
-		}
-
-		let newItems = [];
-
-		items.filter(
-			(item) => item.filter === currentItem.filter && newItems.push(item)
-		);
-
-		setFilteredItems(newItems);
+	const breakpointColumnsObj = {
+		default: 3,
+		700: 2,
+		500: 1,
 	};
 
 	useEffect(() => {
@@ -97,7 +89,10 @@ export default function Gallery(props) {
 				className={styles.galleryContainer}
 				style={{ paddingTop: index < 2 ? "8rem" : "2rem" }}>
 				<h1 className="serif heading dark center">Gallery</h1>
-				<ImageMasonry numCols={2}>
+				<Masonry
+					breakpointCols={breakpointColumnsObj}
+					className="my-masonry-grid"
+					columnClassName="my-masonry-grid_column">
 					{props.items.map((item, index) => {
 						return (
 							<div
@@ -286,7 +281,7 @@ export default function Gallery(props) {
 							</div>
 						);
 					})}
-				</ImageMasonry>
+				</Masonry>
 			</div>
 		</section>
 	);
