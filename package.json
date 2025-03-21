@@ -13,7 +13,7 @@
 		"again": "^0.0.1",
 		"dotenv": "^16.0.3",
 		"exit-intent": "^1.1.0",
-		"flickity": "^3.6.3",
+		"flickity": "^3.0.0",
 		"gsap": "^3.9.1",
 		"html-react-parser": "^1.4.13",
 		"next": "^12.3.1",
