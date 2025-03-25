@@ -278,7 +278,7 @@ export default function Footer(props) {
 									Discerning Traveler &trade;
 								</p>
 								<p className="sans-serif copyright xs-copy white left">
-									© ${new Date().getFullYear()} Orli La Jolla
+									© {new Date().getFullYear()} Orli La Jolla
 								</p>
 							</FullWidth>
 						</MobileFooterContainer>
