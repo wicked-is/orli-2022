@@ -417,20 +417,18 @@ export default function Form(props) {
 							/>
 						</FieldGroup>
 
-						{/* Phone Number  */}
+						{/* IG Audience  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
-								htmlFor="phonenumber">
-								Phone Number*
+								htmlFor="igAudience">
+								Instagram Audience Demographic*
 							</label>
 							<input
-								required
 								type="text"
-								name="phonenumber"
-								placeholder="Your Number"
-								value={phone}
-								onChange={(e) => setPhone(e.target.value)}
+								name="igAudience"
+								placeholder="Instagram Audience Demographic"
+								required={true}
 							/>
 						</FieldGroup>
 
