@@ -16,7 +16,7 @@ const FormContentContainer = styled.div`
 
 const EventForm = styled.form`
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 50% 50%;
 	grid-gap: 2rem;
 	margin-block: 3rem;
 
@@ -24,13 +24,32 @@ const EventForm = styled.form`
 		grid-template-columns: 1fr;
 	}
 `;
+const ThreeColumn = styled.div``;
+const InfluencerInquiryForm = styled(EventForm)`
+	${ThreeColumn} {
+		grid-column: span 2;
 
-const InfluencerInquiryForm = styled(EventForm)``;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr;
+			grid-column: span 1;
+		}
+	}
+`;
 const EventVendoryInquiryForm = styled(EventForm)``;
 
 const FieldGroup = styled.div`
 	display: flex;
 	flex-direction: column;
+
+	grid-column: ${(props) => (props.$span ? `span ${props.$span}` : "span 1")};
+
+	@media screen and (max-width: 768px) {
+		grid-column: span 1;
+	}
 
 	input,
 	textarea {
@@ -99,7 +118,7 @@ const StyledCheckboxContainer = styled.label`
 	user-select: none;
 
 	&:hover input ~ span {
-		background-color: #fff;
+		background-color: #8c361e;
 	}
 
 	input {
@@ -119,7 +138,7 @@ const StyledCheckboxContainer = styled.label`
 		background-color: #d9d9d9;
 	}
 	input:checked ~ span.checkmark {
-		background-color: #ccc;
+		background-color: #8c361e;
 	}
 
 	span.checkmark:after {
@@ -136,13 +155,18 @@ const StyledCheckboxContainer = styled.label`
 		width: 12.5px;
 		height: 12.5px;
 		border-radius: 90%;
-		background: black;
+		background: #8c361e;
 	}
 `;
 const CheckboxesContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 0;
+	}
 `;
 export default function Form(props) {
 	const { type, subHeadline, headline, blurb, anchorTag } = props;
@@ -437,93 +461,204 @@ export default function Form(props) {
 							<label
 								className="sans-serif sub-heading-bold black"
 								htmlFor="instagram">
-								Instagram
+								Instagram Profile
 							</label>
 							<input
 								type="text"
 								name="instagram"
-								placeholder="Instagram"
+								placeholder="Instagram Profile"
 							/>
 						</FieldGroup>
 
-						{/* Additional Social media  */}
+						{/* Facebook  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
-								htmlFor="socialmedia">
-								Additional Social Media
+								htmlFor="facebook">
+								Facebook Profile
 							</label>
 							<input
 								type="text"
-								name="socialmedia"
-								placeholder="e.g. TikTok, Facebook"
+								name="facebook"
+								placeholder="Facebook Profile"
 							/>
 						</FieldGroup>
 
-						{/* Preferred Date of Arrival  */}
+						{/* TikTok  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
-								htmlFor="startdate">
-								PREFERRED DATE OF STAY - ARRIVAL
+								htmlFor="tiktok">
+								TikTok Profile
 							</label>
 							<input
-								type="date"
-								name="startdate"
-								placeholder="Preferred Date of Stay"
-								value={startdate}
-								onChange={(e) => setStart(e.target.value)}
+								type="text"
+								name="tiktok"
+								placeholder="TikTok Profile"
 							/>
 						</FieldGroup>
 
-						{/* Date of Departure  */}
+						{/* Website  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
-								htmlFor="enddate">
-								PREFERRED DATE OF STAY - DEPARTURE
+								htmlFor="website">
+								Website
 							</label>
-							<input
-								type="date"
-								name="enddate"
-								placeholder="Departure Date"
-								value={enddate}
-								onChange={(e) => setEnd(e.target.value)}
-							/>
+							<input type="text" name="website" placeholder="" />
 						</FieldGroup>
 
-						{/* Group Size  */}
-						<FieldGroup>
+						<ThreeColumn>
+							{/* Preferred Date of Arrival  */}
+							<FieldGroup>
+								<label
+									className="sans-serif sub-heading-bold black"
+									htmlFor="startdate">
+									Proposed Arrival Date
+								</label>
+								<input
+									required
+									type="date"
+									name="startdate"
+									placeholder="Preferred Date of Stay"
+									value={startdate}
+									onChange={(e) => setStart(e.target.value)}
+								/>
+							</FieldGroup>
+
+							{/* Date of Departure  */}
+							<FieldGroup>
+								<label
+									className="sans-serif sub-heading-bold black"
+									htmlFor="enddate">
+									Proposed Departure Date
+								</label>
+								<input
+									required
+									type="date"
+									name="enddate"
+									placeholder="Departure Date"
+									value={enddate}
+									onChange={(e) => setEnd(e.target.value)}
+								/>
+							</FieldGroup>
+
+							{/** Flexible - checkbox with yes or no as options */}
+							<FieldGroup>
+								<label
+									className="sans-serif sub-heading-bold black"
+									htmlFor="flexible">
+									Flexible
+								</label>
+								<CheckboxesContainer>
+									<StyledCheckboxContainer>
+										<input
+											type="checkbox"
+											name="flexible"
+											value="yes"
+										/>
+										<span className="checkmark"></span>
+										Yes
+									</StyledCheckboxContainer>
+									<StyledCheckboxContainer>
+										<input
+											type="checkbox"
+											name="flexible"
+											value="no"
+										/>
+										<span className="checkmark"></span>
+										No
+									</StyledCheckboxContainer>
+								</CheckboxesContainer>
+							</FieldGroup>
+						</ThreeColumn>
+
+						{/* Areas of focus - check all that aplpy - F & B, Fashion, Travel, Beauty, Photography, Other  */}
+						<FieldGroup $span={2}>
 							<label
 								className="sans-serif sub-heading-bold black"
-								htmlFor="nguests">
-								Group Size
+								htmlFor="focus">
+								Areas of Focus
 							</label>
-							<input
-								type="number"
-								name="nguests"
-								placeholder="Number of People"
-								value={numOfGuests}
-								onChange={(e) => setNumOfGuests(e.target.value)}
-							/>
+							<CheckboxesContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="focus"
+										value="f&b"
+									/>
+									<span className="checkmark"></span>
+									Food & Beverage
+								</StyledCheckboxContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="focus"
+										value="fashion"
+									/>
+									<span className="checkmark"></span>
+									Fashion
+								</StyledCheckboxContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="focus"
+										value="travel"
+									/>
+									<span className="checkmark"></span>
+									Travel
+								</StyledCheckboxContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="focus"
+										value="beauty"
+									/>
+									<span className="checkmark"></span>
+									Beauty
+								</StyledCheckboxContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="focus"
+										value="photography"
+									/>
+									<span className="checkmark"></span>
+									Photography
+								</StyledCheckboxContainer>
+								<StyledCheckboxContainer>
+									<input
+										type="checkbox"
+										name="focus"
+										value="other"
+									/>
+									<span className="checkmark"></span>
+									Other
+								</StyledCheckboxContainer>
+							</CheckboxesContainer>
 						</FieldGroup>
 
-						{/* Media Kit  */}
+						{/* If other  */}
 						<FieldGroup>
 							<label
 								className="sans-serif sub-heading-bold black"
-								htmlFor="mediaKit">
-								Media Kit
+								htmlFor="other">
+								If area of focus is other, please specify
+							</label>
+							<input type="text" name="other" placeholder="" />
+						</FieldGroup>
+
+						{/* Proposed Deliverables  */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="deliverables">
+								Proposed Deliverables
 							</label>
 							<input
-								type="file"
-								name="mediaKits"
-								placeholder="Choose Files"
-								accept=".pdf"
-								multiple={true}
-								onChange={(e) =>
-									setMediaKitFile(e.target.files)
-								}
+								type="text"
+								name="deliverables"
+								placeholder=""
 							/>
 						</FieldGroup>
 
@@ -531,16 +666,31 @@ export default function Form(props) {
 						<FieldGroup className="messageField">
 							<label
 								className="sans-serif sub-heading-bold black"
-								htmlFor="pastCollaborations">
-								Examples of Past Hotel Collaborations*
+								htmlFor="pastpartnerships">
+								Sample of past partnerships*
 							</label>
 							<textarea
 								required
-								name="pastCollaborations"
+								name="pastpartnerships"
 								placeholder="Your Message"
 								rows="4"
 								value={message}
 								onChange={(e) => setMessage(e.target.value)}
+							/>
+						</FieldGroup>
+
+						{/* Why Us  */}
+						<FieldGroup className="messageField">
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="whyus">
+								Why Us?
+							</label>
+							<textarea
+								required
+								name="whyus"
+								placeholder="Please share why you'd like to stay with us and the reason for your upcoming visit"
+								rows="4"
 							/>
 						</FieldGroup>
 
