@@ -541,7 +541,11 @@ export default function DefaultRoomsPage(props) {
 											ref={checkOutRef}
 										/>
 									</ReservationFormLabel>
-									<ReservationButton className="sans-serif uppercase distributor-open">
+									<ReservationButton
+										className="sans-serif uppercase distributor-open"
+										onFocus={handleFormFocus}
+										onClick={handleFormFocus}
+										onTouchStart={handleFormFocus}>
 										{isLoading ? (
 											<LoadingSpinner />
 										) : (
