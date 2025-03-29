@@ -703,7 +703,7 @@ export default function DefaultRoomsPage(props) {
 									className="sans-serif"
 									onFocus={handleFormFocus}
 									onClick={handleFormFocus}
-									onPress={handleFormFocus}
+									onTouchStart={handleFormFocus}
 									// onChange={setCheckin}
 									// onTouchEnd={(e) => {
 									// 	e.preventDefault();
@@ -732,13 +732,15 @@ export default function DefaultRoomsPage(props) {
 									// onClick={toggleShowCalendar}
 									onFocus={handleFormFocus}
 									onClick={handleFormFocus}
-									onPress={handleFormFocus}
+									onTouchStart={handleFormFocus}
 									ref={checkOutRef}
 								/>
 							</ReservationFormLabel>
 							<ReservationButton
 								className="sans-serif uppercase distributor-open"
-								onClick={handleFormFocus}>
+								onClick={handleFormFocus}
+								onFocus={handleFormFocus}
+								onTouchStart={handleFormFocus}>
 								{isLoading ? (
 									<LoadingSpinner />
 								) : (
