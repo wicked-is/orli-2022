@@ -196,13 +196,13 @@ export default function Hero(props) {
 						)}
 						{includeBookingForm && (
 							<div className={styles.mobileHeroButton}>
-							<a
-								href="/find-your-room"
-								className={`${styles.findYourRoomLink} bg-brown xs-copy uppercase white`}
-								target="_blank">
-								Find Your Room
-							</a>
-						</div>
+								<a
+									href="/find-your-room"
+									className={`${styles.findYourRoomLink} bg-brown xs-copy uppercase white`}
+									target="_blank">
+									Book Your Stay
+								</a>
+							</div>
 						)}
 						{includeBookMultipleRoomsLink && (
 							<div className={styles.bookmultipleroomsContainer}>
