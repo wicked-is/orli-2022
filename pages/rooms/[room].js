@@ -508,6 +508,7 @@ export default function DefaultRoomsPage(props) {
 											className="sans-serif"
 											onFocus={handleFormFocus}
 											onClick={handleFormFocus}
+											onTouchStart={handleFormFocus}
 											// onChange={setCheckin}
 											// onTouchEnd={(e) => {
 											// 	e.preventDefault();
@@ -530,6 +531,7 @@ export default function DefaultRoomsPage(props) {
 											// value={checkOutDate}
 											onFocus={handleFormFocus}
 											onClick={handleFormFocus}
+											onTouchStart={handleFormFocus}
 											// onTouchEnd={(e) => {
 											// 	e.preventDefault();
 											// 	toggleShowCalendar();
