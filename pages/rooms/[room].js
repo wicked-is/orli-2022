@@ -696,7 +696,7 @@ export default function DefaultRoomsPage(props) {
 							<ReservationFormLabel className="sans-serif uppercase">
 								Check In
 								<input
-									type={"date"}
+									type="text"
 									aria-label="Check In Date"
 									name="widget_date"
 									placeholder="mm/dd/yyyy"
@@ -718,7 +718,7 @@ export default function DefaultRoomsPage(props) {
 							<ReservationFormLabel className="sans-serif uppercase">
 								Check Out
 								<input
-									type={"date"}
+									type="text"
 									aria-label="Check Out Date"
 									name="widget_date_to"
 									placeholder="mm/dd/yyyy"
