@@ -691,7 +691,7 @@ export default function DefaultRoomsPage(props) {
 						<p className="heading">Reservations</p>
 						<ReservationForm
 							// action={room.singleRooms.cloudbedsLink}
-							// onSubmit={handleFormSubmit}
+							onSubmit={handleFormFocus}
 							method="POST">
 							<ReservationFormLabel className="sans-serif uppercase">
 								Check In
