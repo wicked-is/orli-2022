@@ -197,7 +197,7 @@ export default function Hero(props) {
 						{includeBookingForm && (
 							<div className={styles.mobileHeroButton}>
 								<a
-									href="/find-your-room"
+									onClick={handleFormFocus}
 									className={`${styles.findYourRoomLink} bg-brown xs-copy uppercase white`}
 									target="_blank">
 									Book Your Stay
