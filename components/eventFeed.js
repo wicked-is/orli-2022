@@ -450,7 +450,12 @@ export default function EventFeed(props) {
 									</div>
 								</div>
 							) : (
-								<Link href={event.link} passHref>
+								<Link
+									href={
+										event?.singleEvent?.link ||
+										event?.singleEvent?.rsvpLink
+									}
+									passHref>
 									<a>
 										<p className="sans-serif xs-copy left">
 											{event?.singleEvent?.locationName &&
