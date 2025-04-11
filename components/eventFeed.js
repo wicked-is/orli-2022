@@ -453,7 +453,8 @@ export default function EventFeed(props) {
 								<Link
 									href={
 										event?.singleEvent?.link ||
-										event?.singleEvent?.rsvpLink
+										event?.singleEvent?.rsvpLink ||
+										event.link
 									}
 									passHref>
 									<a>

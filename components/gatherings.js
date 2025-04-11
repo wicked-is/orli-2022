@@ -17,6 +17,8 @@ export default function Gatherings(props) {
 		anchorTag,
 	} = props;
 
+	console.log("props: ", props);
+
 	const gatheringStructure = (type) => {
 		switch (type) {
 			case "Gatherings":
@@ -49,7 +51,7 @@ export default function Gatherings(props) {
 											<source src={media[0].webm} />
 										</video>
 									</div>
-									{media[0].ctaText && media[0].ctaLink && (
+									{media[0]?.ctaText && media[0]?.ctaLink && (
 										<p className="serif xs-copy uppercase brown">
 											<a href={media[0].ctaLink}>
 												{media[0].ctaText}
@@ -80,7 +82,7 @@ export default function Gatherings(props) {
 												}}
 											/>
 										)}
-									{media[1].ctaLink && media[1].ctaText && (
+									{media[1]?.ctaLink && media[1]?.ctaText && (
 										<p className="serif xs-copy uppercase brown">
 											<a href={media[1].ctaLink}>
 												{media[1].ctaText}
