@@ -63,8 +63,11 @@ const FullWidth = styled.div`
 export default function Footer(props) {
 	const size = useWindowSize();
 
-	const [email, setEmail] = useState("");
 	const [success, setSuccess] = useState(false);
+
+	const [formState, setFormState] = useState({
+		email: "",
+	});
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -76,7 +79,7 @@ export default function Footer(props) {
 			{
 				method: "POST",
 				body: JSON.stringify({
-					email,
+					email: formState.email,
 					time: new Date().toLocaleString(),
 				}),
 			}
@@ -88,6 +91,15 @@ export default function Footer(props) {
 
 	const handleResponse = async (res) => {
 		if (res.status === 200) setSuccess(true);
+	};
+
+	const handleChange = (e) => {
+		console.log(e.target.value);
+		e.preventDefault();
+		setFormState({
+			...formState,
+			[e.target.name]: e.target.value,
+		});
 	};
 
 	return (
@@ -111,17 +123,19 @@ export default function Footer(props) {
 										id="emailcapture"
 										onSubmit={handleSubmit}>
 										<input
+											type="text"
 											id="email"
 											name="email"
-											value={email}
 											aria-label="Email"
 											placeholder="Enter Email*"
-											onChange={() =>
-												setEmail(event.target.value)
-											}
+											onChange={handleChange}
 										/>
-										<button className="submit">
-											Submit
+										
+										<button type="submit"
+											aria-label="submit email"
+											value="Submit"
+											className="submit">
+													Submit
 										</button>
 									</form>
 								)}
@@ -348,22 +362,19 @@ export default function Footer(props) {
 										) : (
 											<form
 												id="emailcapture"
-												// action="https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/"
 												onSubmit={handleSubmit}>
 												<input
+													type="text"
 													id="email"
 													name="email"
-													value={email}
 													placeholder="Enter Email*"
-													onChange={() =>
-														setEmail(
-															event.target.value
-														)
-													}
+													onChange={handleChange}
 												/>
 												<button
-													className="submit"
-													onSubmit={handleSubmit}>
+													type="submit"
+													aria-label="submit email"
+													value="Submit"
+													className="submit">
 													Submit
 												</button>
 											</form>
