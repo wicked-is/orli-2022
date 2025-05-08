@@ -77,12 +77,13 @@ export default function Footer(props) {
 				method: "POST",
 				body: JSON.stringify({
 					email,
+					time: new Date().toLocaleString(),
 				}),
 			}
 		);
 		console.log(res);
 
-		// handleResponse(res);
+		handleResponse(res);
 	};
 
 	const handleResponse = async (res) => {
