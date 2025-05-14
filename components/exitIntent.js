@@ -186,6 +186,7 @@ export default function ExitIntent(props) {
 		});
 
 		formBody["type"] = "exit-intent";
+		formBody["time"] = new Date().toLocaleString();
 
 		// send the form data to the server
 		const res = await fetch(
