@@ -422,8 +422,23 @@
 	z-index: 0;
 }
 
+
 .mobileherologo {
-	display: none;
+	display: block;
+	position: absolute;
+	top: 35%;
+	left: 0px;
+	right: 0px;
+	z-index: 8;
+	margin: auto;
+	text-align: center;
+}
+
+.mobileherologo img {
+	filter: invert(1);
+	width: 100%;
+	max-width: 20%;
+	min-width: 14rem;
 }
 
 .viewGallery {
@@ -475,6 +490,7 @@
 		filter: invert(1);
 		width: 100%;
 		max-width: 14rem;
+		min-width: unset;
 	}
 
 	.smallHero {

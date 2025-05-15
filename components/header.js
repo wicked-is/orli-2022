@@ -101,6 +101,21 @@ export default function Header(props) {
 		}
 	}, [topBar]);
 
+	const [isScrolled, setIsScrolled] = useState(false);
+
+  	useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  	}, []);
+	
 	function toggleNav() {
 		setNavIsOpen(!navIsOpen);
 	}
@@ -277,7 +292,7 @@ export default function Header(props) {
 					</button>
 				</div>
 			)}
-			<div className={styles.sitebranding}>
+			<div className={`${styles.sitebranding} ${isScrolled ? styles.scrolled : ''}`}>
 				{navIsOpen ? (
 					<Link href="/">
 						<div className="openclick" onClick={() => toggleNav()}>
@@ -324,7 +339,7 @@ export default function Header(props) {
 
 				<div className={styles.hamburgerContainer}>
 					<div
-						className="hamburger hamburger--collapse"
+						className={`hamburger hamburger--collapse ${isScrolled ? 'scrolled' : ''}`}
 						type="button"
 						onClick={() => toggleNav()}>
 						{navIsOpen ? (
