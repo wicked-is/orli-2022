@@ -20,7 +20,7 @@ const ExitUnderlay = styled.div`
 const ExitContainer = styled.div`
 	position: fixed;
 	width: 100%;
-	max-width: ${(props) => (props.onPage ? "100vw" : "70%")};
+	max-width: 900px;
 	margin: auto;
 	display: flex;
 	height: 500px;
