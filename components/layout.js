@@ -26,6 +26,7 @@ export default function Layout(props) {
 					if (hasModalShown) {
 						return;
 					}
+					setToggleCondeModal(false);
 					setshowModal(true);
 				},
 			});
