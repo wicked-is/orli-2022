@@ -1,16 +1,20 @@
 import exitIntent from "exit-intent";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExitIntent from "../components/exitIntent";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import CondeNasteModal from "../components/CondeNasteModal";
 
 import PerksShopFeatureSlider from "./PerksShopFeatureSlider";
 
 export default function Layout(props) {
 	const [showModal, setshowModal] = useState(false);
 	const [hasModalShown, sethasModalShown] = useState(false);
+
+	const [toggleCondeModal, setToggleCondeModal] = useState(false);
+	const [hasCondeModalShown, setHasCondeModalShown] = useState(false);
 
 	if (typeof document !== "undefined") {
 		setTimeout(() => {
@@ -41,6 +45,17 @@ export default function Layout(props) {
 		window.location.href = "/offers";
 	}
 
+	useEffect(() => {
+		// after 15s toggleCondeModal to true as long as it's the home page and showModal is false
+		if (props.page === "/" && !hasCondeModalShown) {
+			setTimeout(() => {
+				if (!hasModalShown) {
+					setToggleCondeModal(true);
+				}
+			}, 15000);
+		}
+	}, []);
+
 	return (
 		<div
 			data-page={`${props.currentPage}`}
@@ -57,7 +72,11 @@ export default function Layout(props) {
 			{showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)}
-			{/* <ExitIntent toggleModal={{ setshowModal, sethasModalShown }} /> */}
+			{toggleCondeModal && !hasCondeModalShown && (
+				<CondeNasteModal
+					toggleModal={{ setToggleCondeModal, setHasCondeModalShown }}
+				/>
+			)}
 			<Footer page={props.footerImages} />
 		</div>
 	);
