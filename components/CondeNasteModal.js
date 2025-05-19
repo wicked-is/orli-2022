@@ -176,7 +176,7 @@ export default function ExitIntent(props) {
 			<ExitContainer onPage={isPage}>
 				<ImageContainer
 					onPage={isPage}
-					bgImage="https://orlidev.wpengine.com/wp-content/uploads/2025/05/travelers-choice-image-badge.png">
+					bgImage="https://orlidev.wpengine.com/wp-content/uploads/2025/05/conde-nast-trca.png">
 					{/* {!isPage && (
 						<Image
 							src="https://orlidev.wpengine.com/wp-content/uploads/2025/05/travelers-choice-image-badge.png"
