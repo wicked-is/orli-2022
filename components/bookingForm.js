@@ -121,6 +121,7 @@ export default function BookingForm(props) {
 							Check In
 						</span>
 						<input
+							id="checkin-field"
 							tabIndex="-1"
 							type={"date"}
 							aria-label="Check In Date"
@@ -142,6 +143,7 @@ export default function BookingForm(props) {
 							Check Out
 						</span>
 						<input
+							id="checkout-field"
 							tabIndex="-1"
 							type={"date"}
 							aria-label="Check Out Date"
