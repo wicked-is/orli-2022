@@ -99,6 +99,7 @@ const ContentContainer = styled.div`
 	margin: 15vh auto;
 	> div:first-child {
 		background-size: cover;
+		background-position: center;
 	}
 	> div:last-child {
 		background-color: var(--lt-grey);
