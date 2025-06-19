@@ -179,7 +179,6 @@ export default function BlogGrid(props) {
 										}
 										width={640}
 										height={427}
-										layout="intrinsic"
 										style={{
 											objectFit: "cover",
 											width: "100%",
