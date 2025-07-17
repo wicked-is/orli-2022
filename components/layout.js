@@ -73,11 +73,11 @@ export default function Layout(props) {
 			{showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)}
-			{toggleCondeModal && !hasCondeModalShown && (
+			{/* {toggleCondeModal && !hasCondeModalShown && (
 				<CondeNasteModal
 					toggleModal={{ setToggleCondeModal, setHasCondeModalShown }}
 				/>
-			)}
+			)} */}
 			<Footer page={props.footerImages} />
 		</div>
 	);
