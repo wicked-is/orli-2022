@@ -103,19 +103,19 @@ export default function Header(props) {
 
 	const [isScrolled, setIsScrolled] = useState(false);
 
-  	useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+	useEffect(() => {
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY > 0);
+		};
 
-    window.addEventListener('scroll', handleScroll);
+		window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener on unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  	}, []);
-	
+		// Clean up the event listener on unmount
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	function toggleNav() {
 		setNavIsOpen(!navIsOpen);
 	}
@@ -246,6 +246,11 @@ export default function Header(props) {
 					}
 				}'
 			/>
+			<Script
+				id="cookie-script"
+				strategy="beforeInteractive"
+				src="//cdn.cookie-script.com/s/2cf9124df02cd54a62e83938196767b8.js"
+			/>
 			<Head>
 				<meta
 					name="viewport"
@@ -292,7 +297,10 @@ export default function Header(props) {
 					</button>
 				</div>
 			)}
-			<div className={`${styles.sitebranding} ${isScrolled ? styles.scrolled : ''}`}>
+			<div
+				className={`${styles.sitebranding} ${
+					isScrolled ? styles.scrolled : ""
+				}`}>
 				{navIsOpen ? (
 					<Link href="/">
 						<div className="openclick" onClick={() => toggleNav()}>
@@ -339,7 +347,9 @@ export default function Header(props) {
 
 				<div className={styles.hamburgerContainer}>
 					<div
-						className={`hamburger hamburger--collapse ${isScrolled ? 'scrolled' : ''}`}
+						className={`hamburger hamburger--collapse ${
+							isScrolled ? "scrolled" : ""
+						}`}
 						type="button"
 						onClick={() => toggleNav()}>
 						{navIsOpen ? (

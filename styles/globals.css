@@ -674,3 +674,8 @@ CSS for react-masonry-css
 	/* background: grey; */
 	margin-bottom: 5px;
 }
+
+body .uwy.userway_p5 .userway_buttons_wrapper {
+	bottom: 60px;
+	left: 10px;
+}
