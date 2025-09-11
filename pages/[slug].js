@@ -16,6 +16,7 @@ import GettingHere from "../components/GettingHere";
 import GiftGrid from "../components/GiftGrid";
 import ImageContentRepeater from "../components/ImageContentRepeater";
 import ImagesThreeUp from "../components/ImagesThreeUp";
+import OffersGridFilters from "../components/OffersGridFilters";
 import OffersGrid from "../components/OffersGrid";
 import PerksShopFeatureSlider from "../components/PerksShopFeatureSlider";
 import PressGrid from "../components/PressGrid";
@@ -410,6 +411,16 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							filters={roomAmenities.nodes}
+							index={index}
+						/>
+					);
+					break;
+        case "Page_Flexiblecontent_Sections_OffersGridFilters":
+				case "Post_Flexiblecontent_Sections_OffersGridFilters":
+					gatheredSections.push(
+						<OffersGridFilters
+							key={componentKey}
+							{...section}
 							index={index}
 						/>
 					);
@@ -1234,6 +1245,62 @@ export async function getStaticProps({ params }) {
                     link
                     title
                   }  
+                }
+              }
+              ... on Page_Flexiblecontent_Sections_OffersGridFilters {
+                fieldGroupName
+                heading
+                howToBook
+                filters {
+                  ... on Page_Flexiblecontent_Sections_OffersGridFilters_filters {
+                    label
+                    class
+                  }
+                }
+                offers {
+                  ... on Offer {
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                        mediaDetails {
+                          width
+                          height
+                        }
+                      }
+                    }
+                    singleOffers {
+                      bookingLink
+                      highlights
+                      offerImage {
+                        mediaItemUrl
+                        altText
+                      }
+                      offerDescription
+                      offerTermsConditions
+                    }
+                    slug
+                    link
+                    title
+                  }
+                  ... on Upgrade {
+                    featuredImage {
+                      node {
+                        mediaItemUrl
+                        altText
+                        mediaDetails {
+                          width
+                          height
+                        }
+                      }
+                    }
+                    Upgrades {
+                      description
+                      externalLink
+                    }
+                    slug
+                    title
+                  }
                 }
               }
               ... on Page_Flexiblecontent_Sections_OffersGrid {
