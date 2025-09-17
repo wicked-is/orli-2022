@@ -142,7 +142,6 @@ const FilterListItem = styled.li`
 
 const ImageBlock = styled.div`
 	width: 100%;
-	height: 300px;
 	z-index: 2;
 	position: relative;
 	overflow: hidden;
@@ -550,10 +549,8 @@ useEffect(() => {
                             key={`${i}${offer.slug}`}
                             className="fadeinoffers"
                             data-tags={getOfferTags(offer)?.join(" ") || ""}>
-                            <ImageBlock
-                                style={{
-                                    backgroundImage: `url(${offer.featuredImage.node.mediaItemUrl})`,
-                                }}>
+                            <ImageBlock>
+                                <Image src={offer.featuredImage.node.mediaItemUrl} alt={offer.featuredImage.node.altText} width={600} height={400} layout="responsive" objectFit="cover" />
                                 <div className="hoverContainer">
                                     <div className="modal" onClick={changeSlider} data-slide={i}>View Details</div>
                                 </div>
