@@ -27,7 +27,7 @@ import UpgradesGrid, {
 	UpgradesGridPageQuery,
 	UpgradesGridPostQuery,
 } from "../components/UpgradesGrid";
-import OffersGridFilters from "../components/offersGridFilters";
+import OffersGridFilters from "../components/OffersGridFilters";
 import AmenitiesSlider from "../components/amenitiesSlider";
 import BigImageSmallContent from "../components/bigimageSmallcontent";
 import BlurbCenter from "../components/blurbCenter";
