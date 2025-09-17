@@ -463,7 +463,7 @@ export default function OffersUpgradesSlider(props) {
                                     Book Now
                                 </a>
                             </Link>
-                            <p className="sans-serif disclaimerText">Terms & Conditions may apply. <Link passHref href="/terms-conditions"><a href="/terms-conditions">View Terms</a></Link></p>
+                            <p className="sans-serif disclaimerText">Terms & Conditions may apply. <Link href="/terms-conditions" aria-label="View Terms">View Terms</Link></p>
                         </div>
                     </div>
                 ))}
