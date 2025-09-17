@@ -48,6 +48,15 @@ const FeaturedSliderContainer = styled.section`
         padding: 0 6rem;
         gap: 4rem;
 
+        & .column.text .disclaimerText {
+            font-size: var(--xs-copy);
+            margin-top: 1rem;
+
+            & a {
+                text-decoration: underline;
+            }
+        }
+
         @media only screen and (max-width: 900px) {
             & {
                 padding: 0 4rem;
@@ -454,6 +463,7 @@ export default function OffersUpgradesSlider(props) {
                                     Book Now
                                 </a>
                             </Link>
+                            <p className="sans-serif disclaimerText">Terms & Conditions may apply. <Link href="/terms-conditions" aria-label="View Terms">View Terms</Link></p>
                         </div>
                     </div>
                 ))}
