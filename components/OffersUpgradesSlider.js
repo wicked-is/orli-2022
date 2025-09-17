@@ -47,7 +47,19 @@ const FeaturedSliderContainer = styled.section`
         justify-content: center;
         padding: 0 6rem;
         gap: 4rem;
-    }
+
+        @media only screen and (max-width: 900px) {
+            & {
+                padding: 0 4rem;
+                gap: 2rem;
+                grid-template-columns: 1fr;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            & {
+                padding: 0 2rem;
+            }
+        }
 `;
 
 const OffersSliderContainer = styled.section`
@@ -76,6 +88,17 @@ const OffersSliderContainer = styled.section`
     & h2.heading {
         padding-left: 6rem;
         padding-bottom: 1rem;
+
+        @media only screen and (max-width: 900px) {
+            & {
+                padding-left: 4rem;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            & {
+                padding-left: 2rem;
+            }
+        }
     }
     &.Image h2,
     &.Image p {color: var(--white);}
@@ -87,9 +110,25 @@ const OffersUpgradesContainer = styled.div`
     margin: auto auto auto 6rem;
     position: relative;
 
-    .offersSlide {
+    & .offersSlide {
         width: 33.33%;
         margin-right: 4rem;
+    }
+    @media only screen and (max-width: 900px) {
+        & {
+            width: calc(100% - 4rem);
+            margin: auto auto auto 4rem;
+        }
+        & .offersSlide {
+            width: 80%;
+            margin-right: 2rem;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        & {
+            width: calc(100% - 2rem);
+            margin: auto auto auto 2rem;
+        }
     }
 `;
 
