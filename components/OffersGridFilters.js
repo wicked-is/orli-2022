@@ -64,6 +64,7 @@ const OffersGridFlex = styled.div`
             cursor: pointer;
             transition: 0.3s ease all;
         }
+            
         @media only screen and (max-width: 900px) {
             & {
                 width: 100%;
@@ -281,6 +282,7 @@ useEffect(() => {
                         return (
                         
                             <FilterListItem
+                                key={`${index}${slug}`}
                                 className={`sans-serif body black left ${slug} ${active ? "active" : ""}`}
                                 onClick={() => toggleFilter(slug)}
                                 role="button"
