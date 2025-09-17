@@ -1340,6 +1340,7 @@ export async function getStaticProps({ params }) {
                     singleOffers {
                       bookingLink
                       highlights
+                      filters
                       offerImage {
                         mediaItemUrl
                         altText
@@ -1365,6 +1366,7 @@ export async function getStaticProps({ params }) {
                     Upgrades {
                       description
                       externalLink
+                      filters
                     }
                     slug
                     title
