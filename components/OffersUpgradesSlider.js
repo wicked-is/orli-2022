@@ -85,21 +85,51 @@ const OffersSliderContainer = styled.section`
         padding-top: 6rem;
         padding-bottom: 6rem;
     }
-    & h2.heading {
+    & h2 {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        position: relative;
+        justify-content: space-between;
+        width: 100%;
+
+        &:after {
+            content: "";
+            background: #E5E4E2;
+            width: calc(100% - 8rem);
+            height: 1px;
+        }
+
+        &.heading {
         padding-left: 6rem;
+        padding-right: 6rem;
         padding-bottom: 1rem;
 
         @media only screen and (max-width: 900px) {
             & {
                 padding-left: 4rem;
+                padding-right: 4rem;
             }
         }
         @media only screen and (max-width: 600px) {
             & {
                 padding-left: 2rem;
+                padding-right: 2rem;
             }
         }
+
+        & span {
+            width: fit-content;
+            width: -moz-fit-content;
+            width: -webkit-fit-content;
+            white-space: nowrap;
+        }
     }
+    } 
+    &.Image h2:after {
+        background: rgba(229,228,226,0.2);
+    }
+
     &.Image h2,
     &.Image p {color: var(--white);}
 `;
@@ -331,9 +361,6 @@ const NavHolder = styled.div`
 
 export default function OffersUpgradesSlider(props) {
     const { offersUpgrades, heading, paddingOptions, backgroundOptions, backgroundImage, sliderType } = props;
-    const slidernew = useRef(null)
-    const [slidernewActive, setSlidernewActive] = useState(0);
-
     const sliderTilesRef = useRef(null);
 
     const sliderRef = useRef(null);
@@ -412,7 +439,7 @@ export default function OffersUpgradesSlider(props) {
         { sliderType === 'popupslider' && (
         <OffersSliderContainer data-background={backgroundImage?.mediaItemUrl} className={`${paddingOptions} ${backgroundOptions}`}>
             {heading && (
-				<h2 className="serif heading left">{heading}</h2>
+				<h2 className="serif heading left"><span>{heading}</span></h2>
 			)}
             <OffersUpgradesContainer>
                 <Flickity
