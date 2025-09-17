@@ -151,7 +151,7 @@ const OffersUpgradesContainer = styled.div`
 
     & .offersSlide {
         width: 33.33%;
-        margin-right: 4rem;
+        margin-right: 3rem;
     }
     & .featured-story-slider .flickity-prev-next-button {
         width: 60px;
@@ -196,16 +196,9 @@ const OffersUpgradesContainer = styled.div`
 
 const ImageBlock = styled.div`
     width: 100%;
-	height: 300px;
 	z-index: 2;
 	position: relative;
 	overflow: hidden;
-	background-size: cover !important;
-	-webkit-background-size: cover !important;
-	-moz-background-size: cover !important;
-	-o-background-size: cover !important;
-	background-position: center center;
-	background-repeat: no-repeat !important;
 
     & .hoverContainer {
         opacity: 0;
@@ -331,6 +324,13 @@ const ModalContentContainer = styled.div`
     & h2,
     & p {
         color: var(--black) !important;
+    }
+
+    & h2 {
+        width: 100%;
+        display: block;
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
     }
 
 	@media screen and (max-width: 500px) {
@@ -492,10 +492,8 @@ export default function OffersUpgradesSlider(props) {
             >
             {offersUpgrades?.map((offer, i) => (
                <div className="offersSlide" key={`${i}${offer?.slug ?? offer?.title ?? "offer"}`}>
-                    <ImageBlock
-						style={{
-						    backgroundImage: `url(${offer.featuredImage.node.mediaItemUrl})`,
-						}}>
+                    <ImageBlock>
+                        <Image src={offer.featuredImage.node.mediaItemUrl} alt={offer.featuredImage.node.altText} width={600} height={400} layout="responsive" objectFit="cover" />
                         <div className="hoverContainer">
                             <div className="modal" onClick={changeSlider} data-slide={i}>View Details</div>
                         </div>
