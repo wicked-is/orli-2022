@@ -144,6 +144,19 @@ const OffersUpgradesContainer = styled.div`
         width: 33.33%;
         margin-right: 4rem;
     }
+    & .featured-story-slider .flickity-prev-next-button {
+        width: 60px;
+        height: 60px;
+    }
+    & .featured-story-slider .flickity-prev-next-button .flickity-button-icon {
+        fill: var(--brown);
+    }
+    & .featured-story-slider .flickity-button.flickity-prev-next-button.previous {
+        display: none;
+    }
+    & .featured-story-slider .flickity-button.flickity-prev-next-button.next{
+        right: 6rem;
+    }
     @media only screen and (max-width: 900px) {
         & {
             width: calc(100% - 4rem);
@@ -153,11 +166,21 @@ const OffersUpgradesContainer = styled.div`
             width: 80%;
             margin-right: 2rem;
         }
+        & .featured-story-slider .flickity-button.flickity-prev-next-button.next{
+            right: 4rem;
+        }
     }
     @media only screen and (max-width: 600px) {
         & {
             width: calc(100% - 2rem);
             margin: auto auto auto 2rem;
+        }
+        & .featured-story-slider .flickity-prev-next-button {
+            width: 40px;
+            height: 40px;
+        }
+        & .featured-story-slider .flickity-button.flickity-prev-next-button.next{
+            right: 2rem;
         }
     }
 `;
@@ -445,13 +468,14 @@ export default function OffersUpgradesSlider(props) {
                 <Flickity
                 options={{
                     cellAlign: "left",
-                    prevNextButtons: false,
+                    prevNextButtons: true,
                     pageDots: false,
                     draggable: true,
                     wrapAround: true,
                     percentPosition: true,
                     setGallerySize: true,
                     initialIndex: 1,
+                    arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
                 }}
                 flickityRef={(c) => (sliderTilesRef.current = c)}
                 className="featured-story-slider"
