@@ -38,7 +38,7 @@ const OffersGridFlex = styled.div`
     @media only screen and (max-width: 900px) {
         & {
             flex-direction: column;
-            gap: 2rem;
+            gap: 4rem;
         }
     }
 
