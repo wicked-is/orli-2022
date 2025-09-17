@@ -17,7 +17,6 @@ import GiftGrid from "../components/GiftGrid";
 import ImageContentRepeater from "../components/ImageContentRepeater";
 import ImagesThreeUp from "../components/ImagesThreeUp";
 import OffersUpgradesSlider from "../components/OffersUpgradesSlider";
-import OffersGridFilters from "../components/OffersGridFilters";
 import OffersGrid from "../components/OffersGrid";
 import PerksShopFeatureSlider from "../components/PerksShopFeatureSlider";
 import PressGrid from "../components/PressGrid";
@@ -28,6 +27,7 @@ import UpgradesGrid, {
 	UpgradesGridPageQuery,
 	UpgradesGridPostQuery,
 } from "../components/UpgradesGrid";
+import OffersGridFilters from "../components/OffersGridFilters";
 import AmenitiesSlider from "../components/amenitiesSlider";
 import BigImageSmallContent from "../components/bigimageSmallcontent";
 import BlurbCenter from "../components/blurbCenter";
@@ -426,6 +426,7 @@ export default function DefaultPage(props) {
 					);
 					break;
         case "Page_Flexiblecontent_Sections_OffersGridFilters":
+        case "Post_Flexiblecontent_Sections_OffersGridFilters":
 					gatheredSections.push(
 						<OffersGridFilters
 							key={componentKey}
@@ -480,6 +481,7 @@ export default function DefaultPage(props) {
 					break;
 			}
 		}
+
 		return gatheredSections;
 	};
 
@@ -1340,6 +1342,7 @@ export async function getStaticProps({ params }) {
                     singleOffers {
                       bookingLink
                       highlights
+                      filters
                       offerImage {
                         mediaItemUrl
                         altText
@@ -1365,6 +1368,7 @@ export async function getStaticProps({ params }) {
                     Upgrades {
                       description
                       externalLink
+                      filters
                     }
                     slug
                     title
