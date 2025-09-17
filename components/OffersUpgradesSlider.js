@@ -35,10 +35,53 @@ const FeaturedSliderContainer = styled.section`
     &.Image h2,
     &.Image p {color: var(--white);}
 
-    &.Image p:nth-of-type(2) {
+    &.Image p:nth-of-type(2),
+    &.Image p:nth-of-type(3),
+    &.Image p:nth-of-type(4) {
         font-size: var(--body);
         font-family: "GT Walsheim Light";
         line-height: 1.5;
+    }
+    &.Image .flickity-page-dot.is-selected {
+        background: var(--white);
+        opacity: 1;
+    }
+    &.Image .flickity-page-dot {
+        background: rgba(255, 255, 255, 0.3);
+        opacity: 1;
+    }
+    & .flickity-button {
+        width: 60px;
+        height: 60px;
+
+        @media only screen and (max-width: 900px) {
+            & {
+                width: 40px;
+                height: 40px;
+                transform: unset;
+                top: 20%;
+            }
+        }
+    }
+    & .flickity-button:disabled {
+        opacity: 0;
+    }
+    & .flickity-button.flickity-prev-next-button {
+        background: transparent;
+        @media only screen and (max-width: 900px) {
+            & {
+                background: rgba(255, 255, 255, 0.7) !important;
+            }
+        }
+    }
+    & .flickity-button.flickity-prev-next-button svg {
+        fill: var(--brown);
+    }
+    &.Image .flickity-button.flickity-prev-next-button svg {
+        fill: var(--white);
+        @media only screen and (max-width: 900px) {
+            & {fill: var(--brown);}
+        }
     }
     & .flexContainer {
         display: grid;
@@ -69,6 +112,7 @@ const FeaturedSliderContainer = styled.section`
                 padding: 0 2rem;
             }
         }
+    }
 `;
 
 const OffersSliderContainer = styled.section`
@@ -218,7 +262,7 @@ const ImageBlock = styled.div`
         & .modal {
             color: var(--white);
             border: 1px solid var(--white);
-            padding: 0.5rem 1rem;
+            padding: 1rem 1rem;
             text-transform: uppercase;
             font-size: var(--xs-copy);
             font-family: "GT Walsheim Light";
@@ -447,6 +491,21 @@ export default function OffersUpgradesSlider(props) {
         <div>
         { sliderType === 'featuredslider' && ( 
             <FeaturedSliderContainer data-background={backgroundImage?.mediaItemUrl} className={`${paddingOptions} ${backgroundOptions}`}>
+                <Flickity
+                options={{
+                    cellAlign: "left",
+                    prevNextButtons: true,
+                    pageDots: true,
+                    draggable: true,
+                    wrapAround: true,
+                    percentPosition: true,
+                    setGallerySize: true,
+                    initialIndex: 1,
+                    arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
+                }}
+                flickityRef={(c) => (sliderTilesRef.current = c)}
+                className="featured-story-slider"
+            >
                 {offersUpgrades?.map((offer, i) => (
                     <div className="flexContainer" key={`offers-${i}`}>
                         <div className="column image">
@@ -467,6 +526,7 @@ export default function OffersUpgradesSlider(props) {
                         </div>
                     </div>
                 ))}
+            </Flickity>
             </FeaturedSliderContainer>
         )}
         { sliderType === 'popupslider' && (
