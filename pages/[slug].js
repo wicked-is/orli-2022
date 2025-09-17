@@ -366,7 +366,6 @@ export default function DefaultPage(props) {
 					);
 					break;
         case "Page_Flexiblecontent_Sections_OffersUpgradesSlider":
-				case "Post_Flexiblecontent_Sections_OffersUpgradesSlider":
 					gatheredSections.push(
 						<OffersUpgradesSlider
 							key={componentKey}
@@ -427,7 +426,6 @@ export default function DefaultPage(props) {
 					);
 					break;
         case "Page_Flexiblecontent_Sections_OffersGridFilters":
-				case "Post_Flexiblecontent_Sections_OffersGridFilters":
 					gatheredSections.push(
 						<OffersGridFilters
 							key={componentKey}
@@ -482,7 +480,6 @@ export default function DefaultPage(props) {
 					break;
 			}
 		}
-
 		return gatheredSections;
 	};
 
@@ -1261,6 +1258,7 @@ export async function getStaticProps({ params }) {
               ... on Page_Flexiblecontent_Sections_OffersUpgradesSlider {
                 fieldGroupName
                 heading
+                sliderType
                 backgroundOptions
                 paddingOptions
                 backgroundImage {

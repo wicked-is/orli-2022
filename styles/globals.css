@@ -80,6 +80,9 @@ a:focus {
 	font-size: var(--xs-copy);
 	font-family: "GT Walsheim Light";
 }
+.primary-btn.left {
+	margin: 2rem 0 0 0;
+}
 
 /* hide spotify username */
 :not(.bu) .bs .bt:last-of-type span {
