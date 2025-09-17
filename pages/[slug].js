@@ -27,6 +27,7 @@ import UpgradesGrid, {
 	UpgradesGridPageQuery,
 	UpgradesGridPostQuery,
 } from "../components/UpgradesGrid";
+import OffersGridFilters from "../components/offersGridFilters";
 import AmenitiesSlider from "../components/amenitiesSlider";
 import BigImageSmallContent from "../components/bigimageSmallcontent";
 import BlurbCenter from "../components/blurbCenter";
@@ -36,7 +37,6 @@ import FauxSocialFeed from "../components/fauxSocialFeed";
 import Form from "../components/forms";
 import FullFeatureBlog from "../components/fullFeatureBlog";
 import FullWidthMedia from "../components/fullWidthMedia";
-import OffersGridFilters from "../components/offersGridFilters";
 import Gallery from "../components/gallery";
 import Gatherings from "../components/gatherings";
 import Hero from "../components/hero";
@@ -481,6 +481,7 @@ export default function DefaultPage(props) {
 					break;
 			}
 		}
+
 		return gatheredSections;
 	};
 
@@ -537,9 +538,9 @@ export default function DefaultPage(props) {
 				fullhead={seo.fullHead}
 			/>
 			{gatherSections()}
-      {showMorePosts && morePosts.length > 0 ? (
-        <ExploreMorePosts posts={morePosts} />
-      ) : null}
+			{showMorePosts && morePosts !== [] ? (
+				<ExploreMorePosts posts={morePosts} />
+			) : null}
 		</>
 	);
 }
