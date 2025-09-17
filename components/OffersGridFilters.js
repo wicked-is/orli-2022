@@ -45,7 +45,7 @@ const OffersGridFlex = styled.div`
     }
 
     .container {
-        flex: 3;
+        flex: 3.2;
         width: 100%;
 	    display: inline-block;
 	    margin: auto;
@@ -53,16 +53,20 @@ const OffersGridFlex = styled.div`
     }
 
     .sidebar {
-        flex: 1;
+        flex: 0.8;
         display: flex;
         flex-direction: column;
         gap: 3rem;
 
+        .howtoBook p:nth-of-type(2) {
+            font-family: "GT Walsheim Light";
+        }
         & button {
             text-transform: uppercase;
-            background: transparent;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--black);
+            background: rgba(229,228,226,0.3);
+            padding: 1rem 1rem;
+            border: 0px solid var(--black);
+            width: 100%;
             cursor: pointer;
             transition: 0.3s ease all;
         }
@@ -170,7 +174,7 @@ const ImageBlock = styled.div`
         & .modal {
             color: var(--white);
             border: 1px solid var(--white);
-            padding: 0.5rem 1rem;
+            padding: 1rem 1rem;
             text-transform: uppercase;
             font-size: var(--xs-copy);
             font-family: "GT Walsheim Light";
