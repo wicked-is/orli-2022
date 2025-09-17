@@ -17,7 +17,6 @@ import GiftGrid from "../components/GiftGrid";
 import ImageContentRepeater from "../components/ImageContentRepeater";
 import ImagesThreeUp from "../components/ImagesThreeUp";
 import OffersUpgradesSlider from "../components/OffersUpgradesSlider";
-import OffersGridFilters from "../components/OffersGridFilters";
 import OffersGrid from "../components/OffersGrid";
 import PerksShopFeatureSlider from "../components/PerksShopFeatureSlider";
 import PressGrid from "../components/PressGrid";
@@ -37,6 +36,7 @@ import FauxSocialFeed from "../components/fauxSocialFeed";
 import Form from "../components/forms";
 import FullFeatureBlog from "../components/fullFeatureBlog";
 import FullWidthMedia from "../components/fullWidthMedia";
+import OffersGridFilters from "../components/offersGridFilters";
 import Gallery from "../components/gallery";
 import Gatherings from "../components/gatherings";
 import Hero from "../components/hero";
@@ -426,6 +426,7 @@ export default function DefaultPage(props) {
 					);
 					break;
         case "Page_Flexiblecontent_Sections_OffersGridFilters":
+        case "Post_Flexiblecontent_Sections_OffersGridFilters":
 					gatheredSections.push(
 						<OffersGridFilters
 							key={componentKey}
@@ -536,9 +537,9 @@ export default function DefaultPage(props) {
 				fullhead={seo.fullHead}
 			/>
 			{gatherSections()}
-			{showMorePosts && morePosts !== [] ? (
-				<ExploreMorePosts posts={morePosts} />
-			) : null}
+      {showMorePosts && morePosts.length > 0 ? (
+        <ExploreMorePosts posts={morePosts} />
+      ) : null}
 		</>
 	);
 }
