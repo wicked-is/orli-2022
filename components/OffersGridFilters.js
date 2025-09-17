@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import styled, { css } from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import parse from "html-react-parser";
 gsap.registerPlugin(ScrollTrigger);
+import Flickity from "react-flickity-component";
+import "flickity/css/flickity.css";
 
 const OffersGridContainer = styled.section`
 	width: 100%;
@@ -150,6 +152,42 @@ const ImageBlock = styled.div`
 	-o-background-size: cover !important;
 	background-position: center center;
 	background-repeat: no-repeat !important;
+
+    & .hoverContainer {
+        opacity: 0;
+        transition: 0.3s ease all;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background: rgba(140,54,30,0.5);
+
+        & .modal {
+            color: var(--white);
+            border: 1px solid var(--white);
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            font-size: var(--xs-copy);
+            font-family: "GT Walsheim Light";
+            cursor: pointer;
+            transition: 0.3s ease all;
+        }
+            
+        & .modal:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+    }
+    
+    &:hover .hoverContainer {
+        opacity: 1;
+    }
 `;
 
 const OffersTile = styled.div`
@@ -195,6 +233,145 @@ const OffersTitle = styled.div`
 	z-index: 9;
 	cursor: pointer;
 	transition: 0.3s ease all;
+`;
+
+const OffersDialog = styled.div`
+    width: 100%;
+	height: 100%;
+	border: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	z-index: 9999999999;
+    display: none;
+
+	@media screen and (max-width: 500px) {
+		padding: 0;
+	}
+`;
+
+const ContentContainer = styled.div`
+display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 90%;
+	height: 70vh;
+	margin: 15vh auto;
+	> div:first-child {
+		background-size: cover;
+		background-position: center;
+	}
+	> div:last-child {
+		background-color: var(--lt-grey);
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media screen and (max-width: 1000px) {
+		margin: 5vh auto;
+		grid-template-columns: 1fr;
+
+		> div:first-child {
+			min-height: 20vh;
+		}
+
+		> div:last-child {
+			padding: 3rem 0 0;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		margin: 0 auto 0;
+		/* padding: 1rem; */
+		width: 100%;
+		height: 100vh;
+
+		> div:last-child {
+			padding: 1rem 0 2rem;
+		}
+
+		> div:first-child {
+			min-height: 30vh;
+		}
+	}
+`;
+
+const LeftHalf = styled.div`
+    @media screen and (max-width: 768px) {
+		padding-top: 3rem;
+	}
+`;
+
+const ModalContentContainer = styled.div`
+    display: flex;
+	flex-direction: column;
+	margin: auto 15%;
+
+	.variable-height {
+		flex: 1;
+	}
+
+    & h2,
+    & p {
+        color: var(--black) !important;
+    }
+
+	@media screen and (max-width: 500px) {
+		margin: 0 5vw 0;
+		padding: 1rem;
+
+		.body-copy.variable-height {
+			font-size: 0.85rem;
+		}
+
+		a {
+			width: 100% !important;
+		}
+	}
+`;
+
+const DescriptionContainer = styled.div`
+    a {
+		text-decoration: underline;
+	}
+`;
+
+const SliderNavigationContainer = styled.div`
+    display: flex;
+	flex-direction: row;
+	padding: 2.5rem 3rem;
+	justify-content: space-between;
+
+	@media screen and (max-width: 500px) {
+		padding: 1.5rem 5vw 0;
+	}
+`;
+
+const NavHolder = styled.div`
+    display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	@media screen and (max-width: 500px) {
+		flex-direction: column;
+		align-items: flex-start;
+		span {
+			margin: 0 !important;
+		}
+		padding: 0 1rem;
+
+		font-size: 0.85rem;
+
+		:first-of-type {
+			flex-direction: column-reverse;
+		}
+
+		:last-of-type {
+			align-items: flex-end;
+		}
+	}
 `;
 
 export default function OffersGridFilters(props) {
@@ -263,6 +440,54 @@ useEffect(() => {
         window.openBookingFlow();
     }
 
+    const sliderRef = useRef(null);
+    const [sliderActive, setSliderActive] = useState(0); // 0-based index
+    const [isOpen, setIsOpen] = useState(false);
+    
+    const [isMobile, setIsMobile] = useState(false);
+    
+    function openModalAt(index) {
+        setSliderActive(index);
+        if (sliderRef.current && typeof sliderRef.current.select === "function") {
+          sliderRef.current.select(index);
+        }
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+    function changeSlider(e) {
+        e.preventDefault();
+        const i = Number(e.currentTarget.dataset.slide);
+        openModalAt(i);
+    }
+
+    function sliderPrevious() {
+        if (sliderRef.current) sliderRef.current.previous();
+    }
+
+    function sliderNext() {
+        if (sliderRef.current) sliderRef.current.next();
+    }
+
+    useEffect(() => {
+        const onResize = () => setIsMobile(window.innerWidth < 768);
+        onResize();
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, []);
+
+    // Keep sliderActive in sync with Flickity selection
+    useEffect(() => {
+        const inst = sliderRef.current;
+        if (!inst) return;
+        const onChange = (i) => setSliderActive(i);
+        inst.on("change", onChange);
+        return () => inst.off("change", onChange);
+    }, [isOpen]); // bind when modal is open
+
 	return (
 		<OffersGridContainer>
 			{heading && (
@@ -280,7 +505,6 @@ useEffect(() => {
                         const slug = filter.class; // your code already puts the slug here
                         const active = selected.includes(slug);
                         return (
-                        
                             <FilterListItem
                                 key={`${index}${slug}`}
                                 className={`sans-serif body black left ${slug} ${active ? "active" : ""}`}
@@ -321,18 +545,21 @@ useEffect(() => {
                 )}
             </div>
             <div className="container">
-                {filteredOffers && filteredOffers.map((offer, index) => (
+                {filteredOffers && filteredOffers.map((offer, i) => (
                         <OffersTile
-                            key={`${index}${offer.slug}`}
+                            key={`${i}${offer.slug}`}
                             className="fadeinoffers"
                             data-tags={getOfferTags(offer)?.join(" ") || ""}>
                             <ImageBlock
                                 style={{
                                     backgroundImage: `url(${offer.featuredImage.node.mediaItemUrl})`,
                                 }}>
+                                <div className="hoverContainer">
+                                    <div className="modal" onClick={changeSlider} data-slide={i}>View Details</div>
+                                </div>
                             </ImageBlock>
                             <OffersTitle>
-                                    <p className="serif press-heading black left">
+                                    <p className="serif press-heading black left" onClick={changeSlider} data-slide={i}>
                                         {offer.title}
                                     </p>
                             </OffersTitle>
@@ -343,6 +570,92 @@ useEffect(() => {
                 )}
             </div>
             </OffersGridFlex>
+
+            {isOpen && (
+            <OffersDialog style={{ display: "block" }}>
+                <div>
+					<a
+						id="closeBtn"
+						className="heading"
+						onClick={closeModal}
+						style={{
+							fontSize: "2rem",
+							margin: 0,
+							position: "absolute",
+							right: "2rem",
+							top: "2rem",
+							zIndex: 999999,
+							color: "white",
+						}}>
+						&#10005;
+					</a>
+				</div>
+                    <Flickity
+					options={{
+						cellAlign: "center",
+						prevNextButtons: false,
+						pageDots: false,
+						draggable: false,
+						wrapAround: true,
+						imagesLoaded: true,
+						initialIndex: sliderActive,
+					}}
+					disableImagesLoaded={false} // default false
+					reloadOnUpdate={true} // default false
+					static // default false
+					flickityRef={(c) => {sliderRef.current = c;}}>
+                {filteredOffers?.map((offer, i) => (
+                    <div style={{ width: "100vw" }} key={i}>
+                        <ContentContainer>
+                        <div style={{backgroundImage: `url(${offer?.featuredImage?.node?.mediaItemUrl})`}}></div>
+                            <LeftHalf className="relative">
+                                <ModalContentContainer>
+                                    <h2 className="heading">{offer?.title}</h2>
+                                    <DescriptionContainer className="sans-serif body-copy black variable-height">
+                                        {parse(`${offer?.Upgrades?.description || offer?.singleOffers?.offerDescription}`)}
+                                    </DescriptionContainer>
+                                </ModalContentContainer>
+                                <SliderNavigationContainer>
+                                     <NavHolder onClick={sliderPrevious}>
+                                        <svg
+                                            className="flickity-button-icon"
+                                            viewBox="0 0 100 100"
+                                            height="30px">
+                                            <title>Next</title>
+                                            <path
+                                                d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
+                                                className="arrow"
+                                                fill="var(--brown)"
+                                                style={{transformOrigin:"center",}}></path>
+                                        </svg>{" "}
+                                        <span className="sans-serif body-copy black" style={{marginLeft: ".75rem",}}>
+                                            {filteredOffers[sliderActive - 1]? filteredOffers[sliderActive - 1]?.title : filteredOffers[filteredOffers.length - 1].title}
+                                        </span>
+                                        </NavHolder>
+                                        <NavHolder onClick={sliderNext}>
+                                            <span className="sans-serif body-copy black" style={{marginRight: ".75rem",}}>
+                                                {filteredOffers[sliderActive + 1]? filteredOffers[sliderActive + 1]?.title : filteredOffers[0]?.title}
+                                            </span>{" "}
+                                            <svg
+                                                className="flickity-button-icon"
+                                                viewBox="0 0 100 100"
+                                                height="30px">
+                                                    <title>Next</title>
+                                                    <path
+                                                        d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
+                                                        className="arrow"
+                                                        transform="translate(100, 100) rotate(180)"
+                                                        fill="var(--brown)"></path>
+                                            </svg>
+                                        </NavHolder>
+                                </SliderNavigationContainer>
+                            </LeftHalf>
+                        </ContentContainer>
+                    </div>
+                ))}
+                </Flickity>
+            </OffersDialog>
+            )}
 		</OffersGridContainer>
 	);
 }
