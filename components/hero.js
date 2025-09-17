@@ -160,7 +160,7 @@ export default function Hero(props) {
 									{headline}
 								</p>
 								<p
-									className="serif heading white"
+									className="serif xl-heading white"
 									dangerouslySetInnerHTML={{
 										__html: blurb,
 									}}></p>
@@ -247,7 +247,7 @@ export default function Hero(props) {
 									{headline}
 								</p>
 								<p
-									className="serif heading white"
+									className="serif xl-heading white"
 									dangerouslySetInnerHTML={{
 										__html: blurb,
 									}}></p>
@@ -310,7 +310,7 @@ export default function Hero(props) {
 									{headline}
 								</p>
 								<p
-									className="serif heading white left"
+									className="serif xl-heading white left"
 									dangerouslySetInnerHTML={{
 										__html: blurb,
 									}}></p>
@@ -407,7 +407,7 @@ export default function Hero(props) {
 									<p className="sans-serif sub-heading-bold white">
 										{headline}
 									</p>
-									<p className="serif heading white">
+									<p className="serif xl-heading white">
 										{blurb}
 									</p>
 								</div>
@@ -451,7 +451,7 @@ export default function Hero(props) {
 								{headline}
 							</p>
 							<p
-								className="serif heading white"
+								className="serif xl-heading white"
 								dangerouslySetInnerHTML={{ __html: blurb }}></p>
 							{subheading && (
 								<p className="sans-serif sub-heading-bold white">
@@ -491,14 +491,26 @@ export default function Hero(props) {
 						style={{
 							backgroundImage: `url(${imagePoster.mediaItemUrl})`,
 						}}>
-						<div className={styles.textOver}>
+						<div className={`${
+								textPosition == "Left Center"
+									? `${styles.herotextOver}`
+									: "null"
+							} ${
+								textPosition == "Center Center"
+									? `${styles.herotextCenterCenter}`
+									: "null"
+							} ${
+								textPosition == "Bottom Center"
+									? `${styles.herotextOverCenter}`
+									: "null"
+							}`}>
 							{headline && (
 								<p className="sans-serif sub-heading-bold white">
 									{headline}
 								</p>
 							)}
 							{blurb && (
-								<h1 className="serif heading white">{blurb}</h1>
+								<h1 className="serif xl-heading white">{blurb}</h1>
 							)}
 						</div>
 					</div>
