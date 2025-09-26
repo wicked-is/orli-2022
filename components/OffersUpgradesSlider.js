@@ -184,7 +184,12 @@ const OffersSliderContainer = styled.section`
     }
 
     &.Image h2,
-    &.Image p {color: var(--white);}
+    &.Image h3,
+    &.Image ul,
+    &.Image ol,
+    &.Image h4,
+    &.Image p,
+    &.Image p a {color: var(--white);}
 `;
 
 const OffersUpgradesContainer = styled.div`
