@@ -40,6 +40,16 @@ const FeaturedSliderContainer = styled.section`
     &.Image .column.text p,
     &.Image .column.text p a {color: var(--white) !important;}
 
+    &.Image ul,
+    &.Image ul li,
+    &.Image ol,
+    &.Image ol li {
+        font-size: var(--body);
+        font-family: "GT Walsheim Light";
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
     &.Image p:nth-of-type(2),
     &.Image p:nth-of-type(3),
     &.Image p:nth-of-type(4) {
@@ -140,6 +150,15 @@ const OffersSliderContainer = styled.section`
     &.Image h4,
     &.Image p,
     &.Image p a {color: var(--white) !important;}
+
+    &.Image ul,
+    &.Image ul li,
+    &.Image ol,
+    &.Image ol li {
+        font-size: var(--body);
+        font-family: "GT Walsheim Light";
+        font-weight: 400;
+    }
 
     &.paddingtop {
         padding-top: 6rem;
