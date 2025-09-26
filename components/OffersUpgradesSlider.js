@@ -133,13 +133,13 @@ const OffersSliderContainer = styled.section`
     background-position: center center;
     background-repeat: no-repeat;
 
-    &.Image .column.text h2,
-    &.Image .column.text h3,
-    &.Image .column.text ul,
-    &.Image .column.text ol,
-    &.Image .column.text h4,
-    &.Image .column.text p,
-    &.Image .column.text p a {color: var(--white) !important;}
+    &.Image h2,
+    &.Image h3,
+    &.Image ul,
+    &.Image ol,
+    &.Image h4,
+    &.Image p,
+    &.Image p a {color: var(--white) !important;}
 
     &.paddingtop {
         padding-top: 6rem;
