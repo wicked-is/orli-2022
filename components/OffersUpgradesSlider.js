@@ -32,8 +32,13 @@ const FeaturedSliderContainer = styled.section`
         padding-top: 6rem;
         padding-bottom: 6rem;
     }
-    &.Image h2,
-    &.Image p {color: var(--white);}
+    &.Image .column.text h2,
+    &.Image .column.text h3,
+    &.Image .column.text ul,
+    &.Image .column.text ol,
+    &.Image .column.text h4,
+    &.Image .column.text p,
+    &.Image .column.text p a {color: var(--white) !important;}
 
     &.Image p:nth-of-type(2),
     &.Image p:nth-of-type(3),
@@ -128,6 +133,14 @@ const OffersSliderContainer = styled.section`
     background-position: center center;
     background-repeat: no-repeat;
 
+    &.Image .column.text h2,
+    &.Image .column.text h3,
+    &.Image .column.text ul,
+    &.Image .column.text ol,
+    &.Image .column.text h4,
+    &.Image .column.text p,
+    &.Image .column.text p a {color: var(--white) !important;}
+
     &.paddingtop {
         padding-top: 6rem;
     }
@@ -178,18 +191,10 @@ const OffersSliderContainer = styled.section`
             white-space: nowrap;
         }
     }
-    } 
+    }
     &.Image h2:after {
         background: rgba(229,228,226,0.2);
     }
-
-    &.Image h2,
-    &.Image h3,
-    &.Image ul,
-    &.Image ol,
-    &.Image h4,
-    &.Image p,
-    &.Image p a {color: var(--white);}
 `;
 
 const OffersUpgradesContainer = styled.div`
