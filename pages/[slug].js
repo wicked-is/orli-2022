@@ -1311,6 +1311,15 @@ export async function getStaticProps({ params }) {
                     Upgrades {
                       description
                       externalLink
+                      bookingLink
+                      upgradeImage {
+                        mediaItemUrl
+                        altText
+                        mediaDetails {
+                          width
+                          height
+                        }
+                      }
                     }
                     slug
                     title
