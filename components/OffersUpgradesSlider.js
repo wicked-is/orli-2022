@@ -44,7 +44,7 @@ const FeaturedSliderContainer = styled.section`
     &.Image ul li,
     &.Image ol,
     &.Image ol li {
-        font-size: var(--body);
+        font-size: var(--body-copy);
         font-family: "GT Walsheim Light";
         font-weight: 400;
         line-height: 1.5;
@@ -53,7 +53,7 @@ const FeaturedSliderContainer = styled.section`
     &.Image p:nth-of-type(2),
     &.Image p:nth-of-type(3),
     &.Image p:nth-of-type(4) {
-        font-size: var(--body);
+        font-size: var(--body-copy);
         font-family: "GT Walsheim Light";
         line-height: 1.5;
     }
@@ -151,11 +151,18 @@ const OffersSliderContainer = styled.section`
     &.Image p,
     &.Image p a {color: var(--white) !important;}
 
+    &.Image .offersDialog h2,
+    &.Image .offersDialog h3,
+    &.Image .offersDialog ul,
+    &.Image .offersDialog ol,
+    &.Image .offersDialog h4,
+    &.Image .offersDialog p,
+    &.Image .offersDialog p a {color: var(--black) !important;}
+
     &.Image ul,
     &.Image ul li,
     &.Image ol,
     &.Image ol li {
-        font-size: var(--body);
         font-family: "GT Walsheim Light";
         font-weight: 400;
     }
@@ -329,6 +336,12 @@ const OffersDialog = styled.div`
 	z-index: 9999999999;
     display: none;
 
+    & p,
+    & ol,
+    & ul li {
+        font-size: var(--body-copy);
+    }
+
 	@media screen and (max-width: 500px) {
 		padding: 0;
 	}
@@ -340,6 +353,7 @@ display: grid;
 	width: 90%;
 	height: 70vh;
 	margin: 15vh auto;
+    
 	> div:first-child {
 		background-size: cover;
 		background-position: center;
@@ -380,6 +394,7 @@ display: grid;
 `;
 
 const LeftHalf = styled.div`
+    overflow-y: scroll;
     @media screen and (max-width: 768px) {
 		padding-top: 3rem;
 	}
@@ -389,7 +404,6 @@ const ModalContentContainer = styled.div`
     display: flex;
 	flex-direction: column;
 	margin: auto 15%;
-
 	.variable-height {
 		flex: 1;
 	}
@@ -538,16 +552,16 @@ export default function OffersUpgradesSlider(props) {
                 {offersUpgrades?.map((offer, i) => (
                     <div className="flexContainer" key={`offers-${i}`}>
                         <div className="column image">
-                            <Image src={offer?.singleOffers?.offerImage?.mediaItemUrl} alt={offer?.singleOffers?.offerImage?.altText || offer?.title || "Offer Image"} width={600} height={400} layout="responsive" objectFit="cover" />
+                            <Image src={offer?.singleOffers?.offerImage?.mediaItemUrl || offer?.Upgrades?.upgradeImage?.mediaItemUrl} alt={offer?.singleOffers?.offerImage?.altText || offer?.Upgrades?.upgradeImage?.altText || offer?.title || "Offer Image"} width={600} height={400} layout="responsive" objectFit="cover" />
                         </div>
                         <div className="column text">
                             <p className="sub-heading-bold">Special Offer</p>
                             <h2 className="serif heading left">
                                 {offer?.title}
                             </h2>
-                            {parse(`${offer?.singleOffers?.offerDescription}`)}
-                            <Link href={offer?.singleOffers?.bookingLink || "#"} passHref>
-                                <a className="primary-btn left" target={offer?.singleOffers?.bookingLink ? "_blank" : "_self"} rel={offer?.singleOffers?.externalLink ? "noopener noreferrer" : ""}>
+                            {parse(`${offer?.singleOffers?.offerDescription || offer?.Upgrades?.description}`)}
+                            <Link href={`${offer?.singleOffers?.bookingLink || offer?.Upgrades?.bookingLink}`} passHref>
+                                <a className="primary-btn left" target={offer?.singleOffers?.bookingLink ? "_blank" : "_self" || offer?.Upgrades?.bookingLink ? "_blank" : "_self"} rel={offer?.singleOffers?.bookingLink ? "noopener noreferrer" : "" || offer?.Upgrades?.bookingLink ? "noopener noreferrer" : ""}>
                                     Book Now
                                 </a>
                             </Link>
@@ -598,7 +612,7 @@ export default function OffersUpgradesSlider(props) {
             </OffersUpgradesContainer>
             
             {isOpen && (
-            <OffersDialog style={{ display: "block" }}>
+            <OffersDialog style={{ display: "block" }} className="offersDialog">
                 <div>
 					<a
 						id="closeBtn"
