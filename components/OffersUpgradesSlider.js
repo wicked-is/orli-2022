@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import parse from "html-react-parser";
 import Flickity from "react-flickity-component";
 import "flickity/css/flickity.css";
+import LoadingSpinner from "../components/LoadingSpinner";
 gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedSliderContainer = styled.section`
@@ -476,11 +477,23 @@ const NavHolder = styled.div`
 	}
 `;
 
+const ReservationButton = styled.button`
+    width: fit-content;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+	padding: 1rem 2rem;
+	color: #fff;
+	font-size: var(--xs-copy);
+	border: 0;
+	background-color: var(--brown);
+`;
 
 
 export default function OffersUpgradesSlider(props) {
     const { offersUpgrades, heading, paddingOptions, backgroundOptions, backgroundImage, sliderType } = props;
     const sliderTilesRef = useRef(null);
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const sliderRef = useRef(null);
     const [sliderActive, setSliderActive] = useState(0); // 0-based index
@@ -530,6 +543,12 @@ export default function OffersUpgradesSlider(props) {
     return () => inst.off("change", onChange);
   }, [isOpen]); // bind when modal is open
 
+  function handleFormFocus(e) {
+		e.preventDefault();
+		if (props.closeDialog) closeDialog();
+		window.openBookingFlow();
+	}
+
     return (
         <div>
         { sliderType === 'featuredslider' && ( 
@@ -560,11 +579,19 @@ export default function OffersUpgradesSlider(props) {
                                 {offer?.title}
                             </h2>
                             {parse(`${offer?.singleOffers?.offerDescription || offer?.Upgrades?.description}`)}
-                            <Link href={`${offer?.singleOffers?.bookingLink || offer?.Upgrades?.bookingLink}`} passHref>
-                                <a className="primary-btn left" target={offer?.singleOffers?.bookingLink ? "_blank" : "_self" || offer?.Upgrades?.bookingLink ? "_blank" : "_self"} rel={offer?.singleOffers?.bookingLink ? "noopener noreferrer" : "" || offer?.Upgrades?.bookingLink ? "noopener noreferrer" : ""}>
-                                    Book Now
-                                </a>
-                            </Link>
+                            
+                            <ReservationButton
+								className="sans-serif uppercase distributor-open"
+								onClick={handleFormFocus}
+								onFocus={handleFormFocus}
+								onTouchStart={handleFormFocus}>
+								{isLoading ? (
+									<LoadingSpinner />
+								) : (
+									"Book Now"
+								)}
+							</ReservationButton>
+
                             <p className="sans-serif disclaimerText">Terms & Conditions may apply. <Link href="/terms-conditions" aria-label="View Terms">View Terms</Link></p>
                         </div>
                     </div>
