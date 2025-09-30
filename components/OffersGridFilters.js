@@ -47,8 +47,9 @@ const OffersGridFlex = styled.div`
     .container {
         flex: 3.2;
         width: 100%;
-	    display: inline-block;
-	    margin: auto;
+	    display: flex;
+	    margin: 0;
+        flex-wrap: wrap;
 	    position: relative;
     }
 
@@ -195,9 +196,9 @@ const ImageBlock = styled.div`
 
 const OffersTile = styled.div`
 	display: inline;
-	width: 31.33%;
+	width: calc(33.33% - 2rem);
 	float: left;
-	margin: 0.5rem 1% 3rem 1%;
+	margin: 0.5rem 1rem 3rem 1rem;
 	position: relative;
 	transition: 0.3s ease all;
 
@@ -215,8 +216,8 @@ const OffersTile = styled.div`
 
 	@media only screen and (max-width: 820px) {
 		& {
-			width: 46%;
-			margin: 0.5rem 2% 3rem 2%;
+			width: calc(50% - 2rem);
+			margin: 0.5rem 1rem 3rem 1rem;
 		}
 	}
 	@media only screen and (max-width: 600px) {
