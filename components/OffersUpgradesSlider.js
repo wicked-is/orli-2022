@@ -490,7 +490,7 @@ const ReservationButton = styled.button`
 
 
 export default function OffersUpgradesSlider(props) {
-    const { offersUpgrades, heading, paddingOptions, backgroundOptions, backgroundImage, sliderType } = props;
+    const { offersUpgrades, heading, kicker, paddingOptions, backgroundOptions, backgroundImage, sliderType } = props;
     const sliderTilesRef = useRef(null);
 
     const [isLoading, setIsLoading] = useState(false);
@@ -574,7 +574,7 @@ export default function OffersUpgradesSlider(props) {
                             <Image src={offer?.singleOffers?.offerImage?.mediaItemUrl || offer?.Upgrades?.upgradeImage?.mediaItemUrl} alt={offer?.singleOffers?.offerImage?.altText || offer?.Upgrades?.upgradeImage?.altText || offer?.title || "Offer Image"} width={600} height={400} layout="responsive" objectFit="cover" />
                         </div>
                         <div className="column text">
-                            <p className="sub-heading-bold">Special Offer</p>
+                            <p className="sub-heading-bold">{kicker}</p>
                             <h2 className="serif heading left">
                                 {offer?.title}
                             </h2>
