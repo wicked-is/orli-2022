@@ -1261,6 +1261,7 @@ export async function getStaticProps({ params }) {
                 fieldGroupName
                 heading
                 sliderType
+                kicker
                 backgroundOptions
                 paddingOptions
                 backgroundImage {
