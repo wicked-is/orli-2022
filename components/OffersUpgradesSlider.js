@@ -509,8 +509,16 @@ export default function OffersUpgradesSlider(props) {
     setIsOpen(true);
   }
 
-	function closeModal() {
+function closeModal() {
     setIsOpen(false);
+  // let React unmount the modal, then resize the base carousel
+  requestAnimationFrame(() => {
+    if (sliderTilesRef.current) {
+      sliderTilesRef.current.reloadCells();
+      sliderTilesRef.current.resize();
+      sliderTilesRef.current.reposition?.(); // safe if available
+    }
+  });
   }
 
   function changeSlider(e) {
@@ -533,6 +541,21 @@ export default function OffersUpgradesSlider(props) {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  useEffect(() => {
+  const inst = sliderTilesRef.current;
+  if (!inst) return;
+
+  // Kick a layout pass on next paint
+  requestAnimationFrame(() => {
+    inst.resize();
+  });
+
+  // Ensure a second pass after all assets load
+  const onLoad = () => inst.resize();
+  window.addEventListener('load', onLoad);
+  return () => window.removeEventListener('load', onLoad);
+}, []);
 
     // Keep sliderActive in sync with Flickity selection
   useEffect(() => {
@@ -562,7 +585,6 @@ export default function OffersUpgradesSlider(props) {
                     wrapAround: true,
                     percentPosition: true,
                     setGallerySize: true,
-                    initialIndex: 1,
                     arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
                 }}
                 flickityRef={(c) => (sliderTilesRef.current = c)}
@@ -614,7 +636,6 @@ export default function OffersUpgradesSlider(props) {
                     wrapAround: true,
                     percentPosition: true,
                     setGallerySize: true,
-                    initialIndex: 1,
                     arrowShape: 'M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z',
                 }}
                 flickityRef={(c) => (sliderTilesRef.current = c)}
