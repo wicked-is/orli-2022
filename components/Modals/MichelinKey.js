@@ -219,8 +219,8 @@ export default function MichelinKey(props) {
 						/>
 						<a
 							className="sans-serif body black left submit"
-							href="/find-your-room">
-							Fidn Your Room
+							href="https://stayorli.com/find-your-room">
+							Find Your Room
 						</a>
 					</TextContainer>
 				</ContentContainer>
