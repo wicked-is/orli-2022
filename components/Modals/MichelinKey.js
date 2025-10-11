@@ -100,6 +100,10 @@ const ContentContainer = styled.div`
 	height: 100%;
 	position: relative;
 
+	p {
+		line-height: 28px;
+	}
+
 	& .close {
 		position: absolute;
 		right: 1rem;
