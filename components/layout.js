@@ -8,13 +8,14 @@ import Header from "../components/header";
 import CondeNasteModal from "../components/CondeNasteModal";
 
 import PerksShopFeatureSlider from "./PerksShopFeatureSlider";
+import MichelinKey from "./Modals/MichelinKey";
 
 export default function Layout(props) {
 	const [showModal, setshowModal] = useState(false);
 	const [hasModalShown, sethasModalShown] = useState(false);
 
-	const [toggleCondeModal, setToggleCondeModal] = useState(false);
-	const [hasCondeModalShown, setHasCondeModalShown] = useState(false);
+	const [toggleGenericModal, setToggleGenericModal] = useState(false);
+	const [hasGenericModalShown, setHasGenericModalShown] = useState(false);
 
 	if (typeof document !== "undefined") {
 		setTimeout(() => {
@@ -26,7 +27,7 @@ export default function Layout(props) {
 					if (hasModalShown) {
 						return;
 					}
-					setToggleCondeModal(false);
+					setToggleGenericModal(false);
 					setshowModal(true);
 				},
 			});
@@ -47,11 +48,11 @@ export default function Layout(props) {
 	}
 
 	useEffect(() => {
-		// after 15s toggleCondeModal to true as long as it's the home page and showModal is false
-		if (props.page === "/" && !hasCondeModalShown) {
+		// after 15s toggleGenericModal to true as long as it's the home page and showModal is false
+		if (props.page === "/" && !hasGenericModalShown) {
 			setTimeout(() => {
 				if (!hasModalShown) {
-					setToggleCondeModal(true);
+					setToggleGenericModal(true);
 				}
 			}, 15000);
 		}
@@ -73,11 +74,14 @@ export default function Layout(props) {
 			{showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)}
-			{/* {toggleCondeModal && !hasCondeModalShown && (
-				<CondeNasteModal
-					toggleModal={{ setToggleCondeModal, setHasCondeModalShown }}
+			{toggleGenericModal && !hasGenericModalShown && (
+				<MichelinKey
+					toggleModal={{
+						setToggleGenericModal,
+						setHasGenericModalShown,
+					}}
 				/>
-			)} */}
+			)}
 			<Footer page={props.footerImages} />
 		</div>
 	);
