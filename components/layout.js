@@ -74,14 +74,16 @@ export default function Layout(props) {
 			{showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)}
-			{toggleGenericModal && !hasGenericModalShown && (
-				<MichelinKey
-					toggleModal={{
-						setToggleGenericModal,
-						setHasGenericModalShown,
-					}}
-				/>
-			)}
+			{toggleGenericModal &&
+				!hasGenericModalShown &&
+				props.page === "/" && (
+					<MichelinKey
+						toggleModal={{
+							setToggleGenericModal,
+							setHasGenericModalShown,
+						}}
+					/>
+				)}
 			<Footer page={props.footerImages} />
 		</div>
 	);
