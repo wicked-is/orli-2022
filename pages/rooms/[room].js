@@ -631,7 +631,8 @@ export default function DefaultRoomsPage(props) {
 							className="sans-serif body-copy black"
 							style={{ marginTop: "2rem" }}>
 							When booking, see available add-on amenities
-							including The Juice Fix, The Dog Lover, and more.
+							including The Rise & Shine, The Celebration, and
+							more.
 						</p>
 					</AmenitiesContainer>
 
