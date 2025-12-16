@@ -31,8 +31,8 @@ export default function TitleBar(props) {
 				<Image
 					src={icon.mediaItemUrl}
 					alt={icon.altText}
-					width="100px"
-					height="100px"
+					width={100}
+					height={100}
 					layout="fixed"
 				/>
 			)}
@@ -44,8 +44,8 @@ export default function TitleBar(props) {
 				<Image
 					src={icon.mediaItemUrl}
 					alt={icon.altText}
-					width="100px"
-					height="100px"
+					width={100}
+					height={100}
 					layout="fixed"
 				/>
 			)}
