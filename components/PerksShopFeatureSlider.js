@@ -7,7 +7,11 @@ import "flickity/css/flickity.css";
 import Flickity from "react-flickity-component";
 export const PerksShopFeatureSliderQueryFragment = ``;
 
-const Button = styled.a``;
+const Button = styled.a`
+	&:hover {
+		background-color: var(--dark-brown) !important;
+	}
+`;
 const Title = styled.div``;
 const Subtitle = styled.div``;
 const Content = styled.div``;
