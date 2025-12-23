@@ -300,6 +300,11 @@ const ReservationButton = styled.button`
 	font-size: var(--xs-copy);
 	border: 0;
 	background-color: var(--brown);
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		background-color: var(--dark-brown);
+	}
 `;
 
 export default function DefaultRoomsPage(props) {

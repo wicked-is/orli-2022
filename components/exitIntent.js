@@ -145,6 +145,11 @@ const TextContainer = styled.div`
 		margin: 2rem auto auto;
 		font-family: "GT Walsheim Light";
 		font-size: var(--xs-copy);
+		transition: background-color 0.3s ease;
+
+		&:hover {
+			background-color: var(--dark-brown);
+		}
 	}
 
 	@media only screen and (max-width: 1220px) {

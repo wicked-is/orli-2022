@@ -1,9 +1,8 @@
-import "../styles/globals.css";
-
 import Layout from "../components/layout";
 
 import { WeatherProvider } from "../context/WeatherContext";
 import "../styles/Calendar.css";
+import "../styles/globals.css";
 
 function MyApp(props) {
 	const { Component, pageProps, router } = props;

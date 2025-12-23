@@ -8,6 +8,7 @@ import Flickity from "react-flickity-component";
 export const PerksShopFeatureSliderQueryFragment = ``;
 
 const Button = styled.a`
+	transition: background-color 0.3s ease;
 	&:hover {
 		background-color: var(--dark-brown) !important;
 	}
