@@ -108,7 +108,7 @@ export default function BookingForm(props) {
 			style={{
 				background: "transparent !important",
 				width: "100%",
-				marginBottom: isQuickView ? "0" : "115px",
+				marginBottom: 0,
 				alignSelf: "flex-end",
 			}}>
 			<div
@@ -123,10 +123,10 @@ export default function BookingForm(props) {
 						<input
 							id="checkin-field"
 							tabIndex="-1"
-							type={"date"}
+							type={"text"}
 							aria-label="Check In Date"
 							name="widget_date"
-							placeholder="mm/dd/yyyy"
+							placeholder="Add Dates"
 							className="sans-serif"
 							// onChange={setCheckin}
 							// onTouchEnd={(e) => {
@@ -145,10 +145,10 @@ export default function BookingForm(props) {
 						<input
 							id="checkout-field"
 							tabIndex="-1"
-							type={"date"}
+							type={"text"}
 							aria-label="Check Out Date"
 							name="widget_date_to"
-							placeholder="mm/dd/yyyy"
+							placeholder="Add Dates"
 							className="sans-serif"
 							value={checkOutDate}
 							// onTouchEnd={(e) => {

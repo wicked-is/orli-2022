@@ -141,7 +141,7 @@ export default function Hero(props) {
 			case "Video":
 				return (
 					<div className={`${styles.heroContainer} ${styles.video}`}>
-						{headline || blurb ? (
+						{(headline && !subheading) || (blurb && !subheading) ? (
 							<div
 								className={`${
 									textPosition == "Left Center"
@@ -164,6 +164,19 @@ export default function Hero(props) {
 									dangerouslySetInnerHTML={{
 										__html: blurb,
 									}}></p>
+							</div>
+						) : null}
+						{headline && subheading ? (
+							<div className={styles.heroBottomUpdate}>
+								<h1
+									className="xl-heading white"
+									style={{ marginBottom: 0 }}>
+									{headline}
+								</h1>
+								<br />
+								<p className="sans-serif sub-heading white">
+									{subheading}
+								</p>
 							</div>
 						) : null}
 						{mp4ExternalLink ? (
@@ -491,7 +504,8 @@ export default function Hero(props) {
 						style={{
 							backgroundImage: `url(${imagePoster.mediaItemUrl})`,
 						}}>
-						<div className={`${
+						<div
+							className={`${
 								textPosition == "Left Center"
 									? `${styles.herotextOver}`
 									: "null"
@@ -510,7 +524,9 @@ export default function Hero(props) {
 								</p>
 							)}
 							{blurb && (
-								<h1 className="serif xl-heading white">{blurb}</h1>
+								<h1 className="serif xl-heading white">
+									{blurb}
+								</h1>
 							)}
 						</div>
 					</div>
@@ -537,12 +553,11 @@ export default function Hero(props) {
 						)}
 						{gallery && (
 							<>
-								<Link href="/">
-									<a
-										className={`${styles.viewGallery} sans-serif white body-copy textshadow underline`}
-										onClick={toggleGallery}>
-										View Gallery
-									</a>
+								<Link
+									href="/"
+									className={`${styles.viewGallery} sans-serif white body-copy textshadow underline`}
+									onNavigate={toggleGallery}>
+									View Gallery
 								</Link>
 								{isGalleryVisible && (
 									<RoomGallerySlider

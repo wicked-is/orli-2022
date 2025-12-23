@@ -5,7 +5,8 @@
 	height: 80px;
 	align-self: flex-end;
 	width: 100%;
-	background: var(--white);
+	background: transparent;
+	color: #fff;
 }
 
 .form input::-webkit-datetime-edit-year-field:focus,
@@ -38,7 +39,13 @@
 	cursor: pointer;
 	outline: none;
 	width: 100%;
-	/* font-size: clamp(1rem, 1.2vh, 1.4rem); */
+	background-color: transparent;
+	color: #fff;
+
+	&::placeholder {
+		color: #fff;
+		opacity: 1;
+	}
 }
 
 .form .button {
