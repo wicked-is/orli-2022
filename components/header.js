@@ -120,10 +120,10 @@ export default function Header(props) {
 		setNavIsOpen(!navIsOpen);
 	}
 
-	function handleClick(e, path) {
-		e.preventDefault();
-		window.location = path;
-	}
+	// function handleClick(e, path) {
+	// 	e.preventDefault();
+	// 	window.location = path;
+	// }
 
 	function closeAnnouncementBar() {
 		setAnnouncementbarIsOpen(false);
@@ -339,9 +339,9 @@ export default function Header(props) {
 						<p className="sans-serif xs-copy white center uppercase mobilehideme">
 							Find Your Room
 						</p>
-						<p className="sans-serif xs-copy black center uppercase mobileshowme">
+						{/* <p className="sans-serif xs-copy black center uppercase mobileshowme">
 							Rooms
-						</p>
+						</p> */}
 					</div>
 				</Link>
 
@@ -389,20 +389,17 @@ export default function Header(props) {
 										onMouseEnter={() =>
 											setNavImage(item.image.mediaItemUrl)
 										}>
-										<Link href={item.link} passHref>
-											<a
-												data-navimage={
-													item.image.mediaItemUrl
-												}
-												data-alttext={
-													item.image.altText
-												}
-												onClick={(e) =>
-													handleClick(e, item.link)
-												}
-												className="serif-light white">
-												{item.label}
-											</a>
+										<Link
+											href={item.link}
+											data-navimage={
+												item.image.mediaItemUrl
+											}
+											data-alttext={item.image.altText}
+											onNavigate={(e) =>
+												handleClick(e, item.link)
+											}
+											className="serif-light white">
+											{item.label}
 										</Link>
 									</li>
 								);
