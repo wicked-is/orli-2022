@@ -379,7 +379,8 @@ export default function Header(props) {
 							style={{ background: `url(${navImage})` }}></div>
 					</div>
 					<div
-						className={`${styles.col140} relative flex flex-column justify-content-space-between`}>
+						className={`${styles.col140} relative flex-column justify-content-space-between`}
+						style={{ display: "flex" }}>
 						<WeatherWidget />
 						<ul className={styles.mainNav}>
 							{navItems.map((item, index) => {
