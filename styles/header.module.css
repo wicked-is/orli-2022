@@ -170,7 +170,7 @@
 }
 @media only screen and (max-width: 820px) {
 	.hamburger .hamburger-box {
-		display: none;
+		margin-left: -2rem;
 	}
 }
 
