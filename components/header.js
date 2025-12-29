@@ -339,9 +339,9 @@ export default function Header(props) {
 						<p className="sans-serif xs-copy white center uppercase mobilehideme">
 							Find Your Room
 						</p>
-						{/* <p className="sans-serif xs-copy black center uppercase mobileshowme">
-							Rooms
-						</p> */}
+						<p className="sans-serif xs-copy white center uppercase mobileshowme">
+							Find Your Room
+						</p>
 					</div>
 				</Link>
 

@@ -213,16 +213,16 @@ export default function MichelinKey(props) {
 					)}
 					<TextContainer className="exitForm">
 						<h3
-							className="serif heading black left"
+							className="serif heading black"
 							style={{ letterSpacing: "-2%" }}
 							dangerouslySetInnerHTML={{ __html: headline }}
 						/>
 						<p
-							className="sans-serif body black left"
+							className="sans-serif body black"
 							dangerouslySetInnerHTML={{ __html: bodyCopy }}
 						/>
 						<a
-							className="sans-serif body black left submit"
+							className="sans-serif body black submit"
 							href="https://stayorli.com/find-your-room">
 							Find Your Room
 						</a>

@@ -485,7 +485,7 @@ ul.socials li {
 		bottom: 0;
 		height: 100%;
 		display: block;
-		background: var(--white);
+		background: var(--brown);
 		align-items: center;
 		justify-content: center;
 		transition: 0.3s ease all;

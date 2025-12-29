@@ -250,10 +250,10 @@ export default function ExitIntent(props) {
 						</div>
 					)}
 					<TextContainer className="exitForm">
-						<h3 className="serif heading black left">
+						<h3 className="serif heading black">
 							Psst! Don&apos;t Miss Out
 						</h3>
-						<p className="sans-serif body black left">
+						<p className="sans-serif body black">
 							Be the first to know about{" "}
 							<span
 								style={{
