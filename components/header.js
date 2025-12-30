@@ -120,10 +120,10 @@ export default function Header(props) {
 		setNavIsOpen(!navIsOpen);
 	}
 
-	// function handleClick(e, path) {
-	// 	e.preventDefault();
-	// 	window.location = path;
-	// }
+	function handleClick(e, path) {
+		e.preventDefault();
+		window.location = path;
+	}
 
 	function closeAnnouncementBar() {
 		setAnnouncementbarIsOpen(false);
