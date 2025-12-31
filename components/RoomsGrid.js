@@ -379,7 +379,7 @@ export default function RoomsGrid(props) {
 							style={{
 								marginTop: "auto",
 								width: "100%",
-								backgroundColor: "white",
+								backgroundColor: "#0c2b1c",
 							}}>
 							<BookingForm
 								isQuickView
