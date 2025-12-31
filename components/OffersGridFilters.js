@@ -33,116 +33,116 @@ const OffersGridContainer = styled.section`
 	}
 `;
 const OffersGridFlex = styled.div`
-    display: flex;
-    gap: 4rem;
-    align-items: flex-start;
-    justify-content: space-between;
-    @media only screen and (max-width: 900px) {
-        & {
-            flex-direction: column;
-            gap: 4rem;
-        }
-    }
+	display: flex;
+	gap: 4rem;
+	align-items: flex-start;
+	justify-content: space-between;
+	@media only screen and (max-width: 900px) {
+		& {
+			flex-direction: column;
+			gap: 4rem;
+		}
+	}
 
-    .container {
-        flex: 3.2;
-        width: 100%;
-	    display: flex;
-	    margin: 0;
-        flex-wrap: wrap;
-	    position: relative;
-    }
+	.container {
+		flex: 3.2;
+		width: 100%;
+		display: flex;
+		margin: 0;
+		flex-wrap: wrap;
+		position: relative;
+	}
 
-    .sidebar {
-        flex: 0.8;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
+	.sidebar {
+		flex: 0.8;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
 
-        .howtoBook p:nth-of-type(2) {
-            font-family: "GT Walsheim Light";
-        }
-        & button {
-            text-transform: uppercase;
-            background: rgba(229,228,226,0.3);
-            padding: 1rem 1rem;
-            border: 0px solid var(--black);
-            width: 100%;
-            cursor: pointer;
-            transition: 0.3s ease all;
-        }
-            
-        @media only screen and (max-width: 900px) {
-            & {
-                width: 100%;
-                flex-direction: column-reverse;
-            }
-        }
-        .filterContainer {
-            display: flex;
-            flex-direction: column;
-            .filterToggle {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+		.howtoBook p:nth-of-type(2) {
+			font-family: "GT Walsheim Light";
+		}
+		& button {
+			text-transform: uppercase;
+			background: rgba(229, 228, 226, 0.3);
+			padding: 1rem 1rem;
+			border: 0px solid var(--black);
+			width: 100%;
+			cursor: pointer;
+			transition: 0.3s ease all;
+		}
 
-                cursor: pointer;
-                p {
-                    text-transform: uppercase;
-                    font-size: var(--body);
-                    font-weight: 600;
-                }
-                img {
-                    width: 15px !important;
-                    height: auto !important;
-                    transform: rotate(0deg);
-                }
-            }
+		@media only screen and (max-width: 900px) {
+			& {
+				width: 100%;
+				flex-direction: column-reverse;
+			}
+		}
+		.filterContainer {
+			display: flex;
+			flex-direction: column;
+			.filterToggle {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 
-            &.open .filterToggle img {
-                transform: rotate(180deg);
-            }
+				cursor: pointer;
+				p {
+					text-transform: uppercase;
+					font-size: var(--body);
+					font-weight: 600;
+				}
+				img {
+					width: 15px !important;
+					height: auto !important;
+					transform: rotate(0deg);
+				}
+			}
 
-            &.open ul {
-                display: block;
-            }
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: none;
-            }
-        }
-    }
+			&.open .filterToggle img {
+				transform: rotate(180deg);
+			}
+
+			&.open ul {
+				display: block;
+			}
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: none;
+			}
+		}
+	}
 `;
 
 const FilterListItem = styled.li`
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  position: relative;
-  padding: 0 0 1rem 0;
-  cursor: pointer;
-  transition: 0.3s ease all;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	position: relative;
+	padding: 0 0 1rem 0;
+	cursor: pointer;
+	transition: 0.3s ease all;
 
-  &:before {
-    content:'';
-    border: 1px solid #E5E4E2;
-    width: 15px;
-    height: 15px;
-    display: block;
-    transition: 0.3s ease all;
-  }
+	&:before {
+		content: "";
+		border: 1px solid #e5e4e2;
+		width: 15px;
+		height: 15px;
+		display: block;
+		transition: 0.3s ease all;
+	}
 
-  &:hover:before {
-    border: 1px solid var(--brown);
-    background: var(--brown);
-  }
+	&:hover:before {
+		border: 1px solid var(--brown);
+		background: var(--brown);
+	}
 
-  &.active:before {
-    border: 1px solid var(--brown);
-    background: var(--brown);
-  }
+	&.active:before {
+		border: 1px solid var(--brown);
+		background: var(--brown);
+	}
 `;
 
 const ImageBlock = styled.div`
@@ -157,41 +157,41 @@ const ImageBlock = styled.div`
 	background-position: center center;
 	background-repeat: no-repeat !important;
 
-    & .hoverContainer {
-        opacity: 0;
-        transition: 0.3s ease all;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        background: rgba(140,54,30,0.5);
+	& .hoverContainer {
+		opacity: 0;
+		transition: 0.3s ease all;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background: rgba(140, 54, 30, 0.5);
 
-        & .modal {
-            color: var(--white);
-            border: 1px solid var(--white);
-            padding: 1rem 1rem;
-            text-transform: uppercase;
-            font-size: var(--xs-copy);
-            font-family: "GT Walsheim Light";
-            cursor: pointer;
-            transition: 0.3s ease all;
-        }
-            
-        & .modal:hover {
-            background: var(--white);
-            color: var(--black);
-        }
-    }
-    
-    &:hover .hoverContainer {
-        opacity: 1;
-    }
+		& .modal {
+			color: var(--white);
+			border: 1px solid var(--white);
+			padding: 1rem 1rem;
+			text-transform: uppercase;
+			font-size: var(--xs-copy);
+			font-family: "GT Walsheim Light";
+			cursor: pointer;
+			transition: 0.3s ease all;
+		}
+
+		& .modal:hover {
+			background: var(--white);
+			color: var(--black);
+		}
+	}
+
+	&:hover .hoverContainer {
+		opacity: 1;
+	}
 `;
 
 const OffersTile = styled.div`
@@ -233,24 +233,24 @@ const OffersTitle = styled.div`
 	margin: auto;
 	text-align: left;
 	width: 100%;
-    display: block;
+	display: block;
 	z-index: 9;
 	cursor: pointer;
 	transition: 0.3s ease all;
 `;
 
 const OffersDialog = styled.div`
-    width: 100%;
+	width: 100%;
 	height: 100%;
 	border: 0;
 	background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	z-index: 9999999999;
-    display: none;
+	display: none;
 
 	@media screen and (max-width: 500px) {
 		padding: 0;
@@ -258,7 +258,7 @@ const OffersDialog = styled.div`
 `;
 
 const ContentContainer = styled.div`
-display: grid;
+	display: grid;
 	grid-template-columns: 1fr 1fr;
 	width: 90%;
 	height: 70vh;
@@ -303,13 +303,13 @@ display: grid;
 `;
 
 const LeftHalf = styled.div`
-    @media screen and (max-width: 768px) {
+	@media screen and (max-width: 768px) {
 		padding-top: 3rem;
 	}
 `;
 
 const ModalContentContainer = styled.div`
-    display: flex;
+	display: flex;
 	flex-direction: column;
 	margin: auto 15%;
 
@@ -317,10 +317,10 @@ const ModalContentContainer = styled.div`
 		flex: 1;
 	}
 
-    & h2,
-    & p {
-        color: var(--black) !important;
-    }
+	& h2,
+	& p {
+		color: var(--black) !important;
+	}
 
 	@media screen and (max-width: 500px) {
 		margin: 0 5vw 0;
@@ -337,13 +337,13 @@ const ModalContentContainer = styled.div`
 `;
 
 const DescriptionContainer = styled.div`
-    a {
+	a {
 		text-decoration: underline;
 	}
 `;
 
 const SliderNavigationContainer = styled.div`
-    display: flex;
+	display: flex;
 	flex-direction: row;
 	padding: 2.5rem 3rem;
 	justify-content: space-between;
@@ -354,7 +354,7 @@ const SliderNavigationContainer = styled.div`
 `;
 
 const NavHolder = styled.div`
-    display: flex;
+	display: flex;
 	align-items: center;
 	cursor: pointer;
 
@@ -381,283 +381,366 @@ const NavHolder = styled.div`
 export default function OffersGridFilters(props) {
 	const { offers, upgrades, filters, heading, howToBook } = props;
 
-    const [selected, setSelected] = useState([]);
+	const [selected, setSelected] = useState([]);
 
-    // Toggle a filter on click
-    const toggleFilter = useCallback((slug) => {
-        setSelected(prev =>
-            prev.includes(slug) ? prev.filter(s => s !== slug) : [...prev, slug]
-        );
-    }, []);
+	// Toggle a filter on click
+	const toggleFilter = useCallback((slug) => {
+		setSelected((prev) =>
+			prev.includes(slug)
+				? prev.filter((s) => s !== slug)
+				: [...prev, slug]
+		);
+	}, []);
 
-    // Optional: quick clear
-  const clearFilters = useCallback(() => setSelected([]), []);
+	// Optional: quick clear
+	const clearFilters = useCallback(() => setSelected([]), []);
 
-  // Helper: extract tag slugs from an offer
-  // Adjust to match your GraphQL shape, e.g. nodes?.map(n => n.slug)
-  const getOfferTags = useCallback((offer) =>
-    (offer?.Upgrades?.filters || offer?.singleOffers?.filters) ?? []
-, []);
+	// Helper: extract tag slugs from an offer
+	// Adjust to match your GraphQL shape, e.g. nodes?.map(n => n.slug)
+	const getOfferTags = useCallback(
+		(offer) =>
+			(offer?.Upgrades?.filters || offer?.singleOffers?.filters) ?? [],
+		[]
+	);
 
-  // --- 2) Compute filtered offers ---
-  // Decide your matching logic:
-  //   OR = show if offer has ANY selected tag
-  //   AND = show if offer contains ALL selected tags
-    const matchMode = "OR";
+	// --- 2) Compute filtered offers ---
+	// Decide your matching logic:
+	//   OR = show if offer has ANY selected tag
+	//   AND = show if offer contains ALL selected tags
+	const matchMode = "OR";
 
-const filteredOffers = useMemo(() => {
-    if (!offers) return [];
-    if (selected.length === 0) return offers;
+	const filteredOffers = useMemo(() => {
+		if (!offers) return [];
+		if (selected.length === 0) return offers;
 
-    return offers.filter((offer) => {
-      const tags = getOfferTags(offer);
-      if (!tags || tags.length === 0) return false;
+		return offers.filter((offer) => {
+			const tags = getOfferTags(offer);
+			if (!tags || tags.length === 0) return false;
 
-      if (matchMode === "AND") {
-        return selected.every(s => tags.includes(s));
-      } else {
-        // OR
-        return selected.some(s => tags.includes(s));
-      }
-    });
-  }, [offers, selected, getOfferTags, matchMode]);
+			if (matchMode === "AND") {
+				return selected.every((s) => tags.includes(s));
+			} else {
+				// OR
+				return selected.some((s) => tags.includes(s));
+			}
+		});
+	}, [offers, selected, getOfferTags, matchMode]);
 
-useEffect(() => {
-    const sections = gsap.utils.toArray(".fadeinpress, .fadeinoffers");
-    sections.forEach((section) => {
-      gsap.to(section, {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "+=0 80%",
-          scrub: false,
-          markers: false,
-          toggleActions: "play reverse play reverse",
-        },
-      });
-    });
-    }, []);
+	useEffect(() => {
+		const sections = gsap.utils.toArray(".fadeinpress, .fadeinoffers");
+		sections.forEach((section) => {
+			gsap.to(section, {
+				autoAlpha: 1,
+				scrollTrigger: {
+					trigger: section,
+					start: "+=0 80%",
+					scrub: false,
+					markers: false,
+					toggleActions: "play reverse play reverse",
+				},
+			});
+		});
+	}, []);
 
-    function handleFormFocus(e) {
-        e.preventDefault();
-        if (props.closeDialog) closeDialog();
-        window.openBookingFlow();
-    }
+	function handleFormFocus(e) {
+		e.preventDefault();
+		if (props.closeDialog) closeDialog();
+		window.openBookingFlow();
+	}
 
-    const sliderRef = useRef(null);
-    const [sliderActive, setSliderActive] = useState(0); // 0-based index
-    const [isOpen, setIsOpen] = useState(false);
-    
-    const [isMobile, setIsMobile] = useState(false);
-    
-    function openModalAt(index) {
-        setSliderActive(index);
-        if (sliderRef.current && typeof sliderRef.current.select === "function") {
-          sliderRef.current.select(index);
-        }
-        setIsOpen(true);
-    }
+	const sliderRef = useRef(null);
+	const [sliderActive, setSliderActive] = useState(0); // 0-based index
+	const [isOpen, setIsOpen] = useState(false);
 
-    function closeModal() {
-        setIsOpen(false);
-    }
+	const [isMobile, setIsMobile] = useState(false);
 
-    function changeSlider(e) {
-        e.preventDefault();
-        const i = Number(e.currentTarget.dataset.slide);
-        openModalAt(i);
-    }
+	function openModalAt(index) {
+		setSliderActive(index);
+		if (
+			sliderRef.current &&
+			typeof sliderRef.current.select === "function"
+		) {
+			sliderRef.current.select(index);
+		}
+		setIsOpen(true);
+	}
 
-    function sliderPrevious() {
-        if (sliderRef.current) sliderRef.current.previous();
-    }
+	function closeModal() {
+		setIsOpen(false);
+	}
 
-    function sliderNext() {
-        if (sliderRef.current) sliderRef.current.next();
-    }
+	function changeSlider(e) {
+		e.preventDefault();
+		const i = Number(e.currentTarget.dataset.slide);
+		openModalAt(i);
+	}
 
-    useEffect(() => {
-        const onResize = () => setIsMobile(window.innerWidth < 768);
-        onResize();
-        window.addEventListener("resize", onResize);
-        return () => window.removeEventListener("resize", onResize);
-    }, []);
+	function sliderPrevious() {
+		if (sliderRef.current) sliderRef.current.previous();
+	}
 
-    // Keep sliderActive in sync with Flickity selection
-    useEffect(() => {
-        const inst = sliderRef.current;
-        if (!inst) return;
-        const onChange = (i) => setSliderActive(i);
-        inst.on("change", onChange);
-        return () => inst.off("change", onChange);
-    }, [isOpen]); // bind when modal is open
+	function sliderNext() {
+		if (sliderRef.current) sliderRef.current.next();
+	}
+
+	useEffect(() => {
+		const onResize = () => setIsMobile(window.innerWidth < 768);
+		onResize();
+		window.addEventListener("resize", onResize);
+		return () => window.removeEventListener("resize", onResize);
+	}, []);
+
+	// Keep sliderActive in sync with Flickity selection
+	useEffect(() => {
+		const inst = sliderRef.current;
+		if (!inst) return;
+		const onChange = (i) => setSliderActive(i);
+		inst.on("change", onChange);
+		return () => inst.off("change", onChange);
+	}, [isOpen]); // bind when modal is open
 
 	return (
 		<OffersGridContainer>
-			{heading && (
-				<h1 className="serif heading black left">{heading}</h1>
-			)}
-            <OffersGridFlex>
-            <div className="sidebar">
-                <div className="filterContainer open">
-                    <div className="filterToggle">
-                        <p className="sub-heading-bold">Filter By</p>
-                        <Image src="https://orlidev.wpengine.com/wp-content/uploads/2025/09/carbon_caret-up.svg" alt="caret" width="20" height="20"/>
-                    </div>
-                    <ul>
-                    {filters && filters.map((filter, index) => {
-                        const slug = filter.class; // your code already puts the slug here
-                        const active = selected.includes(slug);
-                        return (
-                            <FilterListItem
-                                key={`${index}${slug}`}
-                                className={`sans-serif body black left ${slug} ${active ? "active" : ""}`}
-                                onClick={() => toggleFilter(slug)}
-                                role="button"
-                                aria-pressed={active}
-                                tabIndex={0}
-                                onKeyDown={(e) => {
-                                if (e.key === "Enter" || e.key === " ") {
-                                    e.preventDefault();
-                                    toggleFilter(slug);
-                                }
-                                }}
-                            >
-                                {filter.label}
-                            </FilterListItem>
-                        );
-                    })}
-                    </ul>
-                </div>
+			{heading && <h1 className="serif heading black left">{heading}</h1>}
+			<OffersGridFlex>
+				<div className="sidebar">
+					<div className="filterContainer open">
+						<div className="filterToggle">
+							<p className="sub-heading-bold">Filter By</p>
+							<Image
+								src="https://orlidev.wpengine.com/wp-content/uploads/2025/09/carbon_caret-up.svg"
+								alt="caret"
+								width="20"
+								height="20"
+							/>
+						</div>
+						<ul>
+							{filters &&
+								filters.map((filter, index) => {
+									const slug = filter.class; // your code already puts the slug here
+									const active = selected.includes(slug);
+									return (
+										<FilterListItem
+											key={`${index}${slug}`}
+											className={`sans-serif body black ${slug} ${
+												active ? "active" : ""
+											}`}
+											onClick={() => toggleFilter(slug)}
+											role="button"
+											aria-pressed={active}
+											tabIndex={0}
+											onKeyDown={(e) => {
+												if (
+													e.key === "Enter" ||
+													e.key === " "
+												) {
+													e.preventDefault();
+													toggleFilter(slug);
+												}
+											}}>
+											{filter.label}
+										</FilterListItem>
+									);
+								})}
+						</ul>
+					</div>
 
-                {selected.length > 0 && (
-                <button
-                type="button"
-                onClick={clearFilters}
-                style={{ alignSelf: "flex-start", margin: "0.5rem 0 1rem 0" }}
-                className="sans-serif body"
-                >
-                    Clear filters ({selected.length})
-                </button>
-            )}
+					{selected.length > 0 && (
+						<button
+							type="button"
+							onClick={clearFilters}
+							style={{
+								alignSelf: "flex-start",
+								margin: "0.5rem 0 1rem 0",
+							}}
+							className="sans-serif body">
+							Clear filters ({selected.length})
+						</button>
+					)}
 
-                {howToBook && (
-                    <div className="howtoBook">
-                    <p className="sub-heading-bold black left">HOW TO BOOK</p>
-                    {parse(`${howToBook}`)}
-                    </div>
-                )}
-            </div>
-            <div className="container">
-                {filteredOffers && filteredOffers.map((offer, i) => (
-                        <OffersTile
-                            key={`${i}${offer.slug}`}
-                            className="fadeinoffers"
-                            data-tags={getOfferTags(offer)?.join(" ") || ""}>
-                            <ImageBlock>
-                                <Image src={offer.featuredImage.node.mediaItemUrl} alt={offer.featuredImage.node.altText} width={600} height={400} layout="responsive" objectFit="cover" />
-                                <div className="hoverContainer">
-                                    <div className="modal" onClick={changeSlider} data-slide={i}>View Details</div>
-                                </div>
-                            </ImageBlock>
-                            <OffersTitle>
-                                    <p className="serif press-heading black left" onClick={changeSlider} data-slide={i}>
-                                        {offer.title}
-                                    </p>
-                            </OffersTitle>
-                        </OffersTile>
-                ))}
-                {filteredOffers?.length === 0 && (
-                    <p className="sans-serif body">No offers match those filters.</p>
-                )}
-            </div>
-            </OffersGridFlex>
-
-            {isOpen && (
-            <OffersDialog style={{ display: "block" }}>
-                <div>
-					<a
-						id="closeBtn"
-						className="heading"
-						onClick={closeModal}
-						style={{
-							fontSize: "2rem",
-							margin: 0,
-							position: "absolute",
-							right: "2rem",
-							top: "2rem",
-							zIndex: 999999,
-							color: "white",
-						}}>
-						&#10005;
-					</a>
+					{howToBook && (
+						<div className="howtoBook">
+							<p className="sub-heading-bold black">
+								HOW TO BOOK
+							</p>
+							{parse(`${howToBook}`)}
+						</div>
+					)}
 				</div>
-                    <Flickity
-					options={{
-						cellAlign: "center",
-						prevNextButtons: false,
-						pageDots: false,
-						draggable: false,
-						wrapAround: true,
-						imagesLoaded: true,
-						initialIndex: sliderActive,
-					}}
-					disableImagesLoaded={false} // default false
-					reloadOnUpdate={true} // default false
-					static // default false
-					flickityRef={(c) => {sliderRef.current = c;}}>
-                {filteredOffers?.map((offer, i) => (
-                    <div style={{ width: "100vw" }} key={i}>
-                        <ContentContainer>
-                        <div style={{backgroundImage: `url(${offer?.featuredImage?.node?.mediaItemUrl})`}}></div>
-                            <LeftHalf className="relative">
-                                <ModalContentContainer>
-                                    <h2 className="heading">{offer?.title}</h2>
-                                    <DescriptionContainer className="sans-serif body-copy black variable-height">
-                                        {parse(`${offer?.Upgrades?.description || offer?.singleOffers?.offerDescription}`)}
-                                    </DescriptionContainer>
-                                </ModalContentContainer>
-                                <SliderNavigationContainer>
-                                     <NavHolder onClick={sliderPrevious}>
-                                        <svg
-                                            className="flickity-button-icon"
-                                            viewBox="0 0 100 100"
-                                            height="30px">
-                                            <title>Next</title>
-                                            <path
-                                                d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
-                                                className="arrow"
-                                                fill="var(--brown)"
-                                                style={{transformOrigin:"center",}}></path>
-                                        </svg>{" "}
-                                        <span className="sans-serif body-copy black" style={{marginLeft: ".75rem",}}>
-                                            {filteredOffers[sliderActive - 1]? filteredOffers[sliderActive - 1]?.title : filteredOffers[filteredOffers.length - 1].title}
-                                        </span>
-                                        </NavHolder>
-                                        <NavHolder onClick={sliderNext}>
-                                            <span className="sans-serif body-copy black" style={{marginRight: ".75rem",}}>
-                                                {filteredOffers[sliderActive + 1]? filteredOffers[sliderActive + 1]?.title : filteredOffers[0]?.title}
-                                            </span>{" "}
-                                            <svg
-                                                className="flickity-button-icon"
-                                                viewBox="0 0 100 100"
-                                                height="30px">
-                                                    <title>Next</title>
-                                                    <path
-                                                        d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
-                                                        className="arrow"
-                                                        transform="translate(100, 100) rotate(180)"
-                                                        fill="var(--brown)"></path>
-                                            </svg>
-                                        </NavHolder>
-                                </SliderNavigationContainer>
-                            </LeftHalf>
-                        </ContentContainer>
-                    </div>
-                ))}
-                </Flickity>
-            </OffersDialog>
-            )}
+				<div className="container">
+					{filteredOffers &&
+						filteredOffers.map((offer, i) => (
+							<OffersTile
+								key={`${i}${offer.slug}`}
+								className="fadeinoffers"
+								data-tags={
+									getOfferTags(offer)?.join(" ") || ""
+								}>
+								<ImageBlock>
+									<Image
+										src={
+											offer.featuredImage.node
+												.mediaItemUrl
+										}
+										alt={offer.featuredImage.node.altText}
+										width={600}
+										height={400}
+										layout="responsive"
+										objectFit="cover"
+									/>
+									<div className="hoverContainer">
+										<div
+											className="modal"
+											onClick={changeSlider}
+											data-slide={i}>
+											View Details
+										</div>
+									</div>
+								</ImageBlock>
+								<OffersTitle>
+									<p
+										className="serif press-heading black"
+										onClick={changeSlider}
+										data-slide={i}>
+										{offer.title}
+									</p>
+								</OffersTitle>
+							</OffersTile>
+						))}
+					{filteredOffers?.length === 0 && (
+						<p className="sans-serif body">
+							No offers match those filters.
+						</p>
+					)}
+				</div>
+			</OffersGridFlex>
+
+			{isOpen && (
+				<OffersDialog style={{ display: "block" }}>
+					<div>
+						<a
+							id="closeBtn"
+							className="heading"
+							onClick={closeModal}
+							style={{
+								fontSize: "2rem",
+								margin: 0,
+								position: "absolute",
+								right: "2rem",
+								top: "2rem",
+								zIndex: 999999,
+								color: "white",
+							}}>
+							&#10005;
+						</a>
+					</div>
+					<Flickity
+						options={{
+							cellAlign: "center",
+							prevNextButtons: false,
+							pageDots: false,
+							draggable: false,
+							wrapAround: true,
+							imagesLoaded: true,
+							initialIndex: sliderActive,
+						}}
+						disableImagesLoaded={false} // default false
+						reloadOnUpdate={true} // default false
+						static // default false
+						flickityRef={(c) => {
+							sliderRef.current = c;
+						}}>
+						{filteredOffers?.map((offer, i) => (
+							<div style={{ width: "100vw" }} key={i}>
+								<ContentContainer>
+									<div
+										style={{
+											backgroundImage: `url(${offer?.featuredImage?.node?.mediaItemUrl})`,
+										}}></div>
+									<LeftHalf className="relative">
+										<ModalContentContainer>
+											<h2 className="heading">
+												{offer?.title}
+											</h2>
+											<DescriptionContainer className="sans-serif body-copy black variable-height">
+												{parse(
+													`${
+														offer?.Upgrades
+															?.description ||
+														offer?.singleOffers
+															?.offerDescription
+													}`
+												)}
+											</DescriptionContainer>
+										</ModalContentContainer>
+										<SliderNavigationContainer>
+											<NavHolder onClick={sliderPrevious}>
+												<svg
+													className="flickity-button-icon"
+													viewBox="0 0 100 100"
+													height="30px">
+													<title>Next</title>
+													<path
+														d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
+														className="arrow"
+														fill="var(--brown)"
+														style={{
+															transformOrigin:
+																"center",
+														}}></path>
+												</svg>{" "}
+												<span
+													className="sans-serif body-copy black"
+													style={{
+														marginLeft: ".75rem",
+													}}>
+													{filteredOffers[
+														sliderActive - 1
+													]
+														? filteredOffers[
+																sliderActive - 1
+														  ]?.title
+														: filteredOffers[
+																filteredOffers.length -
+																	1
+														  ].title}
+												</span>
+											</NavHolder>
+											<NavHolder onClick={sliderNext}>
+												<span
+													className="sans-serif body-copy black"
+													style={{
+														marginRight: ".75rem",
+													}}>
+													{filteredOffers[
+														sliderActive + 1
+													]
+														? filteredOffers[
+																sliderActive + 1
+														  ]?.title
+														: filteredOffers[0]
+																?.title}
+												</span>{" "}
+												<svg
+													className="flickity-button-icon"
+													viewBox="0 0 100 100"
+													height="30px">
+													<title>Next</title>
+													<path
+														d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
+														className="arrow"
+														transform="translate(100, 100) rotate(180)"
+														fill="var(--brown)"></path>
+												</svg>
+											</NavHolder>
+										</SliderNavigationContainer>
+									</LeftHalf>
+								</ContentContainer>
+							</div>
+						))}
+					</Flickity>
+				</OffersDialog>
+			)}
 		</OffersGridContainer>
 	);
 }

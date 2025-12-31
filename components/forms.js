@@ -369,7 +369,7 @@ export default function Form(props) {
 						</FieldGroup>
 						<SubmitButtonContainer>
 							<DisclaimerText>
-								<p className="sans-serif xs-copy black left">
+								<p className="sans-serif xs-copy black">
 									Venue reservation is exclusively available
 									for Orli guests. As our event spaces overlap
 									with property amenities, a two-night minimum
@@ -874,7 +874,7 @@ export default function Form(props) {
 
 						{/** Disclaimer Text */}
 						<DisclaimerText wide>
-							<p className="sans-serif xs-copy black left">
+							<p className="sans-serif xs-copy black">
 								By submitting, I understand table displays
 								cannot exceed 4ft in length for events.
 							</p>

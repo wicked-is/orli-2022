@@ -646,7 +646,7 @@ export default function OffersUpgradesSlider(props) {
 								</div>
 								<div className="column text">
 									<p className="sub-heading-bold">{kicker}</p>
-									<h2 className="serif heading left">
+									<h2 className="serif heading">
 										{offer?.title}
 									</h2>
 									{parse(
