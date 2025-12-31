@@ -17,7 +17,7 @@ export default function Gatherings(props) {
 		anchorTag,
 	} = props;
 
-	console.log("props: ", props);
+	// console.log("props: ", props);
 
 	const gatheringStructure = (type) => {
 		switch (type) {
@@ -154,7 +154,7 @@ export default function Gatherings(props) {
 								</div>
 							)}
 							<p
-								className={`${styles.blurbpadding} sans-serif body-copy black left`}>
+								className={`${styles.blurbpadding} sans-serif body-copy black`}>
 								{blurb}
 							</p>
 						</div>

@@ -898,12 +898,12 @@ export default function Form(props) {
 				{anchorTag && (
 					<a id={anchorTag} name={anchorTag} className="anchor"></a>
 				)}
-				<p className="sans-serif sub-heading-bold black left">
+				<p className="sans-serif sub-heading-bold black ">
 					{subHeadline}
 				</p>
-				<h3 className="serif heading black left">{headline}</h3>
+				<h3 className="serif heading black ">{headline}</h3>
 				<div
-					className="sans-serif body-copy black left"
+					className="sans-serif body-copy black "
 					dangerouslySetInnerHTML={{ __html: blurb }}></div>
 				{formStructure(type)}
 			</FormContentContainer>
