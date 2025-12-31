@@ -268,24 +268,24 @@ export default function BigImageSmallContent(props) {
 									</p>
 								)}
 								{subHeadline && (
-									<p className="sans-serif sub-heading-bold black left">
+									<p className="sans-serif sub-heading-bold black">
 										{subHeadline}
 									</p>
 								)}
 								{headline && (
-									<p className="serif heading black left mb-3">
+									<p className="serif heading black mb-3">
 										{headline}
 									</p>
 								)}
 								<div
-									className="sans-serif body-copy black left"
+									className="sans-serif body-copy black"
 									dangerouslySetInnerHTML={{
 										__html: blurb,
 									}}></div>
 								{isThereACta && (
 									<a
 										href={ctaLink}
-										className="sans-serif xs-copy black left cta-black">
+										className="sans-serif xs-copy black cta-black">
 										{ctaLabel}
 									</a>
 								)}
@@ -316,24 +316,24 @@ export default function BigImageSmallContent(props) {
 									</p>
 								)}
 								{subHeadline && (
-									<p className="sans-serif sub-heading-bold black left">
+									<p className="sans-serif sub-heading-bold black">
 										{subHeadline}
 									</p>
 								)}
 								{headline && (
-									<p className="serif heading black left mb-3">
+									<p className="serif heading black mb-3">
 										{headline}
 									</p>
 								)}
 								<div
-									className="sans-serif body-copy black left"
+									className="sans-serif body-copy black"
 									dangerouslySetInnerHTML={{
 										__html: blurb,
 									}}></div>
 								{isThereACta && (
 									<a
 										href={ctaLink}
-										className="sans-serif xs-copy black left cta-black">
+										className="sans-serif xs-copy black cta-black">
 										{ctaLabel}
 									</a>
 								)}
@@ -477,13 +477,13 @@ export default function BigImageSmallContent(props) {
 													/>
 												</p>
 											)}
-											<p className="sans-serif sub-heading-bold white left">
+											<p className="sans-serif sub-heading-bold white">
 												{subHeadline}
 											</p>
-											<p className="serif heading white left mb-3">
+											<p className="serif heading white mb-3">
 												{headline}
 											</p>
-											<p className="sans-serif body-copy white left">
+											<p className="sans-serif body-copy white">
 												{blurb}
 											</p>
 											{ctaLabel && (
@@ -512,13 +512,13 @@ export default function BigImageSmallContent(props) {
 											/>
 										</p>
 									)}
-									<p className="sans-serif sub-heading-bold white left textshadow">
+									<p className="sans-serif sub-heading-bold white  textshadow">
 										{subHeadline}
 									</p>
-									<p className="serif heading white left textshadow">
+									<p className="serif heading white  textshadow">
 										{headline}
 									</p>
-									<p className="sans-serif body-copy white left textshadow">
+									<p className="sans-serif body-copy white  textshadow">
 										{blurb}
 									</p>
 									{isThereACta && (
@@ -577,13 +577,13 @@ export default function BigImageSmallContent(props) {
 											/>
 										</p>
 									)}
-									<p className="sans-serif sub-heading-bold white left">
+									<p className="sans-serif sub-heading-bold white ">
 										{subHeadline}
 									</p>
-									<p className="serif heading white left">
+									<p className="serif heading white ">
 										{headline}
 									</p>
-									<p className="sans-serif body-copy white left">
+									<p className="sans-serif body-copy white ">
 										{blurb}
 									</p>
 									{isThereACta && (
@@ -611,13 +611,13 @@ export default function BigImageSmallContent(props) {
 											/>
 										</p>
 									)}
-									<p className="sans-serif sub-heading-bold white left">
+									<p className="sans-serif sub-heading-bold white ">
 										{subHeadline}
 									</p>
-									<p className="serif heading white left">
+									<p className="serif heading white ">
 										{headline}
 									</p>
-									<p className="sans-serif body-copy white left">
+									<p className="sans-serif body-copy white ">
 										{blurb}
 									</p>
 									{isThereACta && (
