@@ -455,49 +455,45 @@ export default function EventFeed(props) {
 										event?.singleEvent?.link ||
 										event?.singleEvent?.rsvpLink ||
 										event.link
-									}
-									passHref>
-									<a>
-										<p className="sans-serif xs-copy left">
-											{event?.singleEvent?.locationName &&
-												`${event.singleEvent.locationName} | `}
-											{event?.singleEvent?.date ||
-												event.date}
-										</p>
-										<div
-											className="flexcenter-a"
-											style={{
-												display: "flex",
-												justifyContent: "space-between",
-											}}>
-											<div className="col-1-90-a">
-												<h3
-													className="heading"
-													style={{
-														margin: "0 0 1rem",
-													}}>
-													{event.title}
-													<span
-														className={
-															styles.arrow
-														}></span>
-												</h3>
-											</div>
-											{!props.fullWidget && (
-												<div
-													className="col-1-10-a"
-													style={{
-														maxWidth: "50px",
-													}}>
-													<img
-														className={styles.arrow}
-														src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/orange-arrow.svg"
-														alt="arrow"
-													/>
-												</div>
-											)}
+									}>
+									<p className="sans-serif xs-copy ">
+										{event?.singleEvent?.locationName &&
+											`${event.singleEvent.locationName} | `}
+										{event?.singleEvent?.date || event.date}
+									</p>
+									<div
+										className="flexcenter-a"
+										style={{
+											display: "flex",
+											justifyContent: "space-between",
+										}}>
+										<div className="col-1-90-a">
+											<h3
+												className="heading"
+												style={{
+													margin: "0 0 1rem",
+												}}>
+												{event.title}
+												<span
+													className={
+														styles.arrow
+													}></span>
+											</h3>
 										</div>
-									</a>
+										{!props.fullWidget && (
+											<div
+												className="col-1-10-a"
+												style={{
+													maxWidth: "50px",
+												}}>
+												<img
+													className={styles.arrow}
+													src="https://orlidev.wpengine.com/wp-content/uploads/2022/03/orange-arrow.svg"
+													alt="arrow"
+												/>
+											</div>
+										)}
+									</div>
 								</Link>
 							)}
 						</article>
@@ -521,7 +517,7 @@ export default function EventFeed(props) {
 						</p>
 					</HeadContainer>
 					<ContentContainer>
-						<div className="sans-serif body-copy black left">
+						<div className="sans-serif body-copy black ">
 							<p
 								dangerouslySetInnerHTML={{
 									__html: `${currentEvent.date} ${
@@ -535,7 +531,7 @@ export default function EventFeed(props) {
 								}}></p>
 						</div>
 						<p
-							className="mt-0 sans-serif body-copy black left"
+							className="mt-0 sans-serif body-copy black "
 							dangerouslySetInnerHTML={{
 								__html: currentEvent.description,
 							}}></p>
@@ -559,13 +555,13 @@ export default function EventFeed(props) {
 						) : null}
 						<CalendarLinkContainer>
 							<CalendarLink
-								className="sans-serif xs-copy black left underline"
+								className="sans-serif xs-copy black  underline"
 								href={currentEvent.gcal}
 								target="_blank">
 								Add to Google Calendar
 							</CalendarLink>
 							<CalendarLink
-								className="sans-serif xs-copy black left underline"
+								className="sans-serif xs-copy black  underline"
 								href={currentEvent.acal}
 								target="_blank">
 								Add to Apple Calendar
