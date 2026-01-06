@@ -451,7 +451,9 @@ export default function EventFeed(props) {
 										event?.singleEvent?.link ||
 										event?.singleEvent?.rsvpLink ||
 										event.link
-									}>
+									}
+									target="_blank"
+									rel="noopener noreferrer">
 									<p className={`${styles.paddinginner} sans-serif xs-copy `}>
 										{event?.singleEvent?.locationName &&
 											`${event.singleEvent.locationName} | `}
