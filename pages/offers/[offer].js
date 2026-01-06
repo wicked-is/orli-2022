@@ -116,7 +116,7 @@ const TextContainer = styled.div`
 	}
 `;
 
-const ReservationButton = styled.a`
+const ReservationButton = styled(Link)`
 	margin: 1rem 0;
 	display: block;
 	padding: 1.5rem 4rem;
@@ -247,24 +247,22 @@ export default function DefaultOffersPage(props) {
 							</h2>
 							<h1 className="serif heading left">
 								{offer.title}
-							</h1>
-							<div
-								className="sans-serif left"
-								dangerouslySetInnerHTML={{
-									__html: `${offer.singleOffers.offerDescription}`,
-								}}></div>
-							{/* <ReservationButton> */}
-							<Link
-								href={`${offer.singleOffers.bookingLink}`}
-								passHref>
-								<ReservationButton target="_blank">
-									{offer.title.toLowerCase().includes("stash")
-										? "Learn More"
-										: "Book Now"}
-								</ReservationButton>
-							</Link>
-							{/* </ReservationButton> */}
-							{offer?.singleOffers?.offerTermsConditions ? (
+						</h1>
+						<div
+							className="sans-serif left"
+							dangerouslySetInnerHTML={{
+								__html: `${offer.singleOffers.offerDescription}`,
+							}}></div>
+						{/* <ReservationButton> */}
+						<ReservationButton
+							href={`${offer.singleOffers.bookingLink}`}
+							target="_blank">
+							{offer.title.toLowerCase().includes("stash")
+								? "Learn More"
+								: "Book Now"}
+						</ReservationButton>
+						{/* </ReservationButton> */}
+						{offer?.singleOffers?.offerTermsConditions ? (
 								<p
 									className="terms-link sans-serif body underline left"
 									style={{ cursor: "pointer" }}

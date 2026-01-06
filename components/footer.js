@@ -231,19 +231,16 @@ export default function Footer(props) {
 									<div className="footer-links">
 										<Link
 											className="walsh-regular"
-											passHref
 											href="/offers">
 											Offers
 										</Link>
 										<Link
 											className="walsh-regular"
-											passHref
 											href="/faq">
 											FAQ
 										</Link>
 										<Link
 											className="walsh-regular"
-											passHref
 											href="/press">
 											Press
 										</Link>
@@ -568,7 +565,6 @@ export default function Footer(props) {
 						</div>
 						<Link
 							href="/offers"
-							passHref
 							aria-label="link to offers page"
 							tabIndex={0}
 							style={{

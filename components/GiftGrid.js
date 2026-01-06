@@ -183,48 +183,46 @@ export default function GiftGrid(props) {
 								className="singlegift"
 								id={`gift-${index + 1}`}
 								key={`gift-${index + 1}`}>
-								<Link href={gifts.link} passHref>
-									<a target="_blank" rel="noopener">
-										<ImageContainer>
-											<div
-												className={`positionCenter color-${gifts.hoverColor}`}>
-												<p>
-													{gifts.hoverText ? (
-														<span className="serif med-heading">
-															{gifts.hoverText}
-															<br />
-														</span>
-													) : null}
-
-													{gifts.hoverBlurb ? (
-														<span className="sans-serif body">
-															{gifts.hoverBlurb}
-															<br />
-															<br />
-														</span>
-													) : null}
-													<span className="sans-serif body underline">
-														Shop Now
+								<Link href={gifts.link} target="_blank" rel="noopener">
+									<ImageContainer>
+										<div
+											className={`positionCenter color-${gifts.hoverColor}`}>
+											<p>
+												{gifts.hoverText ? (
+													<span className="serif med-heading">
+														{gifts.hoverText}
+														<br />
 													</span>
-												</p>
-											</div>
-											<div
-												className={`overlay ${gifts.hoverColor}`}></div>
-											<Image
-												src={gifts.image.mediaItemUrl}
-												alt={gifts.image.altText}
-												width={347}
-												height={352}
-												layout="responsive"
-											/>
-										</ImageContainer>
-										<p className="sans-serif sub-heading-bold black left">
-											{gifts.brand}
-										</p>
-										<p className="serif med-heading black left">
-											{gifts.productName}
-										</p>
-									</a>
+												) : null}
+
+												{gifts.hoverBlurb ? (
+													<span className="sans-serif body">
+														{gifts.hoverBlurb}
+														<br />
+														<br />
+													</span>
+												) : null}
+												<span className="sans-serif body underline">
+													Shop Now
+												</span>
+											</p>
+										</div>
+										<div
+											className={`overlay ${gifts.hoverColor}`}></div>
+										<Image
+											src={gifts.image.mediaItemUrl}
+											alt={gifts.image.altText}
+											width={347}
+											height={352}
+											layout="responsive"
+										/>
+									</ImageContainer>
+									<p className="sans-serif sub-heading-bold black left">
+										{gifts.brand}
+									</p>
+									<p className="serif med-heading black left">
+										{gifts.productName}
+									</p>
 								</Link>
 							</SingleGift>
 						);

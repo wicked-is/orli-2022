@@ -16,7 +16,7 @@ const GateContainer = styled.section`
     background-position: top left;
     overflow: hidden;
 `
-const Logo = styled.a`
+const Logo = styled(Link)`
     position: absolute;
     top: 2rem;
     left: 2rem;
@@ -74,11 +74,9 @@ export default function Gate(props) {
 
     return (
         <GateContainer>
-            <Link passHref href="/">
-                <Logo>
-                    <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/Orli_Logo_WithLocator_Black-1.png" alt="Orli La Jolla Logo" width={124} height={72} />
-                </Logo>
-            </Link>
+            <Logo href="/">
+                <img src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/Orli_Logo_WithLocator_Black-1.png" alt="Orli La Jolla Logo" width={124} height={72} />
+            </Logo>
             <ContentContainer>
                 <FormField className="body-copy sans-serif" type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                 <FormButton className="body-copy sans-serif" onClick={(e) => handleSubmit(e)}>Submit</FormButton>

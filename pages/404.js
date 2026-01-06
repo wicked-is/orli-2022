@@ -23,7 +23,7 @@ const Title = styled.p`
     margin-block-start: 0em;
     margin-block-end: 2rem;
 `;
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
     color: var(--primary);
     text-transform: uppercase;
     text-decoration: underline;
@@ -54,9 +54,7 @@ export default function PageNotFound(props) {
         <FullSection>
             <>
                 <Title mb>This page cannot be found.</Title>
-                <Link href="/" passHref>
-                    <StyledLink>Visit Home</StyledLink>
-                </Link>
+                <StyledLink href="/">Visit Home</StyledLink>
             </>
         </FullSection>
     );

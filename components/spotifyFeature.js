@@ -12,8 +12,8 @@ export default function SpotifyFeature(props) {
             <div className={`${styles.container} ${styles.max70}`}>
                 <div className="fadein">
                     <p className="heading white">We&apos;re Friends, and Friends Share Music</p>
-                    <Link href={props.ctaLink} passHref>
-                        <a target="_blank" className="xs-copy white sans-serif" style={{ textDecoration: "underline" }}>{props.ctaText}</a>
+                    <Link href={props.ctaLink} target="_blank" className="xs-copy white sans-serif" style={{ textDecoration: "underline" }}>
+                        {props.ctaText}
                     </Link>
                 </div>
                 <div className={styles.spotifyEmbed}dangerouslySetInnerHTML={{ __html: props.spotifyEmbed }}></div>
