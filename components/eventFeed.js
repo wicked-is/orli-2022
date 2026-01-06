@@ -420,11 +420,7 @@ export default function EventFeed(props) {
 										{event.singleEvent.date}
 									</p>
 									<div
-										className="flexcenter-a"
-										style={{
-											display: "flex",
-											justifyContent: "space-between",
-										}}>
+										className={styles.flexcentera}>
 										<div className="col-1-90-a">
 											<h3
 												className="heading"
@@ -456,17 +452,13 @@ export default function EventFeed(props) {
 										event?.singleEvent?.rsvpLink ||
 										event.link
 									}>
-									<p className="sans-serif xs-copy ">
+									<p className={`${styles.paddinginner} sans-serif xs-copy `}>
 										{event?.singleEvent?.locationName &&
 											`${event.singleEvent.locationName} | `}
 										{event?.singleEvent?.date || event.date}
 									</p>
 									<div
-										className="flexcenter-a"
-										style={{
-											display: "flex",
-											justifyContent: "space-between",
-										}}>
+										className={styles.flexcentera}>
 										<div className="col-1-90-a">
 											<h3
 												className="heading"
