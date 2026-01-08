@@ -72,9 +72,9 @@ export default function Layout(props) {
 				{props.children}
 				{/* <PerksShopFeatureSlider /> */}
 			</main>
-			{showModal && !hasModalShown && props.page !== "/email" && (
+			{/*showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
-			)}
+			)*/}
 			{toggleGenericModal &&
 				!hasGenericModalShown &&
 				props.page === "/" && (
