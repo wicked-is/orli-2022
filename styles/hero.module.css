@@ -317,6 +317,20 @@
 	position: relative;
 }
 
+.smallHeroImage .icon {
+	width: 100%;
+	max-width: 150px;
+	height: auto;
+	position: relative;
+	margin: auto;
+	display: block;
+}
+
+.smallHeroImage .icon img {
+	width: 100%;
+	height: auto;
+}
+
 .smallHeroImage .textOver {
 	position: absolute;
 	left: 6rem;

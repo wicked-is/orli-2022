@@ -43,6 +43,10 @@ const ContentBlockInnerContainer = styled.div`
 		font-size: var(--body-copy);
 		font-family: "GT Walsheim Light";
 		line-height: 150%;
+
+		& strong {
+			font-family: "GT Walsheim Bold";
+		}
 	}
 	a,
 	a:visited,
@@ -50,6 +54,23 @@ const ContentBlockInnerContainer = styled.div`
 		/* color: var(--brown);  */
 		text-decoration: underline;
 	}
+
+	a.primary {
+        display: block;
+        width: fit-content;
+        color: var(--white);
+        background-color: var(--brown);
+        border: 1px solid var(--brown);
+        padding: 1.3rem 4.5rem;
+        margin: 2.5rem auto;
+        text-align: center;
+        cursor: pointer;
+        font-family: "GT Walsheim Light";
+        text-transform: uppercase;
+        font-size: var(--xs-copy);
+        text-decoration: none;
+    }
+
 	img {
 		max-width: 100%;
 		height: 100%;

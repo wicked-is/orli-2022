@@ -9,6 +9,7 @@ import CondeNasteModal from "../components/CondeNasteModal";
 
 import PerksShopFeatureSlider from "./PerksShopFeatureSlider";
 import MichelinKey from "./Modals/MichelinKey";
+import TravelLeisure from "./Modals/TravelLeisure";
 
 export default function Layout(props) {
 	const [showModal, setshowModal] = useState(false);
@@ -77,7 +78,7 @@ export default function Layout(props) {
 			{toggleGenericModal &&
 				!hasGenericModalShown &&
 				props.page === "/" && (
-					<MichelinKey
+					<TravelLeisure
 						toggleModal={{
 							setToggleGenericModal,
 							setHasGenericModalShown,

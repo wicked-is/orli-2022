@@ -46,6 +46,7 @@ import OurMission from "../components/ourMission";
 import RoomSlider from "../components/roomSlider";
 import SEO from "../components/seo";
 import SpotifyFeature from "../components/spotifyFeature";
+import TwoColumnText from "../components/TwoColumnText";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -477,6 +478,16 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
+        case "Page_Flexiblecontent_Sections_TwoColumnText":
+				case "Post_Flexiblecontent_Sections_TwoColumnText":
+					gatheredSections.push(
+						<TwoColumnText
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
 				default:
 					break;
 			}
@@ -668,6 +679,12 @@ export async function getStaticProps({ params }) {
                     hoverColor
                   }
                 }
+              }
+              ... on Page_Flexiblecontent_Sections_TwoColumnText {
+                fieldGroupName
+                anchor
+                content
+                contentTwo
               }
               ... on Page_Flexiblecontent_Sections_PerksShopSlider {
                 anchor
@@ -1109,6 +1126,10 @@ export async function getStaticProps({ params }) {
                 textPosition
                 webm
                 imagePoster {
+                  mediaItemUrl
+                  altText
+                }
+                icon {
                   mediaItemUrl
                   altText
                 }

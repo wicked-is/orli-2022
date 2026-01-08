@@ -30,6 +30,7 @@ export default function Hero(props) {
 		blurb,
 		datePublished,
 		imagePoster,
+		icon,
 		mp4ExternalLink,
 		video,
 		webm,
@@ -518,6 +519,11 @@ export default function Hero(props) {
 									? `${styles.herotextOverCenter}`
 									: "null"
 							}`}>
+							{icon && (
+							<div className={styles.icon}>
+								<Image src={icon.mediaItemUrl} alt={icon.altText} width={150} height={150}/>
+							</div>
+						    )}
 							{headline && (
 								<p className="sans-serif sub-heading-bold white">
 									{headline}
