@@ -48,10 +48,10 @@
 }
 
 [data-page="/"] .header .sitebranding .headerlogo {
-	display: none;
+	filter: invert(1);
 }
 [data-page="/"] .header .sitebranding.scrolled .headerlogo {
-	display: block;
+	filter: invert(0);
 }
 
 .header.open .headerlogo {
