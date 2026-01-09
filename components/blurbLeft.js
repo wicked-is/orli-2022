@@ -32,23 +32,25 @@ export default function BlurbLeft({
 	}, []);
 
 	return (
-		<div className={`${styles.blurbLeftContainer} fadeintwo`} tabIndex={0}>
+		<section className={`${styles.blurbLeftContainer} fadeintwo`} aria-labelledby={title ? "blurb-title" : undefined}>
 			{icon && (
-				<div className={styles.icon}>
+				<div className={styles.icon} aria-hidden="true">
 					<Image
-						src={icon.mediaItemUrl}
+						src={icon?.mediaItemUrl}
 						width={100}
 						height={100}
 						layout="fixed"
-						alt={icon.altText}
+						alt={icon?.altText || ""}
+						role="presentation"
 					/>
 				</div>
 			)}
 			{title && (
-				<p
+				<h2
+					id="blurb-title"
 					className={`${styles.mobilepadding} sans-serif-bold sub-heading`}>
 					{title}
-				</p>
+				</h2>
 			)}
 			{content && (
 				<p
@@ -65,9 +67,11 @@ export default function BlurbLeft({
 			)}
 			{ctaLink && (
 				<p className={`${styles.cta} sans-serif xs-copy`}>
-					<a href={ctaLink}>{ctaText}</a>
+					<a href={ctaLink} aria-label={ctaText ? `${ctaText} - ${title || 'Learn more'}` : undefined}>
+						{ctaText}
+					</a>
 				</p>
 			)}
-		</div>
+		</section>
 	);
 }

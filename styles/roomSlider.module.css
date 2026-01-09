@@ -1,5 +1,6 @@
 .roomSlider {
     position: relative;
+    overflow: visible;
 }
 .roomHeading {
     position: absolute;
@@ -106,9 +107,67 @@
     z-index: 9;
 }
 
+/* Swiper Styles */
+.roomSlider :global(.swiper) {
+    width: 100%;
+    height: 85vh;
+    overflow: visible;
+}
+
+.roomSlider :global(.swiper-wrapper) {
+    align-items: center;
+    height: 85vh;
+}
+
+.roomSlider :global(.swiper-slide) {
+    width: 80% !important;
+    height: 85vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roomSlider :global(.swiper-slide-active) {
+    z-index: 2;
+}
+
+.roomSlider :global(.swiper-slide-next),
+.roomSlider :global(.swiper-slide-prev) {
+    opacity: 0.9;
+}
+
+/* Swiper Navigation Arrows */
+.roomSlider :global(.swiper-button-prev),
+.roomSlider :global(.swiper-button-next) {
+    color: transparent;
+    width: 100px;
+    height: 80px;
+}
+
+.roomSlider :global(.swiper-button-prev)::after,
+.roomSlider :global(.swiper-button-next)::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z' fill='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.roomSlider :global(.swiper-button-next)::after {
+    transform: rotate(180deg);
+}
+
+.roomSlider :global(.swiper-button-prev):hover,
+.roomSlider :global(.swiper-button-next):hover {
+    opacity: 0.7;
+}
+
 @media only screen and (max-width: 800px) {
     .room {
-        width: 100%;
+        width: 100% !important;
         height: 85vh;
         background-size: cover !important;
         -webkit-background-size: cover !important;
@@ -123,5 +182,47 @@
 
     .roommobile {
         display: block;
+    }
+    
+    .roomSlider :global(.swiper) {
+        overflow: hidden !important;
+    }
+    
+    .roomSlider :global(.swiper-slide) {
+        width: 100% !important;
+    }
+    .roomSlider :global(.swiper-button-prev),
+    .roomSlider :global(.swiper-button-next) {
+        color: transparent;
+        width: 44px;
+        height: 44px;
+        background: rgba(255,255,255,1.0);
+        border-radius: 100%;
+    }
+    .roomSlider :global(.swiper-button-prev) {
+        position: absolute;
+        left: 1rem;
+        z-index: 10;
+    }
+    .roomSlider :global(.swiper-button-next) {
+        position: absolute;
+        right: 1rem;
+        z-index: 10;
+    }
+    .roomSlider :global(.swiper-button-prev)::after,
+    .roomSlider :global(.swiper-button-next)::after {
+        content: "";
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z' fill='%238c351f'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    
+    .roomSlider :global(.swiper-slide-next),
+    .roomSlider :global(.swiper-slide-prev) {
+        opacity: 1 !important;
     }
 }
