@@ -109,7 +109,7 @@ const Lightbox = styled.div`
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.95);
+	background-color: #2d3e2f;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -122,6 +122,8 @@ const LightboxContent = styled.div`
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 const ImageLabel = styled.div`
@@ -136,40 +138,13 @@ const ImageLabel = styled.div`
 `;
 
 const LightboxImage = styled.img`
-	width: 100%;
-	height: 100%;
+	max-width: 90%;
+	max-height: calc(100vh - 200px);
 	object-fit: contain;
-	padding: 80px 100px;
 
 	@media (max-width: 768px) {
-		padding: 80px 20px;
-	}
-`;
-
-const NavButton = styled.button`
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background: none;
-	border: none;
-	color: white;
-	font-size: 48px;
-	cursor: pointer;
-	padding: 20px;
-	z-index: 10;
-	transition: opacity 0.3s ease;
-
-	&:hover {
-		opacity: 0.7;
-	}
-
-	${(props) => (props.direction === "left" ? "left: 20px;" : "right: 20px;")}
-
-	@media (max-width: 768px) {
-		font-size: 32px;
-		padding: 10px;
-		${(props) =>
-			props.direction === "left" ? "left: 10px;" : "right: 10px;"}
+		max-width: 85%;
+		max-height: calc(100vh - 180px);
 	}
 `;
 
@@ -178,19 +153,41 @@ const BottomBar = styled.div`
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: rgba(26, 26, 26, 0.95);
+	/* background-color: rgba(26, 26, 26, 0.95); */
+	background-color: #2d3e2f;
 	padding: 20px;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
-	gap: 20px;
 `;
 
-const CloseButton = styled.button`
+const NavButton = styled.button`
 	background: none;
 	border: none;
 	color: white;
-	font-size: 14px;
+	font-size: 32px;
+	cursor: pointer;
+	padding: 10px 20px;
+	transition: opacity 0.3s ease;
+	line-height: 1;
+
+	&:hover {
+		opacity: 0.7;
+	}
+
+	@media (max-width: 768px) {
+		font-size: 24px;
+		padding: 8px 16px;
+	}
+`;
+
+const CloseButton = styled.button`
+	position: absolute;
+	right: 20px;
+	background: none;
+	border: none;
+	color: white;
+	font-size: 18px;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -200,11 +197,6 @@ const CloseButton = styled.button`
 
 	&:hover {
 		opacity: 0.7;
-	}
-
-	&::before {
-		content: "×";
-		font-size: 24px;
 	}
 `;
 
@@ -250,7 +242,9 @@ const GallerySection = (props) => {
 					))}
 				</GalleryGrid>
 				<ButtonWrapper>
-					<SeeMoreButton onClick={() => setSeeMoreClicked(true)}>
+					<SeeMoreButton
+						className="sans-serif"
+						onClick={() => setSeeMoreClicked(true)}>
 						SEE MORE
 					</SeeMoreButton>
 				</ButtonWrapper>
@@ -259,12 +253,9 @@ const GallerySection = (props) => {
 			{currentImageIndex !== null && (
 				<Lightbox>
 					<LightboxContent>
-						<ImageLabel>
+						{/* <ImageLabel>
 							Image Pop Up - Horizontal Images
-						</ImageLabel>
-						<NavButton direction="left" onClick={goToPrevious}>
-							←
-						</NavButton>
+						</ImageLabel> */}
 						<LightboxImage
 							src={props.images[currentImageIndex].mediaItemUrl}
 							alt={
@@ -272,11 +263,82 @@ const GallerySection = (props) => {
 								"Enlarged gallery image"
 							}
 						/>
-						<NavButton direction="right" onClick={goToNext}>
-							→
-						</NavButton>
 						<BottomBar>
-							<CloseButton onClick={closeLightbox}>
+							<NavButton onClick={goToPrevious}>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="36"
+									height="22"
+									viewBox="0 0 36 22"
+									fill="none">
+									<g clip-path="url(#clip0_165_308)">
+										<path
+											d="M35.8711 10.7649L0.830297 10.7649"
+											stroke="white"
+											stroke-miterlimit="10"
+										/>
+										<path
+											d="M14.0625 0.288806L0.598694 10.7568L14.0116 21.2249"
+											stroke="white"
+											stroke-miterlimit="10"
+										/>
+									</g>
+									<defs>
+										<clipPath id="clip0_165_308">
+											<rect
+												width="35.8696"
+												height="21.5217"
+												fill="white"
+												transform="translate(35.8711 21.5217) rotate(-180)"
+											/>
+										</clipPath>
+									</defs>
+								</svg>
+							</NavButton>
+							<NavButton onClick={goToNext}>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="36"
+									height="22"
+									viewBox="0 0 36 22"
+									fill="none">
+									<g clip-path="url(#clip0_165_305)">
+										<path
+											d="M0 10.7568H35.0408"
+											stroke="white"
+											stroke-miterlimit="10"
+										/>
+										<path
+											d="M21.8086 21.2329L35.2724 10.7649L21.8595 0.296875"
+											stroke="white"
+											stroke-miterlimit="10"
+										/>
+									</g>
+									<defs>
+										<clipPath id="clip0_165_305">
+											<rect
+												width="35.8696"
+												height="21.5217"
+												fill="white"
+											/>
+										</clipPath>
+									</defs>
+								</svg>
+							</NavButton>
+							<CloseButton
+								className="sans-serif"
+								onClick={closeLightbox}>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="13"
+									height="13"
+									viewBox="0 0 13 13"
+									fill="none">
+									<path
+										d="M6.114 6.822L0.868 12.068C0.774667 12.1613 0.66 12.2113 0.524 12.218C0.388 12.2247 0.266667 12.1747 0.16 12.068C0.0533332 11.9613 0 11.8433 0 11.714C0 11.5847 0.0533332 11.4667 0.16 11.36L5.406 6.114L0.16 0.868C0.0666665 0.774667 0.0166664 0.66 0.00999975 0.524C0.00333309 0.388 0.0533332 0.266667 0.16 0.16C0.266667 0.0533332 0.384667 0 0.514 0C0.643333 0 0.761333 0.0533332 0.868 0.16L6.114 5.406L11.36 0.16C11.4533 0.0666665 11.5683 0.0166664 11.705 0.00999975C11.8403 0.00333309 11.9613 0.0533332 12.068 0.16C12.1747 0.266667 12.228 0.384667 12.228 0.514C12.228 0.643333 12.1747 0.761333 12.068 0.868L6.822 6.114L12.068 11.36C12.1613 11.4533 12.2113 11.5683 12.218 11.705C12.2247 11.8403 12.1747 11.9613 12.068 12.068C11.9613 12.1747 11.8433 12.228 11.714 12.228C11.5847 12.228 11.4667 12.1747 11.36 12.068L6.114 6.822Z"
+										fill="white"
+									/>
+								</svg>
 								Close Gallery
 							</CloseButton>
 						</BottomBar>
