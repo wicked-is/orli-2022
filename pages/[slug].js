@@ -48,6 +48,12 @@ import SEO from "../components/seo";
 import SpotifyFeature from "../components/spotifyFeature";
 import SocialProof from "../components/SocialProof";
 import { SocialProofQuery } from "../components/SocialProof";
+import GallerySection, {
+	GalleryContainedQuery,
+} from "../components/GalleryContained";
+import ContentSection, {
+	TwoColumnContentMediaQuery,
+} from "../components/TwoColumnContentMedia";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -66,7 +72,7 @@ export default function DefaultPage(props) {
 	const postId = props?.data?.data?.post?.postId || null;
 	const [morePosts, setMorePosts] = useState([]);
 
-	// console.log(props.data);
+	console.log(props.data);
 
 	useEffect(() => {
 		var tl = gsap.timeline();
@@ -488,6 +494,24 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
+				case "Page_Flexiblecontent_Sections_GalleryContained":
+					gatheredSections.push(
+						<GallerySection
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_TwoColumnContentMedia":
+					gatheredSections.push(
+						<ContentSection
+							key={componentKey}
+							data={section}
+							index={index}
+						/>
+					);
+					break;
 				default:
 					break;
 			}
@@ -544,9 +568,9 @@ export default function DefaultPage(props) {
 	return (
 		<>
 			<SEO
-				title={seo.title}
-				description={seo.metaDesc}
-				fullhead={seo.fullHead}
+				title={seo?.title}
+				description={seo?.metaDesc}
+				fullhead={seo?.fullHead}
 			/>
 			{gatherSections()}
 			{showMorePosts && morePosts !== [] ? (
@@ -652,6 +676,8 @@ export async function getStaticProps({ params }) {
           }
           flexibleContent {
             sections {
+              ${GalleryContainedQuery}
+              ${TwoColumnContentMediaQuery}
               ${SocialProofQuery}
               ${UpgradesGridPageQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
