@@ -46,6 +46,8 @@ import OurMission from "../components/ourMission";
 import RoomSlider from "../components/roomSlider";
 import SEO from "../components/seo";
 import SpotifyFeature from "../components/spotifyFeature";
+import SocialProof from "../components/SocialProof";
+import { SocialProofQuery } from "../components/SocialProof";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -365,7 +367,7 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
-        case "Page_Flexiblecontent_Sections_OffersUpgradesSlider":
+				case "Page_Flexiblecontent_Sections_OffersUpgradesSlider":
 					gatheredSections.push(
 						<OffersUpgradesSlider
 							key={componentKey}
@@ -425,8 +427,8 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
-        case "Page_Flexiblecontent_Sections_OffersGridFilters":
-        case "Post_Flexiblecontent_Sections_OffersGridFilters":
+				case "Page_Flexiblecontent_Sections_OffersGridFilters":
+				case "Post_Flexiblecontent_Sections_OffersGridFilters":
 					gatheredSections.push(
 						<OffersGridFilters
 							key={componentKey}
@@ -474,6 +476,15 @@ export default function DefaultPage(props) {
 							{...section}
 							index={index}
 							filters={roomAmenities.nodes}
+						/>
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_SocialProof":
+					gatheredSections.push(
+						<SocialProof
+							key={componentKey}
+							{...section}
+							index={index}
 						/>
 					);
 					break;
@@ -572,6 +583,7 @@ export async function getStaticPaths() {
 
 	const data = await res.json();
 
+	console.log("All Data: ", data.data.posts.nodes.length);
 	const pages = data.data.pages.nodes.map((page) => ({
 		params: { slug: page.slug },
 	}));
@@ -640,6 +652,7 @@ export async function getStaticProps({ params }) {
           }
           flexibleContent {
             sections {
+              ${SocialProofQuery}
               ${UpgradesGridPageQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName

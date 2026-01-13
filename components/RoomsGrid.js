@@ -20,18 +20,35 @@ const filterList = [
 ];
 
 const FilterContainer = styled.section`
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
 	align-items: center;
-	padding: 2rem 10% 1rem 10%;
+	padding: 2rem 0 1rem;
 	margin-inline: auto;
+	margin-bottom: 6rem;
 	width: 100%;
 	background-color: var(--lt-grey);
 	z-index: 97;
 
-	/* @media screen and (max-width: 820px) {
-        & {display: none;}
-    } */
+	@media screen and (max-width: 850px) {
+		& {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			align-items: center;
+			gap: 0;
+			padding: 2rem 10vw 1rem;
+		}
+	}
+	@media screen and (max-width: 545px) {
+		& {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			align-items: center;
+			gap: 0;
+			padding: 2rem 10vw 1rem;
+		}
+	}
 `;
 const QuickViewContainer = styled.dialog`
 	width: 100%;
@@ -131,6 +148,24 @@ const TileMedia = styled.div`
 		overflow: hidden;
 	}
 `;
+const GridList = styled.div`
+	display: grid;
+	max-width: 90vw;
+	margin: 0 auto;
+	gap: 3rem;
+
+	@media screen and (min-width: 800px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media screen and (min-width: 1100px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	article[data-roomtitle*="Sunset"] {
+		grid-column: 1 / -1;
+	}
+`;
+
 export default function RoomsGrid(props) {
 	const [filters, setFilters] = useState(props.filters);
 	// const [filters, setFilters] = useState(filterList);
@@ -409,7 +444,7 @@ export default function RoomsGrid(props) {
 					);
 				})}
 			</FilterContainer>
-			<ul className={styles.gridList}>
+			<GridList>
 				{currentRooms.length != 0 ? (
 					currentRooms.map((room, index) => {
 						let filterList = [];
@@ -419,7 +454,7 @@ export default function RoomsGrid(props) {
 						let filters = filterList.join(",");
 
 						return (
-							<li
+							<article
 								style={{ overflow: "hidden" }}
 								className="room-tile"
 								key={`room-${index}`}
@@ -503,7 +538,7 @@ export default function RoomsGrid(props) {
 										</p>
 									</div>
 								</RoomTile>
-							</li>
+							</article>
 						);
 					})
 				) : (
@@ -519,7 +554,7 @@ export default function RoomsGrid(props) {
 						No rooms match this filter!
 					</p>
 				)}
-			</ul>
+			</GridList>
 		</section>
 	);
 }

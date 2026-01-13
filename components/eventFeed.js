@@ -426,7 +426,7 @@ export default function EventFeed(props) {
 											justifyContent: "space-between",
 										}}>
 										<div className="col-1-90-a">
-											<h3
+											<h2
 												className="heading"
 												style={{ margin: "0 0 1rem" }}>
 												{event.title}
@@ -434,7 +434,7 @@ export default function EventFeed(props) {
 													className={
 														styles.arrow
 													}></span>
-											</h3>
+											</h2>
 										</div>
 										{!props.fullWidget && (
 											<div
@@ -468,7 +468,7 @@ export default function EventFeed(props) {
 											justifyContent: "space-between",
 										}}>
 										<div className="col-1-90-a">
-											<h3
+											<h2
 												className="heading"
 												style={{
 													margin: "0 0 1rem",
@@ -478,7 +478,7 @@ export default function EventFeed(props) {
 													className={
 														styles.arrow
 													}></span>
-											</h3>
+											</h2>
 										</div>
 										{!props.fullWidget && (
 											<div

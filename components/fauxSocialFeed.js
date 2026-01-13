@@ -38,32 +38,32 @@ export default function FauxSocialFeed(props) {
 			<div className={`${styles.max80}`}>
 				<div className={styles.topContainer}>
 					<h2 className="heading">{headline}</h2>
-					<Link href={ctaLink} passHref>
-						<a
-							className="sans-serif xs-copy underline"
-							aria-label="Open Orli Instagram account - @StayOrli"
-							target="_blank"
-							rel="noreferrer">
-							{ctaText}
-						</a>
+					<Link
+						href={ctaLink}
+						className="sans-serif xs-copy underline"
+						aria-label="Open Orli Instagram account - @StayOrli"
+						target="_blank"
+						rel="noreferrer">
+						{ctaText}
 					</Link>
 				</div>
 				<div className={styles.grid}>
 					{images.map((image, index) => {
 						return (
-							<Link href={ctaLink} passHref key={`${index}-img`}>
-								<a
-									target="_blank"
-									aria-label="Open Orli Instagram account - @StayOrli">
-									<Image
-										key={`faux-${index}`}
-										src={image.mediaItemUrl}
-										width={1200}
-										height={1200}
-										layout="responsive"
-										alt={image.altText}
-									/>
-								</a>
+							<Link
+								href={ctaLink}
+								passHref
+								key={`${index}-img`}
+								target="_blank"
+								aria-label="Open Orli Instagram account - @StayOrli">
+								<Image
+									key={`faux-${index}`}
+									src={image.mediaItemUrl}
+									width={1200}
+									height={1200}
+									layout="responsive"
+									alt={image.altText}
+								/>
 							</Link>
 						);
 					})}

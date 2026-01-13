@@ -116,7 +116,7 @@ const TextContainer = styled.div`
 	}
 `;
 
-const ReservationButton = styled.a`
+const ReservationButton = styled(Link)`
 	margin: 1rem 0;
 	display: block;
 	padding: 1.5rem 4rem;
@@ -254,15 +254,14 @@ export default function DefaultOffersPage(props) {
 									__html: `${offer.singleOffers.offerDescription}`,
 								}}></div>
 							{/* <ReservationButton> */}
-							<Link
+
+							<ReservationButton
 								href={`${offer.singleOffers.bookingLink}`}
-								passHref>
-								<ReservationButton target="_blank">
-									{offer.title.toLowerCase().includes("stash")
-										? "Learn More"
-										: "Book Now"}
-								</ReservationButton>
-							</Link>
+								target="_blank">
+								{offer.title.toLowerCase().includes("stash")
+									? "Learn More"
+									: "Book Now"}
+							</ReservationButton>
 							{/* </ReservationButton> */}
 							{offer?.singleOffers?.offerTermsConditions ? (
 								<p
