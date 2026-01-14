@@ -26,7 +26,8 @@
 .leftIcon,
 .rightIcon {
     width: 100%;
-    max-width: 15%;
+    max-width: 50px;
+    height: auto;
     margin: auto;
 }
 

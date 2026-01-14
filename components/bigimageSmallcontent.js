@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/bigimagesmallcontent.module.css";
-import Flickity from "react-flickity-component";
-import "flickity/css/flickity.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Keyboard } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import styled from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -74,11 +77,10 @@ const SliderNavigationContainer = styled.div`
 `;
 
 export default function BigImageSmallContent(props) {
-	const slider = useRef(null);
+	const swiperRef = useRef(null);
 
-	const [sliderActive, setSliderActive] = useState(0);
-	const [currentSlider, setCurrentSlider] = useState("1");
-	const [currentSliderLength, setCurrentSliderLength] = useState("");
+	const [currentSlider, setCurrentSlider] = useState(1);
+	const [currentSliderLength, setCurrentSliderLength] = useState(0);
 
 	useEffect(() => {
 		var bgimgsections = gsap.utils.toArray(".bgimgfade");
@@ -97,22 +99,21 @@ export default function BigImageSmallContent(props) {
 		});
 	}, []);
 
-	useEffect(() => {
-		if (slider.current !== null) {
-			setCurrentSliderLength(slider.current.cells.length);
-			slider.current.on("change", () => {
-				setCurrentSlider(slider.current.selectedIndex + 1);
-				setCurrentSliderLength(slider.current.cells.length);
-			});
+	const handleSlideChange = (swiper) => {
+		setCurrentSlider(swiper.activeIndex + 1);
+	};
 
-			document
-				.querySelector("#previous-arrow")
-				.addEventListener("click", () => slider.current.previous());
-			document
-				.querySelector("#next-arrow")
-				.addEventListener("click", () => slider.current.next());
+	const handlePrevious = () => {
+		if (swiperRef.current) {
+			swiperRef.current.slidePrev();
 		}
-	}, [slider]);
+	};
+
+	const handleNext = () => {
+		if (swiperRef.current) {
+			swiperRef.current.slideNext();
+		}
+	};
 
 	const {
 		contentPosition,
@@ -143,10 +144,9 @@ export default function BigImageSmallContent(props) {
 				return (
 					<div className={`${paddingType} bgimgfade`}>
 						{anchorTag && (
-							<a
+							<div
 								id={anchorTag}
-								name={anchorTag}
-								className={styles.anchor}></a>
+								className={styles.anchor}></div>
 						)}
 						<FlexWrapper>
 							<MediaWrapper>
@@ -167,70 +167,85 @@ export default function BigImageSmallContent(props) {
 								)}
 								{mediaType === "Slider" && (
 									<>
-										<Flickity
-											options={{
-												cellAlign: "center",
-												prevNextButtons: false,
-												pageDots: false,
-												draggable: true,
-												wrapAround: true,
-												imagesLoaded: true,
-												adaptiveHeight: true,
+										<Swiper
+											modules={[Navigation, Pagination, Keyboard]}
+											spaceBetween={0}
+											slidesPerView={1}
+											loop={true}
+											centeredSlides={true}
+											keyboard={{
+												enabled: true,
+												onlyInViewport: true,
 											}}
-											disableImagesLoaded={false} // default false
-											reloadOnUpdate={false} // default false
-											static // default false
-											flickityRef={(c) => {
-												slider.current = c;
-											}}>
-											{slides.map((slides, index) => {
+											onSwiper={(swiper) => {
+												swiperRef.current = swiper;
+												setCurrentSliderLength(slides.length);
+											}}
+											onSlideChange={handleSlideChange}
+											className={styles.slides}>
+											{slides.map((slide, index) => {
 												return (
-													<div
-														key={`slide-${slides.index}`}
-														className={
-															styles.slides
-														}>
+													<SwiperSlide
+														key={`slide-${index}`}>
 														<img
 															src={
-																slides.mediaItemUrl
+																slide.mediaItemUrl
 															}
-															alt={slides.altText}
+															alt={slide.altText}
 															className={
 																styles.sliderimage
 															}
-															// layout="intrinsic"
 														/>
-													</div>
+													</SwiperSlide>
 												);
 											})}
-										</Flickity>
+										</Swiper>
 										<SliderNavigationContainer>
-											<div className="serif brown">
-												{currentSlider}/
-												{currentSliderLength}
+											<div className="serif brown" aria-live="polite" aria-atomic="true">
+												{currentSlider} / {currentSliderLength}
 											</div>
 											<div className="brown">
-												<img
-													id="previous-arrow"
-													src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+												<button
+													onClick={handlePrevious}
+													aria-label="Previous slide"
 													style={{
-														transform:
-															"rotate(180deg)",
-														marginRight: "1rem",
-														width: "37px",
-														height: "22px",
-													}}
-													alt="previous arrow"
-												/>
-												<img
-													id="next-arrow"
-													src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+														background: "none",
+														border: "none",
+														cursor: "pointer",
+														padding: 0,
+													}}>
+													<img
+														src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+														style={{
+															transform:
+																"rotate(180deg)",
+															marginRight: "1rem",
+															width: "37px",
+															height: "22px",
+														}}
+														alt=""
+														aria-hidden="true"
+													/>
+												</button>
+												<button
+													onClick={handleNext}
+													aria-label="Next slide"
 													style={{
-														width: "37px",
-														height: "22px",
-													}}
-													alt="next arrow"
-												/>
+														background: "none",
+														border: "none",
+														cursor: "pointer",
+														padding: 0,
+													}}>
+													<img
+														src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+														style={{
+															width: "37px",
+															height: "22px",
+														}}
+														alt=""
+														aria-hidden="true"
+													/>
+												</button>
 											</div>
 										</SliderNavigationContainer>
 									</>
@@ -258,24 +273,23 @@ export default function BigImageSmallContent(props) {
 							<TextContainer
 								className={`${styles.textPaddingLeft}`}>
 								{icon && (
-									<p className="right">
+									<div aria-hidden="true">
 										<img
 											src={icon?.mediaItemUrl}
-											alt={icon?.altText}
-											// layout="responsive"
+											alt=""
 											className={`${styles.leftIcon}`}
 										/>
-									</p>
+									</div>
 								)}
 								{subHeadline && (
-									<p className="sans-serif sub-heading-bold black">
+									<h3 className="sans-serif sub-heading-bold black">
 										{subHeadline}
-									</p>
+									</h3>
 								)}
 								{headline && (
-									<p className="serif heading black mb-3">
+									<h2 className="serif heading black mb-3">
 										{headline}
-									</p>
+									</h2>
 								)}
 								<div
 									className="sans-serif body-copy black"
@@ -285,7 +299,8 @@ export default function BigImageSmallContent(props) {
 								{isThereACta && (
 									<a
 										href={ctaLink}
-										className="sans-serif xs-copy black cta-black">
+										className="sans-serif xs-copy black cta-black"
+										aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 										{ctaLabel}
 									</a>
 								)}
@@ -297,33 +312,31 @@ export default function BigImageSmallContent(props) {
 				return (
 					<div className={`${paddingType} bgimgfade`}>
 						{anchorTag && (
-							<a
+							<div
 								id={anchorTag}
-								name={anchorTag}
-								className={styles.anchor}></a>
+								className={styles.anchor}></div>
 						)}
 						<FlexWrapper className="reorder">
 							<TextContainer
 								className={`${styles.textPaddingRight}`}>
 								{icon && (
-									<p className="right">
+									<div aria-hidden="true">
 										<img
 											src={icon?.mediaItemUrl}
-											alt={icon?.altText}
-											// layout="responsive"
+											alt=""
 											className={`${styles.rightIcon}`}
 										/>
-									</p>
+									</div>
 								)}
 								{subHeadline && (
-									<p className="sans-serif sub-heading-bold black">
+									<h3 className="sans-serif sub-heading-bold black">
 										{subHeadline}
-									</p>
+									</h3>
 								)}
 								{headline && (
-									<p className="serif heading black mb-3">
+									<h2 className="serif heading black mb-3">
 										{headline}
-									</p>
+									</h2>
 								)}
 								<div
 									className="sans-serif body-copy black"
@@ -333,7 +346,8 @@ export default function BigImageSmallContent(props) {
 								{isThereACta && (
 									<a
 										href={ctaLink}
-										className="sans-serif xs-copy black cta-black">
+										className="sans-serif xs-copy black cta-black"
+										aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 										{ctaLabel}
 									</a>
 								)}
@@ -357,70 +371,85 @@ export default function BigImageSmallContent(props) {
 								)}
 								{mediaType === "Slider" && (
 									<>
-										<Flickity
-											options={{
-												cellAlign: "center",
-												prevNextButtons: false,
-												pageDots: false,
-												draggable: true,
-												wrapAround: true,
-												imagesLoaded: true,
-												adaptiveHeight: true,
+										<Swiper
+											modules={[Navigation, Pagination, Keyboard]}
+											spaceBetween={0}
+											slidesPerView={1}
+											loop={true}
+											centeredSlides={true}
+											keyboard={{
+												enabled: true,
+												onlyInViewport: true,
 											}}
-											disableImagesLoaded={false} // default false
-											reloadOnUpdate={false} // default false
-											static // default false
-											flickityRef={(c) => {
-												slider.current = c;
-											}}>
-											{slides.map((slides, index) => {
+											onSwiper={(swiper) => {
+												swiperRef.current = swiper;
+												setCurrentSliderLength(slides.length);
+											}}
+											onSlideChange={handleSlideChange}
+											className={styles.slides}>
+											{slides.map((slide, index) => {
 												return (
-													<div
-														key={`slide-${slides.index}`}
-														className={
-															styles.slides
-														}>
+													<SwiperSlide
+														key={`slide-${index}`}>
 														<img
 															src={
-																slides.mediaItemUrl
+																slide.mediaItemUrl
 															}
-															alt={slides.altText}
+															alt={slide.altText}
 															className={
 																styles.sliderimage
 															}
-															// layout="intrinsic"
 														/>
-													</div>
+													</SwiperSlide>
 												);
 											})}
-										</Flickity>
+										</Swiper>
 										<SliderNavigationContainer>
-											<div className="serif brown">
-												{currentSlider}/
-												{currentSliderLength}
+											<div className="serif brown" aria-live="polite" aria-atomic="true">
+												Slide {currentSlider} of {currentSliderLength}
 											</div>
 											<div className="brown">
-												<img
-													id="previous-arrow"
-													src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+												<button
+													onClick={handlePrevious}
+													aria-label="Previous slide"
 													style={{
-														transform:
-															"rotate(180deg)",
-														marginRight: "1rem",
-														width: "37px",
-														height: "22px",
-													}}
-													alt="previous arrow"
-												/>
-												<img
-													id="next-arrow"
-													src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+														background: "none",
+														border: "none",
+														cursor: "pointer",
+														padding: 0,
+													}}>
+													<img
+														src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+														style={{
+															transform:
+																"rotate(180deg)",
+															marginRight: "1rem",
+															width: "37px",
+															height: "22px",
+														}}
+														alt=""
+														aria-hidden="true"
+													/>
+												</button>
+												<button
+													onClick={handleNext}
+													aria-label="Next slide"
 													style={{
-														width: "37px",
-														height: "22px",
-													}}
-													alt="next arrow"
-												/>
+														background: "none",
+														border: "none",
+														cursor: "pointer",
+														padding: 0,
+													}}>
+													<img
+														src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
+														style={{
+															width: "37px",
+															height: "22px",
+														}}
+														alt=""
+														aria-hidden="true"
+													/>
+												</button>
 											</div>
 										</SliderNavigationContainer>
 									</>
@@ -453,43 +482,44 @@ export default function BigImageSmallContent(props) {
 					<div
 						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
 						{anchorTag && (
-							<a
+							<div
 								id={anchorTag}
-								name={anchorTag}
-								className={styles.fullanchor}></a>
+								className={styles.fullanchor}></div>
 						)}
 						{mediaType === "Image" && (
 							<div
 								className={`${styles.halfBanner} ${styles.backgroundImage}`}
 								style={{
 									backgroundImage: `url(${imagePoster.mediaItemUrl})`,
-								}}>
+								}}
+								role="img"
+								aria-label={imagePoster?.altText || "Background image"}>
 								<div className="max-80">
 									<div className="flex">
 										<div className={styles.col140}>
 											{icon && (
-												<p className="right">
+												<div aria-hidden="true">
 													<img
 														src={icon?.mediaItemUrl}
-														alt={icon?.altText}
-														// layout="responsive"
+														alt=""
 														className={`${styles.rightIcon}`}
 													/>
-												</p>
+												</div>
 											)}
-											<p className="sans-serif sub-heading-bold white">
+											<h3 className="sans-serif sub-heading-bold white">
 												{subHeadline}
-											</p>
-											<p className="serif heading white mb-3">
+											</h3>
+											<h2 className="serif heading white mb-3">
 												{headline}
-											</p>
+											</h2>
 											<p className="sans-serif body-copy white">
 												{blurb}
 											</p>
 											{ctaLabel && (
 												<a
 													href={ctaLink}
-													className="primary-btn">
+													className="primary-btn"
+													aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 													{ctaLabel}
 												</a>
 											)}
@@ -503,28 +533,28 @@ export default function BigImageSmallContent(props) {
 								className={`${styles.halfBanner} ${styles.videoBackground} ${styles.backgroundVideo}`}>
 								<div className={`${styles.overBackground}`}>
 									{icon && (
-										<p className="left">
+										<div aria-hidden="true">
 											<img
 												src={icon?.mediaItemUrl}
-												alt={icon?.altText}
-												// layout="responsive"
+												alt=""
 												className={`${styles.leftIcon}`}
 											/>
-										</p>
+										</div>
 									)}
-									<p className="sans-serif sub-heading-bold white  textshadow">
+									<h3 className="sans-serif sub-heading-bold white textshadow">
 										{subHeadline}
-									</p>
-									<p className="serif heading white  textshadow">
+									</h3>
+									<h2 className="serif heading white textshadow">
 										{headline}
-									</p>
-									<p className="sans-serif body-copy white  textshadow">
+									</h2>
+									<p className="sans-serif body-copy white textshadow">
 										{blurb}
 									</p>
 									{isThereACta && (
 										<a
 											href={ctaLink}
-											className="primary-btn">
+											className="primary-btn"
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -555,41 +585,42 @@ export default function BigImageSmallContent(props) {
 					<div
 						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
 						{anchorTag && (
-							<a
+							<div
 								id={anchorTag}
-								name={anchorTag}
-								className={styles.fullanchor}></a>
+								className={styles.fullanchor}></div>
 						)}
 						{mediaType === "Image" && (
 							<div
 								className={`${styles.halfBanner} ${styles.backgroundImage}`}
 								style={{
 									backgroundImage: `url(${imagePoster.mediaItemUrl})`,
-								}}>
+								}}
+								role="img"
+								aria-label={imagePoster?.altText || "Background image"}>
 								<div className={`${styles.overBackgroundLeft}`}>
 									{icon && (
-										<p className="right">
+										<div aria-hidden="true">
 											<img
 												src={icon?.mediaItemUrl}
-												alt={icon?.altText}
-												// layout="responsive"
+												alt=""
 												className={`${styles.rightIcon}`}
 											/>
-										</p>
+										</div>
 									)}
-									<p className="sans-serif sub-heading-bold white ">
+									<h3 className="sans-serif sub-heading-bold white ">
 										{subHeadline}
-									</p>
-									<p className="serif heading white ">
+									</h3>
+									<h2 className="serif heading white ">
 										{headline}
-									</p>
+									</h2>
 									<p className="sans-serif body-copy white ">
 										{blurb}
 									</p>
 									{isThereACta && (
 										<a
 											href={ctaLink}
-											className="primary-btn">
+											className="primary-btn"
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -602,28 +633,28 @@ export default function BigImageSmallContent(props) {
 								<div
 									className={`${styles.overBackground} bgimgfade`}>
 									{icon && (
-										<p className="right">
+										<div aria-hidden="true">
 											<img
 												src={icon?.mediaItemUrl}
-												alt={icon?.altText}
-												// layout="responsive"
+												alt=""
 												className={`${styles.rightIcon}`}
 											/>
-										</p>
+										</div>
 									)}
-									<p className="sans-serif sub-heading-bold white ">
+									<h3 className="sans-serif sub-heading-bold white ">
 										{subHeadline}
-									</p>
-									<p className="serif heading white ">
+									</h3>
+									<h2 className="serif heading white ">
 										{headline}
-									</p>
+									</h2>
 									<p className="sans-serif body-copy white ">
 										{blurb}
 									</p>
 									{isThereACta && (
 										<a
 											href={ctaLink}
-											className="primary-btn">
+											className="primary-btn"
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -649,31 +680,33 @@ export default function BigImageSmallContent(props) {
 					<div
 						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
 						{anchorTag && (
-							<a
+							<div
 								id={anchorTag}
-								name={anchorTag}
-								className={styles.fullanchor}></a>
+								className={styles.fullanchor}></div>
 						)}
 						{mediaType === "Image" && (
 							<div
 								className={`${styles.halfBanner} ${styles.backgroundImage}`}
 								style={{
 									backgroundImage: `url(${imagePoster.mediaItemUrl})`,
-								}}>
+								}}
+								role="img"
+								aria-label={imagePoster?.altText || "Background image"}>
 								<div className={styles.centerCenterText}>
-									<p className="sans-serif sub-heading-bold white center">
+									<h3 className="sans-serif sub-heading-bold white center">
 										{subHeadline}
-									</p>
-									<p className="serif heading white center">
+									</h3>
+									<h2 className="serif heading white center">
 										{headline}
-									</p>
+									</h2>
 									<p className="sans-serif body-copy white center">
 										{blurb}
 									</p>
 									{isThereACta && (
 										<a
 											href={ctaLink}
-											className="primary-btn">
+											className="primary-btn"
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -685,19 +718,20 @@ export default function BigImageSmallContent(props) {
 								className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
 								<div
 									className={`${styles.centerCenterText} bgimgfade`}>
-									<p className="sans-serif sub-heading-bold white center">
+									<h3 className="sans-serif sub-heading-bold white center">
 										{subHeadline}
-									</p>
-									<p className="serif heading white center">
+									</h3>
+									<h2 className="serif heading white center">
 										{headline}
-									</p>
+									</h2>
 									<p className="sans-serif body-copy white center">
 										{blurb}
 									</p>
 									{isThereACta && (
 										<a
 											href={ctaLink}
-											className="primary-btn">
+											className="primary-btn"
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -728,7 +762,8 @@ export default function BigImageSmallContent(props) {
 				greyBackground !== null && greyBackground == true
 					? `bg-lt-grey`
 					: null
-			}`}>
+			}`}
+			aria-label={headline || subHeadline || "Content section"}>
 			{mediacontentStructure(contentPosition)}
 		</section>
 	);

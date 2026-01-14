@@ -52,7 +52,6 @@ export default function FauxSocialFeed(props) {
 						return (
 							<Link
 								href={ctaLink}
-								passHref
 								key={`${index}-img`}
 								target="_blank"
 								aria-label="Open Orli Instagram account - @StayOrli">

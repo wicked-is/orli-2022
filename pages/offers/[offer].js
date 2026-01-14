@@ -254,7 +254,6 @@ export default function DefaultOffersPage(props) {
 									__html: `${offer.singleOffers.offerDescription}`,
 								}}></div>
 							{/* <ReservationButton> */}
-
 							<ReservationButton
 								href={`${offer.singleOffers.bookingLink}`}
 								target="_blank">

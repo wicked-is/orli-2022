@@ -186,7 +186,7 @@ export default function GiftGrid(props) {
 								<Link
 									href={gifts.link}
 									target="_blank"
-									rel="noopener noreferrer">
+									rel="noopener">
 									<ImageContainer>
 										<div
 											className={`positionCenter color-${gifts.hoverColor}`}>

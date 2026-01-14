@@ -1,21 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Flickity from "react-flickity-component";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Keyboard } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import styles from "../styles/roomSlider.module.css";
 
-import "flickity/css/flickity.css";
-
 export default function RoomSlider(props) {
-	const slider = useRef(null);
+	const swiperRef = useRef(null);
 	const [sliderActive, setSliderActive] = useState(2);
 	const [loaded, setLoaded] = useState(false);
 
 	const { rooms } = props;
 
 	const changeSlider = (e) => {
-		slider.current.select(e.target.dataset.slide);
+		if (swiperRef.current) {
+			swiperRef.current.slideToLoop(parseInt(e.target.dataset.slide));
+		}
 	};
 
 	const [dimensions, setDimensions] = useState({
@@ -45,11 +49,9 @@ export default function RoomSlider(props) {
 		};
 	});
 
-	useEffect(() => {
-		slider.current.on("change", () => {
-			setSliderActive(slider.current.selectedIndex);
-		});
-	}, [sliderActive]);
+	const handleSlideChange = (swiper) => {
+		setSliderActive(swiper.realIndex);
+	};
 
 	return (
 		<section
@@ -63,76 +65,79 @@ export default function RoomSlider(props) {
             </Link>*/}
 			{/* map over images */}
 			<div className="roomsSliderarrows">
-				<Flickity
-					options={{
-						cellAlign: "center",
-						prevNextButtons: true,
-						arrowShape:
-							"M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z",
-						pageDots: false,
-						draggable: true,
-						wrapAround: true,
-						asNavFor: ".roomSliderNavigation",
-						imagesLoaded: true,
-						initialIndex: 2,
-						accessibility: true,
-						on: {
-							change: function (index) {
-								// set all non selected slides to tabindex -1
-								let allSlides = document.querySelectorAll(
-									".roomsSliderarrows .flickity-slider div"
-								);
-								allSlides.forEach((slide) => {
-									slide.setAttribute("tabindex", "-1");
-									slide.setAttribute(
-										"name",
-										`slide-${index}`
-									);
-								});
-								// set selected slide to tabindex 0
-								let selectedSlide = document.querySelector(
-									`.roomsSliderarrows .flickity-slider div:nth-child(${
-										index + 1
-									})`
-								);
-								selectedSlide.setAttribute("tabindex", "0");
-							},
+				<Swiper
+					modules={[Navigation, Pagination, Keyboard]}
+					spaceBetween={0}
+					slidesPerView={'auto'}
+					loop={rooms?.length > 2}
+					loopedSlides={rooms?.length}
+					centeredSlides={true}
+					initialSlide={2}
+					navigation={true}
+					watchSlidesProgress={true}
+					observer={true}
+					observeParents={true}
+					breakpoints={{
+						0: {
+							slidesPerView: 1,
+							centeredSlides: true,
 						},
+						801: {
+							slidesPerView: 'auto',
+							centeredSlides: true,
+						}
 					}}
-					disableImagesLoaded={false} // default false
-					reloadOnUpdate={false} // default false
-					static // default false
-					aria-label="Featured Room Carousel"
-					flickityRef={(c) => {
-						slider.current = c;
-					}}>
+					keyboard={{
+						enabled: true,
+						onlyInViewport: true,
+					}}
+					onSwiper={(swiper) => {
+						swiperRef.current = swiper;
+					}}
+					onSlideChange={handleSlideChange}
+					onSlideChangeTransitionEnd={(swiper) => {
+						// Force update of background images after transition
+						const slides = swiper.slides;
+						slides.forEach((slide, idx) => {
+							const slideElement = slide;
+							const dataIndex = slideElement.getAttribute('data-swiper-slide-index');
+							if (dataIndex !== null && rooms[dataIndex]) {
+								slideElement.style.backgroundImage = `url(${rooms[dataIndex].singleRooms.roomshero.mediaItemUrl})`;
+							}
+						});
+					}}
+					aria-label="Featured Room Carousel">
 					{rooms.map((room, index) => {
 						return (
-							<div
-								key={room.title}
+							<SwiperSlide
+								key={`${room.title}-${index}`}
 								className={styles.room}
 								aria-label={`${room.title} - featured room ${
 									index + 1
 								} of ${rooms.length}`}
 								style={{
-									backgroundImage: isMobile
-										? `url(${room.singleRooms.roomshero.mediaItemUrl})`
-										: `url(${room.singleRooms.roomshero.mediaItemUrl})`,
+									backgroundImage: `url(${room.singleRooms.roomshero.mediaItemUrl})`,
 								}}
 								data-mobile={isMobile}>
 								<p
 									tabIndex={0}
-									className={`${styles.roommobile} serif heading white`}>
-									<a href={room.singleRooms.slug}>
+									className={`${styles.roommobile}`}>
+									<Link href={room.singleRooms.slug} className="serif heading white" style={{display: 'block', marginBottom: '0.5rem'}}>
 										{room.title}
-									</a>
+									</Link>
+									<Link
+										aria-label={`Explore ${room.title}`}
+										href={room.singleRooms.slug}
+										className={`sans-serif center white textshadow`}>
+										Explore This Room
+									</Link>
 								</p>
 
 								<div className={styles.bottomgradient}></div>
-							</div>
+							</SwiperSlide>
 						);
 					})}
-				</Flickity>
+				</Swiper>
 			</div>
 			<div className={`${styles.roomSliderNavigation}`}>
 				{rooms.map((room, index) => {

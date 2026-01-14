@@ -41,10 +41,11 @@ export default function BlurbCenter(props) {
 				greyBackground && "bg-lt-grey"
 			} ${mp4ExternalLink ? "has-video" : ""} ${
 				isBlogSummary ? "removepadding" : "addpadding blurbcenterfade"
-			}`}>
+			}`}
+			aria-label={headline || "Content section"}>
 			{mp4ExternalLink && (
 				<video
-					poster={imagePoster.mediaItemUrl}
+					poster={imagePoster?.mediaItemUrl}
 					autoPlay
 					playsInline
 					muted
@@ -54,15 +55,18 @@ export default function BlurbCenter(props) {
 				</video>
 			)}
 			<div className="max-60 center">
-				{!mp4ExternalLink && (
-					<div className={`${styles.icon}`}>
-						<img src={icon?.mediaItemUrl} alt={icon?.altText} />
+				{!mp4ExternalLink && icon?.mediaItemUrl && (
+					<div className={`${styles.icon}`} aria-hidden="true">
+						<img 
+							src={icon.mediaItemUrl} 
+							alt={icon?.altText || ""} 
+							role="presentation" />
 					</div>
 				)}
 				{headline && (
-					<p className="serif heading black center">{headline}</p>
+					<h2 className="serif heading black center">{headline}</h2>
 				)}
-				<p className="heading-italic">{parse(blurb)}</p>
+				<div className="heading-italic">{parse(blurb)}</div>
 			</div>
 		</section>
 	);

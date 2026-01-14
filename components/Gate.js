@@ -16,7 +16,7 @@ const GateContainer = styled.section`
 	background-position: top left;
 	overflow: hidden;
 `;
-const Logo = styled.img`
+const Logo = styled(Link)`
 	position: absolute;
 	top: 2rem;
 	left: 2rem;
@@ -71,16 +71,22 @@ export default function Gate(props) {
 		}
 	});
 
+	useEffect(() => {
+		if (localStorage.getItem("loggedin")) {
+			login(true);
+		}
+	});
+
 	return (
 		<GateContainer>
-			<Link href="/">
-				<Logo
+			<Logo href="/">
+				<img
 					src="https://orlidev.wpengine.com/wp-content/uploads/2022/08/Orli_Logo_WithLocator_Black-1.png"
 					alt="Orli La Jolla Logo"
 					width={124}
 					height={72}
 				/>
-			</Link>
+			</Logo>
 			<ContentContainer>
 				<FormField
 					className="body-copy sans-serif"
