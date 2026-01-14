@@ -247,15 +247,19 @@ export default function Hero(props) {
 								className={`${
 									textPosition == "Left Center"
 										? `${styles.herotextOver}`
-										: "null"
+										: ""
 								} ${
 									textPosition == "Center Center"
 										? `${styles.herotextCenterCenter}`
-										: "null"
+										: ""
 								} ${
 									textPosition == "Bottom Center"
 										? `${styles.herotextOverCenter}`
-										: "null"
+										: ""
+								} ${
+									textPosition == "Bottom Left"
+										? `${styles.herotextOverLeft}`
+										: ""
 								}`}>
 								<p className="sans-serif sub-heading-bold white">
 									{headline}
