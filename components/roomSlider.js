@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Keyboard } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Keyboard } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import styles from "../styles/roomSlider.module.css";
 
@@ -68,7 +68,7 @@ export default function RoomSlider(props) {
 				<Swiper
 					modules={[Navigation, Pagination, Keyboard]}
 					spaceBetween={0}
-					slidesPerView={'auto'}
+					slidesPerView={"auto"}
 					loop={rooms?.length > 2}
 					loopedSlides={rooms?.length}
 					centeredSlides={true}
@@ -83,9 +83,9 @@ export default function RoomSlider(props) {
 							centeredSlides: true,
 						},
 						801: {
-							slidesPerView: 'auto',
+							slidesPerView: "auto",
 							centeredSlides: true,
-						}
+						},
 					}}
 					keyboard={{
 						enabled: true,
@@ -100,21 +100,19 @@ export default function RoomSlider(props) {
 						const slides = swiper.slides;
 						slides.forEach((slide, idx) => {
 							const slideElement = slide;
-							const dataIndex = slideElement.getAttribute('data-swiper-slide-index');
+							const dataIndex = slideElement.getAttribute(
+								"data-swiper-slide-index"
+							);
 							if (dataIndex !== null && rooms[dataIndex]) {
 								slideElement.style.backgroundImage = `url(${rooms[dataIndex].singleRooms.roomshero.mediaItemUrl})`;
 							}
 						});
-					}}
-					aria-label="Featured Room Carousel">
+					}}>
 					{rooms.map((room, index) => {
 						return (
 							<SwiperSlide
 								key={`${room.title}-${index}`}
 								className={styles.room}
-								aria-label={`${room.title} - featured room ${
-									index + 1
-								} of ${rooms.length}`}
 								style={{
 									backgroundImage: `url(${room.singleRooms.roomshero.mediaItemUrl})`,
 								}}
@@ -122,7 +120,13 @@ export default function RoomSlider(props) {
 								<p
 									tabIndex={0}
 									className={`${styles.roommobile}`}>
-									<Link href={room.singleRooms.slug} className="serif heading white" style={{display: 'block', marginBottom: '0.5rem'}}>
+									<Link
+										href={room.singleRooms.slug}
+										className="serif heading white"
+										style={{
+											display: "block",
+											marginBottom: "0.5rem",
+										}}>
 										{room.title}
 									</Link>
 									<Link
