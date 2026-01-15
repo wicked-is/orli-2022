@@ -316,6 +316,7 @@ export default function Header(props) {
 				) : (
 					<Link href="/">
 						<img
+							aria-label="Orli La Jolla Home"
 							src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
 							alt="Orli La Jolla Logo Black"
 							className={styles.headerlogo}
