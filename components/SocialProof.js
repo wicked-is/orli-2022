@@ -19,7 +19,7 @@ const SectionLabel = styled.span`
 	font-weight: 500;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	color: #8b6b5d;
+	color: rgb(26, 26, 26);
 	margin-bottom: 24px;
 `;
 
