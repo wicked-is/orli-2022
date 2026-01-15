@@ -168,6 +168,7 @@ const CheckboxesContainer = styled.div`
 		gap: 0;
 	}
 `;
+const DefaultTitle = styled.h1``;
 export default function Form(props) {
 	const { type, subHeadline, headline, blurb, anchorTag } = props;
 
@@ -901,7 +902,11 @@ export default function Form(props) {
 				<p className="sans-serif sub-heading-bold black ">
 					{subHeadline}
 				</p>
-				<h3 className="serif heading black ">{headline}</h3>
+				<DefaultTitle
+					className="serif heading black "
+					as={!props.index ? "h1" : "h2"}>
+					{headline}
+				</DefaultTitle>
 				<div
 					className="sans-serif body-copy black "
 					dangerouslySetInnerHTML={{ __html: blurb }}></div>

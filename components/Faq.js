@@ -65,6 +65,7 @@ const Tab = styled.div`
 `;
 const Question = styled.h3``;
 const Answer = styled.p``;
+const FAQTitle = styled.h2``;
 
 const handleTabClick = (e, index) => {
 	e.preventDefault();
@@ -99,7 +100,9 @@ export default function FAQ(props) {
 	return (
 		<FAQMainContainer>
 			<FAQContainer>
-				<h2 className="heading">{title}</h2>
+				<FAQTitle as={!props.index ? "h1" : "h2"} className="heading">
+					{title}
+				</FAQTitle>
 				<p className="body-copy">{blurb}</p>
 				<a id={anchor} name={anchor}></a>
 				{faqs &&

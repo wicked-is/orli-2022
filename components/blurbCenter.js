@@ -5,6 +5,10 @@ import styles from "../styles/blurbCenter.module.css";
 import parse from "html-react-parser";
 gsap.registerPlugin(ScrollTrigger);
 
+import styled from "styled-components";
+
+const Headline = styled.h2``;
+
 export default function BlurbCenter(props) {
 	useEffect(() => {
 		var blurbcentersections = gsap.utils.toArray(".blurbcenterfade");
@@ -57,14 +61,19 @@ export default function BlurbCenter(props) {
 			<div className="max-60 center">
 				{!mp4ExternalLink && icon?.mediaItemUrl && (
 					<div className={`${styles.icon}`} aria-hidden="true">
-						<img 
-							src={icon.mediaItemUrl} 
-							alt={icon?.altText || ""} 
-							role="presentation" />
+						<img
+							src={icon.mediaItemUrl}
+							alt={icon?.altText || ""}
+							role="presentation"
+						/>
 					</div>
 				)}
 				{headline && (
-					<h2 className="serif heading black center">{headline}</h2>
+					<Headline
+						as={!props.index ? "h1" : "h2"}
+						className="serif heading black center">
+						{headline}
+					</Headline>
 				)}
 				<div className="heading-italic">{parse(blurb)}</div>
 			</div>

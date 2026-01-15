@@ -55,6 +55,9 @@ import ContentSection, {
 	TwoColumnContentMediaQuery,
 } from "../components/TwoColumnContentMedia";
 import TwoColumnText from "../components/TwoColumnText";
+import ExperiencesGrid, {
+	ExperiencesGridQuery,
+} from "../components/ExperiencesGrid";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -514,6 +517,15 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
+				case "Page_Flexiblecontent_Sections_ExperiencesGrid":
+					gatheredSections.push(
+						<ExperiencesGrid
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
 				case "Page_Flexiblecontent_Sections_TwoColumnContentMedia":
 					gatheredSections.push(
 						<ContentSection
@@ -691,6 +703,7 @@ export async function getStaticProps({ params }) {
               ${TwoColumnContentMediaQuery}
               ${SocialProofQuery}
               ${UpgradesGridPageQuery}
+              ${ExperiencesGridQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {
