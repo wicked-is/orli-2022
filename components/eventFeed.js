@@ -419,8 +419,7 @@ export default function EventFeed(props) {
 										{event.singleEvent.locationName} |{" "}
 										{event.singleEvent.date}
 									</p>
-									<div
-										className={styles.flexcentera}>
+									<div className={styles.flexcentera}>
 										<div className="col-1-90-a">
 											<h2
 												className="heading"
@@ -454,13 +453,13 @@ export default function EventFeed(props) {
 									}
 									target="_blank"
 									rel="noopener noreferrer">
-									<p className={`${styles.paddinginner} sans-serif xs-copy `}>
+									<p
+										className={`${styles.paddinginner} sans-serif xs-copy `}>
 										{event?.singleEvent?.locationName &&
 											`${event.singleEvent.locationName} | `}
 										{event?.singleEvent?.date || event.date}
 									</p>
-									<div
-										className={styles.flexcentera}>
+									<div className={styles.flexcentera}>
 										<div className="col-1-90-a">
 											<h2
 												className="heading"
