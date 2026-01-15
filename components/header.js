@@ -315,11 +315,11 @@ export default function Header(props) {
 						</div>
 					</Link>
 				) : (
-					<Link href="/">
+					<Link href="/" aria-label="Orli La Jolla logo - Home">
 						<img
-							aria-label="Orli La Jolla Home"
 							src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
 							alt="Orli La Jolla Logo Black"
+							aria-label="Orli La Jolla logo - Home"
 							className={styles.headerlogo}
 							width={380}
 							height={95}
