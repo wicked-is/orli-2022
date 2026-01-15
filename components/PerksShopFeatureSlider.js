@@ -137,6 +137,7 @@ export default function PerksShopFeatureSlider(props) {
 											src={
 												slide.leftTopPhoto.mediaItemUrl
 											}
+											alt={slide.leftTopPhoto.altText}
 											width={393}
 											height={413}
 										/>
@@ -150,12 +151,14 @@ export default function PerksShopFeatureSlider(props) {
 											}
 											width={428}
 											height={509}
+											alt={slide.leftBottomPhoto.altText}
 										/>
 									)}
 							</Left>
 							<RightMediaContainer>
 								<RightMedia
 									src={slide.rightPhoto.mediaItemUrl}
+									alt={slide.rightPhoto.altText}
 									width={416}
 									height={515}
 									style={{ objectFit: "cover !important" }}
