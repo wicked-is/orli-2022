@@ -506,7 +506,12 @@ export default function Form(props) {
 								htmlFor="website">
 								Website
 							</label>
-							<input type="text" name="website" placeholder="" />
+							<input
+								type="text"
+								id="website"
+								name="website"
+								placeholder=""
+							/>
 						</FieldGroup>
 
 						<ThreeColumn>
@@ -646,7 +651,12 @@ export default function Form(props) {
 								htmlFor="other">
 								If area of focus is other, please specify
 							</label>
-							<input type="text" name="other" placeholder="" />
+							<input
+								type="text"
+								id="other"
+								name="other"
+								placeholder=""
+							/>
 						</FieldGroup>
 
 						{/* Proposed Deliverables  */}
@@ -658,6 +668,7 @@ export default function Form(props) {
 							</label>
 							<input
 								type="text"
+								id="deliverables"
 								name="deliverables"
 								placeholder=""
 							/>
