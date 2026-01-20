@@ -84,7 +84,7 @@ export default function ExploreMorePosts(props) {
 								<Link
 									href={post.uri}
 									aria-label={`Read more about ${post.title}`}>
-									<p className="press-heading left">
+									<p className="press-heading">
 										{post.title}
 									</p>
 								</Link>
