@@ -63,9 +63,9 @@ const Tab = styled.div`
 	flex-direction: row;
 	align-items: center;
 `;
-const Question = styled.h3``;
-const Answer = styled.p``;
 const FAQTitle = styled.h2``;
+const Question = styled.h2``;
+const Answer = styled.p``;
 
 const handleTabClick = (e, index) => {
 	e.preventDefault();
@@ -104,7 +104,7 @@ export default function FAQ(props) {
 					{title}
 				</FAQTitle>
 				<p className="body-copy">{blurb}</p>
-				<a id={anchor} name={anchor}></a>
+				{anchor && <a id={anchor} name={anchor}></a>}
 				{faqs &&
 					faqs.map((faq, index) => {
 						return (
@@ -112,9 +112,11 @@ export default function FAQ(props) {
 								className="faq"
 								id={`faq-${index + 1}`}
 								key={`faq-${index + 1}`}>
-								<a id={faq.anchor} name={faq.anchor}></a>
+								{faq.anchor && (
+									<a id={faq.anchor} name={faq.anchor}></a>
+								)}
 								<Tab>
-									<Question className="sans-serif-bold uppercase">
+									<Question className="sans-serif uppercase">
 										{faq.question}
 									</Question>
 									<div id="close-faq"></div>

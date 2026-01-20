@@ -1,13 +1,14 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import parse from "html-react-parser";
 gsap.registerPlugin(ScrollTrigger);
-import Flickity from "react-flickity-component";
-import "flickity/css/flickity.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Keyboard, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const OffersGridContainer = styled.section`
 	width: 100%;
@@ -353,10 +354,19 @@ const SliderNavigationContainer = styled.div`
 	}
 `;
 
-const NavHolder = styled.div`
+const NavHolder = styled.button`
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+	font-family: inherit;
+
+	&:focus {
+		outline: 2px solid var(--brown);
+		outline-offset: 2px;
+	}
 
 	@media screen and (max-width: 500px) {
 		flex-direction: column;
@@ -368,13 +378,27 @@ const NavHolder = styled.div`
 
 		font-size: 0.85rem;
 
-		:first-of-type {
+		&:first-of-type {
 			flex-direction: column-reverse;
 		}
 
-		:last-of-type {
+		&:last-of-type {
 			align-items: flex-end;
 		}
+	}
+`;
+
+const SwiperContainer = styled.div`
+	width: 100%;
+	height: 100%;
+
+	.swiper {
+		width: 100%;
+		height: 100%;
+	}
+
+	.swiper-slide {
+		width: 100vw;
 	}
 `;
 
@@ -448,25 +472,23 @@ export default function OffersGridFilters(props) {
 		window.openBookingFlow();
 	}
 
-	const sliderRef = useRef(null);
-	const [sliderActive, setSliderActive] = useState(0); // 0-based index
+	const [swiperInstance, setSwiperInstance] = useState(null);
+	const [sliderActive, setSliderActive] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
-
-	const [isMobile, setIsMobile] = useState(false);
+	const closeButtonRef = useRef(null);
 
 	function openModalAt(index) {
 		setSliderActive(index);
-		if (
-			sliderRef.current &&
-			typeof sliderRef.current.select === "function"
-		) {
-			sliderRef.current.select(index);
-		}
 		setIsOpen(true);
+		// Focus the close button when modal opens for accessibility
+		setTimeout(() => {
+			closeButtonRef.current?.focus();
+		}, 100);
 	}
 
 	function closeModal() {
 		setIsOpen(false);
+		setSwiperInstance(null);
 	}
 
 	function changeSlider(e) {
@@ -476,28 +498,29 @@ export default function OffersGridFilters(props) {
 	}
 
 	function sliderPrevious() {
-		if (sliderRef.current) sliderRef.current.previous();
+		if (swiperInstance) swiperInstance.slidePrev();
 	}
 
 	function sliderNext() {
-		if (sliderRef.current) sliderRef.current.next();
+		if (swiperInstance) swiperInstance.slideNext();
 	}
 
+	// Handle escape key to close modal
 	useEffect(() => {
-		const onResize = () => setIsMobile(window.innerWidth < 768);
-		onResize();
-		window.addEventListener("resize", onResize);
-		return () => window.removeEventListener("resize", onResize);
-	}, []);
-
-	// Keep sliderActive in sync with Flickity selection
-	useEffect(() => {
-		const inst = sliderRef.current;
-		if (!inst) return;
-		const onChange = (i) => setSliderActive(i);
-		inst.on("change", onChange);
-		return () => inst.off("change", onChange);
-	}, [isOpen]); // bind when modal is open
+		function handleKeyDown(e) {
+			if (e.key === "Escape" && isOpen) {
+				closeModal();
+			}
+		}
+		if (isOpen) {
+			document.addEventListener("keydown", handleKeyDown);
+			document.body.style.overflow = "hidden";
+		}
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+			document.body.style.overflow = "unset";
+		};
+	}, [isOpen]);
 
 	return (
 		<OffersGridContainer>
@@ -616,12 +639,20 @@ export default function OffersGridFilters(props) {
 			</OffersGridFlex>
 
 			{isOpen && (
-				<OffersDialog style={{ display: "block" }}>
+				<OffersDialog
+					style={{ display: "block" }}
+					role="dialog"
+					aria-modal="true"
+					aria-labelledby="offers-modal-title"
+					onClick={(e) => {
+						if (e.target === e.currentTarget) closeModal();
+					}}>
 					<div>
-						<a
-							id="closeBtn"
-							className="heading"
+						<button
+							ref={closeButtonRef}
+							type="button"
 							onClick={closeModal}
+							aria-label="Close modal"
 							style={{
 								fontSize: "2rem",
 								margin: 0,
@@ -630,115 +661,161 @@ export default function OffersGridFilters(props) {
 								top: "2rem",
 								zIndex: 999999,
 								color: "white",
+								background: "none",
+								border: "none",
+								cursor: "pointer",
+								padding: "0.5rem",
 							}}>
 							&#10005;
-						</a>
+						</button>
 					</div>
-					<Flickity
-						options={{
-							cellAlign: "center",
-							prevNextButtons: false,
-							pageDots: false,
-							draggable: false,
-							wrapAround: true,
-							imagesLoaded: true,
-							initialIndex: sliderActive,
-						}}
-						disableImagesLoaded={false} // default false
-						reloadOnUpdate={true} // default false
-						static // default false
-						flickityRef={(c) => {
-							sliderRef.current = c;
-						}}>
-						{filteredOffers?.map((offer, i) => (
-							<div style={{ width: "100vw" }} key={i}>
-								<ContentContainer>
-									<div
-										style={{
-											backgroundImage: `url(${offer?.featuredImage?.node?.mediaItemUrl})`,
-										}}></div>
-									<LeftHalf className="relative">
-										<ModalContentContainer>
-											<h2 className="heading">
-												{offer?.title}
-											</h2>
-											<DescriptionContainer className="sans-serif body-copy black variable-height">
-												{parse(
-													`${
-														offer?.Upgrades
-															?.description ||
-														offer?.singleOffers
-															?.offerDescription
-													}`
-												)}
-											</DescriptionContainer>
-										</ModalContentContainer>
-										<SliderNavigationContainer>
-											<NavHolder onClick={sliderPrevious}>
-												<svg
-													className="flickity-button-icon"
-													viewBox="0 0 100 100"
-													height="30px">
-													<title>Next</title>
-													<path
-														d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
-														className="arrow"
-														fill="var(--brown)"
+					<SwiperContainer>
+						<Swiper
+							modules={[Navigation, Keyboard, A11y]}
+							spaceBetween={0}
+							slidesPerView={1}
+							initialSlide={sliderActive}
+							loop={true}
+							keyboard={{ enabled: true }}
+							a11y={{
+								enabled: true,
+								prevSlideMessage: "Previous offer",
+								nextSlideMessage: "Next offer",
+								firstSlideMessage: "This is the first offer",
+								lastSlideMessage: "This is the last offer",
+							}}
+							onSwiper={(swiper) => setSwiperInstance(swiper)}
+							onSlideChange={(swiper) =>
+								setSliderActive(swiper.realIndex)
+							}>
+							{filteredOffers?.map((offer, i) => (
+								<SwiperSlide key={i}>
+									<ContentContainer>
+										<div
+											role="img"
+											aria-label={
+												offer?.featuredImage?.node
+													?.altText ||
+												`Image for ${offer?.title}`
+											}
+											style={{
+												backgroundImage: `url(${offer?.featuredImage?.node?.mediaItemUrl})`,
+											}}></div>
+										<LeftHalf className="relative">
+											<ModalContentContainer>
+												<h2
+													id="offers-modal-title"
+													className="heading">
+													{offer?.title}
+												</h2>
+												<DescriptionContainer className="sans-serif body-copy black variable-height">
+													{parse(
+														`${
+															offer?.Upgrades
+																?.description ||
+															offer?.singleOffers
+																?.offerDescription
+														}`
+													)}
+												</DescriptionContainer>
+											</ModalContentContainer>
+											<SliderNavigationContainer>
+												<NavHolder
+													type="button"
+													onClick={sliderPrevious}
+													aria-label={`Previous offer: ${
+														filteredOffers[
+															sliderActive - 1
+														]
+															? filteredOffers[
+																	sliderActive -
+																		1
+															  ]?.title
+															: filteredOffers[
+																	filteredOffers.length -
+																		1
+															  ]?.title
+													}`}>
+													<svg
+														viewBox="0 0 100 100"
+														height="30px"
+														aria-hidden="true">
+														<path
+															d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
+															className="arrow"
+															fill="var(--brown)"
+															style={{
+																transformOrigin:
+																	"center",
+															}}></path>
+													</svg>{" "}
+													<span
+														className="sans-serif body-copy black"
 														style={{
-															transformOrigin:
-																"center",
-														}}></path>
-												</svg>{" "}
-												<span
-													className="sans-serif body-copy black"
-													style={{
-														marginLeft: ".75rem",
-													}}>
-													{filteredOffers[
-														sliderActive - 1
-													]
-														? filteredOffers[
-																sliderActive - 1
-														  ]?.title
-														: filteredOffers[
-																filteredOffers.length -
-																	1
-														  ].title}
-												</span>
-											</NavHolder>
-											<NavHolder onClick={sliderNext}>
-												<span
-													className="sans-serif body-copy black"
-													style={{
-														marginRight: ".75rem",
-													}}>
-													{filteredOffers[
-														sliderActive + 1
-													]
-														? filteredOffers[
-																sliderActive + 1
-														  ]?.title
-														: filteredOffers[0]
-																?.title}
-												</span>{" "}
-												<svg
-													className="flickity-button-icon"
-													viewBox="0 0 100 100"
-													height="30px">
-													<title>Next</title>
-													<path
-														d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
-														className="arrow"
-														transform="translate(100, 100) rotate(180)"
-														fill="var(--brown)"></path>
-												</svg>
-											</NavHolder>
-										</SliderNavigationContainer>
-									</LeftHalf>
-								</ContentContainer>
-							</div>
-						))}
-					</Flickity>
+															marginLeft:
+																".75rem",
+														}}>
+														{filteredOffers[
+															sliderActive - 1
+														]
+															? filteredOffers[
+																	sliderActive -
+																		1
+															  ]?.title
+															: filteredOffers[
+																	filteredOffers.length -
+																		1
+															  ]?.title}
+													</span>
+												</NavHolder>
+												<NavHolder
+													type="button"
+													onClick={sliderNext}
+													aria-label={`Next offer: ${
+														filteredOffers[
+															sliderActive + 1
+														]
+															? filteredOffers[
+																	sliderActive +
+																		1
+															  ]?.title
+															: filteredOffers[0]
+																	?.title
+													}`}>
+													<span
+														className="sans-serif body-copy black"
+														style={{
+															marginRight:
+																".75rem",
+														}}>
+														{filteredOffers[
+															sliderActive + 1
+														]
+															? filteredOffers[
+																	sliderActive +
+																		1
+															  ]?.title
+															: filteredOffers[0]
+																	?.title}
+													</span>{" "}
+													<svg
+														viewBox="0 0 100 100"
+														height="30px"
+														aria-hidden="true">
+														<path
+															d="M3.3,48.9l39.2,31.1l0.1-5.2l-29.9-24h83.5l-0.1-4l-83.5,0l29.9-23.2v-4.9L3.3,48.9z"
+															className="arrow"
+															transform="translate(100, 100) rotate(180)"
+															fill="var(--brown)"></path>
+													</svg>
+												</NavHolder>
+											</SliderNavigationContainer>
+										</LeftHalf>
+									</ContentContainer>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</SwiperContainer>
 				</OffersDialog>
 			)}
 		</OffersGridContainer>
