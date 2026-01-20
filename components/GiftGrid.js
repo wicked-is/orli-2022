@@ -183,7 +183,10 @@ export default function GiftGrid(props) {
 								className="singlegift"
 								id={`gift-${index + 1}`}
 								key={`gift-${index + 1}`}>
-								<Link href={gifts.link} target="_blank" rel="noopener">
+								<Link
+									href={gifts.link}
+									target="_blank"
+									rel="noopener">
 									<ImageContainer>
 										<div
 											className={`positionCenter color-${gifts.hoverColor}`}>

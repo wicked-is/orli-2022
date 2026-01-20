@@ -247,22 +247,22 @@ export default function DefaultOffersPage(props) {
 							</h2>
 							<h1 className="serif heading left">
 								{offer.title}
-						</h1>
-						<div
-							className="sans-serif left"
-							dangerouslySetInnerHTML={{
-								__html: `${offer.singleOffers.offerDescription}`,
-							}}></div>
-						{/* <ReservationButton> */}
-						<ReservationButton
-							href={`${offer.singleOffers.bookingLink}`}
-							target="_blank">
-							{offer.title.toLowerCase().includes("stash")
-								? "Learn More"
-								: "Book Now"}
-						</ReservationButton>
-						{/* </ReservationButton> */}
-						{offer?.singleOffers?.offerTermsConditions ? (
+							</h1>
+							<div
+								className="sans-serif left"
+								dangerouslySetInnerHTML={{
+									__html: `${offer.singleOffers.offerDescription}`,
+								}}></div>
+							{/* <ReservationButton> */}
+							<ReservationButton
+								href={`${offer.singleOffers.bookingLink}`}
+								target="_blank">
+								{offer.title.toLowerCase().includes("stash")
+									? "Learn More"
+									: "Book Now"}
+							</ReservationButton>
+							{/* </ReservationButton> */}
+							{offer?.singleOffers?.offerTermsConditions ? (
 								<p
 									className="terms-link sans-serif body underline left"
 									style={{ cursor: "pointer" }}

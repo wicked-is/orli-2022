@@ -221,6 +221,30 @@
 	margin: auto;
 }
 
+.herotextOverLeft {
+	position: absolute;
+	left: 4rem;
+	bottom: 4rem;
+	z-index: 9;
+	width: auto;
+	max-width: 70%;
+	padding: 0rem 2rem;
+	display: block;
+	margin: auto;
+}
+@media only screen and (max-width: 985px) {
+	.herotextOverLeft {
+		max-width: 60%;
+		padding: 0rem 4rem;
+	}
+}
+@media only screen and (max-width: 748px) {
+	.herotextOverLeft {
+		max-width: 80%;
+		padding: 0rem 2rem;
+	}
+}
+
 .herotextCenterCenter {
 	position: absolute;
 	left: 50%;

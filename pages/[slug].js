@@ -46,7 +46,18 @@ import OurMission from "../components/ourMission";
 import RoomSlider from "../components/roomSlider";
 import SEO from "../components/seo";
 import SpotifyFeature from "../components/spotifyFeature";
+import SocialProof from "../components/SocialProof";
+import { SocialProofQuery } from "../components/SocialProof";
+import GallerySection, {
+	GalleryContainedQuery,
+} from "../components/GalleryContained";
+import ContentSection, {
+	TwoColumnContentMediaQuery,
+} from "../components/TwoColumnContentMedia";
 import TwoColumnText from "../components/TwoColumnText";
+import ExperiencesGrid, {
+	ExperiencesGridQuery,
+} from "../components/ExperiencesGrid";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -65,7 +76,7 @@ export default function DefaultPage(props) {
 	const postId = props?.data?.data?.post?.postId || null;
 	const [morePosts, setMorePosts] = useState([]);
 
-	// console.log(props.data);
+	console.log(props.data);
 
 	useEffect(() => {
 		var tl = gsap.timeline();
@@ -366,7 +377,7 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
-        case "Page_Flexiblecontent_Sections_OffersUpgradesSlider":
+				case "Page_Flexiblecontent_Sections_OffersUpgradesSlider":
 					gatheredSections.push(
 						<OffersUpgradesSlider
 							key={componentKey}
@@ -426,8 +437,8 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
-        case "Page_Flexiblecontent_Sections_OffersGridFilters":
-        case "Post_Flexiblecontent_Sections_OffersGridFilters":
+				case "Page_Flexiblecontent_Sections_OffersGridFilters":
+				case "Post_Flexiblecontent_Sections_OffersGridFilters":
 					gatheredSections.push(
 						<OffersGridFilters
 							key={componentKey}
@@ -478,12 +489,48 @@ export default function DefaultPage(props) {
 						/>
 					);
 					break;
-        case "Page_Flexiblecontent_Sections_TwoColumnText":
+				case "Page_Flexiblecontent_Sections_SocialProof":
+					gatheredSections.push(
+						<SocialProof
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_TwoColumnText":
 				case "Post_Flexiblecontent_Sections_TwoColumnText":
 					gatheredSections.push(
 						<TwoColumnText
 							key={componentKey}
 							{...section}
+							index={index}
+						/>
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_GalleryContained":
+					gatheredSections.push(
+						<GallerySection
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_ExperiencesGrid":
+					gatheredSections.push(
+						<ExperiencesGrid
+							key={componentKey}
+							{...section}
+							index={index}
+						/>
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_TwoColumnContentMedia":
+					gatheredSections.push(
+						<ContentSection
+							key={componentKey}
+							data={section}
 							index={index}
 						/>
 					);
@@ -544,9 +591,9 @@ export default function DefaultPage(props) {
 	return (
 		<>
 			<SEO
-				title={seo.title}
-				description={seo.metaDesc}
-				fullhead={seo.fullHead}
+				title={seo?.title}
+				description={seo?.metaDesc}
+				fullhead={seo?.fullHead}
 			/>
 			{gatherSections()}
 			{showMorePosts && morePosts !== [] ? (
@@ -583,6 +630,7 @@ export async function getStaticPaths() {
 
 	const data = await res.json();
 
+	console.log("All Data: ", data.data.posts.nodes.length);
 	const pages = data.data.pages.nodes.map((page) => ({
 		params: { slug: page.slug },
 	}));
@@ -651,7 +699,11 @@ export async function getStaticProps({ params }) {
           }
           flexibleContent {
             sections {
+              ${GalleryContainedQuery}
+              ${TwoColumnContentMediaQuery}
+              ${SocialProofQuery}
               ${UpgradesGridPageQuery}
+              ${ExperiencesGridQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {

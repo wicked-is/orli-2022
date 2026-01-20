@@ -302,7 +302,7 @@ export default function Header(props) {
 					isScrolled ? styles.scrolled : ""
 				}`}>
 				{navIsOpen ? (
-					<Link href="/">
+					<Link href="/" aria-label="Orli La Jolla Home">
 						<div className="openclick" onClick={() => toggleNav()}>
 							<img
 								src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
@@ -315,7 +315,7 @@ export default function Header(props) {
 						</div>
 					</Link>
 				) : (
-					<Link href="/" aria-label="Orli La Jolla logo - Home">
+					<Link href="/" aria-label="Orli La Jolla Home">
 						<img
 							src="https://orlidev.wpengine.com/wp-content/uploads/2022/01/logo-orli.svg"
 							alt="Orli La Jolla Logo Black"

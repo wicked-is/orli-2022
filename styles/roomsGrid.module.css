@@ -7,24 +7,29 @@
 }
 
 .gridList {
-	display: flex;
-	position: relative;
-	width: 100%;
-	margin: auto;
-	flex-wrap: wrap;
+	grid-template-columns: repeat(3, 1fr);
+	width: 80vw;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding-left: 0;
 	list-style: none;
-	margin-block-start: 0em;
-	margin-block-end: 0em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	padding-inline-start: 0px;
+	display: grid;
+	position: relative;
+	gap: 2rem;
+}
+
+@media screen and (max-width: 545px) {
+	.gridList {
+		grid-template-columns: repeat(1, 1fr);
+		width: 90vw;
+	}
 }
 
 .gridList li {
 	container: tile / inline-size;
 }
 
-.roomsGrid li:nth-child(1),
+/* .roomsGrid li:nth-child(1),
 .roomsGrid li:nth-child(4),
 .roomsGrid li:nth-child(8),
 .roomsGrid li:nth-child(11) {
@@ -49,18 +54,19 @@
 	width: 28.33%;
 	position: relative;
 	margin: 2% 1% 2% 1%;
-}
+} */
 
-.roomsGrid li:nth-child(7):has(video) {
+/* .roomsGrid li:nth-child(7):has(video) {
 	width: 100%;
 	display: block;
 	position: relative;
 	margin: 3% 0 3% 0;
 	min-height: 65vh;
-}
+} */
 
 .roomsGrid li:nth-child(7) > a > div:first-of-type {
-	min-height: 65vh;
+	height: 65vh;
+	max-height: 500px;
 }
 
 @media screen and (max-width: 800px) {
@@ -88,6 +94,10 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	aspect-ratio: 2/1.5;
+
+	&:has(video) {
+		aspect-ratio: 2/0.85;
+	}
 }
 
 .roomimage {
@@ -142,7 +152,7 @@
 	}
 }
 @media screen and (max-width: 600px) {
-	.roomsGrid li:nth-child(7):has(video) {
+	/* .roomsGrid li:nth-child(7):has(video) {
 		min-height: unset;
 	}
 	.roomsGrid li:nth-child(1),
@@ -165,7 +175,7 @@
 		width: 100%;
 		position: relative;
 		margin: 0% auto 7% auto;
-	}
+	} */
 	.roomsGrid li:nth-child(7) .text {
 		position: relative;
 		bottom: unset;
@@ -194,5 +204,17 @@
 	.roomsGrid li:nth-child(12) .text,
 	.roomsGrid li:nth-child(13) .text {
 		padding: 0rem 2rem 0rem 2rem;
+	}
+
+	.gridList {
+		grid-template-columns: 1fr !important;
+		width: 80vw;
+		max-width: 1300px;
+		margin: 0 auto;
+		padding-left: 0;
+		list-style: none;
+		display: grid;
+		position: relative;
+		gap: 2rem;
 	}
 }

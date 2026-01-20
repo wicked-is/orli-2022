@@ -20,12 +20,12 @@ export default function ThreePartHeading({
 				</p>
 			)}
 			{header && (
-				<p
+				<h2
 					className={`heading ${white && "white"} ${
 						styles.shorttitle
 					}`}>
 					{header}
-				</p>
+				</h2>
 			)}
 			{ctaLink && (
 				<p

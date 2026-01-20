@@ -1,70 +1,98 @@
-import Image from "next/image"
-import Link from "next/link"
-import styled from "styled-components"
+import Image from "next/image";
+import Link from "next/link";
+import styled from "styled-components";
 
 const ExploreMorePostsMainContainer = styled.section`
-    padding-top: 4rem;
-    margin-bottom: 4rem;
-`
+	padding-top: 4rem;
+	margin-bottom: 4rem;
+`;
 const ExploreMorePostsInnerContainer = styled.div`
-    max-width: 80%;
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	max-width: 80%;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-    @media screen and (max-width: 1050px) {
-        max-width: 960px;
-        padding: 0 2rem;
-    }
-`
+	@media screen and (max-width: 1050px) {
+		max-width: 960px;
+		padding: 0 2rem;
+	}
+`;
 const ExploreMorePostsTile = styled.div`
-    flex: 1;
-    cursor: pointer;
+	flex: 1;
+	cursor: pointer;
 
-    @media screen and (max-width: 676px) {
-        margin-bottom: 3rem;
-    }
-`
+	@media screen and (max-width: 676px) {
+		margin-bottom: 3rem;
+	}
+`;
 const ExploreMorePostsGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-    
-    @media screen and (max-width: 676px) {
-        grid-template-columns: repeat(1, 1fr);
-    }
-`
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	margin-top: 2rem;
+
+	@media screen and (max-width: 676px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+`;
+
+const Title = styled.h2``;
 
 export default function ExploreMorePosts(props) {
-    const { anchor, posts, title = "Explore More Posts" } = props
+	const { anchor, posts, title = "Explore More Posts" } = props;
 
-    return (
-        <ExploreMorePostsMainContainer>
-            <a name={anchor} id={anchor}></a>
-            <ExploreMorePostsInnerContainer>
-                <p className="heading left">{title}</p>
-                <ExploreMorePostsGrid>
-                    {
-                        posts.map(post => {
-                            return (
-                                <ExploreMorePostsTile key={post.title}>
-                                    <Link href={post.uri}>
-                                        <div style={{ width: '100%', height: "436px", position: "relative"}}>
-                                            <Image src={post.featuredImage.node.mediaItemUrl} alt={post.featuredImage.node.altText} layout="fill" objectFit="cover" objectPosition="50% 50%" />
-                                        </div>
-                                    </Link>
-                                    <p className="xs-heading uppercase black">{post?.categories?.nodes ? post?.categories?.nodes[0]?.name : post.categories.edges[0].node.name}</p>
-                                    <Link href={post.uri}>
-                                        <p className="press-heading left">{post.title}</p>
-                                    </Link>
-                                </ExploreMorePostsTile>
-                            )
-                        })
-                    }
-                </ExploreMorePostsGrid>
-            </ExploreMorePostsInnerContainer>
-        </ExploreMorePostsMainContainer>
-    )
+	return (
+		<ExploreMorePostsMainContainer>
+			<a name={anchor} id={anchor}></a>
+			<ExploreMorePostsInnerContainer>
+				<Title as={!props.index ? "h1" : "h2"} className="heading left">
+					{title}
+				</Title>
+				<ExploreMorePostsGrid>
+					{posts.map((post) => {
+						return (
+							<ExploreMorePostsTile key={post.title}>
+								<Link
+									href={post.uri}
+									aria-label={`Read more about ${post.title}`}>
+									<div
+										style={{
+											width: "100%",
+											height: "436px",
+											position: "relative",
+										}}>
+										<Image
+											src={
+												post.featuredImage.node
+													.mediaItemUrl
+											}
+											alt={
+												post.featuredImage.node.altText
+											}
+											layout="fill"
+											objectFit="cover"
+											objectPosition="50% 50%"
+										/>
+									</div>
+								</Link>
+								<p className="xs-heading uppercase black">
+									{post?.categories?.nodes
+										? post?.categories?.nodes[0]?.name
+										: post.categories.edges[0].node.name}
+								</p>
+								<Link
+									href={post.uri}
+									aria-label={`Read more about ${post.title}`}>
+									<p className="press-heading left">
+										{post.title}
+									</p>
+								</Link>
+							</ExploreMorePostsTile>
+						);
+					})}
+				</ExploreMorePostsGrid>
+			</ExploreMorePostsInnerContainer>
+		</ExploreMorePostsMainContainer>
+	);
 }

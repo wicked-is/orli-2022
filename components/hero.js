@@ -9,6 +9,11 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import RoomGallerySlider from "./RoomGallerySlider";
 gsap.registerPlugin(ScrollTrigger);
 
+import styled from "styled-components";
+
+const Blurb = styled.p``;
+const Headline = styled.h1``;
+
 export default function Hero(props) {
 	const {
 		types,
@@ -247,19 +252,25 @@ export default function Hero(props) {
 								className={`${
 									textPosition == "Left Center"
 										? `${styles.herotextOver}`
-										: "null"
+										: ""
 								} ${
 									textPosition == "Center Center"
 										? `${styles.herotextCenterCenter}`
-										: "null"
+										: ""
 								} ${
 									textPosition == "Bottom Center"
 										? `${styles.herotextOverCenter}`
-										: "null"
+										: ""
+								} ${
+									textPosition == "Bottom Left"
+										? `${styles.herotextOverLeft}`
+										: ""
 								}`}>
-								<p className="sans-serif sub-heading-bold white">
+								<Headline
+									as={!props.index ? "h1" : "h2"}
+									className="sans-serif sub-heading-bold white">
 									{headline}
-								</p>
+								</Headline>
 								<p
 									className="serif xl-heading white"
 									dangerouslySetInnerHTML={{
@@ -320,9 +331,11 @@ export default function Hero(props) {
 								backgroundImage: `url(${imagePoster.mediaItemUrl})`,
 							}}>
 							<div className={styles.herotextOverBooking}>
-								<p className="sans-serif sub-heading-bold white left">
+								<Headline
+									as={!props.index ? "h1" : "h2"}
+									className="sans-serif sub-heading-bold white left">
 									{headline}
-								</p>
+								</Headline>
 								<p
 									className="serif xl-heading white left"
 									dangerouslySetInnerHTML={{
@@ -464,9 +477,12 @@ export default function Hero(props) {
 							<p className="sans-serif sub-heading-bold white">
 								{headline}
 							</p>
-							<p
+							<Blurb
+								as={!props.index ? "h1" : "p"}
 								className="serif xl-heading white"
-								dangerouslySetInnerHTML={{ __html: blurb }}></p>
+								dangerouslySetInnerHTML={{
+									__html: blurb,
+								}}></Blurb>
 							{subheading && (
 								<p className="sans-serif sub-heading-bold white">
 									{subheading}
@@ -520,10 +536,15 @@ export default function Hero(props) {
 									: "null"
 							}`}>
 							{icon && (
-							<div className={styles.icon}>
-								<Image src={icon.mediaItemUrl} alt={icon.altText} width={150} height={150}/>
-							</div>
-						    )}
+								<div className={styles.icon}>
+									<Image
+										src={icon.mediaItemUrl}
+										alt={icon.altText}
+										width={150}
+										height={150}
+									/>
+								</div>
+							)}
 							{headline && (
 								<p className="sans-serif sub-heading-bold white">
 									{headline}
@@ -602,9 +623,9 @@ export default function Hero(props) {
 									dangerouslySetInnerHTML={{
 										__html: props.categories.nodes[0].name,
 									}}></div>
-								<p className="serif heading white">
+								<h1 className="serif heading white">
 									{props.postTitle}
-								</p>
+								</h1>
 								{datePublished && (
 									<p className="sans-serif body white">
 										{datePublished}

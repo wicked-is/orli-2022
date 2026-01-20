@@ -195,7 +195,9 @@ export default function BlogGrid(props) {
 									{category}
 								</p>
 							)}
-							<Link href={post.uri}>
+							<Link
+								href={post.uri}
+								aria-label={`Read more about ${post.title}`}>
 								<BlogTitle
 									className={`serif ${
 										featured
