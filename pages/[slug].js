@@ -630,7 +630,7 @@ export async function getStaticPaths() {
 
 	const data = await res.json();
 
-	console.log("All Data: ", data.data.posts.nodes.length);
+	// console.log("All Data: ", data.data.posts.nodes.length);
 	const pages = data.data.pages.nodes.map((page) => ({
 		params: { slug: page.slug },
 	}));
