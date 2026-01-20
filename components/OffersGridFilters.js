@@ -548,9 +548,8 @@ export default function OffersGridFilters(props) {
 											className={`sans-serif body black ${slug} ${
 												active ? "active" : ""
 											}`}
+											aria-label={`Filter by ${filter.label}`}
 											onClick={() => toggleFilter(slug)}
-											role="button"
-											aria-pressed={active}
 											tabIndex={0}
 											onKeyDown={(e) => {
 												if (
