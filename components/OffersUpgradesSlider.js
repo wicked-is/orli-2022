@@ -596,7 +596,6 @@ export default function OffersUpgradesSlider(props) {
 				<FeaturedSliderContainer
 					data-background={backgroundImage?.mediaItemUrl}
 					className={`${paddingOptions} ${backgroundOptions}`}
-					role="region"
 					aria-label="Featured offers slider">
 					<Swiper
 						modules={[Navigation, Pagination, Keyboard, A11y]}
@@ -644,7 +643,9 @@ export default function OffersUpgradesSlider(props) {
 										/>
 									</div>
 									<div className="column text">
-										<p className="sub-heading-bold">{kicker}</p>
+										<p className="sub-heading-bold">
+											{kicker}
+										</p>
 										<h2 className="serif heading">
 											{offer?.title}
 										</h2>
@@ -653,7 +654,7 @@ export default function OffersUpgradesSlider(props) {
 												offer?.singleOffers
 													?.offerDescription ||
 												offer?.Upgrades?.description
-											}`
+											}`,
 										)}
 
 										<ReservationButton
@@ -734,7 +735,8 @@ export default function OffersUpgradesSlider(props) {
 													.mediaItemUrl
 											}
 											alt={
-												offer.featuredImage.node.altText ||
+												offer.featuredImage.node
+													.altText ||
 												offer.title ||
 												"Offer image"
 											}
@@ -817,10 +819,14 @@ export default function OffersUpgradesSlider(props) {
 									a11y={{
 										prevSlideMessage: "Previous offer",
 										nextSlideMessage: "Next offer",
-										firstSlideMessage: "This is the first offer",
-										lastSlideMessage: "This is the last offer",
+										firstSlideMessage:
+											"This is the first offer",
+										lastSlideMessage:
+											"This is the last offer",
 									}}
-									onSwiper={(swiper) => setModalSwiperInstance(swiper)}
+									onSwiper={(swiper) =>
+										setModalSwiperInstance(swiper)
+									}
 									onSlideChange={(swiper) =>
 										setSliderActive(swiper.realIndex)
 									}>
@@ -830,7 +836,8 @@ export default function OffersUpgradesSlider(props) {
 												<div
 													role="img"
 													aria-label={
-														offer?.featuredImage?.node?.altText ||
+														offer?.featuredImage
+															?.node?.altText ||
 														offer?.title ||
 														"Offer image"
 													}
@@ -844,21 +851,33 @@ export default function OffersUpgradesSlider(props) {
 														</h2>
 														<DescriptionContainer className="sans-serif body-copy black variable-height">
 															{parse(
-																`${offer?.Upgrades?.description}`
+																`${offer?.Upgrades?.description}`,
 															)}
 														</DescriptionContainer>
 													</ModalContentContainer>
 													<SliderNavigationContainer>
 														<NavHolder
 															as="button"
-															onClick={sliderPrevious}
+															onClick={
+																sliderPrevious
+															}
 															aria-label={`Previous: ${
-																offersUpgrades[sliderActive - 1]
-																	? offersUpgrades[sliderActive - 1]?.title
-																	: offersUpgrades[offersUpgrades.length - 1]?.title
+																offersUpgrades[
+																	sliderActive -
+																		1
+																]
+																	? offersUpgrades[
+																			sliderActive -
+																				1
+																		]?.title
+																	: offersUpgrades[
+																			offersUpgrades.length -
+																				1
+																		]?.title
 															}`}
 															style={{
-																background: "none",
+																background:
+																	"none",
 																border: "none",
 															}}>
 															<svg
@@ -870,39 +889,67 @@ export default function OffersUpgradesSlider(props) {
 																	className="arrow"
 																	fill="var(--brown)"
 																	style={{
-																		transformOrigin: "center",
+																		transformOrigin:
+																			"center",
 																	}}></path>
 															</svg>{" "}
 															<span
 																className="sans-serif body-copy black"
 																style={{
-																	marginLeft: ".75rem",
+																	marginLeft:
+																		".75rem",
 																}}>
-																{offersUpgrades[sliderActive - 1]
-																	? offersUpgrades[sliderActive - 1]?.title
-																	: offersUpgrades[offersUpgrades.length - 1]?.title}
+																{offersUpgrades[
+																	sliderActive -
+																		1
+																]
+																	? offersUpgrades[
+																			sliderActive -
+																				1
+																		]?.title
+																	: offersUpgrades[
+																			offersUpgrades.length -
+																				1
+																		]
+																			?.title}
 															</span>
 														</NavHolder>
 														<NavHolder
 															as="button"
 															onClick={sliderNext}
 															aria-label={`Next: ${
-																offersUpgrades[sliderActive + 1]
-																	? offersUpgrades[sliderActive + 1]?.title
-																	: offersUpgrades[0]?.title
+																offersUpgrades[
+																	sliderActive +
+																		1
+																]
+																	? offersUpgrades[
+																			sliderActive +
+																				1
+																		]?.title
+																	: offersUpgrades[0]
+																			?.title
 															}`}
 															style={{
-																background: "none",
+																background:
+																	"none",
 																border: "none",
 															}}>
 															<span
 																className="sans-serif body-copy black"
 																style={{
-																	marginRight: ".75rem",
+																	marginRight:
+																		".75rem",
 																}}>
-																{offersUpgrades[sliderActive + 1]
-																	? offersUpgrades[sliderActive + 1]?.title
-																	: offersUpgrades[0]?.title}
+																{offersUpgrades[
+																	sliderActive +
+																		1
+																]
+																	? offersUpgrades[
+																			sliderActive +
+																				1
+																		]?.title
+																	: offersUpgrades[0]
+																			?.title}
 															</span>{" "}
 															<svg
 																viewBox="0 0 100 100"
