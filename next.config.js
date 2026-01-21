@@ -49,6 +49,22 @@ const nextConfig = {
 				destination: "/find-your-room",
 				permanent: true,
 			},
+
+			{
+				source: "/the-best-boutique-hotels-in-san-diego",
+				destination: "/the-journal",
+				permanent: true,
+			},
+			{
+				source: "/check-in-to-these-7-hotels-for-the-best-beauty-freebies",
+				destination: "/the-journal",
+				permanent: true,
+			},
+			{
+				source: "/san-diego-travel-best-new-hotels-and-restaurants",
+				destination: "/the-journal",
+				permanent: true,
+			},
 		];
 	},
 	env: {
