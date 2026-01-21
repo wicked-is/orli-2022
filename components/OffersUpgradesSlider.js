@@ -687,7 +687,6 @@ export default function OffersUpgradesSlider(props) {
 				<OffersSliderContainer
 					data-background={backgroundImage?.mediaItemUrl}
 					className={`${paddingOptions} ${backgroundOptions}`}
-					role="region"
 					aria-label="Offers and upgrades popup slider">
 					{heading && (
 						<h2 className="serif heading left">
