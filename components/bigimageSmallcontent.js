@@ -87,7 +87,7 @@ export default function BigImageSmallContent(props) {
 
 		bgimgsections.forEach((bgimgsection) => {
 			gsap.to(bgimgsection, {
-				autoAlpha: 1,
+				// autoAlpha: 1,
 				scrollTrigger: {
 					trigger: bgimgsection,
 					start: "+=0 90%",
@@ -142,7 +142,7 @@ export default function BigImageSmallContent(props) {
 		switch (contentPosition) {
 			case "Left":
 				return (
-					<div className={`${paddingType} bgimgfade`}>
+					<div className={`${paddingType} bgimgfade-disable`}>
 						{anchorTag && (
 							<div id={anchorTag} className={styles.anchor}></div>
 						)}
@@ -318,7 +318,7 @@ export default function BigImageSmallContent(props) {
 				);
 			case "Right":
 				return (
-					<div className={`${paddingType} bgimgfade`}>
+					<div className={`${paddingType} bgimgfade-disable`}>
 						{anchorTag && (
 							<div id={anchorTag} className={styles.anchor}></div>
 						)}
@@ -496,7 +496,7 @@ export default function BigImageSmallContent(props) {
 			case "Over Background Left":
 				return (
 					<div
-						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
+						className={`${styles.flex} ${paddingType} bgimgfade-disable relative`}>
 						{anchorTag && (
 							<div
 								id={anchorTag}
@@ -601,7 +601,7 @@ export default function BigImageSmallContent(props) {
 			case "Over Background Right":
 				return (
 					<div
-						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
+						className={`${styles.flex} ${paddingType} bgimgfade-disable relative`}>
 						{anchorTag && (
 							<div
 								id={anchorTag}
@@ -651,7 +651,7 @@ export default function BigImageSmallContent(props) {
 							<div
 								className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
 								<div
-									className={`${styles.overBackground} bgimgfade`}>
+									className={`${styles.overBackground} bgimgfade-disable`}>
 									{icon && (
 										<div aria-hidden="true">
 											<img
@@ -698,7 +698,7 @@ export default function BigImageSmallContent(props) {
 			case "Over Background Center":
 				return (
 					<div
-						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
+						className={`${styles.flex} ${paddingType} bgimgfade-disable relative`}>
 						{anchorTag && (
 							<div
 								id={anchorTag}
@@ -739,7 +739,7 @@ export default function BigImageSmallContent(props) {
 							<div
 								className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
 								<div
-									className={`${styles.centerCenterText} bgimgfade`}>
+									className={`${styles.centerCenterText} bgimgfade-disable`}>
 									<h3 className="sans-serif sub-heading-bold white center">
 										{subHeadline}
 									</h3>
