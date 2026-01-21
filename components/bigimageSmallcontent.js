@@ -82,22 +82,22 @@ export default function BigImageSmallContent(props) {
 	const [currentSlider, setCurrentSlider] = useState(1);
 	const [currentSliderLength, setCurrentSliderLength] = useState(0);
 
-	useEffect(() => {
-		var bgimgsections = gsap.utils.toArray(".bgimgfade");
+	// useEffect(() => {
+	// 	var bgimgsections = gsap.utils.toArray(".bgimgfade-disable");
 
-		bgimgsections.forEach((bgimgsection) => {
-			gsap.to(bgimgsection, {
-				autoAlpha: 1,
-				scrollTrigger: {
-					trigger: bgimgsection,
-					start: "+=0 90%",
-					scrub: false,
-					markers: false,
-					toggleActions: "play reverse play reverse",
-				},
-			});
-		});
-	}, []);
+	// 	bgimgsections.forEach((bgimgsection) => {
+	// 		gsap.to(bgimgsection, {
+	// 			autoAlpha: 1,
+	// 			scrollTrigger: {
+	// 				trigger: bgimgsection,
+	// 				start: "+=0 90%",
+	// 				scrub: false,
+	// 				markers: false,
+	// 				toggleActions: "play reverse play reverse",
+	// 			},
+	// 		});
+	// 	});
+	// }, []);
 
 	const handleSlideChange = (swiper) => {
 		setCurrentSlider(swiper.activeIndex + 1);
@@ -142,7 +142,7 @@ export default function BigImageSmallContent(props) {
 		switch (contentPosition) {
 			case "Left":
 				return (
-					<div className={`${paddingType} bgimgfade`}>
+					<div className={`${paddingType} bgimgfade-disable`}>
 						{anchorTag && (
 							<div id={anchorTag} className={styles.anchor}></div>
 						)}
@@ -318,7 +318,7 @@ export default function BigImageSmallContent(props) {
 				);
 			case "Right":
 				return (
-					<div className={`${paddingType} bgimgfade`}>
+					<div className={`${paddingType} bgimgfade-disable`}>
 						{anchorTag && (
 							<div id={anchorTag} className={styles.anchor}></div>
 						)}
@@ -496,7 +496,7 @@ export default function BigImageSmallContent(props) {
 			case "Over Background Left":
 				return (
 					<div
-						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
+						className={`${styles.flex} ${paddingType} bgimgfade-disable relative`}>
 						{anchorTag && (
 							<div
 								id={anchorTag}
@@ -529,9 +529,11 @@ export default function BigImageSmallContent(props) {
 													{subHeadline}
 												</h3>
 											)}
-											<h2 className="serif heading white mb-3">
-												{headline}
-											</h2>
+											{headline && (
+												<h2 className="serif heading white mb-3">
+													{headline}
+												</h2>
+											)}
 											<p className="sans-serif body-copy white">
 												{blurb}
 											</p>
@@ -605,7 +607,7 @@ export default function BigImageSmallContent(props) {
 			case "Over Background Right":
 				return (
 					<div
-						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
+						className={`${styles.flex} ${paddingType} bgimgfade-disable relative`}>
 						{anchorTag && (
 							<div
 								id={anchorTag}
@@ -657,7 +659,7 @@ export default function BigImageSmallContent(props) {
 							<div
 								className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
 								<div
-									className={`${styles.overBackground} bgimgfade`}>
+									className={`${styles.overBackground} bgimgfade-disable`}>
 									{icon && (
 										<div aria-hidden="true">
 											<img
@@ -706,7 +708,7 @@ export default function BigImageSmallContent(props) {
 			case "Over Background Center":
 				return (
 					<div
-						className={`${styles.flex} ${paddingType} bgimgfade relative`}>
+						className={`${styles.flex} ${paddingType} bgimgfade-disable relative`}>
 						{anchorTag && (
 							<div
 								id={anchorTag}
@@ -749,7 +751,7 @@ export default function BigImageSmallContent(props) {
 							<div
 								className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
 								<div
-									className={`${styles.centerCenterText} bgimgfade`}>
+									className={`${styles.centerCenterText} bgimgfade-disable`}>
 									{subHeadline && (
 										<h3 className="sans-serif sub-heading-bold white center">
 											{subHeadline}
