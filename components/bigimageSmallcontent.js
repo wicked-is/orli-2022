@@ -524,9 +524,11 @@ export default function BigImageSmallContent(props) {
 													/>
 												</div>
 											)}
-											<h3 className="sans-serif sub-heading-bold white">
-												{subHeadline}
-											</h3>
+											{subHeadline && (
+												<h3 className="sans-serif sub-heading-bold white">
+													{subHeadline}
+												</h3>
+											)}
 											<h2 className="serif heading white mb-3">
 												{headline}
 											</h2>
