@@ -44,6 +44,11 @@ const nextConfig = {
 				destination: "/offers",
 				permanent: true,
 			},
+			{
+				source: "/book-a-room",
+				destination: "/find-your-room",
+				permanent: true,
+			},
 		];
 	},
 	env: {
