@@ -90,7 +90,7 @@ export default function BigImageSmallContent(props) {
 				autoAlpha: 1,
 				scrollTrigger: {
 					trigger: bgimgsection,
-					start: "+=0 87%",
+					start: "+=0 90%",
 					scrub: false,
 					markers: false,
 					toggleActions: "play reverse play reverse",
