@@ -561,9 +561,11 @@ export default function BigImageSmallContent(props) {
 											/>
 										</div>
 									)}
-									<h3 className="sans-serif sub-heading-bold white textshadow">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white textshadow">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white textshadow">
 										{headline}
 									</h2>
@@ -629,9 +631,11 @@ export default function BigImageSmallContent(props) {
 											/>
 										</div>
 									)}
-									<h3 className="sans-serif sub-heading-bold white ">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white ">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white ">
 										{headline}
 									</h2>
@@ -663,9 +667,11 @@ export default function BigImageSmallContent(props) {
 											/>
 										</div>
 									)}
-									<h3 className="sans-serif sub-heading-bold white ">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white ">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white ">
 										{headline}
 									</h2>
@@ -717,9 +723,11 @@ export default function BigImageSmallContent(props) {
 									imagePoster?.altText || "Background image"
 								}>
 								<div className={styles.centerCenterText}>
-									<h3 className="sans-serif sub-heading-bold white center">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white center">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white center">
 										{headline}
 									</h2>
@@ -742,9 +750,11 @@ export default function BigImageSmallContent(props) {
 								className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
 								<div
 									className={`${styles.centerCenterText} bgimgfade`}>
-									<h3 className="sans-serif sub-heading-bold white center">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white center">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white center">
 										{headline}
 									</h2>
