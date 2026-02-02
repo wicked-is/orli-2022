@@ -5,6 +5,7 @@ import { Navigation, Pagination, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 export const ExperiencesGridQuery = `
   ... on Page_Flexiblecontent_Sections_ExperiencesGrid {
@@ -26,7 +27,7 @@ export const ExperiencesGridQuery = `
 
 const GridContainer = styled.section`
 	padding: 80px 60px;
-	background-color: #f5f3f0;
+	/* background-color: #f5f3f0; */
 
 	@media (max-width: 968px) {
 		padding: 60px 30px;
@@ -67,21 +68,17 @@ const Card = styled.article`
 
 const CardImage = styled.img`
 	width: 100%;
-	height: 280px;
+	/* height: 280px; */
 	object-fit: cover;
 	display: block;
 
-	@media (max-width: 768px) {
+	/* @media (max-width: 768px) {
 		height: 220px;
-	}
+	} */
 `;
 
 const CardTitle = styled.h3`
-	font-family: "Playfair Display", serif;
-	font-size: 28px;
-	font-weight: 400;
-	margin-top: 20px;
-	margin-bottom: 16px;
+	margin-block: 1rem 1.25rem;
 	color: #1a1a1a;
 
 	@media (max-width: 768px) {
@@ -141,6 +138,8 @@ const ModalContent = styled.div`
 
 const ModalImageSection = styled.div`
 	flex: 1;
+	max-width: 654px;
+	max-height: 654px;
 	position: relative;
 	min-height: 400px;
 	background-color: #f0f0f0;
@@ -173,19 +172,26 @@ const SwiperContainer = styled.div`
 
 	.swiper-button-prev,
 	.swiper-button-next {
-		color: white;
-		background-color: rgba(0, 0, 0, 0.5);
-		width: 44px;
-		height: 44px;
-		border-radius: 50%;
+		background-color: #0c2b1c;
+		width: 31px;
+		height: 64px;
+		background-image: url("/assets/icons/experiences-grid-modal-arrow.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		color: transparent;
 
-		&:after {
-			font-size: 20px;
+		&::after {
+			display: none !important;
+			content: none !important;
 		}
 
 		&:hover {
 			background-color: rgba(0, 0, 0, 0.7);
 		}
+	}
+
+	.swiper-button-prev {
+		transform: rotate(180deg);
 	}
 
 	.swiper-pagination-bullet {
@@ -241,9 +247,9 @@ const CloseButton = styled.button`
 `;
 
 const ModalTitle = styled.h2`
-	font-family: "Playfair Display", serif;
-	font-size: 42px;
-	font-weight: 400;
+	/* font-family: "Playfair Display", serif; */
+	/* font-size: 42px; */
+	/* font-weight: 400; */
 	margin-bottom: 24px;
 	color: #1a1a1a;
 
@@ -346,7 +352,9 @@ const ExperiencesGrid = (props) => {
 									experience.experiencesTitle
 								}
 							/>
-							<CardTitle>{experience.experiencesTitle}</CardTitle>
+							<CardTitle className="serif heading">
+								{experience.experiencesTitle}
+							</CardTitle>
 							<CardButton
 								aria-label={`Learn more about ${experience.experiencesTitle}`}>
 								LEARN MORE
@@ -392,35 +400,62 @@ const ExperiencesGrid = (props) => {
 										paginationBulletMessage:
 											"Go to slide {{index}}",
 									}}>
-									{selectedExperience.experiencesGallery.map(
-										(image, index) => {
-											if (index > 1) return;
-											return (
-												<SwiperSlide key={index}>
-													<img
-														src={image.mediaItemUrl}
-														alt={
-															image.altText ||
-															`${
-																selectedExperience.title
-															} ${index + 1}`
-														}
-													/>
-												</SwiperSlide>
-											);
-										}
+									{selectedExperience?.experiencesGallery ? (
+										selectedExperience?.experiencesGallery?.map(
+											(image, index) => {
+												if (index > 1) return;
+												return (
+													<SwiperSlide key={index}>
+														<Image
+															src={
+																image.mediaItemUrl
+															}
+															alt={
+																image.altText ||
+																`${
+																	selectedExperience.title
+																} ${index + 1}`
+															}
+															width={654}
+															height={654}
+														/>
+													</SwiperSlide>
+												);
+											},
+										)
+									) : (
+										<SwiperSlide key={0}>
+											<Image
+												src={
+													selectedExperience
+														.experiencesImage
+														?.mediaItemUrl
+												}
+												alt={
+													selectedExperience
+														.experiencesImage
+														?.altText ||
+													selectedExperience.title
+												}
+												width={654}
+												height={654}
+											/>
+										</SwiperSlide>
 									)}
 								</Swiper>
 							</SwiperContainer>
 						</ModalImageSection>
 
 						<ModalTextSection>
-							<ModalTitle id="modal-title">
-								{selectedExperience.title}
+							<ModalTitle
+								id="modal-title"
+								className="serif heading">
+								{selectedExperience.experiencesTitle}
 							</ModalTitle>
 							<ModalDescription
+								className="sans-serif body-copy"
 								dangerouslySetInnerHTML={{
-									__html: selectedExperience.description,
+									__html: selectedExperience.experiencesContent,
 								}}
 							/>
 							{selectedExperience.buttonLink && (
