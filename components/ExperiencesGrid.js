@@ -356,6 +356,7 @@ const ExperiencesGrid = (props) => {
 								{experience.experiencesTitle}
 							</CardTitle>
 							<CardButton
+								className="sans-serif uppercase body-copy"
 								aria-label={`Learn more about ${experience.experiencesTitle}`}>
 								LEARN MORE
 							</CardButton>
