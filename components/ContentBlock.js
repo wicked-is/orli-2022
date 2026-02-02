@@ -8,7 +8,7 @@ const ContentBlockInnerContainer = styled.div`
 	margin-inline: auto;
 	margin-top: 5rem;
 	margin-bottom: 6rem;
-	
+
 	@media screen and (max-width: 1050px) {
 		padding: 0 2rem;
 	}
@@ -56,20 +56,20 @@ const ContentBlockInnerContainer = styled.div`
 	}
 
 	a.primary {
-        display: block;
-        width: fit-content;
-        color: var(--white);
-        background-color: var(--brown);
-        border: 1px solid var(--brown);
-        padding: 1.3rem 4.5rem;
-        margin: 2.5rem auto;
-        text-align: center;
-        cursor: pointer;
-        font-family: "GT Walsheim Light";
-        text-transform: uppercase;
-        font-size: var(--xs-copy);
-        text-decoration: none;
-    }
+		display: block;
+		width: fit-content;
+		color: var(--white);
+		background-color: var(--brown);
+		border: 1px solid var(--brown);
+		padding: 1.3rem 4.5rem;
+		margin: 2.5rem auto;
+		text-align: center;
+		cursor: pointer;
+		font-family: "GT Walsheim Light";
+		text-transform: uppercase;
+		font-size: var(--xs-copy);
+		text-decoration: none;
+	}
 
 	img {
 		max-width: 100%;
@@ -93,6 +93,10 @@ const ContentBlockInnerContainer = styled.div`
 			margin-block-end: 0em;
 			padding-inline-start: 20px;
 		}
+	}
+
+	#facebook .PrimaryCTA a {
+		color: var(--dark-brown) !important;
 	}
 `;
 // .aligncenter

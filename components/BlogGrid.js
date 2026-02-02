@@ -172,7 +172,9 @@ export default function BlogGrid(props) {
 									width: "100%",
 									height: "auto",
 								}}>
-								<Link href={post.uri}>
+								<Link
+									href={post.uri}
+									aria-label={`Read more about ${post.title}`}>
 									<img
 										src={
 											post.featuredImage.node.mediaItemUrl

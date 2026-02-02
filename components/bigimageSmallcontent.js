@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/bigimagesmallcontent.module.css";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Keyboard } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Keyboard } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import styled from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -90,7 +90,7 @@ export default function BigImageSmallContent(props) {
 				autoAlpha: 1,
 				scrollTrigger: {
 					trigger: bgimgsection,
-					start: "+=0 80%",
+					start: "+=0 90%",
 					scrub: false,
 					markers: false,
 					toggleActions: "play reverse play reverse",
@@ -144,9 +144,7 @@ export default function BigImageSmallContent(props) {
 				return (
 					<div className={`${paddingType} bgimgfade`}>
 						{anchorTag && (
-							<div
-								id={anchorTag}
-								className={styles.anchor}></div>
+							<div id={anchorTag} className={styles.anchor}></div>
 						)}
 						<FlexWrapper>
 							<MediaWrapper>
@@ -168,7 +166,11 @@ export default function BigImageSmallContent(props) {
 								{mediaType === "Slider" && (
 									<>
 										<Swiper
-											modules={[Navigation, Pagination, Keyboard]}
+											modules={[
+												Navigation,
+												Pagination,
+												Keyboard,
+											]}
 											spaceBetween={0}
 											slidesPerView={1}
 											loop={true}
@@ -179,7 +181,9 @@ export default function BigImageSmallContent(props) {
 											}}
 											onSwiper={(swiper) => {
 												swiperRef.current = swiper;
-												setCurrentSliderLength(slides.length);
+												setCurrentSliderLength(
+													slides.length,
+												);
 											}}
 											onSlideChange={handleSlideChange}
 											className={styles.slides}>
@@ -201,8 +205,12 @@ export default function BigImageSmallContent(props) {
 											})}
 										</Swiper>
 										<SliderNavigationContainer>
-											<div className="serif brown" aria-live="polite" aria-atomic="true">
-												{currentSlider} / {currentSliderLength}
+											<div
+												className="serif brown"
+												aria-live="polite"
+												aria-atomic="true">
+												{currentSlider} /{" "}
+												{currentSliderLength}
 											</div>
 											<div className="brown">
 												<button
@@ -300,7 +308,7 @@ export default function BigImageSmallContent(props) {
 									<a
 										href={ctaLink}
 										className="sans-serif xs-copy black cta-black"
-										aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+										aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 										{ctaLabel}
 									</a>
 								)}
@@ -312,9 +320,7 @@ export default function BigImageSmallContent(props) {
 				return (
 					<div className={`${paddingType} bgimgfade`}>
 						{anchorTag && (
-							<div
-								id={anchorTag}
-								className={styles.anchor}></div>
+							<div id={anchorTag} className={styles.anchor}></div>
 						)}
 						<FlexWrapper className="reorder">
 							<TextContainer
@@ -347,7 +353,7 @@ export default function BigImageSmallContent(props) {
 									<a
 										href={ctaLink}
 										className="sans-serif xs-copy black cta-black"
-										aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+										aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 										{ctaLabel}
 									</a>
 								)}
@@ -372,7 +378,11 @@ export default function BigImageSmallContent(props) {
 								{mediaType === "Slider" && (
 									<>
 										<Swiper
-											modules={[Navigation, Pagination, Keyboard]}
+											modules={[
+												Navigation,
+												Pagination,
+												Keyboard,
+											]}
 											spaceBetween={0}
 											slidesPerView={1}
 											loop={true}
@@ -383,7 +393,9 @@ export default function BigImageSmallContent(props) {
 											}}
 											onSwiper={(swiper) => {
 												swiperRef.current = swiper;
-												setCurrentSliderLength(slides.length);
+												setCurrentSliderLength(
+													slides.length,
+												);
 											}}
 											onSlideChange={handleSlideChange}
 											className={styles.slides}>
@@ -405,8 +417,12 @@ export default function BigImageSmallContent(props) {
 											})}
 										</Swiper>
 										<SliderNavigationContainer>
-											<div className="serif brown" aria-live="polite" aria-atomic="true">
-												Slide {currentSlider} of {currentSliderLength}
+											<div
+												className="serif brown"
+												aria-live="polite"
+												aria-atomic="true">
+												Slide {currentSlider} of{" "}
+												{currentSliderLength}
 											</div>
 											<div className="brown">
 												<button
@@ -493,7 +509,9 @@ export default function BigImageSmallContent(props) {
 									backgroundImage: `url(${imagePoster.mediaItemUrl})`,
 								}}
 								role="img"
-								aria-label={imagePoster?.altText || "Background image"}>
+								aria-label={
+									imagePoster?.altText || "Background image"
+								}>
 								<div className="max-80">
 									<div className="flex">
 										<div className={styles.col140}>
@@ -506,12 +524,16 @@ export default function BigImageSmallContent(props) {
 													/>
 												</div>
 											)}
-											<h3 className="sans-serif sub-heading-bold white">
-												{subHeadline}
-											</h3>
-											<h2 className="serif heading white mb-3">
-												{headline}
-											</h2>
+											{subHeadline && (
+												<h3 className="sans-serif sub-heading-bold white">
+													{subHeadline}
+												</h3>
+											)}
+											{headline && (
+												<h2 className="serif heading white mb-3">
+													{headline}
+												</h2>
+											)}
 											<p className="sans-serif body-copy white">
 												{blurb}
 											</p>
@@ -519,7 +541,7 @@ export default function BigImageSmallContent(props) {
 												<a
 													href={ctaLink}
 													className="primary-btn"
-													aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+													aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 													{ctaLabel}
 												</a>
 											)}
@@ -541,9 +563,11 @@ export default function BigImageSmallContent(props) {
 											/>
 										</div>
 									)}
-									<h3 className="sans-serif sub-heading-bold white textshadow">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white textshadow">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white textshadow">
 										{headline}
 									</h2>
@@ -554,7 +578,7 @@ export default function BigImageSmallContent(props) {
 										<a
 											href={ctaLink}
 											className="primary-btn"
-											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -596,7 +620,9 @@ export default function BigImageSmallContent(props) {
 									backgroundImage: `url(${imagePoster.mediaItemUrl})`,
 								}}
 								role="img"
-								aria-label={imagePoster?.altText || "Background image"}>
+								aria-label={
+									imagePoster?.altText || "Background image"
+								}>
 								<div className={`${styles.overBackgroundLeft}`}>
 									{icon && (
 										<div aria-hidden="true">
@@ -607,9 +633,11 @@ export default function BigImageSmallContent(props) {
 											/>
 										</div>
 									)}
-									<h3 className="sans-serif sub-heading-bold white ">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white ">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white ">
 										{headline}
 									</h2>
@@ -620,7 +648,7 @@ export default function BigImageSmallContent(props) {
 										<a
 											href={ctaLink}
 											className="primary-btn"
-											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -641,9 +669,11 @@ export default function BigImageSmallContent(props) {
 											/>
 										</div>
 									)}
-									<h3 className="sans-serif sub-heading-bold white ">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white ">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white ">
 										{headline}
 									</h2>
@@ -654,7 +684,7 @@ export default function BigImageSmallContent(props) {
 										<a
 											href={ctaLink}
 											className="primary-btn"
-											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -691,11 +721,15 @@ export default function BigImageSmallContent(props) {
 									backgroundImage: `url(${imagePoster.mediaItemUrl})`,
 								}}
 								role="img"
-								aria-label={imagePoster?.altText || "Background image"}>
+								aria-label={
+									imagePoster?.altText || "Background image"
+								}>
 								<div className={styles.centerCenterText}>
-									<h3 className="sans-serif sub-heading-bold white center">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white center">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white center">
 										{headline}
 									</h2>
@@ -706,7 +740,7 @@ export default function BigImageSmallContent(props) {
 										<a
 											href={ctaLink}
 											className="primary-btn"
-											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 											{ctaLabel}
 										</a>
 									)}
@@ -718,9 +752,11 @@ export default function BigImageSmallContent(props) {
 								className={`${styles.halfBanner} ${styles.backgroundVideo}`}>
 								<div
 									className={`${styles.centerCenterText} bgimgfade`}>
-									<h3 className="sans-serif sub-heading-bold white center">
-										{subHeadline}
-									</h3>
+									{subHeadline && (
+										<h3 className="sans-serif sub-heading-bold white center">
+											{subHeadline}
+										</h3>
+									)}
 									<h2 className="serif heading white center">
 										{headline}
 									</h2>
@@ -731,7 +767,7 @@ export default function BigImageSmallContent(props) {
 										<a
 											href={ctaLink}
 											className="primary-btn"
-											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ''}`}>
+											aria-label={`${ctaLabel}${headline ? ` - ${headline}` : ""}`}>
 											{ctaLabel}
 										</a>
 									)}

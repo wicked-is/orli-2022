@@ -2052,3 +2052,8 @@ ul.socials li {
 	}
 }
 /* End Gatherings */
+
+/* Fix for IG contrast issues */
+#facebook .PrimaryCTA a {
+	color: #000 !important;
+}
