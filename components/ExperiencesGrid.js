@@ -87,9 +87,9 @@ const CardTitle = styled.h3`
 `;
 
 const CardButton = styled.button`
-	background-color: #6b4423;
+	background-color: #8c361e;
 	color: white;
-	padding: 12px 28px;
+	padding: 20px 40px;
 	border: none;
 	cursor: pointer;
 	font-size: 12px;
@@ -98,11 +98,11 @@ const CardButton = styled.button`
 	transition: background-color 0.3s ease;
 
 	&:hover {
-		background-color: #533318;
+		background-color: #8c361e;
 	}
 
 	&:focus {
-		outline: 2px solid #6b4423;
+		outline: 2px solid #8c361e;
 		outline-offset: 2px;
 	}
 `;
