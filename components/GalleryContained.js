@@ -88,19 +88,15 @@ const ButtonWrapper = styled.div`
 `;
 
 const SeeMoreButton = styled.button`
-	background-color: #6b4423;
+	background-color: var(--dark-brown);
 	color: white;
-	padding: 14px 32px;
+	padding: 20px 40px;
 	border: none;
 	cursor: pointer;
-	font-size: 13px;
+	font-size: 14px;
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	transition: background-color 0.3s ease;
-
-	&:hover {
-		background-color: #533318;
-	}
 `;
 
 const Lightbox = styled.div`
@@ -215,14 +211,14 @@ const GallerySection = (props) => {
 	const goToPrevious = (e) => {
 		e.stopPropagation();
 		setCurrentImageIndex((prevIndex) =>
-			prevIndex === 0 ? props.images.length - 1 : prevIndex - 1
+			prevIndex === 0 ? props.images.length - 1 : prevIndex - 1,
 		);
 	};
 
 	const goToNext = (e) => {
 		e.stopPropagation();
 		setCurrentImageIndex((prevIndex) =>
-			prevIndex === props.images.length - 1 ? 0 : prevIndex + 1
+			prevIndex === props.images.length - 1 ? 0 : prevIndex + 1,
 		);
 	};
 
@@ -243,7 +239,7 @@ const GallerySection = (props) => {
 				</GalleryGrid>
 				<ButtonWrapper>
 					<SeeMoreButton
-						className="sans-serif"
+						className="sans-serif body-copy uppercase"
 						onClick={() => setSeeMoreClicked(true)}>
 						SEE MORE
 					</SeeMoreButton>

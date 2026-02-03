@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
+import Link from "next/link";
 
 export const TwoColumnContentMediaQuery = `
     ... on Page_Flexiblecontent_Sections_TwoColumnContentMedia {
@@ -78,10 +79,6 @@ const Eyebrow = styled.p`
 `;
 
 const Title = styled.h2`
-	/* font-family: "Playfair Display", serif; */
-	/* font-size: 48px; */
-	/* font-weight: 400; */
-	/* margin-bottom: 24px; */
 	color: #1a1a1a;
 
 	@media (max-width: 968px) {
@@ -96,20 +93,15 @@ const Description = styled.p`
 	margin-bottom: 32px;
 `;
 
-const BookButton = styled.button`
-	background-color: #6b4423;
+const BookButton = styled(Link)`
+	background-color: var(--dark-brown);
 	color: white;
-	padding: 14px 32px;
+	padding: 20px 40px;
 	border: none;
 	cursor: pointer;
-	font-size: 13px;
+	font-size: 14px;
 	letter-spacing: 1.5px;
-	text-transform: uppercase;
 	transition: background-color 0.3s ease;
-
-	&:hover {
-		background-color: #533318;
-	}
 `;
 
 const ImageWrapper = styled.div`
@@ -137,7 +129,9 @@ const ContentSection = (props) => {
 				<Description className="sans-serif xs-copy black">
 					{props.data.content}
 				</Description>
-				<BookButton className="sans-serif">
+				<BookButton
+					href={props.data.ctaLink}
+					className="sans-serif body-copy uppercase">
 					{props.data.ctaText}
 				</BookButton>
 			</TextContent>
