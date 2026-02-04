@@ -61,6 +61,9 @@ import ExperiencesGrid, {
 import FeaturedEventSlider, {
 	FeaturedEventSliderQuery,
 } from "../components/FeaturedEventSlider";
+import ExpandableEventGrid, {
+	ExpandableEventGridQuery,
+} from "../components/ExpandableEventGrid";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -547,6 +550,15 @@ export default function DefaultPage(props) {
 						/>,
 					);
 					break;
+				case "Page_Flexiblecontent_Sections_ExpandableEventGrid":
+					gatheredSections.push(
+						<ExpandableEventGrid
+							key={componentKey}
+							{...section}
+							index={index}
+						/>,
+					);
+					break;
 				default:
 					break;
 			}
@@ -717,6 +729,7 @@ export async function getStaticProps({ params }) {
               ${UpgradesGridPageQuery}
               ${ExperiencesGridQuery}
               ${FeaturedEventSliderQuery}
+              ${ExpandableEventGridQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {
