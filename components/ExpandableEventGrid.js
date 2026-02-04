@@ -26,7 +26,7 @@ const SectionTitle = styled.h2`
 const GridContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 40px 24px;
+	gap: 100px 24px;
 	max-width: 1100px;
 	margin: 0 auto;
 
@@ -106,6 +106,7 @@ const EventMeta = styled.div`
 	gap: 6px;
 	color: #000;
 	font-family: "GT Walsheim Light";
+	padding-block: 1rem;
 `;
 
 const CalendarIcon = styled.span`
@@ -123,12 +124,10 @@ const CTAButton = styled.a`
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 12px 24px;
+	padding: 20px 40px;
 	background-color: #8c361e;
 	color: #ffffff;
-	font-size: 12px;
-	font-weight: 600;
-	letter-spacing: 1.5px;
+	font-size: var(--xs-copy);
 	text-transform: uppercase;
 	text-decoration: none;
 	border: none;
@@ -157,7 +156,7 @@ const CTAButton = styled.a`
 const LoadMoreContainer = styled.div`
 	display: flex;
 	justify-content: center;
-	margin-top: 48px;
+	margin-top: 5rem;
 `;
 
 const LoadMoreButton = styled.button`
@@ -393,6 +392,7 @@ const ExpandableEventGrid = ({
 
 								{event.singleEvent.rsvpLink && (
 									<CTAButton
+										className="sans-serif"
 										href={event.singleEvent.rsvpLink}
 										aria-label={`Learn More about ${event.title}`}>
 										Learn More
