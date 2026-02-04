@@ -58,6 +58,9 @@ import TwoColumnText from "../components/TwoColumnText";
 import ExperiencesGrid, {
 	ExperiencesGridQuery,
 } from "../components/ExperiencesGrid";
+import FeaturedEventSlider, {
+	FeaturedEventSliderQuery,
+} from "../components/FeaturedEventSlider";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -535,6 +538,15 @@ export default function DefaultPage(props) {
 						/>,
 					);
 					break;
+				case "Page_Flexiblecontent_Sections_FeaturedEventSlider":
+					gatheredSections.push(
+						<FeaturedEventSlider
+							key={componentKey}
+							{...section}
+							index={index}
+						/>,
+					);
+					break;
 				default:
 					break;
 			}
@@ -704,6 +716,7 @@ export async function getStaticProps({ params }) {
               ${SocialProofQuery}
               ${UpgradesGridPageQuery}
               ${ExperiencesGridQuery}
+              ${FeaturedEventSliderQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {
@@ -1577,6 +1590,7 @@ export async function getStaticProps({ params }) {
                       address
                       description
                       locationName
+                      hostedByLabel
                     }
                   }
                 }
