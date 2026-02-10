@@ -82,7 +82,7 @@ export default function DefaultPage(props) {
 	const postId = props?.data?.data?.post?.postId || null;
 	const [morePosts, setMorePosts] = useState([]);
 
-	console.log(props.data);
+	// console.log(props.data);
 
 	useEffect(() => {
 		var tl = gsap.timeline();

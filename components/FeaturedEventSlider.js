@@ -434,8 +434,6 @@ const FeaturedEventSlider = (props) => {
 		return null;
 	}
 
-	console.log(props);
-
 	return (
 		<SliderContainer
 			role="region"
@@ -485,12 +483,13 @@ const FeaturedEventSlider = (props) => {
 								<ImageContainer>
 									<EventImage
 										src={
-											event.featuredImage?.node
+											event?.featuredImage?.node
 												?.mediaItemUrl
 										}
 										alt={
-											event.imageAlt ||
-											`Event: ${event.title}`
+											event?.featuredImage?.node
+												?.altText ||
+											`Event: ${event?.title}`
 										}
 										loading={index === 0 ? "eager" : "lazy"}
 									/>
@@ -501,9 +500,9 @@ const FeaturedEventSlider = (props) => {
 										Featured Event
 									</FeaturedLabel>
 
-									{event.singleEvent?.hostedByLabel && (
+									{event?.singleEvent?.hostedByLabel && (
 										<HostedBy className="sans-serif xs-copy">
-											{event.singleEvent.hostedByLabel}
+											{event?.singleEvent.hostedByLabel}
 										</HostedBy>
 									)}
 

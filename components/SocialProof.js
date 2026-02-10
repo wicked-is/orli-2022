@@ -168,18 +168,17 @@ export const SocialProofQuery = `
 
 const SocialProof = (props) => {
 	const { eyebrowTitle = "What Our Guests Are Saying", testimonials } = props;
-	console.log(props);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const handlePrev = () => {
 		setCurrentIndex((prev) =>
-			prev === 0 ? testimonials.length - 1 : prev - 1
+			prev === 0 ? testimonials.length - 1 : prev - 1,
 		);
 	};
 
 	const handleNext = () => {
 		setCurrentIndex((prev) =>
-			prev === testimonials.length - 1 ? 0 : prev + 1
+			prev === testimonials.length - 1 ? 0 : prev + 1,
 		);
 	};
 

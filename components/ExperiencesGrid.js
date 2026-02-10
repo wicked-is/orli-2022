@@ -297,7 +297,7 @@ const ModalButton = styled.a`
 
 const ExperiencesGrid = (props) => {
 	const { experiences } = props;
-	console.log("ExperiencesGrid props:", props);
+	// console.log("ExperiencesGrid props:", props);
 	const [selectedExperience, setSelectedExperience] = useState(null);
 
 	const openModal = (experience) => {

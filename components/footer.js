@@ -73,7 +73,7 @@ export default function Footer(props) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		console.log(e);
+		// console.log(e);
 
 		const res = await fetch(
 			"https://hooks.zapier.com/hooks/catch/2001353/bc24kj3/",
@@ -83,9 +83,9 @@ export default function Footer(props) {
 					email: formState.email,
 					time: new Date().toLocaleString(),
 				}),
-			}
+			},
 		);
-		console.log(res);
+		// console.log(res);
 
 		handleResponse(res);
 	};
@@ -95,7 +95,6 @@ export default function Footer(props) {
 	};
 
 	const handleChange = (e) => {
-		console.log(e.target.value);
 		e.preventDefault();
 		setFormState({
 			...formState,
