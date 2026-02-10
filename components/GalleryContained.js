@@ -231,7 +231,7 @@ const GallerySection = (props) => {
 						<GalleryImage
 							key={index}
 							src={image.mediaItemUrl}
-							alt={image.alt || `Gallery image ${index + 1}`}
+							alt={image.altText || `Gallery image ${index + 1}`}
 							onClick={() => handleImageClick(index)}
 							span={index === 0 || index === 9 ? 2 : 1}
 						/>
