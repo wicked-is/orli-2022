@@ -63,9 +63,9 @@ const Tab = styled.div`
 	flex-direction: row;
 	align-items: center;
 `;
-const FAQTitle = styled.h2``;
 const Question = styled.h2``;
 const Answer = styled.p``;
+const FAQTitle = styled.h2``;
 
 const handleTabClick = (e, index) => {
 	e.preventDefault();

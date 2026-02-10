@@ -58,6 +58,12 @@ import TwoColumnText from "../components/TwoColumnText";
 import ExperiencesGrid, {
 	ExperiencesGridQuery,
 } from "../components/ExperiencesGrid";
+import FeaturedEventSlider, {
+	FeaturedEventSliderQuery,
+} from "../components/FeaturedEventSlider";
+import ExpandableEventGrid, {
+	ExpandableEventGridQuery,
+} from "../components/ExpandableEventGrid";
 
 export default function DefaultPage(props) {
 	const roomAmenities = props?.data?.data?.roomAmenities;
@@ -76,7 +82,7 @@ export default function DefaultPage(props) {
 	const postId = props?.data?.data?.post?.postId || null;
 	const [morePosts, setMorePosts] = useState([]);
 
-	console.log(props.data);
+	// console.log(props.data);
 
 	useEffect(() => {
 		var tl = gsap.timeline();
@@ -113,7 +119,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_ImagesThreeUp":
@@ -123,7 +129,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_ImageContentRepeater":
@@ -133,7 +139,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_ContactBlock":
@@ -143,7 +149,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_EventFeed":
@@ -153,12 +159,12 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_Hero":
 					gatheredSections.push(
-						<Hero key={componentKey} {...section} index={index} />
+						<Hero key={componentKey} {...section} index={index} />,
 					);
 					break;
 				case "Post_Flexiblecontent_Sections_Hero":
@@ -169,7 +175,7 @@ export default function DefaultPage(props) {
 							{...section}
 							categories={categories}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Post_Flexiblecontent_Sections_FullWidthMedia":
@@ -178,7 +184,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Post_Flexiblecontent_Sections_MediaTwoUp":
@@ -187,7 +193,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_HistoricTimeline":
@@ -197,7 +203,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_CenteredCopy":
@@ -207,7 +213,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_RoomsSlider":
@@ -217,7 +223,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_DiscoveriesCallout":
@@ -227,7 +233,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_AmenitiesSlider":
@@ -237,7 +243,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_OurMission":
@@ -247,7 +253,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_GatheringsCallout":
@@ -257,7 +263,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_BookingIframe":
@@ -267,7 +273,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_FeaturedJournal":
@@ -277,7 +283,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_FollowAlong":
@@ -287,7 +293,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_SpotifyFeature":
@@ -297,7 +303,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_BigImageSmallContent":
@@ -308,13 +314,13 @@ export default function DefaultPage(props) {
 							order={index}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_Form":
 				case "Post_Flexiblecontent_Sections_Form":
 					gatheredSections.push(
-						<Form key={componentKey} {...section} index={index} />
+						<Form key={componentKey} {...section} index={index} />,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_FeaturedStorySlider":
@@ -324,7 +330,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_Gallery":
@@ -334,7 +340,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_Titlebar":
@@ -344,7 +350,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_BlogGrid":
@@ -354,7 +360,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_PressGrid":
@@ -364,7 +370,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_OffersGrid":
@@ -374,7 +380,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_OffersUpgradesSlider":
@@ -383,7 +389,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_GettingHere":
@@ -393,7 +399,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_TheLocalWay":
@@ -403,7 +409,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_ContentBlock":
@@ -413,7 +419,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_ExploreMorePosts":
@@ -423,7 +429,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_RoomsGrid":
@@ -434,7 +440,7 @@ export default function DefaultPage(props) {
 							{...section}
 							filters={roomAmenities.nodes}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_OffersGridFilters":
@@ -444,7 +450,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_UpgradesGrid":
@@ -454,7 +460,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_Faqs":
@@ -465,7 +471,7 @@ export default function DefaultPage(props) {
 							{...section}
 							index={index}
 							filters={roomAmenities.nodes}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_PerksShopSlider":
@@ -475,7 +481,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_GiftGrid":
@@ -486,7 +492,7 @@ export default function DefaultPage(props) {
 							{...section}
 							index={index}
 							filters={roomAmenities.nodes}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_SocialProof":
@@ -495,7 +501,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_TwoColumnText":
@@ -505,7 +511,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_GalleryContained":
@@ -514,7 +520,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_ExperiencesGrid":
@@ -523,7 +529,7 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							{...section}
 							index={index}
-						/>
+						/>,
 					);
 					break;
 				case "Page_Flexiblecontent_Sections_TwoColumnContentMedia":
@@ -532,7 +538,25 @@ export default function DefaultPage(props) {
 							key={componentKey}
 							data={section}
 							index={index}
-						/>
+						/>,
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_FeaturedEventSlider":
+					gatheredSections.push(
+						<FeaturedEventSlider
+							key={componentKey}
+							{...section}
+							index={index}
+						/>,
+					);
+					break;
+				case "Page_Flexiblecontent_Sections_ExpandableEventGrid":
+					gatheredSections.push(
+						<ExpandableEventGrid
+							key={componentKey}
+							{...section}
+							index={index}
+						/>,
 					);
 					break;
 				default:
@@ -704,6 +728,8 @@ export async function getStaticProps({ params }) {
               ${SocialProofQuery}
               ${UpgradesGridPageQuery}
               ${ExperiencesGridQuery}
+              ${FeaturedEventSliderQuery}
+              ${ExpandableEventGridQuery}
               ... on Page_Flexiblecontent_Sections_AnchorBar {
                 fieldGroupName
                 anchorNavigation {
@@ -1577,6 +1603,7 @@ export async function getStaticProps({ params }) {
                       address
                       description
                       locationName
+                      hostedByLabel
                     }
                   }
                 }

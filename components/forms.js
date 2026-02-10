@@ -40,7 +40,7 @@ const InfluencerInquiryForm = styled(EventForm)`
 	}
 `;
 const EventVendoryInquiryForm = styled(EventForm)``;
-
+const CareersForm = styled(EventForm)``;
 const FieldGroup = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -169,6 +169,7 @@ const CheckboxesContainer = styled.div`
 	}
 `;
 const DefaultTitle = styled.h1``;
+
 export default function Form(props) {
 	const { type, subHeadline, headline, blurb, anchorTag } = props;
 
@@ -200,6 +201,10 @@ export default function Form(props) {
 				webHookUrl =
 					"https://hooks.zapier.com/hooks/catch/2001353/376eb76/";
 				break;
+			case "Careers":
+				webHookUrl =
+					"https://hooks.zapier.com/hooks/catch/2001353/ue8hi2c/";
+				break;
 			case "Influencer Inquiry":
 				webHookUrl =
 					"https://hooks.zapier.com/hooks/catch/2001353/37611qg/";
@@ -210,17 +215,32 @@ export default function Form(props) {
 					"https://hooks.zapier.com/hooks/catch/2001353/bplvi15/";
 		}
 
+		// if type is careers, send resume and cover letter file under a unique key so Zapier receives all of them
+		if (type === "Careers") {
+			const resumeFiles = formData.getAll("resume");
+			resumeFiles.forEach((file, index) => {
+				formData.append(`resume_${index + 1}`, file);
+			});
+			const coverLetterFiles = formData.getAll("coverletter");
+			coverLetterFiles.forEach((file, index) => {
+				formData.append(`coverletter_${index + 1}`, file);
+			});
+		}
+
 		const res = await fetch(webHookUrl, {
 			method: "POST",
 			body: formData,
 		});
 
-		handleResponse(res);
+		handleResponse(res, type);
 	};
 
 	const handleResponse = async (res) => {
 		if (res.status === 200) {
 			setSuccess(true);
+			if (type === "Careers") {
+				return (window.location.href = "/careers-thank-you");
+			}
 			window.location.href = "/thank-you";
 		}
 	};
@@ -385,6 +405,129 @@ export default function Form(props) {
 				);
 			case "Contact Form":
 				return <form className={styles.EventForm}></form>;
+			case "Careers":
+				return (
+					<CareersForm
+						id="careers-form"
+						action="https://hooks.zapier.com/hooks/catch/2001353/ue8hi2c/"
+						onSubmit={(e) => handleSubmit(e, type)}
+						className={styles.EventForm}>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="firstname">
+								First name *
+							</label>
+							<input
+								required
+								type="text"
+								name="firstname"
+								placeholder="First Name"
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="lastname">
+								Last Name *
+							</label>
+							<input
+								required
+								type="text"
+								name="lastname"
+								placeholder="Last Name"
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="phonenumber">
+								Phone Number*
+							</label>
+							<input
+								required
+								type="text"
+								name="phonenumber"
+								placeholder="Your Number"
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="email">
+								Email Address*
+							</label>
+							<input
+								required
+								type="email"
+								name="email"
+								placeholder="Your Email"
+							/>
+						</FieldGroup>
+
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="role">
+								Interested Role/Department*
+							</label>
+							<input
+								required
+								type="text"
+								name="role"
+								placeholder="Interested Role/Department"
+							/>
+						</FieldGroup>
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="fit">
+								Why are you a good fit?*
+							</label>
+							<input
+								required
+								type="text"
+								name="fit"
+								placeholder="Why are you a good fit?"
+							/>
+						</FieldGroup>
+						{/* Resume Upload */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="resume">
+								Resume*
+							</label>
+							<input
+								required
+								type="file"
+								name="resume"
+								id="resume"
+								accept=".pdf,.doc,.docx"
+							/>
+						</FieldGroup>
+						{/* Cover Letter Upload */}
+						<FieldGroup>
+							<label
+								className="sans-serif sub-heading-bold black"
+								htmlFor="coverletter">
+								Cover Letter*
+							</label>
+							<input
+								required
+								type="file"
+								name="coverletter"
+								id="coverletter"
+								accept=".pdf,.doc,.docx"
+							/>
+						</FieldGroup>
+						<SubmitButtonContainer>
+							<SubmitButton className="sans-serif xs-copy center uppercase">
+								Submit
+							</SubmitButton>
+						</SubmitButtonContainer>
+					</CareersForm>
+				);
 			case "Influencer Inquiry":
 				return (
 					<InfluencerInquiryForm
