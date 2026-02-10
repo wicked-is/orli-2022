@@ -111,7 +111,7 @@
 .roomSlider :global(.swiper) {
     width: 100%;
     height: 85vh;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .roomSlider :global(.swiper-wrapper) {
