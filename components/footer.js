@@ -248,13 +248,7 @@ export default function Footer(props) {
 											target="_blank">
 											Shop
 										</Link>
-										{/* <Link
-											href="/offers/stashrewards"
-											target="_blank"
-											passHref>
-											
-												StashRewards
-										</Link> */}
+										<Link href="/careers">Careers</Link>
 										<Link
 											href="/privacy-policy"
 											className="privacy">
@@ -458,6 +452,7 @@ export default function Footer(props) {
 										<Link href="/event-vendor">
 											Event Vendors
 										</Link>
+										<Link href="/careers">Careers</Link>
 										{/* <Link
 											href="https://giftup.app/place-order/d0df71a0-f0f5-4065-f9d7-08dab8104ad7?platform=hosted"
 											passHref>
