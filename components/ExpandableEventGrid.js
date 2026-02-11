@@ -82,7 +82,9 @@ const TagBadge = styled.span`
 		props.$variant === "hosted" ? "transparent" : "rgba(0, 0, 0, 0.75)"};
 	border: ${(props) =>
 		props.$variant === "hosted" ? "1px solid rgba(0, 0, 0, 0.8)" : "none"};
-	color: rgba(0, 0, 0, 0.8);
+	color: ${(props) =>
+		props.$variant === "hosted" ? "rgba(0, 0, 0, 0.8)" : "#fff"};
+	align-self: flex-start;
 	width: fit-content;
 `;
 
