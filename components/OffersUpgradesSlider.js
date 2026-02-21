@@ -759,7 +759,7 @@ export default function OffersUpgradesSlider(props) {
 									</ImageBlock>
 									<OffersTitle>
 										<button
-											className="serif press-heading black left"
+											className="serif press-heading white left"
 											onClick={changeSlider}
 											data-slide={i}
 											style={{
