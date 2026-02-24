@@ -75,7 +75,7 @@ export default function Layout(props) {
 			{/*showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)*/}
-			{toggleGenericModal &&
+			{/* {toggleGenericModal &&
 				!hasGenericModalShown &&
 				props.page === "/" && (
 					<TravelLeisure
@@ -84,7 +84,7 @@ export default function Layout(props) {
 							setHasGenericModalShown,
 						}}
 					/>
-				)}
+				)} */}
 			<Footer page={props.footerImages} />
 		</div>
 	);
