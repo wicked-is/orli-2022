@@ -52,7 +52,7 @@ const EventFeedContainer = styled.div`
 `;
 const Left = styled.div`
 	flex: 1.2;
-	overflow: scroll;
+	overflow: auto;
 	margin-left: 0;
 	padding-left: ${(props) => (props.fullWidget ? "10%" : "0")};
 
