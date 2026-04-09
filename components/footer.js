@@ -439,6 +439,9 @@ export default function Footer(props) {
 										</Link>
 										<Link href="/our-story">Story</Link>
 										<Link href="/amenities">Amenities</Link>
+										<Link href="/weddings-groups">
+											Weddings & Groups
+										</Link>
 										<Link href="/offers">
 											Offers&nbsp;&&nbsp;Upgrades
 										</Link>
@@ -448,7 +451,7 @@ export default function Footer(props) {
 										</Link>
 										<Link href="/press">Press</Link>
 										<Link href="/faq">FAQ</Link>
-										<Link href="/gatherings">Events</Link>
+										<Link href="/events">Events</Link>
 										<Link href="/event-vendor">
 											Event Vendors
 										</Link>

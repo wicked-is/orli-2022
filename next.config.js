@@ -65,6 +65,11 @@ const nextConfig = {
 				destination: "/the-journal",
 				permanent: true,
 			},
+			{
+				source: "/offers-new",
+				destination: "/offers",
+				permanent: true,
+			},
 		];
 	},
 	env: {

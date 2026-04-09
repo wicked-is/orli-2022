@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap/dist/gsap";
 import { useEffect, useState } from "react";
@@ -81,6 +82,49 @@ export default function DefaultPage(props) {
 
 	const postId = props?.data?.data?.post?.postId || null;
 	const [morePosts, setMorePosts] = useState([]);
+
+	// Schema.org structured data
+	const slug = props?.slug || "";
+	const isPost = !!props?.data?.data?.post;
+	const canonicalUrl = `https://stayorli.com/${slug}`;
+
+	const schemas = [
+		// BreadcrumbList — all pages
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					name: "Home",
+					item: "https://stayorli.com/",
+				},
+				{
+					"@type": "ListItem",
+					position: 2,
+					name: seo?.title || slug,
+					item: canonicalUrl,
+				},
+			],
+		},
+		// Article — blog posts only
+		...(isPost
+			? [
+					{
+						"@context": "https://schema.org",
+						"@type": "Article",
+						headline: title || seo?.title,
+						url: canonicalUrl,
+						publisher: {
+							"@type": "Organization",
+							name: "Orli",
+							url: "https://stayorli.com/",
+						},
+					},
+				]
+			: []),
+	];
 
 	// console.log(props.data);
 
@@ -619,6 +663,16 @@ export default function DefaultPage(props) {
 				description={seo?.metaDesc}
 				fullhead={seo?.fullHead}
 			/>
+			<Head>
+				{schemas.map((schema, i) => (
+					<script
+						key={`schema-${i}`}
+						id={`schema-orli-${schema["@type"].toLowerCase()}-${i}`}
+						type="application/ld+json"
+						dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+					/>
+				))}
+			</Head>
 			{gatherSections()}
 			{showMorePosts && morePosts !== [] ? (
 				<ExploreMorePosts posts={morePosts} />
@@ -2460,6 +2514,7 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			data: page,
+			slug,
 		},
 	};
 }
