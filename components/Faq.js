@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useEffect } from "react";
 import styled from "styled-components";
 
@@ -98,32 +97,7 @@ export default function FAQ(props) {
 			aq.addEventListener("click", handleTabClick);
 		});
 	}, []);
-	const faqSchema = faqs.length > 0
-		? {
-				"@context": "https://schema.org",
-				"@type": "FAQPage",
-				mainEntity: faqs.map((faq) => ({
-					"@type": "Question",
-					name: faq.question,
-					acceptedAnswer: {
-						"@type": "Answer",
-						text: faq.answer,
-					},
-				})),
-		  }
-		: null;
-
 	return (
-		<>
-		{faqSchema && (
-			<Head>
-				<script
-					id="schema-orli-faqpage"
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-				/>
-			</Head>
-		)}
 		<FAQMainContainer>
 			<FAQContainer>
 				<FAQTitle as={!props.index ? "h1" : "h2"} className="heading">
@@ -157,6 +131,5 @@ export default function FAQ(props) {
 					})}
 			</FAQContainer>
 		</FAQMainContainer>
-		</>
 	);
 }

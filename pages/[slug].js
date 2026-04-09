@@ -124,6 +124,33 @@ export default function DefaultPage(props) {
 					},
 				]
 			: []),
+		// FAQPage — aggregate all FAQ sections into one schema
+		...(() => {
+			const faqSections = sections?.filter((s) =>
+				s.fieldGroupName?.includes("_Faqs"),
+			);
+			const allQuestions = faqSections?.flatMap((s) =>
+				(s.faqs || [])
+					.filter((faq) => faq.question && faq.answer)
+					.map((faq) => ({
+						"@type": "Question",
+						name: faq.question,
+						acceptedAnswer: {
+							"@type": "Answer",
+							text: faq.answer,
+						},
+					})),
+			);
+			return allQuestions?.length > 0
+				? [
+						{
+							"@context": "https://schema.org",
+							"@type": "FAQPage",
+							mainEntity: allQuestions,
+						},
+					]
+				: [];
+		})(),
 	];
 
 	// console.log(props.data);
@@ -674,7 +701,7 @@ export default function DefaultPage(props) {
 				))}
 			</Head>
 			{gatherSections()}
-			{showMorePosts && morePosts !== [] ? (
+			{showMorePosts && morePosts.length > 0 ? (
 				<ExploreMorePosts posts={morePosts} />
 			) : null}
 		</>
