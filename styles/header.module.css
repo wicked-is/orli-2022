@@ -226,6 +226,7 @@
 	height: 0;
 	width: 0;
 	top: 0;
+	overflow-y: scroll;
 }
 
 .navContianer.showMeMobile {
