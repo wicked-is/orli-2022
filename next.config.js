@@ -70,6 +70,11 @@ const nextConfig = {
 				destination: "/offers",
 				permanent: true,
 			},
+			{
+				source: "/influencers",
+				destination: "/influencer-inquiry",
+				permanent: true,
+			},
 		];
 	},
 	env: {
