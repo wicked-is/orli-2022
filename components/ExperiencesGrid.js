@@ -77,7 +77,7 @@ const CardImage = styled.img`
 	} */
 `;
 
-const CardTitle = styled.h3`
+const CardTitle = styled.h2`
 	margin-block: 1rem 1.25rem;
 	color: #1a1a1a;
 
