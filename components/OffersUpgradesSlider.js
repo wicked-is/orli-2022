@@ -595,8 +595,7 @@ export default function OffersUpgradesSlider(props) {
 			{sliderType === "featuredslider" && (
 				<FeaturedSliderContainer
 					data-background={backgroundImage?.mediaItemUrl}
-					className={`${paddingOptions} ${backgroundOptions}`}
-					aria-label="Featured offers slider">
+					className={`${paddingOptions} ${backgroundOptions}`}>
 					<Swiper
 						modules={[Navigation, Pagination, Keyboard, A11y]}
 						spaceBetween={0}
