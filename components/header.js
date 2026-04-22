@@ -372,6 +372,7 @@ export default function Header(props) {
 			</div>
 
 			<nav
+				tabIndex="0"
 				className={`${styles.navContianer} ${
 					navIsOpen ? styles.showMeMobile : ""
 				}`}>
