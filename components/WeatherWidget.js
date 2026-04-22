@@ -6,6 +6,7 @@ const WidgetContainer = styled.div`
 	position: relative;
 	top: 2rem;
 	left: 4rem;
+	max-width: 300px;
 	p {
 		margin: 0;
 		padding: 0;
@@ -42,7 +43,7 @@ export default function WeatherWidget(props) {
 		// set the resopnse to the weatherData state
 		// make sure to handle errors
 		fetch(
-			"https://api.openweathermap.org/data/2.5/weather?lat=32.8473&lon=-117.2742&units=imperial&appid=ea641546880d9854a0de009620012099"
+			"https://api.openweathermap.org/data/2.5/weather?lat=32.8473&lon=-117.2742&units=imperial&appid=ea641546880d9854a0de009620012099",
 		)
 			.then((response) => response.json())
 			.then((data) => setWeatherData(data))

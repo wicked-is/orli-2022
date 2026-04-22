@@ -82,12 +82,12 @@ export default function Header(props) {
 					label: "Gallery",
 					link: "/gallery/",
 				},
-		  ];
+			];
 	const topBar = props?.topBar;
 
 	const [navIsOpen, setNavIsOpen] = useState(false);
 	const [navImage, setNavImage] = useState(
-		"https://orlistg.wpengine.com/wp-content/uploads/2022/09/Orli_Menu_Our-StoryWeb.jpg"
+		"https://orlistg.wpengine.com/wp-content/uploads/2022/09/Orli_Menu_Our-StoryWeb.jpg",
 	);
 	const [announcementbarIsOpen, setAnnouncementbarIsOpen] = useState(false);
 
@@ -348,7 +348,7 @@ export default function Header(props) {
 				</Link>
 
 				<div className={styles.hamburgerContainer}>
-					<div
+					<button
 						className={`hamburger hamburger--collapse ${
 							isScrolled ? "scrolled" : ""
 						}`}
@@ -366,7 +366,7 @@ export default function Header(props) {
 							</span>
 						)}
 						<div className={styles.hamburgermenu}>Menu</div>
-					</div>
+					</button>
 				</div>
 			</div>
 
