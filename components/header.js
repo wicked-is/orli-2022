@@ -349,6 +349,7 @@ export default function Header(props) {
 
 				<div className={styles.hamburgerContainer}>
 					<button
+						aria-label="Toggle navigation menu"
 						className={`hamburger hamburger--collapse ${
 							isScrolled ? "scrolled" : ""
 						}`}
