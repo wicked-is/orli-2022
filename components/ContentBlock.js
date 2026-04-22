@@ -105,7 +105,7 @@ export default function ContentBlock(props) {
 	const { anchor, content } = props;
 	return (
 		<ContentBlockMainContainer>
-			<a name={anchor} id={anchor}></a>
+			{anchor && <a name={anchor} id={anchor}></a>}
 			<ContentBlockInnerContainer>
 				{parse(content)}
 			</ContentBlockInnerContainer>
