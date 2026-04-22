@@ -112,7 +112,7 @@ export default function FAQ(props) {
 								className="faq"
 								id={`faq-${index + 1}`}
 								key={`faq-${index + 1}`}>
-								{faq.anchor && (
+								{faq?.anchor && (
 									<a id={faq.anchor} name={faq.anchor}></a>
 								)}
 								<Tab>
