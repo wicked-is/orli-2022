@@ -44,7 +44,7 @@ export default function ExploreMorePosts(props) {
 
 	return (
 		<ExploreMorePostsMainContainer>
-			<a name={anchor} id={anchor}></a>
+			{anchor && <a name={anchor} id={anchor}></a>}
 			<ExploreMorePostsInnerContainer>
 				<Title as={!props.index ? "h1" : "h2"} className="heading left">
 					{title}
