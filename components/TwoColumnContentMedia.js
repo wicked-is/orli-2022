@@ -91,6 +91,9 @@ const Description = styled.p`
 	line-height: 1.8;
 	color: #000;
 	margin-bottom: 32px;
+	a {
+		text-decoration: underline;
+	}
 `;
 
 const BookButton = styled(Link)`
@@ -126,9 +129,12 @@ const ContentSection = (props) => {
 					{props.data.eyebrow}
 				</Eyebrow>
 				<Title className="heading">{props.data.title}</Title>
-				<Description className="sans-serif xs-copy black">
-					{props.data.content}
-				</Description>
+				<Description
+					className="sans-serif xs-copy black"
+					dangerouslySetInnerHTML={{
+						__html: props.data.content,
+					}}
+				/>
 				{props.data.ctaLink && props.data.ctaText && (
 					<BookButton
 						href={props.data.ctaLink}
