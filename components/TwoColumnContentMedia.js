@@ -129,11 +129,13 @@ const ContentSection = (props) => {
 				<Description className="sans-serif xs-copy black">
 					{props.data.content}
 				</Description>
-				<BookButton
-					href={props.data.ctaLink}
-					className="sans-serif body-copy uppercase">
-					{props.data.ctaText}
-				</BookButton>
+				{props.data.ctaLink && props.data.ctaText && (
+					<BookButton
+						href={props.data.ctaLink}
+						className="sans-serif body-copy uppercase">
+						{props.data.ctaText}
+					</BookButton>
+				)}
 			</TextContent>
 			<ImageWrapper>
 				<ContentImage
