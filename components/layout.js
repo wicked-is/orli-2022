@@ -49,13 +49,12 @@ export default function Layout(props) {
 	}
 
 	useEffect(() => {
-		// after 15s toggleGenericModal to true as long as it's the home page and showModal is false
-		if (props.page === "/" && !hasGenericModalShown) {
-			setTimeout(() => {
-				if (!hasModalShown) {
-					setToggleGenericModal(true);
-				}
-			}, 15000);
+		if (props.page === "/" && !sessionStorage.getItem("condeNasteModalShown")) {
+			const timer = setTimeout(() => {
+				setToggleGenericModal(true);
+				sessionStorage.setItem("condeNasteModalShown", "true");
+			}, 3000);
+			return () => clearTimeout(timer);
 		}
 	}, []);
 
