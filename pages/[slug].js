@@ -696,7 +696,9 @@ export default function DefaultPage(props) {
 						key={`schema-${i}`}
 						id={`schema-orli-${schema["@type"].toLowerCase()}-${i}`}
 						type="application/ld+json"
-						dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+						dangerouslySetInnerHTML={{
+							__html: JSON.stringify(schema),
+						}}
 					/>
 				))}
 			</Head>
@@ -1442,6 +1444,7 @@ export async function getStaticProps({ params }) {
                 heading
                 sliderType
                 kicker
+                anchor
                 backgroundOptions
                 paddingOptions
                 backgroundImage {
