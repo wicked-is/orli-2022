@@ -522,6 +522,7 @@ export default function OffersUpgradesSlider(props) {
 		offersUpgrades,
 		heading,
 		kicker,
+		anchor,
 		paddingOptions,
 		backgroundOptions,
 		backgroundImage,
