@@ -592,6 +592,12 @@ export default function OffersUpgradesSlider(props) {
 
 	return (
 		<div>
+			{anchor && (
+				<a
+					name={anchor}
+					id={anchor}
+					style={{ position: "relative", top: "-100px" }}></a>
+			)}
 			{sliderType === "featuredslider" && (
 				<FeaturedSliderContainer
 					data-background={backgroundImage?.mediaItemUrl}
