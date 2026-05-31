@@ -1,0 +1,128 @@
+# Orli
+
+> Orli is a boutique hotel in La Jolla, California — intentional, local-minded, and effortless by design.
+
+Orli (stayorli.com) is an independent boutique hotel at 7753 Draper Ave, La Jolla, CA 92037. The property offers individually themed guest rooms, curated offers and upgrades, local experiences, events, and a journal. The brand philosophy centers on three pillars: intentionality, local connection, and effortless design.
+
+- Phone: +1 (858) 727-2776
+- Email: hello@stayorli.com
+- Instagram: https://www.instagram.com/stayorli/
+- Booking system: Mews PMS
+
+---
+
+## Pages
+
+### Homepage
+URL: https://stayorli.com/
+
+The homepage is powered by the same flexible content system as all other pages. It typically features a hero section with a booking form, a rooms slider, amenities, the brand mission, a featured journal entry, and a social feed.
+
+### Find Your Room
+URL: https://stayorli.com/find-your-room
+
+A filterable grid of all guest rooms. Rooms can be filtered by amenity type. Each room tile shows the room name, a key feature, how many guests it sleeps, a featured image or video, and links to the room detail page.
+
+### Individual Room Pages
+URL: https://stayorli.com/rooms/[room-slug]
+
+Each room page includes:
+- Hero gallery (desktop) and mobile gallery slider
+- Room title, number of guests it sleeps, and description
+- Highlights — icon-labeled feature callouts (e.g., balcony, ocean view)
+- Features — full amenity list as a bullet list
+- Floor plan (optional, toggle to show)
+- About Orli section specific to the room
+- Neighborhood section with walkability bullets and points of interest
+- Reservation form (sidebar on desktop, inline on mobile) integrated with Mews Distributor
+- "Back to All Rooms" link
+
+### Offers
+URL: https://stayorli.com/offers
+
+A grid or filterable list of current hotel offers and packages.
+
+### Individual Offer Pages
+URL: https://stayorli.com/offers/[offer-slug]
+
+Each offer page shows:
+- Offer image
+- Offer title and description (rich text)
+- "Book Now" CTA linking to an external booking URL
+- Optional Terms & Conditions in a modal dialog
+
+### Journal (Blog)
+URL: https://stayorli.com/journal (slug-based)
+
+A grid of blog posts. Posts are categorized and can be featured. Each post links to its individual post page.
+
+### Individual Post Pages
+URL: https://stayorli.com/[post-slug]
+
+Blog posts use the same flexible content section system as pages. They support a Hero with a date published, rich media sections (full-width media, two-up media), content blocks, galleries, and a "More Posts" section at the bottom.
+
+### Experiences
+URL: https://stayorli.com/experiences (slug-based)
+
+A grid of curated local experiences available to guests.
+
+### Events
+URL: https://stayorli.com/events (slug-based)
+
+A feed and/or slider of hotel and local events. Events include date, time, location, description, RSVP link, and calendar links (Apple, Google).
+
+### Gatherings / Private Events
+URL: https://stayorli.com/gatherings (slug-based)
+
+Information on private event hosting at the property. Includes a callout section with media and event listings.
+
+### Upgrades
+URL: https://stayorli.com/upgrades (slug-based)
+
+A grid of purchasable room upgrades and add-ons (e.g., The Rise & Shine, The Celebration).
+
+### Amenities
+URL: https://stayorli.com/amenities (slug-based)
+
+A slider or grid of property amenities.
+
+### Press
+URL: https://stayorli.com/press (slug-based)
+
+A grid of press mentions with publication name, link, and featured image.
+
+### Getting Here
+URL: Part of relevant pages via section
+
+Directions, desktop and mobile map images, and travel context for reaching the hotel.
+
+### The Local Way
+URL: Part of relevant pages via section
+
+A curated local area guide with an embedded map and categorized lists of nearby restaurants, shops, and points of interest with names, addresses, and coordinates.
+
+### Contact
+URL: https://stayorli.com/contact (slug-based)
+
+Contact block with copy for reservations, events, media, and development inquiries, plus a background image.
+
+### Gifts / Shop
+URL: https://stayorli.com/gifts (slug-based)
+
+A gift grid showcasing curated products with brand, product name, hover details, and external purchase links.
+
+### FAQ
+URL: Part of relevant pages via section
+
+Frequently asked questions in an accordion layout. FAQ data is also emitted as FAQPage schema.org structured data.
+
+### Gallery
+URL: https://stayorli.com/gallery (slug-based)
+
+A filterable media gallery supporting both images and video.
+
+### 404
+URL: https://stayorli.com/404
+
+Custom not-found page.
+

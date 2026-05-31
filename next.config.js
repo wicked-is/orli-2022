@@ -15,6 +15,14 @@ const nextConfig = {
 		locales: ["en-US"],
 		defaultLocale: "en-US",
 	},
+	async headers() {
+		return [
+			{
+				source: "/llms.txt",
+				headers: [{ key: "Content-Type", value: "text/plain" }],
+			},
+		];
+	},
 	async redirects() {
 		return [
 			{
