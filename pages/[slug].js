@@ -23,6 +23,7 @@ import PerksShopFeatureSlider from "../components/PerksShopFeatureSlider";
 import PressGrid from "../components/PressGrid";
 import RoomsGrid from "../components/RoomsGrid";
 import TheLocalWay from "../components/TheLocalWay";
+import Banner from "../components/Banner";
 import TitleBar from "../components/TitleBar";
 import UpgradesGrid, {
 	UpgradesGridPageQuery,
@@ -408,6 +409,16 @@ export default function DefaultPage(props) {
 				case "Post_Flexiblecontent_Sections_Gallery":
 					gatheredSections.push(
 						<Gallery
+							key={componentKey}
+							{...section}
+							index={index}
+						/>,
+					);
+					break;
+        case "Page_Flexiblecontent_Sections_Banner":
+				case "Post_Flexiblecontent_Sections_Banner":
+					gatheredSections.push(
+						<Banner
 							key={componentKey}
 							{...section}
 							index={index}
@@ -1410,6 +1421,17 @@ export async function getStaticProps({ params }) {
                 blurb
                 embed
               }
+              ... on Page_Flexiblecontent_Sections_Banner {
+                fieldGroupName
+                backgroundColor
+                title
+                copy
+                showIcons
+                icon {
+                  mediaItemUrl
+                  altText
+                }
+              }
               ... on Page_Flexiblecontent_Sections_Titlebar {
                 fieldGroupName
                 title
@@ -2309,6 +2331,18 @@ export async function getStaticProps({ params }) {
                 headline
                 blurb
                 embed
+              }
+              ... on Post_Flexiblecontent_Sections_Banner {
+                fieldGroupName
+                backgroundColor
+                title
+                copy
+                showIcons
+                anchor
+                icon {
+                  mediaItemUrl
+                  altText
+                }
               }
               ... on Post_Flexiblecontent_Sections_Titlebar {
                 fieldGroupName

@@ -215,11 +215,23 @@ const AboutOrliContainer = styled.div`
 		padding: 0rem 2rem;
 	}
 `;
+
+const AccessibilityContainer = styled.div`
+	margin: 3rem 0;
+
+	p a {
+		text-decoration: underline;
+		color: var(--brown);
+	}
+	@media screen and (max-width: 820px) {
+		padding: 0rem 2rem;
+	}
+`;
 const NeighborhoodContainer = styled.div`
 	margin: 3rem 0;
 
 	& p {
-		padding: 4rem 0 0 0;
+		padding: 0rem 0 0 0;
 	}
 
 	@media screen and (max-width: 820px) {
@@ -686,6 +698,18 @@ export default function DefaultRoomsPage(props) {
 							</Link>
 						</p>
 					</NeighborhoodContainer>
+
+					<AccessibilityContainer>
+						<h2 className="heading">
+							{room.singleRooms.accessibilityTitle}
+						</h2>
+						<div
+							className="sans-serif body-copy black"
+							dangerouslySetInnerHTML={{
+								__html: room.singleRooms
+									.accessibilityDescription,
+							}}></div>
+					</AccessibilityContainer>
 				</SingleRoomContent>
 
 				<SingleRoomBookingForm className="sidebar">
@@ -857,6 +881,8 @@ export async function getStaticProps({ params }) {
           keyFeature
           neighborhoodDescription
           neighborhoodTitle
+		  accessibilityTitle
+		  accessibilityDescription
           sleeps
           squareFeet
           theme
