@@ -44,7 +44,7 @@ const ExitContainer = styled.div`
 		z-index: 999;
 	}
 
-	@media only screen and (max-width: 820px) {
+	@media only screen and (max-width: 800px) {
 		& {
 			flex-direction: column;
 			flex-wrap: unset;
@@ -53,6 +53,19 @@ const ExitContainer = styled.div`
 		}
 		& .close {
 			filter: invert(1);
+		}
+	}
+	@media screen and (max-width: 950px) and (orientation: landscape) {
+		& {
+			flex-direction: row;
+			flex-wrap: nowrap;
+			max-width: 92vw;
+			height: min(86vh, 430px);
+		}
+		& .close {
+			filter: invert(0);
+			right: 0.75rem;
+			top: 0.75rem;
 		}
 	}
 	@media only screen and (max-width: 375px) {
@@ -106,7 +119,7 @@ const ImageContainer = styled.div`
 		}
 	}
 
-	@media only screen and (max-width: 820px) {
+	@media only screen and (max-width: 800px) {
 		& {
 			width: 100%;
 			height: 100% !important;
@@ -114,11 +127,26 @@ const ImageContainer = styled.div`
 			background-position: center 20% !important;
 		}
 	}
+
+	@media screen and (max-width: 950px) and (orientation: landscape) {
+		& {
+			width: 100%;
+			max-width: 25%;
+			height: 100% !important;
+			max-height: 100% !important;
+			background-position: center center !important;
+		}
+
+		& .badge {
+			max-width: 110px !important;
+		}
+	}
+
 	@media only screen and (max-width: 700px) {
 		& {
 			width: 100%;
 			height: 100% !important;
-			max-height: 300px !important;
+			max-height: 100% !important;
 			background-position: center 20% !important;
 		}
 		& .badge {
@@ -141,11 +169,20 @@ const ContentContainer = styled.div`
 	background: #fff;
 	height: 100%;
 	position: relative;
+	overflow: hidden;
 
-	@media only screen and (max-width: 820px) {
+	@media only screen and (max-width: 800px) {
 		& {
 			width: 100%;
 			height: 100%;
+		}
+	}
+
+	@media screen and (max-width: 950px) and (orientation: landscape) {
+		& {
+			width: 100%;
+			max-width: 75%;
+			overflow-y: auto;
 		}
 	}
 `;
@@ -192,11 +229,25 @@ const TextContainer = styled.div`
 			padding: 3rem 2rem;
 		}
 	}
-	@media only screen and (max-width: 820px) {
+	@media only screen and (max-width: 800px) {
 		& {
 			position: relative;
 			padding: 4rem 2rem;
 			overflow-y: auto;
+		}
+	}
+
+	@media screen and (max-width: 950px) and (orientation: landscape) {
+		& {
+			position: relative;
+			top: auto;
+			left: auto;
+			transform: none;
+			padding: 2rem 1.5rem;
+		}
+
+		.submit {
+			margin: 1.25rem 0 0;
 		}
 	}
 `;
