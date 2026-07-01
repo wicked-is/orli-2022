@@ -48,7 +48,7 @@ export default function Layout(props) {
 		window.location.href = "/offers";
 	}
 
-	useEffect(() => {
+	{/*useEffect(() => {
 		if (props.page === "/" && !sessionStorage.getItem("condeNasteModalShown")) {
 			const timer = setTimeout(() => {
 				setToggleGenericModal(true);
@@ -56,7 +56,7 @@ export default function Layout(props) {
 			}, 3000);
 			return () => clearTimeout(timer);
 		}
-	}, []);
+	}, []);*/}
 
 	return (
 		<div
@@ -74,7 +74,7 @@ export default function Layout(props) {
 			{/*showModal && !hasModalShown && props.page !== "/email" && (
 				<ExitIntent toggleModal={{ setshowModal, sethasModalShown }} />
 			)*/}
-			{toggleGenericModal &&
+			{/*{toggleGenericModal &&
 				!hasGenericModalShown &&
 				props.page === "/" && (
 					<CondeNasteModal
@@ -83,7 +83,7 @@ export default function Layout(props) {
 							setHasGenericModalShown,
 						}}
 					/>
-				)}
+				)}*/}
 			<Footer page={props.footerImages} />
 		</div>
 	);
