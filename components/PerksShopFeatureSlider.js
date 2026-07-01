@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useRef } from "react";
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y } from "swiper/modules";
 
-import "flickity/css/flickity.css";
-import Flickity from "react-flickity-component";
+import "swiper/css";
+import "swiper/css/pagination";
 export const PerksShopFeatureSliderQueryFragment = ``;
 
 const Button = styled.a`
@@ -23,6 +24,7 @@ const ContentContainer = styled.div`
 	justify-content: center;
 
 	@media screen and (max-width: 900px) {
+		flex: unset;
 		max-width: 80%;
 		margin: 0 auto;
 	}
@@ -30,25 +32,49 @@ const ContentContainer = styled.div`
 const RightMedia = styled(Image)`
 	margin-top: ${(props) => (props.$noTopMargin ? "0" : "15rem")};
 	object-fit: cover;
+
+	@media screen and (max-width: 810px) {
+		margin-top: 0;
+		width: min(100%, 420px) !important;
+		height: auto !important;
+	}
 `;
 const RightMediaContainer = styled.div`
 	margin-top: ${(props) => (props.$noTopMargin ? "0" : "10rem")};
 
 	@media screen and (max-width: 810px) {
-		margin-top: 3rem;
+		margin-top: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
 	}
 `;
 const BottomMedia = styled(Image)`
 	margin-top: 5rem;
 	object-fit: cover;
+
+	@media screen and (max-width: 810px) {
+		margin-top: 0;
+		width: min(100%, 420px) !important;
+		height: auto !important;
+	}
 `;
 const TopMedia = styled(Image)`
 	object-fit: cover;
+
+	@media screen and (max-width: 810px) {
+		width: min(100%, 420px) !important;
+		height: auto !important;
+	}
 `;
 const Left = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+
+	@media screen and (max-width: 810px) {
+		display: none;
+	}
 `;
 const SingleSection = styled.div`
 	display: flex;
@@ -63,8 +89,8 @@ const SingleSection = styled.div`
 	@media screen and (max-width: 900px) {
 		flex-direction: column-reverse;
 		gap: 0;
-		width: 100vw;
-		margin-right: 0;
+		width: 92vw;
+		margin-right: 1rem;
 	}
 `;
 const MediaContainer = styled.div`
@@ -74,61 +100,79 @@ const MediaContainer = styled.div`
 	margin-block: 7rem;
 	flex: 1.75;
 	@media screen and (max-width: 810px) {
+		flex: unset;
+		flex-direction: row;
+		align-items: center;
 		margin-block: unset;
-		margin: 2rem 0 4rem 0;
+		margin: 1rem 0 1.5rem 0;
+		gap: 0;
 	}
 `;
 const PerksShopFeatureSliderSection = styled.section`
+	@media only screen and (max-width: 810px) {
+		padding: 0 0 2rem 0;
+	}
+	.slider-container {
+		cursor: grab;
+	}
+
+	.slider-container:active {
+		cursor: grabbing;
+	}
+
+	.slider-container .swiper-slide {
+		width: auto;
+	}
+
+	.slider-container .swiper-pagination {
+		position: relative;
+		bottom: auto;
+		margin-top: 0.75rem;
+		display: none;
+	}
+
+	.slider-container .swiper-pagination-bullet {
+		width: 8px;
+		height: 8px;
+		opacity: 0.35;
+		background: var(--black);
+	}
+
+	.slider-container .swiper-pagination-bullet-active {
+		opacity: 1;
+		background: var(--brown);
+	}
+
 	@media screen and (max-width: 810px) {
+		.slider-container .swiper-pagination {
+			display: block;
+			margin-top: 0.25rem;
+		}
+
 		${MediaContainer} {
-			opacity: 0;
-		}
-
-		${SingleSection}:nth-of-type(2) ${Left} {
-			margin-top: 4rem;
-		}
-		${SingleSection}:nth-of-type(2) ${RightMediaContainer} {
-			margin-top: 0;
-		}
-		.slider-container .flickity-viewport {
-			min-height: 95vh;
-		}
-
-		.is-selected ${MediaContainer} {
-			position: relative;
-			width: 100vw;
-			left: 0vw;
+			width: 100%;
+			left: auto;
 			opacity: 1;
 		}
 	}
 `;
 
 export default function PerksShopFeatureSlider(props) {
-	const slider = useRef(null);
 	return (
 		<PerksShopFeatureSliderSection>
 			{props.anchor && <a id={props.anchor}></a>}
-			<Flickity
-				options={{
-					draggable: true,
-					cellAlign: "left",
-					prevNextButtons: false,
-					pageDots: false,
-					wrapAround: true,
-					imagesLoaded: true,
-					selectedAttraction: 0.007,
-					friction: 0.17,
-					pauseAutoPlayOnHover: true,
-				}}
+			<Swiper
+				modules={[Pagination, A11y]}
+				loop={true}
+				slidesPerView="auto"
+				spaceBetween={0}
+				pagination={{ clickable: true }}
 				className="slider-container"
-				disableImagesLoaded={false} // default false
-				reloadOnUpdate={false} // default false
-				static // default false
-				flickityRef={(c) => {
-					slider.current = c;
-				}}>
+				watchSlidesProgress={true}
+				a11y={{ enabled: true }}>
 				{props?.features?.map((slide, index) => (
-					<SingleSection key={`feature-section-${index}`}>
+					<SwiperSlide key={`feature-section-${index}`}>
+						<SingleSection>
 						<MediaContainer>
 							<Left>
 								{!slide.leftBottomPhoto &&
@@ -191,9 +235,10 @@ export default function PerksShopFeatureSlider(props) {
 								{slide.ctaText}
 							</Button>
 						</ContentContainer>
-					</SingleSection>
+						</SingleSection>
+					</SwiperSlide>
 				))}
-			</Flickity>
+			</Swiper>
 		</PerksShopFeatureSliderSection>
 	);
 }
