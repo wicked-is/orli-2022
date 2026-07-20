@@ -626,50 +626,55 @@ export default function DefaultRoomsPage(props) {
 						</FeatureList>
 					</FeatureContainer>
 
-					<AmenitiesContainer>
-						<div>
-							<p className="sans-serif-bold sub-heading">
-								Room Features
-							</p>
-							<AmenitiesList>
-								{room.singleRooms.roomsAmenities.map(
-									(amenity, index) => {
-										return (
-											<li
-												key={index}
-												style={{
-													marginBottom: ".5rem",
-												}}
-												className="sans-serif body-copy black">
-												{amenity}
-											</li>
-										);
-									},
-								)}
-							</AmenitiesList>
-						</div>
-						<div>
-							<p className="sans-serif-bold sub-heading">
-								Bathroom Features
-							</p>
-							<AmenitiesList>
-								{room.singleRooms.bathroomsAmenities.map(
-									(amenity, index) => {
-										return (
-											<li
-												key={index}
-												style={{
-													marginBottom: ".5rem",
-												}}
-												className="sans-serif body-copy black">
-												{amenity}
-											</li>
-										);
-									},
-								)}
-							</AmenitiesList>
-						</div>
-					</AmenitiesContainer>
+					{room?.singleRooms?.roomsAmenities?.length > 0 ||
+					room?.singleRooms?.bathroomsAmenities?.length > 0 ? (
+						<AmenitiesContainer>
+							<div>
+								<p className="sans-serif-bold sub-heading">
+									Room Features
+								</p>
+								<AmenitiesList>
+									{room?.singleRooms?.roomsAmenities.map(
+										(amenity, index) => {
+											if (!amenity) return null;
+											return (
+												<li
+													key={index}
+													style={{
+														marginBottom: ".5rem",
+													}}
+													className="sans-serif body-copy black">
+													{amenity}
+												</li>
+											);
+										},
+									)}
+								</AmenitiesList>
+							</div>
+							<div>
+								<p className="sans-serif-bold sub-heading">
+									Bathroom Features
+								</p>
+								<AmenitiesList>
+									{room?.singleRooms?.bathroomsAmenities.map(
+										(amenity, index) => {
+											if (!amenity) return null;
+											return (
+												<li
+													key={index}
+													style={{
+														marginBottom: ".5rem",
+													}}
+													className="sans-serif body-copy black">
+													{amenity}
+												</li>
+											);
+										},
+									)}
+								</AmenitiesList>
+							</div>
+						</AmenitiesContainer>
+					) : null}
 					<p
 						className="sans-serif body-copy black"
 						style={{ marginTop: "2rem" }}>
