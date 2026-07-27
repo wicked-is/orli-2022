@@ -20,6 +20,13 @@ const BannerContainer = styled.section`
         -webkit-background-size: cover !important;
         background-position: center;
         background-repeat: no-repeat;
+        p {color: var(--white);}
+        .body p {line-height: 1.5;}
+        p a,
+        p a:visited {
+            text-decoration: underline;
+            color: var(--white);
+        }
     }
 
     &.blue {
