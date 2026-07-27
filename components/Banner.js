@@ -12,6 +12,16 @@ const BannerContainer = styled.section`
 	margin-block: 2rem;
 	padding: 2rem 2rem;
 
+    &.background-image {
+        max-width: 100%;
+        background-size: cover !important;
+        -o-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -webkit-background-size: cover !important;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
     &.blue {
         background-color: var(--blue);
         p {color: var(--white);}
@@ -60,10 +70,18 @@ const TextContainer = styled.div`
 `;
 
 export default function Banner(props) {
-	const { backgroundColor, title, copy, icon, showIcons, anchor } = props;
+	const { backgroundColor, backgroundImage, title, copy, icon, showIcons, anchor } = props;
+    const hasBackgroundImage = backgroundColor.includes("backgroundImage");
 
 	return (
-		<BannerContainer className={backgroundColor}>
+		<BannerContainer
+			className={`${backgroundColor} ${hasBackgroundImage ? "background-image" : ""}`}
+			{...(
+				hasBackgroundImage
+					? { style: { backgroundImage: `url(${backgroundColor.backgroundImage.node.mediaItemUrl})` } }
+					: {}
+			)}
+		>
 			{anchor ? (
 				<a
 					id={anchor}
