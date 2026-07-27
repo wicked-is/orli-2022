@@ -84,7 +84,6 @@ const MobileRoomsHero = styled.div`
 		}
 	}
 `;
-
 const MobileBookingForm = styled.div`
 	display: none;
 	@media only screen and (max-width: 820px) {
@@ -95,7 +94,6 @@ const MobileBookingForm = styled.div`
 		}
 	}
 `;
-
 const SingleRoomContent = styled.div`
 	width: 70%;
 	display: inline;
@@ -110,7 +108,6 @@ const SingleRoomContent = styled.div`
 		}
 	}
 `;
-
 const GreyBGMobile = styled.div`
 	@media only screen and (max-width: 820px) {
 		& p.sans-serif-bold.sub-heading {
@@ -128,9 +125,7 @@ const MobilePadding = styled.div`
 		padding: 2rem 2rem 0 2rem;
 	}
 `;
-
 const SingleRoomMainDesc = styled.div``;
-
 const SingleRoomBookingForm = styled.div`
 	margin: -8rem 0 0 0;
 	z-index: 1;
@@ -195,13 +190,17 @@ const FeatureList = styled.div`
 `;
 const AmenitiesContainer = styled.div`
 	margin: 3rem 0;
+	display: flex;
+
+	gap: 5vw;
+
 	@media screen and (max-width: 820px) {
 		padding: 0rem 2rem;
 	}
 `;
 const AmenitiesList = styled.ul`
 	list-style-type: none;
-	columns: 2;
+	/* columns: 2; */
 
 	padding-inline-start: 0 !important;
 
@@ -215,7 +214,6 @@ const AboutOrliContainer = styled.div`
 		padding: 0rem 2rem;
 	}
 `;
-
 const AccessibilityContainer = styled.div`
 	margin: 3rem 0;
 
@@ -384,7 +382,7 @@ export default function DefaultRoomsPage(props) {
 				year: "numeric",
 				month: "2-digit",
 				day: "2-digit",
-			})
+			}),
 		);
 	};
 	const setCheckout = (date) => {
@@ -395,7 +393,7 @@ export default function DefaultRoomsPage(props) {
 				year: "numeric",
 				month: "2-digit",
 				day: "2-digit",
-			})
+			}),
 		);
 
 		setTimeout(() => {
@@ -437,15 +435,15 @@ export default function DefaultRoomsPage(props) {
 				// you can call API functions on a booking engine instance here
 				// set different start and end date
 				api.setStartDate(
-					new Date(checkInRef.current.value.replace(/-/g, "/"))
+					new Date(checkInRef.current.value.replace(/-/g, "/")),
 				);
 				api.setEndDate(
-					new Date(checkOutRef.current.value.replace(/-/g, "/"))
+					new Date(checkOutRef.current.value.replace(/-/g, "/")),
 				);
 				if (room?.singleRooms?.mewsRoomId)
 					api.showRates(room.singleRooms.mewsRoomId);
 				api.open();
-			}
+			},
 		);
 	}
 
@@ -689,7 +687,7 @@ export default function DefaultRoomsPage(props) {
 											)}
 										</BulletItem>
 									);
-								}
+								},
 							)}
 						</ul>
 						<p className="sans-serif xs-copy underline arrow-left relative">
@@ -877,6 +875,8 @@ export async function getStaticProps({ params }) {
           aboutOrliDescription
           aboutOrliTitle
           amenities
+		  bathroomsAmenities
+		  roomsAmenities
           description
           keyFeature
           neighborhoodDescription
