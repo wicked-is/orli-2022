@@ -631,7 +631,7 @@ export default function DefaultRoomsPage(props) {
 					<AmenitiesContainer>
 						<p className="sans-serif-bold sub-heading">Features</p>
 						<AmenitiesList>
-							{room.singleRooms.amenities.map(
+							{room?.singleRooms?.amenities?.map(
 								(amenity, index) => {
 									return (
 										<li
