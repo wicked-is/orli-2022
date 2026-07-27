@@ -1424,6 +1424,10 @@ export async function getStaticProps({ params }) {
               ... on Page_Flexiblecontent_Sections_Banner {
                 fieldGroupName
                 backgroundColor
+                backgroundImage {
+                  mediaItemUrl
+                  altText
+                }
                 title
                 copy
                 showIcons
