@@ -13,6 +13,7 @@ const BannerContainer = styled.section`
 	padding: 2rem 2rem;
 
     &.background-image {
+        margin-block: 0rem;
         max-width: 100%;
         background-size: cover !important;
         -o-background-size: cover !important;
@@ -26,6 +27,9 @@ const BannerContainer = styled.section`
         p a:visited {
             text-decoration: underline;
             color: var(--white);
+        }
+        @media screen and (max-width: 900px) {
+            p {text-align: center;}
         }
     }
 
@@ -85,7 +89,7 @@ export default function Banner(props) {
 			className={`${backgroundColor} ${hasBackgroundImage ? "background-image" : ""}`}
 			{...(
 				hasBackgroundImage
-					? { style: { backgroundImage: `url(${backgroundColor.backgroundImage.node.mediaItemUrl})` } }
+					? { style: { backgroundImage: `url(${backgroundImage.mediaItemUrl})` } }
 					: {}
 			)}
 		>
