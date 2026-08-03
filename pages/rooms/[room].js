@@ -627,29 +627,57 @@ export default function DefaultRoomsPage(props) {
 					</FeatureContainer>
 
 					<AmenitiesContainer>
-						<p className="sans-serif-bold sub-heading">Features</p>
-						<AmenitiesList>
-							{room?.singleRooms?.amenities?.map(
-								(amenity, index) => {
-									return (
-										<li
-											key={index}
-											style={{ marginBottom: ".5rem" }}
-											className="sans-serif body-copy black">
-											{amenity}
-										</li>
-									);
-								}
-							)}
-						</AmenitiesList>
-						<p
-							className="sans-serif body-copy black"
-							style={{ marginTop: "2rem" }}>
-							When booking, see available add-on amenities
-							including The Rise & Shine, The Celebration, and
-							more.
-						</p>
+						<div>
+							<p className="sans-serif-bold sub-heading">
+								Room Features
+							</p>
+							<AmenitiesList>
+								{room?.singleRooms?.roomsAmenities.map(
+									(amenity, index) => {
+										if (!amenity) return null;
+										return (
+											<li
+												key={index}
+												style={{
+													marginBottom: ".5rem",
+												}}
+												className="sans-serif body-copy black">
+												{amenity}
+											</li>
+										);
+									},
+								)}
+							</AmenitiesList>
+						</div>
+						<div>
+							<p className="sans-serif-bold sub-heading">
+								Bathroom Features
+							</p>
+							<AmenitiesList>
+								{room?.singleRooms?.bathroomsAmenities.map(
+									(amenity, index) => {
+										if (!amenity) return null;
+										return (
+											<li
+												key={index}
+												style={{
+													marginBottom: ".5rem",
+												}}
+												className="sans-serif body-copy black">
+												{amenity}
+											</li>
+										);
+									},
+								)}
+							</AmenitiesList>
+						</div>
 					</AmenitiesContainer>
+					<p
+						className="sans-serif body-copy black"
+						style={{ marginTop: "2rem" }}>
+						When booking, see available add-on amenities including
+						The Rise & Shine, The Celebration, and more.
+					</p>
 
 					<AboutOrliContainer>
 						<h2 className="heading">
