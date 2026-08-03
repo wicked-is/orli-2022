@@ -674,7 +674,7 @@ export default function DefaultRoomsPage(props) {
 						</div>
 					</AmenitiesContainer>
 					<p
-						className="sans-serif body-copy black"
+						className="sans-serif body-copy black mobile-padding"
 						style={{ marginTop: "2rem" }}>
 						When booking, see available add-on amenities including
 						The Rise & Shine, The Celebration, and more.
