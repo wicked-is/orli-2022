@@ -195,6 +195,7 @@ const AmenitiesContainer = styled.div`
 	gap: 5vw;
 
 	@media screen and (max-width: 820px) {
+		flex-direction: column;
 		padding: 0rem 2rem;
 	}
 `;
