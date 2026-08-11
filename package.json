@@ -11,12 +11,13 @@
 	"dependencies": {
 		"@fancyapps/ui": "^4.0.31",
 		"again": "^0.0.1",
+		"axios": "^1.19.0",
 		"dotenv": "^16.0.3",
 		"exit-intent": "^1.1.0",
 		"flickity": "^3.0.0",
 		"gsap": "^3.9.1",
 		"html-react-parser": "^1.4.13",
-		"next": "^16.0.7",
+		"next": "^16.3.0",
 		"node": "^23.7.0",
 		"react": "^19.2.1",
 		"react-calendar": "^4.0.0",
@@ -39,5 +40,9 @@
 		"eslint": "^9.39.1",
 		"eslint-config-next": "^16.0.7",
 		"styled-components": "^5.3.5"
+	},
+	"overrides": {
+		"lodash": "4.17.21",
+		"immutable": "^5.0.0"
 	}
 }

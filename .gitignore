@@ -35,3 +35,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Use npm; yarn.lock removed to avoid duplicate Dependabot scans
+yarn.lock
