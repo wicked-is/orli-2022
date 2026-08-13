@@ -5,11 +5,7 @@ const nextConfig = {
 		styledComponents: true,
 	},
 	images: {
-		domains: [
-			"orlidev.wpengine.com",
-			"stayorli.com",
-			"orlistg.wpengine.com",
-		],
+		domains: ["orlidev.wpengine.com", "stayorli.com", "orlistg.wpengine.com"],
 	},
 	i18n: {
 		locales: ["en-US"],
@@ -32,8 +28,7 @@ const nextConfig = {
 			},
 			{
 				source: "/yoga-market",
-				destination:
-					"https://shop.stayorli.com/products/vinyasa-vuori-x-pura-vida-pop-up",
+				destination: "https://shop.stayorli.com/products/vinyasa-vuori-x-pura-vida-pop-up",
 				permanent: true,
 			},
 			{
@@ -87,6 +82,8 @@ const nextConfig = {
 	},
 	env: {
 		WP_GQL_API: process.env.WP_GQL_API,
+		GMAP_API: process.env.GMAP_API,
+		OW_API: process.env.OW_API,
 	},
 };
 

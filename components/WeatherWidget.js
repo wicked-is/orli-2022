@@ -42,9 +42,7 @@ export default function WeatherWidget(props) {
 		// write a fetch call to https://api.openweathermap.org/data/2.5/weather?lat=32.8473&lon=-117.2742&appid=ea641546880d9854a0de009620012099
 		// set the resopnse to the weatherData state
 		// make sure to handle errors
-		fetch(
-			"https://api.openweathermap.org/data/2.5/weather?lat=32.8473&lon=-117.2742&units=imperial&appid=ea641546880d9854a0de009620012099",
-		)
+		fetch(`https://api.openweathermap.org/data/2.5/weather?lat=32.8473&lon=-117.2742&units=imperial&appid=${process.env.OW_API}`)
 			.then((response) => response.json())
 			.then((data) => setWeatherData(data))
 			.catch((error) => console.error("Error fetching data: ", error));
@@ -55,8 +53,7 @@ export default function WeatherWidget(props) {
 			<Title className="sun">La Jolla, CA</Title>
 			<p>
 				<span style={{ marginRight: "1rem" }}>{time}</span>
-				{weather?.data?.current?.temperature?.current ||
-					weatherData?.main?.temp?.toString().split(".")[0]}
+				{weather?.data?.current?.temperature?.current || weatherData?.main?.temp?.toString().split(".")[0]}
 				&#176;
 			</p>
 		</WidgetContainer>
