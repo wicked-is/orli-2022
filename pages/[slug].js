@@ -700,6 +700,18 @@ export default function DefaultPage(props) {
 				title={seo?.title}
 				description={seo?.metaDesc}
 				fullhead={seo?.fullHead}
+				socialTitle={
+					seo?.opengraphTitle ||
+					seo?.twitterTitle ||
+					seo?.title ||
+					null
+				}
+				socialDescription={
+					seo?.opengraphDescription ||
+					seo?.twitterDescription ||
+					seo?.metaDesc ||
+					null
+				}
 				featuredImage={
 					props?.data?.data?.page?.featuredImage ||
 					props?.data?.data?.post?.featuredImage ||
@@ -819,6 +831,10 @@ export async function getStaticProps({ params }) {
             title
             metaDesc
             fullHead
+            opengraphTitle
+            opengraphDescription
+            twitterTitle
+            twitterDescription
           }
           featuredImage {
             node {
@@ -1777,6 +1793,10 @@ export async function getStaticProps({ params }) {
             title
             metaDesc
             fullHead
+            opengraphTitle
+            opengraphDescription
+            twitterTitle
+            twitterDescription
           }
           featuredImage {
             node {

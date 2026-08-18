@@ -1,51 +1,97 @@
 import Head from "next/head";
 import parse from "html-react-parser";
 
-function getMetaImageValue(html, propertyName) {
+function getMetaTagValue(html, propertyNames) {
 	if (!html) return null;
 
-	const regex = new RegExp(
-		`<meta[^>]+(?:property|name)=["']${propertyName}["'][^>]*content=["']([^"']+)["'][^>]*>`,
-		"i",
-	);
+	for (const propertyName of propertyNames) {
+		const regex = new RegExp(
+			`<meta[^>]+(?:property|name)=["']${propertyName}["'][^>]*content=["']([^"']+)["'][^>]*>`,
+			"i",
+		);
+		const match = html.match(regex);
+		if (match) return match[1];
+	}
 
-	const match = html.match(regex);
-	return match ? match[1] : null;
+	return null;
 }
 
 function stripMetaImageTags(html, propertyNames) {
 	if (!html) return html;
 
-	const cleaned = propertyNames.reduce((value, propertyName) => {
-		return value.replace(
+	let cleaned = html;
+	cleaned = cleaned.replace(/<title[^>]*>.*?<\/title>/gis, "");
+
+	for (const propertyName of propertyNames) {
+		cleaned = cleaned.replace(
 			new RegExp(
 				`<meta[^>]+(?:property|name)=["']${propertyName}["'][^>]*>`,
 				"gi",
 			),
 			"",
 		);
-	}, html);
+	}
 
 	return cleaned;
 }
 
 export default function SEO(props) {
-	const { title, description, fullhead, featuredImage } = props;
-	const featuredImageUrl = featuredImage?.node?.mediaItemUrl || featuredImage || null;
-	const yoastImage = getMetaImageValue(fullhead, "og:image") || getMetaImageValue(fullhead, "twitter:image");
+	const {
+		title,
+		description,
+		fullhead,
+		featuredImage,
+		socialTitle,
+		socialDescription,
+	} = props;
+	const featuredImageUrl =
+		featuredImage?.node?.mediaItemUrl || featuredImage || null;
+	const yoastImage =
+		getMetaTagValue(fullhead, ["og:image", "twitter:image"]) || null;
+	const resolvedTitle =
+		socialTitle ||
+		title ||
+		getMetaTagValue(fullhead, ["og:title", "twitter:title"]) ||
+		null;
+	const resolvedDescription =
+		socialDescription ||
+		description ||
+		getMetaTagValue(fullhead, [
+			"og:description",
+			"twitter:description",
+			"description",
+		]) ||
+		null;
 	const fallbackImage = featuredImageUrl || yoastImage || null;
 	const sanitizedHead = stripMetaImageTags(fullhead, [
 		"og:image",
 		"og:image:secure_url",
 		"twitter:image",
 		"twitter:card",
+		"og:title",
+		"og:description",
+		"twitter:title",
+		"twitter:description",
+		"description",
 	]);
 
 	return (
 		<Head>
-			{title && !fullhead && <title>{title}</title>}
-			{description && !fullhead && (
-				<meta name="description" content={description} />
+			{resolvedTitle && <title>{resolvedTitle}</title>}
+			{resolvedDescription && (
+				<meta name="description" content={resolvedDescription} />
+			)}
+			{resolvedTitle && (
+				<>
+					<meta property="og:title" content={resolvedTitle} />
+					<meta name="twitter:title" content={resolvedTitle} />
+				</>
+			)}
+			{resolvedDescription && (
+				<>
+					<meta property="og:description" content={resolvedDescription} />
+					<meta name="twitter:description" content={resolvedDescription} />
+				</>
 			)}
 			{fallbackImage && (
 				<>
