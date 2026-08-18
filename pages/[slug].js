@@ -700,6 +700,11 @@ export default function DefaultPage(props) {
 				title={seo?.title}
 				description={seo?.metaDesc}
 				fullhead={seo?.fullHead}
+				featuredImage={
+					props?.data?.data?.page?.featuredImage ||
+					props?.data?.data?.post?.featuredImage ||
+					null
+				}
 			/>
 			<Head>
 				{schemas.map((schema, i) => (
@@ -814,6 +819,12 @@ export async function getStaticProps({ params }) {
             title
             metaDesc
             fullHead
+          }
+          featuredImage {
+            node {
+              altText
+              mediaItemUrl
+            }
           }
           flexibleContent {
             sections {
@@ -1766,6 +1777,12 @@ export async function getStaticProps({ params }) {
             title
             metaDesc
             fullHead
+          }
+          featuredImage {
+            node {
+              altText
+              mediaItemUrl
+            }
           }
           title
           categories(first: 1) {
