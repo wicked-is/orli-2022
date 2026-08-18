@@ -204,7 +204,10 @@ export default function DefaultOffersPage(props) {
 
 	return (
 		<>
-			<SEO fullhead={offer.seo.fullHead} />
+			<SEO
+				fullhead={offer.seo.fullHead}
+				featuredImage={offer.featuredImage}
+			/>
 			<SingleOfferContainer className="content">
 				<QuickViewContainer
 					dialog

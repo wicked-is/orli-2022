@@ -455,7 +455,10 @@ export default function DefaultRoomsPage(props) {
 
 	return (
 		<>
-			<SEO fullhead={room.seo.fullHead} />
+			<SEO
+				fullhead={room.seo.fullHead}
+				featuredImage={room.featuredImage}
+			/>
 			<Hero
 				types="Single Room"
 				imagePoster={room.singleRooms.roomshero}
