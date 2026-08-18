@@ -205,7 +205,21 @@ export default function DefaultOffersPage(props) {
 	return (
 		<>
 			<SEO
+				title={offer.title}
+				description={offer?.seo?.metaDesc}
 				fullhead={offer.seo.fullHead}
+				socialTitle={
+					offer?.seo?.opengraphTitle ||
+					offer?.seo?.twitterTitle ||
+					offer?.title ||
+					null
+				}
+				socialDescription={
+					offer?.seo?.opengraphDescription ||
+					offer?.seo?.twitterDescription ||
+					offer?.seo?.metaDesc ||
+					null
+				}
 				featuredImage={offer.featuredImage}
 			/>
 			<SingleOfferContainer className="content">
@@ -338,7 +352,13 @@ export async function getStaticProps({ params }) {
       }
       offer(id: "${offer}", idType: URI) {
         seo {
+          title
+          metaDesc
           fullHead
+          opengraphTitle
+          opengraphDescription
+          twitterTitle
+          twitterDescription
         }
         singleOffers {
           bookingLink

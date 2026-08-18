@@ -456,7 +456,21 @@ export default function DefaultRoomsPage(props) {
 	return (
 		<>
 			<SEO
+				title={room.title}
+				description={room?.seo?.metaDesc}
 				fullhead={room.seo.fullHead}
+				socialTitle={
+					room?.seo?.opengraphTitle ||
+					room?.seo?.twitterTitle ||
+					room?.title ||
+					null
+				}
+				socialDescription={
+					room?.seo?.opengraphDescription ||
+					room?.seo?.twitterDescription ||
+					room?.seo?.metaDesc ||
+					null
+				}
 				featuredImage={room.featuredImage}
 			/>
 			<Hero
@@ -849,7 +863,13 @@ export async function getStaticProps({ params }) {
       }
       room(id: "${room}", idType: URI) {
         seo {
+          title
+          metaDesc
           fullHead
+          opengraphTitle
+          opengraphDescription
+          twitterTitle
+          twitterDescription
         }
         singleRooms {
 			mewsRoomId
