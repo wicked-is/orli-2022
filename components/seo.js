@@ -5,7 +5,7 @@ export default function SEO(props) {
 	const { title, description, fullhead, featuredImage } = props;
 	const featuredImageUrl =
 		featuredImage?.node?.mediaItemUrl || featuredImage || null;
-	const resolvedTitle = title || "Orli";
+	const resolvedTitle = title || "Orli La Jolla";
 	const resolvedDescription =
 		description ||
 		"Boutique hotel in La Jolla.";
