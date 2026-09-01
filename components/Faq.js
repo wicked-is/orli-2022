@@ -102,7 +102,7 @@ export default function FAQ(props) {
 				{faqs &&
 					faqs.map((faq, index) => {
 						return (
-							<SingleFAQ className="faq" id={`faq-${index + 1}`} key={`faq-${index + 1}`}>
+							<SingleFAQ className="faq" key={`faq-${index + 1}`}>
 								{faq?.anchor && <a id={faq.anchor} name={faq.anchor}></a>}
 								<Tab>
 									<Question className="sans-serif uppercase">{faq.question}</Question>
