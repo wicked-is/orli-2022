@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useId } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -238,8 +238,12 @@ const OffersUpgradesContainer = styled.div`
 	margin: auto auto auto 6rem;
 	position: relative;
 
+	/* Must stay clipped. The wrapper is several viewports wide (loop duplicates +
+	   slidesPerView 3), and this container's right edge is already flush with the
+	   viewport, so "visible" spills the off-screen slides and scrolls the page.
+	   The partial-slide peek comes from the fractional slidesPerView breakpoints. */
 	& .swiper {
-		overflow: visible;
+		overflow: hidden;
 	}
 
 	& .swiper-button-prev,
@@ -535,6 +539,10 @@ export default function OffersUpgradesSlider(props) {
 	const [sliderActive, setSliderActive] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
 	const closeButtonRef = useRef(null);
+	// Names the popup-slider region by its own heading, so multiple instances of this
+	// block on one page stay distinguishable as landmarks. With no heading the section
+	// gets no label, leaving it out of the landmark tree rather than duplicating a name.
+	const headingId = useId();
 
 	function openModalAt(index) {
 		setSliderActive(index);
@@ -693,9 +701,9 @@ export default function OffersUpgradesSlider(props) {
 				<OffersSliderContainer
 					data-background={backgroundImage?.mediaItemUrl}
 					className={`${paddingOptions} ${backgroundOptions}`}
-					aria-label="Offers and upgrades popup slider">
+					aria-labelledby={heading ? headingId : undefined}>
 					{heading && (
-						<h2 className="serif heading left">
+						<h2 id={headingId} className="serif heading left">
 							<span>{heading}</span>
 						</h2>
 					)}
