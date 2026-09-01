@@ -35,8 +35,7 @@ const SingleFAQ = styled.div`
 	div#close-faq {
 		width: 23px;
 		height: 23px;
-		background: url("https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg")
-			no-repeat center center;
+		background: url("https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg") no-repeat center center;
 		background-size: contain;
 		transform: rotate(45deg);
 	}
@@ -84,12 +83,7 @@ const handleXClick = (e, index) => {
 };
 
 export default function FAQ(props) {
-	const {
-		anchor = "faqs",
-		faqs = [],
-		title = "Frequently Ask Questions",
-		blurb,
-	} = props;
+	const { anchor, faqs = [], title = "Frequently Ask Questions", blurb } = props;
 
 	useEffect(() => {
 		let qs = document.querySelectorAll(".faq h3, .faq #close-faq");
@@ -108,17 +102,10 @@ export default function FAQ(props) {
 				{faqs &&
 					faqs.map((faq, index) => {
 						return (
-							<SingleFAQ
-								className="faq"
-								id={`faq-${index + 1}`}
-								key={`faq-${index + 1}`}>
-								{faq?.anchor && (
-									<a id={faq.anchor} name={faq.anchor}></a>
-								)}
+							<SingleFAQ className="faq" id={`faq-${index + 1}`} key={`faq-${index + 1}`}>
+								{faq?.anchor && <a id={faq.anchor} name={faq.anchor}></a>}
 								<Tab>
-									<Question className="sans-serif uppercase">
-										{faq.question}
-									</Question>
+									<Question className="sans-serif uppercase">{faq.question}</Question>
 									<div id="close-faq"></div>
 								</Tab>
 								<Answer
