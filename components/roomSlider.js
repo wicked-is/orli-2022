@@ -54,12 +54,8 @@ export default function RoomSlider(props) {
 	};
 
 	return (
-		<section
-			className={`${styles.roomSlider} roomsSliderglobal`}
-			aria-label="Featured Room Carousel">
-			<p className={`${styles.roomHeading} serif heading white`}>
-				Featured Rooms
-			</p>
+		<section className={`${styles.roomSlider} roomsSliderglobal`} aria-label="Featured Room Carousel">
+			<p className={`${styles.roomHeading} serif heading white`}>Featured Rooms</p>
 			{/*<Link href="/rooms">
                 <span className="sans-serif white xs-copy fadein"><a className={styles.cta} >Find Your Room</a></span>
             </Link>*/}
@@ -100,9 +96,7 @@ export default function RoomSlider(props) {
 						const slides = swiper.slides;
 						slides.forEach((slide, idx) => {
 							const slideElement = slide;
-							const dataIndex = slideElement.getAttribute(
-								"data-swiper-slide-index"
-							);
+							const dataIndex = slideElement.getAttribute("data-swiper-slide-index");
 							if (dataIndex !== null && rooms[dataIndex]) {
 								slideElement.style.backgroundImage = `url(${rooms[dataIndex].singleRooms.roomshero.mediaItemUrl})`;
 							}
@@ -117,9 +111,7 @@ export default function RoomSlider(props) {
 									backgroundImage: `url(${room.singleRooms.roomshero.mediaItemUrl})`,
 								}}
 								data-mobile={isMobile}>
-								<p
-									tabIndex={0}
-									className={`${styles.roommobile}`}>
+								<p className={`${styles.roommobile}`}>
 									<Link
 										href={room.singleRooms.slug}
 										className="serif heading white"
@@ -129,10 +121,7 @@ export default function RoomSlider(props) {
 										}}>
 										{room.title}
 									</Link>
-									<Link
-										aria-label={`Explore ${room.title}`}
-										href={room.singleRooms.slug}
-										className={`sans-serif center white textshadow`}>
+									<Link aria-label={`Explore ${room.title}`} href={room.singleRooms.slug} className={`sans-serif center white textshadow`}>
 										Explore This Room
 									</Link>
 								</p>
@@ -146,22 +135,9 @@ export default function RoomSlider(props) {
 			<div className={`${styles.roomSliderNavigation}`}>
 				{rooms.map((room, index) => {
 					return (
-						<p
-							key={room.title}
-							className={`${
-								sliderActive == index
-									? styles.active
-									: "sub-heading-bold"
-							}`}
-							style={{ margin: "0 1rem" }}>
-							<a
-								className={styles.navItem}
-								data-slide={index}
-								aria-label={`Explore ${room.title}`}
-								onClick={changeSlider}>
-								{room.title === "The Irving Gill Penthouse"
-									? "The Penthouse"
-									: room.title}
+						<p key={room.title} className={`${sliderActive == index ? styles.active : "sub-heading-bold"}`} style={{ margin: "0 1rem" }}>
+							<a className={styles.navItem} data-slide={index} aria-label={`Explore ${room.title}`} onClick={changeSlider}>
+								{room.title === "The Irving Gill Penthouse" ? "The Penthouse" : room.title}
 							</a>
 							<a
 								aria-label={`Explore ${room.title}`}
