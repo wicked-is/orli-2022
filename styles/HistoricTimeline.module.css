@@ -26,6 +26,7 @@
     position: absolute;
     top: 6rem;
     left: 6rem;
+    z-index: 98;
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -236,4 +237,8 @@
     .mobiledescription.active {margin: 0 1rem 0rem 0;}
     .sliderNav p a {font-size: 2rem; padding: 1rem 0rem 0.3rem 0rem;}
     .sliderNav p a.active {font-size:4rem; padding: 2rem 0 0 0;}
+}
+/* Swiper's .swiper-slide sets height:100%; keep the slide at its full-viewport height */
+.historicTimelineContainer .year {
+    height: 100vh;
 }
