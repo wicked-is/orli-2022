@@ -342,22 +342,14 @@ const ExperiencesGrid = (props) => {
 							key={index}
 							onClick={() => handleCardClick(experience)}
 							onKeyDown={(e) => handleCardKeyDown(e, experience)}
-							tabIndex={0}
 							role="button"
 							aria-label={`View details about ${experience.experiencesTitle}`}>
 							<CardImage
 								src={experience.experiencesImage?.mediaItemUrl}
-								alt={
-									experience.experiencesImage?.altText ||
-									experience.experiencesTitle
-								}
+								alt={experience.experiencesImage?.altText || experience.experiencesTitle}
 							/>
-							<CardTitle className="serif heading">
-								{experience.experiencesTitle}
-							</CardTitle>
-							<CardButton
-								className="sans-serif uppercase body-copy"
-								aria-label={`Learn more about ${experience.experiencesTitle}`}>
+							<CardTitle className="serif heading">{experience.experiencesTitle}</CardTitle>
+							<CardButton className="sans-serif uppercase body-copy" aria-label={`Learn more about ${experience.experiencesTitle}`}>
 								LEARN MORE
 							</CardButton>
 						</Card>
@@ -366,17 +358,9 @@ const ExperiencesGrid = (props) => {
 			</GridContainer>
 
 			{selectedExperience && (
-				<Modal
-					onClick={handleModalBackdropClick}
-					onKeyDown={handleCloseKeyDown}
-					role="dialog"
-					aria-modal="true"
-					aria-labelledby="modal-title">
+				<Modal onClick={handleModalBackdropClick} onKeyDown={handleCloseKeyDown} role="dialog" aria-modal="true" aria-labelledby="modal-title">
 					<ModalContent>
-						<CloseButton
-							onClick={closeModal}
-							aria-label="Close modal"
-							tabIndex={0}>
+						<CloseButton onClick={closeModal} aria-label="Close modal" tabIndex={0}>
 							×
 						</CloseButton>
 
@@ -398,46 +382,27 @@ const ExperiencesGrid = (props) => {
 									a11y={{
 										prevSlideMessage: "Previous image",
 										nextSlideMessage: "Next image",
-										paginationBulletMessage:
-											"Go to slide {{index}}",
+										paginationBulletMessage: "Go to slide {{index}}",
 									}}>
 									{selectedExperience?.experiencesGallery ? (
-										selectedExperience?.experiencesGallery?.map(
-											(image, index) => {
-												if (index > 1) return;
-												return (
-													<SwiperSlide key={index}>
-														<Image
-															src={
-																image.mediaItemUrl
-															}
-															alt={
-																image.altText ||
-																`${
-																	selectedExperience.title
-																} ${index + 1}`
-															}
-															width={654}
-															height={654}
-														/>
-													</SwiperSlide>
-												);
-											},
-										)
+										selectedExperience?.experiencesGallery?.map((image, index) => {
+											if (index > 1) return;
+											return (
+												<SwiperSlide key={index}>
+													<Image
+														src={image.mediaItemUrl}
+														alt={image.altText || `${selectedExperience.title} ${index + 1}`}
+														width={654}
+														height={654}
+													/>
+												</SwiperSlide>
+											);
+										})
 									) : (
 										<SwiperSlide key={0}>
 											<Image
-												src={
-													selectedExperience
-														.experiencesImage
-														?.mediaItemUrl
-												}
-												alt={
-													selectedExperience
-														.experiencesImage
-														?.altText ||
-													selectedExperience.title
-												}
+												src={selectedExperience.experiencesImage?.mediaItemUrl}
+												alt={selectedExperience.experiencesImage?.altText || selectedExperience.title}
 												width={654}
 												height={654}
 											/>
@@ -448,9 +413,7 @@ const ExperiencesGrid = (props) => {
 						</ModalImageSection>
 
 						<ModalTextSection>
-							<ModalTitle
-								id="modal-title"
-								className="serif heading">
+							<ModalTitle id="modal-title" className="serif heading">
 								{selectedExperience.experiencesTitle}
 							</ModalTitle>
 							<ModalDescription
@@ -460,11 +423,8 @@ const ExperiencesGrid = (props) => {
 								}}
 							/>
 							{selectedExperience.buttonLink && (
-								<ModalButton
-									href={selectedExperience.buttonLink}
-									aria-label={`Visit ${selectedExperience.title} page`}>
-									{selectedExperience.buttonText ||
-										"LEARN MORE"}
+								<ModalButton href={selectedExperience.buttonLink} aria-label={`Visit ${selectedExperience.title} page`}>
+									{selectedExperience.buttonText || "LEARN MORE"}
 								</ModalButton>
 							)}
 						</ModalTextSection>
