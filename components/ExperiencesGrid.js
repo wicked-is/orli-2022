@@ -107,6 +107,20 @@ const CardButton = styled.button`
 	}
 `;
 
+/* Extends the button's accessible name without changing its visible label, so the
+   visible "LEARN MORE" stays a prefix of the name (WCAG 2.5.3 Label in Name). */
+const VisuallyHidden = styled.span`
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+`;
+
 const Modal = styled.div`
 	position: fixed;
 	top: 0;
@@ -314,13 +328,6 @@ const ExperiencesGrid = (props) => {
 		openModal(experience);
 	};
 
-	const handleCardKeyDown = (e, experience) => {
-		if (e.key === "Enter" || e.key === " ") {
-			e.preventDefault();
-			openModal(experience);
-		}
-	};
-
 	const handleModalBackdropClick = (e) => {
 		if (e.target === e.currentTarget) {
 			closeModal();
@@ -338,19 +345,20 @@ const ExperiencesGrid = (props) => {
 			<GridContainer>
 				<Grid>
 					{experiences.map((experience, index) => (
-						<Card
-							key={index}
-							onClick={() => handleCardClick(experience)}
-							onKeyDown={(e) => handleCardKeyDown(e, experience)}
-							role="button"
-							aria-label={`View details about ${experience.experiencesTitle}`}>
+						<Card key={index} onClick={() => handleCardClick(experience)}>
 							<CardImage
 								src={experience.experiencesImage?.mediaItemUrl}
 								alt={experience.experiencesImage?.altText || experience.experiencesTitle}
 							/>
 							<CardTitle className="serif heading">{experience.experiencesTitle}</CardTitle>
-							<CardButton className="sans-serif uppercase body-copy" aria-label={`Learn more about ${experience.experiencesTitle}`}>
+							<CardButton
+								className="sans-serif uppercase body-copy"
+								onClick={(e) => {
+									e.stopPropagation();
+									handleCardClick(experience);
+								}}>
 								LEARN MORE
+								<VisuallyHidden> about {experience.experiencesTitle}</VisuallyHidden>
 							</CardButton>
 						</Card>
 					))}
