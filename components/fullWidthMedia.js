@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled, { css } from "styled-components";
-import Flickity from 'react-flickity-component'
-import "flickity/css/flickity.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/css";
 
 const FullWidthContainer = styled.section`
     display: inline-block;
@@ -68,7 +68,9 @@ const FullSlider = styled.div`
     & .carouselitem {
         width: 75%;
         height: auto;
-        margin: auto 1rem;
+        /* Flickity absolutely positioned its cells, so the vertical "auto" resolved
+           to 0. Swiper slides are flex items, where auto would center them. */
+        margin: 0 1rem;
     }
     & .carouselitem img {
         width: 100% !important;
@@ -84,7 +86,7 @@ const FullSlider = styled.div`
         & .carouselitem {
             width: 80%;
             height: auto;
-            margin: auto 0.5rem;
+            margin: 0 0.5rem;
         }
     }
 `;
@@ -119,29 +121,28 @@ export default function FullWidthMedia(props) {
     const [currentSliderLength, setCurrentSliderLength] = useState("");
 
     const changeSlider = (index) => {
-        slider.current.select(index)
+        if (slider.current) {
+            slider.current.slideToLoop(index)
+        }
     }
 
-    useEffect(() => {
-        if (slider.current !== null) {
-          setCurrentSliderLength(slider.current.cells.length);
-          slider.current.on("change", () => {
-            setCurrentSlider(slider.current.selectedIndex + 1);
-            setCurrentSliderLength(slider.current.cells.length);
-          });
-    
-          const prevArrows = document
-              .querySelectorAll(`.previous-arrow-${index}`)
-            
-            prevArrows.forEach(arrow => arrow.addEventListener("click", () => slider.current.previous()))
-            
-          const nextArrows = document
-              .querySelectorAll(`.next-arrow-${index}`)
-            
-            nextArrows.forEach(arrow => arrow.addEventListener("click", () => slider.current.next()))
-            
+    const previousSlide = () => {
+        if (slider.current) {
+            slider.current.slidePrev()
         }
-      }, [slider]);
+    }
+
+    const nextSlide = () => {
+        if (slider.current) {
+            slider.current.slideNext()
+        }
+    }
+
+    const handleSlideChange = (swiper) => {
+        setSliderActive(swiper.realIndex)
+        setCurrentSlider(swiper.realIndex + 1)
+        setCurrentSliderLength(sliderImages?.length || "")
+    }
 
      const mediaStructure = (types) => {
         switch (types) {
@@ -181,41 +182,37 @@ export default function FullWidthMedia(props) {
             case 'Slider':
                 return (
                         <FullSlider>
-                            <Flickity
-                                options={{
-                                    cellAlign: 'center',
-                                    prevNextButtons: false,
-                                    pageDots: false,
-                                    draggable: true,
-                                    wrapAround: true,
-                                    adaptiveHeight: true,
-                                    imagesLoaded: true,
-                                    fullscreen: true,
+                            <Swiper
+                                slidesPerView={"auto"}
+                                centeredSlides={true}
+                                spaceBetween={0}
+                                loop={sliderImages?.length > 1}
+                                autoHeight={true}
+                                observer={true}
+                                observeParents={true}
+                                onSwiper={(swiper) => {
+                                    slider.current = swiper
                                 }}
-                                disableImagesLoaded={false} // default false
-                                reloadOnUpdate={false} // default false
-                                static // default false
-                                flickityRef={c => {
-                                    slider.current = c
-                                }}
+                                onSlideChange={handleSlideChange}
                             >
                             {
-                                sliderImages.map((item, index) => {
+                                sliderImages.map((item) => {
                                     return (
-                                    <div key={item.item} className="carouselitem">
+                                    <SwiperSlide key={item.item} className="carouselitem">
                                         <Image src={item.image.mediaItemUrl} alt={item.image.altText} width={1920} height={1080} layout="responsive" />
                                         {item.imageCaption && (
                                             <p className="sans-serif black body-copy left">{item.imageCaption}</p>
                                         )}
-                                    </div>
+                                    </SwiperSlide>
                                     )
                                 })
                             }
-                        </Flickity>
+                        </Swiper>
                         <SliderNavigationContainer>
                             <div className="brown">
                             <img
                                 className={`previous-arrow-${index}`}
+                                onClick={previousSlide}
                                 src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
                                 style={{
                                 transform: "rotate(180deg)",
@@ -227,6 +224,7 @@ export default function FullWidthMedia(props) {
                             />
                             <img
                                 className={`next-arrow-${index}`}
+                                onClick={nextSlide}
                                 src="https://orlidev.wpengine.com/wp-content/uploads/2022/06/RedArrow.png"
                                 style={{
                                 width: "37px",
