@@ -32,7 +32,7 @@ const SingleFAQ = styled.div`
 	p {
 		display: none;
 	}
-	div#close-faq {
+	div.close-faq {
 		width: 23px;
 		height: 23px;
 		background: url("https://orlidev.wpengine.com/wp-content/uploads/2022/11/close-icon.svg") no-repeat center center;
@@ -48,12 +48,16 @@ const SingleFAQ = styled.div`
 			line-height: 150%;
 		}
 
-		div#close-faq {
+		div.close-faq {
 			transform: rotate(90deg);
 		}
 	}
-	:not(:last-of-type) {
+	/* Divider between FAQ items. The leading "&" matters: without it stylis compiles
+	   this to a descendant selector (".faq :not(:last-of-type)"), which put borders
+	   between the answer's paragraphs instead of between the questions. */
+	&:not(:last-of-type) {
 		border-bottom: 1px solid var(--brown);
+		margin-bottom: 1rem;
 	}
 `;
 const Tab = styled.div`
@@ -63,7 +67,16 @@ const Tab = styled.div`
 	align-items: center;
 `;
 const Question = styled.h2``;
-const Answer = styled.p``;
+/* Must not be a <p>: faq.answer is WordPress HTML that already contains <p> tags,
+   and a <p> cannot nest inside a <p>. The browser auto-closed this wrapper while
+   parsing the server HTML, which is what broke hydration. */
+const Answer = styled.div`
+	display: none;
+
+	.active & {
+		display: block;
+	}
+`;
 const FAQTitle = styled.h2``;
 
 const handleTabClick = (e, index) => {
@@ -86,7 +99,7 @@ export default function FAQ(props) {
 	const { anchor, faqs = [], title = "Frequently Ask Questions", blurb } = props;
 
 	useEffect(() => {
-		let qs = document.querySelectorAll(".faq h3, .faq #close-faq");
+		let qs = document.querySelectorAll(".faq h3, .faq .close-faq");
 		qs.forEach((aq) => {
 			aq.addEventListener("click", handleTabClick);
 		});
@@ -106,7 +119,7 @@ export default function FAQ(props) {
 								{faq?.anchor && <a id={faq.anchor} name={faq.anchor}></a>}
 								<Tab>
 									<Question className="sans-serif uppercase">{faq.question}</Question>
-									<div id="close-faq"></div>
+									<div className="close-faq"></div>
 								</Tab>
 								<Answer
 									className="body-copy"
