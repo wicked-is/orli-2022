@@ -71,3 +71,8 @@
 @media only screen and (max-width: 700px) {
     .sliderNav {display: none;}
 }
+/* Single story: no Flickity, so stand in for .flickity-viewport */
+.singleStory {
+    position: relative;
+    overflow: hidden;
+}
