@@ -63,6 +63,19 @@ export default function AmenitiesSlider(props) {
 		).matches;
 	}, []);
 
+	// Flickity makes its own container focusable so arrow keys drive the carousel
+	// (core.js: element.tabIndex = 0). A focusable div with no role fails axe's
+	// focus-order-semantics, and react-flickity-component forwards only className,
+	// so the role has to be set on the instance's element.
+	useEffect(() => {
+		const carousel = slider.current?.element;
+		if (!carousel) return;
+
+		carousel.setAttribute("role", "region");
+		carousel.setAttribute("aria-roledescription", "carousel");
+		carousel.setAttribute("aria-label", blurb || title || "Amenities");
+	}, [types, blurb, title]);
+
 	const [dimensions, setDimensions] = useState({
 		height: null,
 		width: null,
@@ -142,36 +155,6 @@ export default function AmenitiesSlider(props) {
 									autoPlay: 5500,
 									pauseAutoPlayOnHover: true,
 									asNavFor: ".sliderNav",
-									on: {
-										change: function (index) {
-											// set all non selected slides to tabindex -1
-											let allSlides =
-												document.querySelectorAll(
-													".amenitiesSliderarrows .flickity-slider div"
-												);
-											allSlides.forEach((slide) => {
-												slide.setAttribute(
-													"tabindex",
-													"-1"
-												);
-												slide.setAttribute(
-													"name",
-													`slide-${index}`
-												);
-											});
-											// set selected slide to tabindex 0
-											let selectedSlide =
-												document.querySelector(
-													`.amenitiesSliderarrows .flickity-slider div:nth-child(${
-														index + 1
-													})`
-												);
-											selectedSlide.setAttribute(
-												"tabindex",
-												"0"
-											);
-										},
-									},
 								}}
 								disableImagesLoaded={false} // default false
 								reloadOnUpdate={false} // default false
