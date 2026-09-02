@@ -1,88 +1,92 @@
 .historicTimelineContainer {
-    position: relative;
-    max-height: 90vh;
-    width: 100%;
-    margin-bottom: 6rem;
+	position: relative;
+	max-height: 90vh;
+	width: 100%;
+	margin-bottom: 6rem;
 }
 
 .year {
-    width: 100%;
-    margin-right: 0px;
-    padding-right: 0px;
-    height: 100vh;
-    background-size: cover !important;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    -ms-background-size: cover !important;
-    overflow: hidden;
+	width: 100%;
+	margin-right: 0px;
+	padding-right: 0px;
+	height: 100vh;
+	background-size: cover !important;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	-ms-background-size: cover !important;
+	overflow: hidden;
 }
 
 .year img {
-   display: none !important;
+	display: none !important;
 }
 
 .sliderNavContainer {
-    position: absolute;
-    top: 6rem;
-    left: 6rem;
-    z-index: 98;
-    display: flex;
-    flex-direction: column;
-    width: 30%;
+	position: absolute;
+	top: 6rem;
+	left: 6rem;
+	z-index: 98;
+	display: flex;
+	flex-direction: column;
+	width: 30%;
 }
 
 .sliderContent {
-    position: absolute;
-    bottom: 7rem;
-    z-index: 97;
-    background-color: #0C2B1C;
-    background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
-    padding: 1rem 3rem 1rem 10rem;
-    max-width: 50%;
+	position: absolute;
+	bottom: 7rem;
+	z-index: 97;
+	background-color: #0c2b1c;
+	background: url(https://orlidev.wpengine.com/wp-content/uploads/2022/03/bg-footer.jpg) no-repeat center center;
+	padding: 1rem 3rem 1rem 10rem;
+	max-width: 50%;
 }
 
 .sliderNav {
-    margin-top: 6rem;
+	margin-top: 6rem;
 }
 
 .navItem img,
-.navItem.active img {display: none !important;}
-
-.sliderNav p {padding: 0 0 2rem 0;}
-
-.sliderNav p a {
-    color: rgba(255,255,255,0.7);
-    font-family: 'GT Walsheim Light';
-    text-transform: uppercase;
-    font-size: var(--xs-copy);
-    cursor: pointer;
-    padding: 0rem 0rem 0.3rem 0rem;
+.navItem.active img {
+	display: none !important;
 }
 
-.sliderNav p:not(:first-of-type) a{
-    margin-top: 3rem;
+.sliderNav p {
+	padding: 0 0 2rem 0;
+}
+
+.sliderNav p a {
+	color: rgba(255, 255, 255, 0.7);
+	font-family: "GT Walsheim Light";
+	text-transform: uppercase;
+	font-size: var(--xs-copy);
+	cursor: pointer;
+	padding: 0rem 0rem 0.3rem 0rem;
+}
+
+.sliderNav p:not(:first-of-type) a {
+	margin-top: 3rem;
 }
 
 .yearTextContainer {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .yearContentContainer {
-    text-align: center;
-    color: #fff;
-    max-width: 35%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	text-align: center;
+	color: #fff;
+	max-width: 35%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 /* .yearContentContainer > .actualyear::after {
@@ -99,146 +103,175 @@
     color: transparent;
 } */
 
-@media only screen and (max-width: 1116px){
-.singleyear .actualyear { display: inline-flex; }
+@media only screen and (max-width: 1116px) {
+	.singleyear .actualyear {
+		display: inline-flex;
+	}
 
-.singleyear.is-selected p.actualyear::after {
-    position: absolute;
-    left: unset;
-    right: -30%;
-    top: 25%;
-    -webkit-text-stroke: 1px white;
-    -o-text-stroke: 1px white;
-    -moz-text-stroke: 1px white;
-    -ms-text-stroke: 1px white;
-    color: transparent;
-    content: attr(data-text) / "";
-      font-family: essonnes-display, serif;
-      font-weight: 300;
-      font-style: normal;
-      font-size: 15rem;
-      margin: 0;
-  }
+	.singleyear.is-selected h2.actualyear::after {
+		position: absolute;
+		left: unset;
+		right: -30%;
+		top: 25%;
+		-webkit-text-stroke: 1px white;
+		-o-text-stroke: 1px white;
+		-moz-text-stroke: 1px white;
+		-ms-text-stroke: 1px white;
+		color: transparent;
+		content: attr(data-text) / "";
+		font-family: essonnes-display, serif;
+		font-weight: 300;
+		font-style: normal;
+		font-size: 15rem;
+		margin: 0;
+	}
 }
 .yearContentContainer p:first-of-type {
-    font-size: 15rem;
-    margin: 0;
-    display: block;
-    text-align: center;
-    margin-left: 1.5rem;
+	font-size: 15rem;
+	margin: 0;
+	display: block;
+	text-align: center;
+	margin-left: 1.5rem;
 }
 
 .mobiledescription,
-.mobiledescription.active {display: none;}
+.mobiledescription.active {
+	display: none;
+}
 
 .active {
-    -webkit-text-stroke: 1px var(--white);
+	-webkit-text-stroke: 1px var(--white);
 }
 
-@media only screen and (max-width: 800px){
-    .sliderNav {
-        margin-top: 3rem;
-    }
+@media only screen and (max-width: 800px) {
+	.sliderNav {
+		margin-top: 3rem;
+	}
 
-    .sliderNavContainer {
-        top: 4rem;
-    }
+	.sliderNavContainer {
+		top: 4rem;
+	}
 
-    .sliderNav p:not(:first-of-type) a{
-        margin-top: 0rem;
-    }
+	.sliderNav p:not(:first-of-type) a {
+		margin-top: 0rem;
+	}
 
-    .yearTextContainer {display: none;}
-    .mobiledescription.active {
-        display: block; 
-        letter-spacing: var(--letter-spacing);
-        color: var(--white);
-        font-size: clamp(1rem, 1.2vw, 1.4rem);
-        -webkit-text-stroke: 0px white;
-        -o-text-stroke: 0px white;
-        -moz-text-stroke: 0px white;
-        -ms-text-stroke: 0px white;
-        margin: 0rem 14rem 1rem 0;
-        padding: 1.5rem 0 1rem 0;
-        line-height: 1.3;
-    }
+	.yearTextContainer {
+		display: none;
+	}
+	.mobiledescription.active {
+		display: block;
+		letter-spacing: var(--letter-spacing);
+		color: var(--white);
+		font-size: clamp(1rem, 1.2vw, 1.4rem);
+		-webkit-text-stroke: 0px white;
+		-o-text-stroke: 0px white;
+		-moz-text-stroke: 0px white;
+		-ms-text-stroke: 0px white;
+		margin: 0rem 14rem 1rem 0;
+		padding: 1.5rem 0 1rem 0;
+		line-height: 1.3;
+	}
 
-    .sliderNavContainer {
-        position: absolute;
-        top: 6rem;
-        left: 4rem;
-        right: 4rem;
-        display: flex;
-        flex-direction: column;
-        width: 85%;
-    }
-    
-    .sliderNav p {margin-block-start: 0em; margin-block-end: 0em; line-height: 0.5;}
+	.sliderNavContainer {
+		position: absolute;
+		top: 6rem;
+		left: 4rem;
+		right: 4rem;
+		display: flex;
+		flex-direction: column;
+		width: 85%;
+	}
 
-    .sliderNav p a {
-        font-family: 'GT Walsheim Light';
-        text-transform: uppercase;
-        font-size: var(--xs-copy);
-        cursor: pointer;
-        margin: auto;
-        display: block;
-        padding: 2rem 0rem 0.3rem 0rem;
-        -webkit-text-stroke: 1px white;
-        -o-text-stroke: 1px white;
-        -moz-text-stroke: 1px white;
-        -ms-text-stroke: 1px white;
-        color: transparent;
-        font-size: 6rem;
-        text-align: right;
-    }
-    .sliderNav p a.active {
-        color: var(--white);
-        font-size:12rem; 
-        padding: 4rem 0 0 0;
-        text-align: left;
-        -webkit-text-stroke: 0px white;
-        -o-text-stroke: 0px white;
-        -moz-text-stroke: 0px white;
-        -ms-text-stroke: 0px white;
-    }
-    .navItem.active img {
-        display: inline !important; 
-        width: 29px; 
-        float: right; 
-        margin-top: 4rem;
-    }
+	.sliderNav p {
+		margin-block-start: 0em;
+		margin-block-end: 0em;
+		line-height: 0.5;
+	}
+
+	.sliderNav p a {
+		font-family: "GT Walsheim Light";
+		text-transform: uppercase;
+		font-size: var(--xs-copy);
+		cursor: pointer;
+		margin: auto;
+		display: block;
+		padding: 2rem 0rem 0.3rem 0rem;
+		-webkit-text-stroke: 1px white;
+		-o-text-stroke: 1px white;
+		-moz-text-stroke: 1px white;
+		-ms-text-stroke: 1px white;
+		color: transparent;
+		font-size: 6rem;
+		text-align: right;
+	}
+	.sliderNav p a.active {
+		color: var(--white);
+		font-size: 12rem;
+		padding: 4rem 0 0 0;
+		text-align: left;
+		-webkit-text-stroke: 0px white;
+		-o-text-stroke: 0px white;
+		-moz-text-stroke: 0px white;
+		-ms-text-stroke: 0px white;
+	}
+	.navItem.active img {
+		display: inline !important;
+		width: 29px;
+		float: right;
+		margin-top: 4rem;
+	}
 }
-@media only screen and (max-width: 600px){
-    .sliderNavContainer {
-        position: absolute;
-        top: 4rem;
-        left: 0rem;
-        right: 0rem;
-        padding: 0rem 1rem 0rem 2rem;
-        width: 100%;
-    }
-    .sliderNav p a.active {font-size:8rem;}
-    .navItem.active img {margin-top: 1.6rem; margin-right: 1rem;}
-    .mobiledescription.active {
-        margin: 0 15% 0rem 0;
-        font-size: clamp(0.8rem, 1vw, 1.2rem);
-        text-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.9);
-    }
-    .navItem.active img {
-        display: inline !important; 
-        width: 29px; 
-        float: right; 
-        margin-top: 0rem;
-    }
-    .sliderNav p a {font-size: 2.5rem; padding: 1rem 0rem 0.3rem 0rem;}
-    .sliderNav p a.active {font-size:4.5rem; padding: 2rem 0 0 0;}
+@media only screen and (max-width: 600px) {
+	.sliderNavContainer {
+		position: absolute;
+		top: 4rem;
+		left: 0rem;
+		right: 0rem;
+		padding: 0rem 1rem 0rem 2rem;
+		width: 100%;
+	}
+	.sliderNav p a.active {
+		font-size: 8rem;
+	}
+	.navItem.active img {
+		margin-top: 1.6rem;
+		margin-right: 1rem;
+	}
+	.mobiledescription.active {
+		margin: 0 15% 0rem 0;
+		font-size: clamp(0.8rem, 1vw, 1.2rem);
+		text-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.9);
+	}
+	.navItem.active img {
+		display: inline !important;
+		width: 29px;
+		float: right;
+		margin-top: 0rem;
+	}
+	.sliderNav p a {
+		font-size: 2.5rem;
+		padding: 1rem 0rem 0.3rem 0rem;
+	}
+	.sliderNav p a.active {
+		font-size: 4.5rem;
+		padding: 2rem 0 0 0;
+	}
 }
-@media only screen and (max-width: 420px){
-    .mobiledescription.active {margin: 0 1rem 0rem 0;}
-    .sliderNav p a {font-size: 2rem; padding: 1rem 0rem 0.3rem 0rem;}
-    .sliderNav p a.active {font-size:4rem; padding: 2rem 0 0 0;}
+@media only screen and (max-width: 420px) {
+	.mobiledescription.active {
+		margin: 0 1rem 0rem 0;
+	}
+	.sliderNav p a {
+		font-size: 2rem;
+		padding: 1rem 0rem 0.3rem 0rem;
+	}
+	.sliderNav p a.active {
+		font-size: 4rem;
+		padding: 2rem 0 0 0;
+	}
 }
 /* Swiper's .swiper-slide sets height:100%; keep the slide at its full-viewport height */
 .historicTimelineContainer .year {
-    height: 100vh;
+	height: 100vh;
 }
