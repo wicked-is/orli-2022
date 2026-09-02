@@ -17,36 +17,15 @@ const BlurbContainer = styled.p`
 	}
 `;
 
-export default function GettingHere({
-	title,
-	blurb,
-	gettinghereimage,
-	gettinghereimagemobile,
-}) {
+export default function GettingHere({ title, blurb, gettinghereimage, gettinghereimagemobile }) {
 	return (
 		<section className={styles.container}>
 			<div className="max-80">
-				{title && <p className="heading">{title}</p>}
-				{blurb && (
-					<BlurbContainer className="sans-serif body-copy black">
-						{blurb}
-					</BlurbContainer>
-				)}
+				{title && <h2 className="heading">{title}</h2>}
+				{blurb && <BlurbContainer className="sans-serif body-copy black">{blurb}</BlurbContainer>}
 			</div>
-			{gettinghereimage && (
-				<img
-					className={styles.ghimg}
-					src={gettinghereimage.mediaItemUrl}
-					alt={gettinghereimage.altText}
-				/>
-			)}
-			{gettinghereimagemobile && (
-				<img
-					className={styles.ghimgmobile}
-					src={gettinghereimagemobile.mediaItemUrl}
-					alt={gettinghereimagemobile.altText}
-				/>
-			)}
+			{gettinghereimage && <img className={styles.ghimg} src={gettinghereimage.mediaItemUrl} alt={gettinghereimage.altText} />}
+			{gettinghereimagemobile && <img className={styles.ghimgmobile} src={gettinghereimagemobile.mediaItemUrl} alt={gettinghereimagemobile.altText} />}
 		</section>
 	);
 }
