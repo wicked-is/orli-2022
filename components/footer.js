@@ -542,9 +542,9 @@ export default function Footer(props) {
 						</Link>
 					</footer>
 				))}
-			<Script id="userway" strategy="lazyOnload">
+			{/* <Script id="userway" strategy="lazyOnload">
 				{`(function(d){var s = d.createElement("script");s.setAttribute("data-account", "DA15DgPw2p");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)`}
-			</Script>
+			</Script> */}
 			<noscript
 				dangerouslySetInnerHTML={{
 					__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3Z8NP4"
